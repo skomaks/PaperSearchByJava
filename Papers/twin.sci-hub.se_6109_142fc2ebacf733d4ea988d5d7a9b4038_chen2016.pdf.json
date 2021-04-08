@@ -1,0 +1,2062 @@
+{
+  "name" : "twin.sci-hub.se_6109_142fc2ebacf733d4ea988d5d7a9b4038_chen2016.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Biological and environmental surface interactions of nanomaterials: characterization, modeling, and prediction",
+    "authors" : [ "Ran Chen", "Jim E. Riviere" ],
+    "emails" : [ "jriviere@ksu.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Advanced Review"
+    }, {
+      "heading" : "Biological and environmental",
+      "text" : "surface interactions of nanomaterials: characterization, modeling, and prediction Ran Chen1,2 and Jim E. Riviere1,3*\nThe understanding of nano-bio interactions is deemed essential in the design, application, and safe handling of nanomaterials. Proper characterization of the intrinsic physicochemical properties, including their size, surface charge, shape, and functionalization, is needed to consider the fate or impact of nanomaterials in biological and environmental systems. The characterizations of their interactions with surrounding chemical species are often hindered by the complexity of biological or environmental systems, and the drastically different surface physicochemical properties among a large population of nanomaterials. The complexity of these interactions is also due to the diverse ligands of different chemical properties present in most biomacromolecules, and multiple conformations they can assume at different conditions to minimize their conformational free energy. Often these interactions are collectively determined by multiple physical or chemical forces, including electrostatic forces, hydrogen bonding, and hydrophobic forces, and calls for multidimensional characterization strategies, both experimentally and computationally. Through these characterizations, the understanding of the roles surface physicochemical properties of nanomaterials and their surface interactions with biomacromolecules can play in their applications in biomedical and environmental fields can be obtained. To quantitatively decipher these physicochemical surface interactions, computational methods, including physical, statistical, and pharmacokinetic models, can be used for either analyses of large amounts of experimental characterization data, or theoretical prediction of the interactions, and consequent biological behavior in the body after administration. These computational methods include molecular dynamics simulation, structure–activity relationship models such as biological surface adsorption index, and physiologically-based pharmacokinetic models. © 2016 Wiley Periodicals, Inc.\nHow to cite this article: WIREs Nanomed Nanobiotechnol 2016. doi: 10.1002/wnan.1440\nINTRODUCTION: IMPACT OF"
+    }, {
+      "heading" : "NANOTECHNOLOGY AND IMPORTANCE OF ACCURATE CHARACTERIZATION",
+      "text" : "It is widely accepted that the concept of nanotech-nology originated from a talk given by Richard Feynman at an American Physical Society meeting in\n*Correspondence to: jriviere@ksu.edu 1Institute of Computational Comparative Medicine, Kansas State University, Manhattan, KS, USA 2Nanotechnology Innovation Center of Kansas State, Kansas State University, Manhattan, KS, USA 3Department of Anatomy and Physiology, College of Veterinary Medicine, Institute of Computational Comparative Medicine, Kansas State University, Manhattan, KS, USA\nConflict of interest: The authors have declared no conflicts of interest for this article.\n© 2016 Wiley Per iodica ls , Inc. 1\n1959, long before the term existed. Since then, research has been conducted and investment has been made toward the goals of utilizing improved mechanical, electronic, and magnetic properties of these extremely small artificial materials. Indicated by literature search results from Web of Science (search criteria: TS = (nanomaterials OR nanoparticles OR nanostructures)),1 the number of publications related to nanotechnology has increased exponentially during the period of 2000–2015. Another search for biomedical or environmental related nanotechnology publications (search criteria: TS = (nanomaterials OR nanoparticles OR nanostructures) AND TS = (biomedical OR drug OR medicine OR environmental)) revealed that, among all nano publications, the percentage of biomedical or environmental related topics have increased over three fold, from 7 to 24%, indicating the biomedical and environmental investigation and applications of nanomaterials has become one of the major themes of study in the field of nanotechnology. The focus of research on biomedical related applications of nanotechnology arises from requirements of modern medicine for more precise control of or intervention with biological processes on the nanoscale. For example, targeted medicine using nano-sized delivery vehicles aims at the delivery to the right cells and interaction with the right molecules, thereby improving their therapeutic index. Due to their enhanced surface physicochemical and optical properties, nanomaterials are often found to be superior to their bulk counterparts, especially in biomedical sensor technologies. Their enhanced surface reactivity makes them ideal for contaminant removal through surface interactions with their surrounding or targeted molecules or moieties. The advancement of nanofabrication, manipulation, and characterization tools has enabled research to be done that was not previously possible. However, although originally rooted in physics and material science, the expansion of nanotechnology into those different areas often calls for accurate and relevant characterizations in the context of more biological environments. Such characterization helps both the design of nanomaterials for desired surface interactions, and their safety evaluation, especially when they are put to application or result in unintentional discharge; either in the human body or the environment. The fundamental nature of these nanomaterials, which make them scientifically interesting and desirable, can cause challenges to accurate characterization. Due to the small size (comparable to biological molecules) of nanomaterials, they also tend to undergo structural changes when interacting with\nions and molecules in aqueous environment, such as ion release, dissolution, aggregation, and surface adsorption. These tendencies make it extremely difficult to characterize and predict both the behavior of nanomaterials and potential adverse effects in biological systems."
+    }, {
+      "heading" : "CHARACTERISTICS OF NANOMATERIALS",
+      "text" : "The application of nanotechnology in biomedical fields and the safe handling of nanomaterials requires the understanding of their interactions with biological or environmental systems, determined by their various physical or chemical properties. As illustrated by many previous publications (Figure 1), the binding of biomacromolecules or environmental organic species, and the interaction with biological structures heavily depends on the shape, aspect ratio, size, density, charge, and hydrophobicity of the nanomaterials. The surface physicochemical properties can often be manipulated by surface functionalization using different polymeric ligands or biomolecules, or by the formation of heterogeneous surface patterns, to achieve desired interactions or binding with target species. Self-assembled artificial supramolecular complexes are often constructed to produce multipurpose theranostic agents. This section discusses the important physicochemical properties that are crucial in considering the biological or environmental applications of nanomaterials. After their administration into the biological system, or discharge into the environment, the fate and impact of these nanomaterials will be determined by their physicochemical interactions with surrounding molecules. These interactions can be detected and quantified by multiple physical experimental tools, including optical spectroscopy, chromatography, and electron microscopy (EM). The theoretical characterization and prediction of such interactions and the consequent biodistribution and pharmacokinetics can be achieved by physical and statistical modeling, as well as physiologically based pharmacokinetic modeling (PBPK). These experimental and computational methods are discussed in the following sections, and a comparison is displayed in Table 1."
+    }, {
+      "heading" : "Size, Density, and Buoyancy",
+      "text" : "For engineered nanomaterials, size is one of the most crucial regulating factors that determines their entrance into the targeted environment, e.g., cells, organs, and the blood stream. For the purpose of drug delivery, nanomedicine, or nanodiagnostics; the\n2 © 2016 Wiley Per iodicals , Inc.\nsizes of nanomaterials should be carefully chosen so they can successfully penetrate respective physiological barriers like, e.g., gastric or respiratory mucous membrane,2–4 and blood–brain barrier.5–11 Furthermore, due to different uptake mechanisms, e.g., direct penetration, phagocytosis, or pinocytosis; nanomaterials of different sizes could induce differential responses in different cell types, which means, for a specific cell type, there could be an optimal size with maximal uptake rate.12–15 Studies have been reported to show that some nanomaterials exhibited size-dependent toxic or adverse biological effects.16–18 For obvious reasons, these sizedependent toxic effects could be organ- or tissue-specific.16 Other causes of this dependency could be sizedependent rate of dissolution, or the release of toxic ions, as well as inhibition of certain biomolecular functions through surface interactions. In a study by Park et al.,18 it was noted that 20 nm silver nanoparticles (AgNPs) were more toxic than either larger particles or silver ions in certain cell lines, possibly due to a combined effect of size-dependent uptake and toxic ion release. The dissolution of metallic nanomaterials will be further discussed later.\nFrom the aspect of fundamental physical or physicochemical behavior, the size and density of a nanoparticle affect its diffusion and buoyancy, which holds the key to the determination of effective dosimetry in nanomedicine. Extensive studies19–22 have been conducted on the effects of physical properties of nanomaterials on the delivered doses in in vitro tests. In a typical in vitro dosing system, the cells are attached to the bottom of the culturing plate, and the materials to be tested are dosed into the media. Unlike typical dissolved or emulsified pharmaceutical molecules, nanomaterials sometimes are not well suspended. Buoyant nanoparticles tend to move toward the surface of the media, while nonbuoyant nanoparticles deposit to the bottom, where the cells reside. Either could create a time-dependent heterogeneous distribution of nanoparticles in the media, rendering traditional dosage estimation inaccurate. Watson et al. confirmed that buoyant nanoparticles were not toxic in standard culture systems, but produce a dose-dependent increase in toxicity and reactive oxygen species (ROS) generation in an inverted system, physical modeling on the upward movement were incorporated for accurate estimation of the transport\n© 2016 Wiley Per iodica ls , Inc. 3\nand dosimetry of the buoyant particles.22 Physical models were also employed to calculate the effective density and estimate the agglomeration and deposition of nonbuoyant nanoparticles in the dosing system, to produce a set of more accurate dose metrics for better understanding of the dose-dependency of nanotoxicity.20,21,23–26 The physicochemical interactions between nanomaterials and biological macromolecules were also often found dependent on the sizes of those materials. One proteomic study on plasma protein adsorption onto a series of nanoparticles clearly revealed size-dependent patterns in protein adsorption.27 Another study on the effects of nanomaterial surface pattern on protein-nanoparticle interactions indicated that such effects depend on the size of the surface patterns relative to the sizes of proteins.28,29 A more recent experimental study established the size-dependent interactions of silica (SiO2) nanoparticles with lysozyme but not bovine serum albumin\n(BSA). It was demonstrated that the adsorption coefficient of lysozyme is greater for nanoparticles.30"
+    }, {
+      "heading" : "Surface Physicochemistry",
+      "text" : "Surface physicochemical properties of a nanomaterial are determined by both the composition of the surface layer, additional surface functional groups, as well as the local environment. Usually, surface charge, reactivity, hydrophobicity, and presence of surface ligands are considered most important in the context of initial biological or environmental interactions in aqueous suspensions. While in certain cases, the surface functionalization could be incomplete, exposing core materials, the surface compositions of fully and uniformly covered nanoparticles are usually much more important than the intrinsic core materials in determining disposition. Surfaces properties also determine the suspension stability, aggregation, and dissolution. However, a few studies indicated that the physical properties of the core materials also\n6 © 2016 Wiley Per iodicals , Inc.\nsignificantly influence their cellular toxicity, possibly through charge transfer and redox reactions. Zhang et al. discovered that metal oxide nanoparticles exhibit cellular toxicity that correlates to their semiconducting properties and band positions, presumably because of the overlap of their conduction band energies with cellular redox potential, which can lead to ROS generation, oxidative stress injury, and inflammation in mice.31 In a typical aqueous biological environment rich in electrolytes, surface charge renders formation of stable suspension for nanoparticles, and gives them different affinities to different molecules present. In some cases, positively charged particles were found to have higher uptake rate due to their higher affinity to the negatively charged cell membrane.32 Other studies indicated that rate of uptake could be directly related to the absolute value of charge, regardless of the sign.13 Some suggested that such dependence is also cell type-specific.33 Hydrophobicity usually plays a very important role in the biological aqueous environment, e.g., in protein folding and assembling of the lipid bilayer. Nanomaterials possessing different degrees of hydrophobicity will interact with biological systems differently. In one study, hydrophobic fullerenes (C60) were found to be able to pass through mammalian cell membrane more easily compare to their hydrophilic counterparts.34 These fullerenes also exhibit a surface hydrophobicity-dependent cellular toxicity toward mammalian cells.35 Clearly molecular level interaction also depends on these surface properties. Podila et al. compared the surface protein binding among AgNPs coated by surface functional groups with different hydrophobicity, clearly showing that the binding was more prominent for more hydrophobic surfaces.36 Many other studies also suggested than the binding of proteins and other biomolecules, including proteins, lipids, and lipoproteins, depends on the surface physicochemistry of nanomaterials.37–39 Other studies revealed that surface morphology or surface pattern also plays an extremely important role in determining the binding of biomolecules from the native environments.28,29,40 Cellular effects, including uptake and toxicity, are other biological phenomena determined by surface chemistry of nanomaterials. Ryman-Rasmussen et al. established the determining role of surface coating of quantum dots (QDs) in cytotoxicity and immunotoxicity in skin cells: cytotoxicity was observed for QD 565 and QD 655 coated with carboxylic acids or polyethylene glycol (PEG)-amine by 48 h, with little cytotoxicity observed for PEG-coated QDs. Only carboxylic acid-coated QDs significantly increased release of proinflammatory cytokines IL-1b, IL-6, and\nIL-8. These data indicated that QD surface coating is a primary determinant of cytotoxicity and immunotoxicity in human epidermal keratinocytes (HEKs).41"
+    }, {
+      "heading" : "Shape",
+      "text" : "Engineered nanomaterials also have different shapes, and studies have shown that in some cases, their biological behavior is closely related to this attribute. In applications of drug delivery and diagnostics, the shapes of these delivery vehicles or sensing agents are typically chosen to maximize their loading capacity, targeting precision, and signal strength; due to the fact that uptake rate, circulation time, even molecular interactions could all be affected by the shapes of the particles with the same core material. For example, rod-shaped gold nanoparticles (AuNPs) were found to have a longer circulation time in the systemic circulation and preferentially accumulated in solid tumors to a higher extent compared to spherical AuNPs.42 In terms of cellular internalization, Huang et al. found that shape of the particles dictates the endocytic pathways.43 Concepts like ‘wrapping time’44 and ‘diffusion length’45 were proposed to capture the information regarding the aspect ratio of the particles in predicting potential energy required for uptake. Due to the comparable sizes of nanomaterials and biomacromolecules, the surface binding is often affected by the surface curvature of nanomaterials. Zuo et al. performed a simulation to study the protein binding onto carbon-based nanomaterials with different curvatures, including graphene, singlewalled carbon nanotube (SWCNT), and C60, and found different mechanisms responsible for the binding to those surfaces. Binding to graphene was dominantly determined by π–π stacking, because the aromatic rings could easily align to the surface without any curvature, while the binding to the other two received major contribution from hydrophobic interactions because π–π interaction was hindered by the curved surface."
+    }, {
+      "heading" : "Defects and Impurities",
+      "text" : "Nanomaterials synthesized using current technologies often have structural defects or impurities from chemical agents used in intermediate reactions. For example, the crystallization of Ag + ions from solution usually results in imperfect crystal structures; carbon-based materials can easily gain surface oxidation sites during final purification process, as well as some organic residues from the solvent used in several precursory processes. Structural defects often impact on the optical, electronic or magnetic\n© 2016 Wiley Per iodica ls , Inc. 7\nproperties of conductive, semi-conductive, or magnetic nanomaterials, which could be explored for their application in spectroscopy or electronics. Surface defects and impurities are often found to have important roles in their biological or environmental behaviors, including toxicity. The chemical interaction or physisorption of organic or biological molecules are also partially determined by these defects and impurities. It would be unwise to exclude the consideration of them in the nano applications involving molecular interactions, such as biological or environmental sensing, drug delivery and other medical applications. Samberg et al. compared the cytotoxicity of unwashed and washed AgNPs on HEKs, showing clear dose-dependent toxicity for unwashed, but not washed AgNPs, implying the toxic effects were actually caused by impurities or chemical residuals in the unwashed particles.46"
+    }, {
+      "heading" : "Stability: Aggregation and Dissolution",
+      "text" : "Stability is another topic widely studied to decipher biological or environmental behavior. To accommodate their application in aqueous solution, nanoparticles are typically prepared in the form of colloidal suspensions, often by surface modifications on the pristine particles which would otherwise precipitate rather quickly out of the suspension. These surface modifications serve as repellants that prevent the particles to collapse into each other. They can be physically bound charged moieties, such as citrate which can stabilize AgNPs; covalently bound partially charged polymeric chains like polyvinylpyrrolidone (PVP) and thiol group-linked peptides found AuNPs; or uncharged organic molecules that simply provide steric hindrance. However, upon entering biological or environmental systems, their interactions with native species, including ions, organic, and biological molecules, could counteract those surface modifications, destabilizing the suspension causing either aggregation and consequent precipitation, or dissolution followed by ion release. For example, comparing to a suspended state, intermediate and higher aggregation states of iron oxyhydroxide nanoparticles have opposite effect on their capacity for heavy metal adsorption, which would impact their potential application in environmental remediation of heavy metal pollution.47 Some research indicated the aggregation states can change the dissolution rate of metal nanoparticles in natural water.48 In biological systems, the aggregation and dissolution phenomena are both associated with environmental factors including pH, ionic strength, and interactions with surrounding molecules,49–53 even the primary or initial particle size.52 The dissolution of\nsome metal nanoparticles, such as AgNPs, can make a large contribution toward their toxicities.54 Those processes are sometimes reversible, e.g., AgNPs could undergo a rich set of spontaneous biochemical transformations of particle dissolution and reformation of secondary particles across otherwise size-restrictive membranes upon interacting with environmental or biological systems.55 Characterization of individual and aggregated particles, as well as the aggregation process can be extremely important for biological and environmental applications. As mentioned above, the stability of these colloidal nanoparticle suspension systems is usually maintained by the presence of surface charge on the particles, which produces a Derjaguin–Landau–Verwey–Overbeek (DLVO) electric double layer, leading to repulsion among these particles. Such repulsion can be counteracted by the addition of either inert electrolyte or polymeric flocculant, both of which could be available in biological or environmental systems, leading to the formation of aggregates.56 Typical characterization tools can detect such aggregation by monitoring the size increase, which presumably decreases the specific surface areas of the particles. However, the structure of these fractal aggregates actually determines their surface area. Typically aggregates with high fractal dimension expose much more area to the media compared to the ones with low fractal dimension. Loose and lowdensity flocs of particles also produce more porous structures favoring surface interactions with other species in the media. In applications of these nanomaterials, the fractality or porosity of nanoparticle aggregates often determine their potency, e.g., in environmental filtration, particles that form loose and porous flocs would be preferred to those form solid aggregates with low fractal dimension. In in vitro dosing systems, where buoyancy takes an important role, the fractality and porosity of aggregation often determines the effective doses delivered to cells, as described in a previous section. Furthermore, self-assembled nano-biomolecule complexes are often of heterogeneous nature, both in terms of the ensemble of a population of nanomaterials and subparticular structures. Unlike single chemical drugs, which are typically single species of organic molecules, studies regarding the application of nanomaterials as delivery vehicles or therapeutic agents and their dosimetry should consider such heterogeneous distribution of physicochemical properties. Heterogeneous subparticular structures are often also critical in determining how they interact with their host biological systems. For example, Cormode et al. constructed lipid coated nanostructures with\n8 © 2016 Wiley Per iodicals , Inc.\neither metal or semiconductor cores and fluorescence decorations to mimic the structure of a high density lipoprotein (HDL) supramolecular complex as contrast enhancing agents.57 Verma et al. created heterogeneous surface ligand patterns to control the membrane penetration ability of AuNPs.58 As a result, in both experimental and modeling settings of a colloidal nanoparticle system, in addition to size changes, the aggregation density, fractality, and porosity should be considered to incorporate aggregation effect.\nModification by Biological or"
+    }, {
+      "heading" : "Environmental Molecules",
+      "text" : "The surface characteristics of nanomaterials are often masked or altered upon entering biological or environmental systems, by interactions with native chemical species and subsequent formation of biocoronae. These native species could include organic matter in natural water, or biological macromolecules, including lipids, proteins, peptides, and nucleic acids, in body fluids such as blood,59–63 gastric3,64 or pulmonary mucus.65,66 The surface modifying effects of these native species usually can change the behavior and fate of nanomaterial in those environments, thereby modulating their biological impact. It was observed that the formation of a protein corona could counteract the decrease in particle stability caused by elevated ionic strengths in biological buffers, against aggregation62 and dissolution.51,53 Enhanced aggregation of gold nanorods (AuNRs) by adsorption of skin proteins was also reported. Another study pointed out that the effect on particle stability depended on protein concentration, low plasma concentrations tend to trigger aggregation, while high concentrations causes protein coating and subsequent stabilization.67 In biomedical applications of nanomaterials, such as drug delivery, preformed biocorona of carefully chosen proteins can be used for targeting specific cells or organs and regulate the uptake,68–74 biocorona formed postadministration can sometimes diminish the targeting ability of specific functionalizations,68,75 while other studies indicated biocorona can also minimize unwanted nonspecific uptake by untargeted cells or tissues and enhance the circulation time.76,77 One study demonstrated that the surface modifications using short chain oligopeptide with a specific sequence can mimic the surface amino acid residues (glutamic acid and lysine) of human plasma proteins, and thus inhibit nonspecific interactions with other biomolecules or nonspecific cellular uptake.78 The surface modification of plasma protein can also determine the uptake\nby macrophages through producing three different aggregation states (protein-stabilized individual particles, protein induced clusters, or protein free particle) for iron oxide nanoparticles. The formation of plasma protein corona was also found to affect hemolysis, thrombocyte activation, and endothelial cell death.79 In the interest of personalized medicine, Hajipour et al. studied the plasma protein corona formed on graphene oxide (GO) by plasma from patients with different conditions and found that the compositions of proteins in the coronae were personalized and disease-specific; the resulting GO–corona complexes exhibited significantly different biological impact, such as cellular toxicity, apoptosis /necrosis, uptake, ROS production, lipid peroxidation, and inflammation response.80 The results from this research further confirmed that the interactions with biological systems are heavily influenced by surface modification by native species subsequent to administration or discharge. Biocorona formed on the surface of nanoparticles is usually not static, but undergoes constant change for certain period of time, likely due to a Vroman effect81–83 that arises from the differences in mobility and affinity of the proteins. Typically, proteins with higher mobility adsorb first, then over time are replaced by proteins with lower mobility but higher affinity; during the process, a soft corona turns into a hard corona.84–86 This evolution of biocorona over time is further complicated by the fact that these particle–biomolecule complexes could be transported through different compartments and exposed to biological fluids with different contents, e.g., protein corona on polystyrene nanoparticles in plasma were found to evolve, retaining a fingerprint of its prior history, after being transferred from plasma to cytosolic fluids, with some proteins from the original corona replaced by proteins from the new biological fluid.87 Furthermore, it is extremely important to consider the impact of the preformed protein corona on biological or physiological parameters such as cellular uptake and circulation time. to study the pharmacokinetics of administered nanomaterials for therapeutic purposes.88,89\nSURFACE INTERACTIONS OF NANOMATERIALS—ANALYTICAL"
+    }, {
+      "heading" : "AND PHYSICOCHEMICAL CHARACTERIZATION TECHNIQUES",
+      "text" : ""
+    }, {
+      "heading" : "Size-Related Techniques",
+      "text" : "Upon interaction with native species, the acquired hydrodynamic sizes of nanomaterials, rather than their\n© 2016 Wiley Per iodica ls , Inc. 9\n10 © 2016 Wiley Per iodicals , Inc.\nintrinsic sizes, are relevant to their biological or environmental behavior. Typically, relatively small increases in hydrodynamic sizes are indicative of surface adsorption, either loose association or tight binding, of biomolecules. Larger increases could be caused by aggregation triggered by interactions with these biomolecules, or the unfavorable pH and ionic strength; and could lead to compromised stability of the colloidal suspension. By quantitatively measuring the size before and after the interaction, or constantly monitoring the changes over time, information regarding binding affinity or association kinetics can be obtained."
+    }, {
+      "heading" : "Dynamic Light Scattering and Fluorescence Correlation Spectroscopy",
+      "text" : "Dynamic light scattering (DLS) techniques can be used to probe several nanomaterial-biomolecule complex characteristics including hydrodynamic size, conformation, aggregation, and stability. This measurement is implemented by measuring the fluctuation of the back scattered light of a monochromatic source (e.g., laser) by suspended small particles, and the size distribution can be inferred from the autocorrelation function based on Stokes-Einstein’s diffusion theory.90 The advantages of DLS include fast measurement, simple sample preparation, large size range, low cost, noninvasive detection, and broad working concentration range. The most common application of this technique is to confirm the binding or conjugation, as well as optimal or saturating ratios, of biomolecules on the surface of nanomaterials, by measuring the hydrodynamic sizes at different stoichiometric ratios.91–93 For example, Bhattacharya et al. investigated the interaction of fullerenol (C60OH20) with dendritic polymeric molecules, their DLS results (Figure 2(a)) indicated that G1 and G4 dendritic polymers can induce supramolecular complexation of fullerenol at different ratios.92 Wang et al. studied the thermostability and reversibility of nanoparticle–protein conjugation by monitoring the hydrodynamic diameters over heating and cooling cycles, clearly showing that the binding was temperature-dependent and could be reversed by changing the temperature (Figure 2(b)).94 Sasidharan\net al. conducted DLS size measurements of AgNPs and AuNPs upon interaction with different types of plasma proteins, clearly showing different affinity and kinetics of the protein corona formation processes.98 Gurzov et al.95 and Nedumpully-Govindan et al.100 monitored the amyloid formation process when trying to determine the inhibition effect of PMAM dendrimer and polyphenol respectively (Figure 2(c)). More often interactions with biomolecules can render the coexistence of various species of molecular complexes in the suspension, which calls for the monitoring of size distribution range. Fluorescence correlation spectroscopy (FCS) is another diffusion-based technique, using fluorescence instead of scattered light. FCS measures the fluorescence intensity fluctuation from a small volume in an aqueous sample, caused by the diffusion of fluorescent molecules into and out of that volume.101 Similar to DLS, FCS also employs an autocorrelation function, and uses Stokes–Einstein’s diffusion theory to obtain dimensional information such as hydrodynamic size and diffusion coefficient. It is common used for the characterization of interactions between biomolecules and fluorescent nanoparticles. As FCS only detects fluorescence signals while excluding scattered lights, the measurements can be conducted in turbid media, such as plasma, enabling in-situ analysis of bio-nano interactions. Milani et al. utilized FCS to discriminated fast and slow diffusing fluorescencelabeled transferrin molecules in order to distinguish free and nanoparticle-bound proteins.102 Zeta-potential is a measure of nanoparticle surface charge.99 The experimental determination method of zeta-potential is usually integrated into a DLS apparatus. The measurement is based on the electrophoretic mobility of the particles under an alternate electrical potential. As surface charge is typically related to a series of biological or environmental behavior of suspended nanomaterials, such as stability, aggregation, and interactions with other charged molecules, zeta-potential measurements are often used to confirm the surface modification by native species on highly charged surfaces. For example, in the studies from Monopoli et al.103 and\nFIGURE 2 | (a) DLS measurements of (top) G1/fullerenol and (bottom) G4/fullerenol complexes. An abrupt increase in the hydrodynamic size of the complexes was observed for both G1/fullerenol and G4/fullerenol mixtures at a ratio of number of primary amines of dendrimer/fullerenol ≈2.92 (b) Hydrodynamic radius of bAgNP– lysozyme versus temperature, displaying a hysteresis between heating and cooling (top) and hydrodynamic radius of bAgNP–lysozyme versus time (bottom).94 (c) Time evolutions of the hydrodynamic diameters of hIAPP (19 × 10−6 M).95 (d) Normalized number-weighted particle size distributions of aminated silica NPs in Tris buffer.96 (e) Characterization of Tf-coated NPs in PBS at room temperature. Differential centrifugal sedimentation results for: (left) 100 nm PSOSO3H NPs and Tf@PSOSO3H NPs; and (right) 100 nm PSCOOH NPs and Tf@PSCOOH NPs. 97 AgNP, silver NP; DLS, dynamic light scattering; hIAPP, human islet amyloid polypeptide; NP, nanoparticle; TRPS, tunable resistive pulse sensing. (Reprinted with permission from: Ref 92. Copyright 2012 American Chemical Society; Ref 94. Copyright 2014 The Royal Society of Chemistry; Ref 95. Copyright 2016 John Wiley and Sons; Ref 97. Copyright 2012 Plos One)\n© 2016 Wiley Per iodica ls , Inc. 11\nSasidharan et al.,98 the decrease in the absolute value of zeta potential were used to confirm the formation of protein coronae on the surface of polystyrene, silica, and metallic nanoparticles."
+    }, {
+      "heading" : "Differential Centrifugal Sedimentation",
+      "text" : "Differential centrifugal sedimentation (DCS), similar to analytic centrifugation or field flow fractionation, utilizes the differences in particle mobility under various force fields (centripetal force in the case of DCS) to separate particles.104 These techniques can be applied as either separation, or size measurement methods. Comparing to DLS, the size distribution\nobtained using DCS is much more accurate and has much higher resolution, because the particles of different sizes in the suspension are actually physically separated. In nanoparticle analysis, the size can be measured with precision down to 2 nm, and the size range can be up to 80 μm. This is extremely important in the characterization of nanomaterial– biomolecule interactions, because these interactions often result in a monolayer adsorption or binding of biomolecules forming a very thin corona, the increase in diameter can be undetectable using traditional techniques based on light scattering or Brownian motion. Another advantage of DCS is that it works\n12 © 2016 Wiley Per iodicals , Inc.\nvery well for polydisperse samples, because the detection is based on separation of different sizes. In the study conducted by Pitek et al. on the interaction of transferrin with polystyrene nanoparticles (PSOSO3H and PSCOOH), size characterization using DCS clearly shows several sharp peaks in the size distribution of PSOSO3H indicating multiple populations present, PSCOOH shows only one sharp peak, proving its monodispersity; while the surface adsorption of transferrin created multiple size populations in both samples (Figure 2(d)).97 DCS and DLS results were directly compared by Sikora et al.: in contrast to the one single broad peak detected by DLS, the results from DSC clearly show the presence of two distinct size populations (Figure 2(e)).96"
+    }, {
+      "heading" : "Optical Spectroscopy",
+      "text" : ""
+    }, {
+      "heading" : "Fluorescence-Based Spectroscopies",
+      "text" : "Fluorescence spectroscopy may be the most versatile and widely applied techniques in biological-related molecular studies. Many nanoparticles and biological molecules are fluorescent, and fluorescence spectroscopy can prove rather useful for interactions involving at least one fluorescent reactant. Upon interaction, either binding that can lead to complex formation or dynamic collision, the fluorescence intensity is often observed to decrease due to ground state complex formation or energy transfer between the two.105 Such quenching effect of protein fluorescence is often used to study the interaction energetics\n© 2016 Wiley Per iodica ls , Inc. 13\nand thermodynamics with nanoparticles. For example, by measuring the protein fluorescence quenching and employing the Stern–Volmer relation, the binding constant between fibrinogen and carbon nanotubes,106,107 hemoglobin and AgNPs,108,109 BSA and lanthanum fluoride-doped terbium nanoparticles110 or AuNPs111 were determined. Similarly, emission from fluorescent nanoparticles can also be used to obtain the binding constant. Shang et al. discovered that the presence of human serum albumin (HSA) could enhance the photoluminescence from ultrasmall gold nanoclusters (AuNC), the emission enhancement was analyzed using the Hill’s equation and the equilibrium dissociation was obtained (Figure 3(a)).112 Similar technique was also used to compare the binding affinity of AuNC to HSA with surface modifications (different surface charges), and the results showed that cationic HSA had the highest affinity while anionic HSA had the lowest.115 Another study from the same group revealed the quenching effect on HSA intrinsic fluorescence by AuNC, and the quenching was analyzed by both Stern-Volmer and Hill relations.114 Förster resonance energy transfer (FRET) is an extremely useful fluorescence-based technique for the study of nanoparticle–biomolecule interactions.116 The application of this technique requires that the two interacting molecules or particles are both fluorescent, and the emission of one (donor) should overlap the other (acceptor). FRET is due to the nonradiative energy transfer from the donor to the acceptor, and can happen only when the two are in close proximity (typically <10 nm).117 From the energy transfer rate, the distance between the donor and acceptor can be determined. Experimentally, the occurrence of FRET can usually be determined by comparing the fluorescence spectra of the mixture while increasing the concentration of the acceptor, which should show decreasing intensity of the donor emission and increase acceptor emission. In addition, as the nonradiative energy transfer between the donor and acceptor is significantly faster than normal fluorescence decay, time-resolved fluorescence spectroscopy can often provide confirmation of FRET by comparing decay curve of the donor without and with the presence of the acceptor. Wang et al. utilized FRET to study the reversible adsorption and release of lysozyme onto and from the surface of mixed shell polymeric nanoparticles by changing the temperature.118 Similar strategy was used to study the bio-conjugation of DNA and QDs.119 FRETbased monitoring system can be constructed by anchoring a pair of fluorophores that meet the requirements of FRET onto different site within\nFRET distance on the nanostructures, to study the interaction of such nanostructures with biomolecules, which could lead to the structural disturbance, or drug delivery system for the detection of drug release (Figure 3(b)).113"
+    }, {
+      "heading" : "Raman Spectroscopy",
+      "text" : "Raman spectroscopy (RS) detects the energy loss in Stokes Raman or gain in anti-Stokes Raman (difference in frequency or wavelength) between the incident and inelastically scattered photons due to Raman scattering by the target molecules.120 RS is widely used in the detection of nanomaterials with signature Raman peaks, including carbon-based particles, metal, and metal oxides. For example, RS is often used for the identification of CNT, graphene, and graphene oxides from their signature graphitic band (G-band) at ~1585 cm−1, defects from their defect band (D-band) at ~1350 cm−1, and 2D-band at ~2700 cm−1.121 With the presence of native species in the biological or environmental systems, the interactions with nanomaterials could alter the peak positions due to charge transfers. Radic et al. discovered that the binding of algal exudates (comprised of cellulose, peptides, and fatty acids) caused an upshift in the 2D-bands in graphene, but no change was observed in graphene oxide, indicating much stronger interactions with natural amphiphiles for graphene than graphene oxide, which is more hydrophilic (Figure 4(a)).122 Interaction of nanomaterials with much smaller organic molecules, such as pesticides and carbohydrates, can be studied using RS. The Raman shift peaks of chlorpyrifos, at 640 cm−1 due to C Cl vibrations and 1580 cm−1 due to P S vibrations, were found broadened and shifted after incubation with citrate-coated AgNPs because of surface adsorption.126 The emergence of new peaks in Raman spectra sometimes is an indication of new bond formation. Serra et al. found that glucose molecules interact with AgNPs through covalent bonding: new peaks at 480, 540, and 980 cm−1 were attributed to AgO H twisting, Ag OH stretching, and AgO H bending respectively.127 Raman signal can be enhanced by placing target molecules on a rough metal surface or metallic nanostructure due to localized plasmonic effect. Surface-enhanced RS (SERS) have been used for detection of molecules at extremely low concentrations, or single-molecule level; the enhanced spectra can sometimes also be used to study the fine structure of the target molecules. Vongsvivut et al. compared experimental obtained SERS results of fonofos adsorbed on AuNPs and AgNPs to theoretically calculated results using density functional theory (DFT) to deduce the\n14 © 2016 Wiley Per iodicals , Inc.\nvibrational modes of the chemical bonds. The matching between the Raman shift and the modes were demonstrated to be able to detect trace level of fonofos in drinks.128 Similar to bulk Raman, SERS could also reveal distinctive signature peaks of the organic molecule-nanomaterials complex. Yigit et al. utilized the signature SERS peaks from Raman reporter molecules 3,3’-diethylthiatricarbocyanine iodide (DTTC) conjugated to AuNPs complexed with dextran-coated superparamagnetic iron oxide nanoparticles to identify and locate the injected nanostructures in mice for the purpose of magnetic resonance imaging (MRI) (Figure 4(b)).123"
+    }, {
+      "heading" : "Infrared Spectroscopy",
+      "text" : "The absorption of infrared (IR) radiation is typically caused by bond stretching, bending, or twisting, and biomolecules usually have signature peaks depending on the types of bonds present, hence the changes in IR spectra are usually indications of structural change.120 Unlike RS, which is suitable for a wet environment, IR signals can undergo severe interference due to strong IR absorption from water molecules, thus IR spectroscopy requires dry samples. However, for biological or environmental samples, attenuated total reflection (ATR), which utilizes evanescent waves with nanometer level penetration into the liquid sample, can largely eliminate interferences from water. IR spectra are typically used to determine conformational changes of proteins and peptides upon interaction with nanomaterial surfaces. For example, IR spectra of proteins usually show peaks of different secondary structures (α-helix, β-sheet, and β-turn). By monitoring the peaks corresponding to these structures, it was discovered that upon adsorption of BSA onto AgNPs and carbon-based nanomaterials, with subsequent formation of a protein corona, β-turns were relaxed, α-helix decreased, and β-sheet increased, possibly because the helical structure tends to unravel in order to interact with a particle surface.36,121 Structural changes in amylase were also confirmed upon interaction with AgNPs using IR spectra showing that the disulfide bridges present in the native protein was lost due to the interaction.129 IR spectroscopy is also often used to confirm the surface modification or conjugation of nanomaterials, e.g., the disappearance of –SH stretching band from the free BSA molecule indicated successful conjugation of BSA–AuNPs through Au– thiol coordination bonds (Figure 4(c));109 the interacting functional groups from the biopolymers, including chitosan, N,N,N-trimethylchitosan (TMC), and carboxymethylchitosan (CMC), with the QD surfaces were identified when they were used as capping agents\nby the shifts and changes in intensities from their respective IR spectra.130"
+    }, {
+      "heading" : "Circular Dichroism",
+      "text" : "Chirality is a common feature among biomolecules, giving them different absorption of circularly polarized light, either left-handed or right-handed. Circular dichroism (CD) detects the ellipticity caused by such polarization-dependent absorption to provide structural information of the biomolecules.125 Thus, CD is widely used to study the structural changes of biomolecules such as proteins as they interact with biomaterial surfaces, as well as probing how corona proteins may be different from their native structures.28,51,91,129,131–133 Sophisticated deconvolution algorithms are typically required to calculated percentages of different secondary structures from the spectrum, and depending on the algorithm used, there can be some variations in the results. Also the results calculated from CD spectra may contain errors when compared to X-ray crystallographic data even in the native states of the molecules. Due to these possible errors, CD results were often supplied as complementary or experimental supporting evidence to simulated results. For example, discrete molecular dynamics (DMD) simulation results on secondary structural alteration of ubiquitin upon binding to fullerene and their derivatives were confirmed by experimental CD results.134 The role of helical content and its reduction in the binding of apolipoprotein to AgNPs were illustrated by both CD results and MD simulations.135 The interaction mode of the BSA corona with AuNRs, including binding interface, crucial residues, conformation of protein, were investigated by combining experimental approach of CD with MD simulations.136"
+    }, {
+      "heading" : "Surface Plasmon Resonance",
+      "text" : "Surface plasmon resonance (SPR) is the oscillation of free electrons in a conducting material induced by incident light at a specific wavelength, which depends on chemical composition, size, and surrounding environment, creating a standing electromagnetic wave at the surface.137 SPR of colloidal metallic particles can be detected using a UV–Vis absorption spectrometer, and the resonance wavelength is dependent on the local dielectric constant, providing a very convenient method for the detection of surface binding of biomolecules and the formation of corona. This technique has been successfully applied to many metallic nanoparticles including AgNPs51 and AuNPs (Figure 4 (d)).124 Combined with dark field microscopy, SPR can be achieved on a single particle level (hyperspectral imaging), identifying internalized particles in cells\n© 2016 Wiley Per iodica ls , Inc. 15\nor tissues, with or without surface adsorbed biological molecules.98 The hyperspectra obtained from a population of particles can be used for statistical analyses to qualitatively determine the amount of biomolecule adsorption.51 As the SPR peak wavelength is also dependent on particle size, monitoring SPR over time can provide information on the stability of the colloidal suspension of metallic nanoparticles in physiologically or environmentally relevant conditions,\nrevealing either size increase, indicating aggregation, or decrease, indicating dissolution.138"
+    }, {
+      "heading" : "Chromatography and Mass Spectrometry",
+      "text" : "Chromatography in conjunction with mass spectrometry (MS) is a highly quantitative tool for separation, detection, and identification. Liquid-phase chromatography–MS (LC-MS) is often used to\n16 © 2016 Wiley Per iodicals , Inc.\nquantify larger biomolecules, such as proteins, peptides, lipids, and large organic pharmaceuticals; especially in complex matrices or mixtures that require separation, such as organism metabolites, expressed proteins, or protein corona formed in biological fluids. Study on protein mixtures that heavily rely on MS, known as proteomics, is often applied in the analyses of complex interactions of nanomaterials that result in the formation of multi-component biocoronae, including the surrounding environmentdependent compositions and dynamics. Protein composition in the corona formed in various biological fluids (cell culture media, 139 mouse plasma, and human plasma103,140,141) on carbon-based nanomaterials,139 liposomes,140,141 polystyrene, and silica nanoparticles103 with different surface physicochemistry were identified using a proteomic approach; demonstrating the selective binding is dependent on surface affinities (e.g., hydrophobicity) and abundances. The corona protein contents were further identified and correlated with the biological behavior of the complexes, such as uptake,69,76 selective cell targeting effect,142 toxicity,143 and specific disease targeting effects (Figure 5(a)).144 MS methods are also widely adopted in studies regarding environmental applications or implications of nanomaterials, especially gas phase–MS (GC-MS) for the separation, identification, and quantification of small organic compounds that are usually considered as environmental pollutants.146 GC-MS was used to demonstrate the application of CNT as solidphase extraction device for multiple pesticide residue detection in water samples.147 Quantitative analyses of multi-component samples can be automated to drastically increase the throughput, thus large data set can be obtained for the purpose of statistical modeling. Xia et al. developed a structure-activity relation-based biological surface adsorption index (BSAI) approach, utilizing data obtained from GCMS in conjunction with solid phase microextraction (SPME), to decipher the physicochemical aspects of the nanomaterial surface properties and how interactions of different physical nature contribute to the binding of organic molecules to the surfaces.148,149 Similar methods was implemented with LC-MS, using corona protein content as parameters to build statistical models on biological effects such as uptake and toxicity.150"
+    }, {
+      "heading" : "Isothermal Titration Calorimetry",
+      "text" : "Isothermal titration calorimetry (ITC) is a thermally based technique that measures minute amount of heat absorbed or released from the interactions of\nnanomaterial surfaces and biomolecules to determine the thermodynamics of the interactions, including enthalpy, entropy, association constant, interaction energy, and stoichiometry.151 ITC was originally developed to study the binding of small molecules, such as drug molecules, onto larger biomolecules. Cedervall et al. conducted one of the first studies on the application of ITC toward proteinnanoparticle interactions and protein corona formation: they compared the heat release from then titration of protein solution into suspensions of polystyrene particles of different sizes and surface hydrophobicity, revealing that the surface interactions were indeed dependent on those factors as indicated by respective stoichiometries (Figure 5 (b)).145 Recently, ITC has gain popularity in studying the interactions between various nanomaterialbiomolecule pairs, including ubiquitin, fibrinogen,28 and BSA29 with AuNPs with different surface patterns, BSA with lipid nanocapsules,152 and lysozyme with silica nanoparticles.153 Due to its sensitivity, ITC is able to detect heat associated with nonspecific surface binding, which is typically significantly lower than specific binding like ligand–receptor binding. However, its sensitivity requires considerable stability in the experiment, e.g., the room temperature should be kept without large variation, friction of the stirrer in the reaction cell should be kept minimal, exposed injection canal in some instrumental setup should be kept still without being touched. Furthermore, ITC works relatively better for stable particles like polystyrene or silica, while metallic particles could undergo dissolution process creating additional heat signals."
+    }, {
+      "heading" : "Electron Microscopy",
+      "text" : "Electron microscopy (EM), especially transmission EM (TEM) is commonly used for the characterization of size, shape, and morphology of nanomaterials. For visualization of nanomaterials in biological system, e.g., cells or tissues, the samples typically need to be sectioned into thin slices, after fixation and embedding, or freezing in the case of cryogenic TEM. Through observation of cells when they are interacting of foreign materials, certain information regarding interaction mechanism can be obtained. Monteiro-Riviere et al. utilized TEM imaging technique to visually capture the process of engulfing silica-coated AgNPs by a HEK. The shape of the cell membrane indicated that active phagocytosis was the possible uptake mechanism.74 TEM is also often used for the visualization of molecular interaction between nanomaterials and biomolecules, as well as\n© 2016 Wiley Per iodica ls , Inc. 17\nbiocorona formation. The contrast in TEM images is due to the differences in the electron density in the samples. For biocorona-coated metallic nanoparticles, due to much lower electron density in the corona compared to nanoparticles, the corona layer is easily visible, as indicated in many published studies.91,98 To characterize finer structural characteristics and achieve higher resolution, scanning tunneling microscopy (STM) can be employed. Verma et al. characterized ligand arrangements and surface patterns of extremely small nanoparticles (~5 nm) using STM, and established a correlation of these surface features to their cellular uptake and biodistribution within the cells.58 Despite its advantageous imaging capabilities, EM techniques for the characterization suffer a few shortcomings. One significant tradeoff is that the requirements of laborious sample preparation and high vacuum, which makes it impossible for real-time monitoring. The sample preparation procedures could also lead to alterations and makes it difficult to exclude artifacts introduced by those procedures. Damages to the samples by the electron beam can also be problematic, the imaging process often makes the sample unfit for re-use. Another limitation is the low sampling rate: as a visualization tool, EM typically cannot process larger quantity of samples, register quantitative readings, and enable subsequent statistical analysis. As a result, EM techniques are typically used to supplement other more quantitative methods in nano-bio studies."
+    }, {
+      "heading" : "MODELING OF NANOMATERIAL",
+      "text" : "INTERACTIONS—PHYSICAL,"
+    }, {
+      "heading" : "STATISTICAL, AND PHYSIOLOGICAL MODELS",
+      "text" : ""
+    }, {
+      "heading" : "Molecular Dynamics",
+      "text" : "Prior to the application in the field of nanotechnology, molecular dynamics (MD) simulation was widely used for the prediction of biophysical information of biomolecules, including conformation and interaction of biomolecules, protein folding/misfolding, ligand–receptor interactions, protein–membrane binding, and drug molecule–target protein interactions. The interactions between nanomaterials and biomolecules have been widely investigated using MD. Usually MD is able to provide fine details of the interactions, such as exact binding sites, binding energy, and bond formation. Another advantage of MD is that it can provide information on systems that would otherwise be impossible to construct experimentally. Compared to systems comprised of\npure biomolecules, nano systems are often larger, making their simulations computationally more extensive and thus expensive. Many methods were developed to reduce the computation requirement, while keeping reasonable accuracy of the calculation. Coarse-grained models typically require much less computation power, but lose the atomistic resolution of the system. While multiscale simulation provides a perfect compromise, it first employs atomistic, sometimes even quantum calculation at a smaller scale, then derives some parameterized descriptor for portions of the larger system; with coarse-grained models finally built on those parameterizations. MD simulations have been used to study proteinnanoparticle interactions, including HSA-CNT,154 villin head piece with CNT and fullerene,155 BSA with AuNRs,136 ubiquitin,156 and β2-microglobulin157 with functionalized AuNPs. To ensure accurate prediction by MD simulation, both the basic models of the components in the system, including biomolecules and nanomaterials, and the force field needs to be carefully calibrated to match reality. Experiments sometimes can only obtain bulk, or ensemble-based measurements, which lack the fine details of the interaction. As a result, MD simulation and experiments are often presented as complementary methods to study the same system. Ratnikova et al. discovered that fullerene derivative could inhibit the in vitro polymerization of microtubules, and MD simulation results were used to confirm the binding between fullerene particles and tubulin monomers or dimers, and identify the binding sites, which created a hindrance to the binding of the tubulins (Figure 6(a)).158 In another study by Wang et al., the binding of BSA onto AuNRs was confirmed using spectroscopic methods, then MD simulation was used to identify the specific residuals in the proteins that were bound to the nanomaterial surface.136 The conformational changes of proteins upon binding to AgNPs160 or fullerene134 were studied using MD simulation, generating amino acid residual-level resolution, then the bulk conformational change was confirmed by CD measurements. Similarly, interactions of nanomaterials with environmental organic species have also been studied. Comer et al. calculated the binding energy profile of the binding of a few organic molecules, that were used in BSAI studies (described in the next section), onto graphenic surfaces. Subsequently, equilibrium binding coefficients were calculated and compared to experimental results (Figure 6(b)).159 Such comparisons provide solid grounds for the deduction of exact chemical composition and spatial arrangements of the surface ligands.\n18 © 2016 Wiley Per iodicals , Inc."
+    }, {
+      "heading" : "Statistical modeling—structure–activity",
+      "text" : "relationship to define biologically relevant surface characteristics Structure–activity relationship (SAR) concerns connecting structures of chemicals to their biological or environmental activities. Based on such principles, statistical-based models, known as quantitative SAR (QSAR), can be built to use quantitative parameters to describe and predict biological or environmental interactions of various chemical species. QSAR itself can be viewed as a data mining tool, able to extract valuable information from large amount of\nexperimental data, based on which a predictive model can be established. This means such approach has extremely wide potential applications, because its use is purely determined by the type of experimental data on which it is used. For example, QSAR models were developed to describe the dermal161 and percutaneous162 absorption of either toxic chemicals or therapeutics. Toxicity of environmental pollutants like pesticides163 and their soil sorption,164 as well as therapeutic efficacy of drug molecules165 can also be evaluated using QSAR approach. Wide applicability of QSAR is exemplified by the fact that it can be applied in the studies of pure physicochemical\n© 2016 Wiley Per iodica ls , Inc. 19\nprocesses, such as surface adsorption of chemical onto an organic membrane.166 Naturally, QSAR can be applied in the field of nanotechnology, and sometimes is termed as nano-QSAR,167 or quantitative nanostructure–activity relationship (QNAR).168 First, similar to traditional QSAR applications, models can be established to directly connect descriptors parametrized from nanomaterial physicochemical properties and structures with biological behaviors, including absorption/uptake,169 cellular toxicity effects,170 and distribution.168,171 Another approach incorporated the protein corona content formed on the surfaces of nanomaterials as descriptors into the QSAR modeling, to describe how the surface modification by biomolecules impacts their biological behavior.172,173 Physical properties of the core materials, such as conduction and valence band energies of semiconducting\nmaterials, can also be incorporated in QSAR modeling, with correlation to cellular toxicity.31 A more fundamental application of QSAR to study the physicochemical properties of nanomaterials was first proposed by Xia et al., focusing on the five different physical interactions that could contribute to the binding of biomolecules onto the nano surfaces. This approach, termed as BSAI, incorporated Abraham’s molecule descriptors, and utilized a large number of small aromatic organic molecules, covering a reasonably large chemical space, as chemical probes, to calculate quantitative nanodescriptors and build a model based on linear solvation energy relation (LSER), for the purpose of both nano surface characterization and surface interaction prediction.148 BSAI deals with nonspecific interactions, including electrostatic, hydrophobic interactions, and\n20 © 2016 Wiley Per iodicals , Inc.\nhydrogen bonding. In BSAI, Abraham’s molecular descriptors174–176 were used as predictors, for their clear physical relevance and interpretability. The mathematical formula is expressed as: log ki = c + rRi + pπi + aαi + bβi + vVi, i = 1, 2, 3, …, n, where ki is the adsorption coefficient, n is the number of compounds used as probes, and c is the regression constant. Five variables [Ri, πi, αi, βi, Vi] are the molecular descriptors of the ith probe compound, where Ri is the excess molar refraction representing molecular force of lone-pair electrons, πi is the polarity/polarizability parameter, αi and βi are the hydrogen-bond acidity and basicity respectively, and Vi is the McGowan characteristic volume describing hydrophobic interactions. Subsequent multivariate linear regression (MLR) analyses were conducted on the experimentally obtained binding coefficients, to obtain nanodescriptors for each nanomaterial.\nObviously such nanodescriptors can be used to characterize the nano surfaces in terms of how likely they participate in those physical interactions. The model that includes these descriptors can be used to calculate the predicted value of binding coefficients, given the molecular descriptors of the chemical in question. Principal component analysis (PCA) was used to categorize the nanomaterials based on their nanodescriptors. Figure 7 shows exemplary characterization by nanodescriptors, predicative capability, and categorization results showing separations matching the chemical compositions. Subsequent studies revealed the concentration-dependent behavior of the nanodescriptors,149 and was addressed by incorporating a concentration related quadratic term directly into the original BSAI model. Another approach tried to approximate the binding coefficients at infinitely low concentrations based on experimental\n© 2016 Wiley Per iodica ls , Inc. 21\ndata, using Langmuir physical adsorption model, to eliminate the influences from the chemical concentrations. These modifications to the original model either showed better prediction results, or better separation in the categorization using PCA.177 BSAI has been applied to the screening of suitable materials for environmental remediation from pesticides pollution, with improved chemical analysis and incorporation of some new statistical methods, such as artificial neural network (ANN).178 Results from the modeling and prediction based on pesticides adsorption data showed satisfactory predictive capability, and ANN can further improve those unsatisfactory models (Figure 8). This research demonstrates a successful application of an experimentally modified BSAI approach to probe the physicochemical properties of nanoparticle surfaces with respect to interactions with pesticide molecules, providing a proof-of-concept example of how experimental data-based modeling methods can contribute and offer guidelines to defining the interaction of nanomaterials with toxicologically significant environmental chemicals such as pesticides."
+    }, {
+      "heading" : "Physiological Modeling—PBPK",
+      "text" : "Physiologically based pharmacokinetic modeling (PBPK) is a process that simulates the absorption, distribution, metabolism and elimination of small molecules or nanomaterials in the body based on interrelationships among major physiological, biochemical, and physicochemical parameters using mathematical equations.179,180 PBPK models are widely recognized as an important tool in the risk assessment of environmental toxicants because these models can be used to predict target tissue dosimetry and conduct extrapolations from in vitro to in vivo and from animals to humans. Numerous animal studies have shown that over exposure to some nanomaterials may be toxic to organisms. In order to apply nanotechnologyenabled products properly and safely, it is critical to have a tool (e.g., PBPK models) to help assess the potential risk of nanomaterials. In the past decade, multiple PBPK models for various types of nanomaterials, such as QDs, polyacrylamide nanoparticles, titanium dioxide nanoparticles, and AuNPs, have been developed.181–185 Based upon this body of work, now it is generally accepted that PBPK models for nanomaterials should be described as a membrane-limited structure and include the description of nanomaterial endocytosis in major phagocytic organs (e.g., liver, spleen, lungs, and kidneys), which can be described using the Hill function. Of note, several recent nanomaterial PBPK models have demonstrated the utility in risk assessment. For example, Bachler et al. developed\na PBPK model for titanium dioxide nanoparticles in rodents, which was extrapolated to humans.183 The human model was used to predict the tissue concentrations of titanium in a German population divided as six different age classes (i.e., toddlers, other children, adolescents, adults, elderly, and very elderly) and on the basis of three main exposure groups (i.e., foods and beverages; drugs and dietary supplements; and toothpastes). Their results showed no organ of any age group is exposed to titanium levels where adverse effects have been reported in vitro. In another recent study, Lin et al. developed a PBPK model for AuNPs in rodents, pigs, and humans.186 This model can be used to aid risk assessment by predicting human equivalent doses associated with reported in vitro toxicity in human primary cells or in vivo toxicity in rats through in vitro to in vivo extrapolation and animal-to-human extrapolation. QSAR-based statistical models and MD simulations can also be complementary. MD simulation typically can provide atomistic-level resolution, but requires well calibrated models of the nanomaterials, biomolecules, and force field. It usually is used for the study of individual systems, which lacks systematic evaluation of models used for other nanomaterials. Existing force fields for materials such as metals and ceramics may require further evaluation to demonstrate whether they perform consistently for a wide variety of biomolecules. Moreover, many exciting new materials lack any force fields with even minimal validation, and this lack of validation could be further complicated by the fact that synthetic nanomaterials usually contain various defects caused by the chemical processes and contaminants from the reagents used. Thus, for MD approach to be practical, it is necessary to construct a comprehensive library of force fields suitable for interactions between nanosurfaces and organic molecules. On the experimental side, more consistent synthesis and better characterization can also help in constructing more accurate models. Thus, comparative research on experimentally and computational characterizations can shed light on the fine structure of nanomaterial surfaces on the atomistic/molecular level, and the nature of their interactions in terms of physical forces and energetics. Molecular descriptor-based QSAR models require quantitative parameterized descriptors, on which statistical models can be built. For small organic molecules, Abraham’s descriptors’ applicability has been well validated. However, in the application to more structurally complex biomolecules, new sets of molecular descriptors need to be generated prior to QSAR modeling. Different from semi-empirical descriptors of small molecules, these\n22 © 2016 Wiley Per iodicals , Inc.\nmuch larger macromolecules may require MD simulation to provide realistically relevant molecular descriptors. The combination of MD-derived descriptors and QSAR approaches can be used to predict physiologically-related parameters of nanomaterials, including circulation time, uptake rate, and discharge rate. These parameters can be incorporated in PBPK models for the characterization of biodistribution on the whole organism level, and prediction of the kinetics of administer nano-therapeutics."
+    }, {
+      "heading" : "CONCLUSION",
+      "text" : "With the increasing application of nanomaterials in biomedical and environmental fields, the accurate characterization of their behavior in respective conditions, as well as extensive studies on their interactions with native chemical species have become crucial to the efficient and responsible use of technology. Due to the complexity of biological or environmental systems, the characterization of nanomaterials in those contexts calls for multidimensional measures, including analytical and physical experimental techniques, as well as computational models either based on physical principles or employing data-mining strategies on massive experimental data. In this article, the authors reviewed multiple physicochemical characteristics of nanomaterials pertinent to their biological or environmental applications or implications, such as size, charge, shape, and surface chemistry and functionalizations. Then a series of physical and analytical experimental methods, including optical spectroscopies, MS, and thermal-based techniques, were described with examples of how they can use to detect, identify, or quantify those characteristics in their interactions with biological or environmental\nsystems. The authors then introduced computational methods to conduct molecular-level resolution studies based on physical principles, and to extract valuable information from large experimental data sets for the purpose of interpretation and prediction. The purpose of the article is to present and emphasize the importance of incorporating multiple methods to study these multidimensional phenomena at different angles, to provide a systematic and complete view of the field, especially when pure physical techniques are being used to model biological systems. With the advancement in both analytical and physical instrumentation, researchers are now able to study larger and more complex systems, e.g., using hyperspectral imaging, large number of cells can be scanned for the identification and location of specific nanomaterials within them. Faster screening of nanomaterial molecular interactions can be now achieved using high throughput chromatography-MS to generate large set of data for statistical modeling. On the computational side, faster computers with larger storage could enable calculations with enhanced resolution, and longer equilibrating time, which ultimately would contribute to more accurate predictions. Emerging cloud computation technology makes possible the construction of a centralized data base for the deposition of experimental data on molecular interactions of nanomaterials from researchers from different institutions, such data base could significantly increase the efficiency of data usage and sharing, enabling statistical modeling based on a much larger data, on which the model reliability depends. With these technological developments, the characterization, modeling, and prediction of nanomaterials biological or environmental interactions are expected to provide more reliable and executable guidelines to the safe application of nanotechnology."
+    }, {
+      "heading" : "ACKNOWLEDGMENTS",
+      "text" : "This work was supported by The Kansas Bioscience Authority. The authors thank Dr. Zhoumeng Lin for his contribution to the section of PBPK modeling, and Mal Rooks Hoover, CMI for the illustration in Figure 1."
+    } ],
+    "references" : [ {
+      "title" : "Surface characterization of nanomaterials and nanoparticles: important needs and challenging opportunities",
+      "author" : [ "DR Baer", "MH Engelhard", "GE Johnson", "J Laskin", "J Lai", "K Mueller", "P Munusamy", "S Thevuthasan", "H Wang", "N Washton" ],
+      "venue" : "J Vac Sci Technol A",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2013
+    }, {
+      "title" : "Developments of mucus penetrating nanoparticles",
+      "author" : [ "M Liu", "J Zhang", "W Shan", "Y. Huang" ],
+      "venue" : "Asian J Pharm Sci",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2015
+    }, {
+      "title" : "Mucus-penetrating nanoparticles for drug and gene delivery to mucosal tissues",
+      "author" : [ "SK Lai", "Y-Y Wang", "J. Hanes" ],
+      "venue" : "Adv Drug Deliv Rev",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2009
+    }, {
+      "title" : "POZylation: a new approach to enhance nanoparticle diffusion through mucosal barriers",
+      "author" : [ "EDH Mansfield", "K Sillence", "P Hole", "AC Williams", "VV. Khutoryanskiy" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2015
+    }, {
+      "title" : "The effect of  WIREs Nanomedicine and Nanobiotechnology  Biological and environmental surface interactions of nanomaterials © 2016 Wiley Per iodica ls , Inc.  23  nanoparticle size on the probability to cross the blood–brain barrier: an in-vitro endothelial cell model",
+      "author" : [ "M Shilo", "A Sharon", "K Baranes", "M Motiei", "J-PM Lellouche", "R. Popovtzer" ],
+      "venue" : "J Nanobiotechnol",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2015
+    }, {
+      "title" : "Nanoparticles enhance brain delivery of blood–brain barrier—impermeable probes for in vivo optical and magnetic resonance imaging",
+      "author" : [ "RM Koffie", "CT Farrar", "L-J Saidi", "CM William", "BT Hyman", "TL. Spires-Jones" ],
+      "venue" : "Proc Natl Acad Sci USA",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2011
+    }, {
+      "title" : "Influence of particle size on transport of methotrexate across blood brain barrier by polysorbate 80-coated polybutylcyanoacrylate nanoparticles",
+      "author" : [ "K Gao", "X. Jiang" ],
+      "venue" : "Int J Pharm",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2006
+    }, {
+      "title" : "Influence of nanoparticles on blood–brain barrier permeability and brain edema formation in rats",
+      "author" : [ "HS Sharma", "S Hussain", "J Schlager", "SF Ali", "A. Sharma" ],
+      "venue" : null,
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2010
+    }, {
+      "title" : "Effects of surface modification of PLGA-PEG-PLGA nanoparticles on loperamide delivery efficiency across the blood–brain barrier",
+      "author" : [ "Chen Y-C", "Hsieh W-Y", "Lee W-F", "Zeng D-T" ],
+      "venue" : "J Biomater Appl",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2013
+    }, {
+      "title" : "Blood–brain barrier permeable gold nanoparticles: an efficient delivery platform for enhanced malignant glioma therapy and imaging",
+      "author" : [ "Y Cheng", "Q Dai", "RA Morshed", "X Fan", "ML Wegscheid", "DA Wainwright", "Y Han", "L Zhang", "B Auffinger", "AL Tobias" ],
+      "venue" : null,
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2014
+    }, {
+      "title" : "Pharmacokinetics of metallic nanoparticles: pharmacokinetics of metallic nanoparticles",
+      "author" : [ "Z Lin", "NA Monteiro-Riviere", "JE. Riviere" ],
+      "venue" : "Wiley Interdiscip Rev Nanomed Nanobiotechnol",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2015
+    }, {
+      "title" : "Effects of nanoparticle size on cellular uptake and liver MRI with polyvinylpyrrolidonecoated iron oxide nanoparticles",
+      "author" : [ "J Huang", "L Bu", "J Xie", "K Chen", "Z Cheng", "X Li", "X. Chen" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2010
+    }, {
+      "title" : "Effects of particle size and surface charge on cellular uptake and biodistribution of polymeric nanoparticles",
+      "author" : [ "C He", "Y Hu", "L Yin", "C Tang", "C. Yin" ],
+      "venue" : "Biomaterials",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2010
+    }, {
+      "title" : "Effects of particle size and surface coating on cellular uptake of polymeric nanoparticles for oral delivery of anticancer drugs",
+      "author" : [ "Yin Win K", "Feng S-S" ],
+      "venue" : "Biomaterials",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2005
+    }, {
+      "title" : "Size, shape and surface chemistry of nano-gold dictate its cellular interactions, uptake and toxicity",
+      "author" : [ "C Carnovale", "G Bryant", "R Shukla", "V. Bansal" ],
+      "venue" : "Prog Mater Sci",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2016
+    }, {
+      "title" : "Organ-specific and sizedependent Ag nanoparticle toxicity in gills and intestines of adult zebrafish",
+      "author" : [ "OJ Osborne", "S Lin", "CH Chang", "Z Ji", "X Yu", "X Wang", "T Xia", "AE. Nel" ],
+      "venue" : "ACS Nano 2015,",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2015
+    }, {
+      "title" : "Size-dependent cytotoxicity of silver nanoparticles in human lung cells: the role of cellular uptake, agglomeration and Ag release",
+      "author" : [ "AR Gliga", "S Skoglund", "I Odnevall Wallinder", "B Fadeel", "HL. Karlsson" ],
+      "venue" : "Part Fibre Toxicol",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2014
+    }, {
+      "title" : "The effect of particle size on the cytotoxicity, inflammation, developmental toxicity and genotoxicity of silver nanoparticles",
+      "author" : [ "MVDZ Park", "AM Neigh", "JP Vermeulen", "LJJ de la Fonteyne", "HW Verharen", "JJ Briedé", "H van Loveren", "WH. de Jong" ],
+      "venue" : "Biomaterials",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2011
+    }, {
+      "title" : "ISDD: a computational model of particle sedimentation, diffusion and target cell dosimetry for in vitro toxicity studies",
+      "author" : [ "PM Hinderliter", "KR Minard", "G Orr", "WB Chrisler", "BD Thrall", "JG Pounds", "JG. Teeguarden" ],
+      "venue" : "Part Fibre Toxicol",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2010
+    }, {
+      "title" : "Estimating the effective density of engineered nanomaterials for in vitro dosimetry",
+      "author" : [ "G DeLoid", "JM Cohen", "T Darrah", "R Derk", "L Rojanasakul", "G Pyrgiotakis", "W Wohlleben", "P. Demokritou" ],
+      "venue" : "Nat Commun",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2014
+    }, {
+      "title" : "An integrated approach for the in vitro dosimetry of engineered nanomaterials",
+      "author" : [ "JM Cohen", "JG Teeguarden", "P. Demokritou" ],
+      "venue" : "Part Fibre Toxicol",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2014
+    }, {
+      "title" : "Buoyant nanoparticles: implications for nanobiointeractions in cellular studies",
+      "author" : [ "CY Watson", "GM DeLoid", "A Pal", "P. Demokritou" ],
+      "venue" : null,
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2016
+    }, {
+      "title" : "Advanced computational modeling for in vitro nanomaterial dosimetry",
+      "author" : [ "GM DeLoid", "JM Cohen", "G Pyrgiotakis", "SV Pirela", "A Pal", "J Liu", "J Srebric", "P. Demokritou" ],
+      "venue" : "Part Fibre Toxicol",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2015
+    }, {
+      "title" : "Interactions of engineered nanomaterials in physiological media and implications for in vitro dosimetry",
+      "author" : [ "J Cohen", "G DeLoid", "G Pyrgiotakis", "P. Demokritou" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2013
+    }, {
+      "title" : "Implications of in vitro dosimetry on toxicological ranking of low aspect ratio engineered nanomaterials",
+      "author" : [ "AK Pal", "D Bello", "J Cohen", "P. Demokritou" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2015
+    }, {
+      "title" : "Evaluation of toxicity ranking for metal oxide nanoparticles via an in vitro dosimetry model",
+      "author" : [ "R Liu", "HH Liu", "Z Ji", "CH Chang", "T Xia", "AE Nel", "Y. Cohen" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2015
+    }, {
+      "title" : "Quantitative proteomics analysis of adsorbed plasma proteins classifies nanoparticles with different surface properties and size",
+      "author" : [ "H Zhang", "KE Burnum", "ML Luna", "BO Petritis", "JS Kim", "W-J Qian", "RJ Moore", "A Heredia-Langner", "B-JM WebbRobertson", "BD Thrall" ],
+      "venue" : "Proteomics",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2011
+    }, {
+      "title" : "Protein– nanoparticle interactions: the effects of surface compositional and structural heterogeneity are scale dependent",
+      "author" : [ "R Huang", "RP Carney", "F Stellacci", "BLT. Lau" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2013
+    }, {
+      "title" : "Effects of surface compositional and structural heterogeneity on nanoparticle–protein interactions: different protein configurations",
+      "author" : [ "R Huang", "RP Carney", "K Ikuma", "F Stellacci", "BLT. Lau" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2014
+    }, {
+      "title" : "Size-dependent interaction of silica nanoparticles with lysozyme and bovine serum albumin proteins",
+      "author" : [ "I Yadav", "VK Aswal", "J. Kohlbrecher" ],
+      "venue" : "Phys Rev E",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2016
+    }, {
+      "title" : "Use of metal oxide nanoparticle band gap to develop a predictive paradigm for oxidative stress and acute pulmonary inflammation",
+      "author" : [ "H Zhang", "Z Ji", "T Xia", "H Meng", "C Low-Kam", "R Liu", "S Pokhrel", "S Lin", "X Wang", "Y-P Liao" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2012
+    }, {
+      "title" : "Adsorption at cell surface and cellular uptake of silica nanoparticles with different surface chemical functionalizations: impact on cytotoxicity",
+      "author" : [ "A Kurtz-Chalot", "JP Klein", "J Pourchez", "D Boudard", "V Bin", "GB Alcantara", "M Martini", "M Cottier", "V. Forest" ],
+      "venue" : "J Nanopart Res",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2014
+    }, {
+      "title" : "Surface and size effects on cell interaction of gold nanoparticles with both phagocytic and nonphagocytic cells",
+      "author" : [ "X Liu", "N Huang", "H Li", "Q Jin", "J. Ji" ],
+      "venue" : null,
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2013
+    }, {
+      "title" : "Differential uptake of carbon nanoparticles by plant and mammalian cells",
+      "author" : [ "R Chen", "TA Ratnikova", "MB Stone", "S Lin", "M Lard", "G Huang", "JS Hudson", "PC. Ke" ],
+      "venue" : null,
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2010
+    }, {
+      "title" : "The differential cytotoxicity of water-soluble fullerenes",
+      "author" : [ "CM Sayes", "JD Fortner", "W Guo", "D Lyon", "AM Boyd", "KD Ausman", "YJ Tao", "B Sitharaman", "LJ Wilson", "JB Hughes" ],
+      "venue" : "Nano Lett",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2004
+    }, {
+      "title" : "Effects of surface functional groups on the formation of nanoparticle-protein corona",
+      "author" : [ "R Podila", "R Chen", "PC Ke", "JM Brown", "AM. Rao" ],
+      "venue" : "Appl Phys Lett",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2012
+    }, {
+      "title" : "Physicochemical properties of nanoparticles regulate translocation across pulmonary surfactant monolayer and formation of lipoprotein corona",
+      "author" : [ "G Hu", "B Jiao", "X Shi", "RP Valle", "Q Fan", "YY. Zuo" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2013
+    }, {
+      "title" : "Size and surface functionalization of iron oxide nanoparticles influence the composition and dynamic nature of their protein corona",
+      "author" : [ "J Ashby", "S Pan", "W. Zhong" ],
+      "venue" : "ACS Appl Mater Interfaces",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2014
+    }, {
+      "title" : "Surface chemistry of photoluminescent F8BT conjugated polymer nanoparticles determines protein corona formation and internalization by phagocytic cells",
+      "author" : [ "R Ahmad Khanbeigi", "TF Abelha", "A Woods", "O Rastoin", "RD Harvey", "M-C Jones", "B Forbes", "MA Green", "H Collins", "LA. Dailey" ],
+      "venue" : "Biomacromolecules",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2015
+    }, {
+      "title" : "Large protein absorptions from small changes on the surface of nanoparticles",
+      "author" : [ "M Mahmoudi", "V. Serpooshan" ],
+      "venue" : "J Phys Chem C",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2011
+    }, {
+      "title" : "Surface coatings determine cytotoxicity and irritation potential of quantum dot nanoparticles in epidermal keratinocytes",
+      "author" : [ "JP Ryman-Rasmussen", "JE Riviere", "NA. MonteiroRiviere" ],
+      "venue" : "J Invest Dermatol",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2007
+    }, {
+      "title" : "Geometry and surface characteristics of gold nanoparticles influence their biodistribution and uptake by macrophages",
+      "author" : [ "J-AMM Arnida", "A Ray", "CM Peterson", "H. Ghandehari" ],
+      "venue" : "Eur J Pharm Biopharm",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2011
+    }, {
+      "title" : "Role of nanoparticle geometry in endocytosis: laying down to stand up",
+      "author" : [ "C Huang", "Y Zhang", "H Yuan", "H Gao", "S. Zhang" ],
+      "venue" : "Nano Lett 2013,",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2013
+    }, {
+      "title" : "Elucidating the mechanism of cellular uptake and removal of protein-coated gold nanoparticles of different sizes and shapes",
+      "author" : [ "Chithrani BD", "Chan WCW" ],
+      "venue" : "Nano Lett",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2007
+    }, {
+      "title" : "Size and shape effects on receptor-mediated endocytosis of nanoparticles",
+      "author" : [ "X. Li" ],
+      "venue" : "J Appl Phys",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2012
+    }, {
+      "title" : "Evaluation of silver nanoparticle toxicity in skin in vivo and keratinocytes in vitro",
+      "author" : [ "ME Samberg", "SJ Oldenburg", "NA. Monteiro-Riviere" ],
+      "venue" : "Environ Health Perspect",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2009
+    }, {
+      "title" : "The effects of nanoparticle aggregation processes on aggregate structure and metal uptake",
+      "author" : [ "B Gilbert", "RK Ono", "KA Ching", "CS. Kim" ],
+      "venue" : "J Colloid Interface",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2009
+    }, {
+      "title" : "Aggregation and dissolution of silver nanoparticles in natural surface water",
+      "author" : [ "Li X", "Lenhart JJ" ],
+      "venue" : "Environ Sci Technol",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2012
+    }, {
+      "title" : "Aggregation and dissolution of 4 nm ZnO nanoparticles in aqueous environments: influence of pH, ionic strength, size, and adsorption of humic acid",
+      "author" : [ "Bian S-W", "Mudunkotuwa IA", "Rupasinghe T", "Grassian VH" ],
+      "venue" : null,
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2011
+    }, {
+      "title" : "Adsorption of organic acids on TiO2 nanoparticles: effects of pH, nanoparticle size, and nanoparticle aggregation",
+      "author" : [ "JM Pettibone", "DM Cwiertny", "M Scherer", "VH. Grassian" ],
+      "venue" : null,
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2008
+    }, {
+      "title" : "Binding of cytoskeletal proteins with silver nanoparticles",
+      "author" : [ "Y Wen", "NK Geitner", "R Chen", "F Ding", "P Chen", "RE Andorfer", "PN Govindan", "PC. Ke" ],
+      "venue" : "RSC Adv",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2013
+    }, {
+      "title" : "Modeling the primary size effects of citrate-coated silver nanoparticles on their ion release kinetics",
+      "author" : [ "W Zhang", "Y Yao", "N Sullivan", "Y. Chen" ],
+      "venue" : "Environ Sci Technol",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2011
+    }, {
+      "title" : "Dissolution, agglomerate morphology, and stability  WIREs Nanomedicine and Nanobiotechnology  Biological and environmental surface interactions of nanomaterials © 2016 Wiley Per iodica ls , Inc.  25  limits of protein-coated silver nanoparticles",
+      "author" : [ "MN Martin", "AJ Allen", "RI MacCuspie", "VA. Hackley" ],
+      "venue" : null,
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2014
+    }, {
+      "title" : "Detection and characterization of silver nanoparticles and dissolved species of silver in culture medium and cells by AsFlFFF-UV–Vis-ICPMS: application to nanotoxicity tests",
+      "author" : [ "E Bolea", "J Jiménez-Lamana", "F Laborda", "I AbadAlvaro", "C Bladé", "L Arola", "JR. Castillo" ],
+      "venue" : null,
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2014
+    }, {
+      "title" : "Chemical transformations of nanosilver in biological environments",
+      "author" : [ "J Liu", "Z Wang", "FD Liu", "AB Kane", "RH. Hurt" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2012
+    }, {
+      "title" : "On techniques for the measurement of the mass fractal dimension of aggregates",
+      "author" : [ "GC Bushell", "YD Yan", "D Woodfield", "J Raper", "R. Amal" ],
+      "venue" : "Adv Colloid Interface Sci",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2002
+    }, {
+      "title" : "Nanocrystal core high-density lipoproteins: a multimodality contrast agent platform",
+      "author" : [ "DP Cormode", "T Skajaa", "MM van Schooneveld", "R Koole", "P Jarzyna", "ME Lobatto", "C Calcagno", "A Barazza", "RE Gordon", "P Zanzonico" ],
+      "venue" : "Nano Lett 2008,",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2008
+    }, {
+      "title" : "Surfacestructure-regulated cell-membrane penetration by monolayer-protected nanoparticles",
+      "author" : [ "A Verma", "O Uzun", "Y Hu", "H-S Han", "N Watson", "S Chen", "DJ Irvine", "F. Stellacci" ],
+      "venue" : "Nat Mater",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2008
+    }, {
+      "title" : "Blood–nanoparticle interactions and in vivo biodistribution: impact of surface PEG and ligand properties",
+      "author" : [ "NB Shah", "GM Vercellotti", "JG White", "A Fegan", "CR Wagner", "JC. Bischof" ],
+      "venue" : "Mol Pharm",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2012
+    }, {
+      "title" : "Interaction between blood plasma proteins and magnetite nanoparticles",
+      "author" : [ "AV Bychkova", "ON Sorokina", "AL Kovarskii", "VB Leonova", "MA. Rozenfel’d" ],
+      "venue" : "Colloid J",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2010
+    }, {
+      "title" : "Differential plasma protein binding to metal oxide nanoparticles",
+      "author" : [ "ZJ Deng", "G Mortimer", "T Schiller", "A Musumeci", "D Martin", "RF. Minchin" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2009
+    }, {
+      "title" : "Interaction of colloidal gold nanoparticles with human blood: effects on particle size and analysis of plasma protein binding profiles",
+      "author" : [ "MA Dobrovolskaia", "AK Patri", "J Zheng", "JD Clogston", "N Ayub", "P Aggarwal", "BW Neun", "JB Hall", "SE. McNeil" ],
+      "venue" : "Nanomed Nanotechnol Biol Med",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2009
+    }, {
+      "title" : "Nanoparticle interaction with plasma proteins as it relates to particle biodistribution, biocompatibility and therapeutic efficacy",
+      "author" : [ "P Aggarwal", "JB Hall", "CB McLeland", "MA Dobrovolskaia", "SE. McNeil" ],
+      "venue" : "Adv Drug Deliv Rev",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2009
+    }, {
+      "title" : "Biodegradable polymer nanoparticles that rapidly penetrate the human mucus barrier",
+      "author" : [ "BC Tang", "M Dawson", "SK Lai", "Y-Y Wang", "JS Suk", "M Yang", "P Zeitlin", "MP Boyle", "J Fu", "J. Hanes" ],
+      "venue" : "Proc Natl Acad Sci USA",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2009
+    }, {
+      "title" : "Multi-walled carbon nanotube instillation impairs pulmonary function in C57BL/6 mice",
+      "author" : [ "X Wang", "P Katwa", "R Podila", "P Chen", "PC Ke", "AM Rao", "DM Walters", "CJ Wingard", "JM. Brown" ],
+      "venue" : "Part Fibre Toxicol",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2011
+    }, {
+      "title" : "Adsorption of surfactant lipids by single-walled carbon nanotubes in mouse lung upon pharyngeal aspiration",
+      "author" : [ "AA Kapralov", "WH Feng", "AA Amoscato", "N Yanamala", "K Balasubramanian", "DE Winnica", "ER Kisin", "GP Kotchey", "P Gou", "LJ Sparvero" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2012
+    }, {
+      "title" : "Nanomagnetic sensing of blood plasma protein interactions with iron oxide nanoparticles: impact on macrophage uptake",
+      "author" : [ "L Lartigue", "C Wilhelm", "J Servais", "C Factor", "A Dencausse", "J-C Bacri", "N Luciani", "F. Gazeau" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2012
+    }, {
+      "title" : "Impact of protein pre-coating on the protein corona composition and nanoparticle cellular uptake",
+      "author" : [ "V Mirshafiee", "R Kim", "S Park", "M Mahmoudi", "ML. Kraft" ],
+      "venue" : "Biomaterials",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2016
+    }, {
+      "title" : "Protein corona of nanoparticles: distinct proteins regulate the cellular uptake",
+      "author" : [ "S Ritz", "S Schöttler", "N Kotman", "G Baier", "A Musyanovych", "J Kuharev", "K Landfester", "H Schild", "O Jahn", "S Tenzer" ],
+      "venue" : "Biomacromolecules",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 2015
+    }, {
+      "title" : "Corona-directed nucleic acid delivery into hepatic stellate cells for liver fibrosis therapy",
+      "author" : [ "Z Zhang", "C Wang", "Y Zha", "W Hu", "Z Gao", "Y Zang", "J Chen", "J Zhang", "L. Dong" ],
+      "venue" : "ACS Nano 2015,",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2015
+    }, {
+      "title" : "Selective targeting capability acquired with a protein corona adsorbed on the surface of 1,2-dioleoyl-3-trimethylammonium propane/ DNA nanoparticles",
+      "author" : [ "G Caracciolo", "F Cardarelli", "D Pozzi", "F Salomone", "G Maccari", "G Bardi", "AL Capriotti", "C Cavaliere", "M Papi", "A. Laganà" ],
+      "venue" : "ACS Appl Mater Interfaces",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : "71",
+      "year" : 2013
+    }, {
+      "title" : "Blood protein coating of gold nanoparticles as potential tool for organ targeting",
+      "author" : [ "M Schäffler", "F Sousa", "A Wenk", "L Sitia", "S Hirn", "C Schleh", "N Haberl", "M Violatto", "M Canovi", "P Andreozzi" ],
+      "venue" : "Biomaterials",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2014
+    }, {
+      "title" : "A chemical approach for cell-specific targeting of nanomaterials: small-molecule-initiated misfolding of nanoparticle corona proteins",
+      "author" : [ "K Prapainop", "DP Witter", "P. Wentworth" ],
+      "venue" : "J Am Chem Soc",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2012
+    }, {
+      "title" : "Protein binding modulates the cellular uptake of silver nanoparticles into human cells: Implications for in vitro to in vivo",
+      "author" : [ "NA Monteiro-Riviere", "ME Samberg", "SJ Oldenburg", "JE. Riviere" ],
+      "venue" : "extrapolations? Toxicol Lett",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2013
+    }, {
+      "title" : "Transferrin-functionalized nanoparticles lose their targeting capabilities when a  Advanced Review wires.wiley.com/nanomed 26  © 2016 Wiley Per iodicals , Inc.  biomolecule corona adsorbs on the surface",
+      "author" : [ "A Salvati", "AS Pitek", "MP Monopoli", "K Prapainop", "FB Bombelli", "DR Hristov", "PM Kelly", "C Åberg", "E Mahon", "KA. Dawson" ],
+      "venue" : "Nat Nanotechnol",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2013
+    }, {
+      "title" : "Stealth effect of biomolecular corona on nanoparticle uptake by immune cells",
+      "author" : [ "G Caracciolo", "S Palchetti", "V Colapicchioni", "L Digiacomo", "D Pozzi", "AL Capriotti", "G La Barbera", "A. Laganà" ],
+      "venue" : null,
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 2015
+    }, {
+      "title" : "Protein adsorption is required for stealth effect of poly(ethylene glycol)- and poly(phosphoester)-coated nanocarriers",
+      "author" : [ "S Schöttler", "G Becker", "S Winzen", "T Steinbach", "K Mohr", "K Landfester", "V Mailänder", "FR. Wurm" ],
+      "venue" : "Nat Nanotechnol",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : "77",
+      "year" : 2016
+    }, {
+      "title" : "Biologically inspired stealth peptide-capped gold nanoparticles",
+      "author" : [ "AK Nowinski", "AD White", "AJ Keefe", "S. Jiang" ],
+      "venue" : null,
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : "78",
+      "year" : 2014
+    }, {
+      "title" : "Rapid formation of plasma protein corona critically affects nanoparticle pathophysiology",
+      "author" : [ "S Tenzer", "D Docter", "J Kuharev", "A Musyanovych", "V Fetz", "R Hecht", "F Schlenk", "D Fischer", "K Kiouptsi", "C Reinhardt" ],
+      "venue" : "Nat Nanotechnol",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : "79",
+      "year" : 2013
+    }, {
+      "title" : "Personalized disease-specific protein corona influences the therapeutic impact of graphene oxide",
+      "author" : [ "MJ Hajipour", "J Raheb", "O Akhavan", "S Arjmand", "O Mashinchian", "M Rahman", "M Abdolahad", "V Serpooshan", "S Laurent", "M. Mahmoudi" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : "80",
+      "year" : 2015
+    }, {
+      "title" : "Effect of adsorbed proteins on the wettability of hydrophilic and hydrophobic solids",
+      "author" : [ "L. Vroman" ],
+      "venue" : "Nature",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : "81",
+      "year" : 1962
+    }, {
+      "title" : "Interaction of high molecular weight kininogen, factor XII, and fibrinogen in plasma at interfaces",
+      "author" : [ "L Vroman", "AL Adams", "GC Fischer", "PC. Munoz" ],
+      "venue" : "Blood",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : "82",
+      "year" : 1980
+    }, {
+      "title" : "Understanding and modulating the competitive surface-adsorption of proteins through coarse-grained molecular dynamics simulations",
+      "author" : [ "P Vilaseca", "KA Dawson", "G. Franzese" ],
+      "venue" : "Soft Matter",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : "83",
+      "year" : 2013
+    }, {
+      "title" : "Time evolution of the nanoparticle protein corona",
+      "author" : [ "E Casals", "T Pfaller", "A Duschl", "GJ Oostingh", "V. Puntes" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : "84",
+      "year" : 2010
+    }, {
+      "title" : "Hardening of the nanoparticle-protein corona in metal (Au, Ag) and oxide",
+      "author" : [ "E Casals", "T Pfaller", "A Duschl", "GJ Oostingh", "VF. Puntes" ],
+      "venue" : null,
+      "citeRegEx" : "85",
+      "shortCiteRegEx" : "85",
+      "year" : 2011
+    }, {
+      "title" : "Dynamics of nanoparticle-protein corona complex formation: analytical results from population balance equations",
+      "author" : [ "F Darabi Sahneh", "C Scoglio", "J. Riviere" ],
+      "venue" : "PLoS One 2013,",
+      "citeRegEx" : "86",
+      "shortCiteRegEx" : "86",
+      "year" : 2013
+    }, {
+      "title" : "The evolution of the protein corona around nanoparticles: a test study",
+      "author" : [ "M Lundqvist", "J Stigler", "T Cedervall", "T Berggård", "MB Flanagan", "I Lynch", "G Elia", "K. Dawson" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : "87",
+      "year" : 2011
+    }, {
+      "title" : "Computational approaches and metrics required for formulating biologically realistic  nanomaterial pharmacokinetic models",
+      "author" : [ "JE Riviere", "C Scoglio", "FD Sahneh", "NA. MonteiroRiviere" ],
+      "venue" : "Comput Sci Discov",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : "88",
+      "year" : 2013
+    }, {
+      "title" : "Predicting the impact of biocorona formation kinetics on interspecies extrapolations of nanoparticle biodistribution modeling",
+      "author" : [ "FD Sahneh", "CM Scoglio", "NA Monteiro-Riviere", "JE. Riviere" ],
+      "venue" : "Nanomedicine",
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : "89",
+      "year" : 2014
+    }, {
+      "title" : "Dynamic Light Scattering",
+      "author" : [ "Pecora R", "ed" ],
+      "venue" : null,
+      "citeRegEx" : "90",
+      "shortCiteRegEx" : "90",
+      "year" : 1985
+    }, {
+      "title" : "Interaction of lipid vesicle with silver nanoparticle-serum albumin protein corona",
+      "author" : [ "R Chen", "P Choudhary", "RN Schurr", "P Bhattacharya", "JM Brown", "PC. Ke" ],
+      "venue" : "Appl Phys Lett",
+      "citeRegEx" : "91",
+      "shortCiteRegEx" : "91",
+      "year" : 2012
+    }, {
+      "title" : "Dendrimer–fullerenol soft-condensed nanoassembly",
+      "author" : [ "P Bhattacharya", "SH Kim", "P Chen", "R Chen", "AM Spuches", "JM Brown", "MH Lamm", "PC. Ke" ],
+      "venue" : "J Phys Chem C",
+      "citeRegEx" : "92",
+      "shortCiteRegEx" : "92",
+      "year" : 2012
+    }, {
+      "title" : "Understanding dendritic polymer–hydrocarbon interactions for oil dispersion",
+      "author" : [ "NK Geitner", "P Bhattacharya", "M Steele", "R Chen", "DA Ladner", "PC. Ke" ],
+      "venue" : "RSC Adv",
+      "citeRegEx" : "93",
+      "shortCiteRegEx" : "93",
+      "year" : 2012
+    }, {
+      "title" : "Thermostability and reversibility of silver nanoparticle–protein binding",
+      "author" : [ "B Wang", "SA Seabrook", "P Nedumpully-Govindan", "P Chen", "H Yin", "L Waddington", "VC Epa", "DA Winkler", "JK Kirby", "F Ding" ],
+      "venue" : "Phys Chem Chem Phys 2014,",
+      "citeRegEx" : "94",
+      "shortCiteRegEx" : "94",
+      "year" : 2014
+    }, {
+      "title" : "Inhibition of hIAPP amyloid aggregation and pancreatic β-cell toxicity by OHterminated PAMAM dendrimer",
+      "author" : [ "EN Gurzov", "B Wang", "EH Pilkington", "P Chen", "A Kakinen", "WJ Stanley", "SA Litwak", "EG Hanssen", "TP Davis", "F Ding" ],
+      "venue" : null,
+      "citeRegEx" : "95",
+      "shortCiteRegEx" : "95",
+      "year" : 2016
+    }, {
+      "title" : "Size and ζ-potential measurement of silica nanoparticles in serum using tunable resistive pulse sensing",
+      "author" : [ "A Sikora", "AG Shard", "C. Minelli" ],
+      "venue" : null,
+      "citeRegEx" : "96",
+      "shortCiteRegEx" : "96",
+      "year" : 2016
+    }, {
+      "title" : "Transferrin coated nanoparticles: study of the bionano interface in human plasma",
+      "author" : [ "AS Pitek", "D O’Connell", "E Mahon", "MP Monopoli", "F Baldelli Bombelli", "KA. Dawson" ],
+      "venue" : "PLoS One 2012,",
+      "citeRegEx" : "97",
+      "shortCiteRegEx" : "97",
+      "year" : 2012
+    }, {
+      "title" : "Gold and silver nanoparticle interactions with human proteins: impact and implications in biocorona formation",
+      "author" : [ "A Sasidharan", "JE Riviere", "NA. Monteiro-Riviere" ],
+      "venue" : "J Mater Chem B",
+      "citeRegEx" : "98",
+      "shortCiteRegEx" : "98",
+      "year" : 2015
+    }, {
+      "title" : "Zeta Potential in Colloid Science: Principles and Applications",
+      "author" : [ "Hunter RJ" ],
+      "venue" : null,
+      "citeRegEx" : "99",
+      "shortCiteRegEx" : "99",
+      "year" : 2013
+    }, {
+      "title" : "Stabilizing off-pathway oligomers by polyphenol nanoassemblies for IAPP aggregation inhibition",
+      "author" : [ "P Nedumpully-Govindan", "A Kakinen", "EH Pilkington", "TP Davis", "P Chun Ke", "F. Ding" ],
+      "venue" : "Sci Rep 2016,",
+      "citeRegEx" : "100",
+      "shortCiteRegEx" : "100",
+      "year" : 1946
+    }, {
+      "title" : "Fluorescence correlation spectroscopy",
+      "author" : [ "J Ries", "P. Schwille" ],
+      "venue" : "Bioessays",
+      "citeRegEx" : "101",
+      "shortCiteRegEx" : "101",
+      "year" : 2012
+    }, {
+      "title" : "Reversible versus irreversible binding of  WIREs Nanomedicine and Nanobiotechnology  Biological and environmental surface interactions of nanomaterials © 2016 Wiley Per iodica ls , Inc.  27  transferrin to polystyrene nanoparticles: soft and hard corona",
+      "author" : [ "S Milani", "FB Bombelli", "AS Pitek", "KA Dawson", "J. Rädler" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "102",
+      "shortCiteRegEx" : "102",
+      "year" : 2012
+    }, {
+      "title" : "Physical– chemical aspects of protein corona: relevance to in vitro and in vivo biological impacts of nanoparticles",
+      "author" : [ "MP Monopoli", "D Walczyk", "A Campbell", "G Elia", "I Lynch", "F Baldelli Bombelli", "KA. Dawson" ],
+      "venue" : "J Am Chem",
+      "citeRegEx" : "103",
+      "shortCiteRegEx" : "103",
+      "year" : 2011
+    }, {
+      "title" : "Introduction to differential sedimentation",
+      "author" : [ "I Laidlaw", "M. Steinmetz" ],
+      "venue" : "Analytical Ultracentrifugation: Techniques and Methods. Cambridge: Royal Society of Chemistry;",
+      "citeRegEx" : "104",
+      "shortCiteRegEx" : "104",
+      "year" : 2005
+    }, {
+      "title" : "Quenching of fluorescence",
+      "author" : [ "Lakowicz JR", "ed" ],
+      "venue" : "Principles of Fluorescence Spectroscopy. New York: Springer;",
+      "citeRegEx" : "105",
+      "shortCiteRegEx" : "105",
+      "year" : 2006
+    }, {
+      "title" : "Formation and cell translocation of carbon nanotube-fibrinogen protein corona",
+      "author" : [ "R Chen", "S Radic", "P Choudhary", "KG Ledwell", "G Huang", "JM Brown", "PC. Ke" ],
+      "venue" : "Appl Phys Lett",
+      "citeRegEx" : "106",
+      "shortCiteRegEx" : "106",
+      "year" : 2012
+    }, {
+      "title" : "Comprehensive spectroscopic studies on the interaction of biomolecules with surfactant detached multi-walled carbon nanotubes",
+      "author" : [ "G Sekar", "A Mukherjee", "N. Chandrasekaran" ],
+      "venue" : "Colloids Surf B Biointerfaces",
+      "citeRegEx" : "107",
+      "shortCiteRegEx" : "107",
+      "year" : 2015
+    }, {
+      "title" : "Impact of surface functionalization of AgNPs on binding and conformational change of hemoglobin (Hb) and hemolytic behavior",
+      "author" : [ "LB Devi", "SK Das", "AB. Mandal" ],
+      "venue" : "J Phys Chem C",
+      "citeRegEx" : "108",
+      "shortCiteRegEx" : "108",
+      "year" : 2014
+    }, {
+      "title" : "Protein nanoparticle interaction: a spectrophotometric approach for adsorption kinetics and binding studies",
+      "author" : [ "SK Vaishanav", "K Chandraker", "J Korram", "R Nagwanshi", "KK Ghosh", "ML. Satnami" ],
+      "venue" : "J Mol Struct",
+      "citeRegEx" : "109",
+      "shortCiteRegEx" : "109",
+      "year" : 2016
+    }, {
+      "title" : "Synthesis of 5-fluorouracil conjugated LaF3:Tb3+/PEG-COOH nanoparticles and its studies on the interaction with bovine serum albumin: spectroscopic approach",
+      "author" : [ "R Mangaiyarkarasi", "S Chinnathambi", "P Aruna", "S. Ganesan" ],
+      "venue" : "J Nanopart Res",
+      "citeRegEx" : "110",
+      "shortCiteRegEx" : "110",
+      "year" : 2015
+    }, {
+      "title" : "Luminescent lanthanidefunctionalized gold nanoparticles: exploiting the interaction with bovine serum albumin for potential sensing applications",
+      "author" : [ "S Comby", "T. Gunnlaugsson" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "111",
+      "shortCiteRegEx" : "111",
+      "year" : 2011
+    }, {
+      "title" : "Effect of protein adsorption on the fluorescence of ultrasmall gold nanoclusters",
+      "author" : [ "L Shang", "S Brandholt", "F Stockmar", "V. Trouillet" ],
+      "venue" : null,
+      "citeRegEx" : "112",
+      "shortCiteRegEx" : "112",
+      "year" : 2012
+    }, {
+      "title" : "Probing of the assembly structure and dynamics within nanoparticles during interaction with blood proteins",
+      "author" : [ "Y Li", "MS Budamagunta", "J Luo", "W Xiao", "JC Voss", "KS. Lam" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "113",
+      "shortCiteRegEx" : "113",
+      "year" : 2012
+    }, {
+      "title" : "Ultrasmall fluorescent silver nanoclusters: protein adsorption and its effects on cellular responses",
+      "author" : [ "L Shang", "RM Dörlich", "V Trouillet", "M Bruns", "NG. Ulrich" ],
+      "venue" : "Nano Res",
+      "citeRegEx" : "114",
+      "shortCiteRegEx" : "114",
+      "year" : 2012
+    }, {
+      "title" : "Nanoparticles  interacting with proteins and cells: a systematic study of protein surface charge effects",
+      "author" : [ "L Shang", "L Yang", "J Seiter", "M Heinle", "G BrennerWeiss", "D Gerthsen", "GU. Nienhaus" ],
+      "venue" : "Adv Mater Interfaces",
+      "citeRegEx" : "115",
+      "shortCiteRegEx" : "115",
+      "year" : 2014
+    }, {
+      "title" : "Multichromophoric förster resonance energy transfer",
+      "author" : [ "S Jang", "MD Newton", "RJ. Silbey" ],
+      "venue" : "Phys Rev Lett",
+      "citeRegEx" : "116",
+      "shortCiteRegEx" : "116",
+      "year" : 2004
+    }, {
+      "title" : "FRET—Förster Resonance Energy Transfer: From Theory to Applications",
+      "author" : [ "I Medintz", "N. Hildebrandt" ],
+      "venue" : null,
+      "citeRegEx" : "117",
+      "shortCiteRegEx" : "117",
+      "year" : 2013
+    }, {
+      "title" : "Artificial chaperones based on mixed shell polymeric micelles: insight into the mechanism of the interaction of the chaperone with substrate proteins using förster resonance energy transfer",
+      "author" : [ "J Wang", "T Yin", "F Huang", "Y Song", "Y An", "Z Zhang", "L. Shi" ],
+      "venue" : "ACS Appl Mater Interfaces",
+      "citeRegEx" : "118",
+      "shortCiteRegEx" : "118",
+      "year" : 2015
+    }, {
+      "title" : "Quantum dot DNA bioconjugates: attachment chemistry strongly influences the resulting composite architecture",
+      "author" : [ "K Boeneman", "JR Deschamps", "S Buckhout-White", "DE Prasuhn", "JB Blanco-Canosa", "PE Dawson", "MH Stewart", "K Susumu", "ER Goldman", "M Ancona" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "119",
+      "shortCiteRegEx" : "119",
+      "year" : 2010
+    }, {
+      "title" : "Introduction to Infrared and Raman Spectroscopy",
+      "author" : [ "NB Colthup", "LH Daly", "SE. Wiberley" ],
+      "venue" : null,
+      "citeRegEx" : "120",
+      "shortCiteRegEx" : "120",
+      "year" : 2012
+    }, {
+      "title" : "Influence of carbon nanomaterial defects on the formation of protein corona",
+      "author" : [ "B Sengupta", "WE Gregory", "J Zhu", "S Dasetty", "M Karakaya", "JM Brown", "AM Rao", "JK Barrows", "S Sarupria", "R. Podila" ],
+      "venue" : "RSC Adv",
+      "citeRegEx" : "121",
+      "shortCiteRegEx" : "121",
+      "year" : 2015
+    }, {
+      "title" : "Competitive binding of natural amphiphiles with graphene derivatives",
+      "author" : [ "S Radic", "NK Geitner", "R Podila", "A Käkinen", "P Chen", "PC Ke", "F. Ding" ],
+      "venue" : null,
+      "citeRegEx" : "122",
+      "shortCiteRegEx" : "122",
+      "year" : 2013
+    }, {
+      "title" : "Noninvasive MRI-SERS imaging in living mice using an innately bimodal nanomaterial",
+      "author" : [ "MV Yigit", "L Zhu", "MA Ifediba", "Y Zhang", "K Carr", "A Moore", "Z. Medarova" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "123",
+      "shortCiteRegEx" : "123",
+      "year" : 2011
+    }, {
+      "title" : "Influence of the global charge of the protein on the stability of lysozyme–AuNP bioconjugates",
+      "author" : [ "B Cárdenas", "G Sánchez-Obrero", "R Madueño", "JM Sevilla", "M Blázquez", "T. Pineda" ],
+      "venue" : "J Phys Chem C",
+      "citeRegEx" : "124",
+      "shortCiteRegEx" : "124",
+      "year" : 2014
+    }, {
+      "title" : "Protein secondary structure analyses from circular dichroism spectroscopy: methods and reference databases",
+      "author" : [ "Whitmore L", "Wallace BA" ],
+      "venue" : "Biopolymers",
+      "citeRegEx" : "125",
+      "shortCiteRegEx" : "125",
+      "year" : 2008
+    }, {
+      "title" : "Understanding the degradation pathway of the pesticide, chlorpyrifos by noble metal nanoparticles",
+      "author" : [ "MS Bootharaju", "T. Pradeep" ],
+      "venue" : null,
+      "citeRegEx" : "126",
+      "shortCiteRegEx" : "126",
+      "year" : 2012
+    }, {
+      "title" : "Non-functionalized silver nanoparticles for a localized surface plasmon resonance-based glucose",
+      "author" : [ "A Serra", "E Filippo", "M Re", "M Palmisano", "M VittoriAntisari", "A Buccolieri", "D. Manno" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "127",
+      "shortCiteRegEx" : "127",
+      "year" : 2009
+    }, {
+      "title" : "Surface-enhanced Raman spectroscopic analysis of fonofos pesticide adsorbed on silver and gold nanoparticles",
+      "author" : [ "J Vongsvivut", "EG Robertson", "D. McNaughton" ],
+      "venue" : "J Raman Spectrosc",
+      "citeRegEx" : "128",
+      "shortCiteRegEx" : "128",
+      "year" : 2010
+    }, {
+      "title" : "Studies on the effect of AgNP binding on α-amylase structure of porcine pancreas and Bacillus subtilis by multi-spectroscopic methods",
+      "author" : [ "V Ernest", "G Sekar", "A Mukherjee", "N. Chandrasekaran" ],
+      "venue" : "J Lumin",
+      "citeRegEx" : "129",
+      "shortCiteRegEx" : "129",
+      "year" : 2014
+    }, {
+      "title" : "Functionalized-chitosan/quantum dot nano-hybrids for nanomedicine applications: towards biolabeling and biosorbing phosphate metabolites",
+      "author" : [ "HS Mansur", "AAP Mansur", "E Curti", "MVD. Almeida" ],
+      "venue" : "J Mater Chem B",
+      "citeRegEx" : "130",
+      "shortCiteRegEx" : "130",
+      "year" : 2013
+    }, {
+      "title" : "Soft interactions at nanoparticles alter protein function and conformation in a size dependent manner",
+      "author" : [ "J Wang", "UB Jensen", "GV Jensen", "S Shipovskov", "VS Balakrishnan", "D Otzen", "JS Pedersen", "F Besenbacher", "DS. Sutherland" ],
+      "venue" : "Nano Lett 2011,",
+      "citeRegEx" : "131",
+      "shortCiteRegEx" : "131",
+      "year" : 2011
+    }, {
+      "title" : "Protein corona formation for nanomaterials and proteins of a similar size: hard or soft corona",
+      "author" : [ "W Liu", "J Rose", "S Plantevin", "M Auffan", "J-Y Bottero", "C. Vidaud" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "132",
+      "shortCiteRegEx" : "132",
+      "year" : 2013
+    }, {
+      "title" : "Contrasting effects of nanoparticle binding on protein denaturation",
+      "author" : [ "P Chen", "SA Seabrook", "VC Epa", "K Kurabayashi", "AS Barnard", "DA Winkler", "JK Kirby", "PC. Ke" ],
+      "venue" : "J Phys Chem C",
+      "citeRegEx" : "133",
+      "shortCiteRegEx" : "133",
+      "year" : 2014
+    }, {
+      "title" : "Effect of fullerenol surface chemistry on nanoparticle bindinginduced protein misfolding",
+      "author" : [ "S Radic", "P Nedumpully-Govindan", "R Chen", "E Salonen", "JM Brown", "PC Ke", "F. Ding" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "134",
+      "shortCiteRegEx" : "134",
+      "year" : 2014
+    }, {
+      "title" : "Computational and experimental characterizations of silver nanoparticle–apolipoprotein biocorona",
+      "author" : [ "R Li", "R Chen", "P Chen", "Y Wen", "PC Ke", "SS. Cho" ],
+      "venue" : "J Phys Chem B",
+      "citeRegEx" : "135",
+      "shortCiteRegEx" : "135",
+      "year" : 2013
+    }, {
+      "title" : "Revealing the binding structure of the protein corona on gold nanorods using synchrotron radiation-based techniques: understanding the reduced damage in cell membranes",
+      "author" : [ "L Wang", "J Li", "J Pan", "X Jiang", "Y Ji", "Y Li", "Y Qu", "Y Zhao", "X Wu", "C. Chen" ],
+      "venue" : "J Am Chem",
+      "citeRegEx" : "136",
+      "shortCiteRegEx" : "136",
+      "year" : 2013
+    }, {
+      "title" : "Mie scattering and surface plasmon based spectroscopy for the detection of nanoparticle– protein interactions",
+      "author" : [ "G Doyle", "B Ashall", "M Galvin", "M Berndt", "S Crosbie", "D. Zerulla" ],
+      "venue" : "Appl Phys A",
+      "citeRegEx" : "137",
+      "shortCiteRegEx" : "137",
+      "year" : 2007
+    }, {
+      "title" : "Differently environment stable bio-silver nanoparticles: study on their optical enhancing and antibacterial properties",
+      "author" : [ "YL Balachandran", "S Girija", "R Selvakumar", "S Tongpim", "AC Gutleb", "S. Suriyanarayanan" ],
+      "venue" : "PLoS One 2013,",
+      "citeRegEx" : "138",
+      "shortCiteRegEx" : "138",
+      "year" : 2013
+    }, {
+      "title" : "Comparison of nanotube–  protein corona composition in cell culture media",
+      "author" : [ "JH Shannahan", "JM Brown", "R Chen", "PC Ke", "X Lai", "S Mitra", "FA. Witzmann" ],
+      "venue" : null,
+      "citeRegEx" : "139",
+      "shortCiteRegEx" : "139",
+      "year" : 2013
+    }, {
+      "title" : "Lipid composition: a “key factor” for the rational manipulation of the liposome–protein corona by liposome design",
+      "author" : [ "G Caracciolo", "D Pozzi", "AL Capriotti", "C Cavaliere", "S Piovesana", "H Amenitsch", "A. Laganà" ],
+      "venue" : "RSC Adv",
+      "citeRegEx" : "140",
+      "shortCiteRegEx" : "140",
+      "year" : 2014
+    }, {
+      "title" : "Surface chemistry and serum type both determine the nanoparticle–protein corona",
+      "author" : [ "D Pozzi", "G Caracciolo", "AL Capriotti", "C Cavaliere", "G La Barbera", "TJ Anchordoquy", "A. Laganà" ],
+      "venue" : "J Proteomics",
+      "citeRegEx" : "141",
+      "shortCiteRegEx" : "141",
+      "year" : 2015
+    }, {
+      "title" : "Effect of membrane charge density on the protein corona of cationic liposomes: interplay between cationic charge and surface area",
+      "author" : [ "G Caracciolo", "D Pozzi", "S Candeloro De Sanctis", "A Laura Capriotti", "G Caruso", "R Samperi", "A. Laganà" ],
+      "venue" : "Appl Phys Lett 2011,",
+      "citeRegEx" : "142",
+      "shortCiteRegEx" : "142",
+      "year" : 2011
+    }, {
+      "title" : "Dynamic development of the protein corona on silica nanoparticles: composition and role in toxicity",
+      "author" : [ "NP Mortensen", "GB Hurst", "W Wang", "CM Foster", "PD Nallathamby", "ST. Retterer" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "143",
+      "shortCiteRegEx" : "143",
+      "year" : 2013
+    }, {
+      "title" : "Identifying new therapeutic targets via modulation of protein corona formation by engineered nanoparticles",
+      "author" : [ "RR Arvizo", "K Giri", "D Moyano", "OR Miranda", "B Madden", "DJ McCormick", "R Bhattacharya", "VM Rotello", "J-P Kocher", "P. Mukherjee" ],
+      "venue" : "PLoS One 2012,",
+      "citeRegEx" : "144",
+      "shortCiteRegEx" : "144",
+      "year" : 2012
+    }, {
+      "title" : "Understanding the nanoparticle–protein corona using methods to quantify exchange rates and affinities of proteins for nanoparticles",
+      "author" : [ "T Cedervall", "I Lynch", "S Lindman", "T Berggård", "E Thulin", "H Nilsson", "KA Dawson", "S. Linse" ],
+      "venue" : "Proc Natl Acad Sci USA",
+      "citeRegEx" : "145",
+      "shortCiteRegEx" : "145",
+      "year" : 2007
+    }, {
+      "title" : "Gas chromatography mass spectrometry",
+      "author" : [ "FA Settle", "RA Hites", "eds" ],
+      "venue" : null,
+      "citeRegEx" : "146",
+      "shortCiteRegEx" : "146",
+      "year" : 1997
+    }, {
+      "title" : "Multi-residue determination of pesticides in water using multiwalled carbon nanotubes solid-phase extraction and gas chromatography–mass spectrometry",
+      "author" : [ "S Wang", "P Zhao", "G Min", "G. Fang" ],
+      "venue" : "J Chromatogr A",
+      "citeRegEx" : "147",
+      "shortCiteRegEx" : "147",
+      "year" : 2007
+    }, {
+      "title" : "An index for characterization of nanomaterials in biological systems",
+      "author" : [ "Xia X-R", "Monteiro-Riviere NA", "Riviere JE" ],
+      "venue" : "Nat Nanotechnol",
+      "citeRegEx" : "148",
+      "shortCiteRegEx" : "148",
+      "year" : 2010
+    }, {
+      "title" : "Mapping the surface adsorption forces of nanomaterials in biological systems",
+      "author" : [ "XR Xia", "NA Monteiro-Riviere", "S Mathur", "X Song", "L Xiao", "SJ Oldenberg", "B Fadeel", "JE. Riviere" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "149",
+      "shortCiteRegEx" : "149",
+      "year" : 2011
+    }, {
+      "title" : "Exploring cellular interactions of liposomes using protein corona fingerprints and  WIREs Nanomedicine and Nanobiotechnology  Biological and environmental surface interactions of nanomaterials © 2016 Wiley Per iodica ls",
+      "author" : [ "A Bigdeli", "S Palchetti", "D Pozzi", "MR HormoziNezhad", "F Baldelli Bombelli", "G Caracciolo", "M. Mahmoudi" ],
+      "venue" : "ACS Nano 2016,",
+      "citeRegEx" : "150",
+      "shortCiteRegEx" : "150",
+      "year" : 2016
+    }, {
+      "title" : "Isothermal titration calorimetry",
+      "author" : [ "Lewis EA", "Murphy KP" ],
+      "venue" : null,
+      "citeRegEx" : "151",
+      "shortCiteRegEx" : "151",
+      "year" : 2005
+    }, {
+      "title" : "Balancing the effect of corona on therapeutic efficacy and macrophage uptake of lipid nanocapsules",
+      "author" : [ "P Sánchez-Moreno", "P Buzón", "H Boulaiz", "JM PeulaGarcía", "JL Ortega-Vinuesa", "I Luque", "A Salvati", "JA. Marchal" ],
+      "venue" : "Biomaterials",
+      "citeRegEx" : "152",
+      "shortCiteRegEx" : "152",
+      "year" : 2015
+    }, {
+      "title" : "Protein adsorption induced bridging flocculation: the dominant entropic pathway for nano-bio complexation",
+      "author" : [ "NM Eren", "G Narsimhan", "OH. Campanella" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "153",
+      "shortCiteRegEx" : "153",
+      "year" : 2016
+    }, {
+      "title" : "Induced stepwise conformational change of human serum albumin on carbon nanotube surfaces",
+      "author" : [ "J-W Shen", "T Wu", "Q Wang", "Y. Kang" ],
+      "venue" : "Biomaterials",
+      "citeRegEx" : "154",
+      "shortCiteRegEx" : "154",
+      "year" : 2008
+    }, {
+      "title" : "Adsorption of villin headpiece onto graphene, carbon nanotube, and C60: effect of contacting surface curvatures on binding affinity",
+      "author" : [ "G Zuo", "X Zhou", "Q Huang", "H Fang", "R. Zhou" ],
+      "venue" : "J Phys Chem C",
+      "citeRegEx" : "155",
+      "shortCiteRegEx" : "155",
+      "year" : 2011
+    }, {
+      "title" : "Docking of ubiquitin to gold nanoparticles",
+      "author" : [ "G Brancolini", "DB Kokh", "L Calzolai", "RC Wade", "S. Corni" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "156",
+      "shortCiteRegEx" : "156",
+      "year" : 2012
+    }, {
+      "title" : "Probing the influence of citrate-capped gold nanoparticles on an amyloidogenic protein",
+      "author" : [ "G Brancolini", "A Corazza", "M Vuano", "F Fogolari", "MC Mimmi", "V Bellotti", "M Stoppini", "S Corni", "G. Esposito" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "157",
+      "shortCiteRegEx" : "157",
+      "year" : 2015
+    }, {
+      "title" : "In vitro polymerization of microtubules with a fullerene derivative",
+      "author" : [ "TA Ratnikova", "PN Govindan", "E Salonen", "PC. Ke" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "158",
+      "shortCiteRegEx" : "158",
+      "year" : 2011
+    }, {
+      "title" : "Predicting adsorption affinities of small molecules on carbon nanotubes using molecular dynamics simulation",
+      "author" : [ "J Comer", "R Chen", "H Poblete", "A Vergara-Jaque", "JE. Riviere" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "159",
+      "shortCiteRegEx" : "159",
+      "year" : 2015
+    }, {
+      "title" : "Direct observation of a single nanoparticle-ubiquitin corona formation",
+      "author" : [ "F Ding", "S Radic", "R Chen", "P Chen", "NK Geitner", "JM Brown", "PC. Ke" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "160",
+      "shortCiteRegEx" : "160",
+      "year" : 2013
+    }, {
+      "title" : "Prediction of dermal absorption from complex chemical mixtures: incorporation of vehicle effects and interactions into a QSPR framework",
+      "author" : [ "Riviere JE", "Brooks JD" ],
+      "venue" : "SAR QSAR Environ Res",
+      "citeRegEx" : "161",
+      "shortCiteRegEx" : "161",
+      "year" : 2007
+    }, {
+      "title" : "Quantitative structure–permeability relationships (QSPRs) for percutaneous absorption",
+      "author" : [ "GP Moss", "JC Dearden", "H Patel", "MTD. Cronin" ],
+      "venue" : "Toxicol In Vitro",
+      "citeRegEx" : "162",
+      "shortCiteRegEx" : "162",
+      "year" : 2002
+    }, {
+      "title" : "Predicting toxicities of diverse chemical pesticides in multiple avian species using tree-based QSAR approaches for regulatory purposes",
+      "author" : [ "N Basant", "S Gupta", "KP. Singh" ],
+      "venue" : "J Chem Inf Model",
+      "citeRegEx" : "163",
+      "shortCiteRegEx" : "163",
+      "year" : 2015
+    }, {
+      "title" : "Statistical external validation and consensus modeling: a QSPR case study for Koc prediction",
+      "author" : [ "P Gramatica", "E Giani", "E. Papa" ],
+      "venue" : "J Mol Graph Model",
+      "citeRegEx" : "164",
+      "shortCiteRegEx" : "164",
+      "year" : 2007
+    }, {
+      "title" : "QSAR analysis of the time- and dose-dependent anti-inflammatory in vivo activity of substituted imidazo[1,2-a]pyridines using artificial neural networks",
+      "author" : [ "Saxena AK", "Schaper K-J" ],
+      "venue" : "QSAR Comb Sci",
+      "citeRegEx" : "165",
+      "shortCiteRegEx" : "165",
+      "year" : 2006
+    }, {
+      "title" : "A system coefficient approach for quantitative assessment of the solvent effects on membrane absorption from chemical mixtures",
+      "author" : [ "XR Xia", "RE Baynes", "NA Monteiro-Riviere", "JE. Riviere" ],
+      "venue" : "SAR QSAR Environ Res",
+      "citeRegEx" : "166",
+      "shortCiteRegEx" : "166",
+      "year" : 2007
+    }, {
+      "title" : "Toward the development of “nano-QSARs”: advances and challenges",
+      "author" : [ "T Puzyn", "D Leszczynska", "J. Leszczynski" ],
+      "venue" : null,
+      "citeRegEx" : "167",
+      "shortCiteRegEx" : "167",
+      "year" : 2009
+    }, {
+      "title" : "Quantitative nanostructure– activity relationship modeling",
+      "author" : [ "D Fourches", "D Pu", "C Tassa", "R Weissleder", "SY Shaw", "RJ Mumper", "A. Tropsha" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "168",
+      "shortCiteRegEx" : "168",
+      "year" : 2010
+    }, {
+      "title" : "Modeling biological activities of nanoparticles",
+      "author" : [ "VC Epa", "FR Burden", "C Tassa", "R Weissleder", "S Shaw", "DA. Winkler" ],
+      "venue" : "Nano Lett",
+      "citeRegEx" : "169",
+      "shortCiteRegEx" : "169",
+      "year" : 2012
+    }, {
+      "title" : "Applying quantitative structure-activity relationship approaches to nanotoxicology: current status and future potential",
+      "author" : [ "DA Winkler", "E Mombelli", "A Pietroiusti", "L Tran", "A Worth", "B Fadeel", "MJ. McCall" ],
+      "venue" : "Toxicology",
+      "citeRegEx" : "170",
+      "shortCiteRegEx" : "170",
+      "year" : 2013
+    }, {
+      "title" : "Quantitative nanostructure– activity relationship modelling of nanoparticles",
+      "author" : [ "Chau YT", "Yap CW" ],
+      "venue" : "RSC Adv",
+      "citeRegEx" : "171",
+      "shortCiteRegEx" : "171",
+      "year" : 2012
+    }, {
+      "title" : "Protein corona fingerprinting predicts the cellular interaction of gold and silver nanoparticles",
+      "author" : [ "CD Walkey", "JB Olsen", "F Song", "R Liu", "H Guo", "DWH Olsen", "Y Cohen", "A Emili", "WCW. Chan" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "172",
+      "shortCiteRegEx" : "172",
+      "year" : 2014
+    }, {
+      "title" : "Prediction of nanoparticles-cell association based on corona proteins and physicochemical properties",
+      "author" : [ "R Liu", "W Jiang", "CD Walkey", "WCW Chan", "Y. Cohen" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "173",
+      "shortCiteRegEx" : "173",
+      "year" : 2015
+    }, {
+      "title" : "Scales of solute hydrogen-bonding: their construction and application to physicochemical and biochemical processes",
+      "author" : [ "Abraham MH" ],
+      "venue" : "Chem Soc Rev",
+      "citeRegEx" : "174",
+      "shortCiteRegEx" : "174",
+      "year" : 1993
+    }, {
+      "title" : "Statistical Modelling of Molecular Descriptors in QSAR/QSPR",
+      "author" : [ "M Dehmer", "K Varmuza", "D. Bonchev" ],
+      "venue" : null,
+      "citeRegEx" : "175",
+      "shortCiteRegEx" : "175",
+      "year" : 2012
+    }, {
+      "title" : "Molecular Descriptors in  QSAR/QSPR",
+      "author" : [ "M. Karelson" ],
+      "venue" : "Hoboken, NJ: Wiley-Interscience;",
+      "citeRegEx" : "176",
+      "shortCiteRegEx" : "176",
+      "year" : 2000
+    }, {
+      "title" : "Nanoparticle surface characterization and clustering through concentration-dependent surface  Advanced Review wires.wiley.com/nanomed 30  © 2016 Wiley Per iodicals , Inc.  adsorption modeling",
+      "author" : [ "R Chen", "Y Zhang", "F Darabi Sahneh", "CM Scoglio", "W Wohlleben", "A Haase", "NA Monteiro-Riviere", "JE. Riviere" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "177",
+      "shortCiteRegEx" : "177",
+      "year" : 2014
+    }, {
+      "title" : "Quantification of nanoparticle pesticide adsorption: computational approaches based on experimental data",
+      "author" : [ "R Chen", "Y Zhang", "NA Monteiro-Riviere", "JE. Riviere" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "178",
+      "shortCiteRegEx" : "178",
+      "year" : 2016
+    }, {
+      "title" : "Mathematical modeling and simulation in animal health—part II: principles, methods, applications, and value of physiologically based pharmacokinetic modeling in veterinary medicine and food safety assessment",
+      "author" : [ "Z Lin", "R Gehring", "JP Mochel", "T Lavé", "JE. Riviere" ],
+      "venue" : "J Vet Pharmacol Ther",
+      "citeRegEx" : "179",
+      "shortCiteRegEx" : "179",
+      "year" : 2016
+    }, {
+      "title" : "Physiologically based pharmacokinetic modeling of nanoparticles",
+      "author" : [ "M Li", "KT Al-Jamal", "K Kostarelos", "J. Reineke" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "180",
+      "shortCiteRegEx" : "180",
+      "year" : 2010
+    }, {
+      "title" : "Comparison of quantum dot biodistribution with a blood-flow-limited physiologically based pharmacokinetic model",
+      "author" : [ "HA Lee", "TL Leavens", "SE Mason", "NA MonteiroRiviere", "JE. Riviere" ],
+      "venue" : "Nano Lett",
+      "citeRegEx" : "181",
+      "shortCiteRegEx" : "181",
+      "year" : 2009
+    }, {
+      "title" : "Physiologically based  pharmacokinetic modeling of polyethylene glycolcoated polyacrylamide nanoparticles in rats",
+      "author" : [ "D Li", "G Johanson", "C Emond", "U Carlander", "M Philbert", "O. Jolliet" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "182",
+      "shortCiteRegEx" : "182",
+      "year" : 2014
+    }, {
+      "title" : "Using physiologically based pharmacokinetic (PBPK) modeling for dietary risk assessment of titanium dioxide (TiO2) nanoparticles",
+      "author" : [ "G Bachler", "N von Goetz", "K. Hungerbuhler" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "183",
+      "shortCiteRegEx" : "183",
+      "year" : 2015
+    }, {
+      "title" : "A physiologically based pharmacokinetic model for polyethylene glycol-coated gold nanoparticles of different sizes in adult mice",
+      "author" : [ "Z Lin", "NA Monteiro-Riviere", "JE. Riviere" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "184",
+      "shortCiteRegEx" : "184",
+      "year" : 2016
+    }, {
+      "title" : "Physiologically based pharmacokinetic model for long-circulating inorganic nanoparticles",
+      "author" : [ "X Liang", "H Wang", "JE Grice", "L Li", "X Liu", "ZP Xu", "MS. Roberts" ],
+      "venue" : "Nano Lett 2016,",
+      "citeRegEx" : "185",
+      "shortCiteRegEx" : "185",
+      "year" : 2016
+    }, {
+      "title" : "A computational framework for interspecies pharmacokinetics, exposure and toxicity assessment of gold nanoparticles",
+      "author" : [ "Z Lin", "NA Monteiro-Riviere", "R Kannan", "JE. Riviere" ],
+      "venue" : "Nanomedicine",
+      "citeRegEx" : "186",
+      "shortCiteRegEx" : "186",
+      "year" : 2015
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 15,
+      "context" : "For obvious reasons, these sizedependent toxic effects could be organ- or tissue-specific.(16) Other causes of this dependency could be sizedependent rate of dissolution, or the release of toxic ions, as well as inhibition of certain biomolecular functions through surface interactions.",
+      "startOffset" : 90,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 21,
+      "context" : "and dosimetry of the buoyant particles.(22) Physical models were also employed to calculate the effective density and estimate the agglomeration and deposition of nonbuoyant nanoparticles in the dosing system, to produce a set of more accurate dose metrics for better understanding of the dose-dependency of nanotoxicity.",
+      "startOffset" : 39,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 26,
+      "context" : "One proteomic study on plasma protein adsorption onto a series of nanoparticles clearly revealed size-dependent patterns in protein adsorption.(27) Another study on the effects of nanomaterial surface pattern on protein-nanoparticle interactions indicated that such effects depend on the size of the surface patterns relative to the sizes of proteins.",
+      "startOffset" : 143,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 27,
+      "context" : "Another study on the effects of nanomaterial surface pattern on protein-nanoparticle interactions indicated that such effects depend on the size of the surface patterns relative to the sizes of proteins.(28,29) A more recent experimental study established the size-dependent interactions of silica (SiO2) nanoparticles with lysozyme but not bovine serum albumin (BSA).",
+      "startOffset" : 203,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 28,
+      "context" : "Another study on the effects of nanomaterial surface pattern on protein-nanoparticle interactions indicated that such effects depend on the size of the surface patterns relative to the sizes of proteins.(28,29) A more recent experimental study established the size-dependent interactions of silica (SiO2) nanoparticles with lysozyme but not bovine serum albumin (BSA).",
+      "startOffset" : 203,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 29,
+      "context" : "It was demonstrated that the adsorption coefficient of lysozyme is greater for nanoparticles.(30)",
+      "startOffset" : 93,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 30,
+      "context" : "discovered that metal oxide nanoparticles exhibit cellular toxicity that correlates to their semiconducting properties and band positions, presumably because of the overlap of their conduction band energies with cellular redox potential, which can lead to ROS generation, oxidative stress injury, and inflammation in mice.(31) In a typical aqueous biological environment rich in electrolytes, surface charge renders formation of stable suspension for nanoparticles, and gives them different affinities to different molecules present.",
+      "startOffset" : 322,
+      "endOffset" : 326
+    }, {
+      "referenceID" : 31,
+      "context" : "In some cases, positively charged particles were found to have higher uptake rate due to their higher affinity to the negatively charged cell membrane.(32) Other studies indicated that rate of uptake could be directly related to the absolute value of charge, regardless of the sign.",
+      "startOffset" : 151,
+      "endOffset" : 155
+    }, {
+      "referenceID" : 12,
+      "context" : "Other studies indicated that rate of uptake could be directly related to the absolute value of charge, regardless of the sign.(13) Some suggested that such dependence is also cell type-specific.",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 32,
+      "context" : "Some suggested that such dependence is also cell type-specific.(33) Hydrophobicity usually plays a very important role in the biological aqueous environment, e.",
+      "startOffset" : 63,
+      "endOffset" : 67
+    }, {
+      "referenceID" : 33,
+      "context" : "In one study, hydrophobic fullerenes (C60) were found to be able to pass through mammalian cell membrane more easily compare to their hydrophilic counterparts.(34) These fullerenes also exhibit a surface hydrophobicity-dependent cellular toxicity toward mammalian cells.",
+      "startOffset" : 159,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 34,
+      "context" : "These fullerenes also exhibit a surface hydrophobicity-dependent cellular toxicity toward mammalian cells.(35) Clearly molecular level interaction also depends on these surface properties.",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 35,
+      "context" : "compared the surface protein binding among AgNPs coated by surface functional groups with different hydrophobicity, clearly showing that the binding was more prominent for more hydrophobic surfaces.(36) Many other studies also suggested than the binding of proteins and other biomolecules, including proteins, lipids, and lipoproteins, depends on the surface physicochemistry of nanomaterials.",
+      "startOffset" : 198,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 27,
+      "context" : "Other studies revealed that surface morphology or surface pattern also plays an extremely important role in determining the binding of biomolecules from the native environments.(28,29,40) Cellular effects, including uptake and toxicity, are other biological phenomena determined by surface chemistry of nanomaterials.",
+      "startOffset" : 177,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 28,
+      "context" : "Other studies revealed that surface morphology or surface pattern also plays an extremely important role in determining the binding of biomolecules from the native environments.(28,29,40) Cellular effects, including uptake and toxicity, are other biological phenomena determined by surface chemistry of nanomaterials.",
+      "startOffset" : 177,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 39,
+      "context" : "Other studies revealed that surface morphology or surface pattern also plays an extremely important role in determining the binding of biomolecules from the native environments.(28,29,40) Cellular effects, including uptake and toxicity, are other biological phenomena determined by surface chemistry of nanomaterials.",
+      "startOffset" : 177,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 40,
+      "context" : "These data indicated that QD surface coating is a primary determinant of cytotoxicity and immunotoxicity in human epidermal keratinocytes (HEKs).(41)",
+      "startOffset" : 145,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 41,
+      "context" : "For example, rod-shaped gold nanoparticles (AuNPs) were found to have a longer circulation time in the systemic circulation and preferentially accumulated in solid tumors to a higher extent compared to spherical AuNPs.(42) In terms of cellular internalization, Huang et al.",
+      "startOffset" : 218,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 42,
+      "context" : "found that shape of the particles dictates the endocytic pathways.(43) Concepts like ‘wrapping time’(44) and ‘diffusion length’(45) were proposed to capture the information regarding the aspect ratio of the particles in predicting potential energy required for uptake.",
+      "startOffset" : 66,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 45,
+      "context" : "compared the cytotoxicity of unwashed and washed AgNPs on HEKs, showing clear dose-dependent toxicity for unwashed, but not washed AgNPs, implying the toxic effects were actually caused by impurities or chemical residuals in the unwashed particles.(46)",
+      "startOffset" : 248,
+      "endOffset" : 252
+    }, {
+      "referenceID" : 46,
+      "context" : "For example, comparing to a suspended state, intermediate and higher aggregation states of iron oxyhydroxide nanoparticles have opposite effect on their capacity for heavy metal adsorption, which would impact their potential application in environmental remediation of heavy metal pollution.(47) Some research indicated the aggregation states can change the dissolution rate of metal nanoparticles in natural water.",
+      "startOffset" : 291,
+      "endOffset" : 295
+    }, {
+      "referenceID" : 47,
+      "context" : "Some research indicated the aggregation states can change the dissolution rate of metal nanoparticles in natural water.(48) In biological systems, the aggregation and dissolution phenomena are both associated with environmental factors including pH, ionic strength, and interactions with surrounding molecules, even the primary or initial particle size.",
+      "startOffset" : 119,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 51,
+      "context" : "In biological systems, the aggregation and dissolution phenomena are both associated with environmental factors including pH, ionic strength, and interactions with surrounding molecules, even the primary or initial particle size.(52) The dissolution of some metal nanoparticles, such as AgNPs, can make a large contribution toward their toxicities.",
+      "startOffset" : 229,
+      "endOffset" : 233
+    }, {
+      "referenceID" : 53,
+      "context" : "The dissolution of some metal nanoparticles, such as AgNPs, can make a large contribution toward their toxicities.(54) Those processes are sometimes reversible, e.",
+      "startOffset" : 114,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 54,
+      "context" : ", AgNPs could undergo a rich set of spontaneous biochemical transformations of particle dissolution and reformation of secondary particles across otherwise size-restrictive membranes upon interacting with environmental or biological systems.(55) Characterization of individual and aggregated particles, as well as the aggregation process can be extremely important for biological and environmental applications.",
+      "startOffset" : 241,
+      "endOffset" : 245
+    }, {
+      "referenceID" : 55,
+      "context" : "Such repulsion can be counteracted by the addition of either inert electrolyte or polymeric flocculant, both of which could be available in biological or environmental systems, leading to the formation of aggregates.(56) Typical characterization tools can detect such aggregation by monitoring the size increase, which presumably decreases the specific surface areas of the particles.",
+      "startOffset" : 216,
+      "endOffset" : 220
+    }, {
+      "referenceID" : 56,
+      "context" : "either metal or semiconductor cores and fluorescence decorations to mimic the structure of a high density lipoprotein (HDL) supramolecular complex as contrast enhancing agents.(57) Verma et al.",
+      "startOffset" : 176,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 57,
+      "context" : "created heterogeneous surface ligand patterns to control the membrane penetration ability of AuNPs.(58) As a result, in both experimental and modeling settings of a colloidal nanoparticle system, in addition to size changes, the aggregation density, fractality, and porosity should be considered to incorporate aggregation effect.",
+      "startOffset" : 99,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 64,
+      "context" : "These native species could include organic matter in natural water, or biological macromolecules, including lipids, proteins, peptides, and nucleic acids, in body fluids such as blood, gastric(3,64) or pulmonary mucus.(65,66) The surface modifying effects of these native species usually can change the behavior and fate of nanomaterial in those environments, thereby modulating their biological impact.",
+      "startOffset" : 218,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 65,
+      "context" : "These native species could include organic matter in natural water, or biological macromolecules, including lipids, proteins, peptides, and nucleic acids, in body fluids such as blood, gastric(3,64) or pulmonary mucus.(65,66) The surface modifying effects of these native species usually can change the behavior and fate of nanomaterial in those environments, thereby modulating their biological impact.",
+      "startOffset" : 218,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 50,
+      "context" : "It was observed that the formation of a protein corona could counteract the decrease in particle stability caused by elevated ionic strengths in biological buffers, against aggregation(62) and dissolution.(51,53) Enhanced aggregation of gold nanorods (AuNRs) by adsorption of skin proteins was also reported.",
+      "startOffset" : 205,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 52,
+      "context" : "It was observed that the formation of a protein corona could counteract the decrease in particle stability caused by elevated ionic strengths in biological buffers, against aggregation(62) and dissolution.(51,53) Enhanced aggregation of gold nanorods (AuNRs) by adsorption of skin proteins was also reported.",
+      "startOffset" : 205,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 66,
+      "context" : "Another study pointed out that the effect on particle stability depended on protein concentration, low plasma concentrations tend to trigger aggregation, while high concentrations causes protein coating and subsequent stabilization.(67) In biomedical applications of nanomaterials, such as drug delivery, preformed biocorona of carefully chosen proteins can be used for targeting specific cells or organs and regulate the uptake, biocorona formed postadministration can sometimes diminish the targeting ability of specific functionalizations,(68,75) while other studies indicated biocorona can also minimize unwanted nonspecific uptake by untargeted cells or tissues and enhance the circulation time.",
+      "startOffset" : 232,
+      "endOffset" : 236
+    }, {
+      "referenceID" : 75,
+      "context" : "In biomedical applications of nanomaterials, such as drug delivery, preformed biocorona of carefully chosen proteins can be used for targeting specific cells or organs and regulate the uptake, biocorona formed postadministration can sometimes diminish the targeting ability of specific functionalizations,(68,75) while other studies indicated biocorona can also minimize unwanted nonspecific uptake by untargeted cells or tissues and enhance the circulation time.(76,77) One study demonstrated that the surface modifications using short chain oligopeptide with a specific sequence can mimic the surface amino acid residues (glutamic acid and lysine) of human plasma proteins, and thus inhibit nonspecific interactions with other biomolecules or nonspecific cellular uptake.",
+      "startOffset" : 463,
+      "endOffset" : 470
+    }, {
+      "referenceID" : 76,
+      "context" : "In biomedical applications of nanomaterials, such as drug delivery, preformed biocorona of carefully chosen proteins can be used for targeting specific cells or organs and regulate the uptake, biocorona formed postadministration can sometimes diminish the targeting ability of specific functionalizations,(68,75) while other studies indicated biocorona can also minimize unwanted nonspecific uptake by untargeted cells or tissues and enhance the circulation time.(76,77) One study demonstrated that the surface modifications using short chain oligopeptide with a specific sequence can mimic the surface amino acid residues (glutamic acid and lysine) of human plasma proteins, and thus inhibit nonspecific interactions with other biomolecules or nonspecific cellular uptake.",
+      "startOffset" : 463,
+      "endOffset" : 470
+    }, {
+      "referenceID" : 77,
+      "context" : "One study demonstrated that the surface modifications using short chain oligopeptide with a specific sequence can mimic the surface amino acid residues (glutamic acid and lysine) of human plasma proteins, and thus inhibit nonspecific interactions with other biomolecules or nonspecific cellular uptake.(78) The surface modification of plasma protein can also determine the uptake by macrophages through producing three different aggregation states (protein-stabilized individual particles, protein induced clusters, or protein free particle) for iron oxide nanoparticles.",
+      "startOffset" : 302,
+      "endOffset" : 306
+    }, {
+      "referenceID" : 78,
+      "context" : "The formation of plasma protein corona was also found to affect hemolysis, thrombocyte activation, and endothelial cell death.(79) In the interest of personalized medicine, Hajipour et al.",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 79,
+      "context" : "studied the plasma protein corona formed on graphene oxide (GO) by plasma from patients with different conditions and found that the compositions of proteins in the coronae were personalized and disease-specific; the resulting GO–corona complexes exhibited significantly different biological impact, such as cellular toxicity, apoptosis /necrosis, uptake, ROS production, lipid peroxidation, and inflammation response.(80) The results from this research further confirmed that the interactions with biological systems are heavily influenced by surface modification by native species subsequent to administration or discharge.",
+      "startOffset" : 418,
+      "endOffset" : 422
+    }, {
+      "referenceID" : 86,
+      "context" : ", protein corona on polystyrene nanoparticles in plasma were found to evolve, retaining a fingerprint of its prior history, after being transferred from plasma to cytosolic fluids, with some proteins from the original corona replaced by proteins from the new biological fluid.(87) Furthermore, it is extremely important to consider the impact of the preformed protein corona on biological or physiological parameters such as cellular uptake and circulation time.",
+      "startOffset" : 276,
+      "endOffset" : 280
+    }, {
+      "referenceID" : 87,
+      "context" : "to study the pharmacokinetics of administered nanomaterials for therapeutic purposes.(88,89)",
+      "startOffset" : 85,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 88,
+      "context" : "to study the pharmacokinetics of administered nanomaterials for therapeutic purposes.(88,89)",
+      "startOffset" : 85,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 89,
+      "context" : ", laser) by suspended small particles, and the size distribution can be inferred from the autocorrelation function based on Stokes-Einstein’s diffusion theory.(90) The advantages of DLS include fast measurement, simple sample preparation, large size range, low cost, noninvasive detection, and broad working concentration range.",
+      "startOffset" : 159,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 91,
+      "context" : "investigated the interaction of fullerenol (C60OH20) with dendritic polymeric molecules, their DLS results (Figure 2(a)) indicated that G1 and G4 dendritic polymers can induce supramolecular complexation of fullerenol at different ratios.(92) Wang et al.",
+      "startOffset" : 238,
+      "endOffset" : 242
+    }, {
+      "referenceID" : 93,
+      "context" : "studied the thermostability and reversibility of nanoparticle–protein conjugation by monitoring the hydrodynamic diameters over heating and cooling cycles, clearly showing that the binding was temperature-dependent and could be reversed by changing the temperature (Figure 2(b)).(94) Sasidharan et al.",
+      "startOffset" : 279,
+      "endOffset" : 283
+    }, {
+      "referenceID" : 97,
+      "context" : "conducted DLS size measurements of AgNPs and AuNPs upon interaction with different types of plasma proteins, clearly showing different affinity and kinetics of the protein corona formation processes.(98) Gurzov et al.",
+      "startOffset" : 199,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 94,
+      "context" : "Gurzov et al.(95) and Nedumpully-Govindan et al.",
+      "startOffset" : 13,
+      "endOffset" : 17
+    }, {
+      "referenceID" : 99,
+      "context" : "and Nedumpully-Govindan et al.(100) monitored the amyloid formation process when trying to determine the inhibition effect of PMAM dendrimer and polyphenol respectively (Figure 2(c)).",
+      "startOffset" : 30,
+      "endOffset" : 35
+    }, {
+      "referenceID" : 100,
+      "context" : "FCS measures the fluorescence intensity fluctuation from a small volume in an aqueous sample, caused by the diffusion of fluorescent molecules into and out of that volume.(101) Similar to DLS, FCS also employs an autocorrelation function, and uses Stokes–Einstein’s diffusion theory to obtain dimensional information such as hydrodynamic size and diffusion coefficient.",
+      "startOffset" : 171,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 101,
+      "context" : "utilized FCS to discriminated fast and slow diffusing fluorescencelabeled transferrin molecules in order to distinguish free and nanoparticle-bound proteins.(102) Zeta-potential is a measure of nanoparticle surface charge.",
+      "startOffset" : 157,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 98,
+      "context" : "Zeta-potential is a measure of nanoparticle surface charge.(99) The experimental determination method of zeta-potential is usually integrated into a DLS apparatus.",
+      "startOffset" : 59,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 102,
+      "context" : "For example, in the studies from Monopoli et al.(103) and",
+      "startOffset" : 48,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 91,
+      "context" : "of the complexes was observed for both G1/fullerenol and G4/fullerenol mixtures at a ratio of number of primary amines of dendrimer/fullerenol ≈2.(92) (b) Hydrodynamic radius of bAgNP– lysozyme versus temperature, displaying a hysteresis between heating and cooling (top) and hydrodynamic radius of bAgNP–lysozyme versus time (bottom).",
+      "startOffset" : 146,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 93,
+      "context" : "(b) Hydrodynamic radius of bAgNP– lysozyme versus temperature, displaying a hysteresis between heating and cooling (top) and hydrodynamic radius of bAgNP–lysozyme versus time (bottom).(94) (c) Time evolutions of the hydrodynamic diameters of hIAPP (19 × 10 M).",
+      "startOffset" : 184,
+      "endOffset" : 188
+    }, {
+      "referenceID" : 94,
+      "context" : "(c) Time evolutions of the hydrodynamic diameters of hIAPP (19 × 10 M).(95) (d) Normalized number-weighted particle size distributions of aminated silica NPs in Tris buffer.",
+      "startOffset" : 71,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 95,
+      "context" : "(d) Normalized number-weighted particle size distributions of aminated silica NPs in Tris buffer.(96) (e) Characterization of Tf-coated NPs in PBS at",
+      "startOffset" : 97,
+      "endOffset" : 101
+    }, {
+      "referenceID" : 103,
+      "context" : "Differential Centrifugal Sedimentation Differential centrifugal sedimentation (DCS), similar to analytic centrifugation or field flow fractionation, utilizes the differences in particle mobility under various force fields (centripetal force in the case of DCS) to separate particles.(104) These techniques can be applied as either separation, or size measurement methods.",
+      "startOffset" : 283,
+      "endOffset" : 288
+    }, {
+      "referenceID" : 111,
+      "context" : "FIGURE 3 | (a, b) Fluorescence of HSA quenched by AuNCs, showing concentration-dependent quenching rate.(112) (c, d) Representative",
+      "startOffset" : 104,
+      "endOffset" : 109
+    }, {
+      "referenceID" : 112,
+      "context" : "fluorescence emission spectra of noncross-linked FRET-based nanoparticles in the presence of human plasma, showing time-dependent FRET efficiency indicating the release of drug load.(113) AuNC, gold nanocluster; DCMN1 (are the names given to the nano complexes in the original",
+      "startOffset" : 182,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 96,
+      "context" : "on the interaction of transferrin with polystyrene nanoparticles (PSOSO3H and PSCOOH), size characterization using DCS clearly shows several sharp peaks in the size distribution of PSOSO3H indicating multiple populations present, PSCOOH shows only one sharp peak, proving its monodispersity; while the surface adsorption of transferrin created multiple size populations in both samples (Figure 2(d)).(97) DCS and DLS results were directly compared by Sikora et al.",
+      "startOffset" : 400,
+      "endOffset" : 404
+    }, {
+      "referenceID" : 95,
+      "context" : ": in contrast to the one single broad peak detected by DLS, the results from DSC clearly show the presence of two distinct size populations (Figure 2(e)).(96) Optical Spectroscopy",
+      "startOffset" : 154,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 104,
+      "context" : "Upon interaction, either binding that can lead to complex formation or dynamic collision, the fluorescence intensity is often observed to decrease due to ground state complex formation or energy transfer between the two.(105) Such quenching effect of protein fluorescence is often used to study the interaction energetics",
+      "startOffset" : 220,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 121,
+      "context" : "FIGURE 4 | (a) Raman spectra of algal exudate-graphene/graphene oxide system (1×: stock, 1/10×: ten-time diluted).(122) (b) Raman spectra of AuMN-DTTC and control probes in water.",
+      "startOffset" : 114,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 122,
+      "context" : "AuMN-DTTC has a distinctive SERS signature, which is absent in the control probes.(123) (c) FTIR Spectra of BSA (upper spectra) and BSA-GNPs (lower spectra).",
+      "startOffset" : 82,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 108,
+      "context" : "(c) FTIR Spectra of BSA (upper spectra) and BSA-GNPs (lower spectra).(109) (d) LSPR spectra of cit-AuNPs in the absence and presence of different lysozyme (LYZ)",
+      "startOffset" : 69,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 123,
+      "context" : "The cit-AuNP concentration is 2 nM.(124) AuMN, gold nanoparticles deposited onto (dextran-",
+      "startOffset" : 35,
+      "endOffset" : 40
+    }, {
+      "referenceID" : 111,
+      "context" : "discovered that the presence of human serum albumin (HSA) could enhance the photoluminescence from ultrasmall gold nanoclusters (AuNC), the emission enhancement was analyzed using the Hill’s equation and the equilibrium dissociation was obtained (Figure 3(a)).(112) Similar technique was also used to compare the binding affinity of AuNC to HSA with surface modifications (different surface charges), and the results showed that cationic HSA had the highest affinity while anionic HSA had the lowest.",
+      "startOffset" : 260,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 114,
+      "context" : "Similar technique was also used to compare the binding affinity of AuNC to HSA with surface modifications (different surface charges), and the results showed that cationic HSA had the highest affinity while anionic HSA had the lowest.(115) Another study from the same group revealed the quenching effect on HSA intrinsic fluorescence by AuNC, and the quenching was analyzed by both Stern-Volmer and Hill relations.",
+      "startOffset" : 234,
+      "endOffset" : 239
+    }, {
+      "referenceID" : 113,
+      "context" : "Another study from the same group revealed the quenching effect on HSA intrinsic fluorescence by AuNC, and the quenching was analyzed by both Stern-Volmer and Hill relations.(114) Förster resonance energy transfer (FRET) is an extremely useful fluorescence-based technique for the study of nanoparticle–biomolecule interactions.",
+      "startOffset" : 174,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 115,
+      "context" : "Förster resonance energy transfer (FRET) is an extremely useful fluorescence-based technique for the study of nanoparticle–biomolecule interactions.(116) The application of this technique requires that the two interacting molecules or particles are both fluorescent, and the emission of one (donor) should overlap the other (acceptor).",
+      "startOffset" : 148,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 116,
+      "context" : "FRET is due to the nonradiative energy transfer from the donor to the acceptor, and can happen only when the two are in close proximity (typically <10 nm).(117) From the energy transfer rate, the distance between the donor and acceptor can be determined.",
+      "startOffset" : 155,
+      "endOffset" : 160
+    }, {
+      "referenceID" : 117,
+      "context" : "utilized FRET to study the reversible adsorption and release of lysozyme onto and from the surface of mixed shell polymeric nanoparticles by changing the temperature.(118) Similar strategy was used to study the bio-conjugation of DNA and QDs.",
+      "startOffset" : 166,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 118,
+      "context" : "Similar strategy was used to study the bio-conjugation of DNA and QDs.(119) FRETbased monitoring system can be constructed by anchoring a pair of fluorophores that meet the requirements of FRET onto different site within FRET distance on the nanostructures, to study the interaction of such nanostructures with biomolecules, which could lead to the structural disturbance, or drug delivery system for the detection of drug release (Figure 3(b)).",
+      "startOffset" : 70,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 112,
+      "context" : "FRETbased monitoring system can be constructed by anchoring a pair of fluorophores that meet the requirements of FRET onto different site within FRET distance on the nanostructures, to study the interaction of such nanostructures with biomolecules, which could lead to the structural disturbance, or drug delivery system for the detection of drug release (Figure 3(b)).(113)",
+      "startOffset" : 369,
+      "endOffset" : 374
+    }, {
+      "referenceID" : 119,
+      "context" : "Raman Spectroscopy Raman spectroscopy (RS) detects the energy loss in Stokes Raman or gain in anti-Stokes Raman (difference in frequency or wavelength) between the incident and inelastically scattered photons due to Raman scattering by the target molecules.(120) RS is widely used in the detection of nanomaterials with signature Raman peaks, including carbon-based particles, metal, and metal oxides.",
+      "startOffset" : 257,
+      "endOffset" : 262
+    }, {
+      "referenceID" : 120,
+      "context" : "For example, RS is often used for the identification of CNT, graphene, and graphene oxides from their signature graphitic band (G-band) at ~1585 cm, defects from their defect band (D-band) at ~1350 cm, and 2D-band at ~2700 cm.(121) With the presence of native species in the biological or environmental systems, the interactions with nanomaterials could alter the peak positions due to charge transfers.",
+      "startOffset" : 226,
+      "endOffset" : 231
+    }, {
+      "referenceID" : 121,
+      "context" : "discovered that the binding of algal exudates (comprised of cellulose, peptides, and fatty acids) caused an upshift in the 2D-bands in graphene, but no change was observed in graphene oxide, indicating much stronger interactions with natural amphiphiles for graphene than graphene oxide, which is more hydrophilic (Figure 4(a)).(122) Interaction of nanomaterials with much smaller organic molecules, such as pesticides and carbohydrates, can be studied using RS.",
+      "startOffset" : 328,
+      "endOffset" : 333
+    }, {
+      "referenceID" : 125,
+      "context" : "The Raman shift peaks of chlorpyrifos, at 640 cm due to C Cl vibrations and 1580 cm due to P S vibrations, were found broadened and shifted after incubation with citrate-coated AgNPs because of surface adsorption.(126) The emergence of new peaks in Raman spectra sometimes is an indication of new bond formation.",
+      "startOffset" : 213,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 126,
+      "context" : "found that glucose molecules interact with AgNPs through covalent bonding: new peaks at 480, 540, and 980 cm were attributed to AgO H twisting, Ag OH stretching, and AgO H bending respectively.(127) Raman signal can be enhanced by placing target molecules on a rough metal surface or metallic nanostructure due to localized plasmonic effect.",
+      "startOffset" : 193,
+      "endOffset" : 198
+    }, {
+      "referenceID" : 127,
+      "context" : "The matching between the Raman shift and the modes were demonstrated to be able to detect trace level of fonofos in drinks.(128) Similar to bulk Raman, SERS could also reveal distinctive signature peaks of the organic molecule-nanomaterials complex.",
+      "startOffset" : 123,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 122,
+      "context" : "utilized the signature SERS peaks from Raman reporter molecules 3,3’-diethylthiatricarbocyanine iodide (DTTC) conjugated to AuNPs complexed with dextran-coated superparamagnetic iron oxide nanoparticles to identify and locate the injected nanostructures in mice for the purpose of magnetic resonance imaging (MRI) (Figure 4(b)).(123)",
+      "startOffset" : 328,
+      "endOffset" : 333
+    }, {
+      "referenceID" : 119,
+      "context" : "Infrared Spectroscopy The absorption of infrared (IR) radiation is typically caused by bond stretching, bending, or twisting, and biomolecules usually have signature peaks depending on the types of bonds present, hence the changes in IR spectra are usually indications of structural change.(120) Unlike RS, which is suitable for a wet environment, IR signals can undergo severe interference due to strong IR absorption from water molecules, thus IR spectroscopy requires dry samples.",
+      "startOffset" : 290,
+      "endOffset" : 295
+    }, {
+      "referenceID" : 35,
+      "context" : "By monitoring the peaks corresponding to these structures, it was discovered that upon adsorption of BSA onto AgNPs and carbon-based nanomaterials, with subsequent formation of a protein corona, β-turns were relaxed, α-helix decreased, and β-sheet increased, possibly because the helical structure tends to unravel in order to interact with a particle surface.(36,121) Structural changes in amylase were also confirmed upon interaction with AgNPs using IR spectra showing that the disulfide bridges present in the native protein was lost due to the interaction.",
+      "startOffset" : 360,
+      "endOffset" : 368
+    }, {
+      "referenceID" : 120,
+      "context" : "By monitoring the peaks corresponding to these structures, it was discovered that upon adsorption of BSA onto AgNPs and carbon-based nanomaterials, with subsequent formation of a protein corona, β-turns were relaxed, α-helix decreased, and β-sheet increased, possibly because the helical structure tends to unravel in order to interact with a particle surface.(36,121) Structural changes in amylase were also confirmed upon interaction with AgNPs using IR spectra showing that the disulfide bridges present in the native protein was lost due to the interaction.",
+      "startOffset" : 360,
+      "endOffset" : 368
+    }, {
+      "referenceID" : 128,
+      "context" : "Structural changes in amylase were also confirmed upon interaction with AgNPs using IR spectra showing that the disulfide bridges present in the native protein was lost due to the interaction.(129) IR spectroscopy is also often used to confirm the surface modification or conjugation of nanomaterials, e.",
+      "startOffset" : 192,
+      "endOffset" : 197
+    }, {
+      "referenceID" : 129,
+      "context" : ", the disappearance of –SH stretching band from the free BSA molecule indicated successful conjugation of BSA–AuNPs through Au– thiol coordination bonds (Figure 4(c));(109) the interacting functional groups from the biopolymers, including chitosan, N,N,N-trimethylchitosan (TMC), and carboxymethylchitosan (CMC), with the QD surfaces were identified when they were used as capping agents by the shifts and changes in intensities from their respective IR spectra.(130)",
+      "startOffset" : 462,
+      "endOffset" : 467
+    }, {
+      "referenceID" : 124,
+      "context" : "Circular dichroism (CD) detects the ellipticity caused by such polarization-dependent absorption to provide structural information of the biomolecules.(125) Thus, CD is widely used to study the structural changes of biomolecules such as proteins as they interact with biomaterial surfaces, as well as probing how corona proteins may be different from their native structures.",
+      "startOffset" : 151,
+      "endOffset" : 156
+    }, {
+      "referenceID" : 133,
+      "context" : "For example, discrete molecular dynamics (DMD) simulation results on secondary structural alteration of ubiquitin upon binding to fullerene and their derivatives were confirmed by experimental CD results.(134) The role of helical content and its reduction in the binding of apolipoprotein to AgNPs were illustrated by both CD results and MD simulations.",
+      "startOffset" : 204,
+      "endOffset" : 209
+    }, {
+      "referenceID" : 134,
+      "context" : "The role of helical content and its reduction in the binding of apolipoprotein to AgNPs were illustrated by both CD results and MD simulations.(135) The interaction mode of the BSA corona with AuNRs, including binding interface, crucial residues, conformation of protein, were investigated by combining experimental approach of CD with MD simulations.",
+      "startOffset" : 143,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 135,
+      "context" : "The interaction mode of the BSA corona with AuNRs, including binding interface, crucial residues, conformation of protein, were investigated by combining experimental approach of CD with MD simulations.(136)",
+      "startOffset" : 202,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 136,
+      "context" : "Surface Plasmon Resonance Surface plasmon resonance (SPR) is the oscillation of free electrons in a conducting material induced by incident light at a specific wavelength, which depends on chemical composition, size, and surrounding environment, creating a standing electromagnetic wave at the surface.(137) SPR of colloidal metallic particles can be detected using a UV–Vis absorption spectrometer, and the resonance wavelength is dependent on the local dielectric constant, providing a very convenient method for the detection of surface binding of biomolecules and the formation of corona.",
+      "startOffset" : 302,
+      "endOffset" : 307
+    }, {
+      "referenceID" : 123,
+      "context" : "This technique has been successfully applied to many metallic nanoparticles including AgNPs(51) and AuNPs (Figure 4 (d)).(124) Combined with dark field microscopy, SPR can be achieved on a single particle level (hyperspectral imaging), identifying internalized particles in cells WIREs Nanomedicine and Nanobiotechnology Biological and environmental surface interactions of nanomaterials",
+      "startOffset" : 121,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 97,
+      "context" : "or tissues, with or without surface adsorbed biological molecules.(98) The hyperspectra obtained from a population of particles can be used for statistical analyses to qualitatively determine the amount of biomolecule adsorption.",
+      "startOffset" : 66,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 50,
+      "context" : "The hyperspectra obtained from a population of particles can be used for statistical analyses to qualitatively determine the amount of biomolecule adsorption.(51) As the SPR peak wavelength is also dependent on particle size, monitoring SPR over time can provide information on the stability of the colloidal suspension of metallic nanoparticles in physiologically or environmentally relevant conditions, revealing either size increase, indicating aggregation, or decrease, indicating dissolution.",
+      "startOffset" : 158,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 137,
+      "context" : "As the SPR peak wavelength is also dependent on particle size, monitoring SPR over time can provide information on the stability of the colloidal suspension of metallic nanoparticles in physiologically or environmentally relevant conditions, revealing either size increase, indicating aggregation, or decrease, indicating dissolution.(138)",
+      "startOffset" : 334,
+      "endOffset" : 339
+    }, {
+      "referenceID" : 143,
+      "context" : "The figure clearly depicts the preferential enrichment of low abundance proteins by engineered nanoparticles that were not detectable in the lysates by proteomics analysis.(144) (b) ITC Titration of HSA into solutions of 70 nm nanoparticles with 50:50 (left) and",
+      "startOffset" : 172,
+      "endOffset" : 177
+    }, {
+      "referenceID" : 144,
+      "context" : "(Inset) Size comparison of albumin and particles of 70 or 200 nm diameter.(145) AuNP, gold nanoparticle; HSA, human serum albumin; ITC, isothermal titration calorimetry; MS, mass",
+      "startOffset" : 74,
+      "endOffset" : 79
+    }, {
+      "referenceID" : 143,
+      "context" : "The corona protein contents were further identified and correlated with the biological behavior of the complexes, such as uptake,(69,76) selective cell targeting effect,(142) toxicity,(143) and specific disease targeting effects (Figure 5(a)).(144) MS methods are also widely adopted in studies regarding environmental applications or implications of nanomaterials, especially gas phase–MS (GC-MS) for the separation, identification, and quantification of small organic compounds that are usually considered as environmental pollutants.",
+      "startOffset" : 243,
+      "endOffset" : 248
+    }, {
+      "referenceID" : 145,
+      "context" : "MS methods are also widely adopted in studies regarding environmental applications or implications of nanomaterials, especially gas phase–MS (GC-MS) for the separation, identification, and quantification of small organic compounds that are usually considered as environmental pollutants.(146) GC-MS was used to demonstrate the application of CNT as solidphase extraction device for multiple pesticide residue detection in water samples.",
+      "startOffset" : 287,
+      "endOffset" : 292
+    }, {
+      "referenceID" : 146,
+      "context" : "GC-MS was used to demonstrate the application of CNT as solidphase extraction device for multiple pesticide residue detection in water samples.(147) Quantitative analyses of multi-component samples can be automated to drastically increase the throughput, thus large data set can be obtained for the purpose of statistical modeling.",
+      "startOffset" : 143,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 147,
+      "context" : "developed a structure-activity relation-based biological surface adsorption index (BSAI) approach, utilizing data obtained from GCMS in conjunction with solid phase microextraction (SPME), to decipher the physicochemical aspects of the nanomaterial surface properties and how interactions of different physical nature contribute to the binding of organic molecules to the surfaces.(148,149) Similar methods was implemented with LC-MS, using corona protein content as parameters to build statistical models on biological effects such as uptake and toxicity.",
+      "startOffset" : 381,
+      "endOffset" : 390
+    }, {
+      "referenceID" : 148,
+      "context" : "developed a structure-activity relation-based biological surface adsorption index (BSAI) approach, utilizing data obtained from GCMS in conjunction with solid phase microextraction (SPME), to decipher the physicochemical aspects of the nanomaterial surface properties and how interactions of different physical nature contribute to the binding of organic molecules to the surfaces.(148,149) Similar methods was implemented with LC-MS, using corona protein content as parameters to build statistical models on biological effects such as uptake and toxicity.",
+      "startOffset" : 381,
+      "endOffset" : 390
+    }, {
+      "referenceID" : 149,
+      "context" : "Similar methods was implemented with LC-MS, using corona protein content as parameters to build statistical models on biological effects such as uptake and toxicity.(150)",
+      "startOffset" : 165,
+      "endOffset" : 170
+    }, {
+      "referenceID" : 150,
+      "context" : "Isothermal titration calorimetry (ITC) is a thermally based technique that measures minute amount of heat absorbed or released from the interactions of nanomaterial surfaces and biomolecules to determine the thermodynamics of the interactions, including enthalpy, entropy, association constant, interaction energy, and stoichiometry.(151) ITC was originally developed to study the binding of small molecules, such as drug molecules, onto larger biomolecules.",
+      "startOffset" : 333,
+      "endOffset" : 338
+    }, {
+      "referenceID" : 144,
+      "context" : "conducted one of the first studies on the application of ITC toward proteinnanoparticle interactions and protein corona formation: they compared the heat release from then titration of protein solution into suspensions of polystyrene particles of different sizes and surface hydrophobicity, revealing that the surface interactions were indeed dependent on those factors as indicated by respective stoichiometries (Figure 5 (b)).(145) Recently, ITC has gain popularity in studying the interactions between various nanomaterialbiomolecule pairs, including ubiquitin, fibrinogen,(28) and BSA(29) with AuNPs with different surface patterns, BSA with lipid nanocapsules,(152) and lysozyme with silica nanoparticles.",
+      "startOffset" : 428,
+      "endOffset" : 433
+    }, {
+      "referenceID" : 152,
+      "context" : "Recently, ITC has gain popularity in studying the interactions between various nanomaterialbiomolecule pairs, including ubiquitin, fibrinogen,(28) and BSA(29) with AuNPs with different surface patterns, BSA with lipid nanocapsules,(152) and lysozyme with silica nanoparticles.(153) Due to its sensitivity, ITC is able to detect heat associated with nonspecific surface binding, which is typically significantly lower than specific binding like ligand–receptor binding.",
+      "startOffset" : 276,
+      "endOffset" : 281
+    }, {
+      "referenceID" : 73,
+      "context" : "The shape of the cell membrane indicated that active phagocytosis was the possible uptake mechanism.(74) TEM is also often used for the visualization of molecular interaction between nanomaterials and biomolecules, as well as WIREs Nanomedicine and Nanobiotechnology Biological and environmental surface interactions of nanomaterials",
+      "startOffset" : 100,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 90,
+      "context" : "For biocorona-coated metallic nanoparticles, due to much lower electron density in the corona compared to nanoparticles, the corona layer is easily visible, as indicated in many published studies.(91,98) To characterize finer structural characteristics and achieve higher resolution, scanning tunneling microscopy (STM) can be employed.",
+      "startOffset" : 196,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 97,
+      "context" : "For biocorona-coated metallic nanoparticles, due to much lower electron density in the corona compared to nanoparticles, the corona layer is easily visible, as indicated in many published studies.(91,98) To characterize finer structural characteristics and achieve higher resolution, scanning tunneling microscopy (STM) can be employed.",
+      "startOffset" : 196,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 57,
+      "context" : "characterized ligand arrangements and surface patterns of extremely small nanoparticles (~5 nm) using STM, and established a correlation of these surface features to their cellular uptake and biodistribution within the cells.(58) Despite its advantageous imaging capabilities, EM techniques for the characterization suffer a few shortcomings.",
+      "startOffset" : 225,
+      "endOffset" : 229
+    }, {
+      "referenceID" : 157,
+      "context" : "discovered that fullerene derivative could inhibit the in vitro polymerization of microtubules, and MD simulation results were used to confirm the binding between fullerene particles and tubulin monomers or dimers, and identify the binding sites, which created a hindrance to the binding of the tubulins (Figure 6(a)).(158) In another study by Wang et al.",
+      "startOffset" : 318,
+      "endOffset" : 323
+    }, {
+      "referenceID" : 135,
+      "context" : ", the binding of BSA onto AuNRs was confirmed using spectroscopic methods, then MD simulation was used to identify the specific residuals in the proteins that were bound to the nanomaterial surface.(136) The conformational changes of proteins upon binding to AgNPs(160) or fullerene(134) were studied using MD simulation, generating amino acid residual-level resolution, then the bulk conformational change was confirmed by CD measurements.",
+      "startOffset" : 198,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 158,
+      "context" : "Subsequently, equilibrium binding coefficients were calculated and compared to experimental results (Figure 6(b)).(159) Such comparisons provide solid grounds for the deduction of exact chemical composition and spatial arrangements of the surface ligands.",
+      "startOffset" : 114,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 157,
+      "context" : "GTP: Guanosine-50-triphosphate, GDP: guanosine diphosphate.(158) (b) Model for molecular dynamics simulation",
+      "startOffset" : 59,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 158,
+      "context" : "The full names of the chemicals can be found in the referenced publication.(159)",
+      "startOffset" : 75,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 165,
+      "context" : "processes, such as surface adsorption of chemical onto an organic membrane.(166) Naturally, QSAR can be applied in the field of nanotechnology, and sometimes is termed as nano-QSAR,(167) or quantitative nanostructure–activity relationship (QNAR).",
+      "startOffset" : 75,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 167,
+      "context" : "Naturally, QSAR can be applied in the field of nanotechnology, and sometimes is termed as nano-QSAR,(167) or quantitative nanostructure–activity relationship (QNAR).(168) First, similar to traditional QSAR applications, models can be established to directly connect descriptors parametrized from nanomaterial physicochemical properties and structures with biological behaviors, including absorption/uptake,(169) cellular toxicity effects,(170) and distribution.",
+      "startOffset" : 165,
+      "endOffset" : 170
+    }, {
+      "referenceID" : 167,
+      "context" : "First, similar to traditional QSAR applications, models can be established to directly connect descriptors parametrized from nanomaterial physicochemical properties and structures with biological behaviors, including absorption/uptake,(169) cellular toxicity effects,(170) and distribution.(168,171) Another approach incorporated the protein corona content formed on the surfaces of nanomaterials as descriptors into the QSAR modeling, to describe how the surface modification by biomolecules impacts their biological behavior.",
+      "startOffset" : 290,
+      "endOffset" : 299
+    }, {
+      "referenceID" : 170,
+      "context" : "First, similar to traditional QSAR applications, models can be established to directly connect descriptors parametrized from nanomaterial physicochemical properties and structures with biological behaviors, including absorption/uptake,(169) cellular toxicity effects,(170) and distribution.(168,171) Another approach incorporated the protein corona content formed on the surfaces of nanomaterials as descriptors into the QSAR modeling, to describe how the surface modification by biomolecules impacts their biological behavior.",
+      "startOffset" : 290,
+      "endOffset" : 299
+    }, {
+      "referenceID" : 171,
+      "context" : "Another approach incorporated the protein corona content formed on the surfaces of nanomaterials as descriptors into the QSAR modeling, to describe how the surface modification by biomolecules impacts their biological behavior.(172,173) Physical properties of the core materials, such as conduction and valence band energies of semiconducting materials, can also be incorporated in QSAR modeling, with correlation to cellular toxicity.",
+      "startOffset" : 227,
+      "endOffset" : 236
+    }, {
+      "referenceID" : 172,
+      "context" : "Another approach incorporated the protein corona content formed on the surfaces of nanomaterials as descriptors into the QSAR modeling, to describe how the surface modification by biomolecules impacts their biological behavior.(172,173) Physical properties of the core materials, such as conduction and valence band energies of semiconducting materials, can also be incorporated in QSAR modeling, with correlation to cellular toxicity.",
+      "startOffset" : 227,
+      "endOffset" : 236
+    }, {
+      "referenceID" : 30,
+      "context" : "Physical properties of the core materials, such as conduction and valence band energies of semiconducting materials, can also be incorporated in QSAR modeling, with correlation to cellular toxicity.(31) A more fundamental application of QSAR to study the physicochemical properties of nanomaterials was first proposed by Xia et al.",
+      "startOffset" : 198,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 147,
+      "context" : "This approach, termed as BSAI, incorporated Abraham’s molecule descriptors, and utilized a large number of small aromatic organic molecules, covering a reasonably large chemical space, as chemical probes, to calculate quantitative nanodescriptors and build a model based on linear solvation energy relation (LSER), for the purpose of both nano surface characterization and surface interaction prediction.(148) BSAI deals with nonspecific interactions, including electrostatic, hydrophobic interactions, and",
+      "startOffset" : 404,
+      "endOffset" : 409
+    }, {
+      "referenceID" : 176,
+      "context" : "Positive values indicate that the nanoparticle surfaces have stronger interaction potentials with the chemicals or biomolecules, and negative values indicate the molecular interactions are stronger in the aqueous phase.(177) (b) Predicted versus measured log k values for MWNT–OH (R(2) = 0.",
+      "startOffset" : 219,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 148,
+      "context" : "177 (c) Nanoparticle scattering plot by two principal components.(149) (Reprinted with permission from Ref 177.",
+      "startOffset" : 65,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 177,
+      "context" : "ANN improves the predictive capability of the model with lower R(2) values, comparison between multivariate linear regression (b) and ANN modeling (c).(178) ANN, artificial neural network.",
+      "startOffset" : 151,
+      "endOffset" : 156
+    }, {
+      "referenceID" : 176,
+      "context" : "These modifications to the original model either showed better prediction results, or better separation in the categorization using PCA.(177) BSAI has been applied to the screening of suitable materials for environmental remediation from pesticides pollution, with improved chemical analysis and incorporation of some new statistical methods, such as artificial neural network (ANN).",
+      "startOffset" : 136,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 177,
+      "context" : "BSAI has been applied to the screening of suitable materials for environmental remediation from pesticides pollution, with improved chemical analysis and incorporation of some new statistical methods, such as artificial neural network (ANN).(178) Results from the modeling and prediction based on pesticides adsorption data showed satisfactory predictive capability, and ANN can further improve those unsatisfactory models (Figure 8).",
+      "startOffset" : 241,
+      "endOffset" : 246
+    }, {
+      "referenceID" : 178,
+      "context" : "Physiologically based pharmacokinetic modeling (PBPK) is a process that simulates the absorption, distribution, metabolism and elimination of small molecules or nanomaterials in the body based on interrelationships among major physiological, biochemical, and physicochemical parameters using mathematical equations.(179,180) PBPK models are widely recognized as an important tool in the risk assessment of environmental toxicants because these models can be used to predict target tissue dosimetry and conduct extrapolations from in vitro to in vivo and from animals to humans.",
+      "startOffset" : 315,
+      "endOffset" : 324
+    }, {
+      "referenceID" : 179,
+      "context" : "Physiologically based pharmacokinetic modeling (PBPK) is a process that simulates the absorption, distribution, metabolism and elimination of small molecules or nanomaterials in the body based on interrelationships among major physiological, biochemical, and physicochemical parameters using mathematical equations.(179,180) PBPK models are widely recognized as an important tool in the risk assessment of environmental toxicants because these models can be used to predict target tissue dosimetry and conduct extrapolations from in vitro to in vivo and from animals to humans.",
+      "startOffset" : 315,
+      "endOffset" : 324
+    }, {
+      "referenceID" : 182,
+      "context" : "developed a PBPK model for titanium dioxide nanoparticles in rodents, which was extrapolated to humans.(183) The human model was used to predict the tissue concentrations of titanium in a German population divided as six different age classes (i.",
+      "startOffset" : 103,
+      "endOffset" : 108
+    }, {
+      "referenceID" : 185,
+      "context" : "developed a PBPK model for AuNPs in rodents, pigs, and humans.(186) This model can be used to aid risk assessment by predicting human equivalent doses associated with reported in vitro toxicity in human primary cells or in vivo toxicity in rats through in vitro to in vivo extrapolation and animal-to-human extrapolation.",
+      "startOffset" : 62,
+      "endOffset" : 67
+    } ],
+    "year" : 2016,
+    "abstractText" : "The understanding of nano-bio interactions is deemed essential in the design, application, and safe handling of nanomaterials. Proper characterization of the intrinsic physicochemical properties, including their size, surface charge, shape, and functionalization, is needed to consider the fate or impact of nanomaterials in biological and environmental systems. The characterizations of their interactions with surrounding chemical species are often hindered by the complexity of biological or environmental systems, and the drastically different surface physicochemical properties among a large population of nanomaterials. The complexity of these interactions is also due to the diverse ligands of different chemical properties present in most biomacromolecules, and multiple conformations they can assume at different conditions to minimize their conformational free energy. Often these interactions are collectively determined by multiple physical or chemical forces, including electrostatic forces, hydrogen bonding, and hydrophobic forces, and calls for multidimensional characterization strategies, both experimentally and computationally. Through these characterizations, the understanding of the roles surface physicochemical properties of nanomaterials and their surface interactions with biomacromolecules can play in their applications in biomedical and environmental fields can be obtained. To quantitatively decipher these physicochemical surface interactions, computational methods, including physical, statistical, and pharmacokinetic models, can be used for either analyses of large amounts of experimental characterization data, or theoretical prediction of the interactions, and consequent biological behavior in the body after administration. These computational methods include molecular dynamics simulation, structure–activity relationship models such as biological surface adsorption index, and physiologically-based pharmacokinetic models. ©",
+    "creator" : "Adobe Illustrator CS6 (Windows)"
+  }
+}

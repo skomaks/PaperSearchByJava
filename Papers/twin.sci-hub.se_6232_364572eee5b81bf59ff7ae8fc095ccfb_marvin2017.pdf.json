@@ -1,0 +1,548 @@
+{
+  "name" : "twin.sci-hub.se_6232_364572eee5b81bf59ff7ae8fc095ccfb_marvin2017.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Application of Bayesian Networks for hazard ranking of Nanomaterials to Support Human Health Risk Assessment",
+    "authors" : [ "Hans J. P. Marvin", "Yamine Bouzembrak", "Esmée M. Janssen", "Meike van der Zande", "Finbarr Murphy", "Barry Sheehan", "Martin Mullins", "Hans Bouwmeester" ],
+    "emails" : [ "hans.marvin@wur.nl,", "yamine.bouzembrak@wur.nl,", "esmee.janssen@wur.nl.", "meike.vanderzande@wur.nl.", "Finbarr.Murphy@ul.ie.", "Barry.Sheehan@ul.ie.", "Martin.Mullins@ul.ie.", "hans.bouwmeester@wur.nl." ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Full Terms & Conditions of access and use can be found at http://www.tandfonline.com/action/journalInformation?journalCode=inan20\nDownload by: [University of Newcastle, Australia] Date: 09 January 2017, At: 22:44\nNanotoxicology\nISSN: 1743-5390 (Print) 1743-5404 (Online) Journal homepage: http://www.tandfonline.com/loi/inan20\nApplication of Bayesian Networks for hazard ranking of Nanomaterials to Support Human Health Risk Assessment\nHans J. P. Marvin, Yamine Bouzembrak, Esmée M. Janssen, Meike van der Zande, Finbarr Murphy, Barry Sheehan, Martin Mullins & Hans Bouwmeester\nTo cite this article: Hans J. P. Marvin, Yamine Bouzembrak, Esmée M. Janssen, Meike van der Zande, Finbarr Murphy, Barry Sheehan, Martin Mullins & Hans Bouwmeester (2017): Application of Bayesian Networks for hazard ranking of Nanomaterials to Support Human Health Risk Assessment, Nanotoxicology, DOI: 10.1080/17435390.2016.1278481 To link to this article: http://dx.doi.org/10.1080/17435390.2016.1278481\nAccepted author version posted online: 03 Jan 2017.\nSubmit your article to this journal\nArticle views: 3\nView related articles\nView Crossmark data\nApplication of Bayesian Networks for hazard ranking of Nanomaterials to"
+    }, {
+      "heading" : "Support Human Health Risk Assessment",
+      "text" : "Hans J. P. Marvin 1 , Yamine Bouzembrak 1 , Esmée M. Janssen 1 , Meike van der Zande 1 , Finbarr Murphy 2 , Barry Sheehan 2 , Martin Mullins 2 , and Hans Bouwmeester 1,3 .\nCorresponding author: Hans J. P. Marvin, Wageningen University and Research, RIKILT, Akkermaalsbos 2, 6708WB Wageningen, The Netherlands. Email: hans.marvin@wur.nl, Telephone: + 31317480342\nYamine Bouzembrak, Wageningen University and Research, RIKILT, Akkermaalsbos 2, 6708WB Wageningen, The Netherlands. Email: yamine.bouzembrak@wur.nl, Telephone: +31317486019\nEsmée M. Janssen, Wageningen University and Research, RIKILT, Akkermaalsbos 2, 6708WB Wageningen, The Netherlands. Email: esmee.janssen@wur.nl. Telephone: +31317481657\nMeike van der Zande, Wageningen University and Research, RIKILT, Akkermaalsbos 2, 6708WB Wageningen, The Netherlands. Email: meike.vanderzande@wur.nl. Telephone: +31317480358\nJU ST\nA CC\nEP TE\nD\nFinbarr Murphy, Kemmy Business School, University of Limerick, Ireland, Email: Finbarr.Murphy@ul.ie. Telephone +353 86 1088 137\nBarry Sheehan, Kemmy Business School, University of Limerick, Ireland, Email: Barry.Sheehan@ul.ie. Telephone +353 86 1088 137\nMartin Mullins, Kemmy Business School, University of Limerick, Ireland, Email: Martin.Mullins@ul.ie. Telephone +353 86 1088 137\nHans Bouwmeester, 1 Wageningen University and Research, RIKILT, Akkermaalsbos 2, 6708WB Wageningen, The Netherlands ; and 3 Division of Toxicology, Wageningen University, Wageningen, The Netherlands. Email: hans.bouwmeester@wur.nl. Telephone: +31317481706\nJU ST\nA CC\nEP TE\nD\nApplication of Bayesian Networks for hazard ranking of Nanomaterials to"
+    }, {
+      "heading" : "Support Human Health Risk Assessment",
+      "text" : ""
+    }, {
+      "heading" : "Abstract",
+      "text" : "In this study a Bayesian Network (BN) was developed for the prediction of the hazard potential and biological effects with the focus on metal- and metal-oxide nanomaterials to support human health risk assessment. The developed BN captures the (inter) relationships between the exposure route, the nanomaterials physicochemical properties, and the ultimate biological effects in a holistic manner and was based on international expert consultation and the scientific literature (e.g. in vitro/ in vivo data). The BN was validated with independent data extracted from published studies and the accuracy of the prediction of the nanomaterials hazard potential was 72% and for the biological effect 71%, respectively. The application of the BN is shown with scenario studies for TiO2, SiO2, Ag, CeO2, ZnO nanomaterials. It is demonstrated that the BN may be used by different stakeholders at several stages in the risk assessment to predict certain properties of a nanomaterials of which little information is available or to prioritize nanomaterials for further screening.\nKeywords: Bayesian networks, metal nanomaterials, scenario studies, risk assessment, expert elicitation. JU ST\nA CC\nEP TE\nD\n1. Introduction\nNanomaterials are widely used in almost all sectors in our society and hence human and environmental exposure to these materials is likely. The risk assessment (RA) of nanomaterials (NMs) faces difficulties as it requires an extensive datasets on physiochemical parameters, hazard identification and exposure assessment (Stone et al. 2014a). For this reason, only a few attempts to perform a RAs of NMs are available in the scientific literature (i.e. (nano)silica, (nano)titanium, CNTs and silver NMs) (Heringa et al. 2016; Dekkers et al. 2013; Dekkers et al. 2011; Wijnhoven et al. 2009). Interestingly, US-EPA published a conditional registration of a nanosilver containing product (EPA 2011). The great challenge for the RA of NMs is to keep pace with the high speed of innovations in research and development that result in an ever increasing diversity of NMs. Therefore, a system that identifies those NMs that should get priority in the RA would be very helpful. Several approaches have been proposed to classify NMs and to estimate their risks which include stochastic multi-criteria acceptability analysis (SMAA-TRI) (Tervonen et al. 2007), weight of evidence (WOE) (Hristozov et al. 2014; Linkov et al. 2011), grouping (Arts et al. 2016; Arts et al. 2014), quantitative nanostructure-activity relationship (QSAR) (Singh and Gupta 2014; Winkler et al. 2014), and Bayesian networks (Linkov et al. 2015; Low-Kam et al. 2015; Money et al. 2014). Combinations of these methods were proposed to integrate and collate heterogeneous information to estimate the risk of NMs under scarcity of data (Hristozov et al. 2012; Linkov et al. 2015). Bayesian network (BN) has been proposed as a potential tool in risk assessment of NMs (Winkler et al. 2014; Linkov et al. 2014; Keisler and Linkov 2014; Linkov et al. 2015; LowKam et al. 2015; Money et al. 2014; Murphy et al. 2016), in forecasting environmental risks of NMs (Money et al. 2012) and in characterising relationships between physicochemical JU ST A CC EP TE D\nproperties of NMs and their in vitro toxicity (Low-Kam et al. 2015). The potential use of the BN approach for nanoparticles risk assessment was detailed in (Morgan 2005; Wiesner and Bottero 2011). BN is a graphical model that presents probabilistic relationships among a set of variables to represent knowledge, reasoning under uncertainty, and drawing conclusions based on available information (Cheng et al. 2002). BN approaches offer several features that are useful in hazard ranking of NMs. Firstly, a BN is based on probabilistic relationships that provides insight and an understanding even with partial and limited information (Beaudequin et al. 2015). This is particularly important in the case of NM hazard ranking were the relationships between NMs physicochemical properties and their effects on human health have not been firmly established. Secondly, BN allows to include expert knowledge and their experience in the model. This is considerably useful when the data is limited, but expert knowledge is available. Thirdly, BN facilitates reasoning and drawing conclusions by using efficient algorithms, even when information is missing or the knowledge of an expert is limited (Lauritzen 1995). The use of algorithms facilitates the sensitivity analysis to address the uncertainties that are caused by the different parameters and to reveal variables that are major drivers for the outcome (CoupÉ et al. 2000). Finally, BN satisfies the requirement for quantitative approaches that can be used to generate forecasts and associated levels of uncertainty and can be easily up-dated as new information becomes available. The uncertainty is explicitly represented in a BN model, as each node or variable is represented as a probability distribution (Wiesner and Bottero 2011). BNs have been extensively used in different areas of research such as in the chemical mode of action classification for aquatic toxicology (Carriger et al. 2016) and ecological risk assessment (Lee and Lee 2006; Pollino et al. 2007); to classify images in medical image analysis (Arias et al. 2016); to predict food fraud (Marvin et al 2016; Bouzembrak and Marvin JU ST A CC EP TE D\n2016); to detect surgical site infections and safety assessment of natural gas stations (Sohn et al. 2016; Zarei et al. 2016). In this paper, we explore the potential of BNs to predict hazard levels of NMs to support risk assessors in their attempts to prioritize NMs for a full human health risk assessment. By means of expert consultation and literature data, a BN was constructed and validated with data derived from studies recently published. The applicability of the BN to forecast the potential hazard level and potential biological effects of NMs is demonstrated for several metal and metaloxide NMs.\n2. Materials and Methods\nIn this study, the construction of the BN consists of: i) expert elicitation, ii) collection of the data, iii) BN construction and , iv) validation of the constructed BN (Langseth and Portinale 2007) (see Figure 1). Generally, a BN graphical structure is constructed manually with expert knowledge or semi-automatically from data. In our study, both approaches were combined. An initial BN graphical structure was constructed based on an extensive expert consultation. This initial BN structure was subsequently revised and optimized using the semi-automatic mode of the Hugin software and data of NMs collected from literature."
+    }, {
+      "heading" : "2.1 Expert elicitation",
+      "text" : "In this step, the relevant variables of the BN (i.e. nodes), their value range (i.e. states), and the main relationships (e.g. linkages) among them were defined by means of expert elicitation. Two expert elicitation rounds were executed. In the first round, six experts in the field of (in vivo, in vitro) nanotoxicology from the Netherlands participated. An online questionnaire was used for the survey and included 15 questions. In this questionnaire, national experts selected the most important NM variables, including exposure routes, potential biological effects and\nJU ST\nA CC\nEP TE\nD\nphysicochemical properties that can affect human health. Based on the feedback received, a second expert elicitation round was conducted using an online questionnaire. The experts were selected from ongoing EU Framework 7 projects and are all highly experienced in the area of risk assessment of NMs. In total, 29 experts were invited to participate. The questionnaire of this second round contained 36 questions. The purpose of this questionnaire was to confirm/ validate the answers from the 1 st round and to establish the interactions between nodes and to determine their states. The full list of questions can be seen in Supplement 1 (Questionnaire)."
+    }, {
+      "heading" : "2.2 Literature data collection",
+      "text" : "Toxicity data of metal and metaloxide NMs were collected from studies reported in the scientific literature in the period of 2009 to 2015. It was ensured that data was available for all nodes identified in the expert elicitation. In total 32 scientific articles were used (see Supplement 1 Table A1). A Microsoft Excel dataset related to the developed BN was created, where each node in the model is related to one column in the file and each row in the database represents one case. In one row, data on a specific NM (e.g. reported physicochemical properties) and the results reported of this material in an in vitro or in vivo experiment (e.g. biological effect) were collected and referred to as a case. Each row contained the results of one NM with unique properties and only one experiment. For example, if the same experiment was performed for two slightly different NMs (e.g. only particle size differs), two rows were constructed. Hence, many cases could be extracted from one article. The database created consists of 20 columns (i.e. nodes and 559 rows (i.e. cases). It contains 8 nodes indicating biological effects, namely: neurological effects, cardio-pulmonary effects, immunological effects, inflammation, genotoxicity, reaches central nervous system, fibrosis, JU ST AC CE PT ED\nand cytotoxicity (see Table 1). Since outcomes of a toxicity study are generally more specific than these generic biological effects nodes, a grouping was conducted based on literature and expert knowledge (Table 1). The selected 32 articles were assessed for the presence of tested endpoints related to the biological effects described in the BN (Table 1). To determine the state of the biological effect node (none/low/medium/high), classification criteria presented in Table 2 were used. To be classified as having a biological effect, the result related to the tested endpoint had to be significantly different from the control (as reported by the article). If the tested endpoint showed no significant difference compared to the control, the value of the related effect was recorded as ’None‘. If the tested endpoints were significantly different from the control, the related effects were classified as low/medium/high. This scale reports the probability of the NM exerting this effect (strength of the evidence) and not the severity of the effect. When there was a significant difference in the tested endpoint, although not dose-related, the related effect was classified as ’Low’. For the effect to be classified as ’Medium‘ or ’High‘, the results of the tested endpoint should show a dose-response relation and be positive for more than one/few of the tests indicating this effect or in at least several animals (when the results of an in vivo study are presented per animal) (Table 2). For the in vitro cytotoxicity effects, the medium and high classification was based on the decrease in cell viability and the presence of an LD50, which indicates a dose-response effect. To be classified as ’Medium‘, <75% decrease in cell viability must have been determined. To be classified as ’High‘, 75- 100% decrease in cell viability must have been determined. In addition to the 8 biological effects nodes, an overall effect node was created (i.e. NM hazard). This node depicts the potential of a NM to exert a biological effect and is determined based on the following expression: JU ST A CC EP TE D\nEquation 1: \uD835\uDC3B\uD835\uDC45\uD835\uDC56 = ∑ \uD835\uDC35\uD835\uDC38\uD835\uDC56\uD835\uDC58\n8\n\uD835\uDC58=1\nWhere \uD835\uDC3B\uD835\uDC45\uD835\uDC56 is NM hazard score of case \uD835\uDC56 and \uD835\uDC35\uD835\uDC38\uD835\uDC56\uD835\uDC58 is the biological effect level score of case \uD835\uDC56 and biological effect \uD835\uDC58. For example, \uD835\uDC35\uD835\uDC38\uD835\uDC56\uD835\uDC58 = 0 when the biological effect is equal to None or missing data. The \uD835\uDC3B\uD835\uDC45\uD835\uDC56 score was classified using the same score table (Table 2) of the biological effects, except for the ’High‘ classification effect. NM hazard node was defined as ’High‘ when \uD835\uDC3B\uD835\uDC45\uD835\uDC56≥ 3."
+    }, {
+      "heading" : "2.3 BN construction",
+      "text" : "A BN is a graphical model that represents probabilistic relationship among a set of nodes. A BN is a directed acyclic graph, where the nodes represent the variables U = {Ai, . . . , An} and the directed links between them indicate the relationship among the nodes. Each node is composed of a set of states. A node Ai is the parent of the child node Aj if there is a link from Ai to Aj. BN specifies a unique joint probability distribution of all nodes P(U) = P(A1, . . . , An), given by the product of all conditional probability tables specified in BN:\nEquation 2: P(U) = ∏ P(Ai| pa(Ai))\nn\ni=1\nWhere pa(Ai) are parents of node Ai and P(Ai|pa(Ai)) specifies a conditional probability distribution. The calculations are based on Bayesian theory, where the probability of event A at the condition of event B is expressed as:\nEquation 3: P(A|B) = P(B|A) × P(A)\nP(B)\nIn which P(A) is the prior probability of A, P(B|A) is the probability of B under the condition of a known event A and P(B) is prior probability of B. An example of BN with six nodes is\nJU ST\nA CC\nEP TE\nD\nshown in Figure 2. The corresponding decomposition of joint distribution of nodes is given by\nP(A1, . . . , A6) = P(A1)P(A2)P(A3)P(A4| A1, A2)P(A5| A2, A3)P(A6| A4, A5) To calculate the joint distribution, unconditional distributions of P(A1), P(A2), P(A3) and conditional distributions of P(A4| A1, A2), P(A5| A2, A3), P(A6| A4, A5) should be specified. In this case, an initial BN structure was generated from the information that was collected through the expert elicitation. Subsequently, the BN was optimized using literature data for each node and the learning algorithm of the Hugin 8.3 software (http://www.hugin.com/). Generally, when sufficient data is available, machine learning techniques can be used to estimate the conditional probability tables (CPTs) of a BN and to define the optimal configuration of the interactions between nodes (Alameddine et al. 2011; Denœux 2010; Denœux 2011). In this study, the expectation–maximization (EM) learning algorithm was used to build the BN and to estimate the probabilities within each CPT of the BN (Heckerman 2008; Marcot et al. 2006; Nyberg et al. 2006). In total 468 different cases were collected from the papers and used for the learning process (Learning data is available in Supplement 2)."
+    }, {
+      "heading" : "2.4 Validation of the BN",
+      "text" : "The validation of the BN was conducted with an out-of-sample test against 91 cases extracted from the selected set of scientific papers as described above. These cases were not used for the development of the BN (Validation data is available in Supplement 2). The validation was performed for each case, where the biological effect or the NM hazard level was forecasted using the reported NM physicochemical parameters (e.g. shape, nanoparticle, dissolution, surface area, surface charge, surface coatings, surface reactivity, aggregation, particle size) of the cases as input values. Note that, as expected, missing data existed within the out-of-sample dataset used for validation. We assumed that the prediction made by the BN based on these input values was correct when the biological effect or NM JU ST\nA CC\nEP TE\nD\nhazard level (with the highest probability) given by the BN matched the level depicted in the validation case (see section 3.3)."
+    }, {
+      "heading" : "2.5 Sensitivity analysis",
+      "text" : "The aim of this sensitivity analysis is to measure the effect of the NM physiochemical properties into NM hazard node and the different biological effect nodes (e.g. genotoxicity, cytotoxicity, neurological effects, etc.). In the literature, the entropy function has been used to analyse the sensitivity of BN models (Cover & Thomas, 2006; Kjærulff & Madsen, 2013). It consists of calculating the function H(X) of a node X :\nEquation 4: H(X) = − ∑ P(X)\nX\nlog P(X)\nWhere P(X) is the probability distribution of X.\n3. Results"
+    }, {
+      "heading" : "3.1 Expert elicitation",
+      "text" : "By means of two rounds of expert consultation it was determined i) which node is relevant, ii) the value range (e.g. states) of the node, iii) the relationships between the nodes. The first round (with 6 experts from the Netherlands) was used to shape the questionnaire of the second international round. In total, 29 international experts were invited to participate in the 2 nd round and 15 completed questionnaires were returned (i.e.52%). The selection of the most relevant physicochemical properties was based on the results of the two online questionnaires. As an example we show the results for nanomaterial properties. In the 1 st questionnaire, national experts validate the most important NM variables that can influence the human hazard potential, the exposure routes and the potential toxic effects. In addition, the interactions between the model variables were determined. The national experts consulted in JU ST\nA CC\nEP TE\nD\nthe 1 st round generally agreed on the NM characteristics (i.e. BN variable) that are relevant for human health and the ones that should be excluded. Based upon this expert elicitation we included: degree of aggregation (N=5), surface reactivity (N=5), solubility (N=5) and particle size distribution (N=5) (Figure 3). Based on these results, the international questionnaire was updated and no questions were included about the NM degradation rates, and NM sediments rates. The results of the international survey are shown in Figure 4. It can be seen that a total of eight NM characteristics were identified by six or more international experts as influencing human health. These are shape, solubility, surface area, surface charge, surface coatings, surface reactivity, particle size distribution and degree of aggregation. Only one expert mentioned purity of NM. No expert used the “other option” to include NM characteristics not mentioned in the survey. Only those physicochemical properties that were nominated by seven or more experts (N≥ 7) in the second round were used for the BN model. These were: dissolution (N=11), shape (N=11), surface reactivity (N=10), surface area (N=9), particle size (N=8), surface charge (N=7), surface coatings (N=7)and degree of aggregation (N=7). Similar approach as used for NM properties was applied for both biological effects and exposure routes. For the biological effects indicated as important by the experts in the 2 nd round, we used the properties that were mentioned by 4 or more experts and these are: immunological effects (N= 11), inflammation (N=9), cardio pulmonary effects (N= 9), genotoxicity (N= 8), cytotoxicity (N=8), fibrosis (N=7), cell transformation (N=4) and neurological effects (N=4) (See Supplement 2). For cell transformation, no literature data could be retrieved and therefor is not included in the final BN model as a node. Each node in the BN model contains states which can represent values or intervals for physical quantities, linguistic terms, etc. The different states of the proposed nodes in round 1 were validated by international experts in the second survey. As an example we show in JU ST A CC EP TE D\nFigure 5 the result for the dissolution node. Three options for the discretization were presented and it is clear that the majority of the experts prefer the third option being (0 to 25%; 25% to 50%; 50% to 75%; >75%). In addition, the expert could propose an alternative discretization, but none used this option. The full questionnaire results can be seen in Supplement 2."
+    }, {
+      "heading" : "3.2 Development of the BN and validation",
+      "text" : "The BN that was developed from expert elicitation and machine learning is shown in Figure 6 and includes the probabilities of the states of each node. The node NM hazard, depicting the strength of evidence for a hazard potential, gives the following probabilities for the states: ’None‘ (41.67%), ’Medium‘ (18.16%), ’Low‘ (10.90%) and ’High‘ (29.27%). The most commonly used NMs in the studies included in the model are: TiO2 (26.07%), SiO2 (13.03%), Ag (11.54%), ZnO (10.47%) and CeO2 (5.98%). Other (metal) NMs appear (Co3O4, Cr2O3, CuO, Ni2O3, Fe3O4, ZrO2 etc.) less frequently (all 2% or less). The NM properties contributing most to the hazard potential of these NM are in decreasing order: nanoparticle, surface coating, surface area, aggregation and particle size (data not shown). To validate the developed BN, 91 cases were randomly selected from the initial dataset. These were not used for the BN construction. As illustration, we present the first 20 cases in Table 3, showing the input parameters of the cases being; study type, NM physicochemical properties, and administration route. The NM hazard level which was derived for that specific case from the biological effect data is also shown. The latter was not used as input for the validation but represents the property of the case to be predicted by the BN. Based only on the given physiochemical properties, study type and administration route, the probability of the states (none/low/medium/high) of NM hazard, were calculated by the BN JU ST A CC EP TE D\n(Table 3). The state with the highest probability was then compared to the actual state as derived from literature (Table 3, column NM hazard). For example, the input parameters of the first validation case (Table 3, N=1) are: study is an ’In vivo‘ study, nanoparticle is ’Ag’, the shape is ’Sphere‘, particle size is ’10 to 50‘, exposure route is ’Inhalation‘ and all other parameters are unknown such as dissolution, surface area, surface charge, surface reactivity and aggregation (i.e. missing information of this particular case). Based on these input parameters, the BN gave the highest probability for the NM hazard state ’High’, which is similar to the state derived from the literature. Comparison of the last 2 columns in Table 3 shows that the level of NM hazard is predicted correctly in 17 out of the 20 cases. Considering all 91 cases, 72% were predicted correctly (not shown). It should be noted that even though information of many nodes of a case is missing, the BN still can, in most instances, predict NM hazard level correctly. Similar results were also found for the prediction of the biological effect. Table 4 shows these results for the 20 cases presented in Table 3. As can be seen in Table 4, the BN predicted the biological effect and its level correctly for 15 out of the 20 cases. When all 92 cases are considered, 71% were predicted correctly (data not shown)."
+    }, {
+      "heading" : "3.3 Sensitivity analysis",
+      "text" : "The sensitivity of our BN was assessed using the described entropy function (Equation 4). The result of the effect (i.e. entropy) of NM physiochemical properties on the NM hazard node and biological effects are presented in Table 5. Nanoparticle (0.39) surface coatings (0.22) and surface area (0.15) are identified as having more influence on the NM Hazard node than the other properties. The same properties are also the most important for the biological effects and the highest values are observed for cytotoxicity and inflammation (see Table 5). JU ST\nA CC\nEP TE\nD"
+    }, {
+      "heading" : "3.4 Demonstration of the application of the BN; comparison between several NMs",
+      "text" : "To show potential applicability of the BN, we compared the hazard potential of 5 NMs (i.e. TiO2, SiO2, Ag, CeO2, ZnO) based on the node “nanoparticle” only. The results are presented in Figure 7. As can be seen in NM hazard category ’High’, ZnO has the highest hazard potential (e.g. 82%) and TiO2 the lowest (e.g. 15%). The BN also allows the assessment of the effect of the various NM properties contributing to the observed biological effect or potential hazard level. As an illustration, we show the relationships between the surface charge of the NMs and their predicted hazard potential. To this end, ‘high’ level was selected in the NM hazard node and the probabilities in the NM surface charge node were recorded. The results are shown in Figure 8. It appears that for all NMs (except for SiO2), the highest probabilities are observed for surface charges above 0, suggesting that for these NMs, the positive charged surface contributes to their hazard potential. The impact (entropy) of physicochemical property nodes and biological effect nodes on the hazard nodes was calculated for 5 NMs (i.e. TiO2, SiO2, Ag, CeO2, ZnO) using the constructed BN (see Table 6). The results show that the NMs differ regarding the most important physicochemical properties but less variation was observed for the biological effect. For all 5 NMs cytotoxicity has the highest entropy indicating that for these NMs this is the most important biological effect determining its hazard. As shown in Table 6 for the NM Ag, the surface coatings (0.53), the surface charge (0.37), and the surface area (0.28) are the main physiochemical properties having the highest effect on the NM Hazard node in the model. The most influential biological effects in NM Hazard node for Ag are cytotoxicity (0.85), inflammation (0.53), and CNS effects (0.49). For TiO2, we found that particle size (0.28), shape (0.26) and the surface coatings (0.26) are the most important physiochemical properties having a high impact on the NM hazard node (Table 6). JU ST AC CE PT ED\n4. Discussion\nIn this work, we’ve uniquely developed a BN for NM human hazard ranking that was constructed by expert consultation and an additional literature survey. The potential of BNs have been shown in various studies (Hristozov et al. 2012; Linkov et al. 2015; Low-Kam et al. 2015; Money et al. 2014) and is often related to the strength of BNs in data scarce environments. The validation of the BN as developed here showed a high accuracy of the predictions of the model and interestingly it could “correctly’ rank NMs with minimal input data (i.e. only elementary composition). This BN can be used by different stakeholders. Firstly, our model can be applied in RA (at the industrial Health, Safety and Environment management and regulatory level) to prioritize NMs for further testing. The minimal data needs of our BN can be of particular interest for small and medium-sized enterprises (SME), with limited resources for toxicological testing of NM. Secondly, BNs like this can be used to for simulation purposes to predict biological effects of (new) NMs and hence, support industrial safe-by-design approaches. Lastly, it can provide estimates of physicochemical properties of a given NM in the BN on which no data has been provided, which is relevant for fundamental studies, the production of inherently safer materials. This may help designers of NMs to direct future developments. NM properties driving biological effects have been discussed for a long time (OECD 2014). Expert consultation prioritized the NM dissolution, shape, reactive surface groups, surface area and size distribution as the most important key descriptors, as observed earlier (Bouwmeester et al. 2011; Izak-Nau et al. 2015). The outcome of our BN model is in line with these findings and showed that the following properties, in decreasing order of importance, were found to be the most important descriptors of the potential hazard of NMs: elemental composition, surface coating, surface area, aggregation and particle size. JU ST A CC EP TE D\nIt is clear that prioritization of the most relevant variables is complex since each descriptor is inherently linked to other descriptors and together they determine the final reactive properties of a NM. For instance, the size determines the (relative) surface area, combined with the chemical composition it affects the dissolution potential of a NM. Also the redox status is heavily influenced by the chemical composition. The type of chemical groups that can be introduced to the NM surface is to some extent dependent on the chemical composition of the core NM, and largely affects both the intrinsic and extrinsic NM properties. For instance, capping agents and surface groups affect the dissolution potential, and charge, which subsequently affects the aggregation potential (Nel et al. 2013). Indeed many NM descriptors are correlated, but most of them can be individually manipulated at the NM design stage. It is because of this that, several frameworks for decision making concerning risk assessment of NMs include the intrinsic and extrinsic descriptors a tiered assessment approach (Arts et al. 2016; Arts et al. 2014). High dissolution properties, and therefore high ionic concentrations, are known to generally lead to high toxicity (Nel et al. 2013). For this reason dissolution properties are included in early stages of tiered risk assessment approaches (Arts et al. 2016; Arts et al. 2014). Our BN model correctly identified a ZnO and Ag NM that are known to readily shed ions as having a high hazard risk. However, in our BN model, dissolution does not contribute to the biological effect. This might be due to the dissolution states used in this study which were proposed by the experts in the expert elicitation (i.e. 1-25%, 25-50%, 50-75%, >75%). All data collected falls into the first category (i.e. dissolution 1-25%; see figure 4). Furthermore, in the studies form literature that were analysed in our study, only in 50% of the cases data on solubility was provided (see Supplement 2), which may be caused by the current challenges to determine solubility of a NM in biological matrices (Tantra et al. 2016). It is evident that JU ST A CC EP TE D\nmore states in the lower dissolution ranges combined with more data (i.e. more cases) will result in a higher contribution of dissolution node to the hazard noted of this BN. In various steps of the BN development expert judgement was included. Firstly, the collection of data from scientific papers that feeds the BN. For this, we developed a transparent and consistent procedure as described in the material and method section, which includes i) selection of appropriate papers, ii) classifying the biological effects (toxicological end points) according to the presented criteria (see Table 1 & 2). No systematic procedure was followed to select the papers except that we aimed to obtain data for all nodes in the model and that the papers used in this study were considered of being of high quality (expert judgement). The flexibility of BN makes it easy to add new data (e.g. cases) as they appear in the future. To be able to classify the biological effects effectively, a toxicological background of the expert is necessary. In our study, in several stages of the data extraction and classification process, the correctness of the classification was evaluated to ensure a proper classification. The second part that included expert judgement was the development of the BN. Two rounds of expert elicitation have been used to shape the current BN, including the nodes and states. With advancing knowledge additional nodes might be added to the BN, which is facilitated by the intrinsic principle of a BN (Sessa and D'Urso 2014). To enable a scoring on the hazard potential, the results in the effect nodes are combined into the NM Hazard node. In the current model the different effects are treated equally, no weighing or prioritization of the effect nodes has been used, nor have we incorporated a consideration of the relevance of the endpoints in relation to human disease endpoints. Certainly, this is a point for improvement and can be determined by expert elicitation. The current study aimed to show the potential of this approach and the authors are aware that further improvements are possible especially because of the flexibility that BN offers. JU ST A CC EP TE D\nThe strength of a BN, as applied in this study, lies in the fact that all these relationships are taken into account and are used to estimate the hazard potential or biological effects. However, the predictive power of the model will be influenced by the amount and quality of the data from which it is parameterised (Banko and Brill 2001). The current model is built on 468 cases. Literature was selectively searched to deliver data for all nodes. However, it appeared impossible to retrieve similar data quantity for all nodes, especially for the biological effect nodes, as have been observed before (Stone et al. 2014b). The nodes with the highest amount of data were elemental composition, shape and particle size and the lowest were immunological effects, genotoxicity and fibrosis. The ability to deal with missing data is the strength of BN and improvement of the model (for example new relationships) and performance may be realised with more and complementary data (Friedman and Yakhini 1996). The applicability and validity of the constructed BN model was shown with the prediction of the hazard potential in new cases, which was 72%. The BN may be used for scenario studies by manufacturers to apply safe-by-design approaches (i.e. investigate the effect of changing shape, or size on the potential biological effects) or may be used in human health risk assessment to predict certain properties of a NM of which little information is available or to prioritize NMs for further screening. For example, when comparing the predicted hazard potential of 5 NMs, ZnO was shown to have the highest probability for a high hazard potential, whereas TiO2 had the lowest. Most likely these can be attributed to the difference is dissolution potential of these NMs. ZnO NM are known to dissolve under realistic biological conditions (Kim et al. 2014). In the second example, increasing surface charge was also shown to contribute to the hazard potential of these NMs, which increased with increasing positive charge. It is generally accepted that zeta potential of NMs plays an important factor in toxico-kinetics and bioavailability where JU ST A CC EP TE D\npositively charged NMs passage cellular barriers more quickly, but the link to toxicity is not always apparent. BN allows combination of material and bio-physical interaction properties in a quantitative manner and can be applied as a stand-alone concept. The unique feature of BN to fill data gaps of NMs of which little data is available (e.g. read across) can also be utilised to strengthen other approaches such as the grouping concept (Arts et al. 2015; Oomen et al. 2015). Therefore the main role BN can have in risk assessment is to rapidly identify those NMs that have the highest human hazard risk ranks, and focus these NMs. Thus it contributes the RA of NMs to keep pace with the high speed of innovation in research and development. The BN presented in this study was designed to rank NMs based on their hazard potential and may be improved in several ways. Firstly, adding more cases from the literature, including other types of NMs such as organic NMs, will increase its performance and applicability. Especially nodes which have little data input (such as dissolution, immunological effects, genotoxicity and fibrosis) should be enriched. Secondly, the present model does not include a weighting between the various biological effects that contribute/ are linked to the final hazard level. All effects are taken as equal and no synergistic contributions are considered. Expert consultation on this issue may improve this point. Thirdly, a quality assessment of the data (literature) included in the model may help to discriminate between the contributions of the various studies. A similar quality assessment approach may be followed as developed for the Nanomaterial Registry database (https://www.nanomaterialregistry.org), which contains nanomaterial information from publicly available nanomaterial resources. The quality of the data inserted into the database is evaluated in the three following categories: i) physicochemical characteristics of a NM, ii) biological interactions of a nanomaterial, iii) environmental interactions of a nanomaterial (Ostraat et al. 2013). JU ST A CC EP TE D\nIn the future, the model may be extended with exposure data enabling prediction of the health risks of NMs. The model performance can be improved by incorporating new data from other NMs databases. For example, the EU database working group (WG) of the EU Nanosafety Cluster aims to achieve data interoperability and a common language (one or more ontologies) for European databases for project results and data. Similarly, in the US the Nanomaterial Registry of the National Institutes of Health (NIH) is a digital nanotechnology data and information infrastructure designed to support data sharing, and collaboration. Such additions may be possible since the nodes of the BN are similar to the ontology used in the referred databases.\n5. Conclusions\nIn this study, a BN was developed to predict biological effects and hazard potential of metal and metaloxide NMs in human using expert knowledge and available NMs data in literature. The BN consisted of physicochemical characteristics of NMs (eight different nodes), biological effects (eight different nodes) and exposure routes. The constructed BN showed high prediction performance for the hazard potential as well as for the biological effect and hence is suitable to rank NMs for these properties. Furthermore, it also allows a detailed evaluation of the contribution of the various NM properties to the observed effect."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "This study was conducted in the framework of NanoNextNL (www.nanonextnl.nl), a micro and nanotechnology consortium of the government of The Netherlands and 130 partners. Addition funding was made available by the The Netherlands Ministry of Economic Affairs.\nJU ST\nA CC\nEP TE\nD"
+    }, {
+      "heading" : "CAPTIONS",
+      "text" : ""
+    }, {
+      "heading" : "FIGURES",
+      "text" : "Figure 1 : The method steps. Figure 2.. A typical Bayesian Network showing the probabilistic relationship between a set of nodes.\nFigure 3: NM characteristics mentioned by national experts\nFigure 4: NM characteristics mentioned by international experts\nFigure 5: Distribution of answers to the question related to the states of node “Dissolution distribution”.\nFigure 6. The BN structure containing state probabilities of each node, where the green ellipses are physicochemical properties of NM, orange ellipses are biological effects, yellow ellipses are additional nodes for administration routes and study type and finally red ellipse is the NM hazard node. CNS: (Reaches) central nervous system.\nFigure 7: The probability (%) of the hazard potential of NMs as predicted by the BN.\nFigure 8. Effect of surface charge on the prediction of the high category level of hazard potential of NMs TiO2, SiO2, Ag, CeO2, ZnO. The figures give the probabilities in percentages."
+    }, {
+      "heading" : "TABLES",
+      "text" : "Table 1: Grouping of endpoints for the determination of the different biological effects.\nTable 2: Criteria for the classification of the biological effects.\nTable 3: Validation results of the BN; input values (20 cases).\nTable 4: BN results; biological effects prediction.\nTable 5: Sensitivity analysis showing the effect (entropy) of NM physiochemical properties on the NM hazard node and the nodes of biological effects.\nTable 6 : The main NM physiochemical properties and the biological effects of 5 NMs (i.e. TiO2, SiO2, Ag, CeO2, ZnO) affecting NM hazard node.\nJU ST\nA CC\nEP TE\nD\nFigure 1 : The method steps\nFigure 2. A typical Bayesian Network showing the probabilistic relationship between a set of nodes.\nFigure 3: NM characteristics mentioned by national experts\nExpert elicitation\nData collection BN construction BN validation\nJU ST\nA CC\nEP\nTE\nD\nFigure 4: NM characteristics mentioned by international experts\nFigure 5: Distribution of answers to the question related to the states of node “Dissolution distribution”.\nJU ST\nA CC\nEP TE\nD\nFigure 6. The BN structure containing state probabilities of each node, where the green ellipses are physicochemical properties of NM, orange ellipses are biological effects, yellow ellipses are additional nodes for administration routes and study type and finally red ellipse is the NM hazard node. CNS: (Reaches) central nervous system.\nFigure 7: The probability (%) of the hazard potential of NMs as predicted by the BN.\nZnO 0 8 10 82\nCeO2 14 4 18 64\nAg 22 11 30 37 SiO2 41 16 10 33 TiO2 52 7 25 15\nNone Low Med High\nNM Hazard\nN an\no p\nar ti\ncl e\ns\nJU ST\nA CC\nEP TE\nD\nFigure 8. Effect of surface charge on the prediction of the high category level of hazard potential of NMs TiO2, SiO2, Ag, CeO2, ZnO. The figures give the probabilities in percentages.\n25 to 50 0 0 100 75 0 0 to 25 0 0 67 61 82 -25 to 0 0 0 15 0 0 -50 to -25 17 33 3 0 0\nTiO2 SiO2 Ag CeO2 ZnO\nNanoparticles\nNM Hazard: High\nsu rf\nac e\nc h\nar ge\nJU ST\nA CC\nEP TE\nD\nTable 1: Grouping of endpoints for the determination of the different biological effects.\nBiological effects Possible endpoints for the determination of the biological effect\nNeurological effects Neuropathology; motor activity; motor and sensory function; learning and memory;\nneurotransmitters; (OECD 2007)\nReaches central nervous system “Is found in the brain” as element (Morgan 2005)\nCardio-pulmonary effects\nLung or heart inflammation (inflammatory cell infiltration); lung hyper responsiveness; heart rate (variability); blood pressure; alterations in red blood cells; Broncho alveolar lavage fluid analysis (cytokines, LDH and protein) (Chuang et al. 2014; Gordon et al. 1998)\nImmunological effects\nImmunosuppression; increased propensity for allergic disease, including atopy, food allergies and asthma; hypersensitivity reactions directed at the chemical itself; Increased risk of autoimmune disease; dysfunctional responses of innate immune cells producing tissue or organ damage or dysfunction (WHO 2012)\nInflammation Systemic inflammation (white blood cells, lymphocytes and granulocytes); tissue inflammation;\ninflammatory cell infiltration; cytokines level (Chuang et al. 2014)\nFibrosis\nHistopathological fibrosis analysis Liver: periportal fibrosis (incomplete septa); bridging fibrosis with lobular distortion; cirrhosis (Hiramatsu et al. 2006) Lung: thickening of alveolar or bronchiolar vessels; damage to lung structure; formation of fibrous bands or fibrous masses (Ashcroft et al. 1988)\nCytotoxicity Cytotoxicity; necrosis; cell viability; apoptosis Genotoxicity Single-strand and double-strand breaks, mutations, deletions, chromosomal aberrations, impairment in\nDNA repair and cell-cycle (Ng et al. 2010)\nJU ST\nA CC\nEP TE\nD\nTable 2: Criteria for the classification of the biological effects. Classification Effect Criteria\nEffect level Score(\uD835\uDC01\uD835\uDC04\uD835\uDC22\uD835\uDC24)\nNone\nEndpoint(s) that fall under the\ndefined effects were tested\nNo significant difference in\ntested endpoint compared to\ncontrol\n0\nLow\nSignificant difference in\ntested endpoint compared to\ncontrol\nPositive for one/few of the tests indicating this effect or in\nfew animals\n1\nMedium\nDoseresponse\nrelationship\nPositive for several of the\ntests indicating this effect or in several animals\n2\n<75% decrease in cell viability\nHigh\nPositive for most of the tests\nindicating this effect or in most\nanimals 3\n>75% decrease in cell viability\nJU ST\nA CC\nEP TE\nD\nTable 5: Sensitivity analysis showing the effect (entropy) of NM physiochemical properties on the NM hazard node and the nodes of biological effects.\nBiological effects\nPhysiochemical\nproperties\nNM\nHazard\nInflammation Cytotoxicity Pulmonary\neffects\nNeurological\neffects\nCNS\neffects\nFibrosis Genotoxicity\nNanoparticle 0.39 0.24 0.37 0.13 0.07 0.14 0.06 0.09 Surface coatings 0.22 0.15 0.25 0.14 0.05 0.09 0.02 0.03 Surface area 0.15 0.06 0.16 0.04 0.08 0.08 0 0.2 Aggregation 0.09 0.1 0.12 0.05 0.02 0.03 0 0 Particle size 0.08 0.03 0.09 0.02 0.03 0.05 0 0.01 Surface charge 0.07 0.05 0.06 0.03 0 0.01 0 0 Shape 0.06 0.04 0.07 0.03 0.01 0.02 0.01 0.02 Surface reactivity 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 Dissolution 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00\nTable 6 : The main NM physiochemical properties and the biological effects of 5 NMs (i.e. TiO2, SiO2, Ag, CeO2, ZnO) affecting NM hazard node.\nNanoparticles\nTiO2 SiO2 Ag CeO2 ZnO\nPhysiochemical properties\n Particle size (0.28)  Shape (0.26)  Surface coatings\n(0.26)\n Surface area (0.22)\n Shape (0.25)  Surface coatings\n(0.17)\n Particle size (0.07)\n Surface coatings\n(0.53)\n Surface charge\n(0.37)\n Surface area (0.28)  Aggregation (0.22)\n Aggregation (0.42)  Surface coatings\n(0.39)\n Shape (0.34)  Surface area (0.26)\n Surface reactivity\n(0.16)\n Particle size (0.05)  Surface area (0.02)\nBiological effects\n Cytotoxicity (1.03)  CNS effects (0.6)  Inflammation\n(0.44)\n Cytotoxicity (1.24)  Inflammation\n(0.57)\n CNS effects (0.57)\n Cytotoxicity (0.85)  Inflammation\n(0.53)\n CNS effects (0.49)\n Cytotoxicity (0.94)  Inflammation\n(0.48)\n Pulmonary effects\n(0.46)\n Cytotoxicity (0.6)  CNS effects (0.17)  Pulmonary effects\n(0.17)\nJU ST\nA CC\nEP TE\nD"
+    } ],
+    "references" : [ {
+      "title" : "An evaluation of automated structure learning with Bayesian",
+      "author" : [ "I Alameddine", "Y Cha", "KH. Reckhow" ],
+      "venue" : null,
+      "citeRegEx" : "Alameddine et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Alameddine et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Medical image modality",
+      "author" : [ "J 26:163-172. Arias", "J Martínez-Gómez", "JA Gámez", "AG Seco de Herrera", "H. Müller" ],
+      "venue" : null,
+      "citeRegEx" : "Arias et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Arias et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "A decision-making framework for the grouping",
+      "author" : [ "K Wiench", "W Wohlleben", "R. Landsiedel" ],
+      "venue" : null,
+      "citeRegEx" : "Wiench et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Wiench et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "A critical appraisal of existing concepts for the grouping of nanomaterials",
+      "author" : [ "R. Landsiedel" ],
+      "venue" : null,
+      "citeRegEx" : "Landsiedel,? \\Q2014\\E",
+      "shortCiteRegEx" : "Landsiedel",
+      "year" : 2014
+    }, {
+      "title" : "2016. Case studies putting the decision-making framework",
+      "author" : [ "K Wiench", "W Wohlleben", "R. Landsiedel" ],
+      "venue" : null,
+      "citeRegEx" : "D et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "D et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Scaling to very very large corpora for natural language disambiguation",
+      "author" : [ "M Banko", "E. Brill" ],
+      "venue" : "Pharmacology",
+      "citeRegEx" : "Banko and Brill,? \\Q2001\\E",
+      "shortCiteRegEx" : "Banko and Brill",
+      "year" : 2001
+    }, {
+      "title" : "Beyond QMRA: Modelling",
+      "author" : [ "D Linguistics. Beaudequin", "F Harden", "A Roiko", "H Stratton", "C Lemckert", "K. Mengersen" ],
+      "venue" : null,
+      "citeRegEx" : "Beaudequin et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Beaudequin et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Minimal analytical characterization of engineered nanomaterials needed for hazard",
+      "author" : [ "V. Stone" ],
+      "venue" : null,
+      "citeRegEx" : "Stone,? \\Q2011\\E",
+      "shortCiteRegEx" : "Stone",
+      "year" : 2011
+    }, {
+      "title" : "Learning Bayesian networks from data: An information-theory",
+      "author" : [ "J 180:11-24. Cheng", "R Greiner", "J Kelly", "D Bell", "W. Liu" ],
+      "venue" : null,
+      "citeRegEx" : "Cheng et al\\.,? \\Q2002\\E",
+      "shortCiteRegEx" : "Cheng et al\\.",
+      "year" : 2002
+    }, {
+      "title" : "The Knowledge Engineering Review",
+      "author" : [ "S Dekkers", "H Bouwmeester", "PM Bos", "RJ Peters", "AG Rietveld", "AG. Oomen" ],
+      "venue" : null,
+      "citeRegEx" : "Dekkers et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Dekkers et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Presence and risks of nanosilica in food products",
+      "author" : [ "AG." ],
+      "venue" : "Nanotoxicology 5:393-405. Denœux T. 2010. Maximum likelihood from evidential data: An extension of the EM algorithm. Advances in",
+      "citeRegEx" : "AG.,? 2011",
+      "shortCiteRegEx" : "AG.",
+      "year" : 2011
+    }, {
+      "title" : "A Tutorial on Learning with Bayesian Networks",
+      "author" : [ "D. Kaufmann Publishers Inc. Heckerman" ],
+      "venue" : "In: Holmes DE, Jain LC, eds. Innovations",
+      "citeRegEx" : "Heckerman,? 2008",
+      "shortCiteRegEx" : "Heckerman",
+      "year" : 2008
+    }, {
+      "title" : "Risk assessment",
+      "author" : [ "MB Heringa", "L Geraets", "JCH van Eijkeren", "RJ Vandebriel", "WH de Jong", "AG. Oomen" ],
+      "venue" : "Bayesian Networks: Theory and Applications. Berlin, Heidelberg: Springer Berlin Heidelberg,",
+      "citeRegEx" : "Heringa et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Heringa et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Risk assessment of engineered nanomaterials: a review",
+      "author" : [ "S Gottardo", "A Critto", "A. Marcomini" ],
+      "venue" : null,
+      "citeRegEx" : "Hristozov et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Hristozov et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "available data and approaches from a regulatory perspective",
+      "author" : [ "DR Hristozov", "A Zabeo", "C Foran", "P Isigonis", "A Critto", "A Marcomini", "I. Linkov" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Hristozov et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Hristozov et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "properties and implications for their biological effects. RSC Advances 5:84172-84185",
+      "author" : [ "Kim K-M", "Choi M-H", "Lee J-K", "Jeong J", "Kim Y-R", "Kim M-K", "Paek S-M", "Oh J-M" ],
+      "venue" : "Keisler J, Linkov I",
+      "citeRegEx" : "K.M et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "K.M et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Bayesian networks in reliability",
+      "author" : [ "H Langseth", "L. Portinale" ],
+      "venue" : "Nanomedicine",
+      "citeRegEx" : "Langseth and Portinale,? \\Q2007\\E",
+      "shortCiteRegEx" : "Langseth and Portinale",
+      "year" : 2007
+    }, {
+      "title" : "The EM algorithm for graphical association models with missing data",
+      "author" : [ "Lauritzen SL" ],
+      "venue" : null,
+      "citeRegEx" : "108",
+      "shortCiteRegEx" : "108",
+      "year" : 1995
+    }, {
+      "title" : "Application of Bayesian network to the probabilistic risk assessment of nuclear waste",
+      "author" : [ "Lee C-J", "Lee KJ" ],
+      "venue" : null,
+      "citeRegEx" : "C.J and KJ.,? \\Q2006\\E",
+      "shortCiteRegEx" : "C.J and KJ.",
+      "year" : 2006
+    }, {
+      "title" : "Risk-based standards: integrating top–down and bottom–up approaches",
+      "author" : [ "I Linkov", "E Anklam", "ZA Collier", "D DiMase", "O. Renn" ],
+      "venue" : "Environment Systems and Decisions 34:134-137.",
+      "citeRegEx" : "Linkov et al\\.,? 2014",
+      "shortCiteRegEx" : "Linkov et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "From \"weight of evidence\" to quantitative data integration using multicriteria decision analysis and Bayesian methods",
+      "author" : [ "I Linkov", "O Massey", "J Keisler", "I Rusyn", "T. Hartung" ],
+      "venue" : "Altex 32:3-8.",
+      "citeRegEx" : "Linkov et al\\.,? 2015",
+      "shortCiteRegEx" : "Linkov et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Use of multicriteria decision analysis to support weight of evidence evaluation",
+      "author" : [ "I Linkov", "P Welle", "D Loney", "A Tkachuk", "L Canis", "JB Kim", "T. Bridges" ],
+      "venue" : "Risk analysis : an official publication of the Society for Risk Analysis 31:1211-25.",
+      "citeRegEx" : "Linkov et al\\.,? 2011",
+      "shortCiteRegEx" : "Linkov et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "A Bayesian regression tree approach to identify the effect of nanoparticles' properties on toxicity profiles.383-401",
+      "author" : [ "C Low-Kam", "D Telesca", "Z Ji", "H Zhang", "T Xia", "JI Zink", "AE. Nel" ],
+      "venue" : null,
+      "citeRegEx" : "Low.Kam et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Low.Kam et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Guidelines for developing and updating Bayesian belief networks applied to ecological modeling and conservation",
+      "author" : [ "BG Marcot", "JD Steventon", "GD Sutherland", "RK. McCann" ],
+      "venue" : "Canadian Journal of Forest Research 36:3063-3074.",
+      "citeRegEx" : "Marcot et al\\.,? 2006",
+      "shortCiteRegEx" : "Marcot et al\\.",
+      "year" : 2006
+    }, {
+      "title" : "A holistic approach to food safety risks: Food fraud as an example",
+      "author" : [ "HJP Marvin", "Y Bouzembrak", "EM Janssen", "HJ van der Fels- Klerx", "ED van Asselt", "GA. Kleter" ],
+      "venue" : "Food Research International",
+      "citeRegEx" : "Marvin et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Marvin et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Validation and sensitivity of the FINE Bayesian network for forecasting aquatic exposure to nano-silver",
+      "author" : [ "ES Money", "LE Barton", "J Dawson", "KH Reckhow", "MR. Wiesner" ],
+      "venue" : "Science of The Total Environment 473–474:685-691.",
+      "citeRegEx" : "Money et al\\.,? 2014",
+      "shortCiteRegEx" : "Money et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "The use of Bayesian networks for nanoparticle risk forecasting: Model formulation and baseline evaluation",
+      "author" : [ "ES Money", "KH Reckhow", "MR. Wiesner" ],
+      "venue" : "Science of The Total Environment 426:436-445.",
+      "citeRegEx" : "Money et al\\.,? 2012",
+      "shortCiteRegEx" : "Money et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Development of a preliminary framework for informing the risk analysis and risk management of nanoparticles",
+      "author" : [ "K. Morgan" ],
+      "venue" : "Risk Anal 25:1621-35.",
+      "citeRegEx" : "Morgan,? 2005",
+      "shortCiteRegEx" : "Morgan",
+      "year" : 2005
+    }, {
+      "title" : "A Tractable Method for Measuring Nanomaterial Risk Using Bayesian Networks",
+      "author" : [ "F Murphy", "B Sheehan", "M Mullins", "H Bouwmeester", "HJP Marvin", "Y Bouzembrak", "AL Costa", "R Das", "V Stone", "SAM. Tofail" ],
+      "venue" : "Nanoscale Research Letters 11:503.",
+      "citeRegEx" : "Murphy et al\\.,? 2016",
+      "shortCiteRegEx" : "Murphy et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Nanomaterial Toxicity Testing in the 21st Century: Use of a Predictive Toxicological Approach and High Throughput Screening",
+      "author" : [ "A Nel", "T Xia", "H Meng", "X Wang", "S Lin", "Z Ji", "H. Zhang" ],
+      "venue" : "Accounts of chemical research 46:607-621.",
+      "citeRegEx" : "Nel et al\\.,? 2013",
+      "shortCiteRegEx" : "Nel et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Using Bayesian belief networks in adaptive management",
+      "author" : [ "JB Nyberg", "BG Marcot", "R. Sulyma" ],
+      "venue" : "Canadian Journal of Forest Research 36:3104-3116.",
+      "citeRegEx" : "Nyberg et al\\.,? 2006",
+      "shortCiteRegEx" : "Nyberg et al\\.",
+      "year" : 2006
+    }, {
+      "title" : "Report of the OECD expert meeting on the physical chemical properties of manufactured nanomaterials and test guidelines",
+      "author" : [ "OECD." ],
+      "venue" : "OECD Environment, Health, and Safety Publications. Series on the safety of manufactured nanomaterials. 41:15.",
+      "citeRegEx" : "OECD.,? 2014",
+      "shortCiteRegEx" : "OECD.",
+      "year" : 2014
+    }, {
+      "title" : "Grouping and Read-Across Approaches for Risk Assessment of Nanomaterials",
+      "author" : [ "A Oomen", "E Bleeker", "P Bos", "F van Broekhuizen", "S Gottardo", "M Groenewold", "D Hristozov", "K Hund-Rinke", "MA Irfan", "A Marcomini", "W Peijnenburg", "K Rasmussen", "A Jiménez", "J Scott-Fordsmand", "M van Tongeren", "K Wiench", "W Wohlleben", "R. Landsiedel" ],
+      "venue" : "International Journal of Environmental Research and Public Health 12:13415",
+      "citeRegEx" : "Oomen et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Oomen et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Measurement Strategies of Airborne Nanomaterials",
+      "author" : [ "ML Ostraat", "JW Thornburg", "QGJ. Malloy" ],
+      "venue" : "Environmental Engineering Science 30:126-132.",
+      "citeRegEx" : "Ostraat et al\\.,? 2013",
+      "shortCiteRegEx" : "Ostraat et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Parameterisation and evaluation of a Bayesian network for use in an ecological risk assessment",
+      "author" : [ "CA Pollino", "O Woodberry", "A Nicholson", "K Korb", "BT. Hart" ],
+      "venue" : "Environ. Model. Softw. 22:1140-1152.",
+      "citeRegEx" : "Pollino et al\\.,? 2007",
+      "shortCiteRegEx" : "Pollino et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "Employment of Bayesian networks for risk assessment of excavation process in dense urban areas",
+      "author" : [ "Sessa S", "D'Urso MG." ],
+      "venue" : "Safety, Reliability, Risk and Life-Cycle Performance of Structures and Infrastructures. CRC Press, 3163-3169.",
+      "citeRegEx" : "S and MG.,? 2014",
+      "shortCiteRegEx" : "S and MG.",
+      "year" : 2014
+    }, {
+      "title" : "Nano-QSAR modeling for predicting biological activity of diverse nanomaterials",
+      "author" : [ "KP Singh", "S. Gupta" ],
+      "venue" : "RSC Advances 4:13215-13230.",
+      "citeRegEx" : "Singh and Gupta,? 2014",
+      "shortCiteRegEx" : "Singh and Gupta",
+      "year" : 2014
+    }, {
+      "title" : "Detection of Clinically Important Colorectal Surgical Site Infection using Bayesian Network",
+      "author" : [ "S Sohn", "DW Larson", "EB Habermann", "JM Naessens", "JY Alabbad", "H. Liu" ],
+      "venue" : "Journal of Surgical Research.",
+      "citeRegEx" : "Sohn et al\\.,? 2016",
+      "shortCiteRegEx" : "Sohn et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "ITS-NANO - Prioritising nanosafety research to develop a stakeholder driven intelligent testing strategy",
+      "author" : [ "V Stone", "S Pozzi-Mucelli", "L Tran", "K Aschberger", "S Sabella", "U Vogel", "C Poland", "D Balharry", "T Fernandes", "S Gottardo", "S Hankin", "MG Hartl", "N Hartmann", "D Hristozov", "K Hund-Rinke", "H Johnston", "A Marcomini", "O Panzer", "D Roncato", "AT Saber", "H Wallin", "JJ. Scott-Fordsmand" ],
+      "venue" : "Particle and Fibre Toxicology 11:9.",
+      "citeRegEx" : "Stone et al\\.,? 2014a",
+      "shortCiteRegEx" : "Stone et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "ITS-NANO - Prioritising nanosafety research to develop a stakeholder driven intelligent testing strategy",
+      "author" : [ "V Stone", "S Pozzi-Mucelli", "L Tran", "K Aschberger", "S Sabella", "U Vogel", "C Poland", "D Balharry", "T Fernandes", "S Gottardo", "S Hankin", "MG Hartl", "N Hartmann", "D Hristozov", "K Hund-Rinke", "H Johnston", "A Marcomini", "O Panzer", "D Roncato", "AT Saber", "H Wallin", "JJ. Scott-Fordsmand" ],
+      "venue" : "Particle and Fibre Toxicology 11:1-12.",
+      "citeRegEx" : "Stone et al\\.,? 2014b",
+      "shortCiteRegEx" : "Stone et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Suitability of analytical methods to measure solubility for the purpose of nanoregulation",
+      "author" : [ "R Tantra", "H Bouwmeester", "E Bolea", "C Rey-Castro", "CA David", "JM Dogne", "J Jarman", "F Laborda", "J Laloy", "KN Robinson", "AK Undas", "M. van der Zande" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Tantra et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Tantra et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "SMAA-TRI",
+      "author" : [ "T Tervonen", "R Lahdelma", "J Almeida Dias", "J Figueira", "P. Salminen" ],
+      "venue" : "In: Linkov I, Kiker GA, Wenning RJ, eds. Environmental Security in Harbors and Coastal Areas: Management Using Comparative Risk Assessment and Multi-Criteria Decision Analysis. Dordrecht: Springer Netherlands, 217-231.",
+      "citeRegEx" : "Tervonen et al\\.,? 2007",
+      "shortCiteRegEx" : "Tervonen et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "A risk forecasting process for nanostructured materials, and nanomanufacturing",
+      "author" : [ "Wiesner MR", "Bottero J-Y." ],
+      "venue" : "Comptes Rendus Physique 12:659-668.",
+      "citeRegEx" : "MR and J.Y.,? 2011",
+      "shortCiteRegEx" : "MR and J.Y.",
+      "year" : 2011
+    }, {
+      "title" : "Nano-silver – a review of available data and knowledge gaps in human and environmental risk assessment",
+      "author" : [ "SWP Wijnhoven", "WJGM Peijnenburg", "CA Herberts", "WI Hagens", "AG Oomen", "EHW Heugens", "B Roszek", "J Bisschops", "I Gosens", "D Van De Meent", "S Dekkers", "WH De Jong", "M van Zijverden", "AJAM Sips", "RE. Geertsma" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Wijnhoven et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Wijnhoven et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Modelling and predicting the biological effects of nanomaterials",
+      "author" : [ "DA Winkler", "FR Burden", "B Yan", "R Weissleder", "C Tassa", "S Shaw", "VC. Epa" ],
+      "venue" : "SAR and QSAR in environmental research 25:161-72.",
+      "citeRegEx" : "Winkler et al\\.,? 2014",
+      "shortCiteRegEx" : "Winkler et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Dynamic safety assessment of natural gas stations using Bayesian network",
+      "author" : [ "E Zarei", "A Azadeh", "N Khakzad", "I. Mohammadfam" ],
+      "venue" : "Journal of Hazardous Materials. JU",
+      "citeRegEx" : "Zarei et al\\.,? 2016",
+      "shortCiteRegEx" : "Zarei et al\\.",
+      "year" : 2016
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 38,
+      "context" : "The risk assessment (RA) of nanomaterials (NMs) faces difficulties as it requires an extensive datasets on physiochemical parameters, hazard identification and exposure assessment (Stone et al. 2014a).",
+      "startOffset" : 180,
+      "endOffset" : 200
+    }, {
+      "referenceID" : 12,
+      "context" : "(nano)silica, (nano)titanium, CNTs and silver NMs) (Heringa et al. 2016; Dekkers et al. 2013; Dekkers et al. 2011; Wijnhoven et al. 2009).",
+      "startOffset" : 51,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 9,
+      "context" : "(nano)silica, (nano)titanium, CNTs and silver NMs) (Heringa et al. 2016; Dekkers et al. 2013; Dekkers et al. 2011; Wijnhoven et al. 2009).",
+      "startOffset" : 51,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 43,
+      "context" : "(nano)silica, (nano)titanium, CNTs and silver NMs) (Heringa et al. 2016; Dekkers et al. 2013; Dekkers et al. 2011; Wijnhoven et al. 2009).",
+      "startOffset" : 51,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 41,
+      "context" : "Several approaches have been proposed to classify NMs and to estimate their risks which include stochastic multi-criteria acceptability analysis (SMAA-TRI) (Tervonen et al. 2007), weight of evidence (WOE) (Hristozov et al.",
+      "startOffset" : 156,
+      "endOffset" : 178
+    }, {
+      "referenceID" : 14,
+      "context" : "2007), weight of evidence (WOE) (Hristozov et al. 2014; Linkov et al. 2011), grouping (Arts et al.",
+      "startOffset" : 32,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 21,
+      "context" : "2007), weight of evidence (WOE) (Hristozov et al. 2014; Linkov et al. 2011), grouping (Arts et al.",
+      "startOffset" : 32,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 13,
+      "context" : "Combinations of these methods were proposed to integrate and collate heterogeneous information to estimate the risk of NMs under scarcity of data (Hristozov et al. 2012; Linkov et al. 2015).",
+      "startOffset" : 146,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 20,
+      "context" : "Combinations of these methods were proposed to integrate and collate heterogeneous information to estimate the risk of NMs under scarcity of data (Hristozov et al. 2012; Linkov et al. 2015).",
+      "startOffset" : 146,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 26,
+      "context" : "2016), in forecasting environmental risks of NMs (Money et al. 2012) and in characterising relationships between physicochemical JU ST A CC EP TE D",
+      "startOffset" : 49,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 22,
+      "context" : "properties of NMs and their in vitro toxicity (Low-Kam et al. 2015).",
+      "startOffset" : 46,
+      "endOffset" : 67
+    }, {
+      "referenceID" : 27,
+      "context" : "The potential use of the BN approach for nanoparticles risk assessment was detailed in (Morgan 2005; Wiesner and Bottero 2011).",
+      "startOffset" : 87,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 8,
+      "context" : "BN is a graphical model that presents probabilistic relationships among a set of variables to represent knowledge, reasoning under uncertainty, and drawing conclusions based on available information (Cheng et al. 2002).",
+      "startOffset" : 199,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 6,
+      "context" : "Firstly, a BN is based on probabilistic relationships that provides insight and an understanding even with partial and limited information (Beaudequin et al. 2015).",
+      "startOffset" : 139,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 34,
+      "context" : "assessment (Lee and Lee 2006; Pollino et al. 2007); to classify images in medical image analysis (Arias et al.",
+      "startOffset" : 11,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 1,
+      "context" : "2007); to classify images in medical image analysis (Arias et al. 2016); to predict food fraud (Marvin et al 2016; Bouzembrak and Marvin JU ST A CC EP TE D",
+      "startOffset" : 52,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 37,
+      "context" : "2016); to detect surgical site infections and safety assessment of natural gas stations (Sohn et al. 2016; Zarei et al. 2016).",
+      "startOffset" : 88,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 45,
+      "context" : "2016); to detect surgical site infections and safety assessment of natural gas stations (Sohn et al. 2016; Zarei et al. 2016).",
+      "startOffset" : 88,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 0,
+      "context" : "Generally, when sufficient data is available, machine learning techniques can be used to estimate the conditional probability tables (CPTs) of a BN and to define the optimal configuration of the interactions between nodes (Alameddine et al. 2011; Denœux 2010; Denœux 2011).",
+      "startOffset" : 222,
+      "endOffset" : 272
+    }, {
+      "referenceID" : 11,
+      "context" : "used to build the BN and to estimate the probabilities within each CPT of the BN (Heckerman 2008; Marcot et al. 2006; Nyberg et al. 2006).",
+      "startOffset" : 81,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 23,
+      "context" : "used to build the BN and to estimate the probabilities within each CPT of the BN (Heckerman 2008; Marcot et al. 2006; Nyberg et al. 2006).",
+      "startOffset" : 81,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 30,
+      "context" : "used to build the BN and to estimate the probabilities within each CPT of the BN (Heckerman 2008; Marcot et al. 2006; Nyberg et al. 2006).",
+      "startOffset" : 81,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 13,
+      "context" : "The potential of BNs have been shown in various studies (Hristozov et al. 2012; Linkov et al. 2015; Low-Kam et al. 2015; Money et al. 2014) and is often related to the strength of BNs in data scarce",
+      "startOffset" : 56,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 20,
+      "context" : "The potential of BNs have been shown in various studies (Hristozov et al. 2012; Linkov et al. 2015; Low-Kam et al. 2015; Money et al. 2014) and is often related to the strength of BNs in data scarce",
+      "startOffset" : 56,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 22,
+      "context" : "The potential of BNs have been shown in various studies (Hristozov et al. 2012; Linkov et al. 2015; Low-Kam et al. 2015; Money et al. 2014) and is often related to the strength of BNs in data scarce",
+      "startOffset" : 56,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 25,
+      "context" : "The potential of BNs have been shown in various studies (Hristozov et al. 2012; Linkov et al. 2015; Low-Kam et al. 2015; Money et al. 2014) and is often related to the strength of BNs in data scarce",
+      "startOffset" : 56,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 29,
+      "context" : "For instance, capping agents and surface groups affect the dissolution potential, and charge, which subsequently affects the aggregation potential (Nel et al. 2013).",
+      "startOffset" : 147,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 29,
+      "context" : "High dissolution properties, and therefore high ionic concentrations, are known to generally lead to high toxicity (Nel et al. 2013).",
+      "startOffset" : 115,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 40,
+      "context" : "determine solubility of a NM in biological matrices (Tantra et al. 2016).",
+      "startOffset" : 52,
+      "endOffset" : 72
+    }, {
+      "referenceID" : 5,
+      "context" : "However, the predictive power of the model will be influenced by the amount and quality of the data from which it is parameterised (Banko and Brill 2001).",
+      "startOffset" : 131,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 39,
+      "context" : "biological effect nodes, as have been observed before (Stone et al. 2014b).",
+      "startOffset" : 54,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 33,
+      "context" : "environmental interactions of a nanomaterial (Ostraat et al. 2013).",
+      "startOffset" : 45,
+      "endOffset" : 66
+    } ],
+    "year" : 2017,
+    "abstractText" : "In this study a Bayesian Network (BN) was developed for the prediction of the hazard potential and biological effects with the focus on metaland metal-oxide nanomaterials to support human health risk assessment. The developed BN captures the (inter) relationships between the exposure route, the nanomaterials physicochemical properties, and the ultimate biological effects in a holistic manner and was based on international expert consultation and the scientific literature (e.g. in vitro/ in vivo data). The BN was validated with independent data extracted from published studies and the accuracy of the prediction of the nanomaterials hazard potential was 72% and for the biological effect 71%, respectively. The application of the BN is shown with scenario studies for TiO2, SiO2, Ag, CeO2, ZnO nanomaterials. It is demonstrated that the BN may be used by different stakeholders at several stages in the risk assessment to predict certain properties of a nanomaterials of which little information is available or to prioritize nanomaterials for further screening.",
+    "creator" : null
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_416515e3c0e42cc675b532ccd29f99cf_zeng2015.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Gradient plasticity in gradient nano-grained metals",
+    "authors" : [ "Zhi Zeng", "Xiaoyan Li", "Dongsheng Xu", "Lei Lu", "Huajian Gao", "Ting Zhu" ],
+    "emails" : [ "ting.zhu@me.gatech.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nExtreme Mechanics Letters\njournal homepage: www.elsevier.com/locate/eml\nGradient plasticity in gradient nano-grained metals Zhi Zeng a, Xiaoyan Li b, Dongsheng Xu c, Lei Lu c, Huajian Gao d, Ting Zhu a,∗ a Woodruff School of Mechanical Engineering, Georgia Institute of Technology, Atlanta, GA 30332, USA b Center for Advanced Mechanics and Materials, Applied Mechanics Laboratory, Department of Engineering Mechanics, Tsinghua University, Beijing 100084, China c Institute of Metal Research, Chinese Academy of Sciences, Shenyang 110016, China d School of Engineering, Brown University, Providence, RI 02912, USA\na r t i c l e i n f o\nArticle history: Received 13 November 2015 Received in revised form 11 December 2015 Accepted 13 December 2015 Available online xxxx\nKeywords: Gradient plasticity Crystal plasticity Finite element\na b s t r a c t\nGradient nano-grained (GNG) metals are a unique class of materials with spatial gradients in grain size, typically from the surface to the bulk. Here the gradient mechanical behavior inGNG copper is studied by a crystal plasticity finite elementmodel that accounts for grainsize-dependent yield strengths. The associated finite element simulations reveal both the gradient stress and gradient plastic strain in the cross section of GNG copper subjected to axial tension. These spatial gradients arise due to progressive yielding of gradient grains under an overall uniform deformation. They stand in stark contrast to the widely studied strain gradient plasticity induced by imposing a non-uniform deformation such as torsion, bending, and indentation. Our work suggests a new material strengthening mechanism through the introduction of plastic strain gradients via gradient microstructures.\n© 2015 Elsevier Ltd. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Gradient nano-grained (GNG) metals are a new class of materials with unique polycrystalline microstructures [1,2]. Their grain sizes typically change with a gradient variation between tens to hundreds of nanometers, from the surface to the bulk. GNG metals promise to achieve an unprecedented combination of strength, ductility and toughness. They have great potential in engineering applications [1–6] and also motivate exploration on various other kinds of gradient nanostructured materials [7–10].\nExperiments have been performed to process the GNG metals and further study their mechanical behavior. Fang et al. [1] utilized surface mechanical grinding treatment to prepare a GNG surface layer in a bulk coarse-grained (CG) rod of face-centered cubic (FCC) Cu. The topmost layer of the GNG structure, up to a depth of 60 µm, consisted of\n∗ Corresponding author. E-mail address: ting.zhu@me.gatech.edu (T. Zhu).\nnano-grains with an average grain size of about 20 nm. The grain size gradually increased to about 300 nm in the depth of 60 µm–150 µm. Below the depth of 150µm, the grain size continued to increase to that of coarse grains at the micrometer scale. The tensile yield strength of the GNG/CG Cu was two times that of CG Cu, and the yield strength of the free-standing GNG foil was ten times that of CG Cu. Recently, Wu et al. [5] used surface mechanical attrition treatment to prepare GNG samples of body-centered cubic (BCC) steel with a sandwich sheet structure, i.e., a CG core in between two GNG layers. The tensile tests showed that the gradient structure induced an extra strain hardening, which led to a high ductility. This extra strain hardening was attributed to the effects of the macroscopic strain gradients associated with multi-axial stress states in GNG structures.\nThe experiments described above have shown the enhanced mechanical properties of GNG metals. However, the detailed mechanisms underlying the observed mechanical behavior of GNG metals remain little understood [11–13]. In this letter, we employ a crystal plasticity\nhttp://dx.doi.org/10.1016/j.eml.2015.12.005 2352-4316/© 2015 Elsevier Ltd. All rights reserved.\nfinite element (CPFE) model to investigate the mechanical responses of GNG Cu. We build a GNG structure by adapting the conventional Voronoi tessellationmethod [14]. We also extend the classical crystal plasticity theory to incorporate the grain-size-dependent constitutive relations. The associated finite element simulations reveal a novel type of gradient stress and gradient plastic strain in the cross section of GNG samples subjected to axial tension. These spatial gradients arise due to progressive yielding of gradient grains under an overall uniform deformation. They stand in stark contrast to the widely studied strain gradient plasticity induced by imposing non-uniform deformations. Our work has important implications for material strengthening through the introduction of plastic strain gradients via gradient microstructures."
+    }, {
+      "heading" : "2. Modeling methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Grain-size-dependent crystal plasticity theory",
+      "text" : "To model the constitutive response of GNG Cu, we extend the classical crystal plasticity theory by incorporating the grain size dependence of yield strength. The ratedependent finite strain crystal plasticity theory adopted here can be traced to the work by Rice [15], Asaro and Rice [16], and Kalidindi et al. [17]. According to Kalidindi et al. [17], the plastic shearing rate on the slip system α is\nγ̇ α = γ̇o τ αsα 1/m sign (τ α) (1)\nwhere τ α is the resolved shear stress, sα is the slip resistance, γ̇o is the reference shearing rate, and m is the strain rate sensitivity parameter. The initial value of sα is denoted as s0. During plastic deformation, the slip resistance sα evolves according to\nṡ = \nβ\nhαβ γ̇ β  , hαβ = qαβh(β),\nh(β) = h0  1 − sβ/ssat a (2) where qαβ are the components of amatrix which describes the latent hardening behavior of the crystal, and h0, a and ssat are the hardening parameters taken to be identical for all slip systems.\nOur crystal plasticity model is dependent on grain size. For each grain, the slip resistance parameters, including {s0, h0, a, ssat, m}, are taken as functions of grain size [18,19]. According to the classical Hall–Petch relation, the overall yield strength is inversely proportional to the square root of grain size [20,21]; such a relation is valid for grain sizes greater than ∼20 nm [22,23]. In this work, we assume that all the slip resistance parameters at the single crystal level are inversely proportional to the square root of the size of the local grain D,\n{s0(D), h0(D), a(D), ssat(D),m(D)} ∼ D−1/2. (3)\nThe numerical values of grain-size-dependent s0 are readily estimated from the available experimental data in the literature, but the determination of the strain hardening related parameters {h0, a, ssat} requires certain\nassumptions. Specifically, the values of s0 are determined based on the experimentally measured yield stresses of nanocrystalline Cu with uniform grain size, i.e., from 860 MPa to 400 MPa for D from 20 nm to 110 nm [24–26]. Dividing these macroscopic yield stresses by Taylor’s factor of 3, we estimate s0 in between 286 MPa and 133 MPa. Nanocrystalline Cu exhibits little hardening in experiments. However, we assign small values of {h0, a, ssat}, so as to produce a weak hardening for ensuring numerical stability in CPFE simulations. For the 20 nm grain, we take h0 = 102 MPa, a = 2.0, ssat = 600 MPa; and for the 110 nm grain, h0 = 48 MPa, a = 1.8, ssat = 287 MPa. Furthermore, experiments show that the strain rate sensitivity exponent m of nanocrystalline Cu with uniform grain size varies from 0.04 to 0.022 for D from 20 nm to 110 nm [27,28]. To evaluate s0 for intermediate grain sizes, we use the above bounding values to fit the formula of s0 = B + C · D−1/2 where B and C are the fitting constants. Along the same line, we also fit other slip resistance parameters of {h0, a, ssat, m} for intermediate grain sizes. The following fitting formulas are obtained:\ns0(MPa) = 19.3 + 1196 · D−1/2, h0(MPa) = 8.68 + 415.8 · D−1/2, (4)\na = 1.65 + 1.56 · D−1/2, ssat(MPa) = 53.7 + 2443 · D−1/2, m = 0.0086 + 0.1403 · D−1/2.\nOther material properties, including elastic constants (C11, C12, C44), twelve {111} ⟨110⟩ slip systems, and the latent hardening matrix  qαβ  , are assumed to be independent of grain size. For FCC Cu, we take C11 = 170 GPa, C12 = 124 GPa and C44 = 75 GPa; qαβ = 1.0 if the slip systems α and β are coplanar and qαβ = 1.4 if they are non-coplanar [17]."
+    }, {
+      "heading" : "2.2. Finite element model",
+      "text" : "We construct a two-dimensional GNG structure with columnar grains by adapting the Voronoi tessellation method inMatlab. The geometrical information of the GNG structure is then used to develop the corresponding finite element model in ABAQUS/CAE with a Python script. Fig. 1 shows an example of the GNG structure generated in ABAQUS/CAE. In this case, the grain size D increases linearly from ∼20 nm in the top/bottom surface layer to ∼110 nm in the central region. The overall sample geometry is 640 nm in length and 1120 nm in width. As such, the spatial gradient in grain size, |dD/dy|, is about 0.1. The orientation of grains is assigned randomly in terms of three Euler angles, {θ, ϕ, Ω}, representing rotations from the crystal basis to the global basis [17]. The sample is meshed with the non-structured plane strain elements. As a result, most elements have four nodes (CPE4R) and a small fraction three nodes (CPE3). Displacements and tractions are continuous at grain boundaries, meaning no separation or sliding between every pair of adjoining grains. A user material subroutine VUMAT [29] is developed in ABAQUS/EXPLICIT to implement the grain-size-dependent crystal plasticity model described above. All the slip\nresistance parameters at each integration point depend on the local grain size D according to Eq. (4). Using the GNG structure in Fig. 1, CPFE simulations are performed to investigate the axial tensile responses of GNG Cu under the plane-strain condition. The boundary conditions of the GNG sample are prescribed as follows: the upper and lower surfaces are traction free; on the left side (x = 0), the displacement in the x direction is zero (ux = 0); on the right side (x = 640 nm), the velocity in the x direction is constant (vx = 0.64 nm/s), corresponding to an applied tensile strain rate of 0.001/s."
+    }, {
+      "heading" : "3. Results and discussion",
+      "text" : "Fig. 2 shows the simulated stress–strain response of the GNG Cu sample subjected to axial tension under the planestrain condition. Deformation begins with a linear elastic response. When the elastic strain reaches about 0.27%, the GNG Cu starts to yield, i.e., deviating from the linear stress–strain response, at about 390MPa. Further straining results in a smooth and gradual increase of the axial tensile stress. Such a yielding behavior can be attributed to progressive attainment of yield strengths in grains with random orientations and, more importantly, with gradient sizes having gradient slip resistances. When the applied tensile strain reaches about 0.5%, the entire GNGCu sample yields and the stress–strain curve attains a plateau of about 500 MPa.\nImportantly, our CPFE simulation reveals the gradient stresses in the cross section of GNG Cu, which arise due\nFig. 2. CPFE simulated stress–strain curve for a GNG Cu sample subjected to axial tension. (For interpretation of the references to color in this figure legend, the reader is referred to the web version of this article.)\nto progressive yielding of grains with gradient sizes. In Fig. 3(a), we plot the distributions of the axial stress in the sample cross section at various applied strains. To generate these plots, we divide the GNG Cu sample into 60 slabs in the y direction and then calculate the average of nodal axial stresses in each slab. As such, the data points in Fig. 3(a) correspond to the average axial stresses at different locations of the cross section, and the solid lines are the fitting curves. It is seen that at small applied strains, the distribution of axial stresses in the cross section is nearly uniform, e.g., the pink curve at a strain of 0.2%. This is because all the grains undergo elastic deformation and the linear elastic constitutive relation is independent of grain size. As the applied strain continues to increase, large grains in the central region of the cross section begin to yield, causing a drastic slowdown of increase of axial stresses in the central region. In contrast, small grains near the surface continue the elastic deformation, resulting in a more pronounced increase of axial stresses near the surface. Due to the gradient grain sizes between the central and surface regions, the cross-sectional stress exhibits a smooth gradient variation, e.g., the blue curve at a strain of 0.33%. Such gradient stress evolves as the applied strain increases, e.g., the green curve at a strain of 0.5%. Meanwhile, the plastically yielded domain expands from the central region to the surface. Finally, the entire GNG sample yields and the gradient stress is fully developed without much further change as the applied strain is increased, e.g., the red curve at a strain of 1%. This stage corresponds to the plateau of the stress–strain curve in Fig. 2.\nOur CPFE simulation also reveals the gradient plastic strains in GNG Cu. In Fig. 3(b), we plot the distributions of axial plastic strains in the sample cross section at various applied strains; here the axial plastic strains are evaluated using the same averaging scheme as the axial stresses. As the gradient stress, the gradient plastic strain is developed due to progressive yielding of grains with gradient sizes. We note that the gradient plastic strains exhibit the maximum in the centerwhere large grains first attain yield\nFig. 3. Distributions of (a) gradient axial stresses and (b) gradient axial plastic strains in the cross section at various applied strains as marked in Fig. 2. (For interpretation of the references to color in this figure legend, the reader is referred to the web version of this article.)\nFig. 4. Contours of axial stresses at the applied strain load of (a) 0.2% and (b) 1%. The color map is in the unit of MPa. (For interpretation of the references to color in this figure legend, the reader is referred to the web version of this article.)\npoints and the minimum at the surface where progressive yielding arrives the latest. Hence, the sign of the plastic strain gradient is opposite to that of the stress gradient, as seen from Fig. 3(a) and (b). More interestingly, the gradient plastic strains arise under an overall uniform deformation of the GNG sample, and they stand in contrast to the widely studied strain-gradient plasticity induced by imposing a non-uniform deformation such as torsion [30], bending [31], and indentation [32]. The plastic strain gradient signifies the plastically inhomogeneous deformation that can provide a non-local effect of material strengthening [33], which is additional to the strengthening gener-\nated by local plastic strains. In this work, we will not further quantitatively evaluate the non-local strengthening effect of plastic strain gradients, due to the lack of related experimental characterization and data. Nonetheless, the gradient plastic strain arising fromgradient grain sizes represents a new material strengthening mechanism due to non-homogeneous plastic deformation and warrant a systematic study in the future.\nTo further understand the spatial distributions of gradient stresses and gradient plastic strains in GNG Cu, we plot in Fig. 4 the contours of axial stresses at two different applied strains, showing the evolving spatial\nFig. 5. Contours of axial plastic strains at the applied strain load of (a) 0.33% and (b) 0.5%.\ndistribution of axial stresses. When the applied strain is low, the deformation in gradient grains is elastic. At a representative axial strain of 0.2%, the spatial stress distribution in Fig. 4(a) is nearly uniform, consistent with the plot of the cross-sectional stress distribution (e.g., the pink curve) in Fig. 3(a). As the applied strain is increased, the gradient stress develops due to progressive yielding of gradient grains. At an applied strain of 1%, the spatial stress distribution in Fig. 4(b) is clearly gradient, consistent with the plot of the average stress distribution (e.g., the red curve) in Fig. 3(a). Both Figs. 4(a) and (b) also show the inhomogeneous spatial distribution of axial stresses in grains with similar sizes, i.e., located at a similar distance to the top/bottom free surface. Such inhomogeneities can be primarily attributed to the random distribution of grain orientations and partly to the small variation of grain sizes. In addition, we plot in Fig. 5 the contours of axial plastic strains at two intermediate applied strains, which exhibit the progressive yielding responses: the larger, inhomogeneous plastic strains have been accumulated in the central region, as opposed to the smaller, inhomogeneous plastic strains in the top/bottom surface layers."
+    }, {
+      "heading" : "4. Conclusions and outlook",
+      "text" : "In this paper, we investigate the mechanics of GNG Cu using a CPFE model. A two-dimensional structure of columnar nano-grains with gradient grain sizes is built via an adapted Voronoi tessellationmethod. The classical crystal plasticity theory is extended to incorporate the grainsize-dependent yield strengths. CPFE simulations are performed to study the tensile responses of GNG Cu with gradient grain sizes in the classical Hall–Petch regime. CPFE results reveal the gradient stress and gradient plastic strain in the cross section of GNGCu. These spatial gradients arise due to progressive attainment of yield points in grainswith gradient sizes and accordingly gradient slip resistances.\nCPFE results also reveal the heterogeneous spatial distributions of gradient stresses and gradient plastic strains, which result from the combined effects of random grain orientations and gradient grain sizes.\nThe most significant results of the present study are the gradient stress and gradient plastic strain revealed by CPFE simulations. Major implications and outlook from this work are discussed as follows.\nStress and plastic strain gradients. GNG metals have a unique microstructure with gradient grain sizes. As a result, the gradient stress and gradient plastic strain develop in plastically deformed GNG samples. These spatial gradients arise due to the grain-size-dependent yield strengths. Importantly, the gradient stress and plastic strain are generated under an overall uniform deformation, and they stand in contrast to the widely studied strain-gradient plasticity induced by imposing a non-uniform deformation such as torsion [30], bending [31], and indentation [32]. To understand the microscopic mechanisms underlying the gradient plastic strains in a GNG structure, we note that the geometrically-necessary and statistically-stored dislocations are generally the plastic deformation carriers in crystals [33]. The density of geometrically-necessary dislocations, ρG, depends on grain size, while that of statisticallystored dislocations, ρS , does not. Hence, ρG is usually responsible for the grain size dependence of yield strength. Ashby showed that ρG is inversely proportional to grain size, but is proportional to plastic strain [33]. On this basis, we show in Fig. 6 a schematic of the spatial distribution of gradient geometrically-necessary dislocations in a plastically deformed GNG structure with grain sizes in the classical Hall–Petch regime—our CPFE study addresses this case. Under axial tension, big grains in the central region have lower yield strengths and thus produce larger plastic strains and accordingly higher ρG, compared to small grains in the surface layer. Such a gradient distribution of ρG underlies the gradient plastic strain. Our molecular dynamics simulations, to be reported in\nFig. 6. Schematic illustration of a gradient variation of geometrically necessary dislocations (represented by ⊥) in GNG metals in the Hall–Petch regime: ρG gradually increases from the surface to the bulk.\na separate manuscript. [34], show that ρG is gradient in plastically deformed GNG Cu. Therefore, the gradient geometrically-necessary dislocations furnish a plausible microscopic mechanism of gradient plastic strains in GNG metals.\nNon-local effect of strengthening. Importantly, the plastic strain gradient is expected to produce a non-local, higherorder strengthening effect and thereby elevate the overall yield strength. Such a strengthening effect has been well recognized in previous studies of strain gradient plasticity induced by applying non-uniform deformations [30–32]. In the future, it is appealing to perform a systematic experimental study using samples with controlled GNG structures, so as to provide a firm quantitative basis of the strengthening effect of plastic strain gradients arising from grain size gradients. The present crystal plasticity model accounts for the grain size dependence of yield strengths, but does not include the non-local strengthening effect of plastic strain gradients. Hence, future study also requires the development of a non-local plasticity model and associated numerical procedure, so as to quantitatively evaluate the effect of plastic strain gradients through comparison with experimental measurements.\nGrain size gradient. The spatial distribution of gradient grain sizes is expected to critically affect the stress and plastic strain gradients and accordingly the strengthening effects on the GNGmaterials. In this work, we study an example of GNG Cu having a linear variation of grain sizes, with the corresponding grain size gradient of |dD/dy| ≈ 0.1. From the material design standpoint, the characteristics of grain size gradient, including itsmagnitude and spatial variation (e.g., constant gradient vs. varying gradient), can serve as important design parameters for achieving an optimal strength enhancement with retained ductility in GNG materials. To this end, it is essential to develop novel processing methods for achieving the controlled grain size gradients. Meanwhile, the non-local CPFEmodels and simulations that include the strengthening effect of plastic strain gradients can be used to guide the design of the optimal grain size gradient.\nRandom gradient microstructures. Heterogeneous materials can possess a random distribution of spatial gradients in grain size. For example, such heterogeneous microstructures are the prominent feature in metals and\nalloys processed by additive manufacturing [35] but their effects on the material mechanical responses remain little understood. In addition, Wu et al. have recently demonstrated the effects of a non-uniform distribution of grain sizes on the strength-ductility synergy in titanium [36]. The present work is focused on a special class of GNGmetalswith awell-defined one-dimensional spatial gradient in grain size from the surface to the bulk. It is relatively easy to achieve the controlled processing of such gradient microstructures, thereby facilitating comparison between experiment andmodeling. A systematic study of such kind of GNG metals will pave the way towards a quantitative understanding of effects of random gradient microstructures on the mechanical behavior of a broader class of heterogeneous materials.\nCompeting deformation mechanisms. Our crystal plasticity model accounts for the grain size dependent strengths that are controlled by dislocation plasticity within grains. In GNG materials, other competing deformation mechanisms, such as coupled shear andmigration of grain boundaries, can play an important role in the gradient mechanical behavior of gradient microstructures. Particularly, experiments have shown that the mechanically driven grain growth becomes pronounced at large tensile strains, leading tomechanical softening that competeswith dislocation hardening [4]. The continuum finite element modeling of the concurrent grain growth and grain plasticity in polycrystals, however, is challenging due to difficulties of tracking the moving grain boundaries. Hence, development of advanced continuum modeling techniques is necessary to simulate the concurrent processes of grain growth and grain plasticity in gradient microstructures."
+    }, {
+      "heading" : "Acknowledgments",
+      "text" : "We acknowledge support by the NSFC grant 51420105001 and the Shenyang Supercomputing Center of CAS. TZ acknowledges support by the National Science Foundation grant DMR-1410331. XL acknowledges support by the NSFC grant 11372152. XDS acknowledges support by the National Basic Research Program of China (973 Program, 2011CB606404). LL acknowledges support by the National Basic Research Program of China (973 Program, 2012CB932202) and the ‘‘Hundreds of Talents Project’’ by the Chinese Academy of Sciences."
+    } ],
+    "references" : [ {
+      "title" : "Revealing extraordinary intrinsic tensile plasticity in gradient nano-grained copper",
+      "author" : [ "T.H. Fang", "W.L. Li", "N.R. Tao", "K. Lu" ],
+      "venue" : "Science 331 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Making strong nanomaterials ductile with gradients",
+      "author" : [ "K. Lu" ],
+      "venue" : "Science 345 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Enhanced fatigue resistance of Cu with a gradient nanograined surface layer",
+      "author" : [ "L. Yang", "N.R. Tao", "K. Lu", "L. Lu" ],
+      "venue" : "Scr. Mater. 68 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Tension-induced softening and hardening in gradient nanograined surface layer in copper",
+      "author" : [ "T.H. Fang", "N.R. Tao", "K. Lu" ],
+      "venue" : "Scr. Mater. 77 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Extraordinary strain hardening by gradient structure",
+      "author" : [ "X.L. Wu", "P. Jiang", "L. Chen", "F.P. Yuan", "Y.T. Zhu" ],
+      "venue" : "Proc. Natl. Acad. Sci. USA 111 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Fatigue behaviors of AISI 316L stainless steel with a gradient nanostructured surface layer",
+      "author" : [ "H.W. Huang", "Z.B. Wang", "J. Lu", "K. Lu" ],
+      "venue" : "Acta Mater. 87 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Graded materials for resistance to contact deformation and damage",
+      "author" : [ "S. Suresh" ],
+      "venue" : "Science 292 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Strain-induced ultrahard and ultrastable nanolaminated structure in nickel",
+      "author" : [ "X.C. Liu", "H.W. Zhang", "K. Lu" ],
+      "venue" : "Science 342 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Gradient confinement induced uniform tensile ductility in metallic glass",
+      "author" : [ "X.L. Lu", "Q.H. Lu", "Y. Li", "L. Lu" ],
+      "venue" : "Sci. Rep. 3 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Evading the strength- ductility trade-off dilemma in steel through gradient hierarchical nanotwins",
+      "author" : [ "Y. Wei", "Y. Li", "L. Zhu", "Y. Liu", "X. Lei", "G. Wang", "Y. Wu", "Z. Mi", "J. Liu", "H. Wang", "H. Gao" ],
+      "venue" : "Nature Commun. 5 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Modeling of the plastic deformation of nanostructured materials with grain size gradient",
+      "author" : [ "J.J. Li", "A.K. Soh" ],
+      "venue" : "Int. J. Plast. 39 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Enhanced ductility of surface nano-crystallized materials bymodulating grain size gradient,Modelling Simul.Mater",
+      "author" : [ "J. Li", "A.K. Soh" ],
+      "venue" : "Sci. Eng",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2012
+    }, {
+      "title" : "S",
+      "author" : [ "J. Li" ],
+      "venue" : "Chen, X.Wu, A.K. Soh, A physicalmodel revealing strong strain hardening in nano-grained metals induced by grain size gradient structure, Mater. Sci. Eng. A 620 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Spatial Tessellations: Concepts and Applications of Voronoi Diagrams",
+      "author" : [ "A. Okabe", "B. Boots", "K. Sugihara", "S.N. Chiu" ],
+      "venue" : "John Wiley & Sons, London, UK",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Inelastic constitutive relations for solids: an internalvariable theory and its application to metal plasticity",
+      "author" : [ "J.R. Rice" ],
+      "venue" : "J. Mech. Phys. Solids 19 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 1971
+    }, {
+      "title" : "Strain localization in ductile single crystals",
+      "author" : [ "R.J. Asaro", "J.R. Rice" ],
+      "venue" : "J. Mech. Phys. Solids 25 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 1977
+    }, {
+      "title" : "Crystallographic texture evolution in bulk deformation processing of FCC metals",
+      "author" : [ "S.R. Kalidindi", "C.A. Bronkhorst", "L. Anand" ],
+      "venue" : "J. Mech. Phys. Solids 40 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 1992
+    }, {
+      "title" : "Grain-boundary sliding and separation in polycrystalline metals: application to nanocrystalline FCC metals",
+      "author" : [ "Y.J. Wei", "L. Anand" ],
+      "venue" : "J. Mech. Phys. Solids 52 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "A computational study of the mechanical behavior of nanocrystalline FCC metals",
+      "author" : [ "Y.J. Wei", "C. Su", "L. Anand" ],
+      "venue" : "Acta Mater. 54 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "The deformation and ageing of mild steel",
+      "author" : [ "E.O. Hall" ],
+      "venue" : "3. Discussion of results, Proc. Phys. Soc. Lond. B 64 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 1951
+    }, {
+      "title" : "The cleavage strength of polycrystals",
+      "author" : [ "P N.J." ],
+      "venue" : "J, Iron Steel Inst. 174 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 1953
+    }, {
+      "title" : "The strongest size",
+      "author" : [ "A.S. Argon", "S. Yip" ],
+      "venue" : "Phil. Mag. Lett. 86 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Ultra-strength materials",
+      "author" : [ "T. Zhu", "J. Li" ],
+      "venue" : "Prog. Mater. Sci. 55 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Tensile properties of in situ consolidated nanocrystalline Cu",
+      "author" : [ "S. Cheng", "E. Ma", "Y.M. Wang", "L.J. Kecskes", "K.M. Youssef", "C.C. Koch", "U.P. Trociewitz", "K. Han" ],
+      "venue" : "Acta Mater. 53 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Mechanistic models for the activation volume and rate sensitivity in metals with nanocrystalline grains and nanoscale twins",
+      "author" : [ "R.J. Asaro", "S. Suresh" ],
+      "venue" : "Acta Mater. 53 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Mechanical properties of nanocrystalline materials",
+      "author" : [ "M.A. Meyers", "A. Mishra", "D.J. Benson" ],
+      "venue" : "Prog. Mater. Sci. 51 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Hardness and strain rate sensitivity of nanocrystalline Cu",
+      "author" : [ "J. Chen", "L. Lu", "K. Lu" ],
+      "venue" : "Scr. Mater. 54 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Size dependence of rate-controlling deformation mechanisms in nanotwinned copper",
+      "author" : [ "L. Lu", "M. Dao", "T. Zhu", "J. Li" ],
+      "venue" : "Scr. Mater. 60 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Plastic anisotropy and associated deformation mechanisms in nanotwinned metals",
+      "author" : [ "Z. You", "X. Li", "L. Gui", "Q. Lu", "T. Zhu", "H. Gao", "L. Lu" ],
+      "venue" : "Acta Mater. 61 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Strain graident plasticity—theory and experiment",
+      "author" : [ "N.A. Fleck", "G.M. Muller", "M.F. Ashby", "J.W. Hutchinson" ],
+      "venue" : "Acta Metall. Mater. 42 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "A critical assessment of theories of strain gradient plasticity",
+      "author" : [ "A.G. Evans", "J.W. Hutchinson" ],
+      "venue" : "Acta Mater. 57 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Indentation size effects in crystalline materials: A law for strain gradient plasticity",
+      "author" : [ "W.D. Nix", "H.J. Gao" ],
+      "venue" : "J. Mech. Phys. Solids 46 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "The deformation of plastically non-homogeneous materials",
+      "author" : [ "M.F. Ashby" ],
+      "venue" : "Phil. Mag. 21 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 1970
+    }, {
+      "title" : "Mechanics and deformation mechanisms of gradient nano-grained copper",
+      "author" : [ "Z. Zeng", "X. Li", "D. Xu", "L. Lu", "H. Gao", "T. Zhu" ],
+      "venue" : "Manuscript under preparation",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "An experimental investigation into additive manufacturing-induced residual stresses in 316L stainless steel",
+      "author" : [ "A.S. Wu", "D.W. Brown", "M. Kumar", "G.F. Gallegos", "W.E. King" ],
+      "venue" : "Metall. Mater. Trans. A 45 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Heterogeneous lamella structure unites ultrafine-grain strength with coarse-grain ductility",
+      "author" : [ "X. Wu", "M. Yang", "F. Yuan", "G. Wu", "Y. Wei", "X. Huang", "Y. Zhu" ],
+      "venue" : "Proc. Natl. Acad. Sci. USA 112 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Gradient nano-grained (GNG) metals are a new class of materials with unique polycrystalline microstructures [1,2].",
+      "startOffset" : 108,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 1,
+      "context" : "Gradient nano-grained (GNG) metals are a new class of materials with unique polycrystalline microstructures [1,2].",
+      "startOffset" : 108,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 0,
+      "context" : "[1] utilized surface mechanical grinding treatment to prepare a GNG surface layer in a bulk coarse-grained (CG) rod of face-centered cubic (FCC) Cu.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 4,
+      "context" : "[5] used surface mechanical attrition treatment to prepare GNG samples of body-centered cubic (BCC) steel with a sandwich sheet structure, i.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 13,
+      "context" : "We build a GNG structure by adapting the conventional Voronoi tessellationmethod [14].",
+      "startOffset" : 81,
+      "endOffset" : 85
+    }, {
+      "referenceID" : 14,
+      "context" : "The ratedependent finite strain crystal plasticity theory adopted here can be traced to the work by Rice [15], Asaro and Rice [16], and Kalidindi et al.",
+      "startOffset" : 105,
+      "endOffset" : 109
+    }, {
+      "referenceID" : 15,
+      "context" : "The ratedependent finite strain crystal plasticity theory adopted here can be traced to the work by Rice [15], Asaro and Rice [16], and Kalidindi et al.",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 16,
+      "context" : "[17], the plastic shearing rate on the slip system α is",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 17,
+      "context" : "For each grain, the slip resistance parameters, including {s0, h0, a, ssat, m}, are taken as functions of grain size [18,19].",
+      "startOffset" : 117,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 18,
+      "context" : "For each grain, the slip resistance parameters, including {s0, h0, a, ssat, m}, are taken as functions of grain size [18,19].",
+      "startOffset" : 117,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 19,
+      "context" : "According to the classical Hall–Petch relation, the overall yield strength is inversely proportional to the square root of grain size [20,21]; such a relation is valid for grain sizes greater than ∼20 nm [22,23].",
+      "startOffset" : 134,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 20,
+      "context" : "According to the classical Hall–Petch relation, the overall yield strength is inversely proportional to the square root of grain size [20,21]; such a relation is valid for grain sizes greater than ∼20 nm [22,23].",
+      "startOffset" : 134,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 21,
+      "context" : "According to the classical Hall–Petch relation, the overall yield strength is inversely proportional to the square root of grain size [20,21]; such a relation is valid for grain sizes greater than ∼20 nm [22,23].",
+      "startOffset" : 204,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 22,
+      "context" : "According to the classical Hall–Petch relation, the overall yield strength is inversely proportional to the square root of grain size [20,21]; such a relation is valid for grain sizes greater than ∼20 nm [22,23].",
+      "startOffset" : 204,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 16,
+      "context" : "The orientation of grains is assigned randomly in terms of three Euler angles, {θ, φ, Ω}, representing rotations from the crystal basis to the global basis [17].",
+      "startOffset" : 156,
+      "endOffset" : 160
+    }, {
+      "referenceID" : 28,
+      "context" : "A user material subroutine VUMAT [29] is developed in ABAQUS/EXPLICIT to implement the grain-size-dependent crystal plasticity model described above.",
+      "startOffset" : 33,
+      "endOffset" : 37
+    }, {
+      "referenceID" : 29,
+      "context" : "More interestingly, the gradient plastic strains arise under an overall uniform deformation of the GNG sample, and they stand in contrast to the widely studied strain-gradient plasticity induced by imposing a non-uniform deformation such as torsion [30], bending [31], and indentation [32].",
+      "startOffset" : 249,
+      "endOffset" : 253
+    }, {
+      "referenceID" : 30,
+      "context" : "More interestingly, the gradient plastic strains arise under an overall uniform deformation of the GNG sample, and they stand in contrast to the widely studied strain-gradient plasticity induced by imposing a non-uniform deformation such as torsion [30], bending [31], and indentation [32].",
+      "startOffset" : 263,
+      "endOffset" : 267
+    }, {
+      "referenceID" : 31,
+      "context" : "More interestingly, the gradient plastic strains arise under an overall uniform deformation of the GNG sample, and they stand in contrast to the widely studied strain-gradient plasticity induced by imposing a non-uniform deformation such as torsion [30], bending [31], and indentation [32].",
+      "startOffset" : 285,
+      "endOffset" : 289
+    }, {
+      "referenceID" : 32,
+      "context" : "The plastic strain gradient signifies the plastically inhomogeneous deformation that can provide a non-local effect of material strengthening [33], which is additional to the strengthening generated by local plastic strains.",
+      "startOffset" : 142,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 29,
+      "context" : "Importantly, the gradient stress and plastic strain are generated under an overall uniform deformation, and they stand in contrast to the widely studied strain-gradient plasticity induced by imposing a non-uniform deformation such as torsion [30], bending [31], and indentation [32].",
+      "startOffset" : 242,
+      "endOffset" : 246
+    }, {
+      "referenceID" : 30,
+      "context" : "Importantly, the gradient stress and plastic strain are generated under an overall uniform deformation, and they stand in contrast to the widely studied strain-gradient plasticity induced by imposing a non-uniform deformation such as torsion [30], bending [31], and indentation [32].",
+      "startOffset" : 256,
+      "endOffset" : 260
+    }, {
+      "referenceID" : 31,
+      "context" : "Importantly, the gradient stress and plastic strain are generated under an overall uniform deformation, and they stand in contrast to the widely studied strain-gradient plasticity induced by imposing a non-uniform deformation such as torsion [30], bending [31], and indentation [32].",
+      "startOffset" : 278,
+      "endOffset" : 282
+    }, {
+      "referenceID" : 32,
+      "context" : "To understand the microscopic mechanisms underlying the gradient plastic strains in a GNG structure, we note that the geometrically-necessary and statistically-stored dislocations are generally the plastic deformation carriers in crystals [33].",
+      "startOffset" : 239,
+      "endOffset" : 243
+    }, {
+      "referenceID" : 32,
+      "context" : "Ashby showed that ρG is inversely proportional to grain size, but is proportional to plastic strain [33].",
+      "startOffset" : 100,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 33,
+      "context" : "[34], show that ρG is gradient in plastically deformed GNG Cu.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 34,
+      "context" : "For example, such heterogeneous microstructures are the prominent feature in metals and alloys processed by additive manufacturing [35] but their effects on the material mechanical responses remain little understood.",
+      "startOffset" : 131,
+      "endOffset" : 135
+    }, {
+      "referenceID" : 35,
+      "context" : "have recently demonstrated the effects of a non-uniform distribution of grain sizes on the strength-ductility synergy in titanium [36].",
+      "startOffset" : 130,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 3,
+      "context" : "Particularly, experiments have shown that the mechanically driven grain growth becomes pronounced at large tensile strains, leading tomechanical softening that competeswith dislocation hardening [4].",
+      "startOffset" : 195,
+      "endOffset" : 198
+    } ],
+    "year" : 2015,
+    "abstractText" : "Gradient nano-grained (GNG) metals are a unique class of materials with spatial gradients in grain size, typically from the surface to the bulk. Here the gradient mechanical behavior inGNG copper is studied by a crystal plasticity finite elementmodel that accounts for grainsize-dependent yield strengths. The associated finite element simulations reveal both the gradient stress and gradient plastic strain in the cross section of GNG copper subjected to axial tension. These spatial gradients arise due to progressive yielding of gradient grains under an overall uniform deformation. They stand in stark contrast to the widely studied strain gradient plasticity induced by imposing a non-uniform deformation such as torsion, bending, and indentation. Our work suggests a new material strengthening mechanism through the introduction of plastic strain gradients via gradient microstructures. © 2015 Elsevier Ltd. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

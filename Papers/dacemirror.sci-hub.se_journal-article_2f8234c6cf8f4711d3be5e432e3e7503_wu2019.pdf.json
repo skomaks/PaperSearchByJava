@@ -1,0 +1,625 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_2f8234c6cf8f4711d3be5e432e3e7503_wu2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Engineering advanced cancer therapies with synthetic biology",
+    "authors" : [ ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Synthetic biology seeks to programme living cells with artificial gene circuits that perform user- defined functions, such as decision making to enable sense- and-respond adaptive therapies1 (medicines that can change their behaviour in response to disease conditions). Adaptive therapies are being developed for cancer by programming gene circuits to distinguish between malignant and healthy cells and to efficiently kill the former without harming the latter. Unlike conventional small molecules or biologics, adaptive gene circuit therapies enabled by synthetic biology can potentially sense multiple disease signatures, integrate this information to make decisions, trigger sophisticated or combinatorial therapeutic mechanisms and be regulated exogenously, hence allowing precise control over the timing, duration and localization of therapeutic outputs.\nSynthetic biology applies engineering principles to modify living cells, enabling them to perform sophisticated decisionmaking processes in order to produce a user- defined outcome. This approach often involves programming artificial multi- gene circuits that consist of three components: a sensor that detects user- defined input(s), a processor that decides on the response to the inputs and an actuator that produces the desired response2. These circuits can be designed to execute Boolean logic, such that a specific combination of inputs (where each\ncomponents up or down; and composability, or the ability to connect simple building blocks into complex devices wherein the output from one layer of the circuit serves as the input for the next layer. Because circuit behaviour depends upon the particular cellular context, design–build–test–learn optimization can be required before the ultimate desired function is achieved4. This Progress article focuses on using synthetic biology to programme gene circuits in immune cells and nucleic acid modalities to target cancer. The application of synthetic biology in cancer- targeting bacteria is discussed in Box 1.\nCell- based cancer therapies One of the most promising anticancer approaches in clinical use is chimeric antigen receptor (CAR) T cell therapy. Patient T cells are harvested and engineered to express a CAR — a fusion protein that combines an antibody single chain variable fragment (scFv) recognizing a tumour surface antigen with intracellular signalling domains derived from the T cell receptor (TCR) and associated signalling receptors (Fig. 1a). These CAR T cells are reintroduced into the patient, where they can recognize and destroy cancer cells expressing the antigen of interest. CAR T cell therapy has demonstrated robust efficacy in treating B cell malignancies, and several CAR T cell products have been approved by the US Food and Drug Administration (FDA)5–9. However, challenges such as the lack of ideal targetable tumour antigens, tumour relapse owing to antigen loss, severe toxicity owing to off- target interactions and cytokine storms, and tumour- mediated immunosuppression still hinder the widespread use of CAR T cells, and of engineered immune cells in general, to treat tumours other than B cell malignancies7,10,11.\nCurrently, FDA- approved CAR T cells recognize only a single antigen11–13. However, it is challenging to find individual tumour surface antigens that can uniquely define tumour cells and spare normal cells, limiting the broad application of CAR T cell therapy11,14. For example, CAR T cells that target the CD19 lineage marker can effectively treat B cell malignancies, but because CD19 is also expressed by normal B cells, this therapy eliminates normal B cells\ninput is classified by a threshold into ON or OFF) results in the output being either ON or OFF in a digital fashion2. For example, a two- input digital Boolean AND gate accepts two inputs and produces an output only if both inputs are ON. Alternatively, these circuits can carry out rheostat- like functions where the output responds to a broad range of inputs in an analogue fashion.\nSynthetic biology circuits are often based on transcriptional regulation but may also involve post- transcriptional regulators, such as microRNAs (miRNAs) or protein- based signalling cascades. The inputs to a circuit can be exogenous, such as user- provided small molecules or specific wavelengths of light, or endogenous, such as transcripts or proteins that can distinguish between cell types of interest (for example, between healthy and malignant cells3). Gene circuits have been designed to express a wide range of functional outputs, such as reporter molecules and therapeutic proteins3.\nSynthetic biologists strive to optimize gene circuits for several useful qualities: modularity, or the ability to build complex circuits out of parts that retain predictable behaviour regardless of context, such as DNA sequences or protein domains; orthogonality, or the absence of unwanted crosstalk between circuit parts or between a circuit part and the native signalling pathways of the host cell; tunability, or the ability to dial the activity of circuit\nNature reviews | CanCer\nas well15. Hence, this on- target–off- tumour effect induces B cell aplasia, which requires supportive care such as monthly intravenous immunoglobulin injections15. In many cases, patients cannot tolerate the elimination of an entire cellular lineage. Because CAR T cells are very potent, targeting normal cells can lead to severe toxicity and sometimes death16. Thus, distinguishing tumour cells from normal cells with multiple antigens is required to enable more precise and adaptable tumour recognition11.\nTo accomplish this goal, synthetic biology has been used to programme T cells to recognize combinations of antigens. For example, T cells programmed with a Boolean A AND B antigen recognition logic gate are activated only when both antigens A and B are detected (Fig. 1b,c). A T cell AND gate has been implemented using the synthetic Notch (synNotch) receptor, which triggers transcriptional activation of target genes upon binding to a userdefined cell surface antigen, A17. Activated synNotch receptor drives the expression of a CAR against a second antigen, B; as a result, the T cell is activated only after exposure to antigen A and then antigen B18\nis present and a self- antigen, B, is not; this function can be used to prevent T cells from attacking vital tissues expressing selfantigen B20 (Fig. 1d). Applying this logic, the intracellular signalling domains of the inhibitory receptors cytotoxic T lymphocyte antigen 4 (CTLA4) and programmed cell death protein 1 (PD1) have been utilized to create inhibitory CARs (iCARs20). Upon engaging self- antigen B, these iCARs provide inhibitory signals to T cells to counteract activating signals triggered by CARs upon engaging tumour antigen A.\nTumour cells can escape CAR T cell attack by downregulating target expression. For example, after anti- CD19 CAR T cell therapy, a significant proportion of patients relapse because their tumour cells have lost CD19 expression21,22. Therefore, a CAR T cell system that can recognize multiple tumour antigens may be more versatile and able to prevent tumour relapse from antigen loss. Boolean A OR B antigen recognition can be achieved by mixing two types of CAR T cells, each recognizing one antigen, or by engineering T cells to express two CARs, each of which targets a different antigen23. Alternatively, more compact\n(Fig. 1b). Another approach exploits the fact that robust T cell activation requires the combination of primary signals and co- stimulatory signals. In this system, T cells co- express a CAR and a chimeric co- stimulatory receptor (CCR)19. The CAR contains a low- affinity scFv that is not potent enough when ligated to activate T cells efficiently on its own, and the CCR provides co- stimulation signals for enhancing T cell activation, such that only T cells that receive signals from both the CAR and the CCR become activated and able to kill tumour cells (Fig. 1c). Unlike the synNotch receptorbased approach, the CCR approach does not rely on transcriptional cascades; therefore, the CCR system is expected to respond faster than the synNotch- based system. However, a disadvantage of the CCR system is that achieving strong discrimination between tumour cells and normal cells may require extensive tuning of scFv affinity according to the antigen expression level11.\nIn addition, A AND (NOT B) logic gating has potential utility for CAR T cell therapies. T cells engineered with A AND (NOT B) antigen recognition logic are activated only when a tumour antigen, A,\nwww.nature.com/nrc\nBox 1 | Cancer- targeting bacteria\nseveral bacterial species preferentially proliferate and accumulate at tumour sites, making them attractive vehicles for tumour targeting71. Synthetic biology can improve the ability of bacteria to target tumours and deliver therapeutic payloads. For example, to reduce off- target effects on healthy tissues, bacteria have been equipped with quorum sensing (Qs) switches, which activate effector gene expression only when the bacterial population reaches a threshold density72,73. In one study, three strains of attenuated Salmonella bacteria were engineered with a Qs- based synchronized lysis circuit to deliver one of three therapeutic payloads — a pore- forming toxin, a pro-apoptotic protein and a T cell- attracting cytokine — at the tumour site. Oral administration of these bacteria combined with intraperitoneal injection of the chemotherapeutic agent 5-fluorouracil produced a synergistic effect, decreasing tumour burden and prolonging survival in a mouse model 74. alternatively, therapeutic payload- expressing bacteria can invade tumour cells72,75 or use the type iii secretory system (t3ss), a syringe- like protein- based structure that occurs naturally in certain pathogenic bacteria and injects proteins into target cells. Salmonella have been engineered to use their t3ss to deliver an antiangiogenic protein to tumour cells, inhibiting tumour growth in vivo76, or to deliver tumour- associated antigens to antigen- presenting cells to elicit antitumour immunity77. Furthermore, bacteria have been programmed to degrade the metabolites adenosine and kynurenine78, which inhibit antitumour immunity79, and to produce cyclic- di-aMP80, which activates the stimulator of interferon genes (stiNG) pathway for increasing antitumour immunity81. several of these bacteria have been shown to achieve significant tumour growth reduction in preclinical mouse models74,76,77. One limitation of bacteria is their susceptibility to being cleared by the host immune system82. anticancer bacteria of the future may be engineered to evade the host immune system (for example, by lacking key pathogen- associated molecular patterns), combined with robust kill switches in order to prevent infections. an alternative goal is to engineer bacteria to act quickly before being cleared by the host immune system82. as mentioned above, bacteria can be engineered with a Qs synchronized lysis circuit for drug delivery (see the figure, part a). the Qs system is controlled by the concentration of the small molecule N- acyl homoserine lactone (aHL). at the tumour site, during the early bacterial growth phase (low aHL), no self- lysis occurs. as the bacteria continue to grow, aHL accumulates and eventually reaches a threshold density, triggering synchronized bacteria lysis and drug release. the Qs system involves the small molecule aHL, the enzyme Luxi, which synthesizes aHL, and the aHL-responsive transcription factor Luxr (see the figure, part b). when bacterial density is low, aHL concentration is also low, and hence, Luxr cannot activate its target genes, and little or no therapeutic protein is produced. As bacteria proliferate, the local concentration of AHL increases. aHL binds to Luxr and triggers the expression of luxI, which encodes the enzyme that synthesizes more aHL, thus creating a positive feedback loop. Beyond a certain cell density threshold, aHL–Luxr activates the expression of the therapeutic payload and proteins that mediate bacterial lysis.\na b\nluxl\nTherapy\nSelf-lysis\nEarly phase (low AHL) Bacterial growth phase (AHL accumulates)\nSynchronized lysis and drug release phase\nBacterium\nAHL\nTherapeutic agent\nLuxR\ndesigns that utilize tandem scFvs to create a bispecific CAR have been developed24,25 (Fig. 1e). For example, a bispecific CAR utilizing a tandem scFv design that can target both CD19 and CD20 has prevented CD19-negative tumour relapse in preclinical mouse models25. Another bispecific tandem scFv CAR targeting both CD19 and CD22 has also shown robust preclinical efficacy and is under active development26.\nA recently reported split, universal and programmable (SUPRA) CAR system can achieve all three types of tumour antigen recognition logic: A AND B, A AND (NOT B) and A OR B. SUPRA CARs feature a universal cell surface adaptor that binds exogenously administered tumour- targeting\ntumour markers. Because TCRs naturally recognize intracellular antigens presented by major histocompatibility complexes (MHCs), one active area of research is to identify T cell populations or TCRs that can respond to intracellular tumour antigens28–30. Alternatively, the Cytoplasmic Oncoprotein Verifier and Response Trigger (COVERT) system31 utilizes the cytotoxic protein granzyme B fused to an inactivating domain, which can be removed by sentrin- specific protease 1 (SENP1), an intracellular protease upregulated in several types of cancer. As proof of principle, the granzyme B fusion protein was shown to kill human embryonic kidney 293 T (HEK293T) cells engineered to overexpress SENP1 but not moieties via leucine zipper interactions (Fig. 2a–c). The antigen recognition logic can be controlled by the administration of different combinations of antigen- targeting moieties27. In addition, this system offers flexibility to fine- tune the strength of T cell activation by regulating the amount of antigen- targeting moieties and the timing of their administration27. The enhanced tunability may enable more precise tumour targeting and potentially reduce the risk of off- target effects. The approaches described above utilize cell surface markers for tumour recognition. It would greatly expand the range of tumour targets if therapies could be devised to recognize intracellular\nNature reviews | CanCer\nreceptors recognize their cognate tumour antigens are the integrated signals sufficient to activate the T cell. The truth table (a mathematical table used in Boolean logic) of these AND gate systems (A AND B) is depicted. d | The cytotoxic T lymphocyte antigen 4 (CTL A4)-based and programmed cell death protein 1 (PD1)-based inhibitory CAR (iCAR) system for achieving A AND (NOT B) antigen recognition is shown. The binding of tumour antigen A by a CAR triggers T cell activation. However, when self- antigen B is also present, the binding of self- antigen B by an iCAR triggers overriding inhibition signals that counteract the CAR signal. Therefore, the T cell is activated only when tumour antigen A is present and self- antigen B is absent. The truth table of A AND (NOT B) tumour recognition systems is depicted. e | The design of a tandem scFv OR- gate CAR is shown. Two scFvs targeting different tumour antigens are linked in tandem, followed by a transmembrane (tm) domain, a co- stimulation domain incorporating 4-1BB and the CD3ζ chain signalling domain. The truth table of OR- gate systems (A OR B) is depicted. The designs in parts d and e have been built upon second-generation CARs. IgG4, immunoglobulin G4; TF, transcription factor.\nmore than 90% of engineered T cells within 30 minutes of AP1903 administration33. Therefore, this system has the potential to mitigate life- threatening toxicities caused by T cell therapies. However, the effect of this suicide switch on T cells is irreversible — an undesirable property given the high cost of engineered T cell therapy.\nBy contrast, small- molecule-gated CARs can enable tuneable and reversible modulation of CAR T cell activity34. One such strategy utilizes a split CAR design, such that one part of the CAR contains the tumour- recognizing scFv and the other part contains the T cell signalling polypeptide, each fused to a small- molecule-inducible heterodimerization domain. The rapamycin analogue (rapalogue) AP21967 causes the two parts of the CAR to dimerize and form a complete CAR34 (Fig. 2d). The activity of such CAR T cells can be titrated by adjusting rapalogue concentration, and the effect is reversible. Because the rapalogue has a short half- life in the body, this system relies on a high systemic concentration of the rapalogue34. New constructs optimized for clinical use that can be controlled by FDA- approved drugs are in active development11,34. Alternatively, a mechanically sensitive Piezo1 ion channel has been employed to sense an ultrasound signal, trigger calcium influx and activate\ncalcium- induced CAR expression35. Compared with small- molecule-based inducible systems, this ultrasound- based system may enable greater spatial control of CAR T activation35. However, further optimization and in vivo studies are needed to validate the clinical potential of this system.\nAnother strategy that may enable increased spatial control and potentially prevent off- target toxicity by CAR T cells is to control the homing of engineered CAR T cells. In one study, T cells were engineered with G protein- coupled receptors (GPCRs) to sense an inert small molecule, clozapineN-oxide (CNO), and migrate up a CNO gradient36. Administration of CNO- releasing beads in vivo could preferentially attract these engineered mouse T cells to a specific subcutaneous region. Nevertheless, if this strategy was to advance to the clinic, it would require CNO injections into the tumour, and hence, it may not be suitable for deep- tissue or otherwise inaccessible tumours. Alternative strategies could utilize engineered chemokine receptors and adhesion molecules to improve T cell trafficking into solid tumours.\nAnother major challenge for CAR T cell therapy is tumour- mediated immunosuppression, wherein mechanisms such as impaired T cell trafficking, immunosuppressive factors and immune checkpoint pathways have been proposed to limit the efficacy of T cell therapy against solid tumours37. Even if CAR T cells can recognize tumour antigens, tumourmediated immunosuppression can render the cells much less effective. One strategy to overcome this obstacle is to engineer ‘armoured’ T cells to express strong immunostimulatory effectors (for example, interleukin-12 (IL-12) and CD40 ligand (CD40L))38. However, this strategy can result in increased systemic toxicity39, likely owing to basal level IL-12 production from engineered T cells that can patrol throughout the body. In addition, the synNotch receptor system has been used to programme T cells to deliver immunostimulatory therapeutic payloads such as IL-12, PD1 antibodies and flagellin (a subunit protein of the bacterial flagellum that acts as a potent immune activator) in an antigen- triggered manner locally at tumour sites40. Thus, optimized gene circuits with minimal basal expression of immunomodulatory payloads and conditional triggering of these payloads in the tumour microenvironment (TME) are needed. Alternative approaches aim to convert immunosuppressive signals, such as PD1 ligand 1 (PDL1) or transforming\ncontrol HEK293T cells31. The next step towards therapeutic applications will be to show that COVERT T cells can selectively kill SENP1-overexpressing cancer cells using the synthetic granzyme B fusion protein. Although the therapeutic efficacy of this system remains to be determined, the approach highlights the potential of synthetic biology to expand the availability of tumour recognition markers. At present, it is difficult to control the magnitude of the immune response upon infusing CAR T cells back into patients. For example, CAR T cell therapy is associated with cytokine release syndrome and neurotoxicity. These toxicities are thought to result from a lack of control over the proliferation, activity and homing of the engineered T cells after infusion back into patients, as well as further activation of myeloid cells by these T cells10,32. To regulate the duration of the effector response from the infused cells, researchers have developed drug- inducible suicide switches33. For example, a suicide switch was built with a split caspase 9 gene design that triggers apoptosis upon administration of a synthetic dimerizing drug, AP1903. This caspase switch has been evaluated in allogeneic (non- CAR-expressing) T cells infused into patients after haematopoietic stem cell transplant and has been shown to eradicate\nwww.nature.com/nrc\ngrowth factor- β (TGFβ), to T cell activation signals41–43. These approaches generally involve fusion receptors that combine the extracellular domain of receptors for inhibitory factors together with activating intracellular signalling domains. Further in vivo validation is required to assess the therapeutic potential of these approaches, as well as safety, as rewiring inhibitory receptors could result in the creation of hyperactive T cells.\nDespite many promising advances in engineering immune cells to overcome the immunosuppressive TME of solid tumours, they may not be the ideal chassis to use owing to their inherent responsiveness to inhibitory TME signals44. Therefore, engineering non- immune cells to target and destroy cancer cells may be an attractive alternative. A recent study programmed human mesenchymal stem cells (MSCs) to detect breast cancer cells via a synthetic fusion receptor that responds to human epidermal growth factor receptor 2 (HER2; also known as ERBB2), a breast cancer marker45. Upon binding to HER2, the MSCs activated Janus kinase (JAK)–signal transducer and activator of transcription (STAT) signalling, which led to the expression and secretion of cytosine deaminase conjugated to uracil phosphoribosyltransferase (FCU1), an enzyme that converts the prodrug 5-fluorocytosine to toxic 5-fluorouridine monophosphate. The engineered MSCs were shown to kill HER2-expressing SKBR3 breast cancer cells in vitro in the presence of 5-fluorocytosine46. Although this non-immune-cell based approach may provide an additional tool for attacking tumours, additional in vivo efficacy studies are required in order to evaluate its translational potential. Besides engineering non- immune cells for cancer therapies, other modalities, such as nucleic acid- based gene circuits, could provide alternatives that are less susceptible to immunosuppression."
+    }, {
+      "heading" : "Nucleic acid therapies",
+      "text" : "Instead of encoding synthetic gene circuits within immune cells, synthetic gene circuits can be delivered in vivo directly as nucleic acid- encoded therapies. These gene circuit therapies can be programmed to distinguish cancer cells from normal cells and to activate therapeutic payload expression from within the tumours themselves (Fig. 3).\nOne example of a cancer- targeting gene circuit is the dual- promoter integrator (DPI)46. The DPI uses two cancer-specific\npromoters as inputs and utilizes a mammalian two- hybrid system inspired transcriptional AND gate for computation. Each cancer- specific promoter regulates the production of one component of a split synthetic transcription factor. Therefore, the circuit turns on only when both cancerspecific promoters are active, resulting in the production of its therapeutic payload, such as herpes simplex virus type 1 thymidine kinase (HSV- TK) (Fig. 3a). HSV- TK converts the prodrug ganciclovir (GCV) into a cytotoxic product and triggers preferential killing of target cells in vitro. Another example of a cancer- targeting gene circuit is the miRNA classifier, which was used to distinguish HeLa cervical cancer cells from other cell lines on the basis of their miRNA expression profile47. In this circuit, the reverse tetracycline- controlled transactivator (rtTA) is used to drive the expression of the Lac repressor (LacI), which represses transcription of the output gene. The rtTA and LacI- coding transcripts have binding sites for three endogenous miRNAs that are highly expressed in HeLa cells, and the output transcript has binding sites for three miRNAs that are at low levels in HeLa cells. The result is a six- input Boolean logic gate that activates output expression only when a specific pre- defined miRNA combination is present in cells (Fig. 3b). The miRNA classifier was used to drive expression of a pro- apoptotic gene in order to preferentially kill HeLa cells in vitro. A subsequent study improved upon this original design by replacing LacI with RNA-binding regulatory proteins (such as the archaea 50 S ribosomal protein L7Ae) to enable the whole circuit to be encoded by RNA48 (Fig. 3c). RNA- encoded therapeutics (Fig. 3c) may have an advantage over DNAencoded ones (Fig. 3a,b,d) in vivo, as the latter potentially pose the risk of unwanted genomic integration with deleterious effects. Conversely, RNA-encoded circuits tend to be more short- lived than DNA- encoded ones, which may be a disadvantage in some therapeutic contexts49.\nAnother approach is to programme gene circuits to recognize distinct protein expression profiles in cancer cells, such as low levels of the tumour suppressor protein p53. A recently published p53 sensor includes an HSV- TK transgene that is repressed by p53 in combination with a short hairpin RNA that represses HSV- TK and that is transcriptionally activated by p53 (reF.50). The two levels of regulation ensure strong repression of HSV- TK in p53-positive cells. Upon loss of p53, HSV- TK is expressed and turns the prodrug GCV into a cytotoxic\nproduct. One limitation of this approach is that physiological p53 levels vary between different tissues, so the activity of the circuit would have to be calibrated to each cancer type, and this may be challenging.\nAnother way to detect proteins and other intracellular molecules is with aptamers, small RNA molecules that change conformation upon binding to their cognate ligand. One study utilized hybrid RNA molecules that combine aptamers with CRISPR guide RNAs (gRNAs)51. In the absence of its ligand, the aptamer blocks the access of the gRNA to its target DNA; in the presence of the ligand, a conformational change in the aptamer allows the gRNA to function. These molecules, termed signal conductors, allow the user to regulate CRISPR–dead Cas9 (dCas9)-based transcriptional activity in response to endogenous or synthetic molecules, and they can be incorporated into Boolean logic gates. Signal conductors were used to build an AND gate responsive to two proteins upregulated in cancer, nuclear factor- κB (NF- κB) and β- catenin, with a pro- apoptotic output that killed cancer cells specifically51. One disadvantage of CRISPR- based signal conductors is the need for a dCas9-encoding transgene, which is large and hence difficult to introduce into cells in vivo. Therefore, researchers have subsequently modified the signal conductors to work without dCas9 by using post- transcriptional regulation: negative regulators bind their target mRNA and inhibit translation, while positive regulators increase target mRNA translation by recruiting eukaryotic translation initiation factor 4G (eIF4G)52. Like the original signal conductors, these post- transcriptional regulators can be incorporated into Boolean logic gates and have been used to induce cancer cell- specific apoptosis52.\nThe circuits described above present interesting proof- of-principle approaches to targeting cancer cells specifically; however, much more work is required to optimize their function in vivo. A small, simplified version of the miRNA classifier has been tested in immunocompromised mice with liver metastases established by intrasplenic injection of the human HCT-116 colorectal cancer cell line53. An HSV- TK transgene that can be downregulated by miR-122, which is depleted in the HCT-116 cell line, was packaged into adeno- associated virus vectors for systemic in vivo delivery. In combination with GCV, this circuit caused tumour regression in mice; by contrast, mice given the HSV- TK cassette without GCV had large tumours. However,\nNature reviews | CanCer\nwww.nature.com/nrc\nAND (NOT miR-141) AND (NOT miR-142(3p)) AND (NOT miR-146a)47. c | A HeLa cell classifier circuit variant is shown. The circuit triggers gene expression of the pro- apoptotic protein human BAX only when the level of miR-21 is high and the levels of miR-141, miR-142(3p) and miR-146a are low. A high level of miR-21 prevents the accumulation of the 50S ribosomal protein L7Ae, which would otherwise bind to the BAX transcript and block its translation. Low levels of miR-141, miR-142(3p) and miR146a are necessary to prevent miRNA- dependent degradation of the BAX transcript48. d | A cancer- targeting AND gate gene circuit senses the activities of two cancer- specific synthetic promoters (P1 and P2), which are composed of MYC and E2F1 binding sites, respectively. The circuit expresses therapeutic outputs only when the activities of both promoters are high. P1 activates transcription of an mRNA encoding a synthetic transcription factor, GAD (a fusion protein consisting of the yeast GAL4 DNA- binding domain and the viral VP16 transcriptional activation domain), along with an miRNA that inhibits the accumulation of the GAD transcript. P2 drives the expression of an miRNA ‘sponge’ that titrates the inhibitory miRNA away from the GAD transcripts. Hence, when the activities of both P1 and P2 are high, the GAD transcription factor accumulates and drives the expression of the anticancer therapeutic circuit54. The circuits shown in parts a, b and d are DNA- encoded circuits, and the circuit shown in part c is an RNA- encoded circuit. CMV, cytomegalovirus; Ex, exon; RNAP, RNA polymerase. Part a is adapted with permission from reF.46, EMBO Press. Part b is adapted with permission from reF.47, AAAS. Part c is adapted with permission from reF.48, Springer Nature Limited. Part d is adapted with permission from reF.54, Elsevier.\nthis study did not test whether the treatment extended mouse survival. Notably, animals in the HSV- TK + GCV group lost weight relative to the HSV- TK – GCV group, suggesting systemic toxicity, which needs to be addressed in future studies. Both the p53 sensor and signal conductors have been tested in immunodeficient mice injected with human cancer cells50–52. While tumour growth was slowed, it was not prevented, and furthermore, it is yet to be investigated whether the circuits can improve mouse survival relative to controls.\nTo expand the activity of engineered circuit therapies for cancer, we recently developed a gene circuit that programmes cancer cells to modulate the host immune system to trigger antitumour effects54 rather than relying on cytotoxic drugs or intracellular apoptosis- triggering genes. This circuit senses the activity of two synthetic promoters, which are composed of MYC and E2F1 binding sites, and triggers the expression of a synthetic transcription factor only when both promoters are turned on (Fig. 3d). The synthetic transcription factor (GAD, which consists of the yeast GAL4 DNA- binding domain fused to the viral VP16 transcriptional activation domain) in turn drives four outputs: a surface T cell engager (STE), a synthetic transmembrane protein that triggers T cell activation via an anti- CD3ε interaction; CC- chemokine ligand 21 (CCL21), a T cell- attracting chemokine; IL-12, a potent immunostimulatory cytokine; and a PD1 antibody. The resulting outputs, called SCIP (STE, CCL21, IL-12 anti- PD1), were shown to be expressed selectively in ovarian cancer cells and not in control cells. Following human T cell injection, immunodeficient mice that were injected with ovarian cancer cells transduced with the circuit expressing SCIP survived longer than mice that received ovarian cancer cells transduced with a circuit expressing a control output54. Notably, not every cancer cell needed to express the circuit in order to trigger effective therapy. Rather, tumour shrinkage and increased mouse survival was observed when as little as 15% of the injected cancer cells had been transduced with the circuits expressing SCIP. Moreover, in vivo circuit delivery with lentiviral vectors into preestablished ovarian tumours also resulted in inhibition of tumour growth and prolonged mouse survival54. These findings highlight the therapeutic potential of using gene circuits to recruit the immune response of the body to fight cancer, potentially helping to reduce the demand for highly efficient in vivo delivery."
+    }, {
+      "heading" : "Conclusion and perspectives",
+      "text" : "Numerous synthetic biology- inspired approaches are being explored for cancer treatment. However, their translation to the clinic depends on overcoming the many challenges that remain for practical deployment. For example, for CAR T cell therapy, the ability to sense and integrate multiple disease signatures generally comes at the cost of increased complexity and size of the gene circuits. As a result, delivery of these circuits into cells and subsequent integration into the genome is a bottleneck. Developing more compact circuit designs and more efficient large- scale delivery vehicles will be crucial. Currently, most commonly used lentivirus or retrovirus vectors can deliver a maximum genetic payload of less than 10 kb. For larger circuits, co- infection with multiple viruses may be required, but this can cause variability in copy numbers and heterogeneity in the final product. Several transposon systems can deliver larger payloads but are generally less efficient than viral vectors55,56. Both viral and transposon strategies introduce payloads into multiple genomic locations, often in a random fashion, resulting in product heterogeneity. Targeted integration of synthetic gene circuits into host cell genomes with minimal disruption of endogenous functions could help these circuits to perform more uniformly. In contrast to random CAR integration, CRISPR– Cas9-based CAR knock- in at the TCRα constant locus has demonstrated increased therapeutic efficacy in a mouse model of acute lymphoblastic leukaemia57. This approach places the CAR under the control of endogenous regulatory elements that are thought to prevent tonic CAR signalling and T cell exhaustion57,58. Thus, strategies that can efficiently and safely integrate large circuits into the genome of the host cell would be extremely useful.\nThe challenge of variability among patient- derived immune cells will also need to be overcome. Most current approaches engineer primary immune cells harvested from each patient. Because the quality of these autologous cells varies greatly, it would be advantageous to have a well- defined universal cell chassis for engineering. Multiple strategies are currently being developed for allogeneic T cells. For example, genome editing is being used on healthy donor- derived T cells to disrupt the expression of endogenous TCRs, to prevent graft- versus-host disease, and human leukocyte antigen (HLA) class I, to reduce the rejection of engineered cells owing to HLA mismatches59,60. However, the removal\nof HLA class I may render these cells more susceptible to natural killer (NK) cellmediated killing. Furthermore, compared with autologous T cells, the production of these universal allogeneic T cells usually requires multiple additional steps of genome editing, cell sorting and expansion of edited cells before the cells can be engineered with a CAR. Each step requires additional well- controlled manufacturing steps and high- grade reagents, therefore increasing the cost and complexity of product manufacturing. There are ongoing efforts to identify other cellular chassis (such as NK cells and MSCs) that could be used in an allogeneic fashion61,62. Alternatively, researchers are working to derive immune cells from induced pluripotent stem cells (iPSCs), which would enable scalable manufacturing63. However, the use of iPSCderived immune cells is challenging owing to the complexity of the differentiation protocols and uncertainties over whether the immune cells are fully functional compared with primary cells.\nFor cancer- targeting nucleic acid therapy to be effective, highly efficient viral or non-viral material- based gene delivery systems will be necessary64. Viral systems have been widely used in gene therapy clinical trials65 and for oncolytic viral therapy66. They generally exhibit greater delivery efficiency than non- viral systems but have stronger immunogenicity and more limited encoding capacity67,68. Alternatively, therapeutic circuits can be encoded onto DNA or RNA and delivered via non-viral systems, which has the potential to enable repeat administration. To achieve greater control over the regulation of such circuits, a recent study reported the use of small-molecule drugs to activate or repress the output of an RNA- encoded circuit69. The researchers fused regulatory RNA- binding proteins with small- molecule-responsive degradation domains, resulting in protein stabilization only in the presence of the cognate ligand. Consequently, researchers demonstrated control over reporter gene expression using the small molecules trimethoprim and doxycycline69.\nMoreover, for optimal efficiency and safety, future studies will need to focus on building compact yet robust nucleic acid circuits, which will be aided by tight integration between high- throughput experimentation and in silico modelling of circuit function70. Computational modelling of mammalian cell gene circuits is in very early stages owing to the complexity of mammalian cells. However, a recent study combined computational modelling with\nNature reviews | CanCer\nlarge- scale experimental validation to optimize an miRNA classifier circuit for improved dynamic range (that is, the ratio of circuit activity in on- target cells versus off-target cells, whereby higher dynamic range implies better circuit function)70. Future advances in computational modelling will help shorten the design–build–test cycle and accelerate the development of robust, functional circuits.\nThe application of synthetic biology to cancer is still in a nascent phase, and additional basic research, translational efforts and regulatory science advancements are needed before gene circuit therapies make a wide impact on clinical medicine. One exciting aspect of synthetic biology is the rapidity with which one can design and build therapeutic gene circuit candidates, test them in preclinical models, learn from these experiments and then redesign improved circuits. However, much better in vitro and animal models of cancer are needed to ensure highfidelity translation of therapeutic gene circuits optimized in preclinical studies into human clinical trials. Ultimately, human clinical experiments are most informative. Thus, the development of improved therapies could be accelerated even further by taking the learnings from clinical trials and quickly designing new gene circuit therapies to address observed shortcomings. For example, one can envision building and testing several different cell therapies expressing various combinations of immunomodulators to identify those with the most potent effects against solid tumours in exploratory clinical studies. However, to take full advantage of this power, we need flexible regulatory frameworks and optimized manufacturing approaches to shorten the amount of time and cost needed to bring these circuit therapies into clinical trials. Ultimately, we envision that an efficient design–build–test–learn–redesign pipeline will enable researchers to create robust sense- and-respond cancer medicines with optimized efficacy and safety. Ming- Ru Wu1,6, Barbara Jusiak1,6 and Timothy K. Lu1,2,3,4,5* 1Synthetic Biology Group, Research Laboratory of Electronics, Massachusetts Institute of Technology, Cambridge, MA, USA. 2Synthetic Biology Center, Department of Biological Engineering, Massachusetts Institute of Technology, Cambridge, MA, USA. 3Department of Electrical Engineering and Computer Science, Massachusetts Institute of Technology, Cambridge, MA, USA. 4Biophysics Program, Harvard University, Boston, MA, USA.\n5Center for Microbiome Informatics and Therapeutics, Massachusetts Institute of Technology, Cambridge, MA, USA. 6These authors contributed equally: Ming- Ru Wu, Barbara Jusiak\n*e- mail: timlu@mit.edu\nhttps://doi.org/10.1038/s41568-019-0121-0 Published online xx xx xxxx\n1. Kitada, T., DiAndreth, B., Teague, B. & Weiss, R. Programming gene and engineered- cell therapies with synthetic biology. Science 359, eaad1067 (2018). 2. Benenson, Y. Biomolecular computing systems: principles, progress and potential. Nat. Rev. Genet. 13, 455–468 (2012). 3. Auslander, S. & Fussenegger, M. From gene switches to mammalian designer cells: present and future prospects. Trends Biotechnol. 31, 155–168 (2013). 4. Kittleson, J. T., Wu, G. C. & Anderson, J. C. Successes and failures in modular genetic engineering. Curr. Opin. Chem. Biol. 16, 329–336 (2012). 5. Porter, D. L., Levine, B. L., Kalos, M., Bagg, A. & June, C. H. Chimeric antigen receptor- modified T cells in chronic lymphoid leukemia. N. Engl. J. Med. 365, 725–733 (2011). 6. Grupp, S. A. et al. Chimeric antigen receptor- modified T cells for acute lymphoid leukemia. N. Engl. J. Med. 368, 1509–1518 (2013). 7. Maude, S. L. et al. Tisagenlecleucel in children and young adults with B- cell lymphoblastic leukemia. N. Engl. J. Med. 378, 439–448 (2018). 8. Neelapu, S. S. et al. Axicabtagene ciloleucel CAR T- cell therapy in refractory large B- cell lymphoma. N. Engl. J. Med. 377, 2531–2544 (2017). 9. Schuster, S. J. et al. Chimeric antigen receptor T cells in refractory B- cell lymphomas. N. Engl. J. Med. 377, 2545–2554 (2017). 10. Giavridis, T. et al. CAR T cell- induced cytokine release syndrome is mediated by macrophages and abated by IL-1 blockade. Nat. Med. 24, 731–738 (2018). 11. Lim, W. A. & June, C. H. The principles of engineering immune cells to treat cancer. Cell 168, 724–740 (2017). 12. Chakravarti, D., Cho, J. H., Weinberg, B. H., Wong, N. M. & Wong, W. W. Synthetic biology approaches in cancer immunotherapy, genetic network engineering, and genome editing. Integr. Biol. 8, 504–517 (2016). 13. Roybal, K. T. & Lim, W. A. Synthetic immunology: hacking immune cells to expand their therapeutic capabilities. Annu. Rev. Immunol. 35, 229–253 (2017). 14. Klebanoff, C. A., Rosenberg, S. A. & Restifo, N. P. Prospects for gene- engineered T cell immunotherapy for solid cancers. Nat. Med. 22, 26–36 (2016). 15. Tasian, S. K. & Gardner, R. A. CD19-redirected chimeric antigen receptor- modified T cells: a promising immunotherapy for children and adults with B cell acute lymphoblastic leukemia (ALL). Ther. Adv. Hematol. 6, 228–241 (2015). 16. Morgan, R. A. et al. Case report of a serious adverse event following the administration of T cells transduced with a chimeric antigen receptor recognizing ERBB2. Mol. Ther. 18, 843–851 (2010). 17. Morsut, L. et al. Engineering customized cell sensing and response behaviors using synthetic Notch receptors. Cell 164, 780–791 (2016). 18. Roybal, K. T. et al. Precision tumor recognition by T cells with combinatorial antigen- sensing circuits. Cell 164, 770–779 (2016). 19. Kloss, C. C., Condomines, M., Cartellieri, M., Bachmann, M. & Sadelain, M. Combinatorial antigen recognition with balanced signaling promotes selective tumor eradication by engineered T cells. Nat. Biotechnol. 31, 71–75 (2013). 20. Fedorov, V. D., Themeli, M. & Sadelain, M. PD-1- and CTLA-4-based inhibitory chimeric antigen receptors (iCARs) divert off- target immunotherapy responses. Sci. Transl Med. 5, 215ra172 (2013). 21. Gardner, R. A. et al. Intent- to-treat leukemia remission by CD19 CAR T cells of defined formulation and dose in children and young adults. Blood 129, 3322–3331 (2017). 22. Lee, D. W. et al. T cells expressing CD19 chimeric antigen receptors for acute lymphoblastic leukaemia in children and young adults: a phase 1 dose-escalation trial. Lancet 385, 517–528 (2015). 23. Hegde, M. et al. Combinational targeting offsets antigen escape and enhances effector functions of adoptively transferred T cells in glioblastoma. Mol. Ther. 21, 2087–2101 (2013).\n24. Grada, Z. et al. TanCAR: a novel bispecific chimeric antigen receptor for cancer immunotherapy. Mol. Ther. Nucleic Acids 2, e105 (2013). 25. Zah, E., Lin, M. Y., Silva- Benedict, A., Jensen, M. C. & Chen, Y. Y. T. Cells expressing CD19/CD20 bispecific chimeric antigen receptors prevent antigen escape by malignant B cells. Cancer Immunol. Res. 4, 498–508 (2016). 26. Qin, H., Haso, W., Nguyen, S. M. & Fry, T. J. Preclinical development of bispecific chimeric antigen receptor targeting both CD19 and CD22. Blood 126, 4427–4427 (2015). 27. Cho, J. H., Collins, J. J. & Wong, W. W. Universal chimeric antigen receptors for multiplexed and logical control of T cell responses. Cell 173, 1426–1438 (2018). 28. Coulie, P. G., Van den Eynde, B. J., van der Bruggen, P. & Boon, T. Tumour antigens recognized by T lymphocytes: at the core of cancer immunotherapy. Nat. Rev. Cancer 14, 135–146 (2014). 29. Gros, A. et al. Prospective identification of neoantigenspecific lymphocytes in the peripheral blood of melanoma patients. Nat. Med. 22, 433–438 (2016). 30. Strønen, E. et al. Targeting of cancer neoantigens with donor- derived T cell receptor repertoires. Science 352, 1337–1341 (2016). 31. Ho, P., Ede, C. & Chen, Y. Y. Modularly constructed synthetic granzyme B molecule enables interrogation of intracellular proteases for targeted cytotoxicity. ACS Synth. Biol. 6, 1484–1495 (2017). 32. Norelli, M. et al. Monocyte- derived IL-1 and IL-6 are differentially required for cytokine- release syndrome and neurotoxicity due to CAR T cells. Nat. Med. 24, 739–748 (2018). 33. Di Stasi, A. et al. Inducible apoptosis as a safety switch for adoptive cell therapy. N. Engl. J. Med. 365, 1673–1683 (2011). 34. Wu, C. Y., Roybal, K. T., Puchner, E. M., Onuffer, J. & Lim, W. A. Remote control of therapeutic T cells through a small molecule- gated chimeric receptor. Science 350, aab4077 (2015). 35. Pan, Y. et al. Mechanogenetics for the remote and noninvasive control of cancer immunotherapy. Proc. Natl Acad. Sci. USA 115, 992–997 (2018). 36. Park, J. S. et al. Synthetic control of mammalian- cell motility by engineering chemotaxis to an orthogonal bioinert chemical signal. Proc. Natl Acad. Sci. USA 111, 5896–5901 (2014). 37. Rabinovich, G. A., Gabrilovich, D. & Sotomayor, E. M. Immunosuppressive strategies that are mediated by tumor cells. Annu. Rev. Immunol. 25, 267–296 (2007). 38. Yeku, O. O. & Brentjens, R. J. Armored CAR T cells: utilizing cytokines and pro- inflammatory ligands to enhance CAR T cell anti- tumour efficacy. Biochem. Soc. Trans. 44, 412–418 (2016). 39. Zhang, L. et al. Tumor- infiltrating lymphocytes genetically engineered with an inducible gene encoding interleukin-12 for the immunotherapy of metastatic melanoma. Clin. Cancer Res. 21, 2278–2288 (2015). 40. Roybal, K. T. et al. Engineering T cells with customized therapeutic response programs using synthetic Notch receptors. Cell 167, 419–432.e16 (2016). 41. Chang, Z. L. et al. Rewiring T cell responses to soluble factors with chimeric antigen receptors. Nat. Chem. Biol. 14, 317–324 (2018). 42. Prosser, M. E., Brown, C. E., Shami, A. F., Forman, S. J. & Jensen, M. C. Tumor PD- L1 co- stimulates primary human CD8(+) cytotoxic T cells modified to express a PD1:CD28 chimeric receptor. Mol. Immunol. 51, 263–272 (2012). 43. Ankri, C., Shamalov, K., Horovitz- Fried, M., Mauer, S. & Cohen, C. J. Human T cells engineered to express a programmed death 1/28 costimulatory retargeting molecule display enhanced antitumor activity. J. Immunol. 191, 4121–4129 (2013). 44. Anderson, K. G., Stromnes, I. M. & Greenberg, P. D. Obstacles posed by the tumor microenvironment to T cell activity: a case for synergistic therapies. Cancer Cell 31, 311–325 (2017). 45. Kojima, R., Scheller, L. & Fussenegger, M. Nonimmune cells equipped with T cell- receptor-like signaling for cancer cell ablation. Nat. Chem. Biol. 14, 42–49 (2018). 46. Nissim, L. & Bar- Ziv, R. H. A tunable dual- promoter integrator for targeting of cancer cells. Mol. Syst. Biol. 6, 444 (2010). 47. Xie, Z., Wroblewska, L., Prochazka, L., Weiss, R. & Benenson, Y. Multi- input RNAi- based logic circuit for identification of specific cancer cells. Science 333, 1307–1311 (2011). 48. Wroblewska, L. et al. Mammalian synthetic circuits with RNA binding proteins for RNA- only delivery. Nat. Biotechnol. 33, 839–841 (2015).\nwww.nature.com/nrc\n49. Baudrimont, A. et al. Multiplexed gene control reveals rapid mRNA turnover. Sci. Adv. 3, e1700006 (2017). 50. Mircetic, J., Dietrich, A., Paszkowski- Rogacz, M., Krause, M. & Buchholz, F. Development of a genetic sensor that eliminates p53 deficient cells. Nat. Commun. 8, 1463 (2017). 51. Liu, Y. et al. Directing cellular information flow via CRISPR signal conductors. Nat. Methods 13, 938–944 (2016). 52. Liu, Y., Li, J., Chen, Z., Huang, W. & Cai, Z. Synthesizing artificial devices that redirect cellular information at will. eLife 7, e31936 (2018). 53. Dastor, M. et al. A workflow for in vivo evaluation of candidate inputs and outputs for cell classifier gene circuits. ACS Synth. Biol. 7, 474–489 (2018). 54. Nissim, L. et al. Synthetic RNA- based immunomodulatory gene circuits for cancer immunotherapy. Cell 171, 1138–1150 (2017). 55. Nakazawa, Y. et al. Optimization of the PiggyBac transposon system for the sustained genetic modification of human T lymphocytes. J. Immunother. 32, 826–836 (2009). 56. Ivics, Z. & Izsvak, Z. The expanding universe of transposon technologies for gene and cell engineering. Mob. DNA 1, 25 (2010). 57. Eyquem, J. et al. Targeting a CAR to the TRAC locus with CRISPR/Cas9 enhances tumour rejection. Nature 543, 113–117 (2017). 58. MacLeod, D. T. et al. Integration of a CD19 CAR into the TCR alpha chain locus streamlines production of allogeneic gene- edited CAR T cells. Mol. Ther. 25, 949–961 (2017). 59. Qasim, W. et al. Molecular remission of infant B- ALL after infusion of universal TALEN gene- edited CAR T cells. Sci. Transl Med. 9, eaaj2013 (2017). 60. Ren, J. et al. Multiplex genome editing to generate universal CAR T cells resistant to PD1 inhibition. Clin. Cancer Res. 23, 2255–2266 (2017). 61. Fang, F., Xiao, W. & Tian, Z. NK cell- based immunotherapy for cancer. Semin. Immunol. 31, 37–54 (2017). 62. Krueger, T. E. G., Thorek, D. L. J., Denmeade, S. R., Isaacs, J. T. & Brennen, W. N. Concise review: mesenchymal stem cell- based drug delivery: the good,\nthe bad, the ugly, and the promise. Stem Cells Transl Med. 7, 651–663 (2018).\n63. Ando, M. & Nakauchi, H. ‘Off- the-shelf’ immunotherapy with iPSC- derived rejuvenated cytotoxic T lymphocytes. Exp. Hematol. 47, 2–12 (2017). 64. Ibraheem, D., Elaissari, A. & Fessi, H. Gene therapy and DNA delivery systems. Int. J. Pharm. 459, 70–83 (2014). 65. Lundstrom, K. Viral vectors in gene therapy. Diseases 6, E42 (2018). 66. Lawler, S. E., Speranza, M. C., Cho, C. F. & Chiocca, E. A. Oncolytic viruses in cancer treatment: a review. JAMA Oncol. 3, 841–849 (2017). 67. Shi, B. et al. Challenges in DNA delivery and recent advances in multifunctional polymeric DNA delivery systems. Biomacromolecules 18, 2231–2246 (2017). 68. Yin, H. et al. Non- viral vectors for gene- based therapy. Nat. Rev. Genet. 15, 541–555 (2014). 69. Wagner, T. E. et al. Small- molecule-based regulation of RNA- delivered circuits in mammalian cells. Nat. Chem. Biol. 14, 1043–1050 (2018). 70. Schreiber, J., Arter, M., Lapique, N., Haefliger, B. & Benenson, Y. Model- guided combinatorial optimization of complex synthetic gene networks. Mol. Syst. Biol. 12, 899 (2016). 71. Kramer, M. G., Masner, M., Ferreira, F. A. & Hoffman, R. M. Bacterial therapy of cancer: promises, limitations, and insights for future directions. Front. Microbiol. 9, 16 (2018). 72. Anderson, J. C., Clarke, E. J., Arkin, A. P. & Voigt, C. A. Environmentally controlled invasion of cancer cells by engineered bacteria. J. Mol. Biol. 355, 619–627 (2006). 73. Swofford, C. A., Van Dessel, N. & Forbes, N. S. Quorum- sensing Salmonella selectively trigger protein expression within tumors. Proc. Natl Acad. Sci. USA 112, 3457–3462 (2015). 74. Din, M. O. et al. Synchronized cycles of bacterial lysis for in vivo delivery. Nature 536, 81–85 (2016). 75. Huh, J. H., Kittleson, J. T., Arkin, A. P. & Anderson, J. C. Modular design of a synthetic payload delivery device. ACS Synth. Biol. 2, 418–424 (2013). 76. Shi, L., Yu, B., Cai, C. H. & Huang, J. D. Angiogenic inhibitors delivered by the type III secretion system of tumor-targeting Salmonella typhimurium safely shrink tumors in mice. AMB Express 6, 56 (2016).\n77. Xu, X. et al. Effective cancer vaccine platform based on attenuated salmonella and a type III secretion system. Cancer Res. 74, 6260–6270 (2014). 78. West, K. A. et al. Abstract 2920: Metabolic modulation of the tumor microenvironment using Synthetic Biotic™ Medicines. Cancer Res. 78, 2920 (2018). 79. Siska, P. J. & Rathmell, J. C. T cell metabolic fitness in antitumor immunity. Trends Immunol. 36, 257–264 (2015). 80. Leventhal, D. et al. Activation of innate and adaptive immunity via combinatorial immunotherapy using Synthetic Biotic™ Medicines. Cancer Res. 78, LB-131 (2018). 81. Chen, Q., Sun, L. & Chen, Z. J. Regulation and function of the cGAS–STING pathway of cytosolic DNA sensing. Nat. Immunol. 17, 1142 (2016). 82. Grushkin, D. The new drug circuit. Nat. Med. 18, 1452 (2012). 83. Sadelain, M., Brentjens, R. & Riviere, I. The basic principles of chimeric antigen receptor design. Cancer Discov. 3, 388–398 (2013).\nAcknowledgements T.K.L. is supported by the Department of Defense (W81XWH16-1-0565 and W81XWH-18-1-0513) and the Koch Institute for Integrative Cancer Research at Massachusetts Institute of Technology Bridge Project. M.-R.W. is supported by the Department of Defense (W81XWH-16-1-0452).\nAuthor contributions M.-R.W. and B.J. contributed equally. All authors discussed the contents and wrote the article.\nCompeting interests M.-R.W. and T.K.L. have filed patent applications on part of work discussed in this article. T.K.L. is a co- founder of BiomX, Corvium, Eligo Biosciences, Engine Biosciences, Senti Biosciences, Synlogic and Tango Therapeutics. T.K.L. also holds financial interests in AmpliPhi, IndieBio and Nest.Bio. B.J. declares no competing interests.\nPublisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.\nNature reviews | CanCer"
+    } ],
+    "references" : [ {
+      "title" : "Programming gene and engineered cell therapies with synthetic biology",
+      "author" : [ "T. Kitada", "B. DiAndreth", "B. Teague", "R. Weiss" ],
+      "venue" : "Science 359,",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2018
+    }, {
+      "title" : "principles, progress and potential",
+      "author" : [ "Benenson", "Y. Biomolecular computing systems" ],
+      "venue" : "Nat. Rev. Genet. 13, 455–468",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "present and future prospects",
+      "author" : [ "S. Auslander", "Fussenegger", "M. From gene switches to mammalian designer cells" ],
+      "venue" : "Trends Biotechnol. 31, 155–168",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Successes and failures in modular genetic engineering",
+      "author" : [ "J.T. Kittleson", "G.C. Wu", "J.C. Anderson" ],
+      "venue" : "Curr. Opin. Chem. Biol",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2012
+    }, {
+      "title" : "Chimeric antigen receptormodified T cells in chronic lymphoid leukemia",
+      "author" : [ "D.L. Porter", "B.L. Levine", "M. Kalos", "A. Bagg", "C.H. June" ],
+      "venue" : "N. Engl. J. Med",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2011
+    }, {
+      "title" : "Chimeric antigen receptor modified T cells for acute lymphoid leukemia",
+      "author" : [ "Grupp", "S. A" ],
+      "venue" : "N. Engl. J. Med",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2013
+    }, {
+      "title" : "Tisagenlecleucel in children and young adults with B cell lymphoblastic leukemia",
+      "author" : [ "Maude", "S. L" ],
+      "venue" : "N. Engl. J. Med",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2018
+    }, {
+      "title" : "Axicabtagene ciloleucel CAR T cell therapy in refractory large Bcell lymphoma",
+      "author" : [ "Neelapu", "S. S" ],
+      "venue" : "N. Engl. J. Med",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2017
+    }, {
+      "title" : "Chimeric antigen receptor T cells in refractory Bcell lymphomas",
+      "author" : [ "Schuster", "S. J" ],
+      "venue" : "N. Engl. J. Med",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2017
+    }, {
+      "title" : "CAR T cell induced cytokine release syndrome is mediated by macrophages and abated by IL-1 blockade",
+      "author" : [ "T Giavridis" ],
+      "venue" : "Nat. Med",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2018
+    }, {
+      "title" : "The principles of engineering immune cells to treat cancer",
+      "author" : [ "W.A. Lim", "C.H. June" ],
+      "venue" : "Cell 168,",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2017
+    }, {
+      "title" : "Synthetic biology approaches in cancer immunotherapy, genetic network engineering, and genome",
+      "author" : [ "D. Chakravarti", "J.H. Cho", "B.H. Weinberg", "N.M. Wong", "W.W. Wong" ],
+      "venue" : "editing. Integr. Biol",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2016
+    }, {
+      "title" : "hacking immune cells to expand their therapeutic capabilities",
+      "author" : [ "K.T. Roybal", "Lim", "W.A. Synthetic immunology" ],
+      "venue" : "Annu. Rev. Immunol. 35, 229–253",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Prospects for geneengineered T cell immunotherapy for solid cancers",
+      "author" : [ "C.A. Klebanoff", "S.A. Rosenberg", "N.P. Restifo" ],
+      "venue" : "Nat. Med",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2016
+    }, {
+      "title" : "a promising immunotherapy for children and adults with B cell acute lymphoblastic leukemia (ALL)",
+      "author" : [ "S.K. Tasian", "Gardner", "R.A. CD19-redirected chimeric antigen receptor modified T cells" ],
+      "venue" : "Ther. Adv. Hematol. 6, 228–241",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Case report of a serious adverse event following the administration of T cells transduced with a chimeric antigen receptor recognizing ERBB2",
+      "author" : [ "Morgan", "R. A" ],
+      "venue" : "Mol. Ther",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2010
+    }, {
+      "title" : "Engineering customized cell sensing and response behaviors using synthetic Notch receptors",
+      "author" : [ "L Morsut" ],
+      "venue" : "Cell 164,",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2016
+    }, {
+      "title" : "Precision tumor recognition by T cells with combinatorial antigen sensing circuits",
+      "author" : [ "Roybal", "K. T" ],
+      "venue" : "Cell 164,",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2016
+    }, {
+      "title" : "Combinatorial antigen recognition with balanced signaling promotes selective tumor eradication by engineered T cells",
+      "author" : [ "C.C. Kloss", "M. Condomines", "M. Cartellieri", "M. Bachmann", "M. Sadelain" ],
+      "venue" : "Nat. Biotechnol",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2013
+    }, {
+      "title" : "PD-1- and CTLA-4-based inhibitory chimeric antigen receptors (iCARs) divert offtarget immunotherapy responses",
+      "author" : [ "V.D. Fedorov", "M. Themeli", "M. Sadelain" ],
+      "venue" : "Sci. Transl Med. 5,",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2013
+    }, {
+      "title" : "Intent to-treat leukemia remission by CD19 CAR T cells of defined formulation and dose in children and young adults",
+      "author" : [ "Gardner", "R. A" ],
+      "venue" : "Blood 129,",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2017
+    }, {
+      "title" : "a phase 1 dose-escalation trial",
+      "author" : [ "Lee", "D.W. et al. T cells expressing CD19 chimeric antigen receptors for acute lymphoblastic leukaemia in children", "young adults" ],
+      "venue" : "Lancet 385, 517–528",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Combinational targeting offsets antigen escape and enhances effector functions of adoptively transferred T cells in glioblastoma",
+      "author" : [ "M Hegde" ],
+      "venue" : "Mol. Ther",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2013
+    }, {
+      "title" : "a novel bispecific chimeric antigen receptor for cancer immunotherapy",
+      "author" : [ "Grada", "Z. et al. TanCAR" ],
+      "venue" : "Mol. Ther. Nucleic Acids 2, e105",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Cells expressing CD19/CD20 bispecific chimeric antigen receptors prevent antigen escape by malignant B cells",
+      "author" : [ "E. Zah", "M.Y. Lin", "A. Silva Benedict", "M.C. Jensen", "Y.Y.T. Chen" ],
+      "venue" : "Cancer Immunol. Res",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2016
+    }, {
+      "title" : "Preclinical development of bispecific chimeric antigen receptor targeting both CD19 and CD22",
+      "author" : [ "H. Qin", "W. Haso", "S.M. Nguyen", "T.J. Fry" ],
+      "venue" : "Blood 126,",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2015
+    }, {
+      "title" : "Universal chimeric antigen receptors for multiplexed and logical control of T cell responses",
+      "author" : [ "J.H. Cho", "J.J. Collins", "W.W. Wong" ],
+      "venue" : "Cell 173,",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2018
+    }, {
+      "title" : "at the core of cancer immunotherapy",
+      "author" : [ "P.G. Coulie", "B.J. Van den Eynde", "P. van der Bruggen", "Boon", "T. Tumour antigens recognized by T lymphocytes" ],
+      "venue" : "Nat. Rev. Cancer 14, 135–146",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Prospective identification of neoantigenspecific lymphocytes in the peripheral blood of melanoma patients",
+      "author" : [ "A Gros" ],
+      "venue" : "Nat. Med",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2016
+    }, {
+      "title" : "Targeting of cancer neoantigens with donor derived T cell receptor repertoires",
+      "author" : [ "E Strønen" ],
+      "venue" : "Science 352,",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2016
+    }, {
+      "title" : "Modularly constructed synthetic granzyme B molecule enables interrogation of intracellular proteases for targeted cytotoxicity",
+      "author" : [ "P. Ho", "C. Ede", "Y.Y. Chen" ],
+      "venue" : "ACS Synth. Biol",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2017
+    }, {
+      "title" : "Monocyte derived IL-1 and IL-6 are differentially required for cytokine release syndrome and neurotoxicity due to CAR T cells",
+      "author" : [ "M Norelli" ],
+      "venue" : "Nat. Med",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2018
+    }, {
+      "title" : "Inducible apoptosis as a safety switch for adoptive cell therapy",
+      "author" : [ "A Di Stasi" ],
+      "venue" : "N. Engl. J. Med",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2011
+    }, {
+      "title" : "Remote control of therapeutic T cells through a small molecule gated chimeric receptor",
+      "author" : [ "C.Y. Wu", "K.T. Roybal", "E.M. Puchner", "J. Onuffer", "W.A. Lim" ],
+      "venue" : "Science 350,",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2015
+    }, {
+      "title" : "Mechanogenetics for the remote and noninvasive control of cancer immunotherapy",
+      "author" : [ "Y Pan" ],
+      "venue" : "Proc. Natl Acad. Sci. USA",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2018
+    }, {
+      "title" : "Synthetic control of mammalian cell motility by engineering chemotaxis to an orthogonal bioinert chemical signal",
+      "author" : [ "Park", "J. S" ],
+      "venue" : "Proc. Natl Acad. Sci. USA 111,",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2014
+    }, {
+      "title" : "Immunosuppressive strategies that are mediated by tumor cells",
+      "author" : [ "G.A. Rabinovich", "D. Gabrilovich", "E.M. Sotomayor" ],
+      "venue" : "Annu. Rev. Immunol",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2007
+    }, {
+      "title" : "utilizing cytokines and proinflammatory ligands to enhance CAR T cell antitumour efficacy",
+      "author" : [ "O.O. Yeku", "Brentjens", "R.J. Armored CAR T cells" ],
+      "venue" : "Biochem. Soc. Trans. 44, 412–418",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Tumor infiltrating lymphocytes genetically engineered with an inducible gene encoding interleukin-12 for the immunotherapy of metastatic melanoma",
+      "author" : [ "L Zhang" ],
+      "venue" : "Clin. Cancer Res",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2015
+    }, {
+      "title" : "Engineering T cells with customized therapeutic response programs using synthetic Notch receptors",
+      "author" : [ "Roybal", "K. T" ],
+      "venue" : "Cell 167,",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2016
+    }, {
+      "title" : "Rewiring T cell responses to soluble factors with chimeric antigen receptors",
+      "author" : [ "Chang", "Z. L" ],
+      "venue" : "Nat. Chem. Biol",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2018
+    }, {
+      "title" : "Tumor PD L1 costimulates primary human CD8(+) cytotoxic T cells modified to express a PD1:CD28 chimeric receptor",
+      "author" : [ "M.E. Prosser", "C.E. Brown", "A.F. Shami", "S.J. Forman", "M.C. Jensen" ],
+      "venue" : "Mol. Immunol",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2012
+    }, {
+      "title" : "Human T cells engineered to express a programmed death 1/28 costimulatory retargeting molecule display enhanced antitumor activity",
+      "author" : [ "C. Ankri", "K. Shamalov", "M. Horovitz Fried", "S. Mauer", "C.J. Cohen" ],
+      "venue" : "J. Immunol",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2013
+    }, {
+      "title" : "a case for synergistic therapies",
+      "author" : [ "K.G. Anderson", "I.M. Stromnes", "Greenberg", "P.D. Obstacles posed by the tumor microenvironment to T cell activity" ],
+      "venue" : "Cancer Cell 31, 311–325",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonimmune cells equipped with T cell receptor-like signaling for cancer cell ablation",
+      "author" : [ "R. Kojima", "L. Scheller", "M. Fussenegger" ],
+      "venue" : "Nat. Chem. Biol",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2018
+    }, {
+      "title" : "A tunable dual promoter integrator for targeting of cancer cells",
+      "author" : [ "L. Nissim", "R.H. Bar Ziv" ],
+      "venue" : "Mol. Syst. Biol",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2010
+    }, {
+      "title" : "Multi input RNAibased logic circuit for identification of specific cancer cells",
+      "author" : [ "Z. Xie", "L. Wroblewska", "L. Prochazka", "R. Weiss", "Y. Benenson" ],
+      "venue" : "Science 333,",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2011
+    }, {
+      "title" : "Mammalian synthetic circuits with RNA binding proteins for RNA only delivery",
+      "author" : [ "L Wroblewska" ],
+      "venue" : "Nat. Biotechnol",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2015
+    }, {
+      "title" : "Multiplexed gene control reveals rapid mRNA turnover",
+      "author" : [ "A Baudrimont" ],
+      "venue" : "Sci. Adv. 3,",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2017
+    }, {
+      "title" : "Development of a genetic sensor that eliminates p53 deficient cells",
+      "author" : [ "J. Mircetic", "A. Dietrich", "M. Paszkowski Rogacz", "M. Krause", "F. Buchholz" ],
+      "venue" : "Nat. Commun",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2017
+    }, {
+      "title" : "Directing cellular information flow via CRISPR signal conductors",
+      "author" : [ "Y Liu" ],
+      "venue" : "Nat. Methods 13,",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2016
+    }, {
+      "title" : "Synthesizing artificial devices that redirect cellular information at will",
+      "author" : [ "Y. Liu", "J. Li", "Z. Chen", "W. Huang", "Z. Cai" ],
+      "venue" : "eLife 7,",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2018
+    }, {
+      "title" : "A workflow for in vivo evaluation of candidate inputs and outputs for cell classifier gene circuits",
+      "author" : [ "M Dastor" ],
+      "venue" : "ACS Synth. Biol",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2018
+    }, {
+      "title" : "Synthetic RNA based immunomodulatory gene circuits for cancer immunotherapy",
+      "author" : [ "L Nissim" ],
+      "venue" : "Cell 171,",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2017
+    }, {
+      "title" : "Optimization of the PiggyBac transposon system for the sustained genetic modification of human T lymphocytes",
+      "author" : [ "Y Nakazawa" ],
+      "venue" : "J. Immunother",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2009
+    }, {
+      "title" : "The expanding universe of transposon technologies for gene and cell engineering",
+      "author" : [ "Z. Ivics", "Z. Izsvak" ],
+      "venue" : "Mob. DNA 1,",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2010
+    }, {
+      "title" : "Targeting a CAR to the TRAC locus with CRISPR/Cas9 enhances tumour rejection",
+      "author" : [ "J Eyquem" ],
+      "venue" : "Nature 543,",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2017
+    }, {
+      "title" : "Integration of a CD19 CAR into the TCR alpha chain locus streamlines production of allogeneic gene edited CAR T cells",
+      "author" : [ "MacLeod", "D. T" ],
+      "venue" : "Mol. Ther",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2017
+    }, {
+      "title" : "Molecular remission of infant BALL after infusion of universal TALEN gene edited CAR T cells",
+      "author" : [ "W Qasim" ],
+      "venue" : "Sci. Transl Med",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2013
+    }, {
+      "title" : "Multiplex genome editing to generate universal CAR T cells resistant to PD1 inhibition",
+      "author" : [ "J Ren" ],
+      "venue" : "Clin. Cancer Res",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2017
+    }, {
+      "title" : "NK cellbased immunotherapy for cancer",
+      "author" : [ "F. Fang", "W. Xiao", "Z. Tian" ],
+      "venue" : "Semin. Immunol",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2017
+    }, {
+      "title" : "mesenchymal stem cell based drug delivery: the good,  the bad, the ugly, and the promise",
+      "author" : [ "T.E.G. Krueger", "D.L.J. Thorek", "S.R. Denmeade", "J.T. Isaacs", "Brennen", "W.N. Concise review" ],
+      "venue" : "Stem Cells Transl Med. 7, 651–663",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Off the-shelf’ immunotherapy with iPSC derived rejuvenated cytotoxic T lymphocytes",
+      "author" : [ "M. Ando", "H. Nakauchi" ],
+      "venue" : "Exp. Hematol",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2017
+    }, {
+      "title" : "Gene therapy and DNA delivery systems",
+      "author" : [ "D. Ibraheem", "A. Elaissari", "H. Fessi" ],
+      "venue" : "Int. J. Pharm. 459,",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2014
+    }, {
+      "title" : "Viral vectors in gene therapy",
+      "author" : [ "K. Lundstrom" ],
+      "venue" : "Diseases 6,",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2018
+    }, {
+      "title" : "a review",
+      "author" : [ "S.E. Lawler", "M.C. Speranza", "C.F. Cho", "Chiocca", "E.A. Oncolytic viruses in cancer treatment" ],
+      "venue" : "JAMA Oncol. 3, 841–849",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Challenges in DNA delivery and recent advances in multifunctional polymeric DNA delivery systems",
+      "author" : [ "B Shi" ],
+      "venue" : "Biomacromolecules 18,",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2017
+    }, {
+      "title" : "Non viral vectors for gene based therapy",
+      "author" : [ "H Yin" ],
+      "venue" : "Nat. Rev. Genet",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2014
+    }, {
+      "title" : "Smallmolecule-based regulation of RNAdelivered circuits in mammalian cells",
+      "author" : [ "Wagner", "T. E" ],
+      "venue" : "Nat. Chem. Biol",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 2018
+    }, {
+      "title" : "Model guided combinatorial optimization of complex synthetic gene",
+      "author" : [ "J. Schreiber", "M. Arter", "N. Lapique", "B. Haefliger", "Y. Benenson" ],
+      "venue" : "networks. Mol. Syst. Biol",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2016
+    }, {
+      "title" : "promises, limitations, and insights for future directions",
+      "author" : [ "M.G. Kramer", "M. Masner", "F.A. Ferreira", "Hoffman", "R.M. Bacterial therapy of cancer" ],
+      "venue" : "Front. Microbiol. 9, 16",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Environmentally controlled invasion of cancer cells by engineered bacteria",
+      "author" : [ "J.C. Anderson", "E.J. Clarke", "A.P. Arkin", "C.A. Voigt" ],
+      "venue" : "J. Mol. Biol",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2006
+    }, {
+      "title" : "Quorum sensing Salmonella selectively trigger protein expression within tumors",
+      "author" : [ "C.A. Swofford", "N. Van Dessel", "N.S. Forbes" ],
+      "venue" : "Proc. Natl Acad. Sci. USA 112,",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2015
+    }, {
+      "title" : "Synchronized cycles of bacterial lysis for in vivo delivery",
+      "author" : [ "Din", "M. O" ],
+      "venue" : "Nature 536,",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2016
+    }, {
+      "title" : "Modular design of a synthetic payload delivery device",
+      "author" : [ "J.H. Huh", "J.T. Kittleson", "A.P. Arkin", "J.C. Anderson" ],
+      "venue" : "ACS Synth. Biol",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2013
+    }, {
+      "title" : "Angiogenic inhibitors delivered by the type III secretion system of tumor-targeting Salmonella typhimurium safely shrink tumors in mice",
+      "author" : [ "L. Shi", "B. Yu", "C.H. Cai", "J.D. Huang" ],
+      "venue" : "AMB Express 6,",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 2016
+    }, {
+      "title" : "Effective cancer vaccine platform based on attenuated salmonella and a type III secretion system",
+      "author" : [ "X Xu" ],
+      "venue" : "Cancer Res",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : "77",
+      "year" : 2014
+    }, {
+      "title" : "Metabolic modulation of the tumor microenvironment using Synthetic BioticTM Medicines",
+      "author" : [ "West", "K.A. et al. Abstract 2920" ],
+      "venue" : "Cancer Res. 78, 2920",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "T cell metabolic fitness in antitumor immunity",
+      "author" : [ "P.J. Siska", "J.C. Rathmell" ],
+      "venue" : "Trends Immunol",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : "79",
+      "year" : 2015
+    }, {
+      "title" : "Activation of innate and adaptive immunity via combinatorial immunotherapy using Synthetic BioticTM Medicines",
+      "author" : [ "D Leventhal" ],
+      "venue" : "Cancer Res. 78,",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : "80",
+      "year" : 2018
+    }, {
+      "title" : "Regulation and function of the cGAS–STING pathway of cytosolic DNA sensing",
+      "author" : [ "Q. Chen", "L. Sun", "Z.J. Chen" ],
+      "venue" : "Nat. Immunol",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : "81",
+      "year" : 2016
+    }, {
+      "title" : "The new drug",
+      "author" : [ "D. Grushkin" ],
+      "venue" : "circuit. Nat. Med",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : "82",
+      "year" : 2012
+    }, {
+      "title" : "The basic principles of chimeric antigen receptor design",
+      "author" : [ "M. Sadelain", "R. Brentjens", "I. Riviere" ],
+      "venue" : "Cancer Discov",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : "83",
+      "year" : 2013
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 45,
+      "context" : "Part a is adapted with permission from reF.(46), EMBO Press.",
+      "startOffset" : 43,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 46,
+      "context" : "Part b is adapted with permission from reF.(47), AAAS.",
+      "startOffset" : 43,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 47,
+      "context" : "Part c is adapted with permission from reF.(48), Springer Nature Limited.",
+      "startOffset" : 43,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 53,
+      "context" : "Part d is adapted with permission from reF.(54), Elsevier.",
+      "startOffset" : 43,
+      "endOffset" : 47
+    } ],
+    "year" : 2019,
+    "abstractText" : "| Engineered immunecell-based cancer therapies have demonstrated robust efficacy in B cell malignancies, but challenges such as the lack of ideal targetable tumour antigens, tumourmediated immunosuppression and severe toxicity still hinder their therapeutic efficacy and broad applicability. Synthetic biology can be used to overcome these challenges and create more robust, effective adaptive therapies that enable the specific targeting of cancer cells while sparing healthy cells. In this Progress article, we review recently developed gene circuit therapies for cancer using immune cells, nucleic acids and bacteria as chassis. We conclude by discussing outstanding challenges and future directions for realizing these gene circuit therapies in the clinic. PRoGRESS Nature reviews | CanCer as well15. Hence, this ontarget–offtumour effect induces B cell aplasia, which requires supportive care such as monthly intravenous immunoglobulin injections15. In many cases, patients cannot tolerate the elimination of an entire cellular lineage. Because CAR T cells are very potent, targeting normal cells can lead to severe toxicity and sometimes death16. Thus, distinguishing tumour cells from normal cells with multiple antigens is required to enable more precise and adaptable tumour recognition11. To accomplish this goal, synthetic biology has been used to programme T cells to recognize combinations of antigens. For example, T cells programmed with a Boolean A AND B antigen recognition logic gate are activated only when both antigens A and B are detected (Fig. 1b,c). A T cell AND gate has been implemented using the synthetic Notch (synNotch) receptor, which triggers transcriptional activation of target genes upon binding to a userdefined cell surface antigen, A17. Activated synNotch receptor drives the expression of a CAR against a second antigen, B; as a result, the T cell is activated only after exposure to antigen A and then antigen B18 is present and a selfantigen, B, is not; this function can be used to prevent T cells from attacking vital tissues expressing selfantigen B20 (Fig. 1d). Applying this logic, the intracellular signalling domains of the inhibitory receptors cytotoxic T lymphocyte antigen 4 (CTLA4) and programmed cell death protein 1 (PD1) have been utilized to create inhibitory CARs (iCARs20). Upon engaging selfantigen B, these iCARs provide inhibitory signals to T cells to counteract activating signals triggered by CARs upon engaging tumour antigen A. Tumour cells can escape CAR T cell attack by downregulating target expression. For example, after antiCD19 CAR T cell therapy, a significant proportion of patients relapse because their tumour cells have lost CD19 expression21,22. Therefore, a CAR T cell system that can recognize multiple tumour antigens may be more versatile and able to prevent tumour relapse from antigen loss. Boolean A OR B antigen recognition can be achieved by mixing two types of CAR T cells, each recognizing one antigen, or by engineering T cells to express two CARs, each of which targets a different antigen23. Alternatively, more compact (Fig. 1b). Another approach exploits the fact that robust T cell activation requires the combination of primary signals and costimulatory signals. In this system, T cells coexpress a CAR and a chimeric costimulatory receptor (CCR)19. The CAR contains a lowaffinity scFv that is not potent enough when ligated to activate T cells efficiently on its own, and the CCR provides costimulation signals for enhancing T cell activation, such that only T cells that receive signals from both the CAR and the CCR become activated and able to kill tumour cells (Fig. 1c). Unlike the synNotch receptorbased approach, the CCR approach does not rely on transcriptional cascades; therefore, the CCR system is expected to respond faster than the synNotchbased system. However, a disadvantage of the CCR system is that achieving strong discrimination between tumour cells and normal cells may require extensive tuning of scFv affinity according to the antigen expression level11. In addition, A AND (NOT B) logic gating has potential utility for CAR T cell therapies. T cells engineered with A AND (NOT B) antigen recognition logic are activated only when a tumour antigen, A, www.nature.com/nrc P r o g r e s s Box 1 | Cancertargeting bacteria several bacterial species preferentially proliferate and accumulate at tumour sites, making them attractive vehicles for tumour targeting. Synthetic biology can improve the ability of bacteria to target tumours and deliver therapeutic payloads. For example, to reduce offtarget effects on healthy tissues, bacteria have been equipped with quorum sensing (Qs) switches, which activate effector gene expression only when the bacterial population reaches a threshold density. In one study, three strains of attenuated Salmonella bacteria were engineered with a Qsbased synchronized lysis circuit to deliver one of three therapeutic payloads — a poreforming toxin, a pro-apoptotic protein and a T cellattracting cytokine — at the tumour site. Oral administration of these bacteria combined with intraperitoneal injection of the chemotherapeutic agent 5-fluorouracil produced a synergistic effect, decreasing tumour burden and prolonging survival in a mouse model . alternatively, therapeutic payloadexpressing bacteria can invade tumour cells or use the type iii secretory system (t3ss), a syringelike proteinbased structure that occurs naturally in certain pathogenic bacteria and injects proteins into target cells. Salmonella have been engineered to use their t3ss to deliver an antiangiogenic protein to tumour cells, inhibiting tumour growth in vivo, or to deliver tumourassociated antigens to antigenpresenting cells to elicit antitumour immunity. Furthermore, bacteria have been programmed to degrade the metabolites adenosine and kynurenine, which inhibit antitumour immunity, and to produce cyclicdi-aMP, which activates the stimulator of interferon genes (stiNG) pathway for increasing antitumour immunity. several of these bacteria have been shown to achieve significant tumour growth reduction in preclinical mouse models. One limitation of bacteria is their susceptibility to being cleared by the host immune system. anticancer bacteria of the future may be engineered to evade the host immune system (for example, by lacking key pathogenassociated molecular patterns), combined with robust kill switches in order to prevent infections. an alternative goal is to engineer bacteria to act quickly before being cleared by the host immune system. as mentioned above, bacteria can be engineered with a Qs synchronized lysis circuit for drug delivery (see the figure, part a). the Qs system is controlled by the concentration of the small molecule Nacyl homoserine lactone (aHL). at the tumour site, during the early bacterial growth phase (low aHL), no selflysis occurs. as the bacteria continue to grow, aHL accumulates and eventually reaches a threshold density, triggering synchronized bacteria lysis and drug release. the Qs system involves the small molecule aHL, the enzyme Luxi, which synthesizes aHL, and the aHL-responsive transcription factor Luxr (see the figure, part b). when bacterial density is low, aHL concentration is also low, and hence, Luxr cannot activate its target genes, and little or no therapeutic protein is produced. As bacteria proliferate, the local concentration of AHL increases. aHL binds to Luxr and triggers the expression of luxI, which encodes the enzyme that synthesizes more aHL, thus creating a positive feedback loop. Beyond a certain cell density threshold, aHL–Luxr activates the expression of the therapeutic payload and proteins that mediate bacterial lysis.",
+    "creator" : "Springer"
+  }
+}

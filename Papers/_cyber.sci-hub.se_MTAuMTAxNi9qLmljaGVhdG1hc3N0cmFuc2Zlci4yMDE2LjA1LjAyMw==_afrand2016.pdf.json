@@ -1,0 +1,439 @@
+{
+  "name" : "_cyber.sci-hub.se_MTAuMTAxNi9qLmljaGVhdG1hc3N0cmFuc2Zlci4yMDE2LjA1LjAyMw==_afrand2016.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Prediction of dynamic viscosity of a hybrid nano-lubricant by an optimal artificial neural network",
+    "authors" : [ "Masoud Afrand", "Karim Nazari Najafabadi", "Mohammad Reza Safaei", "Somchai Wongwises", "Mahidzal Dahari" ],
+    "emails" : [ "masoud.afrand@pmc.iaun.ac.ir,", "somchai.won@kmutt.ac.th" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "1 2\n3Q1\n4\n5 6 7 8 9 10\n11\n1 2\n13 14\n15 25 26 27 28 29\n301\n32\n3\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\nInternational Communications in Heat and Mass Transfer xxx (2016) xxx–xxx\nICHMT-03435; No of Pages 6\nContents lists available at ScienceDirect\nInternational Communications in Heat and Mass Transfer\nj ourna l homepage: www.e lsev ie r .com/ locate / ichmt\nO O\nF\nPrediction of dynamic viscosity of a hybrid nano-lubricant by an optimal artificial neural network☆\nMasoud Afrand a,⁎, Karim Nazari Najafabadi a, Nima Sina a, Mohammad Reza Safaei b, A.Sh. Kherbeet c, Somchai Wongwises d,⁎, Mahidzal Dahari e a Department of Mechanical Engineering, Najafabad Branch, Islamic Azad University, Najafabad, Iran b Department of Mechanical Engineering, Faculty of Engineering, University of Malaya, 50603 Kuala Lumpur, Malaysia c Department of Mechanical Engineering, KBU International College, 47800 Petaling Jaya, Selangor, Malaysia d Fluid Mechanics, Thermal Engineering and Multiphase Flow Research Lab. (FUTURE), Department of Mechanical Engineering, Faculty of Engineering, King Mongkut's University of Technology Thonburi, Bangmod, Bangkok 10140, Thailand e Department of Electrical Engineering, Faculty of Engineering, University of Malaya, 50603 Kuala Lumpur, Malaysia\nR\n☆ Communicated by W.J. Minkowycz. ⁎ Corresponding authors.\nE-mail addresses: masoud.afrand@pmc.iaun.ac.ir, mas (M. Afrand), somchai.won@kmutt.ac.th (S. Wongwises).\nhttp://dx.doi.org/10.1016/j.icheatmasstransfer.2016.05.02 0735-1933/© 2016 Published by Elsevier Ltd.\nPlease cite this article as: M. Afrand, et al., Pr Commun. Heat Mass Transf. (2016), http://d\nPa b s t r a c t a r t i c l e i n f o\n16 Available online xxxx\n17\n18\n19\n20\n21\n22\n23\n24\nT E D In this paper, at first, a new correlation was proposed to predict the relative viscosity of MWCNTs-SiO2/AE40 nano-lubricant using experimental data. Then, consideringminimumprediction error, an optimal artificial neural networkwas designed to predict the relative viscosity of the nano-lubricant. Forty-eight experimental data were used to feed the model. The data set was derived to training, validation and test sets which contained 70%, 15% and 15% of data points, respectively. The correlation outputs showed that there is a deviation margin of 4%. The results obtained from optimal artificial neural network presented a deviation margin of 1.5%. It can be found fromcomparisons that the optimal artificial neural networkmodel ismore accurate compared to empirical correlation.\n© 2016 Published by Elsevier Ltd.\nKeywords: Nanofluid Relative viscosity Empirical correlation Artificial neural network\nC\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\nU N C O\nR R E1. Introduction\nOil is a lubricant that is used in industrial applications for many years. Themain task of oil is to reduce friction inmoving parts. It also inhibits corrosion, improves sealing and cleans the engine. It is also used as a coolant in numerous applications and can remove excess heat away frommoving parts. Since adding the nano-sized materials can increase the thermal conductivity of fluids, many researchers have focused on this subject. In recent decades, the thermal conductivity and heat transfer rate of the dispersions of nano-sized materials in common fluids, called nanofluids, have been investigated inmany studies [1–10]. These studies have shown that the thermal conductivity of nanofluids is greater than common fluids and is a function of temperature, solid volume fraction, size and shape of nanoparticles, and properties of base fluids and nanoparticles.\nHowever, the thermophysical properties of the fluids also are affected by the adding nanoparticles to the fluid base. Among these properties, viscosity is an important parameter for calculating the required pumping power. It affects the Reynolds and Rayleigh number values, which are very essential characteristics for convective heat transfer. In\n73\n74\n75\n76\n77 oud_afrand@yahoo.com\n3\nediction of dynamic viscosity x.doi.org/10.1016/j.icheatmas\nthis regard, many researchers have investigated the viscosity of nanofluids, and have reported that the viscosity of nanofluids is dependent on temperature, concentration, size and shape of nanoparticles, and specifications of base fluids and nanoparticles [11–20].\nIn recent years, attention has been given to using novel nanofluids, called hybrid nanofluids, combined with various nanoparticles to enhance the thermo-physical properties of common fluids. For example, the thermo-physical properties of several water-based hybrid nanofluids containing Cu–Cu2O, Ag–TiO2, Cu–TiO2, Ag–MgO, MWCNT– SiO2, MWCNT–Ag, MWCNT–Fe2O3, and Fe3O4–Ag have been reported by different researchers [21–29].\nHowever, there is a need to do several experiments for obtaining the thermophysical properties of nanofluids at different temperatures and nanoparticles concentrations, which are time-consuming and costly. Therefore, to avoid the costs of experiments, soft computing methods have been used to predict the thermophysical properties of nanofluids. Among these methods, we can point to curve-fitting, artificial neural network (ANN), fuzzy logic and genetic algorithm as the most widely used methods. In this regard, numerous studies have been performed on thermal conductivity of various nanofluids by employing soft computingmethods. Some of the studiesworthmentioning are the research studies of Papari et al. [30], Hojjat et al. [31], Longo et al. [32], Ariana et al. [33] and Hemmat Esfe et al. [34–40]. Nevertheless, there are few works for the viscosity of nanofluids by using soft computing methods. For example, Mehrabi et al. [41] established a newmodel for predicting\nof a hybrid nano-lubricant by an optimal artificial neural network, Int. stransfer.2016.05.023\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\n91\n92\n93\n94\n95\n96\n97\n98\n99\n100\n101\n102\n103\n104\n105\n106\n107\n108\n109\n110\n111\n112\n113\n114\n115\n116\n117\n118\n119\n120\n121\n122\n123\n125\nt1:1Table 1 t1:2Properties of the nano-materials used for nano-lubricant data.\nt1:3Characteristic Value\nt1:4MWCNTs SiO2\nt1:5Purity N97% N99% t1:6Color Black White t1:7Size Outer diameter: 5–20 (nm) 20–30 (nm) t1:8Inner diameter: 3–5 (nm) t1:9Length: 50 (μm) t1:10Bulk density: 0.27 (g/cm3) b0.10 (g/cm3) t1:11True density ~2.1 (g/cm3) 2.4 (g/cm3) t1:12Specific surface area (SSA) 233 (m2/g) 180–600 (m2/g)\nthe effective viscosity of Al2O3, CuO, TiO2 and SiO2 water-based nanofluids using an FCM-ANFIS based on experimental data. They considered the nanoparticles size, solid volume fraction and temperature as the design parameters. Their comparisons revealed that the estimated results agreed with the experimental findings. Karimi et al. [42] suggested a neural network based on genetic algorithm to predict the nanofluids viscosity. They optimized the neural network parameters by employing the genetic algorithm. Temperature and concentration of nanoparticles were considered as input variables. Their results showed that the proposed model was in agreement with experiments. Recently, Hemmat Esfe et al. [43] predicted the dynamic viscosity and thermal conductivity of ferromagnetic nanofluid by designing an artificial neural network (ANN). They used experimental results that include temperature and concentration diameter of particles as input variables. Their results showed that the neural networkwas able to track the data. The ANN outputs also revealed the maximum error of 2% and 2.5% in predicting the thermal conductivity and dynamic viscosity, respectively.\nBecause of numerous applications of engine oil, mentioned above, the study of rheological behavior of engine oil seems very necessary. However, only a fewworks have been done on thermo-physical properties of engine oils [44–48]. On the other hand, literature survey reveals that there is no any reported work aboutmodeling of dynamic viscosity of MWCNTs-SiO2/SAE40 hybrid nano-lubricant using artificial neural network. Hence, in the present study, for the first time, a new correlation has been proposed to predict the relative viscosity of MWCNTs– SiO2/AE40 hybrid nano-lubricant using a set of experimental data. Then, an accurate and efficient artificial neural network has been designed to predict the relative viscosity of the hybrid nano-lubricant.\nT\n126\n127\n128\n130\n131\n132\nE C"
+    }, {
+      "heading" : "2. Methodology",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Experimental",
+      "text" : "Forty-eight experimental data for the relative viscosity of a hybrid nano-lubricant covering a volume fraction ranging from 0 to 1% and a temperature ranging from 25 to 60 °C have been used for developing models (Fig. 1) [49]. The hybrid nano-lubricant is made up of a combination of multi-walled carbon nanotubes and silica dispersed in SAE40 engine oil. The properties of the nano-materials used for nanolubricant data are presented in Table 1.\nU N C O\nR R\n133\n134\n135\n136\n137\n138\n139\n140\n141\n142\n143\n144\n145\n147\n148\n149\n150\n151\n152\n153Fig. 1. Relative viscosity versus temperature for various solid volume fractions [49].\nPlease cite this article as: M. Afrand, et al., Prediction of dynamic viscosity Commun. Heat Mass Transf. (2016), http://dx.doi.org/10.1016/j.icheatma\nE D P\nR O\nO F"
+    }, {
+      "heading" : "2.2. Proposing new experimental correlation",
+      "text" : "In this section, a new experimental correlation has been proposed as a function of temperature and solid volume fraction. To attain a precise correlation, the curve-fitting has been performed employing the Marquardt–Levenberg algorithm [50] to find the coefficients of the temperature and solid volume fraction. This algorithm examines the parameters that minimize the sum of the squared differences between the experimental data and predicted values of the relative viscosity of the nano-lubricant (see Eq. (1)).\nS ¼ Xn i¼1 yi−ŷið Þ2 ð1Þ\nwhere S is the sum of the squared differences, and yi and ŷi are respectively the experimental and the predicted values of the relative viscosity.\nThe correlation, attained by aforementioned algorithm, can estimate the relative viscosity of the hybrid nano-lubricant which is known as\nμr ¼ μnf μbf ¼ 0:00337þ exp 0:07731φ1:452T0:3387\nð2Þ\nwhere μ r, μ nf and μ bf are, respectively, the relative viscosity, the nanofluid viscosity and the base fluid viscosity. Moreover, T is the temperature of the nanofluid in °C and φ is the solid volume fraction in %.\n2.3. Architecture of artificial neural network\nRecently, the artificial neural network (ANN) has been used widely to predict the nonlinear systems because of its significant advantages such as high precision, low cost and time. The human brain is the main idea behind ANN, which is a parallel processing network to determine the complex nonlinear relationships between input variables and output parameters [51,52].\nThe ANN architecture presents the connections between the neurons and the layers. The weights and biases on the connections are determined using the learning algorithm. The ANN consisted of an output layer and a hidden layer. In this study, the transfer function of the hidden layer has been considered as the tangent-sigmoid, while pureline functionwas used for the output layer. Eq. (3) presents the tangent-sigmoid transfer function as follows:\nf xð Þ ¼ 1 1þ exp −xð Þ ð3Þ\nSince a Levenberg–Marquardt generally leads to better outputs [53–54], the Levenberg–Marquardt training algorithm has been employed to model the rheological behavior of MWCNTs–SiO2/AE40 nano-lubricant. In this study, a feed forward network has been used as the training algorithm (see Fig. 2). There are two input variables including solid volume fraction (φ) and temperature (T). The ANN output parameter is the relative viscosity (μr). Forty-eight experimental data,\nof a hybrid nano-lubricant by an optimal artificial neural network, Int. sstransfer.2016.05.023\nT E\nO O\nF\n154\n155\n156\n157\n159\n160\n161\n163\n164\n165\n166\n167\n168\n169\n170\n171\n172\n173\n175\n176\n177\n178\n179\n180\n181\n182\n183\n184\n185\n186\n187\nFig. 2. Structure of the feed forward neural network.\nt2:1Table 2 t2:2Evaluation of performance of each network versus the neuron numbers.\nt2:3Number of hidden neurons MSE\nt2:4Overall Training Validation Test\nt2:56 0.00192 0.00155 0.00198 0.00365 t2:67 0.00127 0.00070 0.00330 0.00197 t2:78 0.00223 0.00170 0.00127 0.00577 t2:89 0.00111 0.00104 0.00125 0.00128 t2:910 0.00486 0.00010 0.00802 0.02483 t2:1011 0.00193 0.00122 0.00535 0.00196 t2:1112 0.00321 0.00160 0.00196 0.01231 t2:1213 0.00251 0.00020 0.00711 0.00912 t2:1314 0.00377 0.00204 0.00323 0.01272 t2:1415 0.00523 0.00415 0.00644 0.00929 t2:1516 0.00245 0.00087 0.00672 0.00584 t2:1617 0.00320 0.00175 0.00720 0.00623 t2:1718 0.00965 0.00782 0.00810 0.02010 t2:1819 0.00235 0.00006 0.00365 0.01220 t2:1920 0.00184 0.00003 0.00437 0.00808 t2:2021 0.00205 0.00069 0.00629 0.00441 t2:2122 0.00381 0.00045 0.00501 0.01897 t2:2223 0.00642 0.00253 0.00890 0.02281 t2:2324 0.00346 0.00034 0.00608 0.01597 t2:2425 0.00215 0.00143 0.00521 0.00256 t2:2526 0.00597 0.00146 0.00771 0.02617\nU N C O\nR R E C\nshown in Fig. 1, were used to feed the network. The data setwas derived from training, validation and test sets which contained 70%, 15% and 15% of data respectively. All data values have been to be scaled into the range of (−1, 1) using Eq. (4).\nXnorm ¼ 2 X−XminXmax−Xmin −1 ð4Þ\nThe criteria for selecting a suitable network is based on performance and avoiding over-fitting. The ANN performance is mean square error (MSE) and is expressed by Eq. (5).\nMSE ¼ 1 N XN i¼1 Ypre−Yex 2 ð5Þ\nwhere Yex is the experimental output, Ypre is the network output andN is the number of data points.\nTo achieve an optimal network, the number of neurons in the hidden layers has been changed and theperformance of thenetwork is calculated. The overall performance, training, validation and test performance of each network versus the neuron numbers is reported in Table 2. It can be observed that the ANN with 9 neurons in the hidden layers has minimum MSE. The suggested algorithm in searching for the optimal neural network is illustrated in Fig. 3.\nIn order to evaluate the accuracy of the optimal ANN, deviation analysis of the relative viscosity was performed. The deviation between experimental data and ANN output can be calculated as follows:\nMargin of deviation ¼ μrð ÞExp− μrð ÞANN=Correlation\nμrð ÞExp\n\" # 100 ð6Þ\nThe histogram of the margin of deviation for the optimal ANN is displayed in Fig. 4. It can be seen that the deviation distribution is concentrated around zero, which means that the optimal ANN has an acceptable accuracy."
+    }, {
+      "heading" : "3. Results and discussion",
+      "text" : "Fig. 5 shows a comparison between the experimental data and the correlation outputs obtained from Eq. (2). In this figure the margin of\nD P\nR\ndeviation also is presented. It can be seen that there is some deviation between the experimental data and the correlation outputs and the deviation is about 4%. This comparison is performed also for ANN outputs in Fig. 6. As can be observed, most points are on the bisector and the deviation margin is 1.5%. This shows a good match between the ANN outputs and the experimental data. For a more detailed evaluation, the\nT\nO O\nF\n188\n189\n190\n191\n192\n193\n194\n195\n196\n197\n198\n199\n200\n201\n202\n203\n204\n205\n206\n207\n208\n209\n210\n211\n212\n213\n214\n215\n216\n217\n218\n219\n220\nE C\noptimal ANN is assessed by plotting the experimental data against the ANN data for training, validation and test data sets in Fig. 7. The excellent fits are shown by a solid 45° line for all three data sets, which indicate a good agreement between predicted results and experimental data.\nThe relative viscosities obtained from the experiments, the empirical correlation, and the optimal ANN are illustrated in Fig. 8. The experimental data and results predicted by ANN are in well agreement. The empirical correlation has a little deviation from experimental data. In fact, the optimal ANN model is more accurate compared to empirical correlation.\nIn order to demonstrate the curve of proposed correlation, the curve-fitting on experimental data, using the suggested correlation, at temperatures of 30, 40, 50 and 60 °C is shown in Fig. 9. It can be seen that in most points, the correlation outputs and experiment data overlap each other or show a minor deviation. The figure shows this fact that the empirical correlation has a suitable accuracy.\nU N C O\nR R\n221\nFig. 5. Comparison between the experimental data and the correlation outputs.\nPlease cite this article as: M. Afrand, et al., Prediction of dynamic viscosity Commun. Heat Mass Transf. (2016), http://dx.doi.org/10.1016/j.icheatma\nE D P\nR"
+    }, {
+      "heading" : "4. Conclusion",
+      "text" : "In the present study, at the first, a new correlation was proposed to predict the relative viscosity of MWCNTs–SiO2/AE40 nano-lubricant using experimental data. Then, an optimal artificial neural network was designed to predict the relative viscosity of the nano-lubricant. Temperature and solid volume fraction were employed as input variables and relative viscosity was used as the output variable. Optimal ANN was obtained by changing the number of neurons in the hidden layer, transfer functions and repetition of training step. The data set was derived from training, validation and test sets which contained 70%, 15% and 15% of data points, respectively. The comparison between the experimental and correlation outputs showed that there is a deviationmargin of 4%.Moreover, the results obtained from optimal artificial neural network indicated a deviation margin of 1.5%. It can be found from the comparisons that the optimal artificial neural network model is more accurate compared to the empirical correlation. It also has been found that the empirical correlation has an acceptable accuracy.\nof a hybrid nano-lubricant by an optimal artificial neural network, Int. sstransfer.2016.05.023\nU N C O\nR R E C T\n222\n223\n224\n225\n226\n227\n228\n229\n230\n231\n232\n233 234 235 236 237 238 239 240 241 242 243 244\nO O\nF\nAcknowledgements\nThe fourth and seventh authors gratefully acknowledge theHigh Impact Research Grant “UM.C/HIR/MOHE/ENG/23” and Faculty of Engineering, University of Malaya, Malaysia for support in conducting this research work. The first three authors are grateful to Najafabad Branch, Islamic Azad University, Najafabad, Iran for support in obtaining the experimental data. The sixth author would like to thank the “Research Chair Grant” National Science and Technology Development Agency (NSTDA), the Thailand Research Fund (TRF) and the National Research University Project (NRU) for the support.\nReferences\n[1] M. Hemmat Esfe, M. Afrand, A. Karimipour, W.-M. Yan, N. Sina, An experimental study on thermal conductivity of MgO nanoparticles suspended in a binary mixture of water and ethylene glycol, Int. Commun. Heat Mass Transf. 67 (2015) 173–175. [2] M. Hemmat Esfe, S. Saedodin, W.-M. Yan, M. Afrand, N. Sina, Study on thermal conductivity of water-based nanofluids with hybrid suspensions of CNTs/Al2O3 nanoparticles, J. Therm. Anal. Calorim. 124 (2016) 455–460. [3] M. Hemmat Esfe, M. Akbari, D.T. Semiromi, A. Karimiopour, M. Afrand, Effect of nanofluid variable properties on mixed convection flow and heat transfer in an inclined two-sided lid-driven cavity with sinusoidal heating on sidewalls, Heat Transfer Res. 45 (2014) 409–432. [4] M. Soltanimehr, M. Afrand, Thermal conductivity enhancement of COOHfunctionalized MWCNTs/ethylene glycol–water nanofluid for application in heating\nE D P\nR\nl data at various temperatures.\nT 245 246Q2 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325\n326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399 400 401 402 403\n404\nU N C O\nR R E C\nand cooling systems, Appl. Therm. Eng. http://dx.doi.org/10.1016/j.applthermaleng. 2016.03.089. [5] M. Hemmat Esfe, M. Akbari, A. Karimipour, M. Afrand, O. Mahian, S. Wongwises, Mixed-convection flow and heat transfer in lid-driven square cavity filled with Al2O3–water variable-property nanofluid: effects of hot obstacle and cavity inclination angles, Int. J. Heat Mass Transf. 85 (2015) 656–666. [6] D. Toghraie, V.A. Chaharsoghi, M. Afrand, Measurement of thermal conductivity of ZnO–TiO2/EG hybrid nanofluid, J. Therm. Anal. Calorim. (2016) 1–9, http://dx.doi. org/10.1007/s10973-016-5436-4. [7] M. Hemmat Esfe, A.H. Refahi, H. Teimouri, M.J. Noroozi, M. Afrand, A. Karimiopour, Mixed convection fluid flow and heat transfer of the Al2O3–water nanofluid with variable properties in a cavity with an inside quadrilateral obstacle, Heat Transfer Res. 46 (2015) 465–482. [8] M. Hemmat Esfe, S. Saedodin, M. Akbari, A. Karimipour, M. Afrand, S. Wongwises, M.R. Safaei, M. Dahari, Experimental investigation and development of new correlations for thermal conductivity of CuO/EG–water nanofluid, Int. Commun. Heat Mass Transf. 65 (2015) 47–51. [9] S. Shamshirband, A. Malvandi, A. Karimipour, M. Goodarzi, M. Afrand, D. Petković, M. Dahari, N. Mahmoodian, Performance investigation of micro- and nano-sized particle erosion in a 90° elbow using an ANFIS model, Powder Technol. 284 (2015) 336–343. [10] M. Hemmat Esfe, S. Saedodin, W.-M. Yan, M. Afrand, N. Sina, Study on thermal conductivity of water-based nanofluids with hybrid suspensions of CNTs/Al2O3 nanoparticles, J. Therm. Anal. Calorim. (2015), http://dx.doi.org/10.1007/s10973015-5104-0. [11] W. Duangthongsuk, S. Wongwises, Measurement of temperature-dependent thermal conductivity and viscosity of TiO2-water nanofluids, Exp. Thermal Fluid Sci. 33 (2009) 706–714. [12] M. Hojjat, S.G. Etemad, R. Bagheri, J. Thibault, Rheological characteristics of nonNewtonian nanofluids: experimental investigation, Int. Commun. Heat Mass Transf. 38 (2011) 144–148. [13] T. Yiamsawasd, A.S. Dalkilic, S.Wongwises,Measurement of the thermal conductivity of titania and alumina nanofluids, Thermochim. Acta 545 (2012) 48–56. [14] T. Yiamsawas, O. Mahian, A.S. Dalkilic, S. Kaewnai, S. Wongwises, Experimental studies on the viscosity of TiO2 and Al2O3 nanoparticles suspended in a mixture of ethylene glycol and water for high temperature applications, Appl. Energy 111 (2013) 40–45. [15] M. Hemmat Esfe, S. Saedodin, M. Mahmoodi, Experimental studies on the convective heat transfer performance and thermophysical properties of MgO–water nanofluid under turbulent flow, Exp. Thermal Fluid Sci. 52 (2014) 68–78. [16] M. Hemmat Esfe, S. Saedodin, An experimental investigation and new correlation of viscosity of ZnO–EG nanofluid at various temperatures and different solid volume fractions, Exp. Thermal Fluid Sci. 55 (2014) 1–5. [17] M. Hemmat Esfe, S. Saedodin, O. Mahian, S. Wongwises, Thermophysical properties, heat transfer and pressure drop of COOH-functionalized multi walled carbon nanotubes/water nanofluids, Int. Commun. Heat Mass Transf. 58 (2014) 176–183. [18] M. Hemmat Esfe, S. Saedodin, O. Mahian, S. Wongwises, Heat transfer characteristics and pressure drop of COOH-functionalized DWCNTs/water nanofluid in turbulent flow at low concentrations, Int. J. Heat Mass Transf. 73 (2014) 186–194. [19] M. Baratpour, A. Karimipour, M. Afrand, S. Wongwises, Effects of temperature and concentration on the viscosity of nanofluids made of single-wall carbon nanotubes in ethylene glycol, Int. Commun. Heat Mass Transf. 74 (2016) 108–113. [20] H. Eshgarf, M. Afrand, An experimental study on rheological behavior of nonNewtonian hybrid nano-coolant for application in cooling and heating systems, Exp. Thermal Fluid Sci. 76 (2016) 221–227. [21] S. Suresh, K.P. Venkitaraj, P. Selvakumar, M. Chandrasekar, Effect of Al2O3–Cu/water hybrid nanofluid in heat transfer, Exp. Thermal Fluid Sci. 38 (2012) 54–60. [22] M.J. Nine, B. Munkhbayar, M.S. Rahman, H. Chung, H. Jeong, Highly productive synthesis process of well dispersed Cu2O and Cu/Cu2O nanoparticles and its thermal characterization, Mater. Chem. Phys. 141 (2013) 636–642. [23] M. Batmunkh, M.R. Tanshen, M.J. Nine, M. Myekhlai, H. Choi, H. Chung, et al., Thermal conductivity of TiO2 nanoparticles based aqueous nanofluids with an addition of a modified silver particle, Ind. Eng. Chem. Res. 53 (2014) 8445–8451. [24] D. Madhesh, R. Parameshwaran, S. Kalaiselvam, Experimental investigation on convective heat transfer and rheological characteristics of Cu–TiO2 hybrid nanofluids, Exp. Thermal Fluid Sci. 52 (2014) 104–115. [25] M. Hemmat Esfe, A.A. Abbasian Arani, M. Rezaie, W.M. Yan, A. Karimipour, Experimental determination of thermal conductivity and dynamic viscosity of Ag–MgO/ water hybrid nanofluid, Int. Commun. Heat Mass Transf. 66 (2015) 189–195. [26] M. Baghbanzadeh, A. Rashidi, D. Rashtchian, R. Lotfi, A. Amrollahi, Synthesis of spherical silica/multiwall carbon nanotubes hybrid nanostructures and investigation of thermal conductivity of related nanofluids, Thermochim. Acta 549 (2012) 87–94. [27] B.Munkhbayar, M.R. Tanshen, J. Jeoun, H. Chung, H. Jeong, Surfactant-free dispersion of silver nanoparticles into MWCNT-aqueous nanofluids prepared by one-step technique and their thermal characteristics, Ceram. Int. 39 (2013) 6415–6425. [28] L.F. Chen, M. Cheng, D.J. Yang, L. Yang, Enhanced thermal conductivity of nanofluid by synergistic effect of multi-walled carbon nanotubes and Fe2O3 nanoparticles, Appl. Mech. Mater. 548-549 (2014) 118–123. [29] M. Afrand, D. Toghraie, B. Ruhani, Effects of temperature and nanoparticles concentration on rheological behavior of Fe3O4-Ag/EG hybrid nanofluid: an experimental study, Exp. Thermal Fluid Sci. 77 (2016) 38–44.\nPlease cite this article as: M. Afrand, et al., Prediction of dynamic viscosity Commun. Heat Mass Transf. (2016), http://dx.doi.org/10.1016/j.icheatma\nE D P\nR O\nO F\n[30] M.M. Papari, F. Yousefi, J. Moghadasi, H. Karimi, A. Campo, Modeling thermal conductivity augmentation of nanofluids using diffusion neural networks, Int. J. Therm. Sci. 50 (2011) 44–52. [31] M. Hojjat, S.Gh. Etemad, R. Bagheri, J. Thibault, Thermal conductivity of nonNewtonian nanofluids: experimental data and modeling using neural network, Int. J. Heat Mass Transf. 54 (2011) 1017–1023. [32] G.A. Longo, C. Zilio, E. Ceseracciu, M. Reggiani, Application of artificial neural network (ANN) for the prediction of thermal conductivity of oxide-water nanofluids, Nano Energy 1 (2012) 290–296. [33] M.A. Ariana, B. Vaferi, G. Karimi, Prediction of thermal conductivity of alumina water- based nanofluids by artificial neural networks, Powder Technol. 278 (2015) 1–10. [34] M. Hemmat Esfe, S. Saedodin, M. Bahiraei, D. Toghraie, O. Mahian, S. Wongwises, Thermal conductivity modeling of MgO/EG nanofluids using experimental data and artificial neural network, J. Therm. Anal. Calorim. 118 (2014) 287–294. [35] M. Hemmat Esfe, H. Rostamian, M. Afrand, A. Karimipour, M. Hassani, Modeling and estimation of thermal conductivity of MgO–water/EG (60:40) by artificial neural network and correlation, Int. Commun. Heat Mass Transf. 68 (2015) 98–103. [36] M. Hemmat Esfe, A. Naderi, M. Akbari, M. Afrand, A. Karimipour, Evaluation of thermal conductivity of COOH-functionalized MWCNTs/water via temperature and solid volume fraction by using experimental data and ANN methods, J. Therm. Anal. Calorim. 121 (2015) 1273–1278. [37] M. Hemmat Esfe, M. Afrand, W.M. Yan, M. Akbari, Applicability of artificial neural network and nonlinear regression to predict thermal conductivity modeling of Al2O3–water nanofluids using experimental data, Int. Commun. Heat Mass Transf. 66 (2015) 246–249. [38] M. Hemmat Esfe, M. Afrand, S.Wongwises, A. Naderi, A. Asadi, S. Rostami, M. Akbari, Applications of feedforward multilayer perceptron artificial neural networks and empirical correlation for prediction of thermal conductivity of Mg(OH)2–EG using experimental data, Int. Commun. Heat Mass Transf. 67 (2015) 46–50. [39] M. Hemmat Esfe, W.-M. Yan, M. Afrand, M. Sarraf, D. Toghraie, M. Dahari, Estimation of thermal conductivity of Al2O3/water (40%)–ethylene glycol (60%) by artificial neural network and correlation using experimental data, Int. Commun. Heat Mass Transf. 74 (2016) 125–128. [40] M.H. Esfe, K. Motahari, E. Sanatizadeh, M. Afrand, H. Rostamian, M. Hassani, Estimation of thermal conductivity of CNTs-water in low temperature by artificial neural network and correlation, Int. Commun. Heat Mass Transf. (2016), http://dx.doi. org/10.1016/j.icheatmasstransfer.2015.12.012. [41] M. Mehrabi, M. Sharifpur, J.P. Meyer, Viscosity of nanofluids based on an artificial intelligence model, Int. Commun. Heat Mass Transf. 43 (2013) 16–21. [42] H. Karimi, F. Yousefi, M.R. Rahimi, Correlation of viscosity in nanofluids using genetic algorithm-neural network (GA-NN), Heat Mass Transf. 47 (2011) 1417–1425. [43] M. Hemmat Esfe, S. Saedodin, N. Sina, M. Afrand, S. Rostami, Designing an artificial neural network to predict thermal conductivity and dynamic viscosity of ferromagnetic nanofluid, Int. Commun. Heat Mass Transf. 68 (2015) 50–57. [44] G.R. Vakili-Nezhaad, A. Dorany, Investigation of the effect of multiwalled carbon nanotubes on the viscosity index of lube oil cuts, Chem. Eng. Commun. 196 (2009) 997–1007. [45] L. Chen, H. Xie, W. Yu, Y. Li, Rheological behaviors of nanofluids containing multiwalled carbon nanotube, J. Dispers. Sci. Technol. 32 (2011) 550–554. [46] M.H. Vasheghani, E. Marzbanrad, C. Zamani, M. Aminy, B. Raissi, T. Ebadzadeh, H. Barzegar-Bafrooei, Effect of Al2O3 phases on the enhancement of thermal conductivity and viscosity of nanofluids in engine oil, Heat Mass Transf. 47 (2011) 1401–1405. [47] E. Ettefaghi, H. Ahmadi, A. Rashidi, A. Nouralishahi, S.S. Mohtasebi, Preparation and thermal properties of oil-based nanofluid from multi-walled carbon nanotubes and engine oil as nano-lubricant, Int. Commun. Heat Mass Transf. 46 (2013) 142–147. [48] E. Ettefaghi, A. Rashidi, H. Ahmadi, S.S. Mohtasebi, M. Pourkhalil, Thermal and rheological properties of oil-based nanofluids from different carbon nanostructures, Int. Commun. Heat Mass Transf. 48 (2013) 178–182. [49] M. Afrand, K. Nazari Najafabadi, M. Akbari, Effects of temperature and solid volume fraction on viscosity of SiO2-MWCNTs/SAE40 hybrid nanofluid as a coolant and lubricant in heat engines, Appl. Therm. Eng. 102 (2016) 45–54. [50] D.W. Marquardt, An algorithm for least squares estimation of parameters, J. Soc. Ind. Appl. Math. 11 (1963) 431–441. [51] S. Shakeri, A. Ghassemi, M. Hassani, A. Hajian, Investigation of material removal rate and surface roughness in wire electrical discharge machining process for cementation alloy steel using artificial neural network, Int. J. Adv. Manuf. Technol. (2015), http://dx.doi.org/10.1007/s00170-015-7349-y. [52] M. Shirani, A. Akbari, M. Hassani, Adsorption of cadmium(ii) and copper(ii) from soil and water samples onto a magnetic organozeolite modified with 2-(3,4- dihydroxyphenyl)-1,3-dithiane using an artificial neural network and analysed by flame atomic absorption spectrometry, Anal. Methods 7 (2015) 6012–6020. [53] B. Vaferi, F. Samimi, E. Pakgohar, D. Mowla, Artificial neural network approach for prediction of thermal behavior of nanofluids flowing through circular tubes, Powder Technol. 267 (2014) 1–10. [54] B. Vaferi, R. Eslamloueyan, S. Ayatollahi, Automatic recognition of oil reservoir models from well testing data by using multi-layer perceptron networks, J. Pet. Sci. Eng. 77 (2011) 254–262.\nof a hybrid nano-lubricant by an optimal artificial neural network, Int. sstransfer.2016.05.023"
+    } ],
+    "references" : [ {
+      "title" : "An experimental study on thermal conductivity of MgO nanoparticles suspended in a binary mixture of water and ethylene glycol",
+      "author" : [ "M. Hemmat Esfe", "M. Afrand", "A. Karimipour", "W.-M. Yan", "N. Sina" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 67 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Study on thermal conductivity of water-based nanofluids with hybrid suspensions of CNTs/Al2O3 nanoparticles",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "W.-M. Yan", "M. Afrand", "N. Sina" ],
+      "venue" : "J. Therm. Anal. Calorim. 124 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Effect of nanofluid variable properties on mixed convection flow and heat transfer in an inclined two-sided lid-driven cavity with sinusoidal heating on sidewalls",
+      "author" : [ "M. Hemmat Esfe", "M. Akbari", "D.T. Semiromi", "A. Karimiopour", "M. Afrand" ],
+      "venue" : "Heat Transfer Res. 45 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Mixed-convection flow and heat transfer in lid-driven square cavity filled with Al2O3–water variable-property nanofluid: effects of hot obstacle and cavity inclination angles",
+      "author" : [ "M. Hemmat Esfe", "M. Akbari", "A. Karimipour", "M. Afrand", "O. Mahian", "S. Wongwises" ],
+      "venue" : "Int. J. Heat Mass Transf. 85 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Measurement of thermal conductivity of ZnO–TiO2/EG hybrid nanofluid",
+      "author" : [ "D. Toghraie", "V.A. Chaharsoghi", "M. Afrand" ],
+      "venue" : "J. Therm. Anal. Calorim. ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Mixed convection fluid flow and heat transfer of the  Al2O3–water nanofluid with variable properties in a cavity with an inside quadrilateral obstacle",
+      "author" : [ "M. Hemmat Esfe", "A.H. Refahi", "H. Teimouri", "M.J. Noroozi", "M. Afrand", "A. Karimiopour" ],
+      "venue" : "Heat Transfer Res. 46 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental investigation and development of new correlations for thermal conductivity of CuO/EG–water nanofluid",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "M. Akbari", "A. Karimipour", "M. Afrand", "S. Wongwises", "M.R. Safaei", "M. Dahari" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 65 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Performance investigation of micro- and nano-sized particle erosion in a 90° elbow using an ANFIS model",
+      "author" : [ "S. Shamshirband", "A. Malvandi", "A. Karimipour", "M. Goodarzi", "M. Afrand", "D. Petković", "M. Dahari", "N. Mahmoodian" ],
+      "venue" : "Powder Technol. 284 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Study on thermal conductivity of water-based nanofluids with hybrid suspensions of CNTs/Al2O3 nanoparticles",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "W.-M. Yan", "M. Afrand", "N. Sina" ],
+      "venue" : "J. Therm. Anal. Calorim. ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Measurement of temperature-dependent thermal conductivity and viscosity of TiO2-water nanofluids",
+      "author" : [ "W. Duangthongsuk", "S. Wongwises" ],
+      "venue" : "Exp. Thermal Fluid Sci. 33 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Rheological characteristics of non- Newtonian nanofluids: experimental investigation",
+      "author" : [ "M. Hojjat", "S.G. Etemad", "R. Bagheri", "J. Thibault" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 38 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Dalkilic, S.Wongwises,Measurement of the thermal conductivity of titania and alumina nanofluids",
+      "author" : [ "A.S.T. Yiamsawasd" ],
+      "venue" : "Thermochim. Acta",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2012
+    }, {
+      "title" : "Experimental studies on the viscosity of TiO2 and Al2O3 nanoparticles suspended in a mixture of ethylene glycol and water for high temperature applications",
+      "author" : [ "T. Yiamsawas", "O. Mahian", "A.S. Dalkilic", "S. Kaewnai", "S. Wongwises" ],
+      "venue" : "Appl. Energy 111 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Experimental studies on the convective heat transfer performance and thermophysical properties of MgO–water nanofluid under turbulent flow",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "M. Mahmoodi" ],
+      "venue" : "Exp. Thermal Fluid Sci. 52 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "An experimental investigation and new correlation of viscosity of ZnO–EG nanofluid at various temperatures and different solid volume fractions",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin" ],
+      "venue" : "Exp. Thermal Fluid Sci. 55 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Thermophysical properties",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "O. Mahian", "S. Wongwises" ],
+      "venue" : "heat transfer and pressure drop of COOH-functionalized multi walled carbon nanotubes/water nanofluids, Int. Commun. Heat Mass Transf. 58 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Heat transfer characteristics and pressure drop of COOH-functionalized DWCNTs/water nanofluid in turbulent flow at low concentrations",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "O. Mahian", "S. Wongwises" ],
+      "venue" : "Int. J. Heat Mass Transf. 73 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Effects of temperature and concentration on the viscosity of nanofluids made of single-wall carbon nanotubes in ethylene glycol",
+      "author" : [ "M. Baratpour", "A. Karimipour", "M. Afrand", "S. Wongwises" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 74 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An experimental study on rheological behavior of non- Newtonian hybrid nano-coolant for application in cooling and heating systems",
+      "author" : [ "H. Eshgarf", "M. Afrand" ],
+      "venue" : "Exp. Thermal Fluid Sci. 76 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Effect of Al2O3–Cu/water hybrid nanofluid in heat transfer",
+      "author" : [ "S. Suresh", "K.P. Venkitaraj", "P. Selvakumar", "M. Chandrasekar" ],
+      "venue" : "Exp. Thermal Fluid Sci. 38 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Highly productive synthesis process of well dispersed Cu2O and Cu/Cu2O nanoparticles and its thermal characterization",
+      "author" : [ "M.J. Nine", "B. Munkhbayar", "M.S. Rahman", "H. Chung", "H. Jeong" ],
+      "venue" : "Mater. Chem. Phys. 141 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "H",
+      "author" : [ "M. Batmunkh", "M.R. Tanshen", "M.J. Nine", "M. Myekhlai", "H. Choi" ],
+      "venue" : "Chung, et al., Thermal conductivity of TiO2 nanoparticles based aqueous nanofluids with an addition of a modified silver particle, Ind. Eng. Chem. Res. 53 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Experimental investigation on convective heat transfer and rheological characteristics of Cu–TiO2 hybrid nanofluids",
+      "author" : [ "D. Madhesh", "R. Parameshwaran", "S. Kalaiselvam" ],
+      "venue" : "Exp. Thermal Fluid Sci. 52 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Experimental determination of thermal conductivity and dynamic viscosity of Ag–MgO/ water hybrid nanofluid",
+      "author" : [ "M. Hemmat Esfe", "A.A. Abbasian Arani", "M. Rezaie", "W.M. Yan", "A. Karimipour" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 66 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Synthesis of spherical silica/multiwall carbon nanotubes hybrid nanostructures and investigation of thermal conductivity of related nanofluids",
+      "author" : [ "M. Baghbanzadeh", "A. Rashidi", "D. Rashtchian", "R. Lotfi", "A. Amrollahi" ],
+      "venue" : "Thermochim. Acta 549 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Surfactant-free dispersion of silver nanoparticles into MWCNT-aqueous nanofluids prepared by one-step technique and their thermal characteristics",
+      "author" : [ "B.Munkhbayar", "M.R. Tanshen", "J. Jeoun", "H. Chung", "H. Jeong" ],
+      "venue" : "Ceram. Int",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2013
+    }, {
+      "title" : "Enhanced thermal conductivity of nanofluid by synergistic effect of multi-walled carbon nanotubes and Fe2O3 nanoparticles",
+      "author" : [ "L.F. Chen", "M. Cheng", "D.J. Yang", "L. Yang" ],
+      "venue" : "Appl. Mech. Mater. 548-549 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Effects of temperature and nanoparticles concentration on rheological behavior of Fe3O4-Ag/EG hybrid nanofluid: an experimental study",
+      "author" : [ "M. Afrand", "D. Toghraie", "B. Ruhani" ],
+      "venue" : "Exp. Thermal Fluid Sci. 77 (2016) 38–44. Please cite this article as: M. Afrand, et al., Prediction of dynamic viscosity Commun. Heat Mass Transf. ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Modeling thermal conductivity augmentation of nanofluids using diffusion neural networks",
+      "author" : [ "M.M. Papari", "F. Yousefi", "J. Moghadasi", "H. Karimi", "A. Campo" ],
+      "venue" : "Int. J. Therm. Sci. 50 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Thermal conductivity of non- Newtonian nanofluids: experimental data and modeling using neural network, Int",
+      "author" : [ "M. Hojjat", "S.Gh. Etemad", "R. Bagheri", "J. Thibault" ],
+      "venue" : "J. Heat Mass Transf",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2011
+    }, {
+      "title" : "Application of artificial neural network (ANN) for the prediction of thermal conductivity of oxide-water nanofluids",
+      "author" : [ "G.A. Longo", "C. Zilio", "E. Ceseracciu", "M. Reggiani" ],
+      "venue" : "Nano Energy 1 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Prediction of thermal conductivity of alumina water- based nanofluids by artificial neural networks",
+      "author" : [ "M.A. Ariana", "B. Vaferi", "G. Karimi" ],
+      "venue" : "Powder Technol. 278 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermal conductivity modeling of MgO/EG nanofluids using experimental data and artificial neural network",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "M. Bahiraei", "D. Toghraie", "O. Mahian", "S. Wongwises" ],
+      "venue" : "J. Therm. Anal. Calorim. 118 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Modeling and estimation of thermal conductivity of MgO–water/EG (60:40) by artificial neural network and correlation",
+      "author" : [ "M. Hemmat Esfe", "H. Rostamian", "M. Afrand", "A. Karimipour", "M. Hassani" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 68 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Evaluation of thermal conductivity of COOH-functionalized MWCNTs/water via temperature and solid volume fraction by using experimental data and ANN methods",
+      "author" : [ "M. Hemmat Esfe", "A. Naderi", "M. Akbari", "M. Afrand", "A. Karimipour" ],
+      "venue" : "J. Therm. Anal. Calorim. 121 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Applicability of artificial neural network and nonlinear regression to predict thermal conductivity modeling of Al2O3–water nanofluids using experimental data",
+      "author" : [ "M. Hemmat Esfe", "M. Afrand", "W.M. Yan", "M. Akbari" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 66 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "M",
+      "author" : [ "M. Hemmat Esfe" ],
+      "venue" : "Afrand, S.Wongwises, A. Naderi, A. Asadi, S. Rostami, M. Akbari, Applications of feedforward multilayer perceptron artificial neural networks and empirical correlation for prediction of thermal conductivity of Mg(OH)2–EG using experimental data, Int. Commun. Heat Mass Transf. 67 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Estimation of thermal conductivity of Al2O3/water (40%)–ethylene glycol (60%) by artificial neural network and correlation using experimental data",
+      "author" : [ "M. Hemmat Esfe", "W.-M. Yan", "M. Afrand", "M. Sarraf", "D. Toghraie", "M. Dahari" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 74 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Estimation of thermal conductivity of CNTs-water in low temperature by artificial neural network and correlation",
+      "author" : [ "M.H. Esfe", "K. Motahari", "E. Sanatizadeh", "M. Afrand", "H. Rostamian", "M. Hassani" ],
+      "venue" : "Int. Commun. Heat Mass Transf. ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Viscosity of nanofluids based on an artificial intelligence model",
+      "author" : [ "M. Mehrabi", "M. Sharifpur", "J.P. Meyer" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 43 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Correlation of viscosity in nanofluids using genetic algorithm-neural network (GA-NN)",
+      "author" : [ "H. Karimi", "F. Yousefi", "M.R. Rahimi" ],
+      "venue" : "Heat Mass Transf. 47 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Designing an artificial neural network to predict thermal conductivity and dynamic viscosity of ferromagnetic nanofluid",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "N. Sina", "M. Afrand", "S. Rostami" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 68 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Investigation of the effect of multiwalled carbon nanotubes on the viscosity index of lube oil cuts",
+      "author" : [ "G.R. Vakili-Nezhaad", "A. Dorany" ],
+      "venue" : "Chem. Eng. Commun. 196 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Rheological behaviors of nanofluids containing multiwalled carbon nanotube",
+      "author" : [ "L. Chen", "H. Xie", "W. Yu", "Y. Li" ],
+      "venue" : "J. Dispers. Sci. Technol. 32 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Effect of Al2O3 phases on the enhancement of thermal conductivity and viscosity of nanofluids in engine oil",
+      "author" : [ "M.H. Vasheghani", "E. Marzbanrad", "C. Zamani", "M. Aminy", "B. Raissi", "T. Ebadzadeh", "H. Barzegar-Bafrooei" ],
+      "venue" : "Heat Mass Transf. 47 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Preparation and thermal properties of oil-based nanofluid from multi-walled carbon nanotubes and engine oil as nano-lubricant",
+      "author" : [ "E. Ettefaghi", "H. Ahmadi", "A. Rashidi", "A. Nouralishahi", "S.S. Mohtasebi" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 46 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Thermal and rheological properties of oil-based nanofluids from different carbon nanostructures",
+      "author" : [ "E. Ettefaghi", "A. Rashidi", "H. Ahmadi", "S.S. Mohtasebi", "M. Pourkhalil" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 48 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Effects of temperature and solid volume fraction on viscosity of SiO2-MWCNTs/SAE40 hybrid nanofluid as a coolant and lubricant in heat engines",
+      "author" : [ "M. Afrand", "K. Nazari Najafabadi", "M. Akbari" ],
+      "venue" : "Appl. Therm. Eng. 102 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An algorithm for least squares estimation of parameters",
+      "author" : [ "D.W. Marquardt" ],
+      "venue" : "J. Soc. Ind. Appl. Math. 11 ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 1963
+    }, {
+      "title" : "Investigation of material removal rate and surface roughness in wire electrical discharge machining process for cementation alloy steel using artificial neural network",
+      "author" : [ "S. Shakeri", "A. Ghassemi", "M. Hassani", "A. Hajian" ],
+      "venue" : "Int. J. Adv. Manuf. Technol. ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "M",
+      "author" : [ "M. Shirani", "A. Akbari" ],
+      "venue" : "Hassani, Adsorption of cadmium(ii) and copper(ii) from soil and water samples onto a magnetic organozeolite modified with 2-(3,4dihydroxyphenyl)-1,3-dithiane using an artificial neural network and analysed by flame atomic absorption spectrometry, Anal. Methods 7 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Artificial neural network approach for prediction of thermal behavior of nanofluids flowing through circular tubes",
+      "author" : [ "B. Vaferi", "F. Samimi", "E. Pakgohar", "D. Mowla" ],
+      "venue" : "Powder Technol. 267 ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Automatic recognition of oil reservoir models from well testing data by using multi-layer perceptron networks",
+      "author" : [ "B. Vaferi", "R. Eslamloueyan", "S. Ayatollahi" ],
+      "venue" : "J. Pet. Sci. Eng. 77 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 39,
+      "context" : "[41] established a newmodel for predicting",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 40,
+      "context" : "[42] suggested a neural network based on genetic algorithm to predict the nanofluids viscosity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 41,
+      "context" : "[43] predicted the dynamic viscosity and thermal conductivity of ferromagnetic nanofluid by designing an artificial neural network (ANN).",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 47,
+      "context" : "Relative viscosity versus temperature for various solid volume fractions [49].",
+      "startOffset" : 73,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 48,
+      "context" : "To attain a precise correlation, the curve-fitting has been performed employing the Marquardt–Levenberg algorithm [50] to find the coefficients of the temperature and solid volume fraction.",
+      "startOffset" : 114,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 49,
+      "context" : "The human brain is the main idea behind ANN, which is a parallel processing network to determine the complex nonlinear relationships between input variables and output parameters [51,52].",
+      "startOffset" : 179,
+      "endOffset" : 186
+    }, {
+      "referenceID" : 50,
+      "context" : "The human brain is the main idea behind ANN, which is a parallel processing network to determine the complex nonlinear relationships between input variables and output parameters [51,52].",
+      "startOffset" : 179,
+      "endOffset" : 186
+    } ],
+    "year" : 2016,
+    "abstractText" : "16 Available online xxxx 17 18 19 20 21 22 23 24 T E D In this paper, at first, a new correlation was proposed to predict the relative viscosity of MWCNTs-SiO2/AE40 nano-lubricant using experimental data. Then, consideringminimumprediction error, an optimal artificial neural networkwas designed to predict the relative viscosity of the nano-lubricant. Forty-eight experimental data were used to feed the model. The data set was derived to training, validation and test sets which contained 70%, 15% and 15% of data points, respectively. The correlation outputs showed that there is a deviation margin of 4%. The results obtained from optimal artificial neural network presented a deviation margin of 1.5%. It can be found fromcomparisons that the optimal artificial neural networkmodel ismore accurate compared to empirical correlation. © 2016 Published by Elsevier Ltd.",
+    "creator" : "Elsevier"
+  }
+}

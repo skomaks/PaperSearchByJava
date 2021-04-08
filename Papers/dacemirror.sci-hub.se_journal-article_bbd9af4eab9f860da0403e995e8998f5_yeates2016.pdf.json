@@ -1,0 +1,1280 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_bbd9af4eab9f860da0403e995e8998f5_yeates2016.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Geometric Principles for Designing Highly Symmetric Self-Assembling Protein Nanomaterials",
+    "authors" : [ "Todd O. Yeates" ],
+    "emails" : [ "yeates@mbi.ucla.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "This article’s doi: 10.1146/annurev-biophys-070816-033928\nCopyright c© 2017 by Annual Reviews. All rights reserved\nEmerging protein design strategies are enabling the creation of diverse, selfassembling supramolecular structures with precision on the atomic scale. The design possibilities include various types of architectures: finite cages or shells, essentially unbounded two-dimensional and three-dimensional arrays (i.e., crystals), and linear or tubular filaments. In nature, structures of those types are generally symmetric, and, accordingly, symmetry provides a powerful guide for developing new design approaches. Recent design studies have produced numerous protein assemblies in close agreement with geometric specifications. For certain design approaches, a complete list of allowable symmetry combinations that can be used for construction has been articulated, opening a path to a rich diversity of geometrically defined protein materials. Future challenges include improving and elaborating on current strategies and endowing designed protein nanomaterials with properties useful in nanomedicine and material science applications.\n23\nChanges may still occur before final publication online and in print\nA nn\nu. R\ng A cc es s pr ov id"
+    }, {
+      "heading" : "Contents",
+      "text" : "INTRODUCTION . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24 EXPERIMENTS IN DESIGNING SELF-ASSEMBLING\nPROTEIN NANOMATERIALS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 Architectural Design Targets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 Strategies for Making Proteins Self-Assemble . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27 Recent Design Successes: Protein Cages, Layers, and Crystals . . . . . . . . . . . . . . . . . . . . 28 SYMMETRY AND GEOMETRIC PRINCIPLES FOR DESIGN . . . . . . . . . . . . . . . . . 31 Symmetry Group Underpinnings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31 Allowable Symmetry Combinations. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33 Geometric Rules and Algorithmic Approaches for Construction. . . . . . . . . . . . . . . . . . . 35 Symmetry Combinations Leading to Topological Complexity . . . . . . . . . . . . . . . . . . . . 35 FUTURE DIRECTIONS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37 Practical Developments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37 Open Questions in Theory and Design . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37"
+    }, {
+      "heading" : "INTRODUCTION",
+      "text" : "Many different types of molecules exhibit the capacity to self-assemble into elaborate materials with sizes or length scales in the nanometer range. The diversity of building blocks ranges from individual metal atoms to biological molecules having masses in the tens of kilodaltons or larger. Novel materials have been created by assembling combinations of metal ions and organic linkers (i.e., metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).\nProtein molecules offer great functional versatility but at the cost of considerable complexity. As exemplified by myriad examples in nature, proteins can carry out diverse catalytic activities. In addition to catalysis, proteins have the capacity to bind a practically limitless range of other molecules with high specificity. Proteins are often flexible or conformationally polymorphic in ways that depend on solution conditions or on the binding of specific ligands; in other words, they can be responsive. They can also be rigid enough for assembly into large architectures (e.g., tubes or capsids) that are well ordered over micron scales. A particularly important practical point is that proteins of essentially arbitrary amino acid sequence can be synthesized by exploiting routine molecular biology techniques. Opposing these many favorable properties of proteins is their complexity and, in particular, the incompletely understood problems of protein folding and protein recognition and binding. Predicting in advance what amino acid sequence will cause a protein molecule to fold into a specific three-dimensional shape and then further assemble into a specific kind of larger architecture remains a frontier challenge.\nProtein conformation is understood better at the secondary-structure level (at the level of individual alpha helices for example) compared to the tertiary level that describes the complex folded shapes typical of larger proteins. That distinction is evident in the somewhat dichotomous endeavors over the last few decades to design self-assembling proteins or polypeptides. Our understanding of how to design amino acid sequences to fold and assemble into certain kinds of simple\n24 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nrepetitive structural motifs, bundles of alpha helices or coiled coils for example, has become highly advanced (39, 42, 95). As a result, much success has been achieved in designing de novo amino acid sequences that adopt alpha-helical conformations, which further self-assemble into various kinds of larger architectures. In contrast, whereas complex protein tertiary structures have been designed de novo in a few cases (15, 16, 48), doing so remains a challenging endeavor. Consequently, much of the recent work on creating complex protein molecules that self-assemble into larger supramolecular architectures has focused on using natural protein molecules as the starting point for design. The scope of those efforts thus is to determine how to modify or redesign a natural protein molecule so that many copies of it will self-assemble into a novel supramolecular architecture not formed by the native protein.\nEXPERIMENTS IN DESIGNING SELF-ASSEMBLING PROTEIN NANOMATERIALS"
+    }, {
+      "heading" : "Architectural Design Targets",
+      "text" : "When multiple copies of a molecule assemble together, the result can be either an amorphous material with molecules related to each other in spatially irregular ways or a well-defined supramolecular structure with molecules related to each other in geometrically specific ways. Our focus is on the latter and specifically on how to achieve geometrically specific assembly by design. Within the scope of geometrically specific assembly, the range of possible supramolecular architectures is broad (Figure 1). The varied possibilities fall in categories distinguishable by whether the resulting architecture is effectively finite in nature (i.e., composed of a specific number of subunits) or indefinite in extent (i.e., able to grow without theoretical bounds) in one or more dimensions.\nSimple protein building blocks\nSupramolecular architectures\n, , … Design\nFilament Tube Cage/shell 2-D layer 3-D crystal\nFigure 1\nDiverse kinds of supramolecular protein architectures. Introducing self-associating interfaces into a building block leads to self-assembly. Geometric control is required to obtain specific assembly outcomes.\nwww.annualreviews.org • Designing Symmetric Protein Materials 25\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nFinite supramolecular architectures generally obey one of the possible point group symmetries in three dimensions. The simplest of these are the cyclic symmetries composed of multiple subunits in a ring, with a dimer being the smallest. Dihedral or double-ring structures are next in terms of complexity. The most elaborate and complex possibilities are those based on cubic symmetries. Allowing some level of abstraction, those kinds of architectures generally resemble cages or shells with shapes similar to one of the five platonic solids: the tetrahedron, cube, octahedron, icosahedron, and dodecahedron. Numerous natural structures falling in those categories are known, with cube-shaped ferritin cages and icosahedral viral shells being well-known examples. Recent successes in designing those kinds of architectures are discussed subsequently. The prospective utilities for designed cages and shells are myriad, ranging from encapsulation and delivery of molecular cargo to high copy display of specific binding motifs or epitopes (9, 13, 20, 40, 57–59, 74, 91, 96, 99).\nIn some modes of self-association, one subunit is related to another by an operation that includes a translational shift. This produces head-to-tail filaments that extend indefinitely in one dimension. Depending on the geometric details, the resulting filament can be nearly linear or distinctly helical in nature. Actin filaments are the best-known natural example. In addition to the head-to-tail possibility, filaments can arise from a combination of head-to-head and tail-to-tail interactions. In contrast to the first type, filaments of this second type are not polar and instead have ends that are structurally indistinguishable from each other. The design requirements for creating self-assembling filaments are relatively permissive. Accordingly, protein filaments of diverse types have been successfully designed in numerous studies (37, 67, 70, 72). Recent design studies with protein filaments have been directed at introducing higher-level features of branching and bending to create more complex shapes (5, 27, 33, 79).\nSymmetric arrangements of protein subunits can extend indefinitely in two dimensions to form a layer or sheet of molecules obeying 1 of 17 possible layer-group symmetries. Among natural structures, bacterial S-layers are the clearest examples of well-ordered molecular sheets (90), though layers of bacterial microcompartment proteins are also relevant (23). Recent work in designing well-ordered protein layers is discussed subsequently. The prospective utilities for well-ordered protein layers include coatings, high-density–motif display, and formation of barriers capable of selective molecular transport (82). Protein assembly can also give rise to three-dimensional arrays or crystals belonging to 1 of the 65 possible space group symmetries for chiral molecules. Thousands of examples are known from protein crystallography, but these are essentially accidental, representing neither natural biological structures nor specifically designed outcomes. There are a few rare examples of biologically functional protein crystals (22), including virus polyhedra (11); these viral proteins evolved to crystallize as a mechanism for encapsulating and protecting embedded viruses inside certain insect cells. Early efforts in designing protein crystals are described subsequently. Their prospective applications include porous materials with a high density of catalytic sites or binding motifs.\nFinally, tubular protein assemblies represent a distinct architectural category with similarities to those that extend in one and two dimensions (i.e., filaments and layers). They are essentially like a two-dimensional sheet of molecules rolled into an extended cylinder. Microtubules and filamentous viruses are well-known biological examples (62, 66). These kinds of structures represent attractive design targets, but work along this line has been somewhat limited so far. To understand the design possibilities, it is useful to consider what kinds of layers can be rolled into a tubular structure. Among the 17 layer-group symmetries that are possible for a two-dimensional array of chiral molecules, only 2 (p1 and p2) are compatible with (i.e., have symmetries that are retained upon) rolling into a tube. These 2 possibilities represent (a) the simpler polar scenario, where the subunits all share the same head versus tail orientation relative to the axis of the tube and (b) a\n26 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nless-obvious scenario, where subunits exist in both orientations relative to the tubular axis, creating an assembly whose two ends are indistinguishable (Figure 1). Microtubules and well-characterized filamentous viruses are of the simpler polar type, but design efforts could target both types."
+    }, {
+      "heading" : "Strategies for Making Proteins Self-Assemble",
+      "text" : "To drive their assembly into specific forms, protein molecules must be endowed with geometrically specific modes of self-association. Furthermore, a single mode of association (i.e., a single type of interface) between molecules is sufficient to produce only simple architectures like a ring of subunits or a filament but not more sophisticated architectures (101). Those require introducing multiple modes of association into a building block. That idea was articulated in 2001 by Padilla et al. (70), along with geometric rules for constructing various kinds of assemblies. A first demonstration of a designed protein cage was also provided, though subsequent refinement of the amino acid sequence was required to achieve a level of homogeneity sufficient for atomic level characterization (49, 50, 54).\nOwing to the need for multiple self-associating interfaces and the generally challenging nature of protein design, many of the recent successful engineering efforts have relied on simple oligomeric proteins like dimers and higher-order cyclic oligomers as starting points for design. Such natural proteins already possess one mode of self-association, so fewer steps are required to meet the engineering requirement for multiple modes of association. The first work on designing protein cages preceded the feasibility of introducing truly de novo interfaces into the surfaces of proteins using computer algorithms. Instead, a genetic fusion approach was developed for combining two simple oligomers into a single protein chain, thereby introducing two modes of self-association into a single molecular building block (Figure 2) (70).\nTo control the relative geometry between two fused oligomeric domains, Padilla et al. (70) introduced the idea of fusing together two domains that had alpha-helical termini (with the possibility of a short helical intervening segment). A continuous alpha-helical connection between the two oligomeric domains made it possible to computationally model their relative orientation in advance. In this approach, only those combinations of protein oligomers where terminal fusion happens to orient the two-component symmetry axes according to specific geometric requirements are of interest. Sinclair et al. (89) introduced a variation on the oligomer fusion approach. The requirement for a continuous helical linker between domains was considered dispensable for certain combinations of oligomeric symmetries, namely those where the component symmetries can be arranged so that they share a coincident axis of rotational symmetry. That specific condition is met in the design of certain extended two- and three-dimensional arrays but not by any finite cage-like structures.\nImportant steps forward in design strategy were taken by King et al. (47) working with larger proteins, and Lanci et al. (55) working with helical coiled-coil motifs. These investigators exploited the availability of new programs for computationally redesigning the amino acid sequence at the surface of a protein in order to create a new self-associating interface. In one design approach, a simple oligomer serves as the starting point for design, and computational design is used to introduce an interface between multiple copies of that one oligomer type (Figure 2). In an important strategic variation, known as two-component design (45), two different natural oligomers are taken as the starting point and the surfaces of both proteins are subjected to computational sequence design to introduce a heterotypic interface between them (Figure 2). In both of these interface design strategies, as with the original oligomeric fusion method, the oligomeric components must be brought together in very specific geometric arrangements, as will be discussed subsequently.\nwww.annualreviews.org • Designing Symmetric Protein Materials 27\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nOligomeric components\nDesign strategies for combining multiple symmetries\nOligomer fusion Interface design (one component)\nInterface design (two components)\nFigure 2\nDiverse strategies for combining two separate symmetry types in a defined orientation, as required for the creation of highly symmetric protein nanomaterials. A dimer and trimer are examples of simple component symmetry types. Genetic fusion by a continuous linking alpha helix allows controlled geometry in the oligomer fusion method. Computational amino acid sequence design allows for the creation of a geometrically specific binding mode between multiple copies of a single type of simpler symmetric component or between two different symmetry components. Threefold and twofold symmetry axes are indicated in red and yellow symbols.\nIn addition to oligomer fusion and computational interface design, other approaches have been developed to bring simpler oligomeric components together into larger architectures. In a suite of studies, Tezcan and colleagues (7, 80, 92, 93) have exploited metal binding (e.g., introducing metal-binding half sites into protein surfaces) to drive the self-association of proteins into diverse kinds of materials ranging from cages to layers and three-dimensional crystals. In addition to metals, other kinds of bivalent ligands have been used to connect protein oligomers (21, 76, 92), including short DNA linkers (8) and engineered disulfide bonds (93). In most studies so far, metalbinding sites and other kinds of bridging ligands between oligomers have admitted some degree of flexibility. Although this limits the ability to predict precise assembly outcomes, the designs have produced a rich variety of materials, including some with surprising dynamic properties (93)."
+    }, {
+      "heading" : "Recent Design Successes: Protein Cages, Layers, and Crystals",
+      "text" : "The design strategies described above have been used to create several novel protein materials and nanoscale assemblies. These range from finite assemblies shaped like supramolecular cages to extended protein arrays. Recent successes are described below, with a focus on cases where the intended designs could be validated through structural studies.\nCages and shells. The original cage construction of Padilla et al. (70) was a fusion between a trimeric protein and dimeric protein with a geometry intended to create a 12-subunit tetrahedrally\n28 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nsymmetric cage. Minor sequence optimizations to the alpha-helical linker were required to produce a homogeneous cage whose crystal structure could be determined to validate the design (Figure 3a) (49). The architecture was confirmed, though flexing of the linker permitted compression and distortion from perfect symmetry ranging from approximately 3% to 23% for this 600-kDa-, 140-Ådiameter assembly (49, 50, 54). A cube-shaped 24-subunit cage with octahedral symmetry was later designed on the same principle—fusing a trimeric domain to a dimeric domain—but with different protein subunits and different angular specifications between the symmetry axes. That protein exhibited some polymorphism in assembly as well, likewise attributable to the flexibility of the alpha-helical linker, but a crystal structure of the 24-subunit assembly confirmed close agreement with the designed model for this 750-kDa, 225-Å-diameter cube-shaped structure (Figure 3a) (53).\nShell- or cage-like structures have also been designed on the basis of fusion approaches where the relative orientation of the fused components was not dictated by specific geometric restraints. Sciore et al. (83) fused a 31-kDa trimeric protein to a parallel (i.e., cyclic) tetrameric coiledcoil motif using short, flexible linkers. Instead of attempting to control the specific geometry of the two components, the authors reasoned that the combination of a threefold and fourfold axis of symmetry permits only limited assembly modes—among finite symmetries, only octahedral symmetry (24 subunits) is allowed. In this case, cube-shaped assemblies could be visualized by electron microscopy with one of the linker choices, though the coiled-coil components of the design were not sufficiently ordered to be seen clearly. Cage- or shell-like assemblies have been demonstrated using coiled coils in other work by creating trimeric coiled-coil motifs held together by lateral bonds and interactions to give hexagonal networks of peptides that close up to form roughly spherical shells 100 nm in diameter (24). Pentameric and trimeric coiled coils have also been fused to produce building blocks that assembled into particles of diverse sizes (19).\nKing et al. and Bale et al. used the interface design approach to produce numerous cages whose structures could be validated in detail (Figure 3a) (2, 3, 45, 47). These include cages with tetrahedral, octahedral, and icosahedral symmetry, based on both one-component and twocomponent oligomer strategies. The smallest such cages are tetrahedrally symmetric with either 12 identical subunits (one-component strategy) or 12 copies of two subunit types (two-component strategy). The largest are icosahedrally symmetric, with either 60 identical subunits or 60 copies of two subunit types (2). With an upper size range of 2.8-MDa and 40-nm diameter, these represent the largest geometrically specific protein assemblies created in the laboratory. The icosahedrally symmetric cage design work is notable in that successful designs were demonstrated using all three allowable combinations of simpler oligomeric symmetries: pentamer plus trimer, pentamer plus dimer, and dimer plus trimer. In total, nine different cages produced by interface design have been crystallized and validated by X-ray diffraction, and at least eight others have been confirmed by electron microscopy. A remarkable finding from the crystal structure analyses of these cages is that agreement between the observed and designed structures is generally within 1 or 2 Å over the protein backbones. Outstanding challenges for the interface design approaches are the level of expertise required for the sequence design protocols and the relatively high rate of failure owing to misfolding, insolubility, or misassembly. For the most challenging design targets so far—those based on icosahedral symmetry—ten successful cages were obtained from a total of 183 candidate designs that were experimentally tested (2).\nAn alternative idea for constructing specific polyhedral structures was demonstrated by Gradišar et al. (34). Amino acid sequences were developed for directing specific hetero coiled-coil associations. Then, a single long protein composed of 12 coiled-coil sequences was constructed to traverse the six edges of a tetrahedron twice. The formation of tetrahedra was confirmed by negative-stain electron microscopy, but the structures have not yet been characterized in detail.\nwww.annualreviews.org • Designing Symmetric Protein Materials 29\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nTwo-dimensional layers. Early ideas for forming layers through the ligand-driven association of oligomers date to Ringler & Schulz (76). Sinclair et al. (89) demonstrated the first designed layers with long-range order based on oligomer fusions. Flexible linkers (rather than continuous alpha helices) were used to join the separate oligomeric domains; geometric freedom was restricted by choosing only design combinations where the two oligomeric components share a coincident\n200 Å\na Cages/shells\nb 2-D layers\nT: 3 + 2 (fusion)\nO: 3 + 2 (fusion)\nT: 3 + 3 (interface design) O: 3 (+ 2) (interface design)\nI: 5 + 2 (interface design)\n20 nm 25 nm50 nm 50 nm\n30 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nsymmetry axis, a feature intended to mitigate flexibility. Several designs were attempted, and cases of p422 layer symmetry with long-range order were demonstrated (Figure 3b).\nInterface design methods have been used in several cases to create well-ordered layers with prescribed symmetries. Lanci et al. (55) designed side-by-side associations into trimeric coiledcoil sequences to produce layers with p6 symmetry, which then stacked upon each other to form a three-dimensional crystal. In more recent work, a D2 tetrameric coiled-coil motif was used as the starting point for designing additional lateral interactions, and layers of diverse types were obtained (103). Gonen et al. (28) tested a series of approximately 62 designs in which interface design was used to introduce lateral associations between cyclic protein oligomers to make layers. The structures of three of these with diverse symmetries—p321, p4212, and p6—were validated by electron microscopy. Another symmetric layer was designed by genetically fusing two copies of a cyclic hexameric protein domain in a way that forced the formation of side-by-side hexamers (63).\nLess geometrically specific attachments between oligomeric units have been used in several cases to produce interesting layered materials. Some of these are based on metal chelation by adjacent oligomers or on lateral disulfide bond formation (7, 93). Tubes in the form of rolled up layers have been obtained in some cases (7). And in a recent study, the side-by-side attachment of cyclic tetrameric units gave rise to p4 layers capable of isotropic stretching and compression (93).\nThree-dimensional arrays (crystals). A few cases of designed protein crystals have been demonstrated. The coiled-coil sequences created by Lanci et al. (55) formed crystals whose dimensions were anticipated. Three-dimensional crystals were obtained by Dotan et al. (21) based on bivalent ligand-driven association of D2-symmetric lectin oligomers and by Sinclair et al. (89) based on oligomeric fusions of symmetry O (octahedral) and symmetry D2 with coincident axes of rotation symmetry, but these could not be characterized by X-ray diffraction. Cubic crystals were obtained by decorating protein oligomers with DNA molecules and then driving their association by the addition of complementary nucleotide sequences (8). Well-ordered cubic crystals of ferritin cages were created using bivalent ligands to bridge metal-binding sites engineered into the ferritin subunit (92)."
+    }, {
+      "heading" : "SYMMETRY AND GEOMETRIC PRINCIPLES FOR DESIGN",
+      "text" : ""
+    }, {
+      "heading" : "Symmetry Group Underpinnings",
+      "text" : "A great many natural structures, molecular and otherwise, obey the rules of symmetry (30, 60). Structures built from subunits in symmetric arrangements tend to require the fewest numbers of\n←−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−\nFigure 3\nRecent examples of designed protein nanomaterials with prescribed geometries. (a) Structures are shown for a subset of finite architectures (cages or shells) that have been validated by X-ray crystallography. The annotations indicate the symmetry of the final assembly [tetrahedral (T), octahedral (O), or icosahedral (I)] and the symmetries of the simpler components from which each is constructed. Parenthetic numbering indicates the symmetry of the de novo contact type introduced in a single-component design. The interface design structures shown here represent single examples of several that were demonstrated in each of those studies. References for each study (clockwise from top left) are References 49 and 70; 53; 2; 47; 45. (b) Electron micrographs and symmetry diagrams are shown for representative two-dimensional protein layers that were designed and validated in four different studies. Blue and pink illustrate different subunit orientations (i.e., up versus down). Design strategies (left to right) were oligomer fusion (dihedral symmetries D4 + D2) giving p422 layer symmetry, one-component interface design (cyclic symmetry C3 + twofold interface) giving p321 layer symmetry, duplicate domain fusion (C6 + twofold interface) giving pseudo-p6 layer symmetry, metal interface design in a C4 tetramer to give p4 layer symmetry. References (left to right) are References 89, 28, 63, 93. Reproduced with permission from References 101, 89, 28, 63, 93.\nwww.annualreviews.org • Designing Symmetric Protein Materials 31\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\ndistinct contact types or modes of interaction between the subunits (14). This makes symmetric assemblies more likely to evolve in nature and easier to design in the laboratory.\nGeneral frameworks for designing symmetric protein assemblies have been laid out. A key perspective is that a final assembly with high symmetry can be created by combining multiple simpler symmetries in specific ways (70). Symmetric objects are characterized by their symmetry groups. A symmetry group is the set of spatial operations that relate the repetitive units in an assembly. In the language of groups, if one combines two component symmetries, the resulting group symmetry must be the group product of the two simpler symmetry groups (70, 101). A deeper understanding of the requirements for symmetry-based design comes from associating a particular interface or contact type between two subunits with an element of the symmetry group. A simple example would be four subunits in a cyclic arrangement—C4 symmetry group—where the group elements are {0◦, 90◦, 180◦, 270◦}. If a reference subunit has a contacting interface with its neighbor related by 90◦ rotation, then all four subunits will be connected ultimately; a complete connectedness among the subunits is required for the structure to be held together in a defined way. Saying that one interface type is sufficient to hold the subunits of the C4 oligomer together is equivalent to saying that repeated application of one symmetry operation (the 90◦ rotation) can “generate” all the elements in the symmetry group. This idea applies generally. Each contacting interface type between components in an assembly brings in a symmetry operation. And so to create an assembly having some complex higher symmetry, it is necessary and sufficient to design or introduce contacting interfaces in such a way that the group elements they represent will generate the full symmetry group intended for the complete assembly. As articulated in past work, many complex symmetry groups can be generated by just two group elements or subunit interface types (70, 101). A few examples showing distinct routes to octahedral symmetry are shown in Figure 4. This helps frame the engineering problem by establishing what minimum sets of subunit interactions must be introduced into a building block in order to obtain some desired supramolecular architecture.\nMany of the recent successes in designing self-assembling proteins fall within the scope of the symmetry discussions above, though strategic differences distinguish various studies. The differences between design strategies can be understood in terms of different ways of bringing multiple symmetry elements (or, equivalently, different interface types) together in a prescribed geometry. The original oligomer fusion approach and its variations use covalent attachment to bring two oligomeric symmetry operations together. The two-component interface design approach relies on a noncovalent, designed heterotypic binding interface to bring two separate underlying\n4 4\n3 3 2\n4 23\n2\nFigure 4\nAlternate modes for constructing octahedral point symmetry (O) from combinations of two simpler symmetry components. Instances of the twofold, threefold, and fourfold symmetry axes present in octahedral symmetry are drawn on a cube on the left. The subsequent diagrams show the formation of connected systems of subunits with octahedral symmetry based on two symmetry components with axes intersecting at prescribed angles (54.7◦ for fourfold + threefold, 45◦ for fourfold + twofold, 35.3◦ for threefold + twofold).\n32 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nsymmetries together. In the one-component interface design approach as it has been implemented so far, a homotypic interaction is designed between two copies of a simple oligomer. The spatial relationship defined by that interface represents the second symmetry element that combines with the symmetry carried naturally by the component oligomer."
+    }, {
+      "heading" : "Allowable Symmetry Combinations",
+      "text" : "Geometric rules for constructing finite architectures (e.g., cubic cages) based on the platonic solids are relatively straightforward and were articulated in early design studies (52, 70). For the cubically symmetric cages, practically any two different rotational operators from the final symmetry group form a suitable basis for design. As a result, cages conforming to a given symmetry type can be constructed using different combinations of oligomer types. As noted previously, this has been demonstrated in practice through the successful creation of numerous designed cages.\nCompared to finite structures, the allowable symmetry combinations for making two- and three-dimensional arrays are much greater in number and less trivial to enumerate. A first tabulation of the allowable combinations was recently published (101). That list includes all architectures and symmetries that can be realized by combining two separate point group symmetries. This is most relevant because the point groups cover the symmetries typically exhibited by natural oligomeric proteins. This list of possible designs applies directly to the oligomer fusion methods and the two-component interface design methods. A total of 33 symmetry combinations have been identified for making two-dimensional layers. Six of these layer types are oriented (i.e., have distinct top and bottom surfaces) whereas the other 27 have indistinguishable top and bottom surfaces. All but one of the designs are isotropic in the plane, owing to threefold, fourfold, or sixfold axes of symmetry perpendicular to the layer. A total of approximately 70 distinct combinations have been identified for making three-dimensional arrays or crystals. Fifty-four of those belong to cubic space groups and so are isotropic in all three dimensions. It is notable that some pairs of component symmetries can give rise to several distinct outcomes depending on the relative orientation and position of the two combined components. As an example, C4 (cyclic tetrameric) and C2 (dimeric) symmetry can be combined to give five different resulting symmetries: two kinds of finite assemblies [dihedral D4 and octahedral O (Figure 4)], two different kinds of twodimensional layers [p4 (Figure 5) and p4212], and one kind of three-dimensional crystal [I432 (Figure 5)]. Other combinations admit as many as eight different design outcomes depending on how the same two components are oriented and positioned. Conversely, some pairs of symmetries admit only one possible result. For example, C4 symmetry can combine with D3 symmetry in only one way, to give a three-dimensional crystal with space group I432. Such cases might offer higher success rates for design. From an experimental perspective, the space of possible two- and three-dimensional designs is mostly unexplored, with only a few successes demonstrated so far, as discussed above.\nThe list of allowable symmetry combinations published so far does not cover all the possibilities that could be created using the one-component design approach (47, 55). That approach allows for an interface (or multiple interfaces) to be designed between two copies of an oligomer related by any spatial operation, including screw rotations that have translational components. This opens up numerous additional possibilities. A complete set of design options for this most broad case of single-component constructions has not been articulated.\nTubular structures represent a potentially useful class of designs, but as noted above, only a few experimental studies have pursued this direction to date (26, 35, 94). Strategies for designing tubular structures could differ from ideas laid out above for constructing cages, layers, and crystals by combining two point symmetries. There are a few alternatives. To construct a polar\nwww.annualreviews.org • Designing Symmetric Protein Materials 33\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nC4 + C2 → p4 C4 + C2 → I432\na = b = 2d a = b = c = 4d\nConditions: fourfold || twofold, noncoincident\nRigid-body DOFs (4): Component 1: Rz, tz Component 2: Rz, tx\nRigid-body DOFs (5): Component 1: Rz, tz Component 2: Rz, tz, 45˚ rotation about x, tx\nConditions: twofold and fourfold at 45˚, nonintersecting\nd d\n45°\nFigure 5\nIllustration of alternate assembly outcomes from the same component symmetries arranged according to different rules. In each case, the construction rules can be described by either a set of conditions that must be obeyed by the component symmetry axes or by parameterizing the rigid-body degrees of freedom (DOFs) for orienting and positioning one component relative to the other. For the latter approach, the bold symbols describe free variables (i.e., rotations or translations by variable amounts about prescribed axes given as subscripts). In the resulting assemblies, the unit cell spacings (a and b in two dimensions or a, b, and c in three dimensions) are related to the construction parameter d.\ntube—which corresponds to a rolled-up two-dimensional layer with symmetry p1—two distinct contact types between subunits is sufficient: one in the lateral direction and one in the longitudinal direction. However, the contact types for a tube (or layer) of this polar form are not of the twofold homotypic type that has proven easiest to design in previous protein engineering studies. To choose an advantageous starting point for design, one could begin with a natural cyclic ring of subunits (so the lateral interaction would already be built in) and then design an interface to promote top-to-bottom stacking of those rings. The bipolar type of tube (based on layer symmetry p2) is more complex in that three distinct interaction types are required to make a connected assembly in that case. However, these interactions can be of the twofold homotypic type. In the most advantageous design scheme, two of the three required interfaces could be provided at the outset\n34 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nby using a natural dihedrally symmetric (double-ring) oligomer as the starting point. Then only one additional interface type would have to be designed to introduce a new top-to-top interaction between adjacent double-ring structures."
+    }, {
+      "heading" : "Geometric Rules and Algorithmic Approaches for Construction",
+      "text" : "To execute the kinds of design strategies discussed above, two (or more) simpler component symmetries have to be brought together in specific ways. Computational frameworks for doing this must bring separate protein components together while conforming to two types of constraints. First, the two components must be brought together in ways that are physically plausible. If an interface is to be engineered, then the subunits must touch each other over a surface of substantial area without colliding, or if the two components are to be fused, then their termini must be suitably disposed. Second, the two components have to be brought together in orientations and positions that meet specific geometric rules for how their symmetry axes can be combined. For any given system, applying these constraints effectively reduces the six-dimensional space covering all possible relative orientations and positions for the two components to a much smaller allowable subspace or set of subspaces.\nWhat are the simplest ways to describe and explore the allowable rigid-body search space for each kind of symmetry-based design? Different types of design strategies may have different optimal solutions for how to exhaustively search the allowable construction space. For example, in the helix fusion strategy, the geometric requirement for joining the ends of the two proteins imposes the strictest constraints, so that requirement naturally takes priority. In that case, the small series of hypothetical constructs that would be created by fusing two proteins through a continuous helix between them can be generated and examined, each in turn, to see whether each particular arrangement brings the two component symmetries together in nearly the required way—in other words, with symmetry axes intersecting at a specific angle (70). In contrast, the interface design strategies are not subject to exacting requirements related to how the termini of the proteins are disposed. Instead, geometric requirements for how the symmetry elements from the two components need to be related to each other take priority. In that case, the rigid-body space for arranging the two components can be parameterized in ways that allow the relevant geometries to be explored. A procedure based on symmetry definition files was developed in the Rosetta design program to allow parameterization of the rigid-body space for assembly and design applications (18, 47). For the point group symmetries (i.e., for cage design), schemes for parameterizing the minimal rigid-body search space have been described (2, 47). For extended constructions (i.e., two- and three-dimensional arrays), the problem of parameterizing the minimal rigid-body design space is more complex, but a general approach can be developed. Systems for enforcing specific symmetry combination rules are diagrammed in Figure 5 for two example designs."
+    }, {
+      "heading" : "Symmetry Combinations Leading to Topological Complexity",
+      "text" : "There are some instances where a purely mathematical analysis of how symmetry groups might be combined leads to design suggestions that are physically implausible owing to steric collisions. As one example, mathematically combining a twofold symmetry axis with a coincident threefold axis gives a sixfold symmetry axis. But if a dimeric protein was fused or otherwise connected to a trimeric protein with their axes coincident, major collisions would ensue, as neither component would be able to satisfy the emergent sixfold symmetry. As a heuristic rule, at least for ordinaryshaped (compact) objects, a component oligomer with rotational symmetry of order n cannot sit\nwww.annualreviews.org • Designing Symmetric Protein Materials 35\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\n6 6\nSymmetrybreaking\nT D2 ⊗ (C3broken) C3 ⊗ (D2broken)\n? ?\na\nb\np6\nFigure 6\nComplex scenarios for designed assemblies based on symmetry combinations. (a) Certain symmetry combinations lead typically to collisions unless unusually shaped components are allowed, in which case the resulting architectures have complex topologies such as woven, interlinked, or knotted systems of subunit connections. In the case illustrated, around a central point where 3 hexamers of each type approach each other, 12 subunits (two from each hexamer) are connected in a closed path that forms a trefoil knot. (b) Higher symmetries can be broken down to lower symmetries by designing interfaces that favor specific hetero-associations over homo-associations. Only certain possibilities are allowed. The figure shows how point symmetry T (tetrahedral) can be lowered to subgroup symmetry D2 on the basis of three slightly different types of homodimers. But symmetry T cannot be lowered in a way that relies on homotrimeric units; if the blue and yellow homotrimer types interact with each other specifically, then a conflict of identity arises for the remaining homotrimers (white) that would have to touch both the yellow and blue trimers.\non an axis of symmetry higher than order n. This rule is helpful in analyzing various complex cases that give rise mathematically to three-dimensional crystals. The standard tables of crystallographic space groups are informative, as they list the points and axes (so-called Wyckoff positions), where local symmetry is obeyed within each space group (36). To avoid collisions, component oligomers cannot sit on an axis whose rotational symmetry exceeds the symmetry of the oligomer. There are also more subtle cases where mathematically allowable combinations tend to give steric collision. An illustrative case is where two parallel but nonintersecting sixfold axes of symmetry are combined (Figure 6a). Mathematically, this gives layer symmetry p6. As a construction, this might be achieved by fusing or interfacing two different types of cyclic hexamers side by side. Attempting to build this out, one sees that a hexagonal pattern is required where a hexamer of one type is bordered by six hexamers of the other type, and vice versa. But this cannot be done without placing hexamers of the two types directly on top of each other. Owing to the multiple contacts required between hexamer types, the situation is not easily resolved by elevating one hexamer type over the other.\nInterestingly, though collisions seem eminent, cases like those above can sometimes be resolved by resorting hypothetically to unusually shaped, noncompact subunits. Where this is possible, it\n36 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\ngenerally leads to topologically interesting scenarios where systems of interacting subunits are woven or interlocked. Figure 6a shows an example where two unusually shaped hexamers allow C6 and C6 to be combined side by side to give layer symmetry p6. Unusually shaped proteins could be exploited in various symmetry combinations to produce topologically complex materials. To date, this has not been explored systematically either in theory or practice, though a few design successes in the broad area of designing topologically complex materials from proteins and DNA have been reported using different strategies (12, 46, 68, 81, 97)."
+    }, {
+      "heading" : "FUTURE DIRECTIONS",
+      "text" : ""
+    }, {
+      "heading" : "Practical Developments",
+      "text" : "Much room remains for improving the robustness and success rate for designing self-assembling proteins. Regarding oligomer fusion approaches, strategies for rigidifying the connection between joined components could be helpful (50, 51). Individual alpha-helical linkers could be chemically stabilized (41), or sturdier linking elements such as coiled coils could be engineered. Genetically fused components could also be stabilized in their intended orientations by limited interface design. The two-dimensional layer designed by Matthaei et al. (63) emphasizes the utility of combining domain fusion with interface design. Conversely, the need for rigid linkers might be diminished by focusing on symmetric designs that allow fewer alternate assembly outcomes (83). For approaches relying primarily on de novo interface design, maintaining the solubility of redesigned proteins remains a key challenge. Improvements in energy scoring functions might allow designs with excessively hydrophobic surface regions to be filtered out. Additionally, design tricks such as increasing the net charge on redesigned proteins might help mitigate solubility problems in some cases (3).\nRegarding the ultimate utility of protein-based nanomaterials, numerous application areas are ripe for experimental exploration. Being able to control assembly and disassembly—for example, by pH, redox state, or the addition/removal of metals or other ligands—will make designed protein materials particularly useful, especially for cargo delivery or for sensing and signal transduction. Enhanced capabilities could come from hybrid materials created by combining proteins with other kinds of molecules. Early studies have already begun to explore combinations with nucleic acids, metal nanoparticles, and carbon nanotubes and fullerenes (8, 35, 44, 65, 69, 100)."
+    }, {
+      "heading" : "Open Questions in Theory and Design",
+      "text" : "Some of the open questions regarding symmetry-based designs have already been alluded to. Among the many different ways that two (or more) component symmetries can be combined to generate an architecture with higher final symmetry, some may be much easier than others to realize in practice. In particular, symmetry combinations that offer fewer alternative outcomes may represent privileged design targets. The recently articulated list of possible symmetry combinations makes it possible to discern those choices (101). Additionally, some symmetry combinations may be intrinsically more rigid than others. Different designs exhibit different kinds of network topologies, as represented by the system of noncovalent interactions (edges) holding the subunits (nodes) together. Recalling that structures built from triangles are generally more rigid than those built from quadrilateral faces, one might anticipate higher rigidity for designs whose interaction networks have faces (i.e., closed paths) that traverse relatively few nodes. Formal treatments of rigidity in networks date to studies by Maxwell (64). Those principles might be effectively adapted to analyze protein assemblies built from various symmetry combinations.\nwww.annualreviews.org • Designing Symmetric Protein Materials 37\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\nAnother open design question concerns how one might break the symmetry that underlies the designs discussed here. Symmetry simplifies the building process because the component parts are all equivalent, but important opportunities are provided by materials that are different at different locations. Such materials are “addressable,” making it possible to attach different molecules or to read out unique responses from different locations. DNA assemblies exemplify the utility of being able to address different locations. For symmetric protein assemblies, one can diagram systems where the overall symmetry is lowered by mutating a homotypic interface (i.e., between like subunits) to make it heterotypic. In that way, various alternating subunit patterns become possible. Protein design experiments have previously demonstrated the feasibility of converting homodimeric interfaces to heterodimeric (1), and higher rotational symmetries might be broken down as well. Illustrative diagrams for designed symmetry breaking are shown in Figure 6b, highlighting that the allowable design space for symmetry breaking is nontrivial. A systematic analysis will be necessary to articulate all the ways that various designs might have their symmetries reduced. Mathematically, the problem of symmetry breaking relates closely to the analysis of socalled color symmetry within the scope of group theory, so mathematical tools from that area could be applied (86). Finally, aperiodic tilings offer a hypothetical but intriguing route to more complex, nonrepeating patterns by engineering slight modifications into otherwise symmetric building blocks. One of the simplest such systems, known as Robinson tiling, has been discussed in some depth in the context of DNA-based assemblies and molecular computing (71); those ideas might be applicable to the symmetry-based protein designs discussed here."
+    }, {
+      "heading" : "DISCLOSURE STATEMENT",
+      "text" : "The author is an inventor on a patent covering designed protein assemblies."
+    }, {
+      "heading" : "ACKNOWLEDGMENTS",
+      "text" : "The ideas developed here are based on discussions with numerous past and present members of the Yeates laboratory, as well as with Neil King, Jacob Bale, and David Baker. This work was supported by NSF grant CHE-1332907 and by grant DE-FC03-02ER63421 from the BER program in the Department of Energy."
+    }, {
+      "heading" : "LITERATURE CITED",
+      "text" : "1. Atwell S, Ridgway JB, Wells JA, Carter P. 1997. Stable heterodimers from remodeling the domain interface of a homodimer using a phage display library. J. Mol. Biol. 270:26–35 2. Bale JB, Gonen S, Liu Y, Sheffler W, Ellis D, et al. 2016. Accurate design of megadalton-scale twocomponent icosahedral protein complexes. Science 353:389–94 3. Bale JB, Park RU, Liu Y, Gonen S, Gonen T, et al. 2015. Structure of a designed tetrahedral protein assembly variant engineered to have improved soluble expression. Protein Sci. 24:1695–701 4. Berger O, Gazit E. 2016. Molecular self-assembly using peptide nucleic acids. Pept. Sci. In press. doi: 10.1002/bip.22930 5. Boyle AL, Bromley EHC, Bartlett GJ, Sessions RB, Sharp TH, et al. 2012. Squaring the circle in peptide assembly: from fibers to discrete nanostructures by de novo design. J. Am. Chem. Soc. 134:15457–67 6. Boyle AL, Woolfson DN. 2011. De novo designed peptides for biological applications. Chem. Soc. Rev. 40:4295–306 7. Brodin JD, Ambroggio XI, Tang C, Parent KN, Baker TS, Tezcan FA. 2012. Metal-directed, chemically tunable assembly of one-, two- and three-dimensional crystalline protein arrays. Nat. Chem. 4:375–82 8. Brodin JD, Auyeung E, Mirkin CA. 2015. DNA-mediated engineering of multicomponent enzyme crystals. PNAS 112:4564–69\n38 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\n9. Champion CI, Kickhoefer VA, Liu G, Moniz RJ, Freed AS, et al. 2009. A vault nanoparticle vaccine induces protective mucosal immunity. PLOS ONE 4:e5409 10. Cheetham AK, Rao CNR, Feller RK. 2006. Structural diversity and chemical trends in hybrid inorganic– organic framework materials. Chem. Commun. 2006:4780–95 11. Chiu E, Coulibaly F, Metcalf P. 2012. Insect virus polyhedra, infectious protein crystals that contain virus particles. Curr. Opin. Struct. Biol. 22:234–40 12. Ciengshin T, Sha R, Seeman NC. 2011. Automatic molecular weaving prototyped by using singlestranded DNA. Angew Chem. Int. Ed. 50:4419–22 13. Correia BE, Bates JT, Loomis RJ, Baneyx G, Carrico C, et al. 2014. Proof of principle for epitope-focused vaccine design. Nature 507:201–6 14. Crick FH, Watson JD. 1956. Structure of small viruses. Nature 177:473–75 15. Dahiyat BI, Mayo SL. 1997. De novo protein design: fully automated sequence selection. Science 278:82–\n87 16. Dantas G, Kuhlman B, Callender D, Wong M, Baker D. 2003. A large scale test of computational protein\ndesign: folding and stability of nine completely redesigned globular proteins. J. Mol. Biol. 332:449–60 17. Dietz H, Douglas SM, Shih WM. 2009. Folding DNA into twisted and curved nanoscale shapes. Science\n325:725–30 18. DiMaio F, Leaver-Fay A, Bradley P, Baker D, André I. 2011. Modeling symmetric macromolecular\nstructures in Rosetta3. PLOS ONE 6:e20450 19. Doll TAPF, Dey R, Burkhard P. 2015. Design and optimization of peptide nanoparticles. J. Nanobiotech-\nnol. 13:73 20. Doll TAPF, Raman S, Dey R, Burkhard P. 2013. Nanoscale assemblies and their biomedical applications.\nJ. R. Soc. Interface 10:20120740 21. Dotan N, Arad D, Frolow F, Freeman A. 1999. Self-assembly of a tetrahedral lectin into predesigned\ndiamondlike protein crystals. Angew. Chem. Int. Ed. 38:2363–66 22. Doye JP, Poon WCK. 2006. Protein crystallization in vivo. Curr. Opin. Colloid Interface Sci. 11:40–46 23. Dryden KA, Crowley CS, Tanaka S, Yeates TO, Yeager M. 2009. Two-dimensional crystals of car-\nboxysome shell proteins recapitulate the hexagonal packing of three-dimensional crystals. Protein Sci. 18:2629–35 24. Fletcher JM, Harniman RL, Barnes FRH, Boyle AL, Collins A, et al. 2013. Self-assembling cages from coiled-coil peptide modules. Science 340:595–99 25. Furukawa H, Cordova KE, O’Keeffe M, Yaghi OM. 2013. The chemistry and applications of metalorganic frameworks. Science 341:1230444 26. Ghadiri MR, Granja JR, Milligan RA, McRee DE, Khazanovich N. 1993. Self-assembling organic nanotubes based on a cyclic peptide architecture. Nature 366:324–27 27. Glover DJ, Giger L, Kim SS, Naik RR, Clark DS. 2016. Geometrical assembly of ultrastable protein templates for nanomaterials. Nat. Commun. 7:11771 28. Gonen S, DiMaio F, Gonen T, Baker D. 2015. Design of ordered two-dimensional arrays mediated by noncovalent protein-protein interfaces. Science 348:1365–68 29. Goodman CM, Choi S, Shandler S, DeGrado WF. 2007. Foldamers as versatile frameworks for the design and evolution of function. Nat. Chem. Biol. 3:252–62 30. Goodsell DS, Olson AJ. 2000. Structural symmetry and protein function. Annu. Rev. Biophys. Biomol. Struct. 29:105–53 31. Gopalan RD, Del Borgo MP, Mechler AI, Perlmutter P, Aguilar MI. 2015. Geometrically precise building blocks: the self-assembly of beta-peptides. Chem. Biol. 22:1417–23 32. Grabow WW, Jaeger L. 2014. RNA self-assembly and RNA nanotechnology. Acc. Chem. Res. 47:1871–80 33. Gradisar H, Bozic S, Doles T, Vengust D, Hafner-Bratkovic I, et al. 2013. Design of a single-chain\npolypeptide tetrahedron assembled from coiled-coil segments. Nat. Chem. Biol. 9:362–66 34. Gradišar H, Božič S, Doles T, Vengust D, Hafner-Bratkovič I, et al. 2013. Design of a single-chain\npolypeptide tetrahedron assembled from coiled-coil segments. Nat. Chem. Biol. 9:362–66 35. Grigoryan G, Kim YH, Acharya R, Axelrod K, Jain RM, et al. 2011. Computational design of virus-like\nprotein assemblies on carbon nanotube surfaces. Science 332:1071–76\nwww.annualreviews.org • Designing Symmetric Protein Materials 39\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\n36. Hahn T, ed. 2005. International Tables for Crystallography, Volume A: Space Group Symmetry. Dordrecht, Neth.: Springer 37. Hecht MH. 1994. De novo design of beta-sheet proteins. PNAS 91:8729–30 38. Horne WS, Gellman SH. 2008. Foldamers with heterogeneous backbones. Acc. Chem. Res. 41:1399–408 39. Huang P-S, Oberdorfer G, Xu C, Pei XY, Nannenga BL, et al. 2014. High thermodynamic stability of\nparametrically designed helical bundles. Science 346:481–85 40. Jennings GT, Bachmann MF. 2008. The coming of age of virus-like particle vaccines. Biol. Chem.\n389:521–36 41. Jeong WH, Lee H, Song DH, Eom J-H, Kim SC, et al. 2016. Connecting two proteins using a fusion\nalpha helix stabilized by a chemical cross linker. Nat. Commun. 7:11031 42. Joh NH, Wang T, Bhate MP, Acharya R, Wu Y, et al. 2014. De novo design of a transmembrane\nZn2+-transporting four-helix bundle. Science 346:1520–24 43. Ke Y, Ong LL, Shih WM, Yin P. 2012. Three-dimensional structures self-assembled from DNA bricks.\nScience 338:1177–83 44. Kim K-H, Ko D-K, Kim Y-T, Kim NH, Paul J, et al. 2016. Protein-directed self-assembly of a fullerene\ncrystal. Nat. Commun. 7:11429 45. King NP, Bale JB, Sheffler W, McNamara DE, Gonen S, et al. 2014. Accurate design of co-assembling\nmulti-component protein nanomaterials. Nature 510:103–8 46. King NP, Jacobitz AW, Sawaya MR, Goldschmidt L, Yeates TO. 2010. Structure and folding of a\ndesigned knotted protein. PNAS 107:20732–37 47. King NP, Sheffler W, Sawaya MR, Vollmar BS, Sumida JP, et al. 2012. Computational design of self-\nassembling protein nanomaterials with atomic level accuracy. Science 336:1171–74 48. Kuhlman B, Dantas G, Ireton GC, Varani G, Stoddard BL, Baker D. 2003. Design of a novel globular\nprotein fold with atomic-level accuracy. Science 302:1364–68 49. Lai Y-T, Cascio D, Yeates TO. 2012. Structure of a 16-nm cage designed by using protein oligomers.\nScience 336:1129 50. Lai Y-T, Hura GL, Dyer KN, Tang HY, Tainer JA, Yeates TO. 2016. Designing and defining dynamic\nprotein cage nanoassemblies in solution. Sci. Adv. 2:e1501855 51. Lai Y-T, Jiang L, Chen W, Yeates TO. 2015. On the predictability of the orientation of protein domains\njoined by a spanning alpha-helical linker. Protein Eng. Des. Sel. 28:491–99 52. Lai Y-T, King NP, Yeates TO. 2012. Principles for designing ordered protein assemblies. Trends Cell\nBiol. 22:653–61 53. Lai Y-T, Reading E, Hura GL, Tsai K-L, Laganowsky A, et al. 2014. Structure of a designed protein\ncage that self-assembles into a highly porous cube. Nat. Chem. 6:1065–71 54. Lai Y-T, Tsai K-L, Sawaya MR, Asturias FJ, Yeates TO. 2013. Structure and flexibility of nanoscale\nprotein cages designed by symmetric self-assembly. J. Am. Chem. Soc. 135:7738–43 55. Lanci CJ, MacDermaid CM, Kang S-g, Acharya R, North B, et al. 2012. Computational design of a\nprotein crystal. PNAS 109:7304–9 56. Li H, Zhang K, Pi F, Guo S, Shlyakhtenko L, et al. 2016. Controllable self-assembly of RNA tetrahedrons\nwith precise shape and size for cancer targeting. Adv. Mater. 28:7501–7 57. López-Sagaseta J, Malito E, Rappuoli R, Bottomley MJ. 2015. Self-assembling protein nanoparticles in\nthe design of vaccines. Comput. Struct. Biotechnol. J. 14:58–68 58. Ludwig C, Wagner R. 2007. Virus-like particles-universal molecular toolboxes. Curr. Opin. Biotechnol.\n18:537–45 59. Maham A, Tang Z, Wu H, Wang J, Lin Y. 2009. Protein-based nanomedicine platforms for drug\ndelivery. Small 5:1706–21 60. Marsh JA, Teichmann SA. 2015. Structure, dynamics, assembly, and evolution of protein complexes.\nAnnu. Rev. Biochem. 84:551–75 61. Martinek TA, Fulop F. 2012. Peptidic foldamers: ramping up diversity. Chem. Soc. Rev. 41:687–702 62. Marvin DA, Symmons MF, Straus SK. 2014. Structure and assembly of filamentous bacteriophages.\nProg. Biophys. Mol. Biol. 114:80–122 63. Matthaei JF, DiMaio F, Richards JJ, Pozzo LD, Baker D, Baneyx F. 2015. Designing two-dimensional\nprotein arrays through fusion of multimers and interface mutations. Nano Lett. 15:5235–39\n40 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\n64. Maxwell JC. 1864. On the calculation of the equilibrium and stiffness of frames. Phil. Mag. 27:294–99 65. Mou Y, Yu J-Y, Wannier TM, Guo C-L, Mayo SL. 2015. Computational design of co-assembling\nprotein-DNA nanowires. Nature 525:230–33 66. Nogales E, Zhang R. 2016. Visualizing microtubule structural transitions and interactions with associated\nproteins. Curr. Opin. Struct. Biol. 37:90–96 67. Ogihara NL, Ghirlanda G, Bryson JW, Gingery M, DeGrado WF, Eisenberg D. 2001. Design of\nthree-dimensional domain-swapped dimers and fibrous oligomers. PNAS 98:1404–9 68. Ohayon YP, Sha R, Flint O, Chandrasekaran AR, Abdallah HO, et al. 2015. Topological linkage of DNA\ntiles bonded by paranemic cohesion. ACS Nano 9:10296–303 69. Ohno H, Osada E, Saito H. 2015. Design, assembly, and evaluation of RNA-protein nanostructures.\nMethods Mol. Biol. 1297:197–211 70. Padilla JE, Colovos C, Yeates TO. 2001. Nanohedra: using symmetry to design self assembling protein\ncages, layers, crystals, and filaments. PNAS 98:2217–21 71. Padilla JE, Liu W, Seeman NC. 2012. Hierarchical self assembly of patterns from the Robinson tilings:\nDNA tile design in an enhanced tile assembly model. Nat. Comput. 11:323–38 72. Pandya MJ, Spooner GM, Sunde M, Thorpe JR, Rodger A, Woolfson DN. 2000. Sticky-end assembly\nof a designed peptide fiber provides insight into protein fibrillogenesis. Biochemistry 39:8728–34 73. Parlea L, Bindewald E, Sharan R, Bartlett N, Moriarty D, et al. 2016. Ring Catalog: A resource for\ndesigning self-assembling RNA nanostructures. Methods 103:128–37 74. Patterson DP, Schwarz B, El-Boubbou K, Oost Jvd, Prevelige PE, Douglas T. 2012. Virus-like particle\nnanoreactors: programmed encapsulation of the thermostable CelB glycosidase inside the P22 capsid. Soft Matter 8:10158–66 75. Pavone V, Zhang S-Q, Merlino A, Lombardi A, Wu Y, DeGrado WF. 2014. Crystal structure of an amphiphilic foldamer reveals a 48-mer assembly comprising a hollow truncated octahedron. Nat. Commun. 5:3581 76. Ringler P, Schulz GE. 2003. Self-assembly of proteins into designed networks. Science 302:106–9 77. Robertson EJ, Battigelli A, Proulx C, Mannige RV, Haxton TK, et al. 2016. Design, synthesis, assembly,\nand engineering of peptoid nanosheets. Acc. Chem. Res. 49:379–89 78. Rothemund PW. 2006. Folding DNA to create nanoscale shapes and patterns. Nature 440:297–302 79. Ryadnov MG, Woolfson DN. 2003. Introducing branches into a self-assembling peptide fiber. Angew\nChem. Int. Ed. 42:3021–23 80. Salgado EN, Ambroggio XI, Brodin JD, Lewis RA, Kuhlman B, Tezcan FA. 2010. Metal templated\ndesign of protein interfaces. PNAS 107:1827–32 81. Sayre TC, Lee TM, King NP, Yeates TO. 2011. Protein stabilization in a highly knotted protein polymer.\nProtein Eng. Des. Sel. 24:627–30 82. Schuster B, Sleytr UB. 2013. Nanotechnology with S-layer proteins. Methods Mol. Biol. 996:153–75 83. Sciore A, Su M, Koldewey P, Eschweiler JD, Diffley KA, et al. 2016. Flexible, symmetry-directed ap-\nproach to assembling protein cages. PNAS 113:8681–86 84. Seeman NC. 1982. Nucleic acid junctions and lattices. J. Theor. Biol. 99:237–47 85. Seeman NC. 2010. Nanomaterials based on DNA. Annu. Rev. Biochem. 79:65–87 86. Senechal M. 1988. Color symmetry. Comput. Math. Appl. 16:545–53 87. Severcan I, Geary C, Chworos A, Voss N, Jacovetty E, Jaeger L. 2010. A polyhedron made of tRNAs.\nNat. Chem. 2:772–79 88. Shih WM, Quispe JD, Joyce GF. 2004. A 1.7-kilobase single-stranded DNA that folds into a nanoscale\noctahedron. Nature 427:618–21 89. Sinclair JC, Davies KM, Vénien-Bryan C, Noble MEM. 2011. Generation of protein lattices by fusing\nproteins with matching rotational symmetry. Nat. Nanotechnol. 6:558–62 90. Sleytr UB, Schuster B, Egelseer E-M, Pum D. 2014. S-layers: principles and applications. FEMS Micro-\nbiol. Rev. 38:823–64 91. Sliepen K, Ozorowski G, Burger JA, van Montfort T, Stunnenberg M, et al. 2015. Presenting native-like\nHIV-1 envelope trimers on ferritin nanoparticles improves their immunogenicity. Retrovirology 12:82 92. Sontz PA, Bailey JB, Ahn S, Tezcan FA. 2015. A metal organic framework with spherical protein nodes:\nrational chemical design of 3D protein crystals. J. Am. Chem. Soc. 137:11598–601\nwww.annualreviews.org • Designing Symmetric Protein Materials 41\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y.\n93. Suzuki Y, Cardone G, Restrepo D, Zavattieri PD, Baker TS, Tezcan FA. 2016. Self-assembly of coherently dynamic, auxetic, two-dimensional protein crystals. Nature 533:369–73 94. Thomas F, Burgess NC, Thomson AR, Woolfson DN. 2016. Controlling the assembly of coiled-coil peptide nanotubes. Angew Chem. Int. Ed. 55:987–91 95. Thomson AR, Wood CW, Burton AJ, Bartlett GJ, Sessions RB, et al. 2014. Computational design of water-soluble alpha-helical barrels. Science 346:485–88 96. Uchida M, Klem MT, Allen M, Suci P, Flenniken M, et al. 2007. Biological containers: protein cagesas multifunctional nanoplatforms. Adv. Mater. 19:1025–42 97. Wang H, Du SM, Seeman NC. 1993. Tight single-stranded DNA knots. J. Biomol. Struct. Dyn. 10:853–63 98. Winfree E, Liu F, Wenzler LA, Seeman NC. 1998. Design and self-assembly of two-dimensional DNA\ncrystals. Nature 394:539–44 99. Wörsdörfer B, Woycechowsky KJ, Hilvert D. 2011. Directed evolution of a protein container. Science\n331:589–92 100. Yan H, Park SH, Finkelstein G, Reif JH, LaBean TH. 2003. DNA-templated self-assembly of protein\narrays and highly conductive nanowires. Science 301:1882–84 101. Yeates TO, Liu Y, Laniado J. 2016. The design of symmetric protein nanomaterials comes of age in\ntheory and practice. Curr. Opin. Struct. Biol. 39:134–43 102. Zhang F, Nangreave J, Liu Y, Yan H. 2014. Structural DNA nanotechnology: state of the art and future\nperspective. J. Am. Chem. Soc. 136:11198–211 103. Zhang HV, Polzer F, Haider MJ, Tian Y, Villegas JA, et al. 2016. Computationally designed peptides\nfor self-assembly of nanostructured lattices. Sci. Adv. 2:e1600307 104. Zheng J, Birktoft JJ, Chen Y, Wang T, Sha R, et al. 2009. From molecular to macroscopic via the rational\ndesign of a self-assembled 3D DNA crystal. Nature 461:74–77\n42 Yeates\nChanges may still occur before final publication online and in print\nA nn\nu. R\nev . B\nio ph\nys . 2\n01 7.\n46 . D\now nl\noa de\nd fr\nom a\nnn ua\nlr ev\nie w\ns. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u\nse o\nnl y."
+    } ],
+    "references" : [ {
+      "title" : "Stable heterodimers from remodeling the domain interface of a homodimer using a phage display",
+      "author" : [ "S Atwell", "JB Ridgway", "JA Wells", "P. Carter" ],
+      "venue" : "library. J. Mol. Biol",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 1997
+    }, {
+      "title" : "Accurate design of megadalton-scale twocomponent icosahedral protein complexes",
+      "author" : [ "JB Bale", "S Gonen", "Y Liu", "W Sheffler", "D Ellis" ],
+      "venue" : "Science",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2016
+    }, {
+      "title" : "Structure of a designed tetrahedral protein assembly variant engineered to have improved soluble expression",
+      "author" : [ "JB Bale", "RU Park", "Y Liu", "S Gonen", "T Gonen" ],
+      "venue" : "Protein Sci",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2015
+    }, {
+      "title" : "Molecular self-assembly using peptide nucleic acids",
+      "author" : [ "O Berger", "E. Gazit" ],
+      "venue" : "Pept. Sci. In press. doi: 10.1002/bip.22930",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2016
+    }, {
+      "title" : "Squaring the circle in peptide assembly: from fibers to discrete nanostructures by de novo design",
+      "author" : [ "AL Boyle", "EHC Bromley", "GJ Bartlett", "RB Sessions", "TH Sharp" ],
+      "venue" : "J. Am. Chem",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2012
+    }, {
+      "title" : "De novo designed peptides for biological applications",
+      "author" : [ "Boyle AL", "Woolfson DN" ],
+      "venue" : "Chem. Soc. Rev",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2011
+    }, {
+      "title" : "Metal-directed, chemically tunable assembly of one-, two- and three-dimensional crystalline protein",
+      "author" : [ "JD Brodin", "XI Ambroggio", "C Tang", "KN Parent", "TS Baker", "FA. Tezcan" ],
+      "venue" : null,
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2012
+    }, {
+      "title" : "DNA-mediated engineering of multicomponent enzyme crystals",
+      "author" : [ "JD Brodin", "E Auyeung", "CA. Mirkin" ],
+      "venue" : null,
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2015
+    }, {
+      "title" : "A vault nanoparticle vaccine induces protective mucosal immunity",
+      "author" : [ "CI Champion", "VA Kickhoefer", "G Liu", "RJ Moniz", "AS Freed" ],
+      "venue" : "PLOS ONE 4:e5409",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2009
+    }, {
+      "title" : "Structural diversity and chemical trends in hybrid inorganic– organic framework materials",
+      "author" : [ "AK Cheetham", "CNR Rao", "RK. Feller" ],
+      "venue" : null,
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2006
+    }, {
+      "title" : "Insect virus polyhedra, infectious protein crystals that contain virus particles",
+      "author" : [ "E Chiu", "F Coulibaly", "P. Metcalf" ],
+      "venue" : "Curr. Opin. Struct. Biol",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2012
+    }, {
+      "title" : "Automatic molecular weaving prototyped by using singlestranded DNA",
+      "author" : [ "T Ciengshin", "R Sha", "NC. Seeman" ],
+      "venue" : "Angew Chem. Int. Ed",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2011
+    }, {
+      "title" : "Proof of principle for epitope-focused vaccine",
+      "author" : [ "BE Correia", "JT Bates", "RJ Loomis", "G Baneyx", "C Carrico" ],
+      "venue" : "Nature",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2014
+    }, {
+      "title" : "Structure of small viruses",
+      "author" : [ "Crick FH", "Watson JD" ],
+      "venue" : "Nature",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 1956
+    }, {
+      "title" : "De novo protein design: fully automated sequence selection",
+      "author" : [ "Dahiyat BI", "Mayo SL" ],
+      "venue" : "Science 278:82–",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 1997
+    }, {
+      "title" : "A large scale test of computational protein design: folding and stability of nine completely redesigned globular proteins",
+      "author" : [ "G Dantas", "B Kuhlman", "D Callender", "M Wong", "D. Baker" ],
+      "venue" : "J. Mol. Biol",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2003
+    }, {
+      "title" : "Folding DNA into twisted and curved nanoscale shapes",
+      "author" : [ "H Dietz", "SM Douglas", "WM. Shih" ],
+      "venue" : "Science",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2009
+    }, {
+      "title" : "Modeling symmetric macromolecular structures in Rosetta3",
+      "author" : [ "F DiMaio", "A Leaver-Fay", "P Bradley", "D Baker", "I. André" ],
+      "venue" : "PLOS ONE 6:e20450",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2011
+    }, {
+      "title" : "Design and optimization of peptide nanoparticles",
+      "author" : [ "TAPF Doll", "R Dey", "P. Burkhard" ],
+      "venue" : "J. Nanobiotechnol",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2015
+    }, {
+      "title" : "Nanoscale assemblies and their biomedical applications",
+      "author" : [ "TAPF Doll", "S Raman", "R Dey", "P. Burkhard" ],
+      "venue" : "J. R. Soc. Interface",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2013
+    }, {
+      "title" : "Self-assembly of a tetrahedral lectin into predesigned diamondlike protein crystals",
+      "author" : [ "N Dotan", "D Arad", "F Frolow", "A. Freeman" ],
+      "venue" : "Angew. Chem. Int. Ed",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 1999
+    }, {
+      "title" : "Protein crystallization in vivo",
+      "author" : [ "Doye JP", "Poon WCK" ],
+      "venue" : "Curr. Opin. Colloid Interface Sci",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2006
+    }, {
+      "title" : "Two-dimensional crystals of carboxysome shell proteins recapitulate the hexagonal packing of three-dimensional crystals",
+      "author" : [ "KA Dryden", "CS Crowley", "S Tanaka", "TO Yeates", "M. Yeager" ],
+      "venue" : "Protein Sci",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2009
+    }, {
+      "title" : "Self-assembling cages from coiled-coil peptide",
+      "author" : [ "JM Fletcher", "RL Harniman", "FRH Barnes", "AL Boyle", "A Collins" ],
+      "venue" : null,
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2013
+    }, {
+      "title" : "The chemistry and applications of metalorganic frameworks",
+      "author" : [ "H Furukawa", "KE Cordova", "M O’Keeffe", "OM. Yaghi" ],
+      "venue" : "Science",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2013
+    }, {
+      "title" : "Self-assembling organic nanotubes based on a cyclic peptide",
+      "author" : [ "MR Ghadiri", "JR Granja", "RA Milligan", "DE McRee", "N. Khazanovich" ],
+      "venue" : "Nature",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 1993
+    }, {
+      "title" : "Geometrical assembly of ultrastable protein templates for nanomaterials",
+      "author" : [ "DJ Glover", "L Giger", "SS Kim", "RR Naik", "DS. Clark" ],
+      "venue" : null,
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2016
+    }, {
+      "title" : "Design of ordered two-dimensional arrays mediated by noncovalent protein-protein interfaces",
+      "author" : [ "S Gonen", "F DiMaio", "T Gonen", "D. Baker" ],
+      "venue" : "Science",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2015
+    }, {
+      "title" : "Foldamers as versatile frameworks for the design and evolution of function",
+      "author" : [ "CM Goodman", "S Choi", "S Shandler", "WF. DeGrado" ],
+      "venue" : "Nat. Chem. Biol",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2007
+    }, {
+      "title" : "Structural symmetry and protein function",
+      "author" : [ "Goodsell DS", "Olson AJ" ],
+      "venue" : "Annu. Rev. Biophys. Biomol",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2000
+    }, {
+      "title" : "Geometrically precise building blocks: the self-assembly of beta-peptides",
+      "author" : [ "RD Gopalan", "MP Del Borgo", "AI Mechler", "P Perlmutter", "MI. Aguilar" ],
+      "venue" : null,
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2015
+    }, {
+      "title" : "RNA self-assembly and RNA nanotechnology",
+      "author" : [ "WW Grabow", "L. Jaeger" ],
+      "venue" : "Acc. Chem. Res",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2014
+    }, {
+      "title" : "Design of a single-chain polypeptide tetrahedron assembled from coiled-coil segments",
+      "author" : [ "H Gradisar", "S Bozic", "T Doles", "D Vengust", "I Hafner-Bratkovic" ],
+      "venue" : "Nat. Chem. Biol",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2013
+    }, {
+      "title" : "Design of a single-chain polypeptide tetrahedron assembled from coiled-coil segments",
+      "author" : [ "H Gradišar", "S Božič", "T Doles", "D Vengust", "I Hafner-Bratkovič" ],
+      "venue" : "Nat. Chem. Biol",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2013
+    }, {
+      "title" : "Computational design of virus-like protein assemblies on carbon nanotube surfaces",
+      "author" : [ "G Grigoryan", "YH Kim", "R Acharya", "K Axelrod", "RM Jain" ],
+      "venue" : null,
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2011
+    }, {
+      "title" : "International Tables for Crystallography, Volume A: Space Group Symmetry",
+      "author" : [ "T Hahn" ],
+      "venue" : null,
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2005
+    }, {
+      "title" : "De novo design of beta-sheet proteins",
+      "author" : [ "Hecht MH" ],
+      "venue" : "PNAS",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 1994
+    }, {
+      "title" : "Foldamers with heterogeneous backbones",
+      "author" : [ "Horne WS", "Gellman SH" ],
+      "venue" : "Acc. Chem. Res",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2008
+    }, {
+      "title" : "High thermodynamic stability of parametrically designed helical bundles",
+      "author" : [ "P-S Huang", "G Oberdorfer", "C Xu", "XY Pei", "BL Nannenga" ],
+      "venue" : "Science",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2014
+    }, {
+      "title" : "The coming of age of virus-like particle vaccines",
+      "author" : [ "Jennings GT", "Bachmann MF" ],
+      "venue" : null,
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2008
+    }, {
+      "title" : "Connecting two proteins using a fusion alpha helix stabilized by a chemical cross linker",
+      "author" : [ "WH Jeong", "H Lee", "DH Song", "J-H Eom", "SC Kim" ],
+      "venue" : null,
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2016
+    }, {
+      "title" : "De novo design of a transmembrane Zn2+-transporting four-helix bundle",
+      "author" : [ "NH Joh", "T Wang", "MP Bhate", "R Acharya", "Y Wu" ],
+      "venue" : "Science",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2014
+    }, {
+      "title" : "Three-dimensional structures self-assembled from DNA bricks",
+      "author" : [ "Y Ke", "LL Ong", "WM Shih", "P. Yin" ],
+      "venue" : "Science",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2012
+    }, {
+      "title" : "Protein-directed self-assembly of a fullerene crystal",
+      "author" : [ "Kim K-H", "Ko D-K", "Kim Y-T", "Kim NH", "Paul J" ],
+      "venue" : null,
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2016
+    }, {
+      "title" : "Accurate design of co-assembling multi-component protein nanomaterials",
+      "author" : [ "NP King", "JB Bale", "W Sheffler", "DE McNamara", "S Gonen" ],
+      "venue" : "Nature",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2014
+    }, {
+      "title" : "Structure and folding of a designed knotted protein",
+      "author" : [ "NP King", "AW Jacobitz", "MR Sawaya", "L Goldschmidt", "TO. Yeates" ],
+      "venue" : null,
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2010
+    }, {
+      "title" : "Computational design of selfassembling protein nanomaterials with atomic level",
+      "author" : [ "NP King", "W Sheffler", "MR Sawaya", "BS Vollmar", "JP Sumida" ],
+      "venue" : "Science",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2012
+    }, {
+      "title" : "Design of a novel globular protein fold with atomic-level",
+      "author" : [ "B Kuhlman", "G Dantas", "GC Ireton", "G Varani", "BL Stoddard", "D. Baker" ],
+      "venue" : "Science",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2003
+    }, {
+      "title" : "Structure of a 16-nm cage designed by using protein oligomers",
+      "author" : [ "Lai Y-T", "Cascio D", "Yeates TO" ],
+      "venue" : "Science",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2012
+    }, {
+      "title" : "Designing and defining dynamic protein cage nanoassemblies in solution",
+      "author" : [ "Y-T Lai", "GL Hura", "KN Dyer", "HY Tang", "JA Tainer", "TO. Yeates" ],
+      "venue" : null,
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2016
+    }, {
+      "title" : "On the predictability of the orientation of protein domains joined by a spanning alpha-helical linker",
+      "author" : [ "Lai Y-T", "Jiang L", "Chen W", "Yeates TO" ],
+      "venue" : "Protein Eng. Des. Sel",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2015
+    }, {
+      "title" : "Principles for designing ordered protein assemblies",
+      "author" : [ "Lai Y-T", "King NP", "Yeates TO" ],
+      "venue" : "Trends Cell Biol",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2012
+    }, {
+      "title" : "Structure of a designed protein cage that self-assembles into a highly porous cube",
+      "author" : [ "Y-T Lai", "E Reading", "GL Hura", "K-L Tsai", "A Laganowsky" ],
+      "venue" : null,
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2014
+    }, {
+      "title" : "Structure and flexibility of nanoscale protein cages designed by symmetric self-assembly",
+      "author" : [ "Lai Y-T", "Tsai K-L", "Sawaya MR", "Asturias FJ", "Yeates TO" ],
+      "venue" : "J. Am. Chem",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2013
+    }, {
+      "title" : "Computational design of a protein crystal",
+      "author" : [ "CJ Lanci", "CM MacDermaid", "S-g Kang", "R Acharya", "B North" ],
+      "venue" : null,
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2012
+    }, {
+      "title" : "Controllable self-assembly of RNA tetrahedrons with precise shape and size for cancer",
+      "author" : [ "H Li", "K Zhang", "F Pi", "S Guo", "L Shlyakhtenko" ],
+      "venue" : null,
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2016
+    }, {
+      "title" : "Self-assembling protein nanoparticles in the design of vaccines",
+      "author" : [ "J López-Sagaseta", "E Malito", "R Rappuoli", "MJ. Bottomley" ],
+      "venue" : "Comput. Struct",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2015
+    }, {
+      "title" : "Virus-like particles-universal molecular toolboxes",
+      "author" : [ "C Ludwig", "R. Wagner" ],
+      "venue" : "Curr. Opin. Biotechnol",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2007
+    }, {
+      "title" : "Protein-based nanomedicine platforms for drug",
+      "author" : [ "A Maham", "Z Tang", "H Wu", "J Wang", "Y. Lin" ],
+      "venue" : null,
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2009
+    }, {
+      "title" : "Structure, dynamics, assembly, and evolution of protein complexes",
+      "author" : [ "Marsh JA", "Teichmann SA" ],
+      "venue" : "Annu. Rev. Biochem",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2015
+    }, {
+      "title" : "Peptidic foldamers: ramping up diversity",
+      "author" : [ "TA Martinek", "F. Fulop" ],
+      "venue" : "Chem. Soc. Rev",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2012
+    }, {
+      "title" : "Structure and assembly of filamentous bacteriophages",
+      "author" : [ "DA Marvin", "MF Symmons", "SK. Straus" ],
+      "venue" : "Prog. Biophys. Mol. Biol",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2014
+    }, {
+      "title" : "Designing two-dimensional protein arrays through fusion of multimers and interface mutations",
+      "author" : [ "JF Matthaei", "F DiMaio", "JJ Richards", "LD Pozzo", "D Baker", "F. Baneyx" ],
+      "venue" : "Nano Lett. 15:5235–39",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2015
+    }, {
+      "title" : "Computational design of co-assembling protein-DNA nanowires",
+      "author" : [ "Mou Y", "Yu J-Y", "Wannier TM", "Guo C-L", "Mayo SL" ],
+      "venue" : "Nature",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2015
+    }, {
+      "title" : "Visualizing microtubule structural transitions and interactions with associated proteins",
+      "author" : [ "E Nogales", "R. Zhang" ],
+      "venue" : "Curr. Opin. Struct. Biol",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2016
+    }, {
+      "title" : "Design of three-dimensional domain-swapped dimers and fibrous oligomers",
+      "author" : [ "NL Ogihara", "G Ghirlanda", "JW Bryson", "M Gingery", "WF DeGrado", "D. Eisenberg" ],
+      "venue" : null,
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2001
+    }, {
+      "title" : "Topological linkage of DNA tiles bonded by paranemic cohesion",
+      "author" : [ "YP Ohayon", "R Sha", "O Flint", "AR Chandrasekaran", "HO Abdallah" ],
+      "venue" : "ACS Nano 9:10296–303",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2015
+    }, {
+      "title" : "Design, assembly, and evaluation of RNA-protein nanostructures",
+      "author" : [ "H Ohno", "E Osada", "H. Saito" ],
+      "venue" : "Methods Mol. Biol",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 2015
+    }, {
+      "title" : "Nanohedra: using symmetry to design self assembling protein cages, layers, crystals, and filaments",
+      "author" : [ "JE Padilla", "C Colovos", "TO. Yeates" ],
+      "venue" : null,
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2001
+    }, {
+      "title" : "Hierarchical self assembly of patterns from the Robinson tilings: DNA tile design in an enhanced tile assembly model",
+      "author" : [ "JE Padilla", "W Liu", "NC. Seeman" ],
+      "venue" : null,
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : "71",
+      "year" : 2012
+    }, {
+      "title" : "Sticky-end assembly of a designed peptide fiber provides insight into protein fibrillogenesis",
+      "author" : [ "MJ Pandya", "GM Spooner", "M Sunde", "JR Thorpe", "A Rodger", "DN. Woolfson" ],
+      "venue" : "Biochemistry",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2000
+    }, {
+      "title" : "2016. Ring Catalog: A resource for designing self-assembling RNA nanostructures",
+      "author" : [ "L Parlea", "E Bindewald", "R Sharan", "N Bartlett", "D Moriarty" ],
+      "venue" : null,
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2016
+    }, {
+      "title" : "Virus-like particle nanoreactors: programmed encapsulation of the thermostable CelB glycosidase inside the P22 capsid",
+      "author" : [ "DP Patterson", "B Schwarz", "K El-Boubbou", "Jvd Oost", "PE Prevelige", "T. Douglas" ],
+      "venue" : null,
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2012
+    }, {
+      "title" : "Crystal structure of an amphiphilic foldamer reveals a 48-mer assembly comprising a hollow truncated octahedron",
+      "author" : [ "V Pavone", "S-Q Zhang", "A Merlino", "A Lombardi", "Y Wu", "WF. DeGrado" ],
+      "venue" : null,
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2014
+    }, {
+      "title" : "Self-assembly of proteins into designed networks",
+      "author" : [ "Ringler P", "Schulz GE" ],
+      "venue" : "Science",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 2003
+    }, {
+      "title" : "Design, synthesis, assembly, and engineering of peptoid nanosheets",
+      "author" : [ "EJ Robertson", "A Battigelli", "C Proulx", "RV Mannige", "TK Haxton" ],
+      "venue" : "Acc. Chem. Res",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : "77",
+      "year" : 2016
+    }, {
+      "title" : "Folding DNA to create nanoscale shapes and patterns",
+      "author" : [ "Rothemund PW" ],
+      "venue" : "Nature",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : "78",
+      "year" : 2006
+    }, {
+      "title" : "Introducing branches into a self-assembling peptide fiber",
+      "author" : [ "Ryadnov MG", "Woolfson DN" ],
+      "venue" : "Angew Chem. Int. Ed",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : "79",
+      "year" : 2003
+    }, {
+      "title" : "Metal templated design of protein",
+      "author" : [ "EN Salgado", "XI Ambroggio", "JD Brodin", "RA Lewis", "B Kuhlman", "FA. Tezcan" ],
+      "venue" : null,
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : "80",
+      "year" : 2010
+    }, {
+      "title" : "Protein stabilization in a highly knotted protein polymer",
+      "author" : [ "TC Sayre", "TM Lee", "NP King", "TO. Yeates" ],
+      "venue" : "Protein Eng. Des. Sel",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : "81",
+      "year" : 2011
+    }, {
+      "title" : "Nanotechnology with S-layer proteins",
+      "author" : [ "Schuster B", "Sleytr UB" ],
+      "venue" : "Methods Mol. Biol",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : "82",
+      "year" : 2013
+    }, {
+      "title" : "Flexible, symmetry-directed approach to assembling protein cages",
+      "author" : [ "A Sciore", "M Su", "P Koldewey", "JD Eschweiler", "KA Diffley" ],
+      "venue" : null,
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : "83",
+      "year" : 2016
+    }, {
+      "title" : "Nucleic acid junctions and lattices",
+      "author" : [ "Seeman NC" ],
+      "venue" : "J. Theor. Biol",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : "84",
+      "year" : 1982
+    }, {
+      "title" : "Nanomaterials based on DNA",
+      "author" : [ "Seeman NC" ],
+      "venue" : "Annu. Rev. Biochem",
+      "citeRegEx" : "85",
+      "shortCiteRegEx" : "85",
+      "year" : 2010
+    }, {
+      "title" : "A polyhedron made of tRNAs",
+      "author" : [ "I Severcan", "C Geary", "A Chworos", "N Voss", "E Jacovetty", "L. Jaeger" ],
+      "venue" : null,
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : "87",
+      "year" : 2010
+    }, {
+      "title" : "A 1.7-kilobase single-stranded DNA that folds into a nanoscale octahedron",
+      "author" : [ "WM Shih", "JD Quispe", "GF. Joyce" ],
+      "venue" : "Nature",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : "88",
+      "year" : 2004
+    }, {
+      "title" : "Generation of protein lattices by fusing proteins with matching rotational symmetry",
+      "author" : [ "JC Sinclair", "KM Davies", "C Vénien-Bryan", "MEM. Noble" ],
+      "venue" : "Nat. Nanotechnol",
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : "89",
+      "year" : 2011
+    }, {
+      "title" : "S-layers: principles and applications",
+      "author" : [ "UB Sleytr", "B Schuster", "E-M Egelseer", "D. Pum" ],
+      "venue" : "FEMS Microbiol",
+      "citeRegEx" : "90",
+      "shortCiteRegEx" : "90",
+      "year" : 2014
+    }, {
+      "title" : "Presenting native-like HIV-1 envelope trimers on ferritin nanoparticles improves their immunogenicity",
+      "author" : [ "K Sliepen", "G Ozorowski", "JA Burger", "T van Montfort", "M Stunnenberg" ],
+      "venue" : "Retrovirology",
+      "citeRegEx" : "91",
+      "shortCiteRegEx" : "91",
+      "year" : 2015
+    }, {
+      "title" : "A metal organic framework with spherical protein nodes: rational chemical design of 3D protein crystals",
+      "author" : [ "PA Sontz", "JB Bailey", "S Ahn", "FA. Tezcan" ],
+      "venue" : "J. Am. Chem. Soc",
+      "citeRegEx" : "92",
+      "shortCiteRegEx" : "92",
+      "year" : 2015
+    }, {
+      "title" : "Self-assembly of coherently dynamic, auxetic, two-dimensional protein crystals",
+      "author" : [ "Y Suzuki", "G Cardone", "D Restrepo", "PD Zavattieri", "TS Baker", "FA. Tezcan" ],
+      "venue" : "Nature",
+      "citeRegEx" : "93",
+      "shortCiteRegEx" : "93",
+      "year" : 2016
+    }, {
+      "title" : "Controlling the assembly of coiled-coil peptide nanotubes",
+      "author" : [ "F Thomas", "NC Burgess", "AR Thomson", "DN. Woolfson" ],
+      "venue" : "Angew Chem. Int. Ed",
+      "citeRegEx" : "94",
+      "shortCiteRegEx" : "94",
+      "year" : 2016
+    }, {
+      "title" : "Computational design of water-soluble alpha-helical barrels",
+      "author" : [ "AR Thomson", "CW Wood", "AJ Burton", "GJ Bartlett", "RB Sessions" ],
+      "venue" : "Science",
+      "citeRegEx" : "95",
+      "shortCiteRegEx" : "95",
+      "year" : 2014
+    }, {
+      "title" : "Biological containers: protein cagesas multifunctional nanoplatforms",
+      "author" : [ "M Uchida", "MT Klem", "M Allen", "P Suci", "M Flenniken" ],
+      "venue" : null,
+      "citeRegEx" : "96",
+      "shortCiteRegEx" : "96",
+      "year" : 2007
+    }, {
+      "title" : "Tight single-stranded DNA knots",
+      "author" : [ "H Wang", "SM Du", "NC. Seeman" ],
+      "venue" : "J. Biomol. Struct",
+      "citeRegEx" : "97",
+      "shortCiteRegEx" : "97",
+      "year" : 1993
+    }, {
+      "title" : "Design and self-assembly of two-dimensional DNA crystals",
+      "author" : [ "E Winfree", "F Liu", "LA Wenzler", "NC. Seeman" ],
+      "venue" : "Nature",
+      "citeRegEx" : "98",
+      "shortCiteRegEx" : "98",
+      "year" : 1998
+    }, {
+      "title" : "Directed evolution of a protein container",
+      "author" : [ "B Wörsdörfer", "KJ Woycechowsky", "D. Hilvert" ],
+      "venue" : "Science",
+      "citeRegEx" : "99",
+      "shortCiteRegEx" : "99",
+      "year" : 2011
+    }, {
+      "title" : "DNA-templated self-assembly of protein arrays and highly conductive nanowires",
+      "author" : [ "H Yan", "SH Park", "G Finkelstein", "JH Reif", "TH. LaBean" ],
+      "venue" : "Science",
+      "citeRegEx" : "100",
+      "shortCiteRegEx" : "100",
+      "year" : 2003
+    }, {
+      "title" : "The design of symmetric protein nanomaterials comes of age in theory and practice",
+      "author" : [ "TO Yeates", "Y Liu", "J. Laniado" ],
+      "venue" : "Curr. Opin. Struct. Biol",
+      "citeRegEx" : "101",
+      "shortCiteRegEx" : "101",
+      "year" : 2016
+    }, {
+      "title" : "Structural DNA nanotechnology: state of the art and future perspective",
+      "author" : [ "F Zhang", "J Nangreave", "Y Liu", "H. Yan" ],
+      "venue" : "J. Am. Chem",
+      "citeRegEx" : "102",
+      "shortCiteRegEx" : "102",
+      "year" : 2014
+    }, {
+      "title" : "Computationally designed peptides for self-assembly of nanostructured lattices",
+      "author" : [ "HV Zhang", "F Polzer", "MJ Haider", "Y Tian", "JA Villegas" ],
+      "venue" : null,
+      "citeRegEx" : "103",
+      "shortCiteRegEx" : "103",
+      "year" : 2016
+    }, {
+      "title" : "From molecular to macroscopic via the rational design of a self-assembled 3D DNA crystal",
+      "author" : [ "J Zheng", "JJ Birktoft", "Y Chen", "T Wang", "R Sha" ],
+      "venue" : null,
+      "citeRegEx" : "104",
+      "shortCiteRegEx" : "104",
+      "year" : 2009
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 9,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 37,
+      "endOffset" : 45
+    }, {
+      "referenceID" : 24,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 37,
+      "endOffset" : 45
+    }, {
+      "referenceID" : 16,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 42,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 76,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 82,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 83,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 85,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 95,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 99,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 101,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 61,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 31,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 115,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 55,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 115,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 71,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 115,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 84,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 115,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 5,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 209,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 25,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 209,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 36,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 209,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 70,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 209,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 3,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 336,
+      "endOffset" : 363
+    }, {
+      "referenceID" : 28,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 336,
+      "endOffset" : 363
+    }, {
+      "referenceID" : 30,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 336,
+      "endOffset" : 363
+    }, {
+      "referenceID" : 37,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 336,
+      "endOffset" : 363
+    }, {
+      "referenceID" : 60,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 336,
+      "endOffset" : 363
+    }, {
+      "referenceID" : 73,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 336,
+      "endOffset" : 363
+    }, {
+      "referenceID" : 75,
+      "context" : ", metal–organic frameworks, or MOFs) (10, 25), DNA molecules (17, 43, 78, 84, 85, 88, 98, 102, 104), RNA molecules (32, 56, 73, 87), relatively small polypeptides based on well-known protein structural motifs (6, 26, 37, 72), synthetic organic molecules designed to mimic the properties of biological polymers (also known as foldamers) (4, 29, 31, 38, 61, 75, 77), and large, complex protein molecules (discussed here).",
+      "startOffset" : 336,
+      "endOffset" : 363
+    }, {
+      "referenceID" : 38,
+      "context" : "repetitive structural motifs, bundles of alpha helices or coiled coils for example, has become highly advanced (39, 42, 95).",
+      "startOffset" : 111,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 41,
+      "context" : "repetitive structural motifs, bundles of alpha helices or coiled coils for example, has become highly advanced (39, 42, 95).",
+      "startOffset" : 111,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 92,
+      "context" : "repetitive structural motifs, bundles of alpha helices or coiled coils for example, has become highly advanced (39, 42, 95).",
+      "startOffset" : 111,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 14,
+      "context" : "In contrast, whereas complex protein tertiary structures have been designed de novo in a few cases (15, 16, 48), doing so remains a challenging endeavor.",
+      "startOffset" : 99,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 15,
+      "context" : "In contrast, whereas complex protein tertiary structures have been designed de novo in a few cases (15, 16, 48), doing so remains a challenging endeavor.",
+      "startOffset" : 99,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 47,
+      "context" : "In contrast, whereas complex protein tertiary structures have been designed de novo in a few cases (15, 16, 48), doing so remains a challenging endeavor.",
+      "startOffset" : 99,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 36,
+      "context" : "Accordingly, protein filaments of diverse types have been successfully designed in numerous studies (37, 67, 70, 72).",
+      "startOffset" : 100,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 65,
+      "context" : "Accordingly, protein filaments of diverse types have been successfully designed in numerous studies (37, 67, 70, 72).",
+      "startOffset" : 100,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 68,
+      "context" : "Accordingly, protein filaments of diverse types have been successfully designed in numerous studies (37, 67, 70, 72).",
+      "startOffset" : 100,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 70,
+      "context" : "Accordingly, protein filaments of diverse types have been successfully designed in numerous studies (37, 67, 70, 72).",
+      "startOffset" : 100,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 4,
+      "context" : "Recent design studies with protein filaments have been directed at introducing higher-level features of branching and bending to create more complex shapes (5, 27, 33, 79).",
+      "startOffset" : 156,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 26,
+      "context" : "Recent design studies with protein filaments have been directed at introducing higher-level features of branching and bending to create more complex shapes (5, 27, 33, 79).",
+      "startOffset" : 156,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 32,
+      "context" : "Recent design studies with protein filaments have been directed at introducing higher-level features of branching and bending to create more complex shapes (5, 27, 33, 79).",
+      "startOffset" : 156,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 77,
+      "context" : "Recent design studies with protein filaments have been directed at introducing higher-level features of branching and bending to create more complex shapes (5, 27, 33, 79).",
+      "startOffset" : 156,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 87,
+      "context" : "Among natural structures, bacterial S-layers are the clearest examples of well-ordered molecular sheets (90), though layers of bacterial microcompartment proteins are also relevant (23).",
+      "startOffset" : 104,
+      "endOffset" : 108
+    }, {
+      "referenceID" : 22,
+      "context" : "Among natural structures, bacterial S-layers are the clearest examples of well-ordered molecular sheets (90), though layers of bacterial microcompartment proteins are also relevant (23).",
+      "startOffset" : 181,
+      "endOffset" : 185
+    }, {
+      "referenceID" : 80,
+      "context" : "The prospective utilities for well-ordered protein layers include coatings, high-density–motif display, and formation of barriers capable of selective molecular transport (82).",
+      "startOffset" : 171,
+      "endOffset" : 175
+    }, {
+      "referenceID" : 21,
+      "context" : "There are a few rare examples of biologically functional protein crystals (22), including virus polyhedra (11); these viral proteins evolved to crystallize as a mechanism for encapsulating and protecting embedded viruses inside certain insect cells.",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 10,
+      "context" : "There are a few rare examples of biologically functional protein crystals (22), including virus polyhedra (11); these viral proteins evolved to crystallize as a mechanism for encapsulating and protecting embedded viruses inside certain insect cells.",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 61,
+      "context" : "Microtubules and filamentous viruses are well-known biological examples (62, 66).",
+      "startOffset" : 72,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 64,
+      "context" : "Microtubules and filamentous viruses are well-known biological examples (62, 66).",
+      "startOffset" : 72,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 98,
+      "context" : ", a single type of interface) between molecules is sufficient to produce only simple architectures like a ring of subunits or a filament but not more sophisticated architectures (101).",
+      "startOffset" : 178,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 68,
+      "context" : "(70), along with geometric rules for constructing various kinds of assemblies.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 48,
+      "context" : "A first demonstration of a designed protein cage was also provided, though subsequent refinement of the amino acid sequence was required to achieve a level of homogeneity sufficient for atomic level characterization (49, 50, 54).",
+      "startOffset" : 216,
+      "endOffset" : 228
+    }, {
+      "referenceID" : 49,
+      "context" : "A first demonstration of a designed protein cage was also provided, though subsequent refinement of the amino acid sequence was required to achieve a level of homogeneity sufficient for atomic level characterization (49, 50, 54).",
+      "startOffset" : 216,
+      "endOffset" : 228
+    }, {
+      "referenceID" : 53,
+      "context" : "A first demonstration of a designed protein cage was also provided, though subsequent refinement of the amino acid sequence was required to achieve a level of homogeneity sufficient for atomic level characterization (49, 50, 54).",
+      "startOffset" : 216,
+      "endOffset" : 228
+    }, {
+      "referenceID" : 68,
+      "context" : "Instead, a genetic fusion approach was developed for combining two simple oligomers into a single protein chain, thereby introducing two modes of self-association into a single molecular building block (Figure 2) (70).",
+      "startOffset" : 213,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 68,
+      "context" : "(70) introduced the idea of fusing together two domains that had alpha-helical termini (with the possibility of a short helical intervening segment).",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 86,
+      "context" : "(89) introduced a variation on the oligomer fusion approach.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 46,
+      "context" : "(47) working with larger proteins, and Lanci et al.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 54,
+      "context" : "(55) working with helical coiled-coil motifs.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 44,
+      "context" : "In an important strategic variation, known as two-component design (45), two different natural oligomers are taken as the starting point and the surfaces of both proteins are subjected to computational sequence design to introduce a heterotypic interface between them (Figure 2).",
+      "startOffset" : 67,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 6,
+      "context" : "In a suite of studies, Tezcan and colleagues (7, 80, 92, 93) have exploited metal binding (e.",
+      "startOffset" : 45,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 78,
+      "context" : "In a suite of studies, Tezcan and colleagues (7, 80, 92, 93) have exploited metal binding (e.",
+      "startOffset" : 45,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 89,
+      "context" : "In a suite of studies, Tezcan and colleagues (7, 80, 92, 93) have exploited metal binding (e.",
+      "startOffset" : 45,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 90,
+      "context" : "In a suite of studies, Tezcan and colleagues (7, 80, 92, 93) have exploited metal binding (e.",
+      "startOffset" : 45,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 20,
+      "context" : "In addition to metals, other kinds of bivalent ligands have been used to connect protein oligomers (21, 76, 92), including short DNA linkers (8) and engineered disulfide bonds (93).",
+      "startOffset" : 99,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 74,
+      "context" : "In addition to metals, other kinds of bivalent ligands have been used to connect protein oligomers (21, 76, 92), including short DNA linkers (8) and engineered disulfide bonds (93).",
+      "startOffset" : 99,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 89,
+      "context" : "In addition to metals, other kinds of bivalent ligands have been used to connect protein oligomers (21, 76, 92), including short DNA linkers (8) and engineered disulfide bonds (93).",
+      "startOffset" : 99,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 7,
+      "context" : "In addition to metals, other kinds of bivalent ligands have been used to connect protein oligomers (21, 76, 92), including short DNA linkers (8) and engineered disulfide bonds (93).",
+      "startOffset" : 141,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 90,
+      "context" : "In addition to metals, other kinds of bivalent ligands have been used to connect protein oligomers (21, 76, 92), including short DNA linkers (8) and engineered disulfide bonds (93).",
+      "startOffset" : 176,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 90,
+      "context" : "Although this limits the ability to predict precise assembly outcomes, the designs have produced a rich variety of materials, including some with surprising dynamic properties (93).",
+      "startOffset" : 176,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 68,
+      "context" : "(70) was a fusion between a trimeric protein and dimeric protein with a geometry intended to create a 12-subunit tetrahedrally",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 48,
+      "context" : "Minor sequence optimizations to the alpha-helical linker were required to produce a homogeneous cage whose crystal structure could be determined to validate the design (Figure 3a) (49).",
+      "startOffset" : 180,
+      "endOffset" : 184
+    }, {
+      "referenceID" : 48,
+      "context" : "The architecture was confirmed, though flexing of the linker permitted compression and distortion from perfect symmetry ranging from approximately 3% to 23% for this 600-kDa-, 140-Ådiameter assembly (49, 50, 54).",
+      "startOffset" : 199,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 49,
+      "context" : "The architecture was confirmed, though flexing of the linker permitted compression and distortion from perfect symmetry ranging from approximately 3% to 23% for this 600-kDa-, 140-Ådiameter assembly (49, 50, 54).",
+      "startOffset" : 199,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 53,
+      "context" : "The architecture was confirmed, though flexing of the linker permitted compression and distortion from perfect symmetry ranging from approximately 3% to 23% for this 600-kDa-, 140-Ådiameter assembly (49, 50, 54).",
+      "startOffset" : 199,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 52,
+      "context" : "That protein exhibited some polymorphism in assembly as well, likewise attributable to the flexibility of the alpha-helical linker, but a crystal structure of the 24-subunit assembly confirmed close agreement with the designed model for this 750-kDa, 225-Å-diameter cube-shaped structure (Figure 3a) (53).",
+      "startOffset" : 300,
+      "endOffset" : 304
+    }, {
+      "referenceID" : 81,
+      "context" : "(83) fused a 31-kDa trimeric protein to a parallel (i.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 23,
+      "context" : "Cage- or shell-like assemblies have been demonstrated using coiled coils in other work by creating trimeric coiled-coil motifs held together by lateral bonds and interactions to give hexagonal networks of peptides that close up to form roughly spherical shells 100 nm in diameter (24).",
+      "startOffset" : 280,
+      "endOffset" : 284
+    }, {
+      "referenceID" : 18,
+      "context" : "Pentameric and trimeric coiled coils have also been fused to produce building blocks that assembled into particles of diverse sizes (19).",
+      "startOffset" : 132,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 1,
+      "context" : "used the interface design approach to produce numerous cages whose structures could be validated in detail (Figure 3a) (2, 3, 45, 47).",
+      "startOffset" : 119,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 2,
+      "context" : "used the interface design approach to produce numerous cages whose structures could be validated in detail (Figure 3a) (2, 3, 45, 47).",
+      "startOffset" : 119,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 44,
+      "context" : "used the interface design approach to produce numerous cages whose structures could be validated in detail (Figure 3a) (2, 3, 45, 47).",
+      "startOffset" : 119,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 46,
+      "context" : "used the interface design approach to produce numerous cages whose structures could be validated in detail (Figure 3a) (2, 3, 45, 47).",
+      "startOffset" : 119,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 1,
+      "context" : "The largest are icosahedrally symmetric, with either 60 identical subunits or 60 copies of two subunit types (2).",
+      "startOffset" : 109,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 1,
+      "context" : "For the most challenging design targets so far—those based on icosahedral symmetry—ten successful cages were obtained from a total of 183 candidate designs that were experimentally tested (2).",
+      "startOffset" : 188,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 74,
+      "context" : "Early ideas for forming layers through the ligand-driven association of oligomers date to Ringler & Schulz (76).",
+      "startOffset" : 107,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 86,
+      "context" : "(89) demonstrated the first designed layers with long-range order based on oligomer fusions.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 54,
+      "context" : "(55) designed side-by-side associations into trimeric coiledcoil sequences to produce layers with p6 symmetry, which then stacked upon each other to form a three-dimensional crystal.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 100,
+      "context" : "In more recent work, a D2 tetrameric coiled-coil motif was used as the starting point for designing additional lateral interactions, and layers of diverse types were obtained (103).",
+      "startOffset" : 175,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 27,
+      "context" : "(28) tested a series of approximately 62 designs in which interface design was used to introduce lateral associations between cyclic protein oligomers to make layers.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 62,
+      "context" : "Another symmetric layer was designed by genetically fusing two copies of a cyclic hexameric protein domain in a way that forced the formation of side-by-side hexamers (63).",
+      "startOffset" : 167,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 6,
+      "context" : "Some of these are based on metal chelation by adjacent oligomers or on lateral disulfide bond formation (7, 93).",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 90,
+      "context" : "Some of these are based on metal chelation by adjacent oligomers or on lateral disulfide bond formation (7, 93).",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 6,
+      "context" : "Tubes in the form of rolled up layers have been obtained in some cases (7).",
+      "startOffset" : 71,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 90,
+      "context" : "And in a recent study, the side-by-side attachment of cyclic tetrameric units gave rise to p4 layers capable of isotropic stretching and compression (93).",
+      "startOffset" : 149,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 54,
+      "context" : "(55) formed crystals whose dimensions were anticipated.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 20,
+      "context" : "(21) based on bivalent ligand-driven association of D2-symmetric lectin oligomers and by Sinclair et al.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 86,
+      "context" : "(89) based on oligomeric fusions of symmetry O (octahedral) and symmetry D2 with coincident axes of rotation symmetry, but these could not be characterized by X-ray diffraction.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 7,
+      "context" : "Cubic crystals were obtained by decorating protein oligomers with DNA molecules and then driving their association by the addition of complementary nucleotide sequences (8).",
+      "startOffset" : 169,
+      "endOffset" : 172
+    }, {
+      "referenceID" : 89,
+      "context" : "Well-ordered cubic crystals of ferritin cages were created using bivalent ligands to bridge metal-binding sites engineered into the ferritin subunit (92).",
+      "startOffset" : 149,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 29,
+      "context" : "A great many natural structures, molecular and otherwise, obey the rules of symmetry (30, 60).",
+      "startOffset" : 85,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 59,
+      "context" : "A great many natural structures, molecular and otherwise, obey the rules of symmetry (30, 60).",
+      "startOffset" : 85,
+      "endOffset" : 93
+    } ],
+    "year" : 2017,
+    "abstractText" : "Emerging protein design strategies are enabling the creation of diverse, selfassembling supramolecular structures with precision on the atomic scale. The design possibilities include various types of architectures: finite cages or shells, essentially unbounded two-dimensional and three-dimensional arrays (i.e., crystals), and linear or tubular filaments. In nature, structures of those types are generally symmetric, and, accordingly, symmetry provides a powerful guide for developing new design approaches. Recent design studies have produced numerous protein assemblies in close agreement with geometric specifications. For certain design approaches, a complete list of allowable symmetry combinations that can be used for construction has been articulated, opening a path to a rich diversity of geometrically defined protein materials. Future challenges include improving and elaborating on current strategies and endowing designed protein nanomaterials with properties useful in nanomedicine and material science applications. 23 Review in Advance first posted online on February 23, 2017. (Changes may still occur before final publication online and in print.) Changes may still occur before final publication online and in print A nn u. R ev . B io ph ys . 2 01 7. 46 . D ow nl oa de d fr om a nn ua lr ev ie w s. or g A cc es s pr ov id ed b y U ni ve rs ity o f Sh er br oo ke o n 03 /0 6/ 17 . F or p er so na l u se o nl y. BB46CH02-Yeates ARI 7 February 2017 10:53",
+    "creator" : "LaTeX with hyperref package"
+  }
+}

@@ -1,0 +1,559 @@
+{
+  "name" : "downloads_2019-11-18_ec_beets2019.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Mechanical response of a bicontinuous copperemolybdenum nano- composite: Experiments and simulations",
+    "authors" : [ "Nathan Beets", "Yuchi Cui", "Diana Farkas", "Amit Misra" ],
+    "emails" : [ "bnathan2@vt.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "lable at ScienceDirect\nContents lists avai\nActa Materialia\njournal homepage: www.elsevier .com/locate/actamat\nFull length article\nMechanical response of a bicontinuous copperemolybdenum nanocomposite: Experiments and simulations\nNathan Beets a, *, Yuchi Cui b, Diana Farkas a, Amit Misra b\na Department of Materials Science and Engineering, Virginia Tech, Holden Hall, 445 Old Turner St, Blacksburg, VA, 24060, USA b Department of Materials Science and Engineering, The University of Michigan, Herbert H. Dow Building, 2300 Hayward St, Ann Arbor, MI, 48109, USA\na r t i c l e i n f o\nArticle history: Received 14 June 2019 Received in revised form 23 July 2019 Accepted 25 July 2019 Available online 27 July 2019\nKeywords: Metallic nanocomposite Mechanical behavior Interfaces\n* Corresponding author. E-mail address: bnathan2@vt.edu (N. Beets).\nhttps://doi.org/10.1016/j.actamat.2019.07.045 1359-6454/© 2019 Published by Elsevier Ltd on beha\na b s t r a c t\nWe present the results of a combined experimental and simulation-based study of the mechanical response of a bicontinuous copper-molybdenum nanocomposite, where high strength and good plastic deformability were observed. The experimental sample, prepared by co-sputtering Cu and Mo, achieved a feature size of around 15 nm. Corresponding digital nanostructures with feature sizes between 9 and 15 nm were generated using a phase field model. Virtual compression testing was performed using molecular dynamics simulation. The resultant mechanical response of these samples was analyzed at the macroscopic and atomistic levels. Strain partitioning was observed, where most of the plastic deformation occurs through dislocations that are emitted from the interface into the FCC Cu phase. The interface also acts as a barrier to dislocation propagation. The nanocomposites exhibit high strain hardening rate and plastic co-deformation in Cu and Mo intertwined phases. No shear banding is observed after 30% compression in both experiment and simulation. The bicontinuous, intertwined morphology of metallic FCC/BCC nanocomposites is effective in producing high yield strengths, high strain hardening rate and uniform distribution of plasticity in the sample volume.\n© 2019 Published by Elsevier Ltd on behalf of Acta Materialia Inc."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "In standard bulk media, yield strength and plasticity are desirable but conventionally considered mutually exclusive, so there is a pressing interest in novel composite materials that can deform plastically while maintaining high strength [1]. Metallic nanocomposites have received great attention due to their exceptional properties in this regard [2,3]. Most studies have focused on multilayers of different metals [4e9]. Their high strength is generally attributed to the role of the interface as a barrier to slip transmission. Experimentally, these structures have been shown to reach between (1/2) and (1/3) of the theoretical limit for strength. The effects of temperature, microstructure, and feature size on mechanical behavior of lamellar composites have also been investigated [10,11]. Composite strength is a function of the feature size, which follows a general “smaller is stronger” trend. However, the formation of shear bands as a primary deformation mechanism leads to undesirable failure of the material upon the onset of plasticity. This means that while layered structures provide\nlf of Acta Materialia Inc.\nstrength closer to the theoretical limit, they have very limited deformability [3,8,9,12e18] [19].\nIt has been suggested that novel composite morphologies may resolve this issue by eliminating or blocking possible shear bands. In fact, this has been confirmed experimentally by methods such as introducing nanotwin substructures into the grains, or altering grain size and structure [20,21]. A new method of high temperature, instantaneous structural generation via co-sputtering of immiscible metallic media has created novel separated composite structures with varying morphologies that can be tuned by the conditions of deposition rate and substrate temperature [22e26]. This new method generates composites with large completely phase-separated pure Copper/Molybdenum bicontinuous structures with ligaments of a few nm in length scale that possesses very high strength [26,27]. Bicontinuous alloy structures with nanoscale features have great potential for resisting flow localization and they can have high strength with overall superior mechanical properties. Of the samples observed, three morphologies were identified based on different combinations of deposition conditions and substrate temperature, with separated phase concentrations varying from lateral concentration modulation (resembling nano-sized layered structures) to random concentration modulation\n(resembling a spinodally decomposed structure). Mechanical tests of the random concentration modulation structure (referred to form now on as the RCM structure) revealed that it maintained a high strength, and excellent deformability, with compression tests on isolated pillars up to 30% strain revealing no shear banding whatsoever [27]. Thus, the RCM morphology is important as a model system, because it is a phase-separated morphology of immiscible components with very different mechanical properties. Understanding the interplay between the two phases from an energetics and structural point of view can serve as a template by which to design other similar metallic nano-composites with desirable mechanical properties. An understanding of the role of the interface on deformation and mechanical behavior and how this can be applied to other materials generally with immiscible, phase-separated regions will be useful for nano-composite design moving forward [18].\nAtomistic simulations have been very useful in understanding the reasons for the specific role of interfaces in layered nanocomposites [13,14,25,28e33] as well as bicontinuous nano-porous structures [10,22e25]. Specifically, molecular dynamics techniques have been shown to be useful in modeling the specific effects of interfaces [13,28,30e35]. For these composite systems, it has been shown that the structure and energy of the interface plays a major role in the deformation behavior [29,36e38]. Especially, atomistic studies have shown that for FCC interfaces, a KurdjumovSachs (KS) orientation can lead to improved mechanical properties [36,37]. So, we incorporate a combined experimental and computational molecular modeling approach to characterize the properties of the structure.\nThe purpose of the present work is to understand deformation mechanisms in bicontinuous nano-composites of nearly equiatomic Cu/Mo composition. We present a combined experimental and simulation study of the compression response of these structures. A specific focus is on the relationship between ligament diameter and morphology with general properties such as yield stress, dislocation nucleation and propagation and strain hardening. Using large-scale parallel computing techniques, we are able to reach the same feature sizes as in the experiments. Molecular dynamics simulations were conducted on a series of computationally generated samples that can be directly compared with the experimental results obtained in order to gain insight into the fundamental deformation mechanisms and how mechanical properties are affected by feature size."
+    }, {
+      "heading" : "2. Methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Experimental methods",
+      "text" : "Cu and Mo were co-deposited onto Si substrates with oxide surface layer by direct-current (DC) magnetron sputtering at 800 C. The Si substratewas chosen tominimize the substrate effect during the mechanical testing due to its high hardness. 99.999% pure Cu and 99.95% pure Mo targets were confocally oriented during deposition and the nominal deposition rate was held at 0.7 nm/s for each of the constituents. The pressure prior to deposition was maintained below 2.7 10 7 Pa. The final thickness of the thin film nanocomposite was set as 1 mm.\nScanning electron microscopy (SEM) characterization of the samples was conducted in a FEI Magellan 400 SEM. A double Cscorrected JEOL3100R05 was used to perform transmission electron microscopy (TEM) and scanning TEM (STEM) characterizations. Elastic modulus and hardness of the nanocomposite were measured from nanoindentation tests conducted using Hysitron TI 950 Triboindenter. Diamond Berkovich tip was used to make 150 nm deep indentations to get an average measurement.\nHysitron PI 85 SEM Picoindenter was used to conduct in situ nanopillar compression tests. Diamond flat-punch indenters were used in displacement control mode tomaintain a fixed strain rate of 2 10 3/s. Focused ion beam (FIB) in FEI Helios Nanolab DualBeam SEM was used to prepare nanopillar and TEM foils. The beam current used for the final step of sample preparation was chosen at 50 pA to minimize ion beam damage. The as-fabricated cylindrical nanopillars have diameters of 450 nm and heights of 1 mm, which is the thickness of the deposited thin film. Due to the Gaussian profile of the ions in the FIB and re-deposition effect, the nanopillars have inevitable taper angles of ~2.2 . Four pillars were tested to provide an average stress-strain curve."
+    }, {
+      "heading" : "2.2. Computational methods",
+      "text" : "The LAMMPS software package developed by Steve Plimpton [39] was used to carry out all the molecular dynamics simulations. The EAM (Embedded Atom Method) potential developed by Gong et al. was used to model the atomic interaction in the coppermolybdenum system [32,40]. This potential was developed based on ab initio calculations that were performed to predict the structures, lattice constants, and cohesive energies of the metastable Cu75Mo25, Cu50Mo50, and Cu25Mo75 phases, as well as the elastic behavior of pure Cu andMo phases. The predicted structures and lattice constants are in good agreement with the data reported in the literature.\nIn addition, we computed the generalized stacking fault energies for both pure FCC copper and pure BCC molybdenum phases. For copper, we obtained stable and unstable stacking fault energies of 0.120 J/m2 and 0.040 J/m2 respectively. These values are in good agreement with the ab initio calculations reported by Brandl et al. of 0.164 J/m2 and 0.038 J/m2 [41]. For molybdenum, the generalized unstable stacking fault energy predicted by the potential is 1.18 J/ m2. This value is in reasonable agreement with the ab initio result of 1.7 J/m2 reported by Park et al. [42]. We conclude that this potential is adequate to study trends in mechanical behavior of both phases in the composites.\nIn order to generate a bicontinuous structure similar to the experimental sample, we employed a phase field scheme based on the Cahn-Hilliard formalism to create an interconnected two phase structure. Even though the Cahn-Hilliard formalism applies to spinodal decomposition, this technique has been shown to mimic the structure of nanoporous gold lattices [38,43]. In the present work, a random 50/50 bicontinuous phase field was generated, and served as our general morphology, seen in Fig. 1. The structure is periodic on all sides. The technique is adequate for mimicking the randomly modulating, continuous phases of the deposited CueMo lattice. The comparison of the simulation sample with the experiments is shown in Fig. 1.\nOnce created, the base morphology was rescaled to have box dimensions corresponding to average internal ligament diameters of 9 nm, 12 nm and 15 nm. The samples were cubic with dimensions of 65.0 nm, 86.6 nm, and 108.3 nm, respectively. Average ligament diameter was determined using the AQUAMI code developed by Joshua Stuckner [44]. While only the largest of these samples was observed to have ligament diameters comparable to those observed experimentally, the feature size for the experimental samples is by no means uniform for a particular morphology, and by creating three otherwise identical samples with the only significant difference being their feature size, we were able to observe how macro-scale mechanical properties such as yield stress and dislocation density changed with feature size.\nThe individual phases were populated with atoms in the FCC and BCC structures, with lattice parameters 3.61 Å and 3.15 Å respectively, corresponding to the lattice parameters for copper\nand molybdenum. The orientation relationship of these two phases was a Kurdjumov-Sachs (KeS) orientation relationship [37,45]. This orientation relationship was chosen to match the experimental samples (see the results section). The three samples were deformed uniaxially in in compression using the NPT ensemble up to 30% strain. Under these conditions, the trans-axial sides were allowed to expand to account for the elastic and plastic Poisson effect.\nEach sample was relaxed and deformed using a Noose-Hoover thermostat and barostat, and equilibrated at 300 K for approximately 2 ns. After equilibration, each sample was deformed in compression at a rate of (3 108) s 1 up to 30% strain. It should be noted that even though the simulations achieved the same length scale as the experiments, the strain rates in themolecular dynamics study are much faster than in the experiments.\nThe deformation was strain-controlled with the stress and energy levels of all atoms on the interior and surfaces monitored as the deformation proceeded. Selected snapshots were obtained by quenching the samples from 300 K to 10 K in 0.01 ns in order to eliminate thermal vibrations and study the local distribution of stresses. Visualization of defects was performed using OVITO [38], which included the analysis of dislocations by the DXA dislocation extraction formalism [38] and analysis of volume and surface area relationships via the surface mesh formalism [44,46]."
+    }, {
+      "heading" : "3. Results",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Experimental characterization",
+      "text" : "Fig. 1a shows a STEM image of the as-deposited sample. Cu phases present darker contrast due to its lower atomic weight. Bicontinuous intertwined structure can be observed in both images with an average ligament size of ~15 nm. The inset is a selected area diffraction pattern (SADP) of the region. Diffraction spots from FCC Cu and BCC Mo can be observed. A 3-dimensional reconstruction of the structure based on the two images can be found in Fig. 1b. Fig. 2b shows an atomic image at the Cu/Mo interface. A Kurdjumov-Sachs (KS) orientation relationship can be traced, where Cu (111)FCC//Mo(110)BCC and Cu [101]FCC//Mo [111]BCC."
+    }, {
+      "heading" : "3.2. Interface structure and energy",
+      "text" : "In both experimental and simulated samples, the orientation relationship between the BCC and FCC phases is the KurdjumovSachs relationship. Experimental TEM analysis demonstrated this was the dominant preferred orientation relationship in the samples after self-organization. In the simulated samples we studied the structure and energy of the interface in detail. Prior to sample\ndeformation, we relaxed the computational sample using the NPT ensemble at 300 K for 2ns. A detailed view of the interface structure both experimentally and computationally is shown in Fig. 3. After relaxation, we isolated the interface atoms by selecting atoms in the lattice with nearest neighbors of a different type within a 0.3 nm radius. The interface region contained 53% copper, and 47% molybdenum, similar to the overall composition of the composite.\nIn order to estimate the interface energy, we first calculated the total interface area for all three samples, and quenched samples to 10 K, getting the total energy from the LAMMPS output file. We also calculated the average energy of perfect lattice molybdenum BCC atoms and copper FCC atoms at 10 K. This was done by separate relaxation of the perfect lattices at 10 K using exactly the same conditions as used in the composite. We found average per atom energy of the copper to be 3.5142 eV per atom, and 6.8102 eV per atom for the molybdenum. Using these numbers, the interface area and the total number of atoms of each type in our sample, the interface energy can be calculated as follows:\nEInterface ¼ ðEtotal EperfectÞ ðInterface AreaÞ (1)\nThe resulting interface energies are given in Table 1 for the three ligament sizes studied.\nThese values can be compared to ab initio calculations of similar systems available in the literature with KeS interface orientations. For the CueNb system interface energies are reported to be between 0.580 J/m2 and 1.07 J/m2 [37,47,48]. For the NieCr System, interface energies were calculated to be 0.67 J/m2 [49]. For the\nAgeFe System, interface energies were calculated to be 1.13 J/m2 [50]. In the study by Beyerlein et al. for CueNb interfaces, it was found that interface energy increased by 50% when steps and curvature were introduced [47]. So, while these reported interfacial energies for planar interfaces are somewhat lower than our calculated value of approximately 1.3 J/m2, this can be due to the steps and curvature of our interface. Considering this, our value of 1.3 J/m2 is reasonable when compared to similar KeS interface systems.\nFaceting is prevalent in both experimental and simulated samples, as shown in Fig. 2b and c and 3. The preference is for BCC <110> and <111> faceting. The energy distribution of the atoms in the simulated interface is shown in Fig. 4, separately for the Cu and Mo atoms. These data show the structure and energy distribution for atoms in the interface for the relaxed sample immediately prior to deformation. The energy profile for copper and molybdenum atom types are noticeably different. The copper atoms in the interface do not show specific peaks in the energy distribution, whereas the Mo atoms clearly do. The peaks in the energy distribution correlate with atoms in specific facets of the interface, described in Fig. 4. This suggests that the observed faceting is driven by the energetics of the Mo atoms in the interface. Prior to any applied deformation, the copper lattice conforms to the structure dictated by the molybdenum. This lattice strain accommodates the difference in atomic sizes between the two component species. The KeS orientation relationship relaxed in this way is still advantageous even in cases where the two atomic sizes do not match, such as in the present case or the Cu/Nb system [30].\nIt is important to note that during relaxation, some dislocations are nucleated in the copper phase, even without any applied deformation. Dislocation measurements and their role in mechanical properties will be discussed in section 3.5."
+    }, {
+      "heading" : "3.3. Experimental mechanical testing",
+      "text" : "The elastic modulus of the random concentration modulation composite was measured from nanoindentation tests performed using a Hysitron TI950 Triboindenter with a diamond Berkovich tip. A total of 25 indents were made at displace control mode with depth of 150 nm. From the linear portion of the unloading curve, the elastic unloading stiffness can be calculated as S¼ dP/dh.\nCoupled with the geometry of the tip, the effective modulus Eeff can then be derived and provided by the Triboindenter software. The derivation of Eeff is defined as follows:\n1 Eeff ¼ 1 v 2 E þ 1 v 2 i Ei (2)\nwhere E and v are the elastic and Poisson's ratio of the sample respectively, and the subscript i denoted the indenter, which is diamond. Using the measured Eeff¼ 188± 14 GPa, v¼ 0.3, Ei¼ 1140 and vi ¼ 0.07 (given by Hysitron), the elastic modulus of the nanocomposite was calculated as 204 ± 18 GPa. Using rule of mixtures, the average bulk modulus of Cu and Mo is ½ (130 þ 330) ¼ 230 GPa. The slight difference might come from the surface roughness of the thin film nanocomposite, measured at 39 nm. The nanoindentation test also gives hardiness value (H) ¼ 7.35 ± 1.50 GPa. Using H¼Ksy with K¼ 3, the yield strength, sy, of the nanocomposite was estimated to be 2.45 GPa.\nNanopillar compression tests were also conducted to measure the stress-strain response of the nanocomposite. The average true stress strain curve obtained from four pillar tests is shown in Fig. 5.\nAt 0.2% offset, the yield stress is measured as 2.2± 0.2 GPa, in agreement with the estimation from the nanoindentation results. Due to the compliance of the in situ apparatus, the linear portion of the stress strain curve does not represent the true elastic modulus of the nano-composite. The peak flow stress is 2.4± 0.3 GPa, followed by a near-flat stress curve above 2.2 GPa till the end of the test at 35% compression, which implies a stable deformation without localized shear band formation."
+    }, {
+      "heading" : "3.4. Simulated stress strain curves and analysis",
+      "text" : "From the simulations in the strain controlled virtual compressive testing, we obtain the total yield stress in the compressed direction, which is 2.49 GPa for the 9 nm sample, 2.51 GPa for the 12 nm sample, and 2.53 GPa for the 15 nm sample. The results are shown in Fig. 6a for the three ligament sizes studied. The results for the elastic modulus are 171.2 GPa for the 9 nm composite, 174.7 GPa for the 12 nm composite, and 178.2 GPa for the 15 nm composite, increasing slightly with increasing ligament diameter and decreasing interfacial area to total volume ratio. These results indicate that ligament diameter on this scale and for these\nith the same ligament diameter, and an image of how the 15 nm experimental sample\nparticular morphologies has a small, nearly inconsequential effect on elastic response. For comparison, we calculated the elastic moduli for pure Cu and pure Mo blocks in the same orientations as in the nanocomposite by creating differently oriented blocks of pure Copper and Molybdenum that were identical in their orientation to the simulated bicontinuous composite e that is, copper deformed in the [110] direction, and molybdenum deformed in the [111] direction. The values were 133 and 281 GPa respectively, meaning that the average expected elastic modulus for the 50/50 composite is about 200 GPa. To test the validity of these values from a theoretical standpoint, we took the three tensor components (C11, C12, C44) for copper andmolybdenum from the paper describing the interatomic potential we used [40] and assumed strictly uniaxial compression. Calculating the full compliance tensors for both elements, we transformed both with a series of direction cosine matrices, as given by the equation below, so that finding the elastic modulus in a particular direction would be as simple as adding a single row of values.\nC 0 ijkl ¼ aimajnakoalpCmnop (3)\nwhere Cmnop is the original tensor, with C1111 representing uniaxial component for the {100} direction. The aim, ajn, ako, aip, are direction cosine matrices. We calculated the elastic modulus of the Copper in the <110> direction to be 126.5 GPa, and the elastic modulus of the Molybdenum in the <111> direction to be 303.2 GPa, demonstrating relatively good agreement between the simulated and theoretical results. Our simulation results for the elastic modulus, when averaged agreewell with the experimental value obtained for the nanocomposite of 204± 18 GPa. It is important to note that Cu and Mo are elastically anisotropic, and so these 2 moduli values (and thus their average) differ considerably from the polycrystalline Cu and Mo measurements.\nThe dependence of the maximum stress on the ligament size is shown in Fig. 6b. The smaller ligaments show slightly higher maximum stresses. This is consistent with thewell-known “smaller is stronger” effect. Fig. 6b also shows the yield strength values as a function of ligament size; they are 2.49 GPa for the 9 nm sample, 2.51 GPa for the 12 nm sample, and 2.53 GPa for the 15 nm sample. This dependence, like that of the elastic modulus, is weak in the range of ligament sizes studied here. Furthermore, these values are very close the to the experimentally measured values of 2.45 GPa.\nIn order to analyze the separate contributions of the constituent phases in more detail, we studied the individual atom stress tensor. By adding the hydrostatic stress tensor components corresponding to the direction of applied stress on all Cu atoms we were able to generate a stress strain curve only for the Cu component and similarly for the Mo component. The results are shown in Fig. 7,\nshowing the difference in stress evolution by atom type, as a function of strain for each ligament diameter. The overall stress of the composite is intermediate between those corresponding to the two phases. Our results indicate that about 70% of the load is taken by the Mo BCC phase, up to plastic yield in Mo. The results show, as expected, that copper yields earlier than molybdenum.\nThe observed ratio of load carried by the separate phases in the sample up to onset of plasticity in the whole composite at approximately 0.03 strain ((s(Mo)/s(Cu))¼ 2.24, averaged for all 3 samples) was found to be roughly equivalent to the ratio of directionally-dependent elastic moduli calculated form the elastic constants for our samples ((E(Mo)/E(Cu))¼ 2.12). It would be interesting to see if this is a fundamental relation for other materials with similar morphologies.\nThe observations from Fig. 7 imply that the deformation of the composite can be broken up into stages, defined by the yield of the separated components. In stage I, from the start of the deformation, both components deform elastically. In stage II, the copper yields and deforms plastically, while the molybdenum deforms elastically. In stage III, both components deform plastically. From our simulations (see section 3.5, and calculations on elastic vs. plastic strain in both lattices), we were able to pinpoint stress/strain values where first the copper yields (stage I to stage II) and the molybdenum yields (stage II to stage III). This was confirmed using the 0.2% line test. For stage II, the “origin” was taken to be the stress and strain coordinates for the end of stage I. The values for these stage transition points are given in Table 2. Interestingly, there seems to be no feature size dependence for the transition from stages I to II, and only a slight dependence going from stage II to stage III.\nStrain hardening rates and exponents for the Cu phase were calculated for stage II, and are reported in Table 3. These results also show a small feature size dependence."
+    }, {
+      "heading" : "3.5. Plastic deformation mechanisms",
+      "text" : "Dislocations nucleating from the interface are the main mechanism of plastic deformation for both FCC copper and BCC molybdenum phases. The nucleation process is depicted in Fig. 8. The dislocations in the copper phase were identified to be Shockley partials that create stacking faults in the Cu lattice. While trailing partials are seen to come out in some cases, they often occur later in the deformation, leaving a stacking fault behind for much of the deformation. Trailing partials often emerge at about 0.03 additional strain after nucleation of the leading partial. Due to entanglement and the interaction with other stacking faults, they often do not completely eliminate the stacking faults created by the leading partials. These dislocations travel through the Cu up to the\nneighboring interface, and are not transmitted to the Mo. As more dislocations are emitted from the interface into the Cu FCC phase, the stacking faults created can be quantified using common neighbor analysis to identify atoms with hcp-like environments. Fig. 9a shows that as deformation proceeds, the fraction of hcp-like Cu atoms increases greatly. As mentioned, these stacking faults can remain in the lattice for much of the deformation run, and act as barriers to other dislocations passing through from other directions, causing entanglement, and buildup of stress. A copper ligament with stacking fault formation at 4% strain and 6% strain are shown in Figure s 9b and 9c.\nAs Fig. 9 demonstrates, the stacking faults left behind by leading Shockley partial dislocations hinder dislocations moving in other directions, leading to the near majority hcp phase change with increasing strain. The large degree of dislocation entanglement and blocking by the stacking fault planes leads to a distinct strain hardening effect, as mentioned in section 3.4, which is why when the stress profiles are separated and observed together (Fig. 7) the copper carries more or the same stress after plasticity, when the stress carried by the molybdenum decreases.\nResidual dislocation density results are shown in Fig. 10a. It is important to note that the higher density in the copper phase is due to dislocation entanglement and blocking by stacking faults in nonparallel planes, as mentioned earlier (10b). In fact, dislocation activity is the primary mode of deformation for both phases. The residual dislocation densities are much lower in the Mo phase because the 1/2<111> type dislocations do not leave stacking faults in the BCC structure (10c). Propagation of dislocations across the ligament can proceed unhindered by interaction with other faults. As expected from the differences in the lattice structure and Burgers vector, no dislocations were observed being transmitted from the copper to the molybdenum phase, or vice versa.\nWe also analyzed the residual elastic strain state of the sample as it underwent deformation. We calculated elastic strain along the direction of deformation at each step in the straining process for the two phases separately. To obtain the total elastic strain, we simply added these values. The results are shown in Fig. 11a. The ratio of the residual elastic strain found in the two phases is consistent with the ratio of their individual elastic moduli, up to yielding. At the final step of applied 0.3 strain, the total residual elastic strain was 0.0233, meaning that the total plastic strain should be closer to 0.277. To confirm this value, we unloaded the sample from the final deformation step, and found the total strain after relaxation to be 0.2761, a difference from the total strain of 0.0239 (Fig. 11b). The unloading slope was 170.2 GPa, in agreement with the elastic modulus obtained during loading.\nTo confirm that the measured elastic strain curves matched the\nite.\nonset of plasticity, we looked at the detailed stress/strain curves of the 9 nm sample during the initial loading steps. It was found that the curve was in fact linear up to a strain of 0.245, and then approximately linear again up to a strain of 0.052, agreeingwith the values obtained from the elastic strain curves.\nAs a final portion of our analysis, we looked at the atom-byatom non-uniform displacement, defined as the atomic displacements minus the uniform deformation of the lattice. The average non-uniform displacement at the end of the compressive run was found to be 1.58 nm for the BCC phase, and 1.42 nm for the FCC phase for the 9 nm ligament diameter sample. In the BCC phase, displacement gradients are gradual, and dislocation paths can be seen in the displacement map. Dislocations glide freely from one interface to another within the ligament. In the FCC phase, dislocations tangle and encounter stacking faults, causing them to change direction, or be stopped in the interior of the ligaments. Importantly, any shear bands that may try to form in the lattice under strain are arrested by the interface, and the complex morphology ensures that any observed shearing behavior is kept as ligament-by-ligament phenomena localized to the ligament on which they occur, and uncoordinated with other shear events in other ligaments. In other words, no sample-wide shear banding is observed. In fact both parts of the lattice deform together, with total atomic non-uniform displacements rarely going above 3 nm, even after a 30% compressive deformation, with the overall morphology of the sample not being compromised. This is shown in Fig. 12."
+    }, {
+      "heading" : "4. Discussion",
+      "text" : ""
+    }, {
+      "heading" : "4.1. High strength of the bicontinuous nano-composite",
+      "text" : "Exceptional high yield strength around 2.5 GPawas measured in the bicontinuous CueMo nano-composite, from both of our experiment and simulation, which is comparable to the 2.8 GPa measured in 3 nm Cu/Mo multilayers [46]. Previous studies on multilayer structures show that at 15 nm length scale, confined layer slip (CLS) accounts for the major deformation mechanism [20,21]. Using the CLS model, the applied shear stress to propagate a glide loop, tcls, can be calculated as\ntcls ¼ mb 8ph ð4 n 1 nÞ½ln ah b (4)\nwhere m is the shear modulus, b is the length of the Burgers vector, h is the individual layer thickness, v is the Poisson's ratio and a represents the dislocation core cutoff parameter [21]. Low value of a would imply a wide dislocation core. Substituting m ¼ 48 GPa, b¼ 0.147 nm, (as calculated for 1/6<112> vectors with lattice parameter 0.361 nm) v¼ 0.35 for Cu and using a¼ 1 for compact core, tcls can be calculated as 0.69 GPa for hCu¼ 15 nm \\ The normal\nyield strength scls can be estimated as tcls multiplied by a Taylor factor of 3.1, which equals 1.42 GPa. Repeating this calculation for both the copper and molybdenum components, and the three feature sizes, we obtain yield values predicted by the CLS model given in Table 4. For Mo we used m ¼ 120 GPa, b¼ 0.273 nm and v¼ 0.32.\nThe average of the predicted yield for the copper phase across the three feature sizes is nearly identical to the averages from both the experimental and computational stress/strain curves in Figs. 5 and 6, but there is larger variation in the values predicted by the CSL model. The lack of variation in the bicontinuous simulations may be related to the effects of the highly ordered interface. The bicontinuous simulations certainly give values that are consistent with the CSL model, with a weaker dependence on feature sizes.\nAs shown in Fig. 10a, after yielding, the residual dislocation density in Cu phase increases drastically while there are only modest dislocation activities in Mo. This is expected as Mo has higher yield strength compared to Cu. When Cu starts to yield, as indicated in Fig. 11, Mo is still deforming elastically. A situation of mechanical incompatibility between the constituent phases of the composite is created. Because of the constraint from the Mo phase, Cu cannot plastically deform freely. Strain gradient would then be generated near the Cu/Mo interface. Geometrically necessary dislocations need be generated in Cu to accommodate this strain gradient, making Cu appear stronger. As a result, a synergetic strengthening of the intertwined phases takes place and increases the overall yield strength of the nanocomposite. The large disparity of residual dislocation density in Fig. 10a evidences the above discussed strain partitioning in Cu and Mo. The entanglement of dislocations in Cu can be shown in Fig. 9bec, providing support to the strain hardening in Cu."
+    }, {
+      "heading" : "4.2. Co-deformation of Cu and Mo",
+      "text" : "During the compression test, deformation of the bicontinuous nano-composite can be generally divided into three stages. In stage I, both Cu and Mo deform elastically, up to 0.03 strain. As shown in Fig. 11a, the strain values in Cu and Mo are the same during this stage. The whole composite deforms in a same way as a monolithic material, only that the two phases are sharing load according to their elastic modulus. As indicated in Fig. 7, ratio of the load in the two phases (s(Mo)/s(Cu)) is 2.24, close to the ratio of directional elastic moduli of the phases at 2.12.\nIn stage II at a strain of approximately 0.023, Cu starts to deform plastically, through dislocation nucleation from the interface, while Mo is still in the elastic regime. As our simulation indicates, the dislocations in Cu are Shockley partials, which travel through the Cu ligament and stop at the interface, leaving a stacking fault. As discussed earlier, Mo phase is containing the deformation of Cu during this stage, lead to the generation of geometrically necessary\nter for both the Cu and the Mo respectively; total elastic strain is simply the two curves total elastic strain, and loading slope roughly equivalent to measured elastic modulus.\ndislocations in Cu. As the deformation further proceeds, in stage III at a strain of around 0.05, both phases deform plastically, with generation of dislocations in the Mo phase. Due to strain partitioning, drastic dislocation activities can be observed in the Cu phase. As shown in Fig. 11a from the MD simulations, elastic strain is even partially relieved in Cu. Although there is a great difference in the residual dislocation activity in the two phases, after the compression test is completed at 0.3 strain, no void was observed in the sample from both the experimental and simulation results. Due to the intertwined morphology, the harder to deform Mo phase geometrically controls the deformation of the global nanocomposite. Consequently, the two phases would co-deform in a synergistically way.\nIn the experimental samples, identifying a clear transition from both elastic to copper plastic/molybdenum elastic to both plastic (see stage discussion in section 3.4) is difficult, since the experimental results are not separated by phases. However, there is\ngeneral very good agreement in the overall stress/strain curves obtained from the simulations and the experiment. This is despite the high strain rate that is necessary in the simulations."
+    }, {
+      "heading" : "4.3. Improved deformability of the bicontinuous nano-composite",
+      "text" : "Apart from the high strength, the bicontinuous intertwined morphology in metallic nano-composites provides advantage of good plastic deformability over previously studied anisotropic structures such as nanolaminates. No shear band formation was observed after over 30% compression (experimentally as well as in simulations). Many factors contribute to this improved plasticity. First of all, the CueMo interface acts as a strong barrier to dislocations. Dislocation slip in Cu would not cross the interface and enter the Mo phase, and vice versa. Therefore, there is little probability for a single slip event to transmit through the whole sample and lead to strain localization. As shown in Fig. 12, discrete regions where a number of dislocations have passed through can be observed inMo phase. These regions can be between 2 and 5 lattice parameters wide, and span the width of a ligament. These are only seen in the molybdenum part of the lattice, and create discreet segments of the lattice that are more highly deformed than the lattice around them. However, as the slip is not continuous across the interface, this effect is not observed in Cu. As a result, shear band across multiple ligaments are not generated. Another factor is the large disparity in the mechanical properties of Cu and Mo, especially elastic modulus and yield strength. This is the reason the strain gradient is created and promotes high strain hardening, as described in section 3.4, and Table 3. An analogy can be drawn between our system to a heterogeneous materials, exampled by dual phase steels, which have been shown to have extraordinary work hardening and high ductility [52]. Last and probably most important factor is the bicontinuous intertwined morphology, which provides geometric constraint between the two phases. Further, the abundance of interface dislocation sources and their tortuous shape providemultiple sites for dislocation nucleation and arrestment. This promotes the wide spread of dislocation activities in Cu and less probability of shear band propagation."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "From both experimental and simulation results, it has been shown that a CueMo nano-composite with bicontinuous intertwined morphology possess simultaneous high strength and uniform deformability. Based on MD simulations, a large disparity in dislocation density was observed in the Cu and Mo phases after yielding. Strain partitioning and high strain hardening rate due to the mechanical incompatibility of the two phases explains the remarkable mechanical behavior of the nanocomposite. We conclude that a composite with nanoscale bicontinuous morphology and composed of two metals with disparate mechanical behavior in the monolithic form and containing bimetallic interfaces that are strong barriers to dislocation glide will exhibit high strength and plastic co-deformability."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "This work was supported by the National Science Foundation, DMREF program, grant numbers 1533969 and 1533557. The authors acknowledge discussion with M.J. Demkowicz, as well as assistance from B. Derby in sputter deposition and from Sean Corcoran with the structure generation and tensor calculations."
+    } ],
+    "references" : [ {
+      "title" : "Mechanical behavior of nanocomposites",
+      "author" : [ "M.J. Buehler", "A. Misra" ],
+      "venue" : "MRS Bull. 44 (1) ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Strength and plasticity of nanolaminated materials",
+      "author" : [ "J. Wang", "Q. Zhou", "S. Shao", "A. Misra" ],
+      "venue" : "Mater. Res. Lett. 5 (1) ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Fracture behavior and adhesion energy of nanostructured Cu/Mo multilayer films",
+      "author" : [ "K. Wu", "J.Y. Zhang", "P. Zhang", "Y.Q. Wang", "G. Liu", "G.J. Zhang", "J. Sun" ],
+      "venue" : "Mater. Sci. Eng. A 613 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Defect-interface interactions",
+      "author" : [ "I.J. Beyerlein", "M.J. Demkowicz", "A. Misra", "B.P. Uberuaga" ],
+      "venue" : "Prog. Mater. Sci. 74 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Tensile deformation and fracture mechanisms of Cu/Nb nanolaminates studied by in situ TEM mechanical tests",
+      "author" : [ "Z. Liu", "M.A. Monclús", "L.W. Yang", "M. Castillo-Rodríguez", "J.M. Molina-Aldareguía", "J. Llorca" ],
+      "venue" : "Extrem. Mech. Lett. 25 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "High-strength and thermally stable bulk nanolayered composites due to twininduced interfaces",
+      "author" : [ "S. Zheng", "I.J. Beyerlein", "J.S. Carpenter", "K. Kang", "J. Wang", "W. Han", "N.A. Mara" ],
+      "venue" : "Nat. Commun. 4 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Bulk texture evolution of CueNb nanolamellar composites during accumulative roll bonding",
+      "author" : [ "J.S. Carpenter", "S.C. Vogel", "J.E. LeDonne", "D.L. Hammon", "I.J. Beyerlein", "N.A. Mara" ],
+      "venue" : "Acta Mater. 60 (4) ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Comparison of size dependent strengthening mechanisms in Ag/Fe and Ag/Ni multilayers",
+      "author" : [ "J. Li", "Y. Chen", "S. Xue", "H. Wang", "X. Zhang" ],
+      "venue" : "Acta Mater. 114 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Overview on micro- and nanomechanical testing: new insights in interface plasticity and fracture at small length scales",
+      "author" : [ "G. Dehm", "B.N. Jaya", "R. Raghavan", "C. Kirchlechner" ],
+      "venue" : "Acta Mater. 142 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Thermal stability of immiscible sputter-deposited Cu-Mo thin films",
+      "author" : [ "I. Souli", "G.C. Gruber", "V.L. Terziyska", "J. Zechner", "C. Mitterer" ],
+      "venue" : "J. Alloy. Comp. 783 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "The evolution of hardness in Cu-W alloy thin films",
+      "author" : [ "T. Xie", "J. Zhu", "L. Fu", "R. Zhang", "N. Li", "M. Yang", "J. Wang", "W. Qin", "W. Yang", "D. Li", "L. Zhou" ],
+      "venue" : "Mater. Sci. Eng. A 729 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Averback, Wear resistance of Cu/Ag multilayers: a microscopic study",
+      "author" : [ "M.R", "R.S.P. Bellon" ],
+      "venue" : "ACS Appl. Mater. Interfaces",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2018
+    }, {
+      "title" : "Molecular dynamics simulations of mechanical behavior in nanoscale ceramicemetallic multilayer composites",
+      "author" : [ "M. Damadam", "S. Shao", "I. Salehinia", "G. Ayoub", "H.M. Zbib" ],
+      "venue" : "Mater. Res. Lett. 5 (5) ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Strengthening effects of twin interface in Cu/Ni multilayer thin films e a molecular dynamics study",
+      "author" : [ "S. Weng", "H. Ning", "N. Hu", "C. Yan", "T. Fu", "X. Peng", "S. Fu", "J. Zhang", "C. Xu", "D. Sun", "Y. Liu", "L. Wu" ],
+      "venue" : "Mater. Des. 111 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An indentation-based method to determine constituent strengths within nanolayered composites",
+      "author" : [ "M.D. Gram", "J.S. Carpenter", "P.M. Anderson" ],
+      "venue" : "Acta Mater. 92 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Investigating fracture of nanoscale metaleceramic multilayers in the transmission electron microscope",
+      "author" : [ "A. Kelling", "K.R. Mangipudi", "I. Knorr", "T. Liese", "H.-U. Krebs", "C.A. Volkert" ],
+      "venue" : "Scr. Mater. 115 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Mechanical properties of metal-ceramic nanolaminates: effect of constraint and temperature",
+      "author" : [ "L.W. Yang", "C. Mayer", "N. Li", "J.K. Baldwin", "N.A. Mara", "N. Chawla", "J.M. Molina- Aldareguia", "J. Llorca" ],
+      "venue" : "Acta Mater. 142 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "S",
+      "author" : [ "C.X. Huang", "Y.F. Wang", "X.L. Ma" ],
+      "venue" : "Yin, H.W. H€  oppel, M. G€  oken, X.L. Wu, H.J. Gao, Y.T. Zhu, Interface affected zone for optimal strength and ductility in heterogeneous laminate, Mater. Today 21 (7) ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Slip transmission across fcc/bcc interfaces with varying interface shear strengths",
+      "author" : [ "J. Wang", "A. Misra", "R.G. Hoagland", "J.P. Hirth" ],
+      "venue" : "Acta Mater. 60 (4) ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Structure and strength of multilayers",
+      "author" : [ "B.M. Clemens", "H. Kung", "S.A. Barnett" ],
+      "venue" : "MRS Bull. 24 (2) ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Length-scale-dependent deformation mechanisms in incoherent metallic multilayered composites",
+      "author" : [ "A. Misra", "J.P. Hirth", "R.G. Hoagland" ],
+      "venue" : "Acta Mater. 53 (18) ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Effects of substrate temperature and deposition rate on the phase separated morphology of co-sputtered",
+      "author" : [ "B. Derby", "Y. Cui", "J.K. Baldwin", "A. Misra" ],
+      "venue" : "Cu-Mo thin films, Thin Solid Films 647 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "From solid solutions to fully phase separated interpenetrating networks in sputter deposited “immiscible” WeCu thin  films",
+      "author" : [ "F.T.N. Vüllers", "R. Spolenak" ],
+      "venue" : "Acta Mater. 99 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Nanoscale Cu/Ta multilayer deposition by co-sputtering on a rotating substrate",
+      "author" : [ "C.M. Müller", "A.S. Sologubenko", "S.S.A. Gerstl", "M.J. Süess", "D. Courty", "R. Spolenak" ],
+      "venue" : "Empirical model and experiment, Surf. Coat. Technol. 302 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "The asdeposited structure of co-sputtered CueTa alloys",
+      "author" : [ "C.M. Müller", "S. Parviainen", "F. Djurabekova", "K. Nordlund", "R. Spolenak" ],
+      "venue" : "studied by X-ray diffraction and molecular dynamics simulations, Acta Mater. 82 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Design of bicontinuous metallic nanocomposites for high-strength and plasticity",
+      "author" : [ "Y. Cui", "B. Derby", "N. Li", "A. Misra" ],
+      "venue" : "Mater. Des. 166 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Suppression of shear banding in high-strength Cu/Mo nanocomposites with hierarchical bicontinuous intertwined structures",
+      "author" : [ "Y.C. Cui", "B. Derby", "N. Li", "N.A. Mara", "A. Misra" ],
+      "venue" : "Mater. Res. Lett. 6 (3) ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Atomistic simulations of plasticity in heterogeneous nanocrystalline Ni lamella",
+      "author" : [ "S. Huang", "J. Wang", "N. Li", "J. Zhang", "C. Zhou" ],
+      "venue" : "Comput. Mater. Sci. 141 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Atomistic modeling of the interaction of glide dislocations with \"weak\" interfaces",
+      "author" : [ "J. Wang", "R.G. Hoagland", "J.P. Hirth", "A. Misra" ],
+      "venue" : "Acta Mater. 56 (19) ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Stability and amorphization of Cu-Nb interfaces during severe plastic deformation: molecular dynamics simulations of simple shear",
+      "author" : [ "J. Zhou", "R.S. Averback", "P. Bellon" ],
+      "venue" : "Acta Mater. 73 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Recent advances in modeling of interfaces and mechanical behavior of multilayer metallic/ceramic composites",
+      "author" : [ "M. Damadam", "S. Shao", "G. Ayoub", "H.M. Zbib" ],
+      "venue" : "J. Mater. Sci. 53 (8) ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Mechanical behavior of Cu-W interface systems upon tensile loading from molecular dynamics simulations",
+      "author" : [ "G.C. Ma", "J.L. Fan", "H.R. Gong" ],
+      "venue" : "Comput. Mater. Sci. 152 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "First-principles calculations of bulk and interfacial thermodynamic properties for fcc-based Al-Sc alloys",
+      "author" : [ "M. Asta", "S.M. Foiles", "A.A. Quong" ],
+      "venue" : "Phys. Rev. B 57 (18) ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "Role of nanoscale Cu/Ta interfaces on the shock compression and spall failure of nanocrystalline Cu/Ta systems at the atomic scales",
+      "author" : [ "J. Chen", "M.A. Tschopp", "A.M. Dongare" ],
+      "venue" : "J. Mater. Sci. 53 (8) ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Sample-size-dependent surface dislocation nucleation in nanoscale crystals",
+      "author" : [ "Q.-J. Li", "B. Xu", "S. Hara", "J. Li", "E. Ma" ],
+      "venue" : "Acta Mater. 145 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "The influence of lattice misfit on the atomic structures and defect energetics of face centered cubic-body centered cubic interfaces",
+      "author" : [ "X.Y. Liu", "R.G. Hoagland", "M.J. Demkowicz", "M. Nastasi", "A. Misra" ],
+      "venue" : "J. Mater. Eng. Technol. Trans. ASME 134 (2) ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Atomic structure variations of mechanically stable fcc-bcc interfaces",
+      "author" : [ "K. Kang", "J. Wang", "I.J. Beyerlein" ],
+      "venue" : "J. Appl. Phys. 111 (5) ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Fast parallel algorithms for short-range molecular dynamics",
+      "author" : [ "S. Plimpton" ],
+      "venue" : "J. Comput. Phys. 117 (1) ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "Metastability of an immiscible Cu-Mo system calculated from first-principles and a derived n-body potential",
+      "author" : [ "H.R. Gong", "L.T. Kong", "B.X. Liu" ],
+      "venue" : "Phys. Rev. B 69 (2) ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "General-stacking-fault energies in highly strained metallic environments: ab initio calculations",
+      "author" : [ "C. Brandl", "P.M. Derlet", "H. Van Swygenhoven" ],
+      "venue" : "Phys. Rev. B 76 (5) ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Ab initio based empirical potential used to study the mechanical properties of molybdenum",
+      "author" : [ "H. Park", "M.R. Fellinger", "T.J. Lenosky", "W.W. Tipton", "D.R. Trinkle", "S.P. Rudin", "C. Woodward", "J.W. Wilkins", "R.G. Hennig" ],
+      "venue" : "Phys. Rev. B 85 (21) ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Deformation mechanisms and scaling relations in the mechanical response of nano-porous Au",
+      "author" : [ "N. Beets", "D. Farkas", "S. Corcoran" ],
+      "venue" : "Acta Mater. 165 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Visualization and analysis of atomistic simulation data with OVITOethe Open Visualization Tool",
+      "author" : [ "A. Stukowski" ],
+      "venue" : "Model. Simul. Mater. Sci. Eng. 18 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Dislocation detection algorithm for atomistic simulations",
+      "author" : [ "S. Alexander", "A. Karsten" ],
+      "venue" : "Model. Simul. Mater. Sci. Eng. 18 (2) ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Computational analysis methods in atomistic modeling of crystals",
+      "author" : [ "A. Stukowski" ],
+      "venue" : "JOM 66 (3) ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Structure-property-functionality of bimetal interfaces",
+      "author" : [ "I.J. Beyerlein", "N.A. Mara", "J. Wang", "J.S. Carpenter", "S.J. Zheng", "W.Z. Han", "R.F. Zhang", "K. Kang", "T. Nizolek", "T.M. Pollock" ],
+      "venue" : "JOM (J. Occup. Med.) 64 (10) ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Structure of Kurdjumov-Sachs interfaces in simulations of a copper-niobium bilayer",
+      "author" : [ "M.J. Demkowicz", "R.G. Hoagland" ],
+      "venue" : "J. Nucl. Mater. 372 (1) ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Magnetic effect on the interfacial energy of the Ni(111)/Cr(110) interface",
+      "author" : [ "S. Lu", "H.L. Zhang", "Q.M. Hu", "M.P.J. Punkkinen", "B. Johansson", "L. Vitos" ],
+      "venue" : "J. Phys. Condens. Matter 26 (35) ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "First-principles study of fcc-Ag/bcc-Fe interfaces",
+      "author" : [ "S. Lu", "Q.M. Hu", "M.P.J. Punkkinen", "B. Johansson", "L. Vitos" ],
+      "venue" : "Phys. Rev. B 87 (22) ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "In standard bulk media, yield strength and plasticity are desirable but conventionally considered mutually exclusive, so there is a pressing interest in novel composite materials that can deform plastically while maintaining high strength [1].",
+      "startOffset" : 239,
+      "endOffset" : 242
+    }, {
+      "referenceID" : 1,
+      "context" : "Metallic nanocomposites have received great attention due to their exceptional properties in this regard [2,3].",
+      "startOffset" : 105,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 2,
+      "context" : "Metallic nanocomposites have received great attention due to their exceptional properties in this regard [2,3].",
+      "startOffset" : 105,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 9,
+      "context" : "The effects of temperature, microstructure, and feature size on mechanical behavior of lamellar composites have also been investigated [10,11].",
+      "startOffset" : 135,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 10,
+      "context" : "The effects of temperature, microstructure, and feature size on mechanical behavior of lamellar composites have also been investigated [10,11].",
+      "startOffset" : 135,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 18,
+      "context" : "strength closer to the theoretical limit, they have very limited deformability [3,8,9,12e18] [19].",
+      "startOffset" : 93,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 19,
+      "context" : "In fact, this has been confirmed experimentally by methods such as introducing nanotwin substructures into the grains, or altering grain size and structure [20,21].",
+      "startOffset" : 156,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 20,
+      "context" : "In fact, this has been confirmed experimentally by methods such as introducing nanotwin substructures into the grains, or altering grain size and structure [20,21].",
+      "startOffset" : 156,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 25,
+      "context" : "This new method generates composites with large completely phase-separated pure Copper/Molybdenum bicontinuous structures with ligaments of a few nm in length scale that possesses very high strength [26,27].",
+      "startOffset" : 199,
+      "endOffset" : 206
+    }, {
+      "referenceID" : 26,
+      "context" : "This new method generates composites with large completely phase-separated pure Copper/Molybdenum bicontinuous structures with ligaments of a few nm in length scale that possesses very high strength [26,27].",
+      "startOffset" : 199,
+      "endOffset" : 206
+    }, {
+      "referenceID" : 26,
+      "context" : "Mechanical tests of the random concentration modulation structure (referred to form now on as the RCM structure) revealed that it maintained a high strength, and excellent deformability, with compression tests on isolated pillars up to 30% strain revealing no shear banding whatsoever [27].",
+      "startOffset" : 285,
+      "endOffset" : 289
+    }, {
+      "referenceID" : 17,
+      "context" : "An understanding of the role of the interface on deformation and mechanical behavior and how this can be applied to other materials generally with immiscible, phase-separated regions will be useful for nano-composite design moving forward [18].",
+      "startOffset" : 239,
+      "endOffset" : 243
+    }, {
+      "referenceID" : 35,
+      "context" : "Especially, atomistic studies have shown that for FCC interfaces, a KurdjumovSachs (KS) orientation can lead to improved mechanical properties [36,37].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 36,
+      "context" : "Especially, atomistic studies have shown that for FCC interfaces, a KurdjumovSachs (KS) orientation can lead to improved mechanical properties [36,37].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 37,
+      "context" : "The LAMMPS software package developed by Steve Plimpton [39] was used to carry out all the molecular dynamics simulations.",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 31,
+      "context" : "was used to model the atomic interaction in the coppermolybdenum system [32,40].",
+      "startOffset" : 72,
+      "endOffset" : 79
+    }, {
+      "referenceID" : 38,
+      "context" : "was used to model the atomic interaction in the coppermolybdenum system [32,40].",
+      "startOffset" : 72,
+      "endOffset" : 79
+    }, {
+      "referenceID" : 41,
+      "context" : "Even though the Cahn-Hilliard formalism applies to spinodal decomposition, this technique has been shown to mimic the structure of nanoporous gold lattices [38,43].",
+      "startOffset" : 156,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 42,
+      "context" : "Average ligament diameter was determined using the AQUAMI code developed by Joshua Stuckner [44].",
+      "startOffset" : 92,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 36,
+      "context" : "The orientation relationship of these two phases was a Kurdjumov-Sachs (KeS) orientation relationship [37,45].",
+      "startOffset" : 102,
+      "endOffset" : 109
+    }, {
+      "referenceID" : 43,
+      "context" : "The orientation relationship of these two phases was a Kurdjumov-Sachs (KeS) orientation relationship [37,45].",
+      "startOffset" : 102,
+      "endOffset" : 109
+    }, {
+      "referenceID" : 42,
+      "context" : "Visualization of defects was performed using OVITO [38], which included the analysis of dislocations by the DXA dislocation extraction formalism [38] and analysis of volume and surface area relationships via the surface mesh formalism [44,46].",
+      "startOffset" : 235,
+      "endOffset" : 242
+    }, {
+      "referenceID" : 44,
+      "context" : "Visualization of defects was performed using OVITO [38], which included the analysis of dislocations by the DXA dislocation extraction formalism [38] and analysis of volume and surface area relationships via the surface mesh formalism [44,46].",
+      "startOffset" : 235,
+      "endOffset" : 242
+    }, {
+      "referenceID" : 45,
+      "context" : "for CueNb interfaces, it was found that interface energy increased by 50% when steps and curvature were introduced [47].",
+      "startOffset" : 115,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 29,
+      "context" : "The KeS orientation relationship relaxed in this way is still advantageous even in cases where the two atomic sizes do not match, such as in the present case or the Cu/Nb system [30].",
+      "startOffset" : 178,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 38,
+      "context" : "To test the validity of these values from a theoretical standpoint, we took the three tensor components (C11, C12, C44) for copper andmolybdenum from the paper describing the interatomic potential we used [40] and assumed strictly uniaxial compression.",
+      "startOffset" : 205,
+      "endOffset" : 209
+    }, {
+      "referenceID" : 44,
+      "context" : "8 GPa measured in 3 nm Cu/Mo multilayers [46].",
+      "startOffset" : 41,
+      "endOffset" : 45
+    }, {
+      "referenceID" : 19,
+      "context" : "Previous studies on multilayer structures show that at 15 nm length scale, confined layer slip (CLS) accounts for the major deformation mechanism [20,21].",
+      "startOffset" : 146,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 20,
+      "context" : "Previous studies on multilayer structures show that at 15 nm length scale, confined layer slip (CLS) accounts for the major deformation mechanism [20,21].",
+      "startOffset" : 146,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 20,
+      "context" : "represents the dislocation core cutoff parameter [21].",
+      "startOffset" : 49,
+      "endOffset" : 53
+    } ],
+    "year" : 2019,
+    "abstractText" : "We present the results of a combined experimental and simulation-based study of the mechanical response of a bicontinuous copper-molybdenum nanocomposite, where high strength and good plastic deformability were observed. The experimental sample, prepared by co-sputtering Cu and Mo, achieved a feature size of around 15 nm. Corresponding digital nanostructures with feature sizes between 9 and 15 nm were generated using a phase field model. Virtual compression testing was performed using molecular dynamics simulation. The resultant mechanical response of these samples was analyzed at the macroscopic and atomistic levels. Strain partitioning was observed, where most of the plastic deformation occurs through dislocations that are emitted from the interface into the FCC Cu phase. The interface also acts as a barrier to dislocation propagation. The nanocomposites exhibit high strain hardening rate and plastic co-deformation in Cu and Mo intertwined phases. No shear banding is observed after 30% compression in both experiment and simulation. The bicontinuous, intertwined morphology of metallic FCC/BCC nanocomposites is effective in producing high yield strengths, high strain hardening rate and uniform distribution of plasticity in the sample volume. © 2019 Published by Elsevier Ltd on behalf of Acta Materialia Inc.",
+    "creator" : "Elsevier"
+  }
+}

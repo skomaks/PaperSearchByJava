@@ -1,0 +1,488 @@
+{
+  "name" : "twin.sci-hub.se_6045_d8436ef11d83638ed10d71c911c1c58b_afrand2016.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "The variations of heat transfer and slip velocity of FMWNT-water nano-fluid along the micro-channel in the lack and presence of a magnetic field",
+    "authors" : [ "Masoud Afrand", "Arash Karimipour", "Afshin Ahmadi Nadooshan", "Mohammad Akbari" ],
+    "emails" : [ "ArashKarimipour@gmail.com" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nPhysica E\nhttp://d 1386-94\nn Corr E-m\njournal homepage: www.elsevier.com/locate/physe\nThe variations of heat transfer and slip velocity of FMWNT-water nano-fluid along the micro-channel in the lack and presence of a magnetic field\nMasoud Afrand a, Arash Karimipour a,n, Afshin Ahmadi Nadooshan b, Mohammad Akbari a\na Department of Mechanical Engineering, Najafabad Branch, Islamic Azad University, Najafabad, Iran b Shahrekord University, Faculty of Engineering, P.O. Box 115, Shahrekord, Iran\nH I G H L I G H T S\nThe effects of Ha, Re, slip coefficient and nano-particles volume fraction were investigated. The stronger magnetic field leaded to less maximum of U at horizontal centerline and greater fluid velocity near the walls. Magnetic field affected severely the slip velocity along the walls of micro-channel.\na r t i c l e i n f o\nArticle history: Received 1 June 2016 Received in revised form 20 June 2016 Accepted 12 July 2016 Available online 16 July 2016\nKeywords: FMWNT-water nano-fluid Magneto hydrodynamics Micro-channel Slip velocity Nusselt number\nx.doi.org/10.1016/j.physe.2016.07.013 77/& 2016 Elsevier B.V. All rights reserved.\nesponding author. ail address: ArashKarimipour@gmail.com (A. K\na b s t r a c t\nSimulation of forced convection of FMWNT-water (functionalized multi-walled carbon nano-tubes) nano-fluid in a micro-channel under a magnetic field in slip flow regime is performed. The microchannel wall is divided into two portions. The micro-channel entrance is insulated while the rest of length of the micro-channel has constant temperature (TC). Moreover, the micro-channel domain is exposed to a magnetic field with constant strength of B0. High temperature nano-fluid (TH) enters the micro-channel and exposed to its cold walls. Slip velocity boundary condition along the walls of the micro-channel is considered. Governing equations are numerically solved using FORTRAN computer code based on the SIMPLE algorithm. Results are presented as the velocity, temperature, and Nusselt number profiles. Greater Reynolds number, Hartmann number, and volume fraction related to more heat transfer rate; however, the effects of Ha and ϕ are more noteworthy at higher Re.\n& 2016 Elsevier B.V. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "In recent decades, study on different methods to enhance the heat transfer of fluids has attracted the attention of researchers. In this way, a new generation of fluids, called nano-fluids, with great potential in industrial application was considered as a result of the distribution of nanoparticles in a common liquid [1–5].\nCommon heat transfer fluids including water, oil and ethylene glycol generally have low thermal conductivity, while solid nanoparticles have high thermal conductivity. Hence, dispersion of nanoparticles in the base fluid can lead to increase its thermal conductivity. Therefore, nano-fluids could be considered an option for improving the heat transfer rate [6–10]. Enhancement of heat transfer coefficient of nano-fluids is subject to many factors. For example, heat transfer coefficient can be increased by changing\narimipour).\nthe flow geometry, boundary conditions or enhancement of thermal conductivity of the fluid [11]. Numerous studies on heat transfer in different geometric shapes and the effects of external factors on the heat transfer have been performed. In this regard, Tahir and Mital [12] investigated the heat transfer in channels with a circular cross section. Heat transfer in channels with different geometry has been reported in the literature [13,14].\nCooling systems are the main concerns of thermal and electronic systems. In these circumstances, the use of improved and optimal cooling systems is inevitable. Tullius et al. [15] examined the effect of micro-channel geometry and fluid type on the cooling rate from micro-channels. The most common fluids used in micro-channels were air and water, which have low thermal conductivity.\nLow heat transfer rate in micro-channels containing water or air led to use of various methods such as increasing the heat transfer surface, while this method increase the size of systems. Therefore, to overcome this problem, a new and effective cooling is required and nano-fluids were introduced as a new approach in this field [16].\nIn order to study the heat transfer in micro-channels, different models were studied [17–19]. The effects of micro-channel geometry, Reynolds number and nanoparticles volume fraction on the thermal performance of micro-channels have also been investigated. In general, it seems that using new nano-fluid shows a better performance against the heat load generated by small electronic devices [20–26].\nSurface effects in micro-scale have dramatic impact than that in macro-scale. For example, no-slip condition commonly used for the macro-scale, in micro-channels is not true; consequently, slip condition should be used along the walls. Moreover, for micro and nano scales, specific methods such as Lattice-Boltzmann method or molecular dynamics, which are based on particles, should be used [27–31]. Raisi et al. [32] investigated numerically the heat transfer in micro-channels by assuming existence or lack of slip velocity. They also reported the effect of nano-fluids on heat transfer rate in micro-channel in the presence of slip velocity. To this day, much researches assuming slip velocity have been presented in the field of heat transfer in micro-channel containing nano-fluids with different boundary conditions such as constant temperature or constant flux, which quickly slip boundary condition have also been studied [33–37].\nIn recent years, the flow and heat transfer in different sections of macro-scales exposed to a magnetic field have attracted the attention of the researchers [38–44]. In this case, the magnetic field leads to produce a force, called the Lorentz force, which affects the fluid flow [45–48]. Aminossadati et al. [49] studied the effects of magnetic field on a micro-channel under constant heat flux, while the slip velocity along the walls of the micro-channel was neglected.\nHowever, a review of previous researches [53,54] showed that regarding the study of flow and heat transfer in micro-channels under the magnetic field, thes lip velocity as a boundary condition has been ignored. Up to now, there is no comprehensive research on the Simultaneous effects of the magnetic field, slip velocity boundary condition, forced convection on the flow and heat transfer in microchannels. In this study, all of these conditions are considered simultaneously and efforts were also made to simulate the effects of magnetic field on the slip velocity of molecules adjacent wall. Moreover, in this study water-based nano-fluid containing functionalized multi-walled carbon nanotubes (FMWNT) is used as the working fluid."
+    }, {
+      "heading" : "2. Problem statement",
+      "text" : "Simulation of forced convection of FMWNT-water (functionalized multi-walled carbon nano-tubes suspended in water) nanofluid in a two dimensional micro-channel under a magnetic field for slip flow regime is performed.\nSingle-walled carbon nanotubes (SWNTs) and multi-walled carbon nanotubes (MWNTs) are similar in certain respects but they also have striking differences. SWNTs structure is a cylindrical tube including six-membered carbon rings similar to graphite. They consist of a hollow cylinder of carbon 1 nm (in present work for one cylinder) in diameter, up to 1000 times as long as it is wide. Analogously MWNTs include several tubes layers (concentric tubes) of graphene in concentric cylinders. The interlayer distance in multi-walled nanotubes is close to the distance between graphene layers in graphite, approximately 3.4 Å. The number of these concentric walls may vary from 6 to 25 or more. The diameter of MWNTs may be 30 nm (used at present article) when compared to 0.7–2.0 nm for typical SWNTs. The unique properties of carbon nanotubes enable a wide range of novel applications and improvements in the performance of existing ones. However, one can functionalize the nanotubes to enhance both the strength and dispersibility of composites.\nThe supposed micro-channel aspect ratio is 30; hence the fully developed condition is achieved at outlet. As shown in Fig. 1, the\nmicro-channel wall is divided into two portions. The microchannel entrance (X¼0.3L) is insulated while the rest of length of the micro-channel has constant temperature (TC). This configuration leads to approach the hydrodynamic fully developed condition. Moreover, the micro-channel domain is exposed to a magnetic field with constant strength of B0. Slip velocity boundary condition along the walls of the micro-channel is considered. High temperature nano-fluid (TH) enters the micro-channel and exposed to its cold walls. Finally, it leaves the micro-channel from the other side. The empirical data for thermo-physical properties of the FMWNT-water nano-fluid are presented in Table 1.\nWith regard to consider thevery low weight fraction of nanotubes, nano-fluid is assumed as a Newtonian fluid. Reynolds number (Re) commonly is low in a micro-channel duo to express a real physical condition (Re¼20 and 200). Moreover, in order to investigate the slip velocity boundary condition different values of slip coefficient such as B¼0.005 and B¼0.05 are assumed. Based on Table 1, three different values of weight fractions of FMWNTs are applied. Earlier investigations showed that the Hartman numbers greater than 40 have no significant effect on the flow and heat transfer; thus, a reasonable range of Hartmann number is found lower than 40. It should be noted that the nanofluid is incompressible and homogeneous mixture."
+    }, {
+      "heading" : "3. Mathematical formulation",
+      "text" : "The two-dimensional Navier–Stokes equations (continuity, momentum and energy) with regard to the effect of a magnetic field strength (B0) are as follows:\n∂ ∂ + ∂ ∂ = ( ) u x v y 0 1\nρ σ ρ ∂ ∂ + ∂ ∂ =− ∂ ∂ +ϑ ∂ ∂ + ∂ ∂ − ( ) ⎛ ⎝⎜ ⎞ ⎠⎟u u x v u y p x u x u y B1 2 2 2 2 2 0 2\nρ ϑ∂ ∂ + ∂ ∂ =− ∂ ∂ + ∂ ∂ + ∂ ∂ ( ) ⎛ ⎝⎜ ⎞ ⎠⎟u v x v v y p y v x v y 1 3 2 2 2 2\nα∂ ∂ + ∂ ∂ = ∂ ∂ + ∂ ∂ ( ) ⎛ ⎝⎜ ⎞ ⎠⎟u T x v T y T x T y 4 2 2 2 2\ns indicates the electrical conductivity of the nano-fluid and is equal to 4.99 10 2 (S/cm).\n375 25 450 30 525 35\nU 1.480 1.481 1.481 θ 0.766 0.768 0.769\n4. Boundary conditions and solution algorithm\nIt is obvious that at the macro-scale no-slip boundary condition should be used, while in micro-channels the slip flow regime is established. The slip velocity can be calculated by the following equation:\nβ= ± ∂ ∂ ( )=\n⎛ ⎝ ⎜⎜\n⎞\n⎠ ⎟⎟u u y 10 s y h0,\nwhere β represents the slip coefficient. Dimensionless form of Eq. (10) on the wall is expressed as\nfollows:\n= ± ∂ ∂ ( )= ⎛ ⎝ ⎜⎜ ⎞ ⎠ ⎟⎟U B UY 11s Y 0,1\nin which B is called dimensionless slip coefficient. Other dimensionless boundary conditions are as follows:\n( )θ= = = = ≤ ≤U V X Y1, 0, 1 at 0, 0 1\n( )θ∂ ∂ = ∂ ∂ = = ≤ ≤U X X X Y0 at 30, 0 1\nθ= = = ( = < ≤ )\n( = < ≤ ) ( )\nV U U Y X\nY X\n0, , 0 at 0, 9 30 and\n1, 9 30 12 s\nθ= = ∂ ∂ = ( = ≤ ≤ ) ( = ≤ ≤ )V U U Y Y X Y X0, , 0 at 0, 0 9 and 1, 0 9s\nBased on above boundary conditions, Eqs. (5)–(8) are numerically solved using FORTRAN computer code. The finite volume method based on the SIMPLE algorithmwas employed to solve the governing equations. Discretization of the nonlinear equations was performed by the power law scheme.\nLocal Nusselt number is:\n] θ= − ∂∂ ( )= = ⎤ ⎦ ⎥⎥ k k y Nu 13 X Y nf f Y 0 0\n] θ= − ∂∂ ( )= = ⎤ ⎦ ⎥⎥ k k y Nu 14 X Y nf f Y 1 1\nNusselt number with integration over the wall to be expressed as follows\n∫ )= ( ( )L Nu X dXNu 1 0.7 15m L\nL\nX 0.3"
+    }, {
+      "heading" : "5. Results and discussion",
+      "text" : "Forced convective heat transfer of nano-fluid composed of water and functionalized multi-walled carbon nanotubes (FMWNT) in a two-dimensional micro-channel has been numerically investigated. The results were classified in the following subsections.\n5.1. Grid independency and code verification\nTable 2 presents the values of U and θ at the central point of the micro-channel in the absence of magnetic field for various grids.\nIt can be found from Table 2 that difference between those of 450 30 and 525 35 is negligible; consequently, grid nodes of 450 30 is selected for the next computations.\nIn order to ensure the accuracy of the results obtained by the developed FORTRAN code, results of present work versus those of Hooman and Ejlali [51] are presented in Fig. 2. In this figure, horizontal velocity profiles at fully developed condition through a micro-channel for different values of Knudsen number (Kn) are compared. Moreover, Fig. 3 shows a comparison between the averaged Nusselt number obtained by the code and that presented by Santra et al. [52] for Reynolds numbers of 100 and 200. The last selected case for confirmation would be a work of Aminossadati et al. [49] which is displayed in Fig. 4 and pertains to a forced convection flow of nanofluid in a micro-channel exposed to a\nmagnetic field and in the absence of slip velocity. Good agreements can be observed in Figs. 2–4.\n5.2. Effects of dimensionless slip coefficient\nFig. 5 shows the dimensionless velocity profiles (U) at different sections of micro-channel for various values of B. This figure shows that with increasing X, velocity profile becomes smoother; as a result, the shear stress increases near the walls. It is also found from Fig. 5 that with increasing slip coefficient the slip velocity increases. For the case of B¼0.05, with increasing X, the slip velocity enhances that leads to a smoother velocity profile. For example, slip velocity values are approximately 0.25, 0.40 and 0.60 at X¼0.1, 0.3 and 0.6, respectively."
+    }, {
+      "heading" : "5.3. Effects of Hartmann number",
+      "text" : "Fig. 6 shows U profiles along the vertical line in developed region of micro-channel for various Hartman numbers and slip coefficients of 0.005 and 0.05. We know that applying the magnetic field leads to the generation of the Lorentz force in the reverse direction of movement of nano-fluid. Hence, the stronger magnetic field can lead to less maximum of U at horizontal centerline and greater fluid velocity near to the walls. Consequently, the fully developed velocity profile would vary with Ha. This behavior can be found well in Fig. 6 at B¼0.005; thus, stronger\nmagnetic field leads to thinner boundary layer along the walls. Furthermore, the growth of thickness of the boundary layer is small at greater Ha values.\nIt can be also observed in Fig. 6 that the slip velocity is changed by Hartmann number at B¼0.05. As shown in this figure, magnetic field affectsthe slip velocity on the walls of micro-channels such that slip velocity increases with increasing Hartmann number. For example,slip velocity is equal to 0.25 for in absence of magnetic field, while it would be 0.5 and 0.65 for Ha¼20 and Ha¼40, respectively.\nIn order to demonstrate the effects of Ha on θ profiles, the temperature profiles of θ at different sections of micro-channel under various values of Ha for B¼0.005 and B¼0.05 are displayed in Figs. 7 and 8, respectively. In both figures, at X¼0.3L, where the flow is not significantly affected by the cold walls, the temperature and its gradient are great. The high temperature gradient indicates that the heat transfer rate in this zone is considerable. In the middle of the micro-channel (0.5LrXr0.6L), where nano-fluid exchanges heat with the cold walls, the slope of the temperature profile is reduced. In the area near the outlet (XZ0.7L), nano-fluid tends to the temperature of the walls, and the temperature gradient is reduced. Comparison of temperature profiles in the absence of magnetic field (Ha¼0) with those at Ha¼40 indicates that the nanofluid temperature in the various sections of the micro-channel decreases and tends to the wall's one in the presence of magnetic field Ha¼40. This fact denotes more heat transfer\nexistences due to more nanofluid velocity near the walls for the case of H¼40.\nComparison between Figs. 7 and 8 shows that temperature profiles for the case of B¼0.005 are almost similar to those for the case of B¼0.05, implying the inconsiderable effects of B on temperature profiles. Fig. 9 displays the isotherms in the microchannel at Reynolds numbers of 20 and 200. This figure denotes a good visual aspect of nanofluid flow through the micro-channel."
+    }, {
+      "heading" : "5.4. Effects of Carbon nano-tubes concentration",
+      "text" : "Fig. 10 depicts the of Us along the micro-channel wall at various values of B for Ha¼0, Ha¼20 and Ha¼40. Us starts from its\nmaximum value at inlet and then it diminishes with increasing X and, eventually, becomes constant along the wall. Furthermore, slip coefficient significantly affects the slip velocity such that it increases with enhancing slip coefficient. However, this event could be severely invigorated for more Ha.\nMoreover, Fig. 11 illustrates NuX along the micro-channel wall at Re¼20, B¼0.005, Ha¼0 and Ha¼40 for different values of ϕ. Nusselt number starts from its maximum value at X¼0.3L and then decreases mildly along the micro-channel length. More ϕ corresponds to more Nu however the effects of Ha can be ignored at low values of Reynolds like Re¼20. In spite of that, the positive effect of Re on Nu can be observed well in Fig. 12. It is well known that the effects of slip coefficient are significant especially at entrance length. On the other hand, less Re leads to lower entrance length; so that the effects of slip coefficient on Nu would be negligible at Re¼20 in comparison with those of Re¼200.\nMore focus on heat transfer rate, the influences of all Ha, ϕ, B and Re on Num are presented in Fig. 13. It is seen that higher values of Nu can be achieved at larger amounts of Hartman number and volume fraction at higher Reynolds number (Re¼200). There is inconsistency in this figure which means the slop of line is not constant and decreases with Ha. This event obviously shows that higher Hartmann number corresponds to more Nusselt number; however this increasing trend will not achieve continuously. As a result more Ha (Ha450) might not be useful for this purpose."
+    }, {
+      "heading" : "6. Conclusion",
+      "text" : "Simulation of forced convection of FMWNT-water nano-fluid in a two dimensional micro-channel under a magnetic field for slip flow regime is performed. Slip velocity and constant wall temperature were considered as boundary conditions. The effects of Hartmann number, Reynolds number, slip coefficient and solid volume fraction on velocity, temperature and Nusselt number were investigated. The following results were obtained:\nWith increasing slip coefficient the slip velocity increased. The stronger magnetic field leaded to less maximum of U at horizontal centerline and greater fluid velocity near to the walls. Consequently, the fully developed velocity profile would vary with Ha. Moreover, stronger magnetic field leaded to thinner boundary layer along the walls. Furthermore, the growth of thickness of the boundary layer was small at greater Ha values. Magnetic field affected the slip velocity on the walls of microchannels such that slip velocity increased with increasing Hartmann number. There was more heat transfer rate due to more nanofluid velocity near the walls in the presence of magnetic field. At higher Hartmann numbers, the effects of slip coefficient on the slip velocity were more than that at lower Hartmann numbers.\nMore solid volume fractions corresponded to more Nu, while the effects of Ha were negligible at low values of Reynolds. Higher values of Nu were achieved at larger amounts of Hartman number and volume fraction at higher Reynolds number (Re¼200).\nReferences\n[1] M. Baratpour, A. Karimipour, M. Afrand, S. Wongwises, Effects of temperature and concentration on the viscosity of nano fluids made of single-wall carbon nanotubes in ethylene glycol, Int. Commun. Heat Mass Transf. 74 (2016) 108–113. [2] M. Afrand, D. Toghraie, B. Ruhani, Effects of temperature and nanoparticles concentration on rheological behavior of Fe3O4–Ag/EG hybrid nanofluid: an experimental study, Exp. Therm. Fluid Sci. 77 (2016) 38–44. [3] S.S. Harandi, A. Karimipour, M. Afrand, M. Akbari, A. D'Orazio, An experimental study on thermal conductivity of F-MWCNTs–Fe3O4/EG hybrid nanofluid: effects of temperature and concentration, Int. Commun. Heat Mass Transf. 76 (2016) 171–177. [4] M. Afrand, K. Nazari Najafabadi, M. Akbari, Effects of temperature and solid volume fraction on viscosity of SiO2-MWCNTs/SAE40 hybrid nanofluid as a coolant and lubricant in heat engines, Appl. Therm. Eng. 102 (2016) 45–54. [5] H. Eshgarf, M. Afrand, An experimental study on rheological behavior of nonNewtonian hybrid nano-coolant for application in cooling and heating systems, Exp. Therm. Fluid Sci. 76 (2016) 221–227. [6] M. Soltanimehr, M. Afrand, Thermal conductivity enhancement of COOHfunctionalized MWCNTs/ethylene glycol-water nanofluid for application in heating and cooling systems, Appl. Therm. Eng. (2016), http://dx.doi.org/ 10.1016/j.applthermaleng.2016.03.089.\n[7] A. Karimipour, A.H. Nezhad, A. Behzadmehr, S. Alikhani, E. Abedini, Periodic mixed convection of a nanofluid in a cavity with top lid sinusoidal motion proceedings of the Institution of Mechanical Engineers, Part C: J. Mech. Eng. Sci. 225 (2011) 2149–2160. [8] M.H. Esfe, A.A.A. Arani, A. Karimipour, S.S.M. Esforjani, Numerical simulation of natural convection around an obstacle placed in an enclosure filled with different types of nanofluids, Heat. Transf. Res. 45 (3) (2014) 279–292. [9] S. Shamshirband, A. Malvandi, A. Karimipour, M. Goodarzi, M. Afrand, D. Petković, M. Dahari, N. Mahmoodian, Performance investigation of microand nano-sized particle erosion in a 90° elbow using an ANFIS model, Powder Technol. 284 (2015) 336–343.\n[10] M.H. Esfe, S. Saedodin, N. Sina, M. Afrand, S. Rostami, Designing an artificial neural network to predict thermal conductivity and dynamic viscosity of ferromagnetic nanofluid, Int. Commun. Heat Mass Transf. 68 (2015) 50–57. [11] M. Hemmat Esfe, M. Akbari, A. Karimipour, M. Afrand, O. Mahian, S. Wongwises, Mixed-convection flow and heat transfer in an inclined cavity equipped to a hot obstacle using nanofluids considering temperature-dependent properties, Int. J. Heat Mass Transf. 85 (2015) 656–666. [12] S. Tahir, M. Mital, Numerical investigation of laminar nanofluid developing flow and heat transfer in a circular channel, Appl. Therm. Eng. 39 (2012) 8–14. [13] Z. Nikkhah, A. Karimipour, M.R. Safaei, P. Forghani-Tehrani, M. Goodarzi, M. Dahari, S. Wongwises, Forced convective heat transfer of water/functionalized multi-walled carbon nanotube nanofluids in a microchannel with oscillating heat flux and slip boundary condition, Int. Commun. Heat Mass Transf. 68 (2015) 69–77. [14] A. Malvandi, D.D. Ganji, Effects of nanoparticle migration on hydromagnetic mixed convection of alumina/water nanofluid in vertical channels with asymmetric heating, Phys. E: Low-Dimens. Syst. Nanostruct. 66 (2015) 181–196. [15] J.F. Tullius, R. Vajtai, Y. Bayazitoglu, A review of cooling in microchannels, Heat Transf. Eng. 32 (2011) 527–541. [16] S. Chol, Enhancing thermal conductivity of fluids with nanoparticles, ASMEPublications-Fed 1995, pp. 99–106. [17] A. Karimipour, New correlation for Nusselt number of nanofluid with Ag/ Al2O3/Cu nanoparticles in a microchannel considering slip velocity and temperature jump by using lattice Boltzmann method, Int. J. Therm. Sci. 91 (2015) 146–156. [18] A. Karimipour, A. Hossein Nezhad, A. D’Orazio, M. Hemmat Esfe, M.R. Safaei, E. Shirani, Simulation of copper–water nanofluid in a microchannel in slip flow regime using the lattice Boltzmann method, Eur. J. Mech. – B/Fluids 49 Part A (2015) 89–99. [19] M.H. Esfe, M. Akbari, D. Toghraie, A. Karimipour, M. Afrand, Effect of nanofluid variable properties on mixed convection flow and heat transfer in an inclined two-sided lid-driven cavity with sinusoidal heating on sidewalls, Heat Transf. Res. 45 (2014) 409–432. [20] R.U. Haq, Z.H. Khan, W.A. Khan, Thermophysical effects of carbon nanotubes on MHD flow over a stretching surface, Phys. E: Low-Dimens. Syst. Nanostruct. 63 (2014) 215–222. [21] M.H. Esfe, A. Karimipour, W.M. Yan, M. Akbari, M.R. Safaei, M. Dahari, Experimental study on thermal conductivity of ethylene glycol based nanofluids containing Al2O3 nanoparticles, Int. J. Heat Mass Transf. 88 (2015) 728–734. [22] M. Goodarzi, M.R. Safaei, H.F. Oztop, A. Karimipour, E. Sadeghinezhad, M. Dahari, S.N. Kazi, N. Jomhari, Numerical study of entropy generation due to coupled laminar and turbulent mixed convection and thermal radiation in an enclosure filled with a semitransparent medium, Sci. World J. (2014). [23] S.E. Ghasemi, M. Hatami, A.K. Sarokolaie, D.D. Ganji, Study on blood flow containing nanoparticles through porous arteries in presence of magnetic field using analytical methods, Phys. E: Low-Dimens. Syst. Nanostruct. 70 (2015) 146–156. [24] R.U. Haq, S. Nadeem, Z.H. Khan, N.S. Akbar, Thermal radiation and slip effects on MHD stagnation point flow of nanofluid over a stretching sheet, Phys. E: Low-Dimens. Syst. Nanostruct. 65 (2015) 17–23. [25] M.H. Esfe, A. Naderi, M. Akbari, M. Afrand, A. Karimipour, Evaluation of thermal conductivity of COOH-functionalized MWCNTs/water via temperature and solid volume fraction by using experimental data and ANN methods, J. Therm. Anal. Calorim. 121 (3) (2015) 1273–1278. [26] N.S. Akbar, Ferromagnetic CNT suspended H2OþCu nanofluid analysis through composite stenosed arteries with permeable wall, Phys. E: Low-Dimens. Syst. Nanostruct. 72 (2015) 70–76. [27] Goodarzi Marjan, M.R. Safaei, A. Karimipour, K. Hooman, M. Dahari, S.N. Kazi, E. Sadeghinezhad, Comparison of the finite volume and lattice Boltzmann methods for solving natural convection heat transfer problems inside cavities and enclosures, In: Abstract and Applied Analysis 2014 (2014), Hindawi Publishing Corporation. [28] A. Karimipour, M. Afrand, M. Akbari, M.R. Safaei, Simulation of fluid flow and heat transfer in the inclined enclosure, in: Proceedings of World Academy of Science, Engineering and Technology, vol. 61, pp. 435–440. [29] G. Bird, Molecular Gas Dynamics and the Direct Simulation of Gas Flows, Oxford, 1994. [30] A. Karimipour, A.H. Nezhad, A. D’Orazio, E. Shirani, The effects of inclination angle and Prandtl number on the mixed convection in the inclined lid driven\ncavity using lattice Boltzmann method, J. Theor. Appl. Mech. 51 (2013) 447–462.\n[31] A. Karimipour, A.H. Nezhad, A. D’Orazio, E. Shirani, Investigation of the gravity effects on the mixed convection heat transfer in a microchannel using lattice Boltzmann method, Int. J. Therm. Sci. 54 (2012) 142–152. [32] A. Raisi, B. Ghasemi, S.M. Aminossadati, A numerical study on the forced convection of laminar nanofluid in a microchannel with both slip and no-slip conditions, Numer. Heat Transf. Part A: Appl. 59 (2011) 114–129. [33] M. Mital, Analytical analysis of heat transfer and pumping power of laminar nanofluid developing flow in microchannels, Appl. Therm. Eng. 50 (2013) 429–436. [34] A. Akbarinia, M. Abdolzadeh, R. Laur, Critical investigation of heat transfer enhancement using nanofluids in microchannels with slip and non-slip flow regimes, Appl. Therm. Eng. 31 (2011) 556–565. [35] W.H. Mah, Y.M. Hung, N. Guo, Entropy generation of viscous dissipative nanofluid flow in microchannels, Int. J. Heat Mass Transf. 55 (2012) 4169–4182. [36] P.K. Singh, P.V. Harikrishna, T. Sundararajan, S.K. Das, Experimental and numerical investigation into the hydrodynamics of nanofluids in microchannels, Exp. Therm. Fluid Sci. 42 (2012) 174–186. [37] Y.T. Yang, F.H. Lai, Numerical study of flow and heat transfer characteristics of alumina-water nanofluids in a microchannel using the lattice Boltzmann method, Int. Commun. Heat Mass Transf. 38 (2011) 607–614. [38] M. Afrand, S. Farahat, A. Hossein Nezhad, G.A. Sheikhzadeh, F. Sarhaddi, Numerical simulation of electrically conducting fluid flow and free convective heat transfer in an annulus on applying a magnetic field, Heat Transf. Res. 45 (2014) 749–766. [39] M. Afrand, S. Farahat, A. Hossein Nezhad, G.A. Sheikhzadeh, F. Sarhaddi, 3-D numerical investigation of natural convection in a tilted cylindrical annulus containing molten potassium and controlling it using various magnetic fields, Int. J. Appl. Electromagn. Mech. 46 (2014) 809–821. [40] M. Mahmoodi, M. Hemmat Esfe, M. Akbari, A. Karimipour, M. Afrand, Magneto-natural convection in square cavities with a source-sink pair on different walls, Int. J. Appl. Electromagn. Mech. 47 (2015) 21–32. [41] M. Afrand, S. Farahat, A. Hossein Nezhad, G.A. Sheikhzadeh, F. Sarhaddi, S. Wongwises, Multi-objective optimization of natural convection in a cylindrical annulus mold under magnetic field using particle swarm algorithm, Int. Commun. Heat Mass Transf. 60 (2015) 13–20. [42] M. Afrand, N. Sina, H. Teimouri, A. Mazaheri, M.R. Safaei, M. Hemmat Esfe, J. Kamali, D. Toghraie, Effect of magnetic field on free convection in inclined cylindrical annulus containing molten potassium, Int. J. Appl. Mech. 7 (2015) 1550052, 16 pages. [43] M. Afrand, S. Rostami, M. Akbari, S. Wongwises, M. Hemmat Esfe, A. Karimipour, Effect of induced electric field on magneto-natural convection in a vertical cylindrical annulus filled with liquid potassium, Int. J. Heat Mass Transf. 90 (2015) 418–426. [44] H. Teimouri, M. Afrand, N. Sina, A. Karimipour, A.H.M. Isfahani, Natural convection of liquid metal in a horizontal cylindrical annulus under radial magnetic field, Int. J. Appl. Electromagn. Mech. 49 (2015) 453–461. [45] R. Ellahi, The effects of MHD and temperature dependent viscosity on the flow of non-Newtonian nanofluid in a pipe: analytical solutions, Appl. Math. Model. 37 (2013) 1451–1467. [46] B. Ghasemi, S.M. Aminossadati, A. Raisi, Magnetic field effect on natural convection in a nanofluid-filled square enclosure, Int. J. Therm. Sci. 50 (2011) 1748–1756. [47] M. Sheikholeslami, M. Gorji-Bandpy, D.D. Ganji, S. Soleimani, S.M. Seyyedi, Natural convection of nanofluids in an enclosure between a circular and a sinusoidal cylinder in the presence of magnetic field, Int. Commun. Heat Mass Transf. 39 (2012) 1435–1443. [48] L. Zheng, J. Niu, X. Zhang, Y. Gao, MHD flow and heat transfer over a porous shrinking surface with velocity slip and temperature jump, Math. Comput. Model. 56 (2012) 133–144. [49] S.M. Aminossadati, A. Raisi, B. Ghasemi, Effects of magnetic field on nanofluid forced convection in a partially heated microchannel, Int. J. Non-Linear Mech. 46 (2011) 1373–1382. [50] A. Amrollahi, A.M. Rashidi, R. Lotfi, M. Emami Meibodi, K. Kashefi, Convection heat transfer of functionalized MWNT in aqueous fluids in laminar and turbulent flow at the entrance region, Int. Commun. Heat Mass Transf. 37 (2010) 717–723. [51] K. Hooman, A. Ejlali, Effects of viscous heating, fluid property variation, velocity slip, and temperature jump on convection through parallel plate and circular microchannels, Int. Commun. Heat Mass Transf. 37 (1) (2010) 34–38. [52] A.K. Santra, S. Sen, N. Chakraborty, Study of heat transfer due to laminar flow of copper–water nanofluid through two isothermally heated parallel plates, Int. J. Therm. Sci. 48 (2009) 391–400. [53] F.M. Abbasi, T. Hayat, A. Alsaedi, Peristaltic transport of magneto-nanoparticles submerged in water: model for drug delivery system, Phys. E: Low-Dimens. Syst. Nanostruct. 68 (2015) 123–132. [54] M.H. Esfe, A.A.A. Arani, M. Rezaie, W.M. Yan, A. Karimipour, Experimental determination of thermal conductivity and dynamic viscosity of Ag–MgO/ water hybrid nanofluid, Int. Commun. Heat Mass Transf. 66 (2015) 189–195."
+    } ],
+    "references" : [ {
+      "title" : "Effects of temperature and concentration on the viscosity of nano fluids made of single-wall carbon nanotubes in ethylene glycol",
+      "author" : [ "M. Baratpour", "A. Karimipour", "M. Afrand", "S. Wongwises" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 74 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Effects of temperature and nanoparticles concentration on rheological behavior of Fe3O4–Ag/EG hybrid nanofluid: an experimental study",
+      "author" : [ "M. Afrand", "D. Toghraie", "B. Ruhani" ],
+      "venue" : "Exp. Therm. Fluid Sci. 77 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An experimental study on thermal conductivity of F-MWCNTs–Fe3O4/EG hybrid nanofluid: effects of temperature and concentration",
+      "author" : [ "S.S. Harandi", "A. Karimipour", "M. Afrand", "M. Akbari", "A. D'Orazio" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 76 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Effects of temperature and solid volume fraction on viscosity of SiO2-MWCNTs/SAE40 hybrid nanofluid as a coolant and lubricant in heat engines",
+      "author" : [ "M. Afrand", "K. Nazari Najafabadi", "M. Akbari" ],
+      "venue" : "Appl. Therm. Eng. 102 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An experimental study on rheological behavior of non- Newtonian hybrid nano-coolant for application in cooling and heating systems",
+      "author" : [ "H. Eshgarf", "M. Afrand" ],
+      "venue" : "Exp. Therm. Fluid Sci. 76 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Thermal conductivity enhancement of COOHfunctionalized MWCNTs/ethylene glycol-water nanofluid for application in heating and cooling systems",
+      "author" : [ "M. Soltanimehr", "M. Afrand" ],
+      "venue" : "Appl. Therm. Eng. (2016), http://dx.doi.org/ 10.1016/j.applthermaleng.2016.03.089.  M. Afrand et al. / Physica E 84 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Periodic mixed convection of a nanofluid in a cavity with top lid sinusoidal motion proceedings of the Institution of Mechanical Engineers",
+      "author" : [ "A. Karimipour", "A.H. Nezhad", "A. Behzadmehr", "S. Alikhani", "E. Abedini" ],
+      "venue" : "Part C: J. Mech. Eng. Sci. 225 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Numerical simulation of natural convection around an obstacle placed in an enclosure filled with different types of nanofluids",
+      "author" : [ "M.H. Esfe", "A.A.A. Arani", "A. Karimipour", "S.S.M. Esforjani" ],
+      "venue" : "Heat. Transf. Res. 45 (3) ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Performance investigation of microand nano-sized particle erosion in a 90° elbow using an ANFIS model",
+      "author" : [ "S. Shamshirband", "A. Malvandi", "A. Karimipour", "M. Goodarzi", "M. Afrand", "D.  Petković", "M. Dahari", "N. Mahmoodian" ],
+      "venue" : "Powder Technol. 284 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Designing an artificial neural network to predict thermal conductivity and dynamic viscosity of ferromagnetic nanofluid",
+      "author" : [ "M.H. Esfe", "S. Saedodin", "N. Sina", "M. Afrand", "S. Rostami" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 68 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Mixed-convection flow and heat transfer in an inclined cavity equipped to a hot obstacle using nanofluids considering temperature-dependent properties",
+      "author" : [ "M. Hemmat Esfe", "M. Akbari", "A. Karimipour", "M. Afrand", "O. Mahian", "S. Wongwises" ],
+      "venue" : "Int. J. Heat Mass Transf. 85 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Numerical investigation of laminar nanofluid developing flow and heat transfer in a circular channel",
+      "author" : [ "S. Tahir", "M. Mital" ],
+      "venue" : "Appl. Therm. Eng. 39 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Forced convective heat transfer of water/functionalized multi-walled carbon nanotube nanofluids in a microchannel with oscillating heat flux and slip boundary condition",
+      "author" : [ "Z. Nikkhah", "A. Karimipour", "M.R. Safaei", "P. Forghani-Tehrani", "M. Goodarzi", "M. Dahari", "S. Wongwises" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 68 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effects of nanoparticle migration on hydromagnetic mixed convection of alumina/water nanofluid in vertical channels with asymmetric heating",
+      "author" : [ "A. Malvandi", "D.D. Ganji" ],
+      "venue" : "Phys. E: Low-Dimens. Syst. Nanostruct. 66 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A review of cooling in microchannels",
+      "author" : [ "J.F. Tullius", "R. Vajtai", "Y. Bayazitoglu" ],
+      "venue" : "Heat Transf. Eng. 32 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Enhancing thermal conductivity of fluids with nanoparticles, ASME",
+      "author" : [ "S. Chol" ],
+      "venue" : "Publications-Fed",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 1995
+    }, {
+      "title" : "New correlation for Nusselt number of nanofluid with Ag/ Al2O3/Cu nanoparticles in a microchannel considering slip velocity and temperature jump by using lattice Boltzmann method",
+      "author" : [ "A. Karimipour" ],
+      "venue" : "Int. J. Therm. Sci. 91 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A",
+      "author" : [ "A. Karimipour", "A. Hossein Nezhad" ],
+      "venue" : "D’Orazio, M. Hemmat Esfe, M.R. Safaei, E. Shirani, Simulation of copper–water nanofluid in a microchannel in slip flow regime using the lattice Boltzmann method, Eur. J. Mech. – B/Fluids 49 Part A ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effect of nanofluid variable properties on mixed convection flow and heat transfer in an inclined two-sided lid-driven cavity with sinusoidal heating on sidewalls",
+      "author" : [ "M.H. Esfe", "M. Akbari", "D. Toghraie", "A. Karimipour", "M. Afrand" ],
+      "venue" : "Heat Transf. Res. 45 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Thermophysical effects of carbon nanotubes on MHD flow over a stretching surface",
+      "author" : [ "R.U. Haq", "Z.H. Khan", "W.A. Khan" ],
+      "venue" : "Phys. E: Low-Dimens. Syst. Nanostruct. 63 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Experimental study on thermal conductivity of ethylene glycol based nanofluids containing Al2O3 nanoparticles",
+      "author" : [ "M.H. Esfe", "A. Karimipour", "W.M. Yan", "M. Akbari", "M.R. Safaei", "M. Dahari" ],
+      "venue" : "Int. J. Heat Mass Transf. 88 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Numerical study of entropy generation due to coupled laminar and turbulent mixed convection and thermal radiation in an enclosure filled with a semitransparent medium",
+      "author" : [ "M. Goodarzi", "M.R. Safaei", "H.F. Oztop", "A. Karimipour", "E. Sadeghinezhad", "M. Dahari", "S.N. Kazi", "N. Jomhari" ],
+      "venue" : "Sci. World J. ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Study on blood flow containing nanoparticles through porous arteries in presence of magnetic field using analytical methods",
+      "author" : [ "S.E. Ghasemi", "M. Hatami", "A.K. Sarokolaie", "D.D. Ganji" ],
+      "venue" : "Phys. E: Low-Dimens. Syst. Nanostruct. 70 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermal radiation and slip effects on MHD stagnation point flow of nanofluid over a stretching sheet",
+      "author" : [ "R.U. Haq", "S. Nadeem", "Z.H. Khan", "N.S. Akbar" ],
+      "venue" : "Phys. E: Low-Dimens. Syst. Nanostruct. 65 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Evaluation of thermal conductivity of COOH-functionalized MWCNTs/water via temperature and solid volume fraction by using experimental data and ANN methods",
+      "author" : [ "M.H. Esfe", "A. Naderi", "M. Akbari", "M. Afrand", "A. Karimipour" ],
+      "venue" : "J. Therm. Anal. Calorim. 121 (3) ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Ferromagnetic CNT suspended  H2OþCu nanofluid analysis through composite stenosed arteries with permeable wall",
+      "author" : [ "N.S. Akbar" ],
+      "venue" : "Phys. E: Low-Dimens. Syst. Nanostruct. 72 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Molecular Gas Dynamics and the Direct Simulation of Gas Flows",
+      "author" : [ "G. Bird" ],
+      "venue" : "Oxford",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "A",
+      "author" : [ "A. Karimipour", "A.H. Nezhad" ],
+      "venue" : "D’Orazio, E. Shirani, The effects of inclination angle and Prandtl number on the mixed convection in the inclined lid driven  cavity using lattice Boltzmann method, J. Theor. Appl. Mech. 51 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "A",
+      "author" : [ "A. Karimipour", "A.H. Nezhad" ],
+      "venue" : "D’Orazio, E. Shirani, Investigation of the gravity effects on the mixed convection heat transfer in a microchannel using lattice Boltzmann method, Int. J. Therm. Sci. 54 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "A numerical study on the forced convection of laminar nanofluid in a microchannel with both slip and no-slip conditions",
+      "author" : [ "A. Raisi", "B. Ghasemi", "S.M. Aminossadati" ],
+      "venue" : "Numer. Heat Transf. Part A: Appl. 59 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Analytical analysis of heat transfer and pumping power of laminar nanofluid developing flow in microchannels",
+      "author" : [ "M. Mital" ],
+      "venue" : "Appl. Therm. Eng. 50 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Critical investigation of heat transfer enhancement using nanofluids in microchannels with slip and non-slip flow regimes",
+      "author" : [ "A. Akbarinia", "M. Abdolzadeh", "R. Laur" ],
+      "venue" : "Appl. Therm. Eng. 31 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Entropy generation of viscous dissipative nanofluid flow in microchannels",
+      "author" : [ "W.H. Mah", "Y.M. Hung", "N. Guo" ],
+      "venue" : "Int. J. Heat Mass Transf. 55 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Experimental and numerical investigation into the hydrodynamics of nanofluids in microchannels",
+      "author" : [ "P.K. Singh", "P.V. Harikrishna", "T. Sundararajan", "S.K. Das" ],
+      "venue" : "Exp. Therm. Fluid Sci. 42 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Numerical study of flow and heat transfer characteristics of alumina-water nanofluids in a microchannel using the lattice Boltzmann method",
+      "author" : [ "Y.T. Yang", "F.H. Lai" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 38 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Numerical simulation of electrically conducting fluid flow and free convective heat transfer in an annulus on applying a magnetic field",
+      "author" : [ "M. Afrand", "S. Farahat", "A. Hossein Nezhad", "G.A. Sheikhzadeh", "F. Sarhaddi" ],
+      "venue" : "Heat Transf. Res. 45 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "3-D numerical investigation of natural convection in a tilted cylindrical annulus containing molten potassium and controlling it using various magnetic fields",
+      "author" : [ "M. Afrand", "S. Farahat", "A. Hossein Nezhad", "G.A. Sheikhzadeh", "F. Sarhaddi" ],
+      "venue" : "Int. J. Appl. Electromagn. Mech. 46 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Magneto-natural convection in square cavities with a source-sink pair on different walls",
+      "author" : [ "M. Mahmoodi", "M. Hemmat Esfe", "M. Akbari", "A. Karimipour", "M. Afrand" ],
+      "venue" : "Int. J. Appl. Electromagn. Mech. 47 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Multi-objective optimization of natural convection in a cylindrical annulus mold under magnetic field using particle swarm algorithm",
+      "author" : [ "M. Afrand", "S. Farahat", "A. Hossein Nezhad", "G.A. Sheikhzadeh", "F. Sarhaddi", "S. Wongwises" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 60 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effect of magnetic field on free convection in inclined cylindrical annulus containing molten potassium",
+      "author" : [ "M. Afrand", "N. Sina", "H. Teimouri", "A. Mazaheri", "M.R. Safaei", "M. Hemmat Esfe", "J. Kamali", "D. Toghraie" ],
+      "venue" : "Int. J. Appl. Mech. 7 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effect of induced electric field on magneto-natural convection in a vertical cylindrical annulus filled with liquid potassium",
+      "author" : [ "M. Afrand", "S. Rostami", "M. Akbari", "S. Wongwises", "M. Hemmat Esfe", "A. Karimipour" ],
+      "venue" : "Int. J. Heat Mass Transf. 90 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Natural convection of liquid metal in a horizontal cylindrical annulus under radial magnetic field",
+      "author" : [ "H. Teimouri", "M. Afrand", "N. Sina", "A. Karimipour", "A.H.M. Isfahani" ],
+      "venue" : "Int. J. Appl. Electromagn. Mech. 49 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "The effects of MHD and temperature dependent viscosity on the flow of non-Newtonian nanofluid in a pipe: analytical solutions",
+      "author" : [ "R. Ellahi" ],
+      "venue" : "Appl. Math. Model. 37 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Magnetic field effect on natural convection in a nanofluid-filled square enclosure",
+      "author" : [ "B. Ghasemi", "S.M. Aminossadati", "A. Raisi" ],
+      "venue" : "Int. J. Therm. Sci. 50 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Natural convection of nanofluids in an enclosure between a circular and a sinusoidal cylinder in the presence of magnetic field",
+      "author" : [ "M. Sheikholeslami", "M. Gorji-Bandpy", "D.D. Ganji", "S. Soleimani", "S.M. Seyyedi" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 39 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "MHD flow and heat transfer over a porous shrinking surface with velocity slip and temperature jump",
+      "author" : [ "L. Zheng", "J. Niu", "X. Zhang", "Y. Gao" ],
+      "venue" : "Math. Comput. Model. 56 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Effects of magnetic field on nanofluid forced convection in a partially heated microchannel",
+      "author" : [ "S.M. Aminossadati", "A. Raisi", "B. Ghasemi" ],
+      "venue" : "Int. J. Non-Linear Mech. 46 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Convection heat transfer of functionalized MWNT in aqueous fluids in laminar and turbulent flow at the entrance region",
+      "author" : [ "A. Amrollahi", "A.M. Rashidi", "R. Lotfi", "M. Emami Meibodi", "K. Kashefi" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 37 ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Effects of viscous heating",
+      "author" : [ "K. Hooman", "A. Ejlali" ],
+      "venue" : "fluid property variation, velocity slip, and temperature jump on convection through parallel plate and circular microchannels, Int. Commun. Heat Mass Transf. 37 (1) ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Study of heat transfer due to laminar flow of copper–water nanofluid through two isothermally heated parallel plates",
+      "author" : [ "A.K. Santra", "S. Sen", "N. Chakraborty" ],
+      "venue" : "Int. J. Therm. Sci. 48 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Peristaltic transport of magneto-nanoparticles submerged in water: model for drug delivery system",
+      "author" : [ "F.M. Abbasi", "T. Hayat", "A. Alsaedi" ],
+      "venue" : "Phys. E: Low-Dimens. Syst. Nanostruct. 68 ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental determination of thermal conductivity and dynamic viscosity of Ag–MgO/ water hybrid nanofluid",
+      "author" : [ "M.H. Esfe", "A.A.A. Arani", "M. Rezaie", "W.M. Yan", "A. Karimipour" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 66 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 10,
+      "context" : "the flow geometry, boundary conditions or enhancement of thermal conductivity of the fluid [11].",
+      "startOffset" : 91,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 11,
+      "context" : "In this regard, Tahir and Mital [12] investigated the heat transfer in channels with a circular cross section.",
+      "startOffset" : 32,
+      "endOffset" : 36
+    }, {
+      "referenceID" : 12,
+      "context" : "Heat transfer in channels with different geometry has been reported in the literature [13,14].",
+      "startOffset" : 86,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 13,
+      "context" : "Heat transfer in channels with different geometry has been reported in the literature [13,14].",
+      "startOffset" : 86,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 14,
+      "context" : "[15] examined the effect of micro-channel geometry and fluid type on the cooling rate from micro-channels.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 15,
+      "context" : "Therefore, to overcome this problem, a new and effective cooling is required and nano-fluids were introduced as a new approach in this field [16].",
+      "startOffset" : 141,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 47,
+      "context" : "Table 1 Empirical data for thermo-physical properties of the FMWNT nanofluid [50].",
+      "startOffset" : 77,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 29,
+      "context" : "[32] investigated numerically the heat transfer in micro-channels by assuming existence or lack of slip velocity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 46,
+      "context" : "[49] studied the effects of magnetic field on a micro-channel under constant heat flux, while the slip velocity along the walls of the micro-channel was neglected.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 50,
+      "context" : "However, a review of previous researches [53,54] showed that regarding the study of flow and heat transfer in micro-channels under the magnetic field, thes lip velocity as a boundary condition has been ignored.",
+      "startOffset" : 41,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 51,
+      "context" : "However, a review of previous researches [53,54] showed that regarding the study of flow and heat transfer in micro-channels under the magnetic field, thes lip velocity as a boundary condition has been ignored.",
+      "startOffset" : 41,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 48,
+      "context" : "Horizontal velocity profiles at fully developed condition from present work versus [51].",
+      "startOffset" : 83,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 49,
+      "context" : "Num from present work versus [52] (Symbols: [52], Lines: Present work).",
+      "startOffset" : 29,
+      "endOffset" : 33
+    }, {
+      "referenceID" : 49,
+      "context" : "Num from present work versus [52] (Symbols: [52], Lines: Present work).",
+      "startOffset" : 44,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 46,
+      "context" : "Num from present work versus [49] at φ1⁄40.",
+      "startOffset" : 29,
+      "endOffset" : 33
+    }, {
+      "referenceID" : 48,
+      "context" : "In order to ensure the accuracy of the results obtained by the developed FORTRAN code, results of present work versus those of Hooman and Ejlali [51] are presented in Fig.",
+      "startOffset" : 145,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 49,
+      "context" : "[52] for Reynolds numbers of 100 and 200.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    } ],
+    "year" : 2016,
+    "abstractText" : "Simulation of forced convection of FMWNT-water (functionalized multi-walled carbon nano-tubes) nano-fluid in a micro-channel under a magnetic field in slip flow regime is performed. The microchannel wall is divided into two portions. The micro-channel entrance is insulated while the rest of length of the micro-channel has constant temperature (TC). Moreover, the micro-channel domain is exposed to a magnetic field with constant strength of B0. High temperature nano-fluid (TH) enters the micro-channel and exposed to its cold walls. Slip velocity boundary condition along the walls of the micro-channel is considered. Governing equations are numerically solved using FORTRAN computer code based on the SIMPLE algorithm. Results are presented as the velocity, temperature, and Nusselt number profiles. Greater Reynolds number, Hartmann number, and volume fraction related to more heat transfer rate; however, the effects of Ha and φ are more noteworthy at higher Re. & 2016 Elsevier B.V. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

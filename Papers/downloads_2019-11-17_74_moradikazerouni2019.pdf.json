@@ -1,0 +1,487 @@
+{
+  "name" : "downloads_2019-11-17_74_moradikazerouni2019.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Assessment of thermal conductivity enhancement of nano-antifreeze containing single-walled carbon nanotubes: Optimal artificial neural network and curve-fitting",
+    "authors" : [ "Alireza Moradikazerouni", "Ahmad Hajizadeh", "Mohammad Reza Safaei", "Masoud Afrand", "Hooman Yarmand" ],
+    "emails" : [ "alirezamoradikaz0316@gmail.com", "haji.ahmad@gmail.com", "cfd_safaei@tdtu.edu.vn", "masoud.afrand@pmc.iaun.ac.ir", "hooman_yarmand@um.edu.my", "nurinmz@um.edu.my" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nPhysica A\njournal homepage: www.elsevier.com/locate/physa\nAssessment of thermal conductivity enhancement of nano-antifreeze containing single-walled carbon nanotubes: Optimal artificial neural network and curve-fitting Alireza Moradikazerouni a, Ahmad Hajizadeh b,c, Mohammad Reza Safaei d,e,∗, Masoud Afrand f, Hooman Yarmand g, Nurin Wahidah Binti Mohd Zulkifli g a Department of Mechanical Engineering, Marvdasht Branch, Islamic Azad University, Marvdasht, Iran b Public Authority of Applied Education and Training, College of Technological Studies, Applied Science Department, Shuwaikh, Kuwait c FAST, University Tun Hussein Onn Malaysia, 86400, Parit Raja, Batu Pahat, Johor State, Malaysia d Division of Computational Physics, Institute for Computational Science, Ton Duc Thang University, Ho Chi Minh City, Vietnam e Faculty of Electrical and Electronics Engineering, Ton Duc Thang University, Ho Chi Minh City, Vietnam f Department of Mechanical Engineering, Najafabad Branch, Islamic Azad University, Najafabad, Iran g Centre for Energy Sciences, Department of Mechanical Engineering, University of Malaya, 50603 Kuala Lumpur, Malaysia\nh i g h l i g h t s\n• Assessment of thermal conductivity enhancement of nano-antifreeze using ANN. • Suggesting a new two-variable correlation for thermal conductivity of nano-antifreeze. • Designing optimal architecture of ANN including two hidden layer with 4 neurons in each layer.\na r t i c l e i n f o"
+    }, {
+      "heading" : "Article history:",
+      "text" : "Received 12 June 2018 Received in revised form 5 November 2018 Available online 23 January 2019"
+    }, {
+      "heading" : "Keywords:",
+      "text" : ""
+    }, {
+      "heading" : "ANN",
+      "text" : "Thermal conductivity enhancement Nano-antifreeze SWCNTs Experimental data Curve fitting\na b s t r a c t\nThe neural network is a technique to reduce cost and time that can be a good alternative to practical testing. This technique, which has become more important with the advancement of computer science, can also be used to predict the properties of nanofluids. To prove this claim, in this research, an optimal artificial neural network (ANN) was designed to evaluation the thermal conductivity enhancement of the SWCNTs/EG-water nanofluid using experimental data. For this goal, reported experimental enhancement for various concentrations and temperatures were employed. 35 measured data obtained from experiments have been applied to utilize ANN modeling. 80% data were chosen for network training and the remaining data were adopted for network testing. Based on the minimum mean square error (MSE), ANN model with two hidden layers and 4 neurons in each layer was selected. In addition, a new correlation was presented for predicting the thermal conductivity enhancement. Comparative results showed ANN model can forecast the thermal conductivity enhancement of nanofluids appropriately.\n© 2019 Elsevier B.V. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Regarding the increasing need of the human for energy, the need to optimize and improve efficiency of systems is felt; especially in the heat transfer sector in the industry increasing systems’ efficiency is very important. For this purpose,\n∗ Corresponding author. E-mail addresses: alirezamoradikaz0316@gmail.com (A. Moradikazerouni), haji.ahmad@gmail.com (A. Hajizadeh), cfd_safaei@tdtu.edu.vn\n(M.R. Safaei), masoud.afrand@pmc.iaun.ac.ir (M. Afrand), hooman_yarmand@um.edu.my (H. Yarmand), nurinmz@um.edu.my (N.W.B.M. Zulkifli).\nhttps://doi.org/10.1016/j.physa.2019.01.051 0378-4371/© 2019 Elsevier B.V. All rights reserved.\nresearchers are looking for ways to increase the heat transfer, so that increasing the efficiency of converters has been one of the major concerns of engineers and researchers [1–4]. The fluids like water, oil, and ethylene glycol are widely used as cooling fluids, and are often very important in industrial units. Regarding extensive research on the heat transfer, no significant improvement has been made on the ability to transfer fluid heat. Therefore, there is an increasing need for fluids with better thermal transfer properties, especially a higher thermal conductivity coefficient than conventional fluids. In recent years, newmethods have been used; one of thesemethods is the use of nanotechnology in thermal converters [5–14].\nA new group of fluids are designed and developed by suspending metallic and non-metallic nanoparticles with dimensions less than 100 nm in a base fluid such as water, oil, ethylene glycol, and etc., as well as with high heat transfer potential, called nanofluid [15]. Also, the very small size of these particles has a significant effect on the solving of problems such as fluids’ corrosion, impurity, pressure drop and stability versus precipitation [16] and [17]. In nanofluids, by adding nanoparticles to the base fluid, thermo-physical properties change to the base fluid, also because these properties depend on the concentration of nanoparticles in the base fluid and temperature; it is possible to reach the highest possible degree by changing the nanoparticle concentration and temperature. Generally, nanofluids have high thermal conductivity, which is why the heat transfer rate is very high [18] and [19].\nIn the last decade, new advanced nanoparticles composed of various particles have been considered by researchers. These types of nanofluids, known as hybrid nanofluids, are generally derived from the combination of two different types of nanoparticles that are combined in the base fluid, which some of the studies conducted in this field are presented as follows.\nMunkhbayar et al. [20] examined the effect of increasing the temperature, as well as the volume fraction of combined silver nanoparticles and multi-walled carbon nanotubes in the base fluid of water. Their study range was from 15 to 40 ◦C and up to 3% vol. of nanoparticles. The results of their experiments show that in this hybrid nanofluid, the heat transfer conductivity coefficient increased by 14.5% with the volume fraction of 3% at a temperature of 40 ◦C. In another laboratory research, Hemmat Esfe et al. examined the effects of increasing the temperature and concentration of titanium and copper oxide nanoparticles in a hybrid base fluid and a mixture of water and ethylene glycol at a temperature between 30 to 60 ◦C and a volume fraction of up to 2%. The results showed that, at 60 ◦C and volume fraction of 2%, the thermal conductivity coefficient increased by 41.5% [21].\nAkhgar et al. [22] examined the thermal conductivity and stability of hybrid water – ethylene glycol nanofluids/titanium oxide –multi-walled carbon nanotubes under the influence of temperature and volume fraction variations. The experiments were performed in the volume fraction range of 0.05 to 1% and the temperature range of 20 to 50 ◦C. The results indicated that with increasing the temperature and concentration of the nanoparticles in the base fluid, the heat transfer coefficient of nanofluid increased so that at 50 ◦C and 1% volume fraction the thermal conductivity of the nanofluid compared to the base fluid increased by 38.7%. Bagheri and Ahmadi [23] examined the thermal conductivity coefficient of the combined zinc oxide - multi-walled carbon nanotube and water/ethylene glycol nanofluids. The operating temperature tested is in the range of 25 to 50 ◦C and the volume fraction is 0.0375 to 1.2 percent. The thermal conductivity of the nanofluid showed a 30% increase over the base fluid. Ranjbarzadeh et al. [24] used graphene oxide/water nanofluid in order to improve the heat transfer performance in a constant temperature heat converter. The study results show that the transfer coefficient of heat transfer in all Reynolds numbers using nanofluid has a significant improvement. In another experimental study to enhance the performance of a cool air-transfer heat transfer system they used graphene oxide/water nanofluid, and their results showed that the use of nanofluid improves the air-side heat transfer efficiency and they recommended the use of this nanofluid as a substitute forwater [25]. In another study, Hemmat Esfe et al. [26] studied nanofluids containing single-walled carbon nanotubes in ethylene glycol base fluid. The concentration of nanoparticles used in this experiment is 0.02, 0.05, 0.075, 0.1, 0.25, 0.5 and 0.75%, respectively, in the range of 30 to 50 ◦C. The results obtained from the experiment indicate that with increasing temperature and volume fraction, the thermal conductivity coefficient of nanofluid is increasing. In the meantime, the effect of increasing the volume fraction on the increase in the thermal conductivity coefficient is higher so that it is the highest increase in the thermal conductivity of the nanofluid to the base fluid by 45% at 50 ◦C and the volume fraction of 0.75%. In another study, Keyvani et al. [27] examined the effect of cerium oxide nanoparticles on the thermal conductivity of ethylene glycol in the range of 25 to 50 ◦C and a volume fraction of 0.25 to 2.5 percent. As the nanoparticles increased, the thermal conductivity of the nanofluidwas increasing so that it showed a 22% increase in the volume fraction of 2.5% and 50 ◦C to the base fluid. Nasajopour et al. [28] studied the effect of temperature and volume fraction changes on the thermal conductivity of the nanofluid containing zinc oxide nanoparticles and silver in the base water fluid. The operating temperature is tested at 25 to 50 ◦C and the concentration of nanoparticles dispersed in the fluid is 0.125 to 2 percent vol. The increase in temperature and volume fraction increased the relative thermal conductivity of the nanofluid and the main reason for this was the increase in the browning motion of particles in the base fluid with increasing temperature. Desired properties of nanoparticles have led nanofluid reducing the dimensions and size of the heat converters [29], improving the machining process [30], increasing the efficiency of solar systems [31], electronics [32], increasing the efficiency of the automotive cooling system [33] and reducing fuel consumption and cost savings in addition to overcoming the problems associated with the conversion and transfer of energy as an alternative fluid.\nAbove-mentioned references disclose that there are many works to study the thermophysical properties of nanofluids and their applications [34–42]. Literature review also revealed that presenting experimental correlations and modeling the artificial neural networks (ANNs) might be suitable approaches for simulating the complex association between several factors in engineering issues [43–51]. To save time and cost, repeated experiments can be replaced by experimental correlations and ANNs. In this study, for the first time, a new empirical correlation and a suitable ANNmodel was developed to forecast the thermal conductivity enhancement of the nano-antifreeze using experimental data. Nano-antifreeze has been made by suspending single walled carbon nanotubes (SWCNTs) in a mixture of water and ethylene glycol."
+    }, {
+      "heading" : "2. Experimental data",
+      "text" : "In this study, 35 laboratory data, previously reported by Adhami et al. [35] for SWCNTs/antifreeze, were used. They measured thermal conductivity at five temperatures and for 7 nanotubes concentrations. The nano-antifreeze volume fractions were 0.025, 0.055, 0.08, 0.125, 0.25, 0.53 and 0.65%, which were evaluated at 30 to 50 ◦C. Fig. 1 shows the data for thermal conductivity enhancement of SWCNTs/EG-water provided by Adhami et al. [35]."
+    }, {
+      "heading" : "3. Artificial neural network",
+      "text" : "Neural networks are a kind of simplistic modeling of real neural systems that are used extensively in solving various problems in sciences. The scope of application of these networks is so wide that it covers applications from classification to applications such as interpolation, estimation, prediction, and identification (patterns, classification, clustering, and etc.). Perhaps the most important advantage of these networks is their ability to be used along with their ease of use.\nOne of the most effective ways to solve a complex problem is to break it down into simpler problems, each of which can be easier understood and described. In fact, a network is a set of simple structures that describe next to each other the complex system. There are different types of networks, but they all consist of two components:\n1. A set of nodes, each node is in fact a network computing unit that takes inputs and processes inputs to obtain output. Node processing can include the simplest form of processing, such as collecting inputs to the most sophisticated computations.\n2. Connections between nodes, these connections specify how to transfer information between nodes.\nUsually about 80% of the data is used to train the neural network. Thus, the coefficients of the equation obtained from the training of the neural network are confirmed by other data and necessary correction is made for coefficients. At the final stage, randomly selected data set the objectives separately without changing the coefficients of the network, and in order to ensure accuracy of the network implementation.\nIn this study, the modeling of thermal conductivity enhancement using experimental data has been implemented with the input of temperature and fraction of solid volumes. To achieve the best neural network model several layers have been used. In this way, a hidden layer and then two layers were used, and finally, ANNwith 4 neurons per each layer was selected. For selecting the best model, 20 several structures with one layer and 10 several structures with two layers have been tried and a structure with two hidden layers, with 4 neurons in each layer have the optimal performance. Tangent sigmoid transfer function and logarithmic sigmoid transfer function have been employed for first and the second layer, respectively.\nThe topology of the optimal ANN architecture with two hidden layers is presented in Fig. 2. As it can be seen, there are 4 neurons in each hidden layer and purelin transfer function has been used in output layer."
+    }, {
+      "heading" : "4. Results and discussion",
+      "text" : "During the network training process, network weights and biases are set to achieve the minimum modeling error. The best training performance is 9.8451×10−6 at epoch 700 based on mean squared error (MSE) that is shown in Fig. 3.\nA comparison between experimental data and ANN results is presented in Fig. 4. As seen in the figure, there is a good correlation between laboratory data and the output of the neural network. It should also be noted that the points on the equality line indicate a good agreement between the results of the neural network and experimental data.\nFig. 5 shows the histogramof the error for the artificial neural network. This graph shows the amount of error distribution. It can be observed that a large number of error values are near zero. This represents a good performance of the neural network.\nIn order to investigate the performance of the neural network, a two-variable mathematical correlation was prepared using the curve-fitting method. The correlation consists of temperature and volume of fraction variables as inputs and thermal conductivity enhancement as output. This equation is presented below.\nThermal Conductivity Enhancement = 0.7395ϕ0.7560T 1.1539 (1)\nA comparison between experimental data and correlation outputs is presented in Fig. 6. As seen in the figure, the values predicted by this equation can follow experimental data, but it is not very precise. Becausemost of the points are not aligned on the line, this signifies the inability of the equation to predict the experimental data.\nSimultaneously compare the performance of the neural network and the proposed equation, their results are shown in Fig. 7 in comparison with experimental data. It is clear that the neural network has a better performance in predicting laboratory values. This means that artificial neural network is a good tool for predicting the thermophysical properties of nanofluids."
+    }, {
+      "heading" : "5. Conclusion",
+      "text" : "Themain goal of thiswork is tomodel the thermal conductivity enhancement of nano-antifreeze containing single-walled carbon nanotubes using artificial neural network (ANN). For this purpose, the number of different layers was tested with different neurons. Finally, a neural network structure with two hidden layers was selected, each containing 4 neurons. The transfer function of the first layer was tan-sig and the transfer function of the second layer was log-sig. An experimental correlation was also presented to investigate the performance of artificial neural network and its outputs were compared with the results of the neural network. The neural network has a better performance in predicting laboratory values. This means that artificial neural network is a good tool for predicting the thermophysical properties of nanofluids."
+    } ],
+    "references" : [ {
+      "title" : "Evaluation of rheological behavior of 10W40 lubricant containing hybrid nano-material by measuring dynamic viscosity",
+      "author" : [ "A.A. Nadooshan", "M.H. Esfe", "M. Afrand" ],
+      "venue" : "Physica E 92 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Mixed convection of copper–water nanofluid in a shallow inclined lid driven cavity using the lattice Boltzmann method",
+      "author" : [ "Karimipour", "M. Hemmat Esfe", "M.R. Safaei", "D. Toghraie Semiromi", "S. Jafari", "S.N. Kazi" ],
+      "venue" : "Physica A",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2014
+    }, {
+      "title" : "Simulation of copper–water nanofluid in a microchannel in slip flow regime using the lattice Boltzmann method, Eur",
+      "author" : [ "Karimipour", "A. Hossein Nezhad", "A. D’Orazio", "M. Hemmat Esfe", "M.R. Safaei", "E. Shirani" ],
+      "venue" : "J. Mech. B Fluids",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2015
+    }, {
+      "title" : "Evaluating the effects of different parameters on rheological behavior of nanofluids: A comprehensive review",
+      "author" : [ "A.A. Nadooshan", "H. Eshgarf", "M. Afrand" ],
+      "venue" : "Powder Technol. 338 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effect of a novel clay/silica nanocomposite on water-based drilling fluids: Improvements in rheological and filtration properties",
+      "author" : [ "G. Cheraghian", "Q. Wu", "M. Mostofi", "M.-C. Li", "M. Afrand", "J.S. Sangwai" ],
+      "venue" : "Colloids Surf. A 555 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Afrand,Measuring the viscosity of Fe3O4-MWCNTs/EGhybrid nanofluid for evaluation of thermal efficiency:Newtonian and non-Newtonian behavior",
+      "author" : [ "A.A.Nadooshan", "M.H. Eshgarf" ],
+      "venue" : "J. Molecular Liquids",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2018
+    }, {
+      "title" : "The numericalmodeling of water/FMWCNT nanofluid flow and heat transfer in a backward-facing contracting channel",
+      "author" : [ "A.A. Alrashed", "O.A. Akbari", "A. Heydari", "D. Toghraie", "M. Zarringhalam", "G.A.S. Shabani", "A.R. Seifi", "M. Goodarzi" ],
+      "venue" : "Physica B 537 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Investigation of turbulent heat transfer and nanofluid flow in a double pipe heat exchanger",
+      "author" : [ "M.H. Bahmani", "G. Sheikhzadeh", "M. Zarringhalam", "O.A. Akbari", "A.A. Alrashed", "G.A.S. Shabani", "M. Goodarzi" ],
+      "venue" : "Adv. Powder Technol. 29 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A",
+      "author" : [ "M. Nojoomizadeh" ],
+      "venue" : "D’Orazio, A. Karimipour, M. Afrand, M. Goodarzi, Investigation of permeability effect on slip velocity and temperature jump boundary conditions for FMWNT/Water nanofluid flow and heat transfer inside amicrochannel filled by a porousmedia, Physica E 97 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A",
+      "author" : [ "A. Karimipour" ],
+      "venue" : "D’Orazio, M. Goodarzi, Develop the lattice Boltzmann method to simulate the slip velocity and temperature domain of buoyancy forces of FMWCNT nano particles in water through a micro flow imposed to the specified heat flux, Physica A ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "G",
+      "author" : [ "A. Rahimi Gheynani", "O. Ali Akbari", "M. Zarringhalam" ],
+      "venue" : "Ahmadi Sheikh Shabani, A.A. Alnaqi, M. Goodarzi, D. Toghraie, Investigating the effect of nanoparticles diameter on turbulent flow and heat transfer properties of non-Newtonian carboxymethyl cellulose/CuO fluid in a microtube, Internat. J. Numer. Methods Heat Fluid Flow ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Appraising influence of COOH-MWCNTs on thermal conductivity of antifreeze using curve fitting and neural network",
+      "author" : [ "A. Ghasemi", "M. Hassani", "M. Goodarzi", "M. Afrand", "S. Manafi" ],
+      "venue" : "Physica A 514 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "A",
+      "author" : [ "M. Goodarzi" ],
+      "venue" : "D’Orazio, A. Keshavarzi, S. Mousavi, A. Karimipour, Develop the nano scale method of lattice Boltzmann to predict the fluid flow and heat transfer of air in the inclined lid driven cavity with a large heat source inside, Two case studies: Pure natural convection & mixed convection, Physica A ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Enhancing Thermal Conductivity of Fluids with Nanoparticles",
+      "author" : [ "S.U. Choi", "J.A. Eastman" ],
+      "venue" : "Argonne National Lab., IL (United States)",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "Application of nanofluids in plate heat exchanger: A review",
+      "author" : [ "V. Kumar", "A.K. Tiwari", "S.K. Ghosh" ],
+      "venue" : "Energy Convers. Manage. 105 (2015) 1017–1036.  A. Moradikazerouni, A. Hajizadeh, M.R. Safaei et al. / Physica A 521 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Heat transfer in nanofluids—a review",
+      "author" : [ "S.K. Das", "S.U. Choi", "H.E. Patel" ],
+      "venue" : "Heat Transf. Eng. 27 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "A model of thermal conductivity of nanofluids with interfacial shells",
+      "author" : [ "Q. Xue", "W.-M. Xu" ],
+      "venue" : "Mater. Chem. Phys. 90 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Effects of temperature and solid volume fraction on viscosity of SiO2-MWCNTs/SAE40 hybrid nanofluid as a coolant and lubricant in heat engines",
+      "author" : [ "M. Afrand", "K. Nazari Najafabadi", "M. Akbari" ],
+      "venue" : "Appl. Therm. Eng. 102 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Surfactant-free dispersion of silver nanoparticles into MWCNT-aqueous nanofluids prepared by one-step technique and their thermal characteristics",
+      "author" : [ "B. Munkhbayar", "M.R. Tanshen", "J. Jeoun", "H. Chung", "H. Jeong" ],
+      "venue" : "Ceram. Int. 39 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Thermal conductivity of Cu/TiO2–water/EG hybrid nanofluid: Experimental data and modeling using artificial neural network and correlation",
+      "author" : [ "M.H. Esfe", "S. Wongwises", "A. Naderi", "A. Asadi", "M.R. Safaei", "H. Rostamian", "M. Dahari", "A. Karimipour" ],
+      "venue" : "Int. Commun. Heat Mass Transfer 66 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "An experimental study on the stability and thermal conductivity of water-ethylene glycol/TiO2-MWCNTs hybrid nanofluid: Developing a new correlation",
+      "author" : [ "A. Akhgar", "D. Toghraie" ],
+      "venue" : "Powder Technol. ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "The effects of hybrid nano-powder of zinc oxide and multi walled carbon nanotubes on the thermal conductivity of an antifreeze",
+      "author" : [ "H. Bagheri", "A. Ahmadi Nadooshan" ],
+      "venue" : "Physica E 103 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Empirical analysis of heat transfer and friction factor of water/graphene oxide nanofluid flow in turbulent regime through an isothermal pipe",
+      "author" : [ "R. Ranjbarzadeh", "A. Karimipour", "M. Afrand", "A.H.M. Isfahani", "A. Shirneshan" ],
+      "venue" : "Appl. Therm. Eng. 126 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "An experimental study on heat transfer and pressure drop of water/graphene oxide nanofluid in a copper tube under air cross-flow: Applicable as a heat exchanger",
+      "author" : [ "R. Ranjbarzadeh", "A.M. Isfahani", "M. Afrand", "A. Karimipour", "M. Hojaji" ],
+      "venue" : "Appl. Therm. Eng. 125 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Experimental and theoretical investigation of thermal conductivity of ethylene glycol containing functionalized single walled carbon nanotubes",
+      "author" : [ "M. Hemmat Esfe", "M. Firouzi", "M. Afrand" ],
+      "venue" : "Physica E 95 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "An experimental study on the thermal conductivity of cerium oxide/ethylene glycol nanofluid: developing a new correlation",
+      "author" : [ "M. Keyvani", "M. Afrand", "D. Toghraie", "M. Reiszadeh" ],
+      "venue" : "J. Molecular Liquids ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A new correlation for predicting the thermal conductivity of ZnO–Ag (50%–50%)/water hybrid nanofluid: An experimental study",
+      "author" : [ "N.N. Esfahani", "D. Toghraie", "M. Afrand" ],
+      "venue" : "Powder Technol. 323 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Heat transfer enhancement and pressure drop characteristics of TiO2–water nanofluid in a double-tube counter flow heat exchanger",
+      "author" : [ "W. Duangthongsuk", "S. Wongwises" ],
+      "venue" : "Int. J. Heat Mass Transfer 52 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "The Analysis of Experimental Process of Production",
+      "author" : [ "R. Ranjbarzadeh", "A.H. Meghdadi", "M. Hojaji" ],
+      "venue" : "Stabilizing and Measurement of the Thermal Conductivity Coefficient of Water/Graphene Oxide as a Cooling Nanofluid in Machining, J. Mod. Process. Manufacturing Prod. 5 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A review of the applications of nanofluids in solar energy",
+      "author" : [ "O. Mahian", "A. Kianifar", "S.A. Kalogirou", "I. Pop", "S. Wongwises" ],
+      "venue" : "Int. J. Heat Mass Transfer 57 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Numerical investigation of electronic component cooling enhancement using nanofluids in a radial flow cooling system",
+      "author" : [ "G.C. Roy", "C.T. Nguyen", "M. Comeau" ],
+      "venue" : "J. Enhanc. Heat Transf. 13 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Numerical study on thermal performance of an air-cooled heat exchanger: Effects of hybrid nanofluid",
+      "author" : [ "A. Karimi", "M. Afrand" ],
+      "venue" : "pipe arrangement and cross section, Energy Convers. Manage. 164 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effects of graphene oxide-silicon oxide hybrid nanomaterials on rheological behavior of water at various time durations and temperatures: Synthesis",
+      "author" : [ "R. Ranjbarzadeh", "A. Akhgar", "S. Musivand", "M. Afrand" ],
+      "venue" : "preparation and stability, Powder Technol. 335 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effects of functionalized single walled carbon nanotubes on thermal performance of antifreeze: An experimental study on thermal conductivity",
+      "author" : [ "R. Adhami Dehkordi", "M. Hemmat Esfe", "M. Afrand" ],
+      "venue" : "Appl. Therm. Eng. 120 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Heat transfer efficiency of Al2O3-MWCNT/thermal oil hybrid nanofluid as a cooling fluid in thermal and energy management applications: An experimental and theoretical investigation",
+      "author" : [ "A. Asadi", "M. Asadi", "A. Rezaniakolaei", "L.A. Rosendahl", "M. Afrand", "S. Wongwises" ],
+      "venue" : "Int. J. Heat Mass Transfer 117 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effect of a novel clay/silica nanocomposite on water-based drilling fluids: Improvements in rheological and filtration properties",
+      "author" : [ "G. Cheraghian", "Q. Wu", "M. Mostofi", "M.-C. Li", "M. Afrand", "J.S. Sangwai" ],
+      "venue" : "Colloids Surf. A 555 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "An experimental study on stability and thermal conductivity of water/silica nanofluid: Eco-friendly production of nanoparticles",
+      "author" : [ "R. Ranjbarzadeh", "A. Moradikazerouni", "R. Bakhtiari", "A. Asadi", "M. Afrand" ],
+      "venue" : "J. Cleaner Prod. 206 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "An experimental evaluation of the effect of ZnO nanoparticles on the rheological behavior of engine oil",
+      "author" : [ "K. Sepyani", "M. Afrand", "M.H. Esfe" ],
+      "venue" : "J. Molecular Liquids 236 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "An experimental study on rheological behavior of ethylene glycol based nanofluid: proposing a new correlation as a function of silica concentration and temperature",
+      "author" : [ "M. Akbari", "M. Afrand", "A. Arshi", "A. Karimipour" ],
+      "venue" : "J. Molecular Liquids 233 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "A new experimental correlation for non-newtonian behavior of COOH-DWCNTs/antifreeze nanofluid",
+      "author" : [ "F. Izadi", "R. Ranjbarzadeh", "R. Kalbasi", "M. Afrand" ],
+      "venue" : "Physica E 98 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A comprehensive review on rheological behavior of mono and hybrid nanofluids: Effective parameters and predictive correlations",
+      "author" : [ "H. Khodadadi", "S. Aghakhani", "H. Majd", "R. Kalbasi", "S. Wongwises", "M. Afrand" ],
+      "venue" : "Int. J. Heat Mass Transfer 127 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Predicting the effects of magnesium oxide nanoparticles and temperature on the thermal conductivity of water using artificial neural network and experimental data",
+      "author" : [ "M. Afrand", "M.H. Esfe", "E. Abedini", "H. Teimouri" ],
+      "venue" : "Physica E 87 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Rheological characteristics ofMgO/oil nanolubricants: Experimental study and neural network modeling",
+      "author" : [ "M.H. Esfe", "M. Bahiraei", "M.H. Hajmohammad", "M. Afrand" ],
+      "venue" : "Int. Commun. Heat Mass Transfer",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2017
+    }, {
+      "title" : "Evaluation of MWCNTs-ZnO/5W50 nanolubricant by design of an artificial neural network for predicting viscosity and its optimization",
+      "author" : [ "M.H. Esfe", "M. Goodarzi", "M. Reiszadeh", "M. Afrand" ],
+      "venue" : "J. Molecular Liquids ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Using artificial neural network for investigating of concurrent effects ofmulti-walled carbonnanotubes and alumina nanoparticles on the viscosity of 10W-40 engine oil, Physica A (2018)",
+      "author" : [ "M.H. Esfe", "M.H. Kamyab", "M. Afrand", "M.K. Amiri" ],
+      "venue" : null,
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2018
+    }, {
+      "title" : "Estimation of thermal conductivity of CNTs-water in low temperature by artificial neural network and correlation",
+      "author" : [ "M.H. Esfe", "K.Motahari", "E. Sanatizadeh", "M. Afrand", "H. Rostamian", "M.R.H. Ahangar" ],
+      "venue" : "Int. Commun. Heat Mass Transfer",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2016
+    }, {
+      "title" : "Optimization of MWCNTs (10%)–Al2O3 (90%)/5W50 nanofluid viscosity using experimental data and artificial neural network",
+      "author" : [ "M.H. Esfe", "M. Reiszadeh", "S. Esfandeh", "M. Afrand" ],
+      "venue" : "Physica A 512 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Modeling and prediction of rheological behavior of Al2O3-MWCNT/5W50 hybrid nano-lubricant by artificial neural network using experimental data",
+      "author" : [ "M.H. Esfe", "H. Rostamian", "S. Esfandeh", "M. Afrand" ],
+      "venue" : "Physica A ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Prediction of rheological behavior of MWCNTs–SiO2/EG–water non-newtonian hybrid nanofluid by designing new correlations and optimal artificial neural networks",
+      "author" : [ "H. Eshgarf", "N. Sina", "M.H. Esfe", "F. Izadi", "M. Afrand" ],
+      "venue" : "J. Therm. Anal. Calorim. ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Prediction of rheological behavior of SiO2-MWCNTs/10W40 hybrid nanolubricant by designing neural network",
+      "author" : [ "A.A. Nadooshan", "M.H. Esfe", "M. Afrand" ],
+      "venue" : "J. Therm. Anal. Calorim. 131 ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 13,
+      "context" : ", as well as with high heat transfer potential, called nanofluid [15].",
+      "startOffset" : 65,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 14,
+      "context" : "Also, the very small size of these particles has a significant effect on the solving of problems such as fluids’ corrosion, impurity, pressure drop and stability versus precipitation [16] and [17].",
+      "startOffset" : 183,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 15,
+      "context" : "Also, the very small size of these particles has a significant effect on the solving of problems such as fluids’ corrosion, impurity, pressure drop and stability versus precipitation [16] and [17].",
+      "startOffset" : 192,
+      "endOffset" : 196
+    }, {
+      "referenceID" : 16,
+      "context" : "Generally, nanofluids have high thermal conductivity, which is why the heat transfer rate is very high [18] and [19].",
+      "startOffset" : 103,
+      "endOffset" : 107
+    }, {
+      "referenceID" : 17,
+      "context" : "Generally, nanofluids have high thermal conductivity, which is why the heat transfer rate is very high [18] and [19].",
+      "startOffset" : 112,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 18,
+      "context" : "[20] examined the effect of increasing the temperature, as well as the volume fraction of combined silver nanoparticles and multi-walled carbon nanotubes in the base fluid of water.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 20,
+      "context" : "[22] examined the thermal conductivity and stability of hybrid water – ethylene glycol nanofluids/titanium oxide –multi-walled carbon nanotubes under the influence of temperature and volume fraction variations.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 21,
+      "context" : "Bagheri and Ahmadi [23] examined the thermal conductivity coefficient of the combined zinc oxide - multi-walled carbon nanotube and water/ethylene glycol nanofluids.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 22,
+      "context" : "[24] used graphene oxide/water nanofluid in order to improve the heat transfer performance in a constant temperature heat converter.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 23,
+      "context" : "In another experimental study to enhance the performance of a cool air-transfer heat transfer system they used graphene oxide/water nanofluid, and their results showed that the use of nanofluid improves the air-side heat transfer efficiency and they recommended the use of this nanofluid as a substitute forwater [25].",
+      "startOffset" : 313,
+      "endOffset" : 317
+    }, {
+      "referenceID" : 24,
+      "context" : "[26] studied nanofluids containing single-walled carbon nanotubes in ethylene glycol base fluid.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 25,
+      "context" : "[27] examined the effect of cerium oxide nanoparticles on the thermal conductivity of ethylene glycol in the range of 25 to 50 C and a volume fraction of 0.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 26,
+      "context" : "[28] studied the effect of temperature and volume fraction changes on the thermal conductivity of the nanofluid containing zinc oxide nanoparticles and silver in the base water fluid.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 27,
+      "context" : "Desired properties of nanoparticles have led nanofluid reducing the dimensions and size of the heat converters [29], improving the machining process [30], increasing the efficiency of solar systems [31], electronics [32], increasing the efficiency of the automotive cooling system [33] and reducing fuel consumption and cost savings in addition to overcoming the problems associated with the conversion and transfer of energy as an alternative fluid.",
+      "startOffset" : 111,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 28,
+      "context" : "Desired properties of nanoparticles have led nanofluid reducing the dimensions and size of the heat converters [29], improving the machining process [30], increasing the efficiency of solar systems [31], electronics [32], increasing the efficiency of the automotive cooling system [33] and reducing fuel consumption and cost savings in addition to overcoming the problems associated with the conversion and transfer of energy as an alternative fluid.",
+      "startOffset" : 149,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 29,
+      "context" : "Desired properties of nanoparticles have led nanofluid reducing the dimensions and size of the heat converters [29], improving the machining process [30], increasing the efficiency of solar systems [31], electronics [32], increasing the efficiency of the automotive cooling system [33] and reducing fuel consumption and cost savings in addition to overcoming the problems associated with the conversion and transfer of energy as an alternative fluid.",
+      "startOffset" : 198,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 30,
+      "context" : "Desired properties of nanoparticles have led nanofluid reducing the dimensions and size of the heat converters [29], improving the machining process [30], increasing the efficiency of solar systems [31], electronics [32], increasing the efficiency of the automotive cooling system [33] and reducing fuel consumption and cost savings in addition to overcoming the problems associated with the conversion and transfer of energy as an alternative fluid.",
+      "startOffset" : 216,
+      "endOffset" : 220
+    }, {
+      "referenceID" : 31,
+      "context" : "Desired properties of nanoparticles have led nanofluid reducing the dimensions and size of the heat converters [29], improving the machining process [30], increasing the efficiency of solar systems [31], electronics [32], increasing the efficiency of the automotive cooling system [33] and reducing fuel consumption and cost savings in addition to overcoming the problems associated with the conversion and transfer of energy as an alternative fluid.",
+      "startOffset" : 281,
+      "endOffset" : 285
+    }, {
+      "referenceID" : 33,
+      "context" : "Thermal conductivity enhancement of SWCNTs/EG-water [35].",
+      "startOffset" : 52,
+      "endOffset" : 56
+    } ],
+    "year" : 2019,
+    "abstractText" : "The neural network is a technique to reduce cost and time that can be a good alternative to practical testing. This technique, which has become more important with the advancement of computer science, can also be used to predict the properties of nanofluids. To prove this claim, in this research, an optimal artificial neural network (ANN) was designed to evaluation the thermal conductivity enhancement of the SWCNTs/EG-water nanofluid using experimental data. For this goal, reported experimental enhancement for various concentrations and temperatures were employed. 35 measured data obtained from experiments have been applied to utilize ANN modeling. 80% data were chosen for network training and the remaining data were adopted for network testing. Based on the minimum mean square error (MSE), ANN model with two hidden layers and 4 neurons in each layer was selected. In addition, a new correlation was presented for predicting the thermal conductivity enhancement. Comparative results showed ANN model can forecast the thermal conductivity enhancement of nanofluids appropriately. © 2019 Elsevier B.V. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

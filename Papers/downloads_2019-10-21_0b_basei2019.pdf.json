@@ -1,0 +1,1371 @@
+{
+  "name" : "downloads_2019-10-21_0b_basei2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Making use of available and emerging data to predict the hazards of engineered nanomaterials by means of in silico tools_ A critical review",
+    "authors" : [ "G. Baseia", "D. Hristozovb", "L. Lamonb", "A. Zabeob", "N. Jeliazkovac", "G. Tsilikid", "A. Marcominia", "A. Torselloa" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nNanoImpact\njournal homepage: www.elsevier.com/locate/nanoimpact\nReview\nMaking use of available and emerging data to predict the hazards of engineered nanomaterials by means of in silico tools: A critical review G. Baseia,b,⁎, D. Hristozovb,⁎⁎, L. Lamonb, A. Zabeob, N. Jeliazkovac, G. Tsilikid, A. Marcominia, A. Torselloa a DAIS - Department of Environmental Sciences, Informatics and Statistics, Ca' Foscari University of Venice, Via Torino 155, 30170 Mestre, VE, Italy bGreendecision Srl., Via delle Industrie 21/8, 30175 Marghera, VE, Italy c Ideaconsult Ltd., 4 A. Kanchev Str., 1000 Sofia, Bulgaria dATHENA Research and Innovation Centre, Artemidos 6 & Epidavrou, Marousi, 15125 Athens, Greece\nA R T I C L E I N F O\nKeywords: Nanomaterials Nanoinformatics (Q)SAR Grouping Read-Across\nA B S T R A C T\nThe heterogeneity of engineered nanomaterials (NMs), with respect to physicochemical properties and observed (eco)toxicological effects, makes their case-by-case testing for Risk Assessment unsustainable in terms of costs, time, and number of test animals. This has required the development of Integrated Approaches to Testing and Assessment (IATA) in compliance with the 3R (Replacement, Reduction, and Refinement) principles of reducing animal testing to assist industries and regulators in decision making related to the safety of NMs. The application of non-testing in silico methods such as (Quantitative) Structure-Activity Relationships ((Q)SARs) and Grouping for Read-Across is fundamental to IATA. Therefore, the goal of this manuscript is to critically review the available in silico methods to predict the hazards for human health posed by NMs by applying the OECD (Q)SAR model validation principles. Moreover, we provide an overview on the existing databases, highlighting the importance of data curation. We find that available approaches are applied mainly to predicting in vitro endpoints, and that most of the models do not build on such internationally recognized databases, but on in-house datasets or on data retrieved from the literature. Our analysis shows that more efforts are needed to properly develop and validate in silico models for hazard prediction as alternatives to in vivo tests. Moreover, the Applicability Domain (highlighting the chemical space where such models were trained and hence provide more reliable results) of such models is not always assessed, and the uncertainty and sensitivity of the current methods are not sufficiently evaluated. To address these challenges, we propose a roadmap for future research in this area, including the adoption of more advanced Machine Learning techniques."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Nanotechnology is one of the Key Emerging Technologies identified in the European Union (EU) 2020 Strategy. Its enormous potential for innovation has fostered large investments in developing new industrial applications and consumer products. However, the outlooks for a rapid growth in the sector have raised not only high expectations, but also societal concerns about the adequacy of existing regulation to address the risks posed by nanotechnologies. Indeed, despite their clear benefits, nanomaterials (NMs) may pose environmental, health and safety (EHS) issues. Such possible risks are regulated by the Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH)\nregulation (European Commission, 2006), which applies the chemical Risk Assessment paradigm to identify the risks and to propose proportionate risk management measures. Risk Assessment consists in the estimation of the probability of health and environmental effects emerging from exposure to chemical substances. This paradigm has been considered applicable to NMs if properly implemented to address the complexity associated with their physicochemical identity, biological and environmental interactions and fate (OECD, 2012). However, the large diversity of NMs (ECHA, 2017a) used in nano-enabled products has made their case-by-case Risk Assessment very demanding both in terms of cost and use of animal experiments. Indeed, NMs are available in many different grades optimized in size, morphology,\nhttps://doi.org/10.1016/j.impact.2019.01.003 Received 18 September 2018; Received in revised form 17 December 2018; Accepted 15 January 2019\n⁎ Correspondence to: G. Basei, DAIS - Department of Environmental Sciences, Informatics and Statistics, Ca' Foscari University of Venice, Via Torino 155, 30170 Mestre, VE, Italy.\n⁎⁎ Corresponding author. E-mail addresses: gianpietro.basei@unive.it (G. Basei), danail.hristozov@greendecision.eu (D. Hristozov).\nNanoImpact 13 (2019) 76–99\nAvailable online 17 January 2019 2452-0748/ © 2019 Elsevier B.V. All rights reserved.\nT\npurity and surface properties for integration into products. The large number of nanoforms (NFs)1 and the high complexity associated with their interactions in biological and environmental systems have raised the call for Amendments of the REACH Annexes (EC, 2017) to require additional information for the safety assessment of NMs. To address these challenges, it has been widely agreed by regulators, industries and scientists that the way forward is to develop robust Integrated Approaches to Testing and Assessment (IATA) that should be compliant with the 3R (Replacement, Reduction and Refinement) principles for reducing animal testing (Burden et al., 2017). These IATA would involve both experimental and modelling tools (Hristozov et al., 2016a) to facilitate intelligent testing and Grouping and Read-Across to inform both regulatory Risk Assessment and safer design of quality products.\nThe application of in silico methods for Grouping and Read-Across is subject to the REACH Annex XI. A group or category, according to REACH, is the arrangement of substances based on similar physicochemical and (eco)toxicological, toxicokinetic and/or environmental fate properties (ECHA, 2017a). OECD goes beyond identification of toxicological properties to support Grouping and identifies also mode of toxicological action as a relevant principle of similarity (OECD, 2007). Other possible ways to group NMs are based on commercial importance and volume of production, composition/chemistry (e.g. carbon-based; metal and metalloid oxides; metals, metal salts and metalloids; semiconductor quantum dots; organics and other classes) (RCC, 2013a, 2013b), on properties (such as dimension, shape, morphology, complexity and surface functionalization), or basing on synthetic and biological identity (Lynch et al., 2014). Grouping can serve several purposes such as informing targeted testing for Risk Assessment, facilitating Safe-by-Design (SbD) practices, and filling data gaps. The latter is typically achieved through Read-Across, an established approach used to predict properties and/or effects for a “target” substance by using information from analogous “source” substance(s) (ECHA, 2017b). Furthermore, Grouping for Read-Across is not only accepted under REACH, but is also applicable under different chemicals regulatory frameworks (Mech et al., 2018): for instance for risk assessment of NMs in the food and feed chain, the European Food Safety Agency supports grouping for read-across from (other) NFs or non-NFs (Hardy et al., 2018).\nThe foundations and basic principles for the Grouping and ReadAcross of NMs/NFs have been established in a number of conceptual schemes (Oomen et al., 2018; Lamon et al., 2019a; Arts et al., 2015a), which were developed in the EU research projects MARINA, NANoREG, GUIDEnano and ITS-NANO, as part of the European Centre of Ecotoxicology and Toxicology of Chemicals (ECETOC) Nano Task Force (Arts et al., 2015b), and as a result of the ECHA's Partner Expert Group (PEG) (ECHA, 2017a). Moreover, a few case studies addressing Grouping of NMs for Read-Across hazard endpoints are available (Lamon et al., accepted for publication). The H2020 GRACIOUS project2 is currently building upon these developments to generate a highly innovative science-based framework to enable practical application of Grouping, leading to Read-Across and classification of NMs.\nREACH Annex XI recommends to use when possible in silico methods such as (Quantitative) Structure-Activity Relationships ((Q) SARs) for either inferring whether material properties will produce biological effects by means of classification models (SARs) or predicting in numerical terms these relationships by means of regression models (QSARs). The goal is to reduce unnecessary testing by more effectively using the large volume of existing and emerging experimental data, generated in over a decade of nanosafety research (Oberdörster and Kuhlbusch, 2018; Rasmussen et al., 2018). Moreover, in silico models\ncan help designing NMs with desired properties and known (eco)toxicity (Lynch et al., 2014; Stone et al., 2014): a first practical proof-ofconcept of applying the SbD concept to NMs was recently published (Fourches et al., 2016).\nFor classical chemical compounds, a number of descriptors (directly derived or computed starting from physicochemical properties) are available and can be modelled, however the largest part of these descriptors are not applicable or not useful with respect to NMs (Puzyn et al., 2011; Winkler et al., 2013; Oksel et al., 2015a). Indeed, recently ECHA provided a guidance on how to identify and characterize NMs and NFs (ECHA, 2017a): in addition to “substance identity” parameters specified in Section 2 of Annex VI of REACH regulation (European Commission, 2006), which include composition of the substance, of impurities or additives, as well as information of surface chemistry and crystalline structure, other parameters that are relevant to characterize NFs are physical parameters such as Size, Shape and Surface area. Other relevant parameters include Solubility, Hydrophobicity, Zeta potential, Dispersibility, Dustiness, as well as Biological (re)activity and Photoreactivity. These properties are indeed the basis to implement the “Stepwise strategy for Grouping and Read-Across” (ECHA, 2017a). In addition to physicochemical and nanospecific descriptors, other biological descriptors may be adopted, such as protein-corona descriptors (Cedervall et al., 2007; Lynch and Dawson, 2008; Monopoli et al., 2012) and omics descriptors (Tsiliki et al., 2017).\nIt is generally accepted that the difference between (Q)SAR and Grouping for Read-Across approaches lies in the fact that the latter are applied “when a small quantity of data is available”, while the former are applied “when more data is available” (Lubinski et al., 2013; Gajewicz et al., 2017, 2015a). The difference between (Q)SARs and Read-Across approaches relies indeed in the fact that in the latter the endpoint information is inferred using data on the same endpoint from other (similar) substances, while in (Q)SARs the prediction is based on a model derived from the chemical structure or relevant nanospecific descriptors. The need for larger datasets for (Q)SARs is a consequence to the fact that, in general, it is harder to build a relevant and predictive model when the available samples are limited in number.\nThe use of (Q)SARs for the safety assessment of NMs in general has been previously reviewed, but not in the specific context of Grouping and Read-Across. Puzyn et al. (2009) were the first to discuss the role of in silico models for predicting the hazard of NMs, followed by Winkler et al. (2013) who provided an overview on the existing methods. More recently, Tantra et al. (2015a) investigated the theoretical and experimental descriptors adopted to train (Q)SAR models, while Oksel et al. (2015a, 2017) highlighted additional descriptors and endpoints for in silico modelling. Jones et al. (2016) reviewed the application of data mining and Machine Learning (ML) techniques for the prediction of biomedical properties and fate of NMs used in medical applications, while Sizochenko and Leszczynski (2016) focused on inorganic NMs, considering not only ML approaches, but also statistical (e.g. dose-response) models. Chen et al. (2017a) in two different works investigated in silico methods for the prediction and classification of hazard endpoints for metallic NMs, discussing data sources and mechanistic interpretation of reported (Q)SARs, and proposing a roadmap for computational toxicology aimed at designing safer NMs (Chen et al., 2017b). Finally, Quik et al. (2018) analysed a selection of models used for hazard and exposure assessment of NMs, giving an overview on available mechanistic models related to NMs properties, and their parameterization, identifying the best descriptors to use to characterize intrinsic and extrinsic properties, or measured hazard and exposure. In this manuscript, we critically analyse the existing approaches that make use of ML techniques for predicting human health hazard endpoints in terms of their predictive ability, thus providing a starting point for researchers, evaluating the existing methods and proposing possible future developments in the field. In addition, we provide an overview on the existing databases, highlighting the current limitations of such data systems. 1 Under REACH, a nanoform (NF) is a form of a substance, which fulfils the EC recommended definition of nanomaterial. In addition to size, NFs are characterised by shape and surface chemistry (EC, 2017). 2 https://www.h2020gracious.eu/ (web address accessed in summer 2018).\nTo be able to predict the adverse (eco)toxicological effects of NMs by means of in silico tools, it is indeed fundamental to have access to high quality (meta)data. Many nanosafety projects have produced a huge amount of relevant physicochemical, toxicokinetics (Lamon et al., in press), fate, exposure and (eco)toxicity data in over a decade of focused research (Steinhäuser and Sayre, 2017). However, these data have not been properly curated and are accessible mainly via disparate and heterogeneous sources, offering different types of data in different formats (e.g. technical reports, excel sheets, data inventories, knowledge bases, scientific publications). The data sources are also sparse, thus limiting data analysis and modelling (Chen et al., 2017b). This has led to the need to adopt advanced natural language processing (NLP) techniques and text mining methods to convert these unstructured sources to machine-interpretable format (Jones et al., 2014; Lewinski and McInnes, 2015). This issue has been partially addressed in the biomedical domain through bioinformatics approaches (Maojo et al., 2012), and there are tools for automatic retrieval of data from the literature, such as ContentMine (Smith-Unna and Murray-Rust, 2014). In addition, platforms like eNanoMapper (Jeliazkova et al., 2015), which is soundly collaborating with Jaqpot (Chomenidis et al., 2017), a data analytics web tool, were created as means for collection and curation of data to establish their completeness and quality.\nIt is essential to make the best use of these data resources to develop robust in silico models as part of IATA for Grouping and Read-Across to inform regulatory Risk Assessment and SbD decision making. To facilitate this, the objectives of this manuscript are: (i) to critically review the in silico approaches (QSARs and other ML techniques) of relevance for predicting human health hazard endpoints, and discuss their data requirements, methodological strengths and limitations; (ii) to provide an overview on the available databases that may be useful for training and validating these in silicomodelling tools, and (iii) to identify further steps in addressing the identified data and methodological concerns in order to contribute to the future adoption of in silico tools as part of IATA for the regulatory safety assessment of NMs.\nThe manuscript is organized as follows: in Section 2 the criteria used to evaluate the reviewed in silico tools for the prediction of human health hazard endpoints are described, then in Section 3 first an overview on the freely available data sources is provided, discussing the known open issues (Section 3.1), then Read-Across (Section 3.2) and (Q)SARs (Section 3.3) approaches are reviewed against the criteria introduced in Section 2, and results for each criteria are summarized. Then, in Section 4 a comprehensive discussion on the results provided in Section 3 is provided, together with recommendations on how to target future research. Finally, in Section 5 the main results of this review are summarized."
+    }, {
+      "heading" : "2. Methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Critical appraisal of peer-reviewed literature",
+      "text" : "In this review, we have selected and reported peer-reviewed research papers that described specific in silico tools relevant for Grouping and Read-Across hazard endpoints in the context of the regulatory safety assessment of NMs. In the case of (Q)SARs we focused on peerreviewed approaches that make use of ML techniques to predict human health hazard endpoints, while for Read-Across approaches, due to the small number of existing studies, we included environmental and human health hazard endpoints as relevant case studies, and considered approaches that make use of statistical methods (such as dose-response analysis), as well as approaches proposing Grouping or ranking of NMs by applying computational tools, as already suggested in the literature (Lamon et al., accepted for publication). This accounted for 11 articles reporting Read-Across approaches, and in 41 articles on (Q)SARs.\nMoreover, we provided an overview on nanosafety databases that are freely available online or accessible by requesting registration. It is worth nothing that in addition of these databases, other relevant\nsources are available for supporting the development of in silico approaches, including datasets deriving from European and internationally funded projects."
+    }, {
+      "heading" : "2.2. Evaluation criteria",
+      "text" : "The usefulness of in silico tools in the context of Grouping and ReadAcross lies in their predictive ability. To address the reliability of predictive in silico models, the OECD designed five principles for the validation of (Q)SARs (OECD, 2007, 2004), which consist in a set of rules that such models must comply with. According to these principles, each model should be associated with (i) a well-defined endpoint, (ii) an unambiguous algorithm, (iii) a defined domain of applicability, (iv) appropriate measures of goodness-of-fit, robustness and predictivity, and (iv) a mechanistic interpretation, if possible (OECD, 2007, 2004). These principles are fundamental also when dealing with Read-Across and with in silico models in general; however they are not always respected, even in the case of conventional chemicals (Dearden et al., 2009). The OECD principles on the validation of (Q)SARs inspired the eight evaluation criteria adopted in this review to critically evaluate the selected in silico models. These criteria, their evaluation rules and a scientific justification for adopting each of them are summarized in Table 1. In the case of Read-Across approaches, since the selected case studies do not necessarily imply model development and do not follow a standard reporting, some of these criteria were adapted as described in the table."
+    }, {
+      "heading" : "3. Results",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Data storage and curation",
+      "text" : "In silico modelling requires access to data on the investigated endpoint(s) that are sufficient both in terms of quantity and quality. Plenty of nano-EHS data have been generated over the last decade in many national, European and international research projects. Unfortunately, a lot of these data were never published and are therefore not available to the community, but there have been initiatives to collect as many of the data as possible in the inventories reported in Table 2 (Panneerselvam and Choi, 2014; Kohonen et al., 2014; Jeliazkova et al., 2014; Oksel et al., 2015b).\nToday these repositories contain a huge amount of data, but in most cases, there is need for substantial curation efforts as the data are often incomplete and their quality has not been properly verified. This is a critical issue as proper data curation is essential to ensure robust model predictions. The role of data curation in nanoinformatics was comprehensively studied in the USA as part of the Nanomaterial Data Curation Initiative (NDCI) (Hendren et al., 2015). This study resulted in a proposal for a data curation workflow (Powers et al., 2015) that consists of: (i) assessing the quality and completeness of the selected data, (ii) extracting and annotating the data, (iii) contacting authors for any missing data, (iv) formatting the data for inclusion into the databases, (v) reviewing the data, (vi) releasing the curated data to target communities, and (vii) updating the curated data as new information is provided by the authors.\nWithin the same initiative, the question of how to evaluate and score the degree of completeness and quality of curated NM data was addressed by reviewing existing approaches and proposing guidelines (Marchese Robinson et al., 2016). “Data completeness” was defined as the measure of the extent to which data and metadata addressing a specific need are available, while “data quality” is the measure of the degree to which a single datum or finding is clear and can be considered correct. The NDCI also highlighted the importance of metadata in allowing the assessment of uniqueness and equivalence of data derived from different sources and different studies, thus making data integration for subsequent modelling possible. This is an important point as while a single datum can be considered of insufficient quality for\ncertain purpose, it can become useful if combined with other (e.g. more reliable) data.\nDue to the heterogeneity of methods and the paucity of standard operating procedures (SOPs) available to derive related (eco)toxicological data, standard specifications to represent and share data are needed: ISA-TAB-NANO is the most popular specification aimed at reaching this goal (Thomas et al., 2013). Moreover, when evaluating completeness and quality of nano-EHS data, it is important to address several challenges related to uncertainties associated with the complex physicochemical identity of the NMs and the variability in the outputs of (eco)toxicological assays (Marchese Robinson et al., 2016).\nAnother known issue is related to data fragmentation. Indeed, being nanotechnology an intrinsically interdisciplinary field (Thomas et al., 2011), researchers need to use data from different sources across diverse domains. This results in the fact that often the same concept (e.g. material composition, material core, surface modifiers, but also the\nrelationship among them) is referred using completely different names, or incomplete. At the same time, the methods and techniques adopted to characterize the NM are often not accurately reported, or not comparable (Marchese Robinson et al., 2016). It is thus important to develop common ontologies to be able to integrate such different sources (Thomas et al., 2011), paying attention on providing unique identifiers for describing simple concepts. A recent article by Karcher et al. (2018) addressed such issues, proposing strategies to accelerate the process of integrating the available data sources.\nThe NDCI guidance on assessing data completeness and quality, the respective challenges and the ISA-TAB-NANO protocol have been taken into account in the process of developing the GRACIOUS data curation system. This system will be based on the eNanoMapper database and ontologies and will assemble much of the data currently in the repositories reported in Table 2. The curation system will offer users a number of data analytical tools: it will apply quality assessment\nalgorithms and will automatically enable the use the data in combination with statistical methods (e.g. principal component analysis, partial least squares regression, cluster analysis), and in silico modelling tools (e.g. (Q)SAR, physiologically-based pharmacokinetic (PBPK) modelling) for predicting the toxicokinetics and hazard of NMs for the purposes of Grouping and Read-Across to inform nanosafety assessments. Moreover, a lot of attention is being paid by the team developing the NIKC database (which allows a mapping to the ISA-TAB-nano file sharing format) for curating the existing data, and in future the system will include a web-enabled curation tool. Data curation based on a set of information about NMs (Mills et al., 2014) is performed also for the Nanomaterial Registry database. Similar efforts for curating and integrating the existing data in publicy available databases are being conducted in international projects such as NanoFASE,3 NanoCommons4 and ACENano.5"
+    }, {
+      "heading" : "3.2. Grouping for Read-Across of NMs",
+      "text" : "Once suitable curated data are selected from one or more of the available sources, it is possible to start modelling to predict (eco)toxicity, kinetics, fate, and/or exposure. A detailed and unambiguous physicochemical and structural characterization of the materials is a fundamental prerequisite to correctly predict human health or\nenvironmental endpoints, as required by the REACH Annex XI. Specifically, when Grouping for Read-Across is applied, information on (at least) chemical and physicochemical properties on source and target substance, hazard/toxicokinetic data of the source materials relevant to the endpoint of interest, good data quality and a well described/ documented test procedure are needed.\nThere are not many case studies on Grouping for Read-Across of NMs as defined by the REACH Annex XI (Lamon et al., accepted for publication). The in silico modelling approaches adopted in the few reported cases are critically evaluated in Table 3, by applying the criteria from Table 1. In addition of such criteria, the descriptors used for modelling and other information (such as whether the developed model is available as a web tool, or the approach is contextualized into an existing Grouping framework, cfr. Section 1) are highlighted, together with a brief description of the reviewed approach.\nOnly half of the approaches in Table 3 defined clearly the endpoint to Read-Across: one considered the in vitro Comet assay against different NFs of the same material (nano-TiO2 with different size, surface chemistry and shape) (Lamon et al., 2018), one took into consideration available in vitro and in vivo genotoxicity tests (comet and micronucleus assays) against different multi-walled carbon nanotubes (different length, rigidity/straightness, impurities) (Aschberger et al., 2019), other two identified cytotoxicity endpoints, by reduction of viability in E. coli and cellular uptake of HaCaT cell line (Gajewicz et al., 2017, 2015a), and in two of the reviewed approaches cell association was used as endpoint (Helma et al., 2017; Varsou et al., 2018). All the other case studies reported in the table build their hypothesis on datasets\n3 http://www.nanofase.eu/ (web address accessed in summer 2018). 4 https://www.nanocommons.eu/ (web address accessed in summer 2018). 5 http://www.acenano-project.eu/ (web address accessed in summer 2018).\nTa bl e 3 Se le ct io n of pe er -r ev ie w ed\nst ud ie s G ro up in g fo r Re ad -A cr os s of ha za rd en dp oi nt s, ev al ua te d us in g th e cr ite ri a de sc ri be d in Ta bl e 1.\nRe fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\n(G eo rg e et al ., 20 11 )\nIn vi tr o te st s in co m bi na tio n w ith co m pu ta tio na ld at a an al ys is (h ea t m ap s an d SO M s of ce ll re sp on se s at di ffe re nt do se s an d ex po su re tim es ) an d ze br afi sh em br yo sc re en in g ar e co m bi ne d fo r ha za rd as se ss m en t, fo r m et al ox id es an d a qu an tu m do t.\n✗ (I n vi tr o su bl et ha la nd le th al en dp oi nt s an d in vi vo re sp on se on Ze br afi sh em br yo )\n7 + 1 (G eo rg e et al ., 20 10 )\n✓ (S O M )\n✗ ✗\n✗ ✗\n✓\n(Z ha ng\net al .,\n20 12 )\nPr ed ic tiv e re gr es si on\ntr ee an al ys is ,\nus in g as de sc ri pt or s m at er ia l co nd uc tio n ba nd\nga p an d m et al\ndi ss ol ut io n, to pr ed ic t ac ut e pu lm on ar y in fla m m at io n ca us ed by m et al ox id e N M s.\n✗ (I n vi tr o ox id at iv e st re ss ; ac ut e pu lm on ar y in fla m m at io n)\n24 ✓ (R eg re ss io n tr ee )\n✗ ✗\n✗ ✗\n✓\n(C he n et al ., 20 14 )\nBi ol og ic al su rf ac e ad so rp tio n in de x (B SA I) fo r N M s su rf ac e ch ar ac te ri za tio n an d bi ol og ic al / en vi ro nm en ta lp re di ct io n of m et al ox id es ,A g, an d or ga ni c N M s, us in g fiv e de sc ri pt or s (m ol ar re fr ac tio n, po la ri ty ,h yd ro ge nbo nd ac id ity an d ba si ci ty ,a nd M cG ow an ch ar ac te ri st ic vo lu m e) ob ta in ed fr om ad so rp tio n m ea su re m en ts of a se t of or ga ni c m ol ec ul es .\n✗ (B io lo gi ca ls ur fa ce ad so rp tio n in de x)\n23 ✓ (B SA Im\nod el lin g (X ia et al .,\n20 10 ) an d PC A )\n≈ ≈\n✗ ✗\n✓\n(L iu et al ., 20 15 a)\nRa nk in g of m et al ox id e N M sf or ha za rd as se ss m en t (E C5 0 of hu m an an d m ur in e ce ll lin es ), by do se re sp on se an al ys is on di ffe re nt ce ll lin es .\n✗ (E C5 0 of di ffe re nt ce ll lin es )\n7 ✓ (D os eRe sp on se an al ys is )\n✗ ✗\n✗ ✗\n✓\n(G aj ew ic z et al ., 20 15 a)\nA pp ro ac h fo rQ\nua nt ita tiv e Re ad -A cr os s\nap pl ie d on\ntw o ca se st ud ie s on\nE. co li\nan d H aC aT\nce ll lin e cy to to xi ci ty (r ed uc tio n of ce lls vi ab ili ty ,E C5 0) of m et al ox id e N M s, re ad in gac ro ss to xi ci ty us in g tw o qu an tu m - m ec ha ni ca lc al cu la te d de sc ri pt or s (i n CS 1 en th al py of fo rm at io n of a ga se ou s ca tio n, in CS 2 M ul lik en 's el ec tr on eg at iv ity of th e cl us te r) .\n✓ (C yt ot ox ic ity\nvi a\nre du ct io n of\nE. co li vi ab ili ty an d cy to to xi ci ty vi a ce llu la r up ta ke of H aC aT ce lls )\nCS 1: 17\n(P uz yn\net al ., 20 11 ), CS 2:\n18 (G aj ew ic z et al ., 20 15 b)\n✓ (O ne -to -o ne ,o ne -to -m an y, -m an yto -o ne ,a nd m an yto -m an y cl as s as si gn m en t af te r hi er ar ch ic al cl us te ri ng )\n≈ ≈\n✗ ✗\n✓\n(G aj ew ic z et al ., 20 17 )\nA pp ro ac h fo r qu an tit at iv e Re ad - A cr os s, th at co ns is ts in th re e st ep s: (E ur op ea n Co m m is si on ,2 00 6) ex pl or at io n of m ul tid im en si on al sp ac e of de sc ri pt or s to ob ta in fir st in fo rm at io n on st ru ct ur al si m ila ri tie s, (O EC D ,2 01 2) G ro up in g us in g pa tt er n re co gn iti on te ch ni qu es ba se d on st ru ct ur al fe at ur es ,a nd (E CH A ,2 01 7a ) ap pl ic at io n of th ei r ap pr oa ch ,u si ng on e, tw o, or th re e po in ts de pe nd in g on av ai la bi lit y. In th e tw o Ca se st ud ie s, au th or s ad op te d as de sc ri pt or s tw o qu an tu m -m ec ha ni ca lc al cu la te d de sc ri pt or s (i n CS 1 en th al py of\n✓ (C yt ot ox ic ity\nvi a\nre du ct io n of\nE. co li vi ab ili ty an d cy to to xi ci ty vi a ce llu la r up ta ke of H aC aT ce lls )\nCS 1: 17\n(P uz yn\net al ., 20 11 ), CS 2:\n18 (G aj ew ic z et al ., 20 15 b)\n✓ (O ne -p oi nt sl op e, tw o po in ts fo rm ul a, pl an e pa ss in g fo r th re e po in ts )\n✓ ✓\n✗ ✗\n✓\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 3 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\nfo rm at io n of a ga se ou s ca tio n, pl us M ul lik en 's el ec tr on eg at iv ity of th e cl us te r in CS 2) .\n(H el m a et al ., 20 17 )\nFr am\new or k fo r do w nl oa di ng\nda ta an d\non to lo gi es fr om\nth e eN an oM\nap pe r\nda ta ba se an d de ve lo pi ng\nan d va lid at in g N M s Re ad -A cr os s m od el s. Th e de ve lo pe d to ol is av ai la bl e on lin e (h tt ps :/ /n an ola za r.i nsi lic o. ch / pr ed ic t) .I n th e ca se st ud y au th or s co m pa re d di ffe re nt N M de sc ri pt or se ts an d lo ca lr eg re ss io n al go ri th m s fo r th e N et Ce ll A ss oc ia tio n en dp oi nt us in g ph ys ic oc he m ic al ,s tr uc tu ra la nd pr ot ei n co ro na de sc ri pt or s.\n✓ (C el lA ss oc ia tio n in A 54 9 ce lls )\n12 1 (W al ke y et al ., 20 14 ) (r et ri ev ed fr om eN an oM\nap pe r)\n✓ (D iff er en t re gr es si on te ch ni qu es )\n≈ ≈\n✓ (D is ta nc e ba se d)\n✗ ✗\n(V ar so u et al ., 20 18 )\nW eb\npl at fo rm\n(t ox Fl ow ,a cc es si bl e at ht tp :/ /1 47 .1 02 .8 6. 12 9: 38 38 /t ox flo w ) fo r Re ad -A cr os s us in g ph ys ic oc he m ic al an d om ic sd at a. Th e pl at fo rm is Si m ila r co m po un ds ar e de fin ed as su ch by us in g tw o si m ila ri ty cr ite ri a, de fin ed by ph ys ic oc he m ic al an d bi ol og ic al ch ar ac te ri st ic s.\n✓ (C el lA ss oc ia tio n in A 54 9 ce lls )\n84 (W al ke y et al ., 20 14 )\n✓ (W ei gh te d av er ag e of th e co rr es po nd in g va lu es of th e si m ila r N M s)\n≈ ✓\n✗ ✓ (S en si tiv ity\nan al ys is )\n✓\n(S iz oc he nk o et al ., 20 18 )\nA qu an tit at iv e Re ad -A cr os s ca se st ud y of in vi tr o cy to to xi ci ty (E C5 0/ IC 50 ) da ta fo r ba ct er ia ,a lg ae ,p ro to zo a, hu m an ke ra tin oc yt e ce ll, Ba lb /c 3T 3, on m et al ox id e N M s ta ke n fr om di ffe re nt so ur ce s, us in g qu an tu m - m ec ha ni ca la nd st ru ct ur al de sc ri pt or s.\n✗ (I n vi tr o cy to to xi ci ty EC 50 /I C5 0 fo ra\nla rg e se t\nof ce lls )\n30 (P uz yn\net al ., 20 11 ;G aj ew ic z et al ., 20 15 b; Pa th ak ot ie t al ., 20 14 ;D .W an g et al ., 20 14 ; Ka w ee te er aw at et al ., 20 15 ; A ru oj a et al ., 20 15 ;T itm a et al ., 20 16 )\n✓ (S O M )\n≈ ✗\n✗ ≈ (C on si de ra tio ns on\nth e\nva ri ab ili ty in to xi ci ty ou tc om es )\n✓\n(L am\non et al ., 20 18 )\nG ro up in g of na no -T iO\n2 to Re ad -A cr os s ge no to xi ci ty ac co rd in g to th e EC H A (2 01 7a ) gu id an ce in cl ud in g ap pl ic at io n of ch em oi nf or m at ic ap pr oa ch es ,b y us in g m ea su re d ph ys ic oc he m ic al de sc ri pt or s an d na no sp ec ifi c de sc ri pt or s (m ai nl y re la te d to si ze di st ri bu tio n, ze ta po te nt ia l, an d di sp er si bi lit y) .\n✓ (I n vi tr o ge no to xi ci ty\nvi a\nCo m et as sa y)\n6 + 2 (O EC D ,2 01 5; G ui ch ar d et al ., 20 12 ;N an oG en oT ox\nJo in t\nA ct io n, 20 13 )\n✓ (P CA ,h ie ra rc hi ca l cl us te ri ng ,r an do m fo re st )\n≈ ✓\n✓ (W oE\nba se d)\n✓ (R A A F)\n✓\n(A sc hb er ge r et al ., 20 19 )\nG ro up in g of M W CN\nTs to Re ad -A cr os s ge no to xi ci ty ac co rd in g to th e EC H A (2 01 7a ) gu id an ce th ro ug h th e ap pl ic at io n of ch em oi nf or m at ic ap pr oa ch es ,b y us in g m ea su re d ph ys ic oc he m ic al de sc ri pt or s an d na no sp ec ifi c de sc ri pt or s (m ai nl y re la te d to si ze di st ri bu tio n, ze ta po te nt ia l, an d di sp er si bi lit y) .\n✓ (G en ot ox ic ity\nm ea su re d in in vi tr o an d in vi vo da ta on Co m et as sa y, m ic ro nu cl eu s as sa y)\n19 ✓ (P CA ,h ie ra rc hi ca l\ncl us te ri ng ,r an do m fo re st )\n≈ ✓\n✓ (W oE\nba se d)\n✓ (R A A F)\n✓\nCS :c as e st ud y; PC A :p ri nc ip al co m po ne nt an al ys is ;S O M :s el f-o rg an iz in g m ap s; W oE :w\nei gh t of ev id en ce .\ncomposed by metal oxides of different composition and on their ability to elicit toxic effects on different cell lines, with different endpoints (EC50, IC50) (Sizochenko et al., 2018) or taking into consideration different endpoints (e.g. in vitro oxidative stress and acute pulmonary inflammation) (Zhang et al., 2012).\nIt is important to notice that the study of Helma et al. (2017) is the only one in which authors reported retrieving their dataset from one of the databases in Table 2 (Helma et al., 2017), while the other approaches reported using datasets already available in literature or created in house. It is also worth reporting on the descriptor selection, or on the selection of the physicochemical properties considered in the case studies reported in Table 3, where only 4 out of 11 case studies included in the final model nanospecific properties (size distribution, zeta potential, dispersibility and surface coating (Lamon et al., 2018; Aschberger et al., 2019)), protein-corona descriptors (Helma et al., 2017), or omics descriptors (Varsou et al., 2018) in combination with physicochemical descriptors, while the remaining approaches used descriptors related to the chemical structure of NMs.\nSince Read-Across does not necessarily imply the development of a model, it is not surprising that for three of the reviewed approaches no validation was reported. Gajewicz et al. (2017) provided both internal and external validation of their model, while in the other cases either cross-validation was performed, or simple comparison between the expected and the predicted outcomes was reported.\nThe AD gives the dimension of how the Grouping hypothesis is generic for a set of NMs, and thus it should always be addressed in Grouping for Read-Across case studies, however only the tool presented by Helma et al. (2017) made consideration based on similarity in the training set for building an AD for the model, while Lamon et al. (2018) reported on this by stating that the hypothesis may extend to other NMs with the same core composition and that fall in the range of e.g. size and shape of the source NMs taken into consideration in their study. Aschberger et al. (2019) suggest extrapolation of their grouping should not be extended to MWCNTs that have different size or surface coatings or have a higher content of oxidising impurities.\nOnly a few case studies in Table 3 report uncertainty related to the prediction or Grouping: Lamon et al. (2018) and Aschberger et al. (2019) addressed this aspect by applying the ECHA's Read-across assessment framework (RAAF), thus providing a systematic assessment of all the uncertainties related to the result of their case study, while Sizochenko et al. (2018) discussed the variability in toxicity outcomes between different datasets, thus qualitatively addressing uncertainty. Varsou et al. (2018), instead, tested the sensitivity of their method varying the thresholds used to define similar compounds. The other case studies do not show or discuss uncertainty in their models or computational approaches.\nIt is worth nothing that while Lamon et al. (2018) and Aschberger et al. (2019) based their analysis on a systematic, recognized framework (ECHA, 2017b), thus identifying uncertainties specific to the identified read-across scenario (category approach, different compounds with the same effect, no variation in the effect), the other case studies were not contextualized in any of the existing Grouping frameworks. In most cases the similarities in structural and/or physicochemical properties of the NMs and/or their mechanisms of toxicokinetics and/or mode of action were indeed assessed by expert judgement rather than applying one of the frameworks. Moreover, the mechanistic understanding of the approaches adopted in most of the case studies is provided as a justification of the proposed Grouping hypothesis or hazard classification. Varsou et al. (2018), instead, suggested a different approach by forming grouping hypothesis based on the biological identity of the NPs and achieved that by retrieving prior knowledge from biological pathway databases, while Helma et al. (2017) focused on the approach and the performance of the adopted in silico tool, without providing a mechanistic interpretation nor giving a justification for the Grouping hypothesis."
+    }, {
+      "heading" : "3.3. (Q)SARs applied to NMs",
+      "text" : "(Q)SARs assume that an observed biological activity is correlated with the chemical structure or properties, enabling the identification of a mathematical function or a model. After this relationship is estimated, it is possible to apply it to newly developed or untested substances, thus assessing their potential effects. The biological activity can be predicted in a qualitative (toxic/non-toxic) or quantitative way depending on the endpoint of interest and on the datasets, respectively by means of classification and regression models. (Q)SARs are extensively applied in chemical toxicity modelling and drug discovery (Dudek et al., 2006; Nantasenamat et al., 2009; Verma et al., 2010), and in the last decade lots of efforts have been put in practice to apply QSARs to NMs. A selection of peer-reviewed articles presenting models that predict human health hazard endpoints retrieved from the literature as specified in Section 2 is presented in Table 4: these tools were critically evaluated against the criteria described in Table 1. In addition of such criteria, the descriptors used for modelling and other information (such as whether the developed model is available as a web tool, or the approach is contextualized into an existing Grouping framework, cfr. Section 1) are highlighted, together with a brief description of the reviewed approach.\n(Q)SAR models have often been criticized not being sufficiently accurate when applied in practice (Cherkasov et al., 2014). This may be due to a different number of motivations.\nAs highlighted in Table 4, many studies analysed small datasets, and none of the reviewed approaches reported using any of the databases listed in Table 2. Although the modelling approach and the descriptors used in the final model were always clearly indicated, excluding the model provided by Burello and Worth (2011) where instead a theoretical model was applied, in roughly 50% of the reviewed approaches the descriptors used by the final model are related to the chemical composition of the NM and are not related to nanospecific properties, while the most common nanospecific descriptors included in the reviewed models are size (measured in different media), zeta potential, reactivity and surface area, while in three cases protein-corona descriptors where included in the final model (Liu et al., 2015b; Tsiliki et al., 2015; Papa et al., 2016). The predicted endpoint was in general clearly identified: in roughly 25% of the reviewed approaches (11 out of 41) more cell lines or endpoints were combined to predict a generic biological activity (e.g. viability and cellular uptake). Furthermore, only in one of the case studies of Gajewicz et al. (2018) an in vivo endpoint was predicted, thus confirming the model landscape presented elsewhere (Lamon et al., submitted for publication). It is worth noting that in some cases activity was assessed by arbitrarily defining a threshold on endpoint values, in such a way to have half of the dataset classified as “active”, and half as “non-active”.\nThe 65% of the reviewed approaches (27 out of 41) performed both internal and external validation, while roughly 25% of the approaches reported performing only internal validation through cross-validation, and one of the reviewed models was not validated at all (Kaweeteerawat et al., 2015). The validation of one of the reviewed approaches resulted to be biased, because authors reported selecting the final model by looking at the one maximizing performances in the test set (Oksel et al., 2016). The statistics used to evaluate the goodnessof-fit or the classification accuracy were clearly reported in the 80% of the reviewed approaches (33 out of 41), while in 8 out of 41 of the approaches the reported statistics were not sufficient to fully evaluate model performances.\nThe Applicability Domain of the model was assessed in more than half of the reviewed approaches (24 out of 41), and usually in such cases the data samples that felt outside the AD were highlighted. The most used approach to evaluate the AD of the models resulted to be the Leverage Approach, often through a William's Plot (i.e.: leverage values vs standardized residuals), but also geometric and distance-based approaches were adopted, as well as approaches that assess the AD basing on statistical properties of the model. It should be noted that the\nTa bl e 4 Se le ct io n of pe er -r ev ie w ed\nst ud ie s in w hi ch\n(Q )S A R m od el s pr ed ic tin g hu m an\nhe al th ha za rd en dp oi nt s w er e pr ov id ed ,e va lu at ed\nus in g th e cr ite ri a de sc ri be d in Ta bl e 1.\nRe fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\n(F ou rc he s et al ., 20 10 )\nCS 1: cl as si fic at io n of m et al co re d N M s us in g fo ur st ru ct ur al de sc ri pt or s (s iz e, R1 /R 2 re la xi vi ty ,z et apo te nt ia l) .A ct iv ity w as de sc ri be d by av er ag in g fo r ea ch N M 64 fe at ur es (f ou r do se s, fo ur di ffe re nt ce ll lin es , an d fo ur di ffe re nt in vi tr o as sa ys ), th us se tt in g ar bi tr ar ily a th re sh ol d th at al lo w ed to sp lit th e da ta se t in tw o ba la nc ed cl as se s; CS 2: Q SA R m od el lin g of ca nc er Pa Ca 2 ce llu la r up ta ke by M et al co re d N M s, w ith re sp ec t to 15 0 di ffe re nt ca lc ul at ed ch em ic al de sc ri pt or s (u si ng M O E so ftw ar e) .\n✗/ ✓ (C S1 :6 4 fe at ur es w er e av er ag ed ,s et tin g an ar bi tr ar y th re sh ol d to in di ca te ac tiv ity ;C S2 : ce llu la r up ta ke in Pa Ca 2 ce lls )\n44 (S ha w et al ., 20 08 ), 10 9 (W ei ss le de r et al ., 20 05 )\n✓ (C S1 :L\nin ea r SV M Cl as sifi\ner ,C S2 :k N N )\n✓ ✓\n✓ (D is ta nc e ba se d)\n≈ (Y -s cr am\nbl in g)\n✓\n(B ur el lo an d\nW or th ,2 01 1)\nTh eo re tic al m od el th at pr ed ic ts th e ox id at iv e st re ss po te nt ia lo fo xi de N M s by co m pa ri ng th e re do x po te nt ia ls of re le va nt in tr ac el lu la rr ea ct io ns w ith\nth e\nen er gy\nst ru ct ur e, us in g\nre ac tiv ity\nde sc ri pt or s.\n✓ (O xi da tiv e st re ss po te nt ia l)\n70 N A\n(T he or et ic al m od el )\n≈ ≈\n✗ ✗\n✓\n(S ay es an d Iv an ov , 20 10 )\nCS 1: re gr es si on\nm od el to pr ed ic tc el lu la r m em br an e da m ag e of Ti O 2 N M s vi a la ct at e de hy dr og en as e (L D H ) re le as e us in g fiv e na no sp ec ifi c de sc ri pt or s (s iz e, si ze in w at er an d ph os ph at e bu ffe re d sa lin e, co nc en tr at io n an d ze ta - po te nt ia l) .C S2 :c la ss ifi ca tio n m od el to de te ct de ns e ce ll m em br an es an d di sr up te d ce ll m em br an e af te r th e ex po su re to Zn O N M s vi a LD H re le as e us in g th re e na no sp ec ifi c de sc ri pt or s (s iz e in w at er an d ce ll cu ltu re m ed iu m ,z et a po te nt ia l) .\n✓ (C S1\nan d CS 2: Ce llu la r m em br an e da m ag e vi a LD H re le as e)\n24 , 18 ✓ (C S1 :M\nLR ,C S2 :L\nDA )\n≈ ≈\n✗ ✗\n✓\n(L iu et al ., 20 11 )\nCl as si fic at io nba se d cy to to xi ci ty of m et al ox id e N M s at di ffe re nt co nc en tr at io ns ,u si ng 14 na no sp ec ifi c an d ca lc ul at ed ph ys ic oc he m ic al de sc ri pt or s an d ex pl or in g al lp os si bl e co m bi na tio ns of th es e\n✓ (C yt ot ox ic ity\nvi a pr op id iu m io di de up ta ke of BE A S2B ce lls )\n9 ✓ (L og ist ic re gr es sio\nn) ✓\n≈ ✓ (G eo m et ri c: co nv ex hu ll af te r PC A )\n✗ ✓\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\nde sc ri pt or s, en di ng\nup w ith a m od el w ith th re e de sc ri pt or s (p er io d of th e N M m et al , at om iz at io n en er gy ,a nd pr im ar y si ze ).\n(P uz yn\net al .,\n20 11 )\nQ SA R m od el de sc ri bi ng\nth e\nCy to to xi ci ty of a se to fM\net al\nO xi de\nN M s to ba ct er ia Es ch er ic hi a co li us in g a si ng le ca lc ul at ed ch em ic al de sc ri pt or (e nt ha lp y of fo rm at io n of a ga se ou s ca tio ).\n✓ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty )\n17 ✓ (M LR\nco m bi ne d w ith a G en et ic A lg or ith m )\n✓ ✓\n✓ (L ev er ag e ap pr oa ch )\n≈ (Y -s cr am\nbl in g)\n✓\n(E pa\net al ., 20 12 )\nCS 1: Ev al ua tio n of a lin ea ra nd of a no nlin ea r m od el to pr ed ic tt he sm oo th m us cl e ap op to si s (S M A ) in du ce d by M et al O xi de N M s, by us in g as de sc ri pt or s th re e in di ca to r va ri ab le s (f or co re m at er ia l, su rf ac e co at in g, an d su rf ac e ch ar ge ). CS 2: lin ea r an d no nlin ea r m od el s to pr ed ic t ce llu la r up ta ke in Pa Ca 2 de ll lin e an d in hu m an um bi lic al ve in en do th el ia lc el ls (H U VE C) ,i nd uc ed a se t of N M s w ith th e sa m e co re bu t di ffe re nt su rf ac e m od ifi ca tio ns .A fte r fin di ng be st -p er fo rm in g m od el s us in g th e co m pl et e se to f ph ys ic oc he m ic al an d ca lc ul at ed de sc ri pt or s, au th or s pr ov id ed tw o ad di tio na l m od el s th at m ad e us e of in te rp re ta bl e de sc ri pt or s on ly , w hi ch w er e m ai nl y re la te d to m ol ec ul ar si ze an d sh ap e, an d hy dr og en bo nd in g of th e fu nc tio na liz at io n.\n✓ (C S1 :S M A ,C S2 :c el lu la r up ta ke in Pa Ca 2 an d H U VE C ce ll lin es )\n31 (S ha w et al ., 20 08 ), 10 9 (W ei ss le de r et al ., 20 05 )\n✓ (C S1 :M\nLR an d N eu ra l\nN et w or k w ith\nBa ye si an\nre gu la ri za tio n; CS 2: M LR w ith EM ,a nd N eu ra lN et w or k w ith Ba ye si an re gu la ri za tio n)\n✓ ✓\n✗ ✗\n✓\n(T or op ov\net al .,\n20 12 )\nA pp lic at io n of th e CO\nRA L\nso ftw\nar ea to ev al ua te th e Cy to to xi ci ty to ba ct er ia\nE. co li\nof a se to fM\net al O xi de\nN M s,\nus in g SM\nIL ES\nde sc ri pt or s\n(T or op ov\net al ., 20 10 ).\n✓ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty )\n17 (P uz yn\net al .,\n20 11 )\n✓ (L ea st sq ua re re gr es si on )\n✓ ✓\n✗ ≈ (Y -s cr am\nbl in g)\n✗\n(C ha u an d Ya p, 20 12 )\nCo ns en su sm\nod el de ri ve d fr om\na po ol of 21 00\ncl as si fic at io n m od el s (k N N ,N BC ,L og is tic re gr es si on ,a nd SV M ) to pr ed ic tt he ce llu la r up ta ke of m et al co re d N M s by pa nc re at ic ca nc er ce lls .\n✓ (C el lu la r up ta ke\nin Pa Ca 2\nce ll lin e)\n10 5 (W ei ss le de r et al ., 20 05 )\n✓ (C on se ns us\ncl as sifi\ner )\n✓ ✓\n✓ (M ul tip le th re sh ol d m et ho d)\n✗ ✗\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\nCa lc ul at ed\n3D de sc ri pt or s\nin cl ud ed\nin th e fin al m od el\n(f ro m an\nin iti al po ol of 10 0 de sc ri pt or s) w er e m ai nl y re la te d to lip op hi lic ity an d hy dr og en bo nd in g.\n(G ho rb an za de h et al ., 20 12 )\nN on -li ne ar m od el to pr ed ic t ce llu la r up ta ke of m et al co re d N M s in pa nc re at ic ce ll lin es . Th e m od el w as de sc ri be d by si x ch em ic al de sc ri pt or s co m pu te d by D ra go n so ftw ar e an d ch os en by fe at ur e se le ct io n th an ks to a SO M . A ut ho rs al so pr ov id ed a le ss pe rf or m in g lin ea r m od el w as de ri ve d by M LR us in g th e sa m e de sc ri pt or s.\n✓ (C el lu la r up ta ke\nin Pa Ca 2\nce ll lin e)\n10 9 (W ei ss le de r et al ., 20 05 )\n✓ (M ul tila ye re d pe rc ep tr on\nne ur al\nne tw or k)\n✓ ✓\n✓ (D es cr ip to r ra ng es + le ve ra ge ap pr oa ch )\n✗ ✓\n(S ha o et al ., 20 13 )\nD em on st ra tio n of th e de pe nd en ce of Q SA R m od el s on th e se le ct io n of tr ia l de sc ri pt or s se ts co m pu te d by di ffe re nt so ftw ar es fr om th e ch em ic al st ru ct ur e of th e N M s us in g si x di ffe re nt en dp oi nt s (B SA bi nd in g, CA bi nd in g, H B Bi nd in g, CT bi nd in g, N O re sp on se ,a nd Ce ll Vi ab ili ty ) an d a co m bi na tio n of th es e en dp oi nt s fo r de co ra te d na no tu be s.\n✓ /✗ (S ix di ffe re nt en dp oi nt s, an d a co m bi na tio n of su ch en dp oi nt s)\n80 (Z ho u et al ., 20 08 )\n✓ (M LR\nw ith\nge ne tic\nal go ri th m )\n≈ ≈\n✗ ✗\n✓\n(L iu et al ., 20 13 a)\nSA R m od el fo r m et al ox id e N M s to xi ci ty us in g m et ri cs ba se d on do se –r es po ns e an al ys is an d co ns en su s se lfor ga ni zi ng m ap cl us te ri ng . A ut ho rs ex pl or ed di ffe re nt cl as si fic at io n m od el s (N BC , Li ne ar re gr es si on ,L D A , Lo gi st ic re gr es si on ,q ua dr at ic lo gi st ic re gr es si on ,a nd SV M ) w ith di ffe re nt co m bi na tio ns of na no sp ec ifi c, ph ys ic oc he m ic al an d m et al ox id e de sc ri pt or s, en di ng up w ith a m od el co m po se d by tw o de sc ri pt or s (c on du ct io n ba nd en er gy an d io ni c in de x) .\n✗ (C el lv ia bi lit y in BE A S2B an d RA W 26 4. 7 ce ll lin es )\n24 (Z ha ng\net al .,\n20 12 )\n✓ (S VM\ncl as sifi\ner w ith\nga us sia\nn ke rn el )\n≈ ✓\n✓ (P ro ba bi lis tic ,b as ed on ke rn el de ns ity es tim\nat io n)\n✓ (Y -s cr am\nbl in g + co ns id er at io ns\non th e de ci si on\nbo un da ri es )\n✓\n(L iu et al ., 20 13 b)\nSA R bi na ry m od el s us in g di ffe re nt M L te ch ni qu es , cl as si fy in g di ve rs e m et a co re d N M sb as ed on co m bi na tio ns of di ffe re nt na no sp ec ifi c,\n✗ (N or m al iz ed\nSN R ra tio\nw ith\nre sp ec te d to un ex po se d ce ll re sp on se s of th e “b io ac tiv ity\npr ofi le ”)\n44 (S ha w et al ., 20 08 )\n✓ (L DA ,N\naï ve\nBa ye s\nCl as sifi\ner (N BC ), Lo gi sti c\nre gr es sio\nn, an d N ea re st\nN ei gh bo ur )\n≈ ✓\n✓ (P ro ba bi lis tic ,b as ed on th e N aï ve Ba ye sC la ss ifi er )\n✓ (Y -s cr am\nbl in g + co ns id er at io ns\non th e de ci si on\nbo un da ri es of th e\nN BC )\n✓\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\nm ol ec ul ar an d ph ys ic oc he m ic al de sc ri pt or s. A ct iv ity w as de sc ri be d by a “b io ac tiv ity pr ofi le ” w hi ch av er ag ed 64 fe at ur es (f ou r do se s, fo ur di ffe re nt ce ll lin es , an d fo ur di ffe re nt in vi tr o as sa ys ).\n(H or ev -A za ri a\net al ., 20 13 )\nTo xi co lo gy\neff ec ts of Co ba lt\nFe rr ite\nN M s, at di ffe re nt do se s an d di ffe re nt ex po su re tim es , w ith re sp ec tt o se ve n di ffe re nt ce ll ty pe s (r ep re se nt in g di ffe re nt or ga ns of th e hu m an bo dy ) an d pr ec is io ncu tl un g sl ic es .D es cr ip to rs w er e: ce ll ty pe ,c on ce nt ra tio n, ex po su re tim e, an d ex te nt of vi ab ili ty de cr ea se .\n✓ (R O S le ve l)\n23 80\n✓ (D ec isi on\nTr ee\nco m pa re d\nag ai ns ta\nn N BC )\n≈ ✓\n✗ ✗\n✓\n(T or op ov\net al .,\n20 13 )\nA pp lic at io n of th e CO\nRA L\nso ftw\nar e to pr ed ic t, us in g\nSM IL ES\nde sc ri pt or s, N M s\nce llu la r up ta ke\nin Pa Ca 2 pa nc re at ic ca nc er ce lls .T o va lid at e th ei r ap pr oa ch , au th or s re pe at ed th e m od el tr ai ni ng an d te st in g us in g fiv e di ffe re nt ra nd om sp lit s of th e da ta se t.\n✓ (C el lu la r up ta ke\nin Pa Ca 2\nce ll lin es )\n10 9 (W ei ss le de r et al ., 20 05 )\n✓ (M on te Ca rl o op tim iz at io n)\n✓ ✓\n✓ (D efi ne d as N M s co nt ai ni ng\nth e sa m e\nSM IL ES\nat tr ib ut es )\n✗ ✓\n(K ar et al ., 20 14 a)\nM od el pr ed ic tin g ce llu la r up ta ke in Pa Ca 2 ce ll lin es of a se to fN M s w ith co m m on m et al co re an d di ffe re nt su rf ac e m od ifi ca tio ns ,i n re la tio n w ith a po ol of 30 7 de sc ri pt or s (s tr uc tu ra l, m ol ec ul ar ,t op ol og ic al , sp at ia l, an d el ec tr on ic ) co m pu te d us in g di ffe re nt so ftw ar e (C er iu s, D ra go n an d Pa D eL -D es cr ip to r) .G en et ic Fu nc tio n A pp ro xi m at io n (G FA ;R og er s an d H op fin ge r, 19 94 ) w as ap pl ie d to fin d be st de sc ri pt or s fr om th is po ol , en di ng up w ith a lin ea r m od el co m po se d by si x ca lc ul at ed de sc ri pt or s, w hi ch w er e re la te d to hy dr op ho bi ci ty , m ea su re of el ec tr on ic fe at ur es re la tiv e to m ol ec ul ar si ze , w ie ne r in de x of th e ch em ic al\n✓ (C el lu la r up ta ke\nin Pa Ca 2\nce ll lin es )\n10 9 (W ei ss le de r et al ., 20 05 )\n✓ (S te pw is e M LR fo llo w ed\nby PL S)\n✓ ✓\n✓ (L ev er ag e ap pr oa ch + D M od X)\n≈ (Y -s cr am\nbl in g)\n✓\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\ngr ap h, an d re la tiv e po si tiv e ch ar ge su rf ac e ar ea .\n(S in gh\nan d G up ta ,\n20 14 )\nIn ve st ig at io n of th e re lia bi lit y of tw o En se m bl e Le ar ni ng m et ho ds (D ec is io n Tr ee Fo re st s (D TF ) an d D ec is io n Tr ee Bo os t (D TB )) ap pl ie d to fiv e di ffe re nt da ta se ts (N M s w ith sa m e m et al co re ,N M s w ith co m m on m et al co re an d di ffe re nt su rf ac e m od ifi ca tio ns ,d iff er en t m et al ox id e N M s, su rf ac e m od ifi ed m ul tiw al le d ca rb on na no tu be s, an d fu lle re ne de ri va tiv es N M s) ,u si ng na no sp ec ifi c an d si m pl e st ru ct ur al de sc ri pt or s.\n✗/ ✓ (C S1 :a ct iv ity\npr ofi le (F ou rc he s et al ., 20 10 ), CS 2: ce llu la r up ta ke in Pa Ca 2 ce ll lin es ,C S3 : cy to to xi ci ty in\nE. co li, CS 4:\nCe ll vi ab ili ty by de hy dr og en as e ac tiv ity , CS 5: Bi nd in g affi ni ty w ith th e H IV -1 PR vi ru s)\n44 (S ha w et al ., 20 08 ), 10 9 (W ei ss le de r et al ., 20 05 ), 17 (P uz yn et al ., 20 11 ), 29 (Z ho u et al ., 20 08 ), 48 (D ur da gi et al ., 20 08 )\n✓ (T w o di ffe re nt En se m bl e Le ar ni ng m et ho ds ,f or re gr es si on an d cl as sifi ca tio n pu rp os es )\n✓ ✓\n✓ (D is ta nc e ba se d)\n≈ (C on tr ib ut io n of ea ch\nde sc ri pt or\nto th e fin al pr ed ic tio n)\n✓\n(K le an dr ov a et al ., 20 14 )\nM od el to si m ul ta ne ou sl y pr ed ic te co to xi ci ty an d cy to to xi ci ty of N M s un de r di ffe re nt ex pe ri m en ta l co nd iti on s an d ag ai ns t di ffe re nt bi ol og ic al ta rg et s. Th e m od el ,d efi ne d by\nau th or s Q SA Rpe rt ur ba tio n m od el ,i s a va ri at io n of th e cl as si ca l( Q ) SA R pr in ci pl e th at m ak e us e of pe rt ur ba tio n th eo ry to st ud y ho w ch an ge s in th e se t of de sc ri pt or sp ro du ce ch an ge si n th e ou tc om e, by ra nd om sa m pl in g N M pa ir s an d us in g on e as re fe re nc e an d th e ot he r as ou tp ut .F ou r de sc ri pt or s w er e us ed fo r ea ch N M pa ir : th re e ph ys ic oc he m ic al de sc ri pt or s de pe nd in g on th e ch em ic al co m po si tio n of th e N M (m ol ar vo lu m e, el ec tr on eg at iv ity an d po la ri za bi lit y) ,p lu s th e m ea su re d si ze .\n✗ (D iff er en tm\nea su re s of to xi ci ty de pe nd in g on bi ol og ic al ta rg et ,n am\nel y\nCy to to xi ci ty ,E C 5\n0, IC 50 ,\nTC 50 ,a nd\nLC 50 )\n22 9\n✓ (L DA )\n✓ ✓\n✗ ≈ (A re a U nd er th e Cu rv e)\n✓\n(L ua n et al ., 20 14 )\nQ SA Rpe rt ur ba tio n m od el ai m in g at si m ul ta ne ou sl y pr ed ic tin g th e cy to to xi ci ty of di ffe re nt N M s ag ai ns t se ve ra l m am m al ia n ce ll lin es , co ns id er in g di ffe re nt tim es of ex po su re of th e ce ll lin es ,a s w el la s th e ch em ic al co m po si tio n of N M s, si ze , co nd iti on s un de r w hi ch th e\n✗ (D iff er en tm\nea su re s of\ncy to to xi ci ty )\n41 (Z ha ng\net al .,\n20 12 )\n✓ (L DA )\n✓ ✓\n✗ ✗\n✓\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\nsi ze w as m ea su re d, an d sh ap e. Fo ur de sc ri pt or s w er e us ed fo r ea ch N M pa ir :t hr ee ph ys ic oc he m ic al de sc ri pt or s de pe nd in g on th e ch em ic al co m po si tio n of th e N M (m ol ar vo lu m e, el ec tr on eg at iv ity an d po la ri za bi lit y) ,p lu s th e m ea su re d si ze .\n(K ar et al ., 20 14 b)\nM od el s to pr ed ic tc yt ot ox ic ity of m et al ox id e N M s: th e fir st m od el us es a si ng le de sc ri pt or (c ha rg e of m et al ca tio n co rr es po nd in g to a gi ve n ox id e) ,w hi le th e se co nd us es an ad di tio na ld es cr ip to r (m et al el ec tr on eg at iv ity ), re su lti ng to be m or e pr ed ic tiv e.\n✓ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty )\n17 (P uz yn\net al .,\n20 11 )\n✓ (s te pw is e M LR\nfo r th e\nfir st m od el ,a nd\nPL S fo r\nth e se co nd )\n≈ ✓\n✓ (L ev er ag e ap pr oa ch )\n≈ (Y -s cr am\nbl in g)\n✓\n(P at ha ko ti et al ., 20 14 )\nQ SA R re la tin g ph ot oin du ce d to xi ci ty of m et al ox id e N M s to E. co li, af te r ex po su re to na tu ra ls un lig ht ir ra di at io n in co m pa ri so n to da rk ,w ith re sp ec t to di ffe re nt co m bi na tio ns of ph ys ic oc he m ic al an d ca lc ul at ed de sc ri pt or s.\n✓ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty )\n17 ✓ (L ea st sq ua re re gr es si on )\n✓ ≈\n✗ ✗\n✓\n(T or op ov a et al ., 20 14 a)\nQ SA R fo r th e pr ed ic tio n of da rk an d ph ot oin du ce d cy to to xi ci ty ,u si ng SM IL ES an d qu as i-S M IL ES\nat tr ib ut es as\nde sc ri pt or s (T or op ov\net al .,\n20 10 ).\n✓ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty )\n17 (P at ha ko ti et al ., 20 14 )\n✓ (M on te Ca rl o op tim iz at io n)\n≈ ✓\n✓ (P ro ba bi lis tic )\n≈ (Y -s cr am\nbl in g)\n✓\n(W in kl er et al ., 20 14 )\nLi ne ar an d no nlin ea rm\net ho ds\nth at em pl oy\nBa ye si an\nne ur al\nne tw or ks to m od el th re e di ffe re nt da ta se ts us in g fo ur na no sp ec ifi c de sc ri pt or s (s iz e, R1 an d R2 re la xi vi tie s, an d ze ta po te nt ia l) .\n✓ (C S1 :C el lu la r ap op to si s, CS 2: ce llu la r up ta ke in 4 di ffe re nt ce ll lin es ,C S3 : pr ot ei n ad so rp tio n)\n50 (S ha w et al ., 20 08 ), 10 9 (W ei ss le de r et al ., 20 05 ), 80\n✓ (L in ea r an d no nlin ea r Ba ye si an ne tw or ks )\n✓ ✓\n✗ ✗\n✓\n(T or op ov a et al ., 20 14 b)\nM od el to pr ed ic tc yt ot ox ic ity of Si O 2 N M s by m ea ns of m at he m at ic al fu nc tio ns of si ze an d co nc en tr at io n, th ro ug h th e CO RA L so ftw ar e.\n✓ (C yt ot ox ic ity\nvi a in hi bi tio n\nra tio\nof hu m an\nlu ng\nfib ro bl as ts )\n18 (X u et al ., 20 12 )\n✓ (M on te Ca rl o op tim iz at io n)\n✓ ✓\n✗ ✗\n✗\n(S iz oc he nk o et al ., 20 15 )\nA pp lic at io n of ca us at io n in fe re nc e m et ho d to as si st th e de ve lo pm en t an d th e m ec ha ni st ic in te rp re ta tio n of SA R m od el s re la tin g hu m an BE A S2B ce ll lin e an d m ur in e m ye lo id ce ll lin e RA W 26 4. 7\n✗ (C el lv ia bi lit y in BE A S2B an d RA W 26 4. 7 ce ll lin es )\n24 (Z ha ng\net al .,\n20 12 )\n✓ (R an do m\nFo re sts )\n✓ ✓\n✓ (M in im um\n-c os t-t re e of va ri ab le im po rt an ce )\n✗ ✓\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\nto w ar ds a se ri es of m et al ox id e N M s. Io ni c, fr ag m en ta l, an d “l iq ui d dr op m od el ” (S iz oc he nk o et al ., 20 14 ) ba se d de sc ri pt or s w er e us ed .\n(M el ag ra ki an d A fa nt iti s, 20 14 )\nQ SA R m od el fo rt he pr ed ic tio n of th e ce llu la r up ta ke of N M s in pa nc re at ic ca nc er ce lls us in g SM IL ES de sc ri pt or s. Th e w or kfl ow w as m ad e av ai la bl e on lin e th ro ug h th e En al os In Si lic oN an o pl at fo rm .b\n✓ (C el lu la r up ta ke\nin Pa Ca 2\nce ll lin es )\n10 9 (W ei ss le de r et al ., 20 05 )\n✓ (k N N )\n✓ ✓\n✓ (D is ta nc e ba se d)\n✗ ✗\n(W al ke y et al ., 20 14 )\nCh ar ac te ri za tio n of th e pr ot ei n se ru m co ro na fin ge rp ri nt of go ld N M s, th at ha ve be en us ed as de sc ri pt or s to pr ed ic t ce ll as so ci at io n. Pe rf or m an ce of th e m od el ha ve be en co m pa re d ag ai ns t an ot he r on e th at us ed on ly si ze , ag gr eg at io n st at e an d su rf ac e ch ar ge ,r es ul tin g to be 50 % m or e ac cu ra te .\n✓ (C el la ss oc ia tio n in A 54 9 ce lls )\n10 5\n✓ (P LS\nre gr es si on )\n✓ ✓\n✓ (L ev er ag e ap pr oa ch )\n✗ ✓\n(K aw ee te er aw at et al ., 20 15 )\nIn ve st ig at io n of th e gr ow th in hi bi to ry fo r a se t of m et al ox id e N M s in th e ba ct er iu m E. co li. Th e re su lti ng m od el us ed as de sc ri pt or s th e co nd uc tio n ba nd en er gy le ve ls an d th e hy dr at io n en th al py .\n✓ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty )\n24 ✓ (S VM\ncl as sifi\ner )\n✗ ≈\n✗ ≈ (A ss es sm en t of th e de ci si on bo un da ri es )\n✓\n(B ig de li et al ., 20 15 )\nIn ve st ig at io n on\nth e m os t re sp on si bl e fa ct or s in go ld N M s ex oc yt os is in m ac ro ph ag es ,u si ng TE M ex tr ac te d, ex pe ri m en ta l pa ra m et er s an d co m bi na to ri al de sc ri pt or s.\n✓ (E xo cy to si s in m ac ro ph ag es )\n12 (O h an d Pa rk , 20 14 )\n✓ (P LS\nre gr es si on )\n≈ ✓\n✗ ✗\n✓\n(J on es et al ., 20 15 )\nCo m pa ri so n of di ffe re nt cl as si fic at io n te ch ni qu es to pr ed ic tt he cy to to xi ci ty of po ly (a m in o am in e) (P A M A M ) de nd ri m er s us in g di ffe re nt ch em ic al an d st ru ct ur al de sc ri pt or s. A ut ho rs re tr ie ve d th e da ta fr om 12 di ffe re nt na no m ed ic in e jo ur na la rt ic le s us in g N an oS ift er N LP as a to ol fo r da ta m in in g (J on es et al ., 20 14 ), an d pe rf or m ed fiv e di ffe re nt an al ys es to cl as si fy N M ,u si ng di ffe re nt co m bi na tio ns of de sc ri pt or s.\n✓ (C yt ot ox ic ity\nin Ca co -2\nce lls )\n10 3\n✓ (N BC ,S\nM O ,J 48 ,\nBa gg in g, Cl as sifi\nca tio n\nvi a re gr es sio\nn, Fi lte re d\ncl as sifi\ner ,L\nW L De ci sio n ta bl e, DT N B, N BT re e, Ra nd om Fo re st)\n✓ ✓\n✗ ✗\n✗c\n✓ ✓\n✓ (c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\n(G aj ew ic z et al ., 20 15 b)\nIn ve st ig at io n on\ndi ffe re nc e in m od es of ac tio n of a se t of m et al ox id e N M s be tw ee n eu ka ry ot ic sy st em (H aC aT\nce ll\nlin e) an d pr ok ar yo tic\nsy st em\n(E .c ol i) st ar tin g fr om\na po ol of\n27 pa ra m et er s qu an tit at iv el y de sc ri bi ng st ru ct ur e of N M s, an d ob ta in in g a m od el co m po se d by tw o co m pu te d de sc ri pt or s (e nt ha lp y of fo rm at io n of m et al ox id e na no cl us te r su rf ac e an d th e M ul lik en 's el ec tr on eg at iv ity of th e cl us te r) .\n✗ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty an d\ncy to to xi ci ty\nvi a ce llu la r\nup ta ke\nof H aC aT\nce lls )\n17 (P uz yn\net al .,\n20 11 ), 18\n✓ (M LR\nco m bi ne d w ith a G en et ic A lg or ith m )\n✓ (L ev er ag e ap pr oa ch )\n≈ (Y -s cr am\nbl in g)\n(P ap a et al ., 20 15 )\nRe gr es si on\nan d cl as si fic at io n\nm od el s fo r a se to fZ nO\nan d\nTi O 2 N M s te st ed\nat di ffe re nt co nc en tr at io ns fo r th ei r ab ili ty to di sr up tt he lip id m em br an e in ce lls by us in g tw o em pi ri ca l de sc ri pt or s (s iz e an d co nc en tr at io n) .\n✓ (C el lu la r m em br an e da m ag e vi a LD H re le as e)\n42 ✓ (M LR ,S VM\n,N eu ra l\nN et w or ks ,a\nnd J4 8\nCl as sifi\nca tio n Tr ee )\n✓ ✓\n✓ (L ev er ag e ap pr oa ch , co nv ex hu ll af te r PC A )\n≈ (Y -s cr am\nbl in g)\n✓\n(O ks el et al ., 20 15 c)\nA fte r an\nun su cc es sf ul at te m pt\nto si m ul ta ne ou sl y fin d a re la tio ns hi p be tw ee n a se to f de sc ri pt or s (1 0 re la te d to N M si ze an d si ze di st ri bu tio n, 2 de ri ve d fr om TE /S EM im ag es , 2 de ri ve d fr om EP R m ea su re m en ts ,1 3 re la te to su rf ac e ar ea ,2 re la te d to re ac tiv ity an d 5 re la te d to m et al co nt en t m ea su re m en ts ) an d 18 di ffe re nt to xi co lo gi ca l re sp on se s, au th or s se le ct ed a si ng le en dp oi nt an d pr ov id ed a Q SA R m od el us in g al lt he av ai la bl e de sc ri pt or s.\n✓ (C el lv ia bi lit y)\n10 (X .Z .W\nan g\net al ., 20 14 )\n✓ (P LS\nre gr es si on )\n≈ ≈\n✗ ✗\n✗\n(L iu et al ., 20 15 b)\nIn ve st ig at io n on\nth e re la tio ns hi ps be tw ee n N M -c el l as so ci at io n, an d pr ot ei n co ro na fin ge rp ri nt s an d N M ph ys ic oc he m ic al pr op er tie s, th ro ug h lin ea r an d no nlin ea r m od el s. Th e fin al (n on -li ne ar ) m od el us ed as de sc ri pt or s si x se ru m pr ot ei ns an d th e ze ta po te nt ia l.\n✓ (C el la ss oc ia tio n in A 54 9 ce lls )\n10 5 (W al ke y et al ., 20 14 )\n✓ (S VM\nre gr es si on )\n≈ ≈\n✓ (L ev er ag e ap pr oa ch )\n≈ (Y -s cr am\nbl in g)\n✓\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\n(T si lik ie t al ., 20 15 )\nR pa ck ag e (R Re gr es ) fo r cr ea tin g an d va lid at in g m ul tip le re gr es si on\nm od el s,\npr od uc in g un ifi ed\nre po rt s an d se le ct in g th e be st pe rf or m in g on e. A ut ho rs te st ed th ei r pa ck ag e ag ai ns t di ffe re nt da ta se ts ,i nc lu di ng th re e ca se st ud ie s on na no -p ar tic le s: tw o of th es e ca se st ud ie s w er e re la te d to to xi ci ty ,a nd on e to ec ot ox ic ity (s ho rt -te rm aq ua tic to xi ci ty ). In CS 1 pr ot ei nco ro na de sc ri pt or s w er e in cl ud ed in th e m od el s, w hi le in CS 2 qu an tu m - m ec ha ni ca la nd im ag e de ri ve d de sc ri pt or s w er e us ed .\n✓ /✗ (C S1 :C el la ss oc ia tio n in A 54 9 ce lls ,C S2 : Cy to to xi ci ty vi a re du ct io n of E. co li vi ab ili ty an d cy to to xi ci ty vi a ce llu la r up ta ke of H aC aT ce lls )\n84 (W al ke y et al ., 20 14 ), 17 (P uz yn et al ., 20 11 ), 18\n✓ (S VM\nre gr es si on ,\nEl as tic\nN et Re gr es si on )\n✓ ✓\n✓ (L ev er ag e ap pr oa ch )\n≈ (Y -s cr am\nbl in g)\n✗\n(O ks el et al ., 20 16 )\nA ss es sm en t of to xi ci ty of N M s in fo ur di ffe re nt ca se st ud ie s th ro ug h SA R de ci si on tr ee s, us in g na no sp ec ifi c, ph ys ic oc he m ic al an d m ol ec ul ar de sc ri pt or s. A ut ho rs ge ne ra te d fo r ea ch ca se st ud y 60 0 de ci si on tr ee s us in g a ge ne tic ap pr oa ch ,s el ec tin g th e be st 10 0 tr ee s w ith re sp ec t to th e pr ed ic tio n on th e tr ai ni ng se t. Th en ,f or ea ch ca se st ud y th ey se le ct ed th e be st de ci si on tr ee as th e on e pr ov id in g th e be st re su lts in th e te st se t. Th e se le ct io n of th e fin al m od el s (a nd , co ns eq ue nt ly ,t he re po rt ed pr ed ic tiv e ab ili tie s) is th us cl ea rl y bi as ed :a be tt er ap pr oa ch w ou ld ha ve be en fo r in st an ce to av er ag e th e re su lts of th e 10 0 tr ee s (r es ul tin g in a de ci si on fo re st ).\n✗/ ✓ (C S1 :C el lv ia bi lit y in BE A S2B an d RA W 26 4. 7 ce ll lin es ,C S2 :c el lu la r up ta ke in Pa Ca 2 ca nc er ce ll lin e, CS 3: cy to to xi ci ty to vi a ce llu la r up ta ke of H aC aT ce lls ,C S4 : ex oc yt os is in m ac ro ph ag es )\n24 (Z ha ng\net al .,\n20 12 ), 10 5 (W ei ss le de r et al ., 20 05 ), 18 (G aj ew ic z et al ., 20 15 b) , 12 (O h an d Pa rk , 20 14 )\n✓ (D ec isi on\nTr ee s)\n✗ ✓\n✗ ≈ (Y -s cr am\nbl in g)\n✓\n(M u et al ., 20 16 )\nM od el co m po se d by\ntw o\nth eo re tic al de sc ri pt or s (p ol ar iz at io n fo rc e an d en th al py\nof fo rm at io n of a ga se ou s ca tio n) to pr ed ic t cy to to xi ci ty to\nE. co li. A ut ho rs\nte st ed\nit to tw o ne w N M s an d\nra nk ed\not he r un te st ed\nN Ps\nac co rd in g to pr ed ic te d to xi ci ty .\n✓ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty )\n16 (P uz yn\net al .,\n20 11 )+\n51 ✓ (M LR )\n✓ ✓\n✓ (L ev er ag e ap pr oa ch )\n✓ (Y -s cr am\nbl in g + as se ss m en to f\nun ce rt ai nt y in pr ed ic tio n)\n✓\n(c on tin ue d on\nne xt\npa ge )\nTa bl e 4 (c on tin ue d) Re fe re nc e\nD es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\n(K ar et al ., 20 16 )\nCy to to xi ci ty co rr el at io n m od el s be tw ee n E.\nco li an d\nH aC aT\nce ll lin e fo r cy to to xi ci ty of m et al ox id e N M s, us in g as de sc ri pt or s ch em ic al de sc ri pt or s, qu an tu m -m ec ha ni ca l de sc ri pt or s an d im ag e de sc ri pt or s. Th e re su lti ng m od el (d efi ne d by au th or s na no -Q TT R m od el ) ca n be th us us ed ex tr ap ol at e to xi ci ty re la te d to on e sp ec ie s to th e ot he r, w he n da ta fo r on e sp ec ie s is av ai la bl e.\n✗ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty /\ncy to to xi ci ty\nvi a H aC aT\nce llu la r up ta ke )\n17 (P uz yn\net al .,\n20 11 ), 18 (G aj ew ic z et al ., 20 15 b)\n✓ (S te pw is eM LR\n+ PL S)\n≈ ✓\n✓ (D is ta nc e ba se d)\n✗ ✓\n(P ap a et al ., 20 16 )\nIn ve st ig at io n of th e qu an tit at iv e re la tio ns hi ps be tw ee n pr ot ei n co ro na\nan d\nac tiv ity\nby us in g se ve ra ll in ea r\nan d no nlin ea r M L ap pr oa ch es .B es t pe rf or m an ce s w er e ac hi ev ed by us in g si x se ru m pr ot ei ns as de sc ri pt or s.\n✓ (C el la ss oc ia tio n in A 54 9 ce lls )\n84 (W al ke y et al ., 20 14 )\n✓ (M LR ,S VM\n,P ro je ct io n\npu rs ui t re gr es si on , kN N ,M ul tiv ar ia te re gr es si on sp lin es , N eu ra lN et w or ks , Ra nd om Fo re st )\n✓ ✓\n✓ (D is ta nc e ba se d af te r PC A + le ve ra ge\nap pr oa ch\nfo r M LR )\n✗ ✓\n(P an\net al ., 20 16 )\nQ SA R m od el lin g fo rp re di ct in g th e cy to to xi ci ty of va ri ou s m et al ox id e N M s, m ak in g us e of a de sc ri pt or th at in cl ud es ph ys ic oc he m ic al fe at ur es in to SM IL ES de sc ri pt or s, by m ea ns of th e CO RA L so ftw ar e.\n✗ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty /\ncy to to xi ci ty\nvi a H aC aT\nce llu la r up ta ke )\n17 (P uz yn\net al .,\n20 11 ), 18 (G aj ew ic z et al ., 20 15 b)\n✓ (M on te Ca rl o op tim iz at io n)\n✓ ✓\n✗ ✓ (Y -s cr am\nbl in g + se ns iti vi ty\nan al ys is )\n✓\n(B as an ta nd\nG up ta ,\n20 17 )\nM ul tiQ ua nt ita tiv e St ru ct ur e To xi ci ty Re la tio ns hi p fo r si m ul ta ne ou s pr ed ic tio n of m ul tip le to xi ci ty of m et al ox id e N M s to fo ur di ffe re nt en dp oi nt s, ha vi ng re su lts co m pa ra bl e w ith on es pr ov id ed fo r si ng le Q SA R m od el s, us in g ph ys ic oc he m ic al ca lc ul at ed de sc ri pt or s an d co ns tit ut io na l an d qu an tu m m ec ha ni ca l de sc ri pt or s re tr ie ve d fr om pr ev io us w or ks .\n✗ (C yt ot ox ic ity\nvi a re du ct io n\nof E.\nco li vi ab ili ty /\ncy to to xi ci ty\nvi a H aC aT\nce llu la r up ta ke )\n17 (P uz yn\net al .,\n20 11 )+ 17 (P at ha ko ti et al ., 20 14 )+ 2 (M u et al ., 20 16 )+ 18 (G aj ew ic z et al ., 20 15 b)\n✓ (R an do m Fo re st s)\n✓ ✓\n✓ (L ev er ag e ap pr oa ch )\n≈ (Y -s cr am\nbl in g)\n✓\n(c on tin ue d on\nne xt\npa ge )\nleverage approach is only scientifically valid when applied to linear regression models.\nThe robustness of the model was assessed in more of the 40% of the reviewed methods: in 16 out of 41 cases it was assessed by means of the Y-scrambling (Eriksson et al., 2003; Rücker et al., 2007), while in one of the approaches (Kleandrova et al., 2014) the Area Under the Curve method was adopted. The uncertainty assessment of the model prediction is insufficient, which is expected, given that the estimation of confidence intervals is an open research problem for ML beyond linear regression models. In only 3 cases the decision boundaries of the classification model were highlighted (Kaweeteerawat et al., 2015; Liu et al., 2013a, 2013b), only Mu et al. (2016) provided a raw uncertainty assessment of their linear regression model, indicating the confidence intervals of the predictions, while only Singh and Gupta (2014) highlighted the contribution of the selected descriptors to the final prediction (Singh and Gupta, 2014), and only Pan et al. (2016) provided a sensitivity analysis of their model.\nA mechanistic interpretation was provided for 34 over 41 of the reviewed approaches, while the remaining case studies focused only on comparing the predictive ability of the models with respect to previous studies on the same dataset."
+    }, {
+      "heading" : "4. Discussion",
+      "text" : "In this paper, we provided an overview of the available databases encompassing physicochemical and (eco)toxicological endpoints that may support development and application of predictive in silico models for engineered NMs, highlighting some of the known issues of such platforms and referencing relevant papers in which such issues are discussed and solutions for future developments are suggested. Moreover, we critically reviewed the available in silico methods for predicting human health hazard endpoints for NMs against eight criteria inspired to the OECD principles on the validation of QSARs. These principles have also been adapted to evaluate the existing Grouping and Read-Across approaches.\nDatasets currently modelled in material sciences are significantly smaller than those available in domains where ML is more established (De Jong et al., 2016), like for instance computer vision or bioinformatics. Zhang and Ling (2018) reviewed 15 recent case studies on the band gap of binary semiconductors, lattice thermal conductivity, and elastic properties of zeolites, to propose a strategy on how to increase the predictive ability of small datasets. Such case studies, selected as representative works modelling “small datasets”, modelled datasets ranging from 100 to about 20,000 samples. Nanoinformatics usually deals with even smaller datasets: indeed, the approaches reviewed in this manuscript modelled datasets ranging from a minimum of 7 samples (Liu et al., 2015a) to a maximum of 2308 samples (Horev-Azaria et al., 2013) (cfr. Tables 3 and 4), with roughly the 70% of the approaches modelling less than 100 samples, and being the approach of Horev-Azaria et al. (2013) the only one dealing with thousands of samples. This is a potential issue affecting the predictive ability of the reviewed models, since it is well recognized that ML algorithms usually work better when trained with a sufficiently large number of samples (Beleites et al., 2013; Eriksson et al., 2003).\nIt is thus fundamental to address the issues highlighted in Section 3.1, curating existing data in available data sources (Hendren et al., 2015; Powers et al., 2015), improving the completeness and the quality of data in existing databases (Marchese Robinson et al., 2016), and integrating as much as possible existing databases and datasets (Karcher et al., 2018), to allow modellers to deal with larger sets of data: hence, we encourage scientists to share their (curated) data in those data repositories. At the same time, it is worth noting that some of the approaches reviewed in this manuscript have been implemented as web services that are freely available to the community (Helma et al., 2017; Varsou et al., 2018; Melagraki and Afantitis, 2014; Tsiliki et al., 2015). Such practices should be encouraged as well, being theTa bl e 4 (c on tin ue d) Re fe re nc e D es cr ip tio n\nM od el le d en dp oi nt\nD at as et si ze\nM od el lin g ap pr oa ch\nM od el va lid at io n\nSt at is tic s an d m et ri cs\nA D as se ss m en t\nU nc er ta in ty an d va ri ab ili ty as se ss m en t\nM od el in te rp re ta tio n\n(G aj ew ic z et al ., 20 18 )\nTh re e SA R m od el s bu ilt st ar tin g fr om\na po ol of 28 5 de sc ri pt or s an d re su lti ng in m od el s th at us e re sp ec tiv el y on e, tw o an d th re e de sc ri pt or s (s iz e, su rf ac e ar ea an d a qu an tu m -m ec ha ni ca l ca lc ul at ed de sc ri pt or ). Th e ap pr oa ch w as co nt ex tu al iz ed to su pp or tt he D F4 na no G ro up in g sc he m e, cl as si fy in g N M s ac co rd in g to on e in vi vo an d tw o in vi tr o st ud ie s.\n✓ (P ro te in ca rb on yl at io n, RO S, N O A EC of a sh or tte rm in ha la tio n st ud y)\n19 (D ri es se n et al ., 20 15 )\n✓ (D ec isi on\nTr ee s)\n✓ ✓\n✓ (A ss es sm en ti n bo th te st an d tr ai ni ng se ts by st an da rd iz at io n ap pr oa ch (R oy et al ., 20 15 ))\n✗ ✓\nCS :c as e st ud y; EM\n:e xp ec ta tio n m ax im iz at io n; LD A :l in ea r di sc ri m in an ta na ly si s; M LR :m\nul tip le lin ea r re gr es si on ;N A :n ot ap pl ic ab le ;N BC :N aï ve Ba ye s Cl as si fie r; kN N :k -n ea re st ne ig hb ou rs ;P CA :p ri nc ip al co m po ne nt\nan al ys is ;P LS :p ar tia ll ea st sq ua re ;R O S: re ac tiv e ox yg en\nsp ec ie s; SO M :s el f-o rg an iz in g m ap s; SV M :s up po rt ve ct or m ac hi ne s.\na ht tp :/ /w w w .in si lic o. eu /C O RA L (w eb\nad dr es s ac ce ss ed\nin su m m er 20 18 ).\nb ht tp :/ /e na lo s. in si lic ot ox .c om\n/Q N A R_ Pa Ca 2 (w eb\nad dr es s ac ce ss ed\nin su m m er 20 18 ).\nc A m ec ha ni st ic in te rp re ta tio n of th e m od el w as pr ov id ed\non ly fo r th e m od el s re su lti ng\nby th e ap pl ic at io n of th e J4 8 D ec is io n Tr ee cl as si fie r.\navailability of data and in silico tools fundamental for the definition of IATAs for Grouping and Read-Across.\nThere are not many case studies in the literature on Grouping for Read-Across of NMs (cfr. Section 3.2 and Table 3). Most of the 11 approaches reported in Table 3 are built on small datasets and do not predict well-defined endpoints. In case the endpoint selected to ReadAcross is of relevance for REACH (i.e. in vitro or in vivo genotoxicity) it is either (i) not applied as an alternative method to animal testing (as the prediction is made for an in vitro assay) (Lamon et al., 2018), or (ii) the data of the source materials are not provided following an internationally accepted SOP (Aschberger et al., 2019). In addition, because of the small dataset size, many of the case studies neither report on model validation, nor provide a comparison to experimental data. Moreover, in most cases the possibly large uncertainties in the predictions are not properly evaluated. On the other hand, almost all the case studies have a clear presentation of the Grouping hypothesis or relationship and provide mostly satisfactory interpretation of the results.\nSimilar conclusions may be drawn from the evaluation of (Q)SAR models for the prediction of human health hazard endpoints (cfr. Section 3.1 and Table 4) where 41 published studies have been reviewed: most of the approaches modelled small datasets, and none of the approaches reported using any of the databases in Table 2. It is also of note that 12 studies over the total studies reported in Tables 3 and 4 rely on the same datasets (Puzyn et al., 2011; Gajewicz et al., 2015b). The modelled outcome was in general well communicated. The prediction was related to in vitro endpoints, except in a single case study (Gajewicz et al., 2018), and in roughly a third of the reviewed approaches the model outcome consisted in a combination of different endpoints. Even though the modelling approach, as well as the descriptors, were in most of the cases clearly reported, model validation was not always properly assessed, and in some cases the statistics supporting model performance are insufficient. The AD of the model was assessed only in half of the reviewed approaches, and the evaluation of the uncertainty, of the sensitivity, and of the robustness of the model predictions is missing in most of the reviewed approaches. A mechanistic justification of the model, on the other hand, is generally provided.\nRoughly 50% of the approaches reviewed in this manuscript included in the final model nanospecific descriptors, in addition few approaches reported including in their analysis proteomics (Helma et al., 2017; Liu et al., 2015b; Tsiliki et al., 2015; Papa et al., 2016) and omics descriptors (Varsou et al., 2018), with encouraging results (cfr. Sections 3.2 and 3.3). Future research should keep in consideration such informative descriptors, which can complement physicochemical descriptors and nanospecific properties indicated in Appendix R6.1 of REACH (ECHA, 2017a).\nStructured sources (e.g. databases), where data are well-defined, and semantics are implicit, could be easily mined with automatic methods that are already available for the scientific community. On the other hand, unstructured sources (e.g. technical reports, journal articles) generally provide data in free text format, making it more difficult to automate the process of information extraction and consequently making it harder for modellers to retrieve such data (Mooney and Bunescu, 2005). It is thus surprising that only Helma et al. (2017) reported retrieving their dataset from one of the available databases (eNanoMapper), and only Jones et al. (2015) reported using data mining techniques, while the other approaches modelled datasets created ad-hoc or fetched from previous studies or from the literature. On the other hand, Liu et al. (2013), Kovalishyn et al. (2018), and Chen et al. (2016), fetched their datasets from the OCHEM and the NBI databases for modelling ecotoxicity. This may indicate that for ecotoxicity endpoints data in publicly available databases is in the current state more suitable for modelling than data related to human health hazard endpoints. At present, indeed, research efforts are carried out in the nanosafety community in improving data curation and integration (cfr. Section 3.1), to enable subsequent development of in silico modelling as\npart of IATA for Grouping and Read-Across. In most of the reviewed approaches, despite the small sample size, many descriptors have been included in the final models (cfr. Section 3.1 and Table 3, Section 3.2 and Table 4). However, ideally most of the ML algorithms work better when a high number of samples is used to train them, and as the number of descriptors used by the model increase, the minimum number of samples required to train it should increase as well. Moreover, the concept of proximity, distance or nearest neighbour exploited by distance-based ML algorithms become less meaningful as the number of dimension become higher: this problem is known as the “curse of dimensionality” (Aggarwal et al., 2001; Verleysen and François, 2005; Donoho, 2000). Even though there are no general rules specifying the minimum number of samples required to train a model, experiments demonstrated that at least 10 samples per variable are required for logistic regression (Peduzzi et al., 1996), while a more conservative rule (Dolnicar, 2002) can be adapted from Latent Class Analysis, where the minimal sample size to include is suggested to be no less than 2k (where k is the number of variables), preferably 5 ∗ 2k. Zhang and Ling (2018), instead, suggested that 100 should be in their opinion the lowest sample size of the dataset to apply ML in materials research. In our opinion it is more meaningful to have a rule which is dependent to the number of descriptors used by the model and has statistical grounds, rather than having a fixed threshold derived heuristically or set up by scientists' judgement, thus the most conservative rule proposed by Dolnicar (2002) of having a training set with a sample size of at least 5 ∗ 2k should be taken in consideration in future research. In many of the reviewed cases studies these rules are not fulfilled. In addition, it is fundamental to validate models both internally and externally, and to cross-validate models when the number of samples is not sufficiently high to perform also external validation, to provide an unbiased evaluation of the predictive ability of the models (Tsiliki et al., 2017; Lubinski et al., 2013; Gajewicz et al., 2017, 2015a), and to reduce the risk of overfitting.\nOther potential biases that may cause derived models to be inaccurate or even not useful in practice are related to non-i.i.d selection of samples. This results in poor representativeness of the data being modelled as compared to what the resulting model is expected to predict. Representativeness, indeed, is as important as sample size: it can potentially magnify bias effects in case of non-representative or not properly collected samples, instead of correcting it (Kaplan et al., 2014). Heckman (1979) studied the problem of sample selection bias in econometric problems and proposed a method to correct it for regression models, assuming that it is possible to estimate the probability that an observation is selected into the sample (Heckman, 1979), being awarded to the Nobel prize for this work (there exists implementation of Heckman-type methods in different programming languages, including R (Toomet and Henningsen, 2008)). Later it has been shown that the same problem affects also classification models (Zadrozny, 2004), and methods to correct it were proposed. It will be useful to study how these bias affects in silico models for NMs, and to test and if necessary, propose methods to correct it.\nMoreover, it is rarely taken into account that ML algorithms require that training and test data are drawn from the same distribution and the same feature space. However, in many real-world applications this assumption does not always hold. Transfer Learning (Pan and Yang, 2010; Weiss et al., 2016), also known as Knowledge Transfer, is a trending topic in the ML community. It aims at extracting knowledge from one or more domains and to apply this extracted knowledge to the target domain and has been also shown to be a powerful tool to correct biases related to non-random sample selection. This class of approaches fits almost perfectly with the task required by Read-Across, where knowledge extracted within a group of NMs is to be applied to other NMs for which data are missing and may provide a powerful tool to try and correct the limitations of (Q)SARs (being also able to more reliably extrapolate outside the applicability domain of the models). The definition of the chemical space in which models provide reliable\npredictions is indeed fundamental, however it is not always properly assessed for (Q)SARs, and its assessment is currently lacking for most of the Read-Across approaches. In addition to Transfer Learning, another trending topic in ML is Deep Learning, where a neural network with a large number of hidden layers composed by nonlinear units is trained (Lecun et al., 2015). Such class of algorithms are usually applied on dataset composed by thousands/millions of samples, even though there exist algorithms capable to deal with smaller datasets (i.e. datasets composed by few thousands of samples) (Liu et al., 2017), thus its application for nanoinformatics in the current state of the art is particularly suitable when dealing with electronic images. Another possible future development for nanoinformatics research is to apply Transfer Learning from a pre-trained deep learning model, adapting it for the task of interest (Razavian et al., 2014; Oquab et al., 2014; Shin et al., 2016).\nAnother issue that should be carefully addressed relies on the fact that hazard classes (toxic/non-toxic) are sometimes not balanced, meaning that the number of samples belonging to one class is higher than the number of samples belonging on the other class (Japkowicz and Stephen, 2002; Longadge et al., 2013), and this is not always properly accounted in the modelling and in the evaluation phase. It is also important to provide proper metrics and statistics when evaluating model performances, possibly discussing it: for instance, for regulatory purposes, a model that overestimates the hazard of a NM would be preferred to another one having better performances, but which tends to underestimate it.\nExpert judgement is essential for Grouping, especially because a rigorous scientific justification of the Grouping hypotheses should be provided (ECHA, 2017a). It is straightforward to apply computational tools and combine them to expert judgement to strengthen the validity of the prediction or grouping hypothesis. Unsupervised learning techniques (e.g. Principal Component Analysis, Clustering and Self-Organizing Maps) have been already employed for instance to assist the development of (Q)SAR models and Read-Across approaches for NMs (Fourches et al., 2016; Gajewicz et al., 2015a, 2015b; Fourches et al., 2010; Epa et al., 2012; Liu et al., 2013a, 2013b), for NMs classification (Sayes et al., 2013; X.Z. Wang et al., 2014), for quality assessment of nano-based dispersions (Tantra et al., 2015b), and to study how surface modifications by means of attaching organic ligands can affect the colloidal stability of NMs (Brunelli et al., 2018).\nFinally, there are several sources of uncertainty that must be taken into account when applying Read-Across and when dealing with (Q) SARs. Specifically, it may be required to apply assessment factors depending on the nature of uncertainty related to the endpoint taken into consideration (Patlewicz et al., 2014), and there is a perception of greater uncertainty while reading across starting from non-toxic substances (negative Read-Across), while Read-Across to toxic substances is generally more accepted. Moreover, it is generally more accepted that Read-Across is performed on a substance that “falls” between substances already taken into account (interpolation), while extrapolation is less accepted, and it is considered more important to demonstrate the correctness of the Grouping than considering whether Read-Across results in interpolation or extrapolation."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "In silico models to predict properties of concern and (eco)toxicological endpoints should be seen as highly relevant components of IATA for the safety assessment of NMs. In this manuscript, we critically reviewed the available in silico computational approaches predicting human health hazard endpoints applied specifically in the context of Grouping and Read-Across. The main conclusions of our analysis are that: (i) considerably more efforts need to be invested into curating the available nano-EHS databases in order to establish the completeness and quality of the data, integrating as much as possible existing databases, thus providing larger datasets to modellers, (ii) Unsupervised ML\ntechniques should be further explored as useful tools to facilitate Grouping for Read-Across of NMs, (iii) attention should be paid in future research on properly communicating model performance, (iv) the in silico models should be properly validated (both internally and externally) to avoid overfitting and to provide more reliable results, (v) the AD of the model is fundamental: while for (Q)SARs it is often assessed, it is needed to further explore methods to define it also for the Read-Across approaches, (vi) the uncertainty and sensitivity of the in silico models are often not evaluated or reported, while this is essential for interpreting the reliability of results, (vii) future research should explore advanced ML techniques, such as Transfer Learning and Deep Learning, to improve the current state of the art and to face the limitations of currently adopted approaches.\nConflict of interest statement\nWe declare that we have no financial and personal relationships with other people or organizations that can inappropriately influence our work, there is no professional or other personal interest of any nature or kind in any product, service or company that could be construed as influencing the position presented in, or the review of, the manuscript entitled."
+    }, {
+      "heading" : "Acknowledgments",
+      "text" : "This study was funded in part through the PhD programme of Università Ca' Foscari di Venezia and the European Union's Horizon 2020 research project GRACIOUS (Grant Agreement No. 760840)."
+    } ],
+    "references" : [ {
+      "title" : "On the surprising behavior of distance metrics in high dimensional space BT - database theory",
+      "author" : [ "C.C. Aggarwal", "A. Hinneburg", "D.A. Keim" ],
+      "venue" : "Database Theory. Alexander,",
+      "citeRegEx" : "Aggarwal et al\\.,? \\Q2001\\E",
+      "shortCiteRegEx" : "Aggarwal et al\\.",
+      "year" : 2001
+    }, {
+      "title" : "2015a. A critical appraisal of existing concepts for the grouping",
+      "author" : [ "Arts", "J.H.E" ],
+      "venue" : null,
+      "citeRegEx" : "Arts and J.H.E,? \\Q2015\\E",
+      "shortCiteRegEx" : "Arts and J.H.E",
+      "year" : 2015
+    }, {
+      "title" : "Sample size planning",
+      "author" : [ "U. Neugebauer", "T. Bocklitz", "C. Krafft", "J. Popp" ],
+      "venue" : null,
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2013
+    }, {
+      "title" : "Effects of organic modifiers on the colloidal stability of TiO2",
+      "author" : [ "A 57030–57037. Brunelli" ],
+      "venue" : null,
+      "citeRegEx" : "Brunelli,? \\Q2018\\E",
+      "shortCiteRegEx" : "Brunelli",
+      "year" : 2018
+    }, {
+      "title" : "Understanding the nanoparticle-protein corona using methods",
+      "author" : [ "T 2010.502980. Cedervall" ],
+      "venue" : null,
+      "citeRegEx" : "17435390",
+      "shortCiteRegEx" : "17435390",
+      "year" : 2007
+    }, {
+      "title" : "concentration-dependent surface adsorption modeling",
+      "author" : [ "Peijnenburg", "W.J.G.M", "V. Kovalishyn", "M.G. Vijver" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "G. et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "G. et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "2017b. Current knowledge on the use",
+      "author" : [ "W. Peijnenburg", "Y. Xiao", "M. Vijver" ],
+      "venue" : null,
+      "citeRegEx" : "Chen et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Chen et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "QSAR modeling: where have you been? Where are you going to",
+      "author" : [ "A Cherkasov" ],
+      "venue" : "J. Med. Chem. https://doi.org/10.1021/jm4004285",
+      "citeRegEx" : "Cherkasov,? \\Q2014\\E",
+      "shortCiteRegEx" : "Cherkasov",
+      "year" : 2014
+    }, {
+      "title" : "Real external predictivity of QSAR models: how to evaluate it? Comparison of different validation criteria and proposal of using the concordance correlation coefficient",
+      "author" : [ "N. Chirico", "P. Gramatica" ],
+      "venue" : "J. Chem. Inf",
+      "citeRegEx" : "Chirico and Gramatica,? \\Q2011\\E",
+      "shortCiteRegEx" : "Chirico and Gramatica",
+      "year" : 2011
+    }, {
+      "title" : "Real external predictivity of QSAR models. Part 2. New intercomparable thresholds for different validation criteria and the need for scatter plot inspection",
+      "author" : [ "N. Chirico", "P. Gramatica" ],
+      "venue" : "J. Chem. Inf. Model",
+      "citeRegEx" : "Chirico and Gramatica,? \\Q2012\\E",
+      "shortCiteRegEx" : "Chirico and Gramatica",
+      "year" : 2012
+    }, {
+      "title" : "Jaqpot Quattro: a novel computational web platform for modeling and analysis in nanoinformatics",
+      "author" : [ "C Chomenidis" ],
+      "venue" : "J. Chem. Inf. Model. https://doi.org/10. 1021/acs.jcim.7b00223",
+      "citeRegEx" : "Chomenidis,? \\Q2017\\E",
+      "shortCiteRegEx" : "Chomenidis",
+      "year" : 2017
+    }, {
+      "title" : "A statistical learning framework for materials science: application to elastic moduli of k-nary inorganic polycrystalline compounds",
+      "author" : [ "M De Jong" ],
+      "venue" : "Sci. Rep. https://doi.org/10.1038/srep34256",
+      "citeRegEx" : "Jong,? \\Q2016\\E",
+      "shortCiteRegEx" : "Jong",
+      "year" : 2016
+    }, {
+      "title" : "A Review of Unquestioned Standards in Using Cluster Analysis for Data-driven Market Segmentation",
+      "author" : [ "S. Dolnicar" ],
+      "venue" : "Faculty of Commerce-Papers",
+      "citeRegEx" : "Dolnicar,? \\Q2002\\E",
+      "shortCiteRegEx" : "Dolnicar",
+      "year" : 2002
+    }, {
+      "title" : "High-dimensional data analysis: the curses and blessings of dimensionality",
+      "author" : [ "D.L. Donoho" ],
+      "venue" : "Aide-Memoire,",
+      "citeRegEx" : "Donoho,? \\Q2000\\E",
+      "shortCiteRegEx" : "Donoho",
+      "year" : 2000
+    }, {
+      "title" : "Proteomic analysis of protein carbonylation: a useful tool to unravel nanoparticle toxicity mechanisms",
+      "author" : [ "Driessen", "M.D" ],
+      "venue" : "Part. Fibre Toxicol",
+      "citeRegEx" : "Driessen and M.D,? \\Q2015\\E",
+      "shortCiteRegEx" : "Driessen and M.D",
+      "year" : 2015
+    }, {
+      "title" : "Computational methods in developing quantitative structure-activity relationships (QSAR): a review",
+      "author" : [ "A.Z. Dudek", "T. Arodz", "J. Gálvez" ],
+      "venue" : "Comb. Chem. High Throughput Screen",
+      "citeRegEx" : "Dudek et al\\.,? \\Q2006\\E",
+      "shortCiteRegEx" : "Dudek et al\\.",
+      "year" : 2006
+    }, {
+      "title" : "Computational design of novel fullerene analogues as potential HIV-1 PR inhibitors: analysis of the binding interactions between fullerene inhibitors and HIV-1 PR residues using 3D QSAR, molecular docking and molecular dynamics simulations",
+      "author" : [ "S. Durdagi", "T. Mavromoustakos", "N. Chronakis", "M.G. Papadopoulos" ],
+      "venue" : "Bioorg. Med. Chem",
+      "citeRegEx" : "Durdagi et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Durdagi et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Modeling biological activities of nanoparticles",
+      "author" : [ "Epa", "V.C" ],
+      "venue" : "Nano Lett",
+      "citeRegEx" : "Epa and V.C,? \\Q2012\\E",
+      "shortCiteRegEx" : "Epa and V.C",
+      "year" : 2012
+    }, {
+      "title" : "Methods for reliability and uncertainty assessment and for applicability evaluations of classification- and regression-based QSARs",
+      "author" : [ "L Eriksson" ],
+      "venue" : "Environ. Health Perspect",
+      "citeRegEx" : "Eriksson,? \\Q2003\\E",
+      "shortCiteRegEx" : "Eriksson",
+      "year" : 2003
+    }, {
+      "title" : "Quantitative nanostructure−activity relationship modeling",
+      "author" : [ "D Fourches" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "Fourches,? \\Q2010\\E",
+      "shortCiteRegEx" : "Fourches",
+      "year" : 2010
+    }, {
+      "title" : "Computer-aided design of carbon nanotubes with the desired bioactivity and safety profiles",
+      "author" : [ "D Fourches" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Fourches,? \\Q2016\\E",
+      "shortCiteRegEx" : "Fourches",
+      "year" : 2016
+    }, {
+      "title" : "Novel approach for efficient predictions properties of large pool of nanomaterials based on limited set of species: nano-read-across",
+      "author" : [ "A. Gajewicz", "M.T.D. Cronin", "B. Rasulev", "J. Leszczynski", "T. Puzyn" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "Gajewicz et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Gajewicz et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Towards understanding mechanisms governing cytotoxicity of metal oxides nanoparticles: hints from nano-QSAR studies",
+      "author" : [ "A Gajewicz" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Gajewicz,? \\Q2015\\E",
+      "shortCiteRegEx" : "Gajewicz",
+      "year" : 2015
+    }, {
+      "title" : "Addressing a bottle neck for regulation of nanomaterials: quantitative read-across (Nano-QRA) algorithm for cases when only limited data is available. Environ. Sci.: Nano. https:// doi.org/10.1039/c6en00399k",
+      "author" : [ "A. Gajewicz", "K. Jagiello", "M.T.D. Cronin", "J. Leszczynski", "T. Puzyn" ],
+      "venue" : null,
+      "citeRegEx" : "Gajewicz et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Gajewicz et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Decision tree models to classify nanomaterials according to the DF4nanoGrouping scheme",
+      "author" : [ "A Gajewicz" ],
+      "venue" : "Nanotoxicology 12,",
+      "citeRegEx" : "Gajewicz,? \\Q2018\\E",
+      "shortCiteRegEx" : "Gajewicz",
+      "year" : 2018
+    }, {
+      "title" : "Use of a rapid cytotoxicity screening approach to engineer a safer zinc oxide nanoparticle through iron doping",
+      "author" : [ "S George" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "George,? \\Q2010\\E",
+      "shortCiteRegEx" : "George",
+      "year" : 2010
+    }, {
+      "title" : "Use of a high-throughput screening approach coupled with in vivo zebrafish embryo screening to develop hazard ranking for engineered nanomaterials",
+      "author" : [ "S George" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "George,? \\Q2011\\E",
+      "shortCiteRegEx" : "George",
+      "year" : 2011
+    }, {
+      "title" : "Modeling the cellular uptake of magnetofluorescent nanoparticles in pancreatic cancer cells: a quantitative structure activity relationship study",
+      "author" : [ "M. Ghorbanzadeh", "M.H. Fatemi", "M. Karimpour" ],
+      "venue" : "Ind. Eng. Chem. Res",
+      "citeRegEx" : "Ghorbanzadeh et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Ghorbanzadeh et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Beware of q2",
+      "author" : [ "A. Golbraikh", "A. Tropsha" ],
+      "venue" : "J. Mol. Graph",
+      "citeRegEx" : "Golbraikh and Tropsha,? \\Q2002\\E",
+      "shortCiteRegEx" : "Golbraikh and Tropsha",
+      "year" : 2002
+    }, {
+      "title" : "Principles of QSAR models validation: internal and external",
+      "author" : [ "P. Gramatica" ],
+      "venue" : "QSAR Comb. Sci",
+      "citeRegEx" : "Gramatica,? \\Q2007\\E",
+      "shortCiteRegEx" : "Gramatica",
+      "year" : 2007
+    }, {
+      "title" : "A historical excursus on the statistical validation parameters for QSAR models: a clarification concerning metrics and terminology",
+      "author" : [ "P. Gramatica", "A. Sangion" ],
+      "venue" : "J. Chem. Inf. Model",
+      "citeRegEx" : "Gramatica and Sangion,? \\Q2016\\E",
+      "shortCiteRegEx" : "Gramatica and Sangion",
+      "year" : 2016
+    }, {
+      "title" : "Cytotoxicity and genotoxicity of nanosized and microsized titanium dioxide and iron oxide particles in Syrian hamster embryo cells",
+      "author" : [ "Y Guichard" ],
+      "venue" : "Ann. Occup. Hyg",
+      "citeRegEx" : "Guichard,? \\Q2012\\E",
+      "shortCiteRegEx" : "Guichard",
+      "year" : 2012
+    }, {
+      "title" : "Guidance on risk assessment of the application of nanoscience and nanotechnologies in the food and feed chain: part 1, human and animal health",
+      "author" : [ "A Hardy" ],
+      "venue" : "EFSA J. 16",
+      "citeRegEx" : "Hardy,? \\Q2018\\E",
+      "shortCiteRegEx" : "Hardy",
+      "year" : 2018
+    }, {
+      "title" : "Sample selection bias as a specification",
+      "author" : [ "J.J. Heckman" ],
+      "venue" : "error. Econometrica",
+      "citeRegEx" : "Heckman,? \\Q1979\\E",
+      "shortCiteRegEx" : "Heckman",
+      "year" : 1979
+    }, {
+      "title" : "Nano-lazar: read across predictions for nanoparticle toxicities with calculated and measured properties",
+      "author" : [ "C. Helma", "M. Rautenberg", "D. Gebele" ],
+      "venue" : "Front. Pharmacol. https://doi.org/10.3389/fphar.2017.00377",
+      "citeRegEx" : "Helma et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Helma et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "The nanomaterial data curation initiative: a collaborative approach to assessing, evaluating, and advancing the state of the field",
+      "author" : [ "C.O. Hendren", "C.M. Powers", "M.D. Hoover", "S.L. Harper" ],
+      "venue" : "Beilstein J. Nanotechnol",
+      "citeRegEx" : "Hendren et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Hendren et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Predictive toxicology of cobalt ferrite nanoparticles: comparative in-vitro study of different cellular models using methods of knowledge discovery from data",
+      "author" : [ "L Horev-Azaria" ],
+      "venue" : "Part. Fibre Toxicol",
+      "citeRegEx" : "Horev.Azaria,? \\Q2013\\E",
+      "shortCiteRegEx" : "Horev.Azaria",
+      "year" : 2013
+    }, {
+      "title" : "2016a. Frameworks and tools for risk assessment of manufactured nanomaterials",
+      "author" : [ "D Hristozov" ],
+      "venue" : "Environ. Int",
+      "citeRegEx" : "Hristozov,? \\Q2016\\E",
+      "shortCiteRegEx" : "Hristozov",
+      "year" : 2016
+    }, {
+      "title" : "Demonstration of a modelling-based multi-criteria decision analysis procedure for prioritisation of occupational risks from manufactured nanomaterials",
+      "author" : [ "D Hristozov" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Hristozov,? \\Q2016\\E",
+      "shortCiteRegEx" : "Hristozov",
+      "year" : 2016
+    }, {
+      "title" : "The class imbalance problem: a systematic study",
+      "author" : [ "N. Japkowicz", "S. Stephen" ],
+      "venue" : "Intell. Data Anal",
+      "citeRegEx" : "Japkowicz and Stephen,? \\Q2002\\E",
+      "shortCiteRegEx" : "Japkowicz and Stephen",
+      "year" : 2002
+    }, {
+      "title" : "QSAR applicability domain estimation by projection of the training set in descriptor space: a review",
+      "author" : [ "J. Jaworska", "N. Nikolova-Jeliazkova", "T. Aldenberg" ],
+      "venue" : "ATLA Altern. Lab. Anim",
+      "citeRegEx" : "Jaworska et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Jaworska et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "The first eNanoMapper prototype: a substance database to support safe-by-design",
+      "author" : [ "N Jeliazkova" ],
+      "venue" : "Proceedings - 2014 IEEE International Conference on Bioinformatics and Biomedicine",
+      "citeRegEx" : "Jeliazkova,? \\Q2014\\E",
+      "shortCiteRegEx" : "Jeliazkova",
+      "year" : 2014
+    }, {
+      "title" : "The eNanoMapper database for nanomaterial safety information",
+      "author" : [ "N Jeliazkova" ],
+      "venue" : "Beilstein J. Nanotechnol",
+      "citeRegEx" : "Jeliazkova,? \\Q2015\\E",
+      "shortCiteRegEx" : "Jeliazkova",
+      "year" : 2015
+    }, {
+      "title" : "Automatic extraction of nanoparticle properties using natural language processing: nanosifter an application to acquire pamam dendrimer properties",
+      "author" : [ "D.E. Jones", "S. Igo", "J. Hurdle", "J.C. Facelli" ],
+      "venue" : "PLoS One",
+      "citeRegEx" : "Jones et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Jones et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Predicting cytotoxicity of PAMAM dendrimers using molecular descriptors",
+      "author" : [ "D.E. Jones", "H. Ghandehari", "J.C. Facelli" ],
+      "venue" : "Beilstein J. Nanotechnol",
+      "citeRegEx" : "Jones et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Jones et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "A review of the applications of data mining and machine learning for the prediction of biomedical properties of nanoparticles",
+      "author" : [ "D.E. Jones", "H. Ghandehari", "J.C. Facelli" ],
+      "venue" : "Comput. Methods Prog. Biomed",
+      "citeRegEx" : "Jones et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Jones et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Big data and large sample size: a cautionary note on the potential for bias",
+      "author" : [ "R.M. Kaplan", "D.A. Chambers", "R.E. Glasgow" ],
+      "venue" : "Clin. Transl. Sci",
+      "citeRegEx" : "Kaplan et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Kaplan et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Nano-quantitative structure-activity relationship modeling using easily computable and interpretable descriptors for uptake of magnetofluorescent engineered nanoparticles in pancreatic cancer cells",
+      "author" : [ "S. Kar", "A. Gajewicz", "T. Puzyn", "K. Roy" ],
+      "venue" : "Toxicol. in Vitro",
+      "citeRegEx" : "Kar et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Kar et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Periodic table-based descriptors to encode cytotoxicity profile of metal oxide nanoparticles: a mechanistic QSTR approach",
+      "author" : [ "S. Kar", "A. Gajewicz", "T. Puzyn", "K. Roy", "J. Leszczynski" ],
+      "venue" : "Ecotoxicol. Environ",
+      "citeRegEx" : "Kar et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Kar et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Extrapolating between toxicity endpoints of metal oxide nanoparticles: predicting toxicity to Escherichia coli and human keratinocyte cell line (HaCaT) with Nano-QTTR",
+      "author" : [ "S. Kar", "A. Gajewicz", "K. Roy", "J. Leszczynski", "T. Puzyn" ],
+      "venue" : "Ecotoxicol. Environ. Saf. https://doi.org/10.1016/j.ecoenv.2015.12.033",
+      "citeRegEx" : "Kar et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Kar et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Integration among databases and data sets to support productive nanotechnology: challenges and recommendations",
+      "author" : [ "S Karcher" ],
+      "venue" : "NanoImpact. https://doi.org/10",
+      "citeRegEx" : "Karcher,? \\Q2018\\E",
+      "shortCiteRegEx" : "Karcher",
+      "year" : 2018
+    }, {
+      "title" : "Toxicity of metal oxide nanoparticles in Escherichia coli correlates with conduction band and hydration",
+      "author" : [ "C Kaweeteerawat" ],
+      "venue" : "energies. Environ. Sci. Technol. https://doi.org/10.1021/es504259s",
+      "citeRegEx" : "Kaweeteerawat,? \\Q2015\\E",
+      "shortCiteRegEx" : "Kaweeteerawat",
+      "year" : 2015
+    }, {
+      "title" : "Computational tool for risk assessment of nanomaterials: novel QSTR-perturbation model for simultaneous prediction of ecotoxicity and cytotoxicity of uncoated and coated nanoparticles",
+      "author" : [ "Kleandrova", "V.V" ],
+      "venue" : null,
+      "citeRegEx" : "Kleandrova and V.V,? \\Q2014\\E",
+      "shortCiteRegEx" : "Kleandrova and V.V",
+      "year" : 2014
+    }, {
+      "title" : "Cancer biology, toxicology and alternative methods development go hand-in-hand",
+      "author" : [ "P Kohonen" ],
+      "venue" : "Basic Clin. Pharmacol. Toxicol",
+      "citeRegEx" : "Kohonen,? \\Q2014\\E",
+      "shortCiteRegEx" : "Kohonen",
+      "year" : 2014
+    }, {
+      "title" : "Modelling the toxicity of a large set of metal and metal oxide nanoparticles using the OCHEM platform",
+      "author" : [ "V Kovalishyn" ],
+      "venue" : "Food Chem. Toxicol",
+      "citeRegEx" : "Kovalishyn,? \\Q2018\\E",
+      "shortCiteRegEx" : "Kovalishyn",
+      "year" : 2018
+    }, {
+      "title" : "Grouping of nanomaterials to read-across hazard endpoints: from data collection to assessment of the grouping hypothesis by application of chemoinformatic techniques",
+      "author" : [ "L Lamon" ],
+      "venue" : "Part. Fibre Toxicol",
+      "citeRegEx" : "Lamon,? \\Q2018\\E",
+      "shortCiteRegEx" : "Lamon",
+      "year" : 2018
+    }, {
+      "title" : "2019a. Grouping of nanomaterials to read-across hazard endpoints: a review",
+      "author" : [ "L. Lamon", "K. Aschberger", "D. Asturiol", "Richarz", "A.-N", "A. Worth" ],
+      "venue" : "Nanotoxicology. https:// doi.org/10.1080/17435390.2018.1506060. (accepted for publication)",
+      "citeRegEx" : "Lamon et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Lamon et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Computational models in manufactured nanomaterials risk assessment: development of model reporting standards and mapping of the model landscape",
+      "author" : [ "L Lamon" ],
+      "venue" : "Comput. Toxicol",
+      "citeRegEx" : "Lamon,? \\Q2019\\E",
+      "shortCiteRegEx" : "Lamon",
+      "year" : 2019
+    }, {
+      "title" : "Physiologically based mathematical models of nanomaterials for regulatory toxicology: a review",
+      "author" : [ "L Lamon" ],
+      "venue" : "Comput. Toxicol",
+      "citeRegEx" : "Lamon,? \\Q2019\\E",
+      "shortCiteRegEx" : "Lamon",
+      "year" : 2019
+    }, {
+      "title" : "Using natural language processing techniques to inform research on nanotechnology",
+      "author" : [ "N.A. Lewinski", "B.T. McInnes" ],
+      "venue" : "Beilstein J. Nanotechnol. https://doi.org/10",
+      "citeRegEx" : "Lewinski and McInnes,? \\Q2015\\E",
+      "shortCiteRegEx" : "Lewinski and McInnes",
+      "year" : 2015
+    }, {
+      "title" : "Classification NanoSAR development for cytotoxicity of metal oxide nanoparticles",
+      "author" : [ "R Liu" ],
+      "venue" : "Small",
+      "citeRegEx" : "Liu,? \\Q2011\\E",
+      "shortCiteRegEx" : "Liu",
+      "year" : 2011
+    }, {
+      "title" : "Development of structure-activity relationship for metal oxide",
+      "author" : [ "R Liu" ],
+      "venue" : null,
+      "citeRegEx" : "Liu,? \\Q2013\\E",
+      "shortCiteRegEx" : "Liu",
+      "year" : 2013
+    }, {
+      "title" : "Nano-SAR development for bioactivity of nanoparticles with considerations of decision boundaries",
+      "author" : [ "R Liu" ],
+      "venue" : "Small",
+      "citeRegEx" : "Liu,? \\Q2013\\E",
+      "shortCiteRegEx" : "Liu",
+      "year" : 2013
+    }, {
+      "title" : "Predictive modeling of nanomaterial exposure effects in biological systems",
+      "author" : [ "X Liu" ],
+      "venue" : "Int. J. Nanomedicine",
+      "citeRegEx" : "Liu,? \\Q2013\\E",
+      "shortCiteRegEx" : "Liu",
+      "year" : 2013
+    }, {
+      "title" : "Evaluation of toxicity ranking for metal oxide nanoparticles via an in vitro dosimetry model",
+      "author" : [ "R Liu" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "Liu,? \\Q2015\\E",
+      "shortCiteRegEx" : "Liu",
+      "year" : 2015
+    }, {
+      "title" : "Prediction of nanoparticles-cell association based on corona proteins and physicochemical properties. Nanoscale",
+      "author" : [ "R. Liu", "W. Jiang", "C.D. Walkey", "W.C.W. Chan", "Y. Cohen" ],
+      "venue" : null,
+      "citeRegEx" : "Liu et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Deep neural networks for high dimension, low sample size data",
+      "author" : [ "B. Liu", "Y. Wei", "Y. Zhang", "Q. Yang" ],
+      "venue" : "IJCAI International Joint Conference on Artificial Intelligence,",
+      "citeRegEx" : "Liu et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Class imbalance problem in data mining: review",
+      "author" : [ "R. Longadge", "S.S. Dongre", "L. Malik" ],
+      "venue" : "Int. J. Comput. Sci. Netw",
+      "citeRegEx" : "Longadge et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Longadge et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Computer-aided nanotoxicology: assessing cytotoxicity of nanoparticles under diverse experimental conditions by using a novel QSTR-perturbation approach. Nanoscale",
+      "author" : [ "F Luan" ],
+      "venue" : null,
+      "citeRegEx" : "Luan,? \\Q2014\\E",
+      "shortCiteRegEx" : "Luan",
+      "year" : 2014
+    }, {
+      "title" : "Evaluation criteria for the quality of published experimental data on nanomaterials and their usefulness for QSAR modelling",
+      "author" : [ "L Lubinski" ],
+      "venue" : "SAR QSAR Environ. Res",
+      "citeRegEx" : "Lubinski,? \\Q2013\\E",
+      "shortCiteRegEx" : "Lubinski",
+      "year" : 2013
+    }, {
+      "title" : "Protein-nanoparticle interactions",
+      "author" : [ "I. Lynch", "K.A. Dawson" ],
+      "venue" : "Nano Today",
+      "citeRegEx" : "Lynch and Dawson,? \\Q2008\\E",
+      "shortCiteRegEx" : "Lynch and Dawson",
+      "year" : 2008
+    }, {
+      "title" : "A strategy for grouping of nanomaterials based on key physico-chemical descriptors as a basis for safer-by-design NMs",
+      "author" : [ "I. Lynch", "C. Weiss", "E. Valsami-Jones" ],
+      "venue" : "Nano Today",
+      "citeRegEx" : "Lynch et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Lynch et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Nanoinformatics: a new area of research in nanomedicine",
+      "author" : [ "V Maojo" ],
+      "venue" : "Int. J. Nanomedicine",
+      "citeRegEx" : "Maojo,? \\Q2012\\E",
+      "shortCiteRegEx" : "Maojo",
+      "year" : 2012
+    }, {
+      "title" : "How should the completeness and quality of curated nanomaterial data be evaluated",
+      "author" : [ "Marchese Robinson", "R.L" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "Robinson and R.L,? \\Q2016\\E",
+      "shortCiteRegEx" : "Robinson and R.L",
+      "year" : 2016
+    }, {
+      "title" : "Insights into possibilities for grouping and read-across for nanomaterials in EU chemicals legislation",
+      "author" : [ "A Mech" ],
+      "venue" : "Nanotoxicology 1–23",
+      "citeRegEx" : "Mech,? \\Q2018\\E",
+      "shortCiteRegEx" : "Mech",
+      "year" : 2018
+    }, {
+      "title" : "Enalos InSilicoNano platform: an online decision support tool for the design and virtual screening of nanoparticles",
+      "author" : [ "G. Melagraki", "A. Afantitis" ],
+      "venue" : "RSC Adv. https:// doi.org/10.1039/c4ra07756c",
+      "citeRegEx" : "Melagraki and Afantitis,? \\Q2014\\E",
+      "shortCiteRegEx" : "Melagraki and Afantitis",
+      "year" : 2014
+    }, {
+      "title" : "Nanomaterial registry: database that captures the minimal information about nanomaterial physico-chemical characteristics",
+      "author" : [ "K.C. Mills", "D. Murry", "K.A. Guzan", "M.L. Ostraat" ],
+      "venue" : "J. Nanopart. Res. https://doi.org/10.1007/s11051-013-2219-8",
+      "citeRegEx" : "Mills et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Mills et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Biomolecular coronas provide the biological identity of nanosized materials",
+      "author" : [ "M.P. Monopoli", "C. Åberg", "A. Salvati", "K.A. Dawson" ],
+      "venue" : "Nat. Nanotechnol",
+      "citeRegEx" : "Monopoli et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Monopoli et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Mining knowledge from text using information extraction",
+      "author" : [ "R.J. Mooney", "R. Bunescu" ],
+      "venue" : "ACM SIGKDD Explor. Newsl. https://doi.org/10.1145/1089815.1089817",
+      "citeRegEx" : "Mooney and Bunescu,? \\Q2005\\E",
+      "shortCiteRegEx" : "Mooney and Bunescu",
+      "year" : 2005
+    }, {
+      "title" : "Predicting toxic potencies of metal oxide nanoparticles by means of nano-QSARs",
+      "author" : [ "Y Mu" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Mu,? \\Q2016\\E",
+      "shortCiteRegEx" : "Mu",
+      "year" : 2016
+    }, {
+      "title" : "A practical overview of quantitative structure-activity relationship",
+      "author" : [ "C. Nantasenamat", "C. Isarankura-Na-Ayudhya", "T. Naenna", "V. Prachayasittikul" ],
+      "venue" : "EXCLI J",
+      "citeRegEx" : "Nantasenamat et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Nantasenamat et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "In vivo effects: methodologies and biokinetics of inhaled nanomaterials",
+      "author" : [ "G. Oberdörster", "T.A.J. Kuhlbusch" ],
+      "venue" : "NanoImpact",
+      "citeRegEx" : "Oberdörster et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Oberdörster et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Surface chemistry of gold nanoparticles mediates their exocytosis in macrophages",
+      "author" : [ "N. Oh", "J.H. Park" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "Oh and Park,? \\Q2014\\E",
+      "shortCiteRegEx" : "Oh and Park",
+      "year" : 2014
+    }, {
+      "title" : "X.Z., 2015a. (Q)SAR modelling of nanomaterial toxicity: a critical review",
+      "author" : [ "C. Oksel", "C.Y. Ma", "J.J. Liu", "T. Wilkins", "Wang" ],
+      "venue" : "Particuology",
+      "citeRegEx" : "Oksel et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Oksel et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "X.Z., 2015b. Current situation on the availability of nanostructure–biological activity data",
+      "author" : [ "C. Oksel", "C.Y. Ma", "Wang" ],
+      "venue" : "SAR QSAR Environ. Res",
+      "citeRegEx" : "Oksel et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Oksel et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Structure-activity relationship models for hazard assessment and risk management of engineered nanomaterials",
+      "author" : [ "C. Oksel", "C.Y. Ma", "X.Z. Wang", "2015c" ],
+      "venue" : "Procedia Eng",
+      "citeRegEx" : "Oksel et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Oksel et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Risk assessment frameworks for nanomaterials: scope, link to regulations, applicability, and outline for future directions in view of needed increase in efficiency",
+      "author" : [ "Oomen", "A.G" ],
+      "venue" : "NanoImpact",
+      "citeRegEx" : "Oomen and A.G,? \\Q2018\\E",
+      "shortCiteRegEx" : "Oomen and A.G",
+      "year" : 2018
+    }, {
+      "title" : "Learning and transferring mid-level image representations using convolutional neural networks",
+      "author" : [ "M. Oquab", "L. Bottou", "I. Laptev", "J. Sivic" ],
+      "venue" : "Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition,",
+      "citeRegEx" : "Oquab et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Oquab et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "A survey on transfer learning",
+      "author" : [ "S.J. Pan", "Q. Yang" ],
+      "venue" : "IEEE Trans. Knowl. Data Eng",
+      "citeRegEx" : "Pan and Yang,? \\Q2010\\E",
+      "shortCiteRegEx" : "Pan and Yang",
+      "year" : 2010
+    }, {
+      "title" : "Nano-QSAR modeling for predicting the cytotoxicity of metal oxide nanoparticles using novel descriptors",
+      "author" : [ "Y Pan" ],
+      "venue" : "RSC Adv",
+      "citeRegEx" : "Pan,? \\Q2016\\E",
+      "shortCiteRegEx" : "Pan",
+      "year" : 2016
+    }, {
+      "title" : "Nanoinformatics: emerging databases and available",
+      "author" : [ "S. Panneerselvam", "S. Choi" ],
+      "venue" : null,
+      "citeRegEx" : "Panneerselvam and Choi,? \\Q2014\\E",
+      "shortCiteRegEx" : "Panneerselvam and Choi",
+      "year" : 2014
+    }, {
+      "title" : "Linear and non-linear modelling of the cytotoxicity of TiO2 and ZnO nanoparticles by empirical descriptors",
+      "author" : [ "E. Papa", "J.P. Doucet", "A. Doucet-Panaye" ],
+      "venue" : "SAR QSAR Environ. Res",
+      "citeRegEx" : "Papa et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Papa et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Investigation of the influence of protein corona composition on gold nanoparticle bioactivity using machine learning approaches",
+      "author" : [ "E. Papa", "J.P. Doucet", "A. Sangion", "A. Doucet-Panaye" ],
+      "venue" : "SAR QSAR Environ. Res",
+      "citeRegEx" : "Papa et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Papa et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Using experimental data of Escherichia coli to develop a QSAR model for predicting the photo-induced cytotoxicity of metal oxide nanoparticles",
+      "author" : [ "K. Pathakoti", "M.J. Huang", "J.D. Watts", "X. He", "H.M. Hwang" ],
+      "venue" : "J. Photochem. Photobiol. B Biol",
+      "citeRegEx" : "Pathakoti et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Pathakoti et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Read-across approaches - misconceptions, promises and challenges ahead",
+      "author" : [ "G Patlewicz" ],
+      "venue" : "Arch. Med. Vet",
+      "citeRegEx" : "Patlewicz,? \\Q2014\\E",
+      "shortCiteRegEx" : "Patlewicz",
+      "year" : 2014
+    }, {
+      "title" : "A simulation study of the number of events per variable in logistic regression analysis",
+      "author" : [ "P. Peduzzi", "J. Concato", "E. Kemper", "T.R. Holford", "A.R. Feinstem" ],
+      "venue" : "J. Clin. Epidemiol",
+      "citeRegEx" : "Peduzzi et al\\.,? \\Q1996\\E",
+      "shortCiteRegEx" : "Peduzzi et al\\.",
+      "year" : 1996
+    }, {
+      "title" : "Nanocuration workflows: establishing best practices for identifying, inputting, and sharing data to inform decisions on nanomaterials",
+      "author" : [ "Powers", "C.M" ],
+      "venue" : "Beilstein J. Nanotechnol",
+      "citeRegEx" : "Powers and C.M,? \\Q2015\\E",
+      "shortCiteRegEx" : "Powers and C.M",
+      "year" : 2015
+    }, {
+      "title" : "Toward the development of “nanoQSARs”: advances and challenges",
+      "author" : [ "T. Puzyn", "D. Leszczynska", "J. Leszczynski" ],
+      "venue" : "Small",
+      "citeRegEx" : "Puzyn et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Puzyn et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Using nano-QSAR to predict the cytotoxicity of metal oxide nanoparticles",
+      "author" : [ "T Puzyn" ],
+      "venue" : "Nat. Nanotechnol",
+      "citeRegEx" : "Puzyn,? \\Q2011\\E",
+      "shortCiteRegEx" : "Puzyn",
+      "year" : 2011
+    }, {
+      "title" : "Directions in QPPR development to complement the predictive models used in risk assessment of nanomaterials",
+      "author" : [ "Quik", "J.T.K" ],
+      "venue" : "NanoImpact. https://doi.org/10",
+      "citeRegEx" : "Quik and J.T.K,? \\Q2018\\E",
+      "shortCiteRegEx" : "Quik and J.T.K",
+      "year" : 2018
+    }, {
+      "title" : "Physico-chemical properties of manufactured nanomaterials characterisation and relevant methods",
+      "author" : [ "K Rasmussen" ],
+      "venue" : "An outlook based on the OECD Testing Programme. Regul. Toxicol. Pharmacol",
+      "citeRegEx" : "Rasmussen,? \\Q2018\\E",
+      "shortCiteRegEx" : "Rasmussen",
+      "year" : 2018
+    }, {
+      "title" : "CNN features off-the-shelf: an astounding baseline for recognition",
+      "author" : [ "A.S. Razavian", "H. Azizpour", "J. Sullivan", "S. Carlsson" ],
+      "venue" : "IEEE Computer Society Conference on Computer Vision and Pattern Recognition Workshops,",
+      "citeRegEx" : "Razavian et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Razavian et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Application of genetic function approximation to quantitative structure-activity relationships and quantitative structure-property relationships",
+      "author" : [ "D. Rogers", "A.J. Hopfinger" ],
+      "venue" : "J. Chem. Inf. Comput. Sci",
+      "citeRegEx" : "Rogers and Hopfinger,? \\Q1994\\E",
+      "shortCiteRegEx" : "Rogers and Hopfinger",
+      "year" : 1994
+    }, {
+      "title" : "On some aspects of variable selection for partial least squares regression models",
+      "author" : [ "P.P. Roy", "K. Roy" ],
+      "venue" : "QSAR Comb. Sci",
+      "citeRegEx" : "Roy and Roy,? \\Q2008\\E",
+      "shortCiteRegEx" : "Roy and Roy",
+      "year" : 2008
+    }, {
+      "title" : "On a simple approach for determining applicability domain of QSAR models",
+      "author" : [ "K. Roy", "S. Kar", "P. Ambure" ],
+      "venue" : "Chemom. Intell. Lab. Syst. https://doi.org/10.1016/j",
+      "citeRegEx" : "Roy et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Roy et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Y-randomization and its variants in QSPR/ QSAR",
+      "author" : [ "C. Rücker", "G. Rücker", "M. Meringer" ],
+      "venue" : "J. Chem. Inf. Model. https://doi.org/10.1021/ci700157b",
+      "citeRegEx" : "Rücker et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Rücker et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "Comparative study of predictive computational models for nanoparticle-induced cytotoxicity",
+      "author" : [ "C. Sayes", "I. Ivanov" ],
+      "venue" : "Risk Anal",
+      "citeRegEx" : "Sayes and Ivanov,? \\Q2010\\E",
+      "shortCiteRegEx" : "Sayes and Ivanov",
+      "year" : 2010
+    }, {
+      "title" : "A framework for grouping nanoparticles based on their measurable characteristics",
+      "author" : [ "C.M. Sayes", "P. Alex Smith", "I.V. Ivanov" ],
+      "venue" : "Int. J. Nanomedicine",
+      "citeRegEx" : "Sayes et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Sayes et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Dependence of QSAR models on the selection of trial descriptor sets: a demonstration using nanotoxicity endpoints of decorated nanotubes",
+      "author" : [ "Shao", "C.Y" ],
+      "venue" : "J. Chem. Inf. Model. https://doi.org/10.1021/ci3005308",
+      "citeRegEx" : "Shao and C.Y,? \\Q2013\\E",
+      "shortCiteRegEx" : "Shao and C.Y",
+      "year" : 2013
+    }, {
+      "title" : "Perturbational profiling of nanomaterial biologic activity",
+      "author" : [ "Shaw", "S.Y" ],
+      "venue" : "Proc. Natl. Acad. Sci",
+      "citeRegEx" : "Shaw and S.Y,? \\Q2008\\E",
+      "shortCiteRegEx" : "Shaw and S.Y",
+      "year" : 2008
+    }, {
+      "title" : "Deep convolutional neural networks for computer-aided detection: CNN architectures, dataset characteristics and transfer learning",
+      "author" : [ "Shin", "H.C" ],
+      "venue" : "IEEE Trans. Med. Imaging",
+      "citeRegEx" : "Shin and H.C,? \\Q2016\\E",
+      "shortCiteRegEx" : "Shin and H.C",
+      "year" : 2016
+    }, {
+      "title" : "Nano-QSAR modeling for predicting biological activity of diverse nanomaterials",
+      "author" : [ "K.P. Singh", "S. Gupta" ],
+      "venue" : "RSC Adv",
+      "citeRegEx" : "Singh and Gupta,? \\Q2014\\E",
+      "shortCiteRegEx" : "Singh and Gupta",
+      "year" : 2014
+    }, {
+      "title" : "Review of current and emerging approaches for quantitative nanostructure-activity relationship modeling",
+      "author" : [ "N. Sizochenko", "J. Leszczynski" ],
+      "venue" : "J. Nanotoxicol. Nanomed",
+      "citeRegEx" : "Sizochenko and Leszczynski,? \\Q2016\\E",
+      "shortCiteRegEx" : "Sizochenko and Leszczynski",
+      "year" : 2016
+    }, {
+      "title" : "From basic physics to mechanisms of toxicity: the “liquid drop” approach applied to develop predictive classification models for toxicity of metal oxide nanoparticles",
+      "author" : [ "N Sizochenko" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "Sizochenko,? \\Q2014\\E",
+      "shortCiteRegEx" : "Sizochenko",
+      "year" : 2014
+    }, {
+      "title" : "Causal inference methods to assist in mechanistic interpretation of classification nano-SAR models",
+      "author" : [ "N Sizochenko" ],
+      "venue" : "RSC Adv",
+      "citeRegEx" : "Sizochenko,? \\Q2015\\E",
+      "shortCiteRegEx" : "Sizochenko",
+      "year" : 2015
+    }, {
+      "title" : "Causation or only correlation? Application of causal inference graphs for evaluating causality in nano-QSAR models",
+      "author" : [ "N. Sizochenko", "A. Gajewicz", "J. Leszczynski", "T. Puzyn" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "Sizochenko et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Sizochenko et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "How the toxicity of nanomaterials towards different species could be simultaneously evaluated: a novel multi-nano-read-across approach",
+      "author" : [ "N Sizochenko" ],
+      "venue" : "Nanoscale",
+      "citeRegEx" : "Sizochenko,? \\Q2018\\E",
+      "shortCiteRegEx" : "Sizochenko",
+      "year" : 2018
+    }, {
+      "title" : "The contentmine scraping stack: literature-scale content mining with community-maintained collections of declarative scrapers",
+      "author" : [ "R. Smith-Unna", "P. Murray-Rust" ],
+      "venue" : "D-Lib Mag. https://doi.org/10.1045/november14-smith-unna",
+      "citeRegEx" : "Smith.Unna and Murray.Rust,? \\Q2014\\E",
+      "shortCiteRegEx" : "Smith.Unna and Murray.Rust",
+      "year" : 2014
+    }, {
+      "title" : "Reliability of methods and data for regulatory assessment of nanomaterial risks",
+      "author" : [ "K.G. Steinhäuser", "P.G. Sayre" ],
+      "venue" : "NanoImpact",
+      "citeRegEx" : "Steinhäuser and Sayre,? \\Q2017\\E",
+      "shortCiteRegEx" : "Steinhäuser and Sayre",
+      "year" : 2017
+    }, {
+      "title" : "ITS-NANO - prioritising nanosafety research to develop a stakeholder driven intelligent testing strategy",
+      "author" : [ "V Stone" ],
+      "venue" : "Part. Fibre Toxicol",
+      "citeRegEx" : "Stone,? \\Q2014\\E",
+      "shortCiteRegEx" : "Stone",
+      "year" : 2014
+    }, {
+      "title" : "2015a. Nano(Q)SAR: challenges, pitfalls and perspectives",
+      "author" : [ "R Tantra" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Tantra,? \\Q2015\\E",
+      "shortCiteRegEx" : "Tantra",
+      "year" : 2015
+    }, {
+      "title" : "2015b. A method for assessing nanomaterial dispersion quality based on",
+      "author" : [ "R Tantra" ],
+      "venue" : null,
+      "citeRegEx" : "Tantra,? \\Q2015\\E",
+      "shortCiteRegEx" : "Tantra",
+      "year" : 2015
+    }, {
+      "title" : "Nanoparticle ontology for cancer nanotechnology research",
+      "author" : [ "D.G. Thomas", "R.V. Pappu", "N.A. Baker" ],
+      "venue" : "J. Biomed. Inform",
+      "citeRegEx" : "Thomas et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Thomas et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "ISA-TAB-Nano: a specification for sharing nanomaterial research data in spreadsheet-based format",
+      "author" : [ "Thomas", "D.G" ],
+      "venue" : "BMC Biotechnol",
+      "citeRegEx" : "Thomas and D.G,? \\Q2013\\E",
+      "shortCiteRegEx" : "Thomas and D.G",
+      "year" : 2013
+    }, {
+      "title" : "Toxicity of antimony, copper, cobalt, manganese, titanium and zinc oxide nanoparticles for the alveolar and intestinal epithelial barrier cells in vitro",
+      "author" : [ "T. Titma", "R. Shimmo", "J. Siigur", "A. Kahru" ],
+      "venue" : "Cytotechnology. https://doi.org/10.1007/s10616016-0032-9",
+      "citeRegEx" : "Titma et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Titma et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Sample selection models in R: package sample selection",
+      "author" : [ "O. Toomet", "A. Henningsen" ],
+      "venue" : "J. Stat. Softw",
+      "citeRegEx" : "Toomet and Henningsen,? \\Q2008\\E",
+      "shortCiteRegEx" : "Toomet and Henningsen",
+      "year" : 2008
+    }, {
+      "title" : "SMILES-based optimal descriptors: QSAR analysis of fullerene-based HIV-1 PR inhibitors by means of balance of correlations",
+      "author" : [ "A.A. Toropov", "A.P. Toropova", "E. Benfenati", "D. Leszczynska", "J. Leszczynski" ],
+      "venue" : "J. Comput. Chem",
+      "citeRegEx" : "Toropov et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Toropov et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Novel application of the CORAL software to model cytotoxicity of metal oxide nanoparticles to bacteria",
+      "author" : [ "Toropov", "A.A" ],
+      "venue" : "Escherichia coli. Chemosphere",
+      "citeRegEx" : "Toropov and A.A,? \\Q2012\\E",
+      "shortCiteRegEx" : "Toropov and A.A",
+      "year" : 2012
+    }, {
+      "title" : "QSAR as a random event: modeling of nanoparticles uptake in PaCa2 cancer cells",
+      "author" : [ "Toropov", "A.A" ],
+      "venue" : "Chemosphere",
+      "citeRegEx" : "Toropov and A.A,? \\Q2013\\E",
+      "shortCiteRegEx" : "Toropov and A.A",
+      "year" : 2013
+    }, {
+      "title" : "Optimal descriptor as a translator of eclectic information into the prediction of membrane damage: the case of a group of ZnO and TiO2 nanoparticles",
+      "author" : [ "Toropova", "A.P" ],
+      "venue" : "Ecotoxicol. Environ",
+      "citeRegEx" : "Toropova and A.P,? \\Q2014\\E",
+      "shortCiteRegEx" : "Toropova and A.P",
+      "year" : 2014
+    }, {
+      "title" : "QSAR model for cytotoxicity of SiO2 nanoparticles on human lung fibroblasts",
+      "author" : [ "A.P. Toropova", "A.A. Toropov", "E. Benfenati", "R. Korenstein" ],
+      "venue" : "J. Nanopart. Res. https://doi.org/10.1007/s11051-014-2282-9",
+      "citeRegEx" : "Toropova et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Toropova et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "The importance of being earnest: validation is the absolute essential for successful application and interpretation of QSPR models",
+      "author" : [ "A. Tropsha", "P. Gramatica", "V. Gombar" ],
+      "venue" : "QSAR Comb. Sci",
+      "citeRegEx" : "Tropsha et al\\.,? \\Q2003\\E",
+      "shortCiteRegEx" : "Tropsha et al\\.",
+      "year" : 2003
+    }, {
+      "title" : "RRegrs: an R package for computer-aided model selection with multiple regression models",
+      "author" : [ "G Tsiliki" ],
+      "venue" : "J. Cheminform",
+      "citeRegEx" : "Tsiliki,? \\Q2015\\E",
+      "shortCiteRegEx" : "Tsiliki",
+      "year" : 2015
+    }, {
+      "title" : "Enriching nanomaterials omics data: an integration technique to generate biological descriptors",
+      "author" : [ "G. Tsiliki", "P. Nymark", "P. Kohonen", "R. Grafström", "H. Sarimveis" ],
+      "venue" : "Small Methods",
+      "citeRegEx" : "Tsiliki et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Tsiliki et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "ToxFlow: a web-based application for read-across toxicity prediction using omics and physicochemical data",
+      "author" : [ "Varsou", "D.D" ],
+      "venue" : "J. Chem. Inf. Model. https://doi. org/10.1021/acs.jcim.7b00160",
+      "citeRegEx" : "Varsou and D.D,? \\Q2018\\E",
+      "shortCiteRegEx" : "Varsou and D.D",
+      "year" : 2018
+    }, {
+      "title" : "The curse of dimensionality in data mining",
+      "author" : [ "M. Verleysen", "D. François" ],
+      "venue" : null,
+      "citeRegEx" : "Verleysen and François,? \\Q2005\\E",
+      "shortCiteRegEx" : "Verleysen and François",
+      "year" : 2005
+    }, {
+      "title" : "3D-QSAR in drug design—a review",
+      "author" : [ "J. Verma", "V.M. Khedkar", "E.C. Coutinho" ],
+      "venue" : "Curr. Top. Med. Chem",
+      "citeRegEx" : "Verma et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Verma et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Protein corona fingerprinting predicts the cellular interaction of gold and silver nanoparticles",
+      "author" : [ "Walkey", "C.D" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "Walkey and C.D,? \\Q2014\\E",
+      "shortCiteRegEx" : "Walkey and C.D",
+      "year" : 2014
+    }, {
+      "title" : "The joint effects on Photobacterium phosphoreum of metal oxide nanoparticles and their most likely coexisting chemicals in the environment",
+      "author" : [ "D. Wang", "Y. Gao", "Z. Lin", "Z. Yao", "W. Zhang" ],
+      "venue" : "Aquat. Toxicol",
+      "citeRegEx" : "Wang et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Wang et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Principal component and causal analysis of structural and acute in vitro toxicity data for nanoparticles",
+      "author" : [ "Wang", "X.Z" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "Wang and X.Z,? \\Q2014\\E",
+      "shortCiteRegEx" : "Wang and X.Z",
+      "year" : 2014
+    }, {
+      "title" : "A survey of transfer learning",
+      "author" : [ "K. Weiss", "T.M. Khoshgoftaar", "D.D. Wang" ],
+      "venue" : "J. Big Data",
+      "citeRegEx" : "Weiss et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Weiss et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Cell-specific targeting of nanoparticles by multivalent attachment of small molecules",
+      "author" : [ "R. Weissleder", "K. Kelly", "E.Y. Sun", "T. Shtatland", "L. Josephson" ],
+      "venue" : "Nat. Biotechnol",
+      "citeRegEx" : "Weissleder et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Weissleder et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "Applying quantitative structure-activity relationship approaches to nanotoxicology: current status and future potential",
+      "author" : [ "Winkler", "D.A" ],
+      "venue" : "Toxicology",
+      "citeRegEx" : "Winkler and D.A,? \\Q2013\\E",
+      "shortCiteRegEx" : "Winkler and D.A",
+      "year" : 2013
+    }, {
+      "title" : "Modelling and predicting the biological effects of nanomaterials",
+      "author" : [ "Winkler", "D.A" ],
+      "venue" : "SAR QSAR Environ. Res",
+      "citeRegEx" : "Winkler and D.A,? \\Q2014\\E",
+      "shortCiteRegEx" : "Winkler and D.A",
+      "year" : 2014
+    }, {
+      "title" : "An index for characterization of nanomaterials in biological systems",
+      "author" : [ "X.R. Xia", "N.A. Monteiro-Riviere", "J.E. Riviere" ],
+      "venue" : "Nat. Nanotechnol",
+      "citeRegEx" : "Xia et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Xia et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Effects of SiO2 nanoparticles on HFL-I activating ROSmediated apoptosis via p53 pathway",
+      "author" : [ "Z. Xu", "L. Chou", "J. Sun" ],
+      "venue" : "J. Appl. Toxicol",
+      "citeRegEx" : "Xu et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Xu et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Learning and evaluating classifiers under sample selection bias",
+      "author" : [ "B. Zadrozny" ],
+      "venue" : "Twenty-first International Conference on Machine Learning - ICML",
+      "citeRegEx" : "Zadrozny,? \\Q2004\\E",
+      "shortCiteRegEx" : "Zadrozny",
+      "year" : 2004
+    }, {
+      "title" : "A strategy to apply machine learning to small datasets in materials science",
+      "author" : [ "Y. Zhang", "C. Ling" ],
+      "venue" : "npj Comput. Mater. https://doi.org/10.1038/s41524-018-0081-z",
+      "citeRegEx" : "Zhang and Ling,? \\Q2018\\E",
+      "shortCiteRegEx" : "Zhang and Ling",
+      "year" : 2018
+    }, {
+      "title" : "Use of metal oxide nanoparticle band gap to develop a predictive paradigm for oxidative stress and acute pulmonary inflammation",
+      "author" : [ "H Zhang" ],
+      "venue" : "ACS Nano 6,",
+      "citeRegEx" : "Zhang,? \\Q2012\\E",
+      "shortCiteRegEx" : "Zhang",
+      "year" : 2012
+    }, {
+      "title" : "A nano-combinatorial library strategy for the discovery of nanotubes with reduced protein-binding, cytotoxicity, and immune response",
+      "author" : [ "H Zhou" ],
+      "venue" : "Nano Lett",
+      "citeRegEx" : "Zhou,? \\Q2008\\E",
+      "shortCiteRegEx" : "Zhou",
+      "year" : 2008
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 71,
+      "context" : "carbon-based; metal and metalloid oxides; metals, metal salts and metalloids; semiconductor quantum dots; organics and other classes) (RCC, 2013a, 2013b), on properties (such as dimension, shape, morphology, complexity and surface functionalization), or basing on synthetic and biological identity (Lynch et al., 2014).",
+      "startOffset" : 298,
+      "endOffset" : 318
+    }, {
+      "referenceID" : 71,
+      "context" : "Moreover, in silico models can help designing NMs with desired properties and known (eco)toxicity (Lynch et al., 2014; Stone et al., 2014): a first practical proof-ofconcept of applying the SbD concept to NMs was recently published (Fourches et al.",
+      "startOffset" : 98,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 70,
+      "context" : "In addition to physicochemical and nanospecific descriptors, other biological descriptors may be adopted, such as protein-corona descriptors (Cedervall et al., 2007; Lynch and Dawson, 2008; Monopoli et al., 2012) and omics descriptors (Tsiliki et al.",
+      "startOffset" : 141,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 77,
+      "context" : "In addition to physicochemical and nanospecific descriptors, other biological descriptors may be adopted, such as protein-corona descriptors (Cedervall et al., 2007; Lynch and Dawson, 2008; Monopoli et al., 2012) and omics descriptors (Tsiliki et al.",
+      "startOffset" : 141,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 118,
+      "context" : ", in press), fate, exposure and (eco)toxicity data in over a decade of focused research (Steinhäuser and Sayre, 2017).",
+      "startOffset" : 88,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 43,
+      "context" : "This has led to the need to adopt advanced natural language processing (NLP) techniques and text mining methods to convert these unstructured sources to machine-interpretable format (Jones et al., 2014; Lewinski and McInnes, 2015).",
+      "startOffset" : 182,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 59,
+      "context" : "This has led to the need to adopt advanced natural language processing (NLP) techniques and text mining methods to convert these unstructured sources to machine-interpretable format (Jones et al., 2014; Lewinski and McInnes, 2015).",
+      "startOffset" : 182,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 117,
+      "context" : ", 2012), and there are tools for automatic retrieval of data from the literature, such as ContentMine (Smith-Unna and Murray-Rust, 2014).",
+      "startOffset" : 102,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 90,
+      "context" : "Unfortunately, a lot of these data were never published and are therefore not available to the community, but there have been initiatives to collect as many of the data as possible in the inventories reported in Table 2 (Panneerselvam and Choi, 2014; Kohonen et al., 2014; Jeliazkova et al., 2014; Oksel et al., 2015b).",
+      "startOffset" : 220,
+      "endOffset" : 318
+    }, {
+      "referenceID" : 35,
+      "context" : "The role of data curation in nanoinformatics was comprehensively studied in the USA as part of the Nanomaterial Data Curation Initiative (NDCI) (Hendren et al., 2015).",
+      "startOffset" : 144,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 122,
+      "context" : "Indeed, being nanotechnology an intrinsically interdisciplinary field (Thomas et al., 2011), researchers need to use data from different sources across diverse domains.",
+      "startOffset" : 70,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 122,
+      "context" : "It is thus important to develop common ontologies to be able to integrate such different sources (Thomas et al., 2011), paying attention on providing unique identifiers for describing simple concepts.",
+      "startOffset" : 97,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 28,
+      "context" : "(OECD, 2007, 2004; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003) Statistics and metrics The goodness of fit of the model or of the classification can be measured by means of different statistics: each statistic highlights different aspects of the predictive ability of the model.",
+      "startOffset" : 0,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 30,
+      "context" : "(OECD, 2007, 2004; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003) Statistics and metrics The goodness of fit of the model or of the classification can be measured by means of different statistics: each statistic highlights different aspects of the predictive ability of the model.",
+      "startOffset" : 0,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 29,
+      "context" : "(OECD, 2007, 2004; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003) Statistics and metrics The goodness of fit of the model or of the classification can be measured by means of different statistics: each statistic highlights different aspects of the predictive ability of the model.",
+      "startOffset" : 0,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 131,
+      "context" : "(OECD, 2007, 2004; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003) Statistics and metrics The goodness of fit of the model or of the classification can be measured by means of different statistics: each statistic highlights different aspects of the predictive ability of the model.",
+      "startOffset" : 0,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 28,
+      "context" : "(OECD, 2007; Alexander et al., 2015; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003; Roy and Roy, 2008; Chirico and Gramatica, 2011, 2012) Applicability Domain (AD) assessment It is important to indicate the descriptor space in which the model has been trained: predictions extrapolated outside the AD, indeed, may be less accurate than prediction on data that fall into the AD of the model.",
+      "startOffset" : 0,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 30,
+      "context" : "(OECD, 2007; Alexander et al., 2015; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003; Roy and Roy, 2008; Chirico and Gramatica, 2011, 2012) Applicability Domain (AD) assessment It is important to indicate the descriptor space in which the model has been trained: predictions extrapolated outside the AD, indeed, may be less accurate than prediction on data that fall into the AD of the model.",
+      "startOffset" : 0,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 29,
+      "context" : "(OECD, 2007; Alexander et al., 2015; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003; Roy and Roy, 2008; Chirico and Gramatica, 2011, 2012) Applicability Domain (AD) assessment It is important to indicate the descriptor space in which the model has been trained: predictions extrapolated outside the AD, indeed, may be less accurate than prediction on data that fall into the AD of the model.",
+      "startOffset" : 0,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 131,
+      "context" : "(OECD, 2007; Alexander et al., 2015; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003; Roy and Roy, 2008; Chirico and Gramatica, 2011, 2012) Applicability Domain (AD) assessment It is important to indicate the descriptor space in which the model has been trained: predictions extrapolated outside the AD, indeed, may be less accurate than prediction on data that fall into the AD of the model.",
+      "startOffset" : 0,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 103,
+      "context" : "(OECD, 2007; Alexander et al., 2015; Eriksson et al., 2003; Golbraikh and Tropsha, 2002; Gramatica and Sangion, 2016; Gramatica, 2007; Tropsha et al., 2003; Roy and Roy, 2008; Chirico and Gramatica, 2011, 2012) Applicability Domain (AD) assessment It is important to indicate the descriptor space in which the model has been trained: predictions extrapolated outside the AD, indeed, may be less accurate than prediction on data that fall into the AD of the model.",
+      "startOffset" : 0,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 29,
+      "context" : "(OECD, 2007, 2004; Eriksson et al., 2003; Gramatica, 2007; Jaworska et al., 2005) Uncertainty and variability assessment Information regarding robustness, sensitivity and variability help to better understand the uncertainty in model results, and hence facilitate subsequent decision making based on model predictions.",
+      "startOffset" : 0,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 40,
+      "context" : "(OECD, 2007, 2004; Eriksson et al., 2003; Gramatica, 2007; Jaworska et al., 2005) Uncertainty and variability assessment Information regarding robustness, sensitivity and variability help to better understand the uncertainty in model results, and hence facilitate subsequent decision making based on model predictions.",
+      "startOffset" : 0,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 76,
+      "context" : "Data curation based on a set of information about NMs (Mills et al., 2014) is performed also for the Nanomaterial Registry database.",
+      "startOffset" : 54,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 56,
+      "context" : "Only half of the approaches in Table 3 defined clearly the endpoint to Read-Across: one considered the in vitro Comet assay against different NFs of the same material (nano-TiO2 with different size, surface chemistry and shape) (Lamon et al., 2018), one took into consideration available in vitro and in vivo genotoxicity tests (comet and micronucleus assays) against different multi-walled carbon nanotubes (different length, rigidity/straightness, impurities) (Aschberger et al.",
+      "startOffset" : 228,
+      "endOffset" : 248
+    }, {
+      "referenceID" : 34,
+      "context" : ", 2017, 2015a), and in two of the reviewed approaches cell association was used as endpoint (Helma et al., 2017; Varsou et al., 2018).",
+      "startOffset" : 92,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 34,
+      "context" : "(2017) is the only one in which authors reported retrieving their dataset from one of the databases in Table 2 (Helma et al., 2017), while the other approaches reported using datasets already available in literature or created in house.",
+      "startOffset" : 111,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 56,
+      "context" : "It is also worth reporting on the descriptor selection, or on the selection of the physicochemical properties considered in the case studies reported in Table 3, where only 4 out of 11 case studies included in the final model nanospecific properties (size distribution, zeta potential, dispersibility and surface coating (Lamon et al., 2018; Aschberger et al., 2019)), protein-corona descriptors (Helma et al.",
+      "startOffset" : 321,
+      "endOffset" : 366
+    }, {
+      "referenceID" : 34,
+      "context" : ", 2019)), protein-corona descriptors (Helma et al., 2017), or omics descriptors (Varsou et al.",
+      "startOffset" : 37,
+      "endOffset" : 57
+    }, {
+      "referenceID" : 15,
+      "context" : "(Q)SARs are extensively applied in chemical toxicity modelling and drug discovery (Dudek et al., 2006; Nantasenamat et al., 2009; Verma et al., 2010), and in the last decade lots of efforts have been put in practice to apply QSARs to NMs.",
+      "startOffset" : 82,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 80,
+      "context" : "(Q)SARs are extensively applied in chemical toxicity modelling and drug discovery (Dudek et al., 2006; Nantasenamat et al., 2009; Verma et al., 2010), and in the last decade lots of efforts have been put in practice to apply QSARs to NMs.",
+      "startOffset" : 82,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 136,
+      "context" : "(Q)SARs are extensively applied in chemical toxicity modelling and drug discovery (Dudek et al., 2006; Nantasenamat et al., 2009; Verma et al., 2010), and in the last decade lots of efforts have been put in practice to apply QSARs to NMs.",
+      "startOffset" : 82,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 92,
+      "context" : "Although the modelling approach and the descriptors used in the final model were always clearly indicated, excluding the model provided by Burello and Worth (2011) where instead a theoretical model was applied, in roughly 50% of the reviewed approaches the descriptors used by the final model are related to the chemical composition of the NM and are not related to nanospecific properties, while the most common nanospecific descriptors included in the reviewed models are size (measured in different media), zeta potential, reactivity and surface area, while in three cases protein-corona descriptors where included in the final model (Liu et al., 2015b; Tsiliki et al., 2015; Papa et al., 2016).",
+      "startOffset" : 637,
+      "endOffset" : 697
+    }, {
+      "referenceID" : 105,
+      "context" : "The robustness of the model was assessed in more of the 40% of the reviewed methods: in 16 out of 41 cases it was assessed by means of the Y-scrambling (Eriksson et al., 2003; Rücker et al., 2007), while in one of the approaches (Kleandrova et al.",
+      "startOffset" : 152,
+      "endOffset" : 196
+    }, {
+      "referenceID" : 111,
+      "context" : "(2016) provided a raw uncertainty assessment of their linear regression model, indicating the confidence intervals of the predictions, while only Singh and Gupta (2014) highlighted the contribution of the selected descriptors to the final prediction (Singh and Gupta, 2014), and only Pan et al.",
+      "startOffset" : 250,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 35,
+      "context" : "1, curating existing data in available data sources (Hendren et al., 2015; Powers et al., 2015), improving the completeness and the quality of data in existing databases (Marchese Robinson et al.",
+      "startOffset" : 52,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 34,
+      "context" : "At the same time, it is worth noting that some of the approaches reviewed in this manuscript have been implemented as web services that are freely available to the community (Helma et al., 2017; Varsou et al., 2018; Melagraki and Afantitis, 2014; Tsiliki et al., 2015).",
+      "startOffset" : 174,
+      "endOffset" : 268
+    }, {
+      "referenceID" : 75,
+      "context" : "At the same time, it is worth noting that some of the approaches reviewed in this manuscript have been implemented as web services that are freely available to the community (Helma et al., 2017; Varsou et al., 2018; Melagraki and Afantitis, 2014; Tsiliki et al., 2015).",
+      "startOffset" : 174,
+      "endOffset" : 268
+    }, {
+      "referenceID" : 56,
+      "context" : "in vitro or in vivo genotoxicity) it is either (i) not applied as an alternative method to animal testing (as the prediction is made for an in vitro assay) (Lamon et al., 2018), or (ii) the data of the source materials are not provided following an internationally accepted SOP (Aschberger et al.",
+      "startOffset" : 156,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 34,
+      "context" : "Roughly 50% of the approaches reviewed in this manuscript included in the final model nanospecific descriptors, in addition few approaches reported including in their analysis proteomics (Helma et al., 2017; Liu et al., 2015b; Tsiliki et al., 2015; Papa et al., 2016) and omics descriptors (Varsou et al.",
+      "startOffset" : 187,
+      "endOffset" : 267
+    }, {
+      "referenceID" : 92,
+      "context" : "Roughly 50% of the approaches reviewed in this manuscript included in the final model nanospecific descriptors, in addition few approaches reported including in their analysis proteomics (Helma et al., 2017; Liu et al., 2015b; Tsiliki et al., 2015; Papa et al., 2016) and omics descriptors (Varsou et al.",
+      "startOffset" : 187,
+      "endOffset" : 267
+    }, {
+      "referenceID" : 78,
+      "context" : "technical reports, journal articles) generally provide data in free text format, making it more difficult to automate the process of information extraction and consequently making it harder for modellers to retrieve such data (Mooney and Bunescu, 2005).",
+      "startOffset" : 226,
+      "endOffset" : 252
+    }, {
+      "referenceID" : 0,
+      "context" : "Moreover, the concept of proximity, distance or nearest neighbour exploited by distance-based ML algorithms become less meaningful as the number of dimension become higher: this problem is known as the “curse of dimensionality” (Aggarwal et al., 2001; Verleysen and François, 2005; Donoho, 2000).",
+      "startOffset" : 228,
+      "endOffset" : 295
+    }, {
+      "referenceID" : 135,
+      "context" : "Moreover, the concept of proximity, distance or nearest neighbour exploited by distance-based ML algorithms become less meaningful as the number of dimension become higher: this problem is known as the “curse of dimensionality” (Aggarwal et al., 2001; Verleysen and François, 2005; Donoho, 2000).",
+      "startOffset" : 228,
+      "endOffset" : 295
+    }, {
+      "referenceID" : 13,
+      "context" : "Moreover, the concept of proximity, distance or nearest neighbour exploited by distance-based ML algorithms become less meaningful as the number of dimension become higher: this problem is known as the “curse of dimensionality” (Aggarwal et al., 2001; Verleysen and François, 2005; Donoho, 2000).",
+      "startOffset" : 228,
+      "endOffset" : 295
+    }, {
+      "referenceID" : 95,
+      "context" : "Even though there are no general rules specifying the minimum number of samples required to train a model, experiments demonstrated that at least 10 samples per variable are required for logistic regression (Peduzzi et al., 1996), while a more conservative rule (Dolnicar, 2002) can be adapted from Latent Class Analysis, where the minimal sample size to include is suggested to be no less than 2k (where k is the number of variables), preferably 5 ∗ 2.",
+      "startOffset" : 207,
+      "endOffset" : 229
+    }, {
+      "referenceID" : 12,
+      "context" : ", 1996), while a more conservative rule (Dolnicar, 2002) can be adapted from Latent Class Analysis, where the minimal sample size to include is suggested to be no less than 2k (where k is the number of variables), preferably 5 ∗ 2.",
+      "startOffset" : 40,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 133,
+      "context" : "In addition, it is fundamental to validate models both internally and externally, and to cross-validate models when the number of samples is not sufficiently high to perform also external validation, to provide an unbiased evaluation of the predictive ability of the models (Tsiliki et al., 2017; Lubinski et al., 2013; Gajewicz et al., 2017, 2015a), and to reduce the risk of overfitting.",
+      "startOffset" : 274,
+      "endOffset" : 349
+    }, {
+      "referenceID" : 46,
+      "context" : "Representativeness, indeed, is as important as sample size: it can potentially magnify bias effects in case of non-representative or not properly collected samples, instead of correcting it (Kaplan et al., 2014).",
+      "startOffset" : 190,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 33,
+      "context" : "Heckman (1979) studied the problem of sample selection bias in econometric problems and proposed a method to correct it for regression models, assuming that it is possible to estimate the probability that an observation is selected into the sample (Heckman, 1979), being awarded to the Nobel prize for this work (there exists implementation of Heckman-type methods in different programming languages, including R (Toomet and Henningsen, 2008)).",
+      "startOffset" : 248,
+      "endOffset" : 263
+    }, {
+      "referenceID" : 125,
+      "context" : "Heckman (1979) studied the problem of sample selection bias in econometric problems and proposed a method to correct it for regression models, assuming that it is possible to estimate the probability that an observation is selected into the sample (Heckman, 1979), being awarded to the Nobel prize for this work (there exists implementation of Heckman-type methods in different programming languages, including R (Toomet and Henningsen, 2008)).",
+      "startOffset" : 413,
+      "endOffset" : 442
+    }, {
+      "referenceID" : 146,
+      "context" : "Later it has been shown that the same problem affects also classification models (Zadrozny, 2004), and methods to correct it were proposed.",
+      "startOffset" : 81,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 88,
+      "context" : "Transfer Learning (Pan and Yang, 2010; Weiss et al., 2016), also known as Knowledge Transfer, is a trending topic in the ML community.",
+      "startOffset" : 18,
+      "endOffset" : 58
+    }, {
+      "referenceID" : 140,
+      "context" : "Transfer Learning (Pan and Yang, 2010; Weiss et al., 2016), also known as Knowledge Transfer, is a trending topic in the ML community.",
+      "startOffset" : 18,
+      "endOffset" : 58
+    } ],
+    "year" : 2019,
+    "abstractText" : "https://doi.org/10.1016/j.impact.2019.01.003 Received 18 September 2018; Received in revised form 17 December 2018; Accepted 15 January 2019 ⁎ Correspondence to: G. Basei, DAIS Department of Environmental Sciences, Informatics and Statistics, Ca' Foscari University of Venice, Via Torino 155, 30170 Mestre, VE, Italy. ⁎⁎ Corresponding author. E-mail addresses: gianpietro.basei@unive.it (G. Basei), danail.hristozov@greendecision.eu (D. Hristozov). NanoImpact 13 (2019) 76–99 Available online 17 January 2019 2452-0748/ © 2019 Elsevier B.V. All rights reserved. T purity and surface properties for integration into products. The large number of nanoforms (NFs)1 and the high complexity associated with their interactions in biological and environmental systems have raised the call for Amendments of the REACH Annexes (EC, 2017) to require additional information for the safety assessment of NMs. To address these challenges, it has been widely agreed by regulators, industries and scientists that the way forward is to develop robust Integrated Approaches to Testing and Assessment (IATA) that should be compliant with the 3R (Replacement, Reduction and Refinement) principles for reducing animal testing (Burden et al., 2017). These IATA would involve both experimental and modelling tools (Hristozov et al., 2016a) to facilitate intelligent testing and Grouping and Read-Across to inform both regulatory Risk Assessment and safer design of quality products. The application of in silico methods for Grouping and Read-Across is subject to the REACH Annex XI. A group or category, according to REACH, is the arrangement of substances based on similar physicochemical and (eco)toxicological, toxicokinetic and/or environmental fate properties (ECHA, 2017a). OECD goes beyond identification of toxicological properties to support Grouping and identifies also mode of toxicological action as a relevant principle of similarity (OECD, 2007). Other possible ways to group NMs are based on commercial importance and volume of production, composition/chemistry (e.g. carbon-based; metal and metalloid oxides; metals, metal salts and metalloids; semiconductor quantum dots; organics and other classes) (RCC, 2013a, 2013b), on properties (such as dimension, shape, morphology, complexity and surface functionalization), or basing on synthetic and biological identity (Lynch et al., 2014). Grouping can serve several purposes such as informing targeted testing for Risk Assessment, facilitating Safe-by-Design (SbD) practices, and filling data gaps. The latter is typically achieved through Read-Across, an established approach used to predict properties and/or effects for a “target” substance by using information from analogous “source” substance(s) (ECHA, 2017b). Furthermore, Grouping for Read-Across is not only accepted under REACH, but is also applicable under different chemicals regulatory frameworks (Mech et al., 2018): for instance for risk assessment of NMs in the food and feed chain, the European Food Safety Agency supports grouping for read-across from (other) NFs or non-NFs (Hardy et al., 2018). The foundations and basic principles for the Grouping and ReadAcross of NMs/NFs have been established in a number of conceptual schemes (Oomen et al., 2018; Lamon et al., 2019a; Arts et al., 2015a), which were developed in the EU research projects MARINA, NANoREG, GUIDEnano and ITS-NANO, as part of the European Centre of Ecotoxicology and Toxicology of Chemicals (ECETOC) Nano Task Force (Arts et al., 2015b), and as a result of the ECHA's Partner Expert Group (PEG) (ECHA, 2017a). Moreover, a few case studies addressing Grouping of NMs for Read-Across hazard endpoints are available (Lamon et al., accepted for publication). The H2020 GRACIOUS project is currently building upon these developments to generate a highly innovative science-based framework to enable practical application of Grouping, leading to Read-Across and classification of NMs. REACH Annex XI recommends to use when possible in silico methods such as (Quantitative) Structure-Activity Relationships ((Q) SARs) for either inferring whether material properties will produce biological effects by means of classification models (SARs) or predicting in numerical terms these relationships by means of regression models (QSARs). The goal is to reduce unnecessary testing by more effectively using the large volume of existing and emerging experimental data, generated in over a decade of nanosafety research (Oberdörster and Kuhlbusch, 2018; Rasmussen et al., 2018). Moreover, in silico models can help designing NMs with desired properties and known (eco)toxicity (Lynch et al., 2014; Stone et al., 2014): a first practical proof-ofconcept of applying the SbD concept to NMs was recently published (Fourches et al., 2016). For classical chemical compounds, a number of descriptors (directly derived or computed starting from physicochemical properties) are available and can be modelled, however the largest part of these descriptors are not applicable or not useful with respect to NMs (Puzyn et al., 2011; Winkler et al., 2013; Oksel et al., 2015a). Indeed, recently ECHA provided a guidance on how to identify and characterize NMs and NFs (ECHA, 2017a): in addition to “substance identity” parameters specified in Section 2 of Annex VI of REACH regulation (European Commission, 2006), which include composition of the substance, of impurities or additives, as well as information of surface chemistry and crystalline structure, other parameters that are relevant to characterize NFs are physical parameters such as Size, Shape and Surface area. Other relevant parameters include Solubility, Hydrophobicity, Zeta potential, Dispersibility, Dustiness, as well as Biological (re)activity and Photoreactivity. These properties are indeed the basis to implement the “Stepwise strategy for Grouping and Read-Across” (ECHA, 2017a). In addition to physicochemical and nanospecific descriptors, other biological descriptors may be adopted, such as protein-corona descriptors (Cedervall et al., 2007; Lynch and Dawson, 2008; Monopoli et al., 2012) and omics descriptors (Tsiliki et al., 2017). It is generally accepted that the difference between (Q)SAR and Grouping for Read-Across approaches lies in the fact that the latter are applied “when a small quantity of data is available”, while the former are applied “when more data is available” (Lubinski et al., 2013; Gajewicz et al., 2017, 2015a). The difference between (Q)SARs and Read-Across approaches relies indeed in the fact that in the latter the endpoint information is inferred using data on the same endpoint from other (similar) substances, while in (Q)SARs the prediction is based on a model derived from the chemical structure or relevant nanospecific descriptors. The need for larger datasets for (Q)SARs is a consequence to the fact that, in general, it is harder to build a relevant and predictive model when the available samples are limited in number. The use of (Q)SARs for the safety assessment of NMs in general has been previously reviewed, but not in the specific context of Grouping and Read-Across. Puzyn et al. (2009) were the first to discuss the role of in silico models for predicting the hazard of NMs, followed by Winkler et al. (2013) who provided an overview on the existing methods. More recently, Tantra et al. (2015a) investigated the theoretical and experimental descriptors adopted to train (Q)SAR models, while Oksel et al. (2015a, 2017) highlighted additional descriptors and endpoints for in silico modelling. Jones et al. (2016) reviewed the application of data mining and Machine Learning (ML) techniques for the prediction of biomedical properties and fate of NMs used in medical applications, while Sizochenko and Leszczynski (2016) focused on inorganic NMs, considering not only ML approaches, but also statistical (e.g. dose-response) models. Chen et al. (2017a) in two different works investigated in silico methods for the prediction and classification of hazard endpoints for metallic NMs, discussing data sources and mechanistic interpretation of reported (Q)SARs, and proposing a roadmap for computational toxicology aimed at designing safer NMs (Chen et al., 2017b). Finally, Quik et al. (2018) analysed a selection of models used for hazard and exposure assessment of NMs, giving an overview on available mechanistic models related to NMs properties, and their parameterization, identifying the best descriptors to use to characterize intrinsic and extrinsic properties, or measured hazard and exposure. In this manuscript, we critically analyse the existing approaches that make use of ML techniques for predicting human health hazard endpoints in terms of their predictive ability, thus providing a starting point for researchers, evaluating the existing methods and proposing possible future developments in the field. In addition, we provide an overview on the existing databases, highlighting the current limitations of such data systems. 1 Under REACH, a nanoform (NF) is a form of a substance, which fulfils the EC recommended definition of nanomaterial. In addition to size, NFs are characterised by shape and surface chemistry (EC, 2017). 2 https://www.h2020gracious.eu/ (web address accessed in summer 2018). G. Basei et al. NanoImpact 13 (2019) 76–99",
+    "creator" : "Elsevier"
+  }
+}

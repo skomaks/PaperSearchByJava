@@ -1,0 +1,909 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_0f837554ffc312f005a958851a0f2e1e_xi2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Nanoparticle Deposition in Rhythmically Moving Acinar Models with Interalveolar Septal Apertures",
+    "authors" : [ "Jinxiang Xi", "Mohamed Talaat" ],
+    "emails" : [ "Jinxiang_Xi@uml.edu", "jxi@calbaptist.edu;" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Keywords: nanoparticle alveolar deposition; nanomedicine; rhythmic wall motion; interalveolar septal wall; pore of Kohn; collateral ventilation"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "The integration of nanoscience and inhalation drug delivery offers exciting potentials to enhance the targeting, release, diagnostic, and therapeutic outcomes of drugs [1–3]. Various nanomedicines have been devised in recent years for local and systemic treatments of diseases, which include small molecules, macromolecules, peptide, protein, and genes. For instance, local applications of small molecules were tested to treat respiratory diseases, such as chronic obstructive pulmonary disease (COPD) and asthma [4,5]. Protein/peptide delivery to the lung is promising for both local therapy of respiratory diseases and systemic management of thrombosis or diabetes [6]. Targeted pulmonary delivery of genes to the disease site offers great potential for the treatment of genetic lung disorders, such as alpha-1-antitrypsin deficiency [7,8], cystic fibrosis [9], and asthma [10].\nNanomaterials 2019, 9, 1126; doi:10.3390/nano9081126 www.mdpi.com/journal/nanomaterials\nNanomaterials 2019, 9, 1126 2 of 18\nThe human respiratory tract can be divided into several sections: Oropharyngeal region, tracheobronchial region, bronchioles, respiratory bronchioles, and alveoli. Each section has different morphology, dimension, type of epithelium cell, as well as different mechanisms for drug deposition, absorption, and clearance [11]. In the acinar region (alveoli), only particles smaller than 2 µm can get deposited, and only nanoparticles coated with albumin or phospholipids can translocate across the alveolus–capillary barrier, both chemicals naturally present in the alveolar epithelial lining fluid [12,13]. Particle clearance from the alveoli is predominantly mediated by macrophages, which only take up particles of 0.5–3 µm [14]. Particles 260 nm or smaller eludes the phagocytosis and cannot be easily cleared from the pulmonary region [15]. Such nanocarriers can remain in the lungs for up to 700 days [16], which either remain in the alveolar cells or translocate into the interstitium, causing long-term accumulations and invoking toxicity issues. It is therefore critical to understand the behavior and fate of inhaled nanoparticles inside the alveoli, to reliably establish the dose-outcome relationship for either inhaled therapeutic pharmaceuticals or environmental toxins. Alveolar sacs are the smallest respiration units at the end of the respiratory tree. The alveoli exhibit a highly intricated architecture braced by interalveolar septal walls [17]. Circular or oval apertures (pores of Kohn) exist in the septum, allowing communications of airflow and liquids between neighboring alveoli [18]. The collateral ventilation equalizes pressures among alveoli and acts as an important mechanism in promoting alveolar recruitment [19] and preventing atelectasis (i.e., lung collapse) [20]. In lungs with emphysema, the pores of Kohn increase in both size and number [21–23]. As the emphysema deteriorates, the septal walls break down, leading to enlarged sac airspace and weakened lung elastin [24]. Aging can also cause the pores to enlarge and proliferate [25,26]. Knowledge of the influences from the interalveolar septal walls and pore size on acinar airflow and nanoparticle behaviors is of fundamental importance in accurately predicting pulmonary dosimetry, developing dose-response relationships, and devising more effective treatment strategies. Theoretical and numerical studies have investigated airflow and particle deposition in the alveoli. Theoretical analysis of acinar deposition assumed particle diffusion and sedimentation in steady tubular flows, while neglected some critical factors, such as tidal breathing, geometry details, dynamic walls, and tidal breathing [27–29]. Using numerical methods, Kojic and Tsuda [30] elegantly demonstrated that particle deposition could be significantly underestimated using steady flow solutions to approximate tidal breathing. Kim et al. [31,32] demonstrated that the rhythmic wall motions are essential to match in vivo alveolar deposition data with predictions from the single-path-transport model. Kumar et al. [33] numerically investigated respiratory flows in honeycomb-like alveolar models and found recirculating stream traces in the alveolar airspace. Talaat and Xi [34] simulated particle dynamics in a terminal alveolus with rhythmic wall motions and reported significantly different particle motions from those in respiratory bronchioles or alveolar ducts [35–38]. In a terminal alveolus, the oscillating walls cause a particle to move forth and back, forming a multi-folding trajectory [34]. By contrast, in a respiratory bronchiole or alveolar duct, particles remain in the alveolar airspace for several cycles, rotating counterclockwise during inhalation and clockwise during exhalation [35,38]. Recent attempts to develop empirical correlations were also reported in alveolar models [34,38–42]. However, most studies have excluded the interalveolar septal walls and apertures (pores) for geometrical simplicity. In addition, reports of nanoparticle transport and deposition in alveolar sacs with moving walls are scarce, possibly due to the numerical challenges in fluid-wall-particle interactions, which include the dynamic mesh, random Brownian motion, multiscale velocities, and multi-physics of forces resulting from and acting on walls, fluid, and particles. The objective of this study is to investigate the nanoparticle transport and deposition in a simplified alveolar model that comprises one cylindrical duct and four interconnecting spherical alveoli. Specific aims include: (1) To numerically simulate airflows and nanoparticle motions in alveolar models for different particle sizes (diffusivity), (2) to study the influences of the pore size on airflows and nanoparticle motions, (3) to quantify the alveolar deposition both temporally and spatially for different\nNanomaterials 2019, 9, 1126 3 of 18\nnanoparticle sizes, (4) to evaluate the effect of the pore size on alveolar deposition for nanoparticles representative of inhalation nanomedicine."
+    }, {
+      "heading" : "2. Methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Alveolar Model and Wall Kinematics",
+      "text" : "Human lungs consist of 480 million or so alveoli. There are more than 10,000 alveoli in one acinar unit [17]. Even developing a complete model for a single acinar unit can be prohibitive. In this study, a four-alveoli model that was previously developed in Xi et al. [41] was adopted for its well-defined shape and dimension. Figure 1a shows the surface geometry of the four-alveoli model in transparent and solid views, while Figure 1b shows the cut-open view of the hollow model, with interalveolar septal apertures (pores) connecting adjacent alveoli. To help differentiate the four alveoli, the upper one was referred to as Sac 1, the left and right as Sac 2 and Sac 3, and the lower as Sac 4 (Figure 1a).\nNanomaterials 2019, 9, x FOR PEER REVIEW 3 of 18\nspatially for different nanoparticle sizes, (4) to evaluate the effect of the pore size o alveolar deposition for na oparticles representative of inhalation nanomedicine."
+    }, {
+      "heading" : "2. Methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Alveolar odel and all Kine atics",
+      "text" : "Human lungs consist of 480 illion or so alveoli. There are ore than 10,000 alveoli in one acinar unit [17]. Even developing a complete model for a single acinar unit can be prohibitive. In this study, a four-alveoli model that was previously developed in Xi et al. [41] s t f r its ell-defined shape and dimension. Fig re t f t f t f r-alveoli odel in transparent and solid views, while Figure 1b sho t t el, ith interalveolar septal apertures (pores) connecti j iff ti t t e four alveoli, the upper one was refe red to as Sac 1, the left and right as Sac i r ).\nFigure 1. Models: (a) Four-alveolar model with septal walls communicated via interalveolar pores, (b) alveolar kinematics with rhythmically expanding (red) and contracting (black) walls. Different pore sizes were considered: (c) 20 µm, (d) 40 µm, (e) 100 µm, and (f) no septum.\nThe rhythmic expansion and contraction of the alveolar wall were assumed to follow the chest [43,44], which moves a longer distance in the head-foot (x) and back-front (y) directions than the armarm (z) direction (i.e., x:y:z = 1:1:0.375). A constant ratio of the tidal volume (VT) to the functional residual capacity (FRC) of 23.3% was used (i.e., VT/FRC = 0.233) [45]. In-house code was written to specify the rhythmic wall expansion and contraction (Figure 1b). More details of the alveolar wall kinematics can be found in Talaat and Xi [34]. To evaluate the impact of the interalveolar septal aperture (pore) size on the alveolar deposition, seven geometrically similar models were developed with different pore sizes, i.e., 20 µm, 40 µm, 50 µm, 60 µm, 70 µm, 80 µm, and 90 µm. Figure 1c, d, and 1e display the cut view of the alveolar model with a pore size of 20 µm, 40 µm, and 80 µm, respectively. One model with complete septal destruction (no septal wall) was also developed for comparison purposes (Figure 1f).\nFigure 1. Models: (a) Fo r- l l l it t l ll nicated via interalveolar pores, (b) alveolar kinematics with rhythmically expanding (red) and contracting (black) walls. Different pore sizes wer considered: (c) 20 µm, (d) 40 µm, (e) 100 µm, and (f) no septum.\nThe rhyt i si and contraction of the alveolar wall were assumed t follow the chest [43,44], which moves a longer distance in the head-foot (x) nd back-front (y) directio s than the arm-arm (z) direction (i.e., x:y:z = 1:1:0.375). A constant rati of the tidal volume (VT) to the functional residual capacity (FRC) of 23.3% was used (i.e., VT ) . I -house code was wri ten to specify the rhythmic wall expansio a c t i i . ore etails of the alveolar wall kinematics can be found in Tala t and Xi [34]. To evaluate the impact of the i teral e lar se tal a ert re ( re) size on the alveolar deposition, seven geometrically similar models were developed with different pore sizes, i.e., 20 µm, 40 µm, 50 µm, 60 µm, 70 µm, 80 µm, and 90 µm. Figure 1c,d, and 1e display the cut view of the alveolar model with a pore size of 20 µm, 40 µm, and 80 µ , respectively. One model with co plete septal destruction (no septal wall) was also developed for comparison purposes (Figure 1f).\nNanomaterials 2019, 9, 1126 4 of 18"
+    }, {
+      "heading" : "2.2. Airflow and Nanoparticle Transport Models",
+      "text" : "Incompressible and isothermal airflow was assumed in this study. Based on the airflow speed of 0.3 mm/s and a characteristic length of 0.2 mm, the Reynolds number is around 0.004, indicating a laminar flow regime. Particles ranging from 1 nm to 1000 nm in diameter were investigated. For each case, multiple breathing cycles (5–6) were simulated, with the first cycle to establish the transient flow field in the alveolar airspace. To simulate the inhalation of a bolus of pharmaceutical particles, a group of 10,000 particles was released into the duct at 0.20 s at the second cycle. These particles were tracked until all deposited or exited the alveolar model. Based on the particle size ranging from 1 to 1000 nm, the Peclet number (Pe), which is the ratio of convection to diffusion, ranges from 0.01 to 2618. For 10-nm and 200-nm particles, Pe equals 1.1 and 262, respectively. Special attention was paid in the behaviors and fates of these two aerosols, as the first reacts equivalently to convection and diffusion, while the second represents the typical size of inhalation nanomedicine. A discrete-phase Lagrangian tracking model was applied to follow the particle paths [46,47]. This model, enhanced with the near-wall treatment algorithm [48], has been demonstrated in our previous studies to agree with experimental deposition results in the extratropic airway for both nanoparticles [49] and micron aerosols [50,51]. The transport governing equations can be expressed as:\ndvi dt = f τp (ui − vi) + gi(1− α) + fi, li f t + fi,Brownian and dxi dt = vi(t) (1)\nHere, vi and ui are the local velocity of the particle and fluid, gi is the gravity, and τp is the particle relaxation time expressed as τp = Ccρp dp2/18µ, where Cc is the Cunningham correction factor for nanoparticles [52]. The drag factor f is computed from the expression of Morsi and Alexander [53]. The effect of Brownian motion on nanoparticle trajectories is considered as an additional force per unit mass term at each time-step:\nfi,Brownian = ςi md\n√ 1\nD̃p\n2k2T2\n∆t (2)\nwhere ςi is a random number generated from Gaussian probability function, md is particle mass, and ∆t is the time-step. The diffusion coefficients are calculated using the Stokes–Einstein equation\nD̃p = kBTCc 3πµdp\n(3)\nwhere kB is the Boltzmann constant (=1.38× 10−16 cm2g/s) and T is the alveolar temperature."
+    }, {
+      "heading" : "2.3. Numerical Methods",
+      "text" : "ANSYS Fluent (Canonsburg, PA, USA) with the discrete phase model and dynamic mesh was implemented to compute the tidal airflow and particle dynamics. In-house C and Fortran codes were developed to generate injection particle files, define alveolar wall motions, calculate Brownian motion force, and quantify spatial and temporal deposition fractions [54,55]. ANSYS ICEM CFD (Ansys, Inc., Canonsburg, PA, USA) was used to generate the mesh. One-way coupling from the airflow to the nanoparticles was assumed. A grid independent study was performed by testing different mesh sizes. Mesh-independent results were assumed when the discrepancy in the total deposition rate was smaller than 1%. The final alveolar model contained 1.2 million cells. Minitab analysis software (State College, PA, USA) was used to investigate variability in deposition results.\nNanomaterials 2019, 9, 1126 5 of 18"
+    }, {
+      "heading" : "3. Results",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Airflow Field",
+      "text" : "The airflow velocity field is shown in Figure 2 at the peak inhalation. Due to the laminar flow nature, the velocity fields resemble each other among different instants in either inhalation cycle or exhalation cycle. The left panel shows the velocity contour of the middle plane. The maximum speed in the alveolar model is around 1 mm/s, in comparison to the boundary-motion speed of approximately 0.03 mm/s. The airflow speed in the first alveolus is in the order of 0.3 mm/s, which is an order of magnitude higher than that in the three neighboring alveoli. The middle panel shows the stream traces of the airflow at the peak inhalation. The velocity magnitude changes a lot along each stream trace. The vena contracta effect occurs in the vicinity of the pores, where the airflow velocity increases and then decreases dramatically before and after the pore apertures. Collateral ventilation is observed from the bottom alveolus (Sac 4) to the two lateral alveoli (Sac 2 and Sac 3), indicating a transient pressure imbalance among the alveoli. Furthermore, plotting stream traces in a time series reveals that the airflow is generally reversible during inhalation and exhalation, with the inspiratory streamline retracing back during exhalation (figure not shown). The instantaneous coherent structures at the peak inhalation are shown in the right panel of Figure 2 in terms of the lambda-2 criterion at the iso-surface of 2.0. A coherent structure is a large-scale defined structure of particular shape that conserves its spatial and temporal features for a long time relative to the vorticity timescale. Coherent structures control the mass, momentum, and heat transfer at large scales and are responsible for flow stability and mixing in local regions. At the peak inhalation, the coherent structures are concentrated in the first alveolus and downstream of the pores. There are also sporadic structures in the duct. This is consistent with the observation that the velocity gradients are highest in these regions. Inhaled particles in these regions will experience quick speed variations, and therefore the transient effect will be most noticeable for large nanoparticles, whose inertia becomes more important.\nNanomaterials 2019, 9, x FOR PEER REVIEW 5 of 18"
+    }, {
+      "heading" : "3. Results",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Airflow Field",
+      "text" : "The airflow velocity field is shown in Figure 2 at the peak inhalation. Due to the laminar flow nature, the velocity fields resemble each other among different instants in either inhalation cycle or exhalation cycle. The left panel shows the velocity contour of the middle plane. The maximum speed in the alveolar model is around 1 mm/s, in comparison to the boundary- otion speed of approximately 0.03 mm/s. The airflow speed in the first alveolus is in the order of 0.3 mm/s, which is an order of magnitude higher than that in the three neighboring alveoli. The middle panel shows the stream traces of the airflow at the peak inhalation. The velocity magnitude changes a lot along each stream trace. The vena contracta effect occurs in the vicinity of the pores, where the airflow velocity increases and then decreases dramatically before and after the pore apertures. Collateral ventilation is observed from the bottom alveolus (Sac 4) to the two lateral alveoli (Sac 2 and Sac 3), indicating a transient pressure imbalance among the alveoli. Furthermore, plotting stream traces in a time series reveals that the airflow is generally reversible during inhalation and exhalation, with the inspiratory streamline retracing back during exhalation (figure not shown). The instantaneous coherent structures at the peak inhalation are shown in the right panel of Figure 2 in terms of the lambda-2 criterion at the iso-surface of 2.0. A coherent structure is a large-scale defined structure of particular shape that conserves its spatial and temporal features for a long time relative to the vorticity timescale. Coherent structures control the mass, momentum, and heat transfer at large scales and are responsible for flow stability and mixing in local regions. At the peak inhalation, the coherent structures are concentrated in the first alveolus and downstream of the pores. There are also sporadic structures in the duct. This is consistent with the observation that the velocity gradients are highest in these regions. Inhaled particles in these regions will experience quick speed variations, and therefore the transient effect will be most noticeable for large nanoparticles, hose inertia becomes more important.\nFigure 2. Airflow field in the 40-µm-pore alveolar model at the peak inhalation in terms of velocity contour (left), steam traces (middle), and coherent vortex structures (right).\nTo study the pore size effect, the velocity contour and stream traces in three different models (pore size of 20 µm, 80 µm, and no septum) were compared during inhalation (Figure 3a) and exhalation (Figure 3b). As noted in Figure 2, the flows in the three alveolar models are generally reversible within one breathing cycle, as evidenced by the similar stream-trace patterns between inhalation and exhalation. In light of the pore size effect, a stronger vena contracta effect was observed in the 20-µm-pore model (left panel, Figure 3), while the jet-like flow is absent in the 80- µm-pore model (middle panel, Figure 3) and the model with no septum (right panel, Figure 3). Interestingly, the collateral ventilation in the 20-µm-pore model, like the 40-µm-pore model, has the inhaled air flowing from the bottom alveolus to the two lateral alveoli, while in the 80-µm-pore model, the inhaled air flows from the two lateral alveoli to the bottom alveolus (Figure 3a vs. Figure 3b). In the alveolar model with no septal wall, the speed of the inhaled airflow constantly decreases from the inlet to the moving wall due to volume expansion. The streamlines are also smoother (less curved) than those in models with varying pore sizes.\nFigure 2. Airflow field in the 40-µm-pore alveolar model at the peak inhalation in terms of velocity contour (left), steam traces (mid le), and coherent vortex structures (right).\nTo study the pore size eff ct, the velocity contour and stream traces in three different models (pore size of 20 µm, 80 µm, and no septum) w re compared during inhalat on (Figure 3a) and exhalatio (Figure 3b). As noted in Figur 2, the flows in the three alveolar models are generally reversib e within on breathing cycle, as evidenced by th similar str am-tr ce patterns b tween inhalation and exhalation. In light f the pore size eff ct, a strong r vena contracta effect was observed in the 20-µm-pore model (left an l, Figure 3), while the jet-like flow is absent in the 80-µm-pore model (middle panel, Figure 3) and the model with no s ptum (right panel, Figure 3). Inter stingly, the collateral ventilation in he 20-µm-pore model, like the 40-µ -pore model, has the inhaled air flowing from the bottom alveolus to the tw lateral alveoli, while in the 80-µm-pore model, inhaled ai flows from the two lateral alve li to the bottom alveolus (Figure 3a vs. Figure 3b). In the alveola model with no septal wall, the speed of the inhaled airflow constantly ecreases from the inlet to th\nNanomaterials 2019, 9, 1126 6 of 18\nmoving wall due to volume expansion. The streamlines are also smoother (less curved) than those in models with varying pore sizes.Nanomaterials 2019, 9, x FOR PEER REVIEW 6 of 18\nFigure 3. Contour and stream traces in the four-alveolar models with a pore size of 40 µm, 80 µm, and no septal wall during (a) inhalation, and (b) exhalation."
+    }, {
+      "heading" : "3.2. Particle Motion",
+      "text" : "The particle dynamics in the 40-µm-pore model is shown in Figure 4 for 10 nm and 200 nm particles by tracking five particles released from the middle of the duct. The trajectories of the particles are controlled by both wall-expansion-induced convention, particle gravity, and Brownian motions. The random motions are apparent for both particle sizes considered. The amplitudes of the random motion are larger for 10-nm particles than 200 nm particles, as evidenced by the larger speed range for 10 nm particles. It is noted that the instantaneous particle speeds can be two to three orders of magnitude higher than the wall expanding speed, a zero to three orders of magnitude higher than the airflow speed. The instantaneous particle speed fluctuates a lot. Once it touches the wall, it will deposit there, as illustrated by the red arrows in Figure 4a. Because the diffusivity of a 10-nm particle is much higher than that of a 200-nm particle, earlier and higher deposition is expected for 10-nm particles than 200-nm particles.\nFigure 4. Brownian motion of nanoparticles with a diameter of (a) 10 nm and (b) 200 nm with their instantaneous velocities superimposed. Five particles were released from the middle of the duct. The pore size of the alveolar model is 40 µm.\nFigure 3. Contour a stre t i ore size of 40 µm, 80 µm, and no septal wal during (a) inhalation, an ( ) l"
+    }, {
+      "heading" : "3.2. Particle Motion",
+      "text" : "The particle dynamics in the 40-µm-pore model is shown in Figure 4 for 10 nm and 200 nm particles by tracking five particles released from the middle of the duct. The trajectories of the particles are controlled by both wall-expansion-induced convention, particle gravity, and Brownian motions. The random motions are apparent for both particle sizes considered. The amplitudes of the random motion are larger for 10-nm particles than 200 nm particles, as evidenced by the larger speed range for 10 nm particles. It is noted that t e insta taneous particle speeds can be two t three orders of magnitude hig er than the wall expanding spe d, a zero to three or r f it e higher than the airflow spe d. The insta t i l fl t s l t. nce it touches the wall, it will deposit there, as il ustrated by the re rr i se the diffusivity of a 10-nm particle is much higher than that of a 200-n parti l sition is expected for 10-nm particles than 20 -nm particles. Figure 5 shows a time series of snapshots of particle positions in the 40-µm-pore alveolar model during the first respiration cycle. Particles were 200 nm in size and were released 0.2 s from the second breathing cycle (T0 = 3.20 s). The first cycle (0–3 s) was simulated to establish the transient airflow field. Due to particle Brownian motion and convection, some particles exited the geometry during exhalation. The Peclet number of the particles are within the range of 0.01–2618. In comparison to the well-defined particle front observed for micrometer aerosols [34], the nanoparticles appear more random and dispersed in distribution. After 0.2 s of release (T1 = 3.40 s), the particles enter the first alveolus and exhibits random velocities on top of the convective main inspiratory flow (Figure 5a). At T2 = 3.80 s (Figure 5b), particles start entering the three neighboring alveoli. Due to the center positions of the inter-septal pores in the septal walls, the side view of the particles exhibits a triangle shape (Figure 5b, right panel), indicating a stronger transport effect from the bulk convective flow. The vena contracta effect of the pores accelerates the flow. Once the particles passed the pores, the velocity inside the alveoli decreases and diffusion becomes dominant (Figure 5c). During the exhalation phase\n(Figure 5e,f), most particles remain inside the alveoli. Only a small fraction of particles retrace back\nNanomaterials 2019, 9, 1126 7 of 18\nand exit the alveoli. Considering that the tidal volume is approximately 23% of the functional residual capacity (FRC), only 18.7% (0.23/1.23) of the air in the alveoli at the end of inhalation was exhaled. While the particles are well mixed due to the molecular diffusion, only a small portion (close to 18.7%) was exhaled and the majority of inhaled particles remain in the alveoli. This very irreversibility of the nanoparticles (not airflow) is the primary mechanism responsible for their deposition in the acinar region. While trapped within the alveoli, most of these particles will deposit after several cycles through a combined effect of diffusion and sedimentation.\nNanomaterials 2019, 9, x FOR PEER REVIEW 6 of 18\nFigure 3. Contour and stream traces in the four-alveolar models with a pore size of 40 µm, 80 µm, and no septal wall during (a) inhalation, and (b) exhalation."
+    }, {
+      "heading" : "3.2. Particle Motion",
+      "text" : "The particle dynamics in the 40-µm-pore model is shown in Figure 4 for 10 nm and 200 nm particles by tracking five particles released from the middle of the duct. The trajectories of the particles are controlled by both wall-expansion-induced convention, particle gravity, and Brownian motions. The random motions are apparent for both particle sizes considered. The amplitudes of the random motion are larger for 10-nm particles than 200 nm particles, as evidenced by the larger speed range for 10 nm particles. It is noted that the instantaneous particle speeds can be two to three orders of magnitude higher than the wall expanding speed, a zero to three orders of magnitude higher than the airflow speed. The instantaneous particle speed fluctuates a lot. Once it touches the wall, it will deposit there, as illustrated by the red arrows in Figure 4a. Because the diffusivity of a 10-nm particle is much higher than that of a 200-nm particle, earlier and higher deposition is expected for 10-nm particles than 200-nm particles.\nFigure 4. Brownian motion of nanoparticles with a diameter of (a) 10 nm and (b) 200 nm with their instantaneous velocities superimposed. Five particles were released from the middle of the duct. The pore size of the alveolar model is 40 µm.\nFigure 4. Brownian motion of nanoparticles with a diameter of (a) 10 nm and (b) 200 nm with their instantaneous velocities superimposed. Five particles were released from the middle of the duct. The pore size of the alveolar model is 40 µm.\nNa omaterials 2019, 9, x FOR PEER REVIEW 7 of 18\nFigure 5 shows a time seri s of snaps ots f particle po itions in the 40-µm-pore alveolar model during the first respirati n c cle. Particles were 200 nm in size and were released 0.2 s from the second breathing cycle (T0 = 3.20 s). The first cycle (0–3 s) was simulated t establish the ra sient airflow field. Due to particl Brownian motion and c nvection, some particles exited the g ometry during exhalation. The Peclet number of the p rticles are within the range of 0.01–2618. In comparison to the well-defined particle front observed for micrometer aerosols [34], the nanoparticles appear more random and dispersed in distribution. After 0.2 s of release (T1 = 3.40 s), the particles enter the first alveolus and exhibits random velocities on top of the convective main inspiratory flow (Figure 5a). At T2 = 3.80 s (Figure 5b), particles start entering the three neighboring alveoli. Due to the center positions of the inter-septal pores in the septal walls, the side view of the particles exhibits a triangle shape (Figure 5b, right panel), indicating a stronger transport effect from the bulk convective flow. The vena contracta effect of the pores accelerates the flow. Once the particles passed the pores, the velocity inside the alveoli decreases and diffusion becomes dominant (Figure 5c). During the exhalation phase (Figure 5e,f), most particles remain inside the alveoli. Only a small fraction of particles retrace back and exit the alveoli. Considering that the tidal volume is approximately 23% of the functional residual capacity (FRC), only 18.7% (0.23/1.23) of the air in the alveoli at the end of inhalation was exhaled. While the particles are well mixed due to the molecular diffusion, only a small portion (close to 18.7%) was exhaled and the majority of inhaled particles remain in the alveoli.\nThis very irreversibility of the nanoparticles (not airflow) is the primary mechanism responsible for\ntheir deposition in the acinar region. While tr pped ithin the alveoli, most of thes par icles will\ndeposit after several cyc es through a combined effect of diffusion and sedimentation.\nFigure 5. snapshots of particle positions in the 40-µm-pore alveolar model during the first cycle at different instants: (a) T1 = 3.40 s, (b) T2 = 3.80 s, (c) T3 = 4.10 s, (d) T4 = 4.40 s, (e) T5 = 5.20 s, and (f) T6 = 5.60 s. Particles were 200 nm in diameter and were released 0.2 s (T0 = 3.20 s) from the second breathing cycle. The first cycle (0–3 s) was simulated to establish the transient airflow field. Due to particle Brownian motion and convection, some particles exited the geometry during exhalation.\nTo investigate the effect of dynamic wall motion on nanoparticle deposition, particle behaviors were compared between alveolar models with and without wall motion (Figure 6). Different from the micrometer particles that precipitate due to gravity in the absence of wall motion [34], nanoparticles remain suspending in the proximity of their release positions and continuously deposit onto the duct wall (Figure 6a). Figure 6b shows the deposition rate in the duct as a function of time. After one second, most particles deposit and nearly all particle deposition after 1.8 s (T = 5.20 s).\nFigure 5. S a s ots of article ositio s i t e 40- - ore al eolar odel during the first cycle at different instants: (a) 1 3.40 s, (b) T2 = 3.80 s, (c) T3 = 4.10 s, (d) T4 = 4.40 s, (e) T5 = 5.20 s, and (f) T6 = 5.60 s. Particles were 200 nm in diameter and were released 0.2 s (T0 = 3.20 s) from the second breathing cycle. The first cycle (0–3 s) as si ulated to establish the transient airflo field. Due to particle Brownian motion and convection, so e particles exited the geo etry during exhalation.\nTo investigate the effect of dyna ic all ti sition, particle behaviors were compared betwe n alveolar models with and without wall moti n (Figure 6). Different from the micro eter particles that precipitate due to gravity in the absence of wall motion [34], nanoparticles remain susp nding i the proximity of their release positions nd c ntinuously deposit onto the duct\nNanomaterials 2019, 9, 1126 8 of 18\nwall (Figure 6a). Figure 6b shows the deposition rate in the duct as a function of time. After one second, most particles deposit and nearly all particle deposition after 1.8 s (T = 5.20 s). Moreover, most of the particles deposit in the lower half of the duct due to gravity, while a small fraction of particles deposit in the upper half of the duct or exit the geometry (Figure 6c). Nanomaterials 2019, 9, x FOR PEER REVIEW 8 of 18 Moreover, most of the particles deposit in the l wer half of the duct due to gravity, while a small fraction of particles deposit in the upper half of the duct or exit the geometry (Figure 6c).\nFigure 6. dynamic when wall kinematics was neglected: (a) Particle motions at varying instants, (b) time evolution of particle deposition, and (c) particle deposition distribution.\nTo evaluate the effect of the pore size on particle dynamics, snapshots of particle positions at three instants in the 80-µm-pore alveolar model were plotted in Figure 7. In comparison to those in the 40-µm-pore alveolar model as shown in Figure 5, a shorter distance of particle advancement was observed in the 80-µm-pore alveolar model at each corresponding instant, due to the reduced vena contracta effects. At T2 = 3.80 s (Figure 7a), most of the particles are still in the first alveolus of the 80- µm-pore alveolar model. Instead, an appreciable portion of particles enters the three contiguous alveoli of the 40-µm-pore alveolar model (Figure 5b). At T3 = 4.10 s, particles are less dispersed (more concentrated) in the 80-µm-pore alveolar model (Figure 7b) than those in the 40-µm-pore alveolar model (Figure 5c). Likewise, a less dispersed pattern was observed in the 80-µm-pore alveolar model during exhalation (T5 = 5.20 s, Figure 7c vs. Figure 5e). In particular, few particles enter the fourth alveolus (Sac 4) due to the smaller pore size that communicates the first and fourth alveoli. These differences indicate that one of the major influences from the pore size is the vena-contracta-related convection, as well as in determining the resistance and pressure distributions among the connecting alveoli.\nFigure 7. snapshots of particle positions in the 80-µm-pore alveolar model during the first cycle at different instants: (a) T2 = 3.80 s, (b) T3 = 4.20 s, and (c) T5 = 5.20 s. In comparison to the snapshots of\nFigure 6. D i ll i atics as neglected: (a) Particle motions at varying instants, (b) tim evolution of particle deposition, and (c) particle deposition distribution.\nTo evaluate the effect of the pore size on particle dynamics, snapshots of particle positions at three instants in the 80-µm-pore alveolar model were plotted in Figure 7. In comparison to those in the 40-µm-pore alveolar model as shown in Figure 5, a shorter distance of particle advancement was observed in the 80-µm-pore alveolar model at each corresponding instant, due to the reduced vena contracta effects. At T2 = 3.80 s (Figure 7a), most of the particles are still in the first alveolus of the 80-µm-pore alveolar model. Instead, an appreciable portion of particles enters the three contiguous alveoli of the 40-µm-pore alveolar model (Figure 5b). At T3 = 4.10 s, particles are less dispersed (more concentrated) in the 80-µm-pore alveolar model (Figure 7b) than those in the 40-µm-pore alveolar model (Figure 5c). Likewise, a less dispersed pattern was observed in the 80-µm-pore alveolar model during exhalation (T5 = 5.20 s, Figure 7c vs. Figure 5e). In particular, few particles enter the fourth alveolus (Sac 4) due to the smaller pore size that communicates the first and fourth alveoli. These differences indicate that one of the major influences from the pore size is the vena-contracta-related convection, as well as in determining the resistance and pressure distributions among the connecting alveoli.\nNanomaterials 2019, 9, 1126 9 of 18\nNanomaterials 2019, 9, x FOR PEER REVIEW 8 of 18 Moreover, most of the particles deposit in the lower half of the duct due to gravity, while a small fraction of particles deposit in the upper half of the duct or exit the geometry (Figure 6c). Figure 6. dynamic when wall kinematics was neglected: (a) Particle motions at varying instants, (b) time evolution of particle deposition, and (c) particle deposition distribution."
+    }, {
+      "heading" : "To evaluate the effect of the pore size on particle dynamics, snapshots of particle positions at",
+      "text" : "three instants in the 80-µm-pore alveolar model were plotted in Figure 7. In comparison to those in the 40-µm-pore alveolar model as shown in Figure 5, a shorter distance of particle advancement was observed in the 80-µm-pore alveolar model at each corresponding instant, due to the reduced vena contracta effects. At T2 = 3.80 s (Figure 7a), most of the particles are still in the first alveolus of the 80- µm-pore alveolar model. Instead, an appreciable portion of particles enters the three contiguous alveoli of the 40-µm-pore alveolar model (Figure 5b). At T3 = 4.10 s, particles are less dispersed (more concentrated) in the 80-µm-pore alveolar model (Figure 7b) than those in the 40-µm-pore alveolar model (Figure 5c). Likewise, a less dispersed pattern was observed in the 80-µm-pore alveolar model during exhalation (T5 = 5.20 s, Figure 7c vs. Figure 5e). In particular, few particles enter the fourth alveolus (Sac 4) due to the smaller pore size that communicates the first and fourth alveoli. These differences indicate that one of the major influences from the pore size is the vena-contracta-related convection, as well as in determining the resistance and pressure distributions among the connecting alveoli."
+    }, {
+      "heading" : "3.3. Particle Deposition",
+      "text" : "Figure 8 shows the deposition distribution of inhaled nanoparticles in alveolar models with varying pore sizes (20 µm, 40 µm, and 80 µm) for 10 nm and 200 nm aerosols. Surprisingly, the deposition patterns for the six cases considered herein look very similar to each other, indicating a predominating Brownian motion effect for particles less than 200 nm. However, the deposition patterns are also highly heterogeneous, indicating a notable sensitiveness of local deposition to the alveolar shape and size. For all cases presented in Figure 8, an elevated deposition rate was noted in the duct, a phenomenon that is similar to the “diffusional screening” of inhaled gas [56], where significant O2 absorption occurs in the acinus entrance and proximal alveoli, causing a constant decrease in O2 concentration along a serially arranged alveoli. There are three characteristic length scales in the alveolar models considered in this study: The duct, the alveoli, and the pore. It is expected that significant diffusional screening occurs in the duct and around the pores. As the pore size increase, the diffusional screening effect diminishes, which promotes a less heterogeneous (more uniform) distribution of particle deposition (Figure 8a vs. Figure 8c).\nNanomaterials 2019, 9, x FOR PEER REVIEW 9 of 18\nparticle positions in Figure 5, a shorter distance of particle advancement was observed in the 80-µmpore lveolar model at each corresponding instant in the 40-µm-por alveolar model in Figure 5.\n3.3. Particle Deposition\nFigure 8 shows the deposition distribution of inhaled nanoparticles in alveolar models with varying pore sizes (20 µm, 40 µm, and 80 µm) for 10 nm and 200 nm aerosols. Surprisingly, the deposition patterns for the six cases considered herein look very similar to each other, indicating a predominating Brownian motion effect for particles less than 200 nm. However, the deposition patterns are also highly heterogeneous, indicating a notable sensitiveness of local deposition to the alveolar shape and size. For all cases presented in Figure 8, an elevated deposition rate was noted in the duct, a phenomenon that is similar to the “diffusional screening” of inhaled gas [56], where significant O2 absorption occurs in the acinus entrance and proximal alveoli, causing a constant decrease in O2 concentration along a serially arranged alveoli. There are three characteristic length scales in the alveolar models considered in this study: The duct, the alveoli, and the ore. It is expected that significant diffusional screening occurs in the duct and around the pores. As the pore size increase, the diffusional s reening eff ct diminishes, which promot s a less heterogeneous (m re uniform) distribution of particle deposition (Figure 8a vs. Figure 8c).\nFigure 8. of surface deposition for 10 nm (upper row) and 200 nm (lower row) particles in the alveolar models with a pore size of (a) 20 µm, (b) 40 nm, and (c) 80 nm.\nThe temporal variation of the deposition fractions in different parts of the alveolar model are shown in Figure 9, which includes the duct, the four alveoli (Sac 1–4), and the necks that connect the alveoli. The high deposition rate in the duct is reflective of the importance of the diffusional screening, where the random motion of nanoparticles promotes significant deposition. This effect is most pronounced for ultrafine particles (10 and 50 nm in Figure 9a,b) that have higher diffusivities and diminishes with increasing particle sizes (200–800 nm in Figure 9c–f). Similar deposition fractions were observed between the two lateral alveoli (Sac 2 and Sac 3) for all cases considered because of their geometrical symmetry relative to the Sac 1, even though the deposition fraction varied with the particle size. An abrupt DF increase in Sac 2 and Sac 3 occurs for 800 nm particles (Figure 9f vs. Figure 9a–e), presumably due to an increasing gravitational effect. The DF in Sac 4 constantly increases with the particle size, which becomes equivalent in magnitude with the two lateral alveoli since 500 nm. The other particle-size-dependent difference is the time the particles take to complete the deposition,\nFigure 8. Of s rface deposition for 10 nm (upper row) and 2 0 nm (lower row) particles in the alveolar models ith a pore size f ( ) ,\nThe temporal variation of the deposition fractions in different parts of the alveolar model are shown in Figure 9, which includes the duct, the four alveoli (Sac 1–4), and the necks that connect\nNanomaterials 2019, 9, 1126 10 of 18\nthe alveoli. The high deposition rate in the duct is reflective of the importance of the diffusional screening, where the random motion of nanoparticles promotes significant deposition. This effect is most pronounced for ultrafine particles (10 and 50 nm in Figure 9a,b) that have higher diffusivities and diminishes with increasing particle sizes (200–800 nm in Figure 9c–f). Similar deposition fractions were observed between the two lateral alveoli (Sac 2 and Sac 3) for all cases considered because of their geometrical symmetry relative to the Sac 1, even though the deposition fraction varied with the particle size. Nanomaterials 2019, 9, x FOR PEER REVIEW 10 of 18 which increases with particle size (Figure 9). For instance, it took slightly one cycle for all 10-nm particles to deposit, while took approximately four cycles for 800-nm particles.\nFigure 9. deposition rate with time in the 40-µm-pore alveolar model for nanoparticles of different diameters: (a) 10 nm, (b) 50 nm, (c) 200 nm, (d) 500 nm, (e) 600 nm, and (f) 800 nm. Both total and subregional deposition fraction were shown. Particles were released as a bolus 0.2 s after inhalation (T0 = 3.20 s).\nThe surface deposition of large nanoparticles in the 40-µm-pore model is further visualized in Figure 10 for 500 nm and 800 nm aerosols. Compared to 10 nm and 200 nm aerosols in Figure 8b, particles of 500 nm and 800 nm are more concentrated at the bottom of each alveolus and close to the axial centerline, while at the same time, fewer particles deposit in the duct. This observation is even more pronounced for 800 nm aerosols than 500 nm aerosols. Moreover, a significantly higher fraction of 800 nm particles deposit in the bottom alveolus (Sac 4) than 500 nm particles due to increased gravitational effects, as also illustrated in Figure 9f vs. Figure 9d.\nFigure 10. of surface deposition in the 40-µm-pore model for large nanoparticles: (a) 500 nm, and (b) 800 nm.\nThe final deposition fraction in the 40-nm-pore alveolar model as a function of particle sizes ranging from 1 nm to 1000 nm is shown in Figure 11a. The sub-regional deposition fractions (DF) in the six sections (duct, Sac 1–4, and neck) were plotted by stacking their DF values along the serial direction, the sum of which gave the total DF in the alveolar model. For comparison purposes, the corresponding plot in the 80-µm-pore alveolar model is presented in Figure 11b. It is noted that the\nFigure 9. Deposit on rate with time in the 40-µm-pore alveolar model for nanoparticles of differ nt diamet rs: (a) 10 nm, (b) 50 n , ( ) 0 n , (e) 6 0 nm, and (f) 800 nm. Bo h tot l and sub-regional deposition fraction w re shown. Particles we released as a bolus 0.2 s after inh lation (T0 = 3.20 s).\nAn abrupt DF increase in Sac 2 and Sac 3 occurs for 800 nm particles (Figure 9f vs. Figure 9a–e), presumably due to an increasing gravitational effect. The DF in Sac 4 constantly increases with the particle size, which becomes equivalent in magnitude with the two lateral alveoli since 500 nm. The other particle-size-dependent difference is the time the particles take to complete the deposition, which increases with particle size (Figure 9). For instance, it took slightly one cycle for all 10-nm particles to deposit, while took approximately four cycles for 800-nm particles. The surface deposition of large nanoparticles in the 40-µm-pore model is further visualized in Figure 10 for 500 nm and 800 nm aerosols. Compared to 10 nm and 200 nm aerosols in Figure 8b, particles of 500 nm and 800 nm are more concentrated at the bottom of each alveolus and close to the axial centerline, while at the same time, fewer particles deposit in the duct. This observation is even more pronounced for 800 nm aerosols than 500 nm aerosols. Moreover, a significantly higher fraction of 800 nm particles deposit in the bottom alveolus (Sac 4) than 500 nm particles due to increased gravitational effects, as also illustrated in Figure 9f vs. Figure 9d. The final deposition fraction in the 40-nm-pore alveolar model as a function of particle sizes ranging from 1 nm to 1000 nm is shown in Figure 11a. The sub-regional deposition fractions (DF) in the six sections (duct, Sac 1–4, and neck) were plotted by stacking their DF values along the serial direction, the sum of which gave the total DF in the alveolar model. For comparison purposes, the corresponding plot in the 80-µm-pore alveolar model is presented in Figure 11b. It is noted that the DF is based on a bolus aerosol released into the geometry 0.2 s after the start of the second cycle, not a continuous inhalation.\nNanomaterials 2019, 9, 1126 11 of 18\nNanomaterials 2019, 9, x FOR PEER REVIEW 10 of 18 which increases with particle size (Figure 9). For instance, it took slightly one cycle for all 10-nm particles to deposit, while took approximately four cycles for 800-nm particles. Figure 9. deposition rate with time in the 40-µm-pore alveolar model for nanoparticles of different diameters: (a) 10 nm, (b) 50 nm, (c) 200 nm, (d) 500 nm, (e) 600 nm, and (f) 800 nm. Both total and subregional deposition fraction were shown. Particles were released as a bolus 0.2 s after inhalation (T0 = 3.20 s).\nThe surface deposition of large nanoparticles in the 40-µm-pore model is further visualized in Figure 10 for 500 nm and 800 nm aerosols. Compared to 10 nm and 200 nm aerosols in Figure 8b, particles of 500 nm and 800 nm are more concentrated at the bottom of each alveolus and close to the axial centerline, while at the same time, fewer particles deposit in the duct. This observation is even more pronounced for 800 nm aerosols than 500 nm aerosols. Moreover, a significantly higher fraction of 800 nm particles deposit in the bottom alveolus (Sac 4) than 500 nm particles due to increased gravitational effects, as also illustrated in Figure 9f vs. Figure 9d.\nFigure 10. of surface deposition in the 40-µm-pore model for large nanoparticles: (a) 500 nm, and (b) 800 nm.\nThe final deposition fraction in the 40-nm-pore alveolar model as a function of particle sizes ranging from 1 nm to 1000 nm is shown in Figure 11a. The sub-regional deposition fractions (DF) in the six sections (duct, Sac 1–4, and neck) were plotted by stacking their DF values along the serial direction, the sum of which gave the total DF in the alveolar model. For comparison purposes, the corresponding plot in the 80-µm-pore alveolar model is presented in Figure 11b. It is noted that the\nFigure 10. Of s rf c e osition in the 40-µ -pore model for large nanoparticles: (a) 5 0 nm, and (b) 800 n .\nNanomaterials 2019, 9, x FOR PEER REVIEW 11 of 18\nDF is based on a bolus aerosol released into the geometry 0.2 s after the start of the second cycle, not a continuous inhalation.\nFigure 11. of total and sub-regional deposition fractions as a function of particle diameter between (a) 40-nm-pore and (b) 80-nm-pore alveolar models.\nSeveral observations are noteworthy in Figure 11. First, DF in the cylinder (or duct, gray bar) is dominant for particles smaller than 100 nm due to the diffusional screening effect, and constantly decreases for larger submicron particles. Second, the DF in Sac 1 (green bar) appears to be relatively independent of both particle size and pore size and has a magnitude of approximately 20%. This independence was also observed in the two lateral alveoli (Sacs 2 and 3, blue and red bars), but only for particles with diameters smaller than 200 nm. For larger particles, DF in these two sacs slowly increase with the particle size. A similar trend was also noted in Sac 4, but in a much dramatic way, which is reasonable because Sac 4 is directly beneath Sac 1 and therefore, will bear more influence from the gravitational sedimentation. Third, the impact from the pore size mostly manifests itself in sac4 and the necks (Figure 11a vs. Figure 11b). The lower DF in 80-µm-pore model for ultrafine particles (1–100 nm) is due to the lack of vena contracta effect through the pore connecting Sacs 1 and 4, while the higher DF for large nanoparticles (600–1000 nm) comes from a larger area in the 80-µmpore model for effective gravitational sedimentation. The higher DF in the necks are simply from the larger surface area of the necks in the 80-µm-pore model than that in the 40-µm-pore model (Figure 11b vs. Figure 11a, the top bar). To further investigate the impact of the pore size on nanoparticle deposition, DFs in models with different pore sizes (20 µm to no septum) were plotted in Figure 12a,b for 10 nm and 200 nm, respectively. Considering the 200-nm aerosols, which is typical for inhalation nanomedicines, the\nFigure 11. Of total and sub-regional deposition fractions as a function of particle diameter between (a) 40-n -pore and (b) 80-n -pore alveolar odels.\nSeveral observations are noteworthy in Figure 1. First, DF in the cylinder (or duct, gray bar) is domi ant for particles smaller than 100 nm due to the diffusional scr ening effect, and constantly decreases for larger sub icron particles. Second, the DF in Sac 1 (green bar) appears to be relatively independent of both particle size a re i his independence as also observed in the t o lateral alveoli (Sacs 2 and 3, blue and red bars), but only\nNanomaterials 2019, 9, 1126 12 of 18\nfor particles with diameters smaller than 200 nm. For larger particles, DF in these two sacs slowly increase with the particle size. A similar trend was also noted in Sac 4, but in a much dramatic way, which is reasonable because Sac 4 is directly beneath Sac 1 and therefore, will bear more influence from the gravitational sedimentation. Third, the impact from the pore size mostly manifests itself in sac4 and the necks (Figure 11a vs. Figure 11b). The lower DF in 80-µm-pore model for ultrafine particles (1–100 nm) is due to the lack of vena contracta effect through the pore connecting Sacs 1 and 4, while the higher DF for large nanoparticles (600–1000 nm) comes from a larger area in the 80-µm-pore model for effective gravitational sedimentation. The higher DF in the necks are simply from the larger surface area of the necks in the 80-µm-pore model than that in the 40-µm-pore model (Figure 11b vs. Figure 11a, the top bar). To further investigate the impact of the pore size on nanoparticle deposition, DFs in models with different pore sizes (20 µm to no septum) were plotted in Figure 12a,b for 10 nm and 200 nm, respectively. Considering the 200-nm aerosols, which is typical for inhalation nanomedicines, the pore size appears to exert an insignificant impact on both the total and sub-regional deposition fractions. A box plot that shows the DF variability caused by the pore size is also given on the right panel of Figure 12a,b. As noted before, the DF progressively decreases from the proximal to distal (i.e., from cylinder to Sac 4) no matter what the pore size is, corroborating the diffusional screening effects for both 10 nm and 200 nm aerosols. Among the six sub-regions considered, the variability is highest in the cylinder (duct) and Sac 4. The deposition in the duct is dominated by diffusion, while in the Sac 4 is more dictated by the gravitational sedimentation. Nanomaterials 2019, 9, x FOR PEER REVIEW 12 of 18 pore siz appears to exert a insign ficant impact on b th the total and sub-r gional deposition fractions. A box pl t that shows the DF variability caused by the pore size is also given on the right panel of Figure 12a,b. As noted before, the DF progressively decreases f m the proximal to distal (i.e., from cylinder to S c 4) no matt r what the pore size is, corroborating the diffusio al screening effects for both 10 nm and 200 nm aer sols. Among th six sub-regions conside ed, the variability is highest in the cylinder (duct) and Sac 4. The deposition in the duc is dom nated by diffusion, while n the Sac 4 is more dictated by the gravitational sedimentation.\nFigure 12. of particle deposition in the alveolar models with different pore sizes: (a) 10 nm, and (b) 200 nm. Box plots of the sub-regional deposition fractions were shown in the right panels for 10 nm and 200 nm, respectively."
+    }, {
+      "heading" : "4. Discussion and Summary",
+      "text" : ""
+    }, {
+      "heading" : "4.1. Effects of Wall Motion on Nanoparticle Deposition",
+      "text" : ""
+    }, {
+      "heading" : "It is well accepted that the deposition mechanics of nanoparticles in the acinar region are",
+      "text" : "diffusion and gravitational sedimentation. The contributions from the wall-motion-induced convection, however, are not clear. Will it be indispensable to nanoparticle deposition, and how important it is relative to the other two mechanisms? Even though this study was not devoted to this question, some conclusions can be made from the results in this and other studies [34,41,42]. From Figure 6, the inhalation flow induced by the alveolar wall expansion is necessary to carry the particleentrained bulk flow into the alveolar space to deposit there. Without wall motion, nearly all particles will deposit in the alveolar duct due to the diffusional screening effect. It is thus inferred that the timescale for particles to pass through the alveolar duct will directly associate with the deposition rate in the duct, as well as the fraction that enters the alveoli. However, further studies are needed to examine the influences of the wall motion kinematics on the level of aerosol irreversibility and quantify the relationship between the wall motion and alveolar deposition. This observation also calls into question the accuracy of using inhaled particles to measure the alveolar dimension in vivo [57].\nFigure 12. Of particle deposition in the alveolar models with different pore sizes: (a) 10 nm, and (b) 200 nm. Box plots of the sub-regional deposition fractions were shown in the right panels for 10 nm and 200 nm, respectively.\nNanomaterials 2019, 9, 1126 13 of 18"
+    }, {
+      "heading" : "4. Discussion and Summary",
+      "text" : ""
+    }, {
+      "heading" : "4.1. Effects of Wall Motion on Nanoparticle Deposition",
+      "text" : "It is well accepted that the deposition mechanics of nanoparticles in the acinar region are diffusion and gravitational sedimentation. The contributions from the wall-motion-induced convection, however, are not clear. Will it be indispensable to nanoparticle deposition, and how important it is relative to the other two mechanisms? Even though this study was not devoted to this question, some conclusions can be made from the results in this and other studies [34,41,42]. From Figure 6, the inhalation flow induced by the alveolar wall expansion is necessary to carry the particle-entrained bulk flow into the alveolar space to deposit there. Without wall motion, nearly all particles will deposit in the alveolar duct due to the diffusional screening effect. It is thus inferred that the timescale for particles to pass through the alveolar duct will directly associate with the deposition rate in the duct, as well as the fraction that enters the alveoli. However, further studies are needed to examine the influences of the wall motion kinematics on the level of aerosol irreversibility and quantify the relationship between the wall motion and alveolar deposition. This observation also calls into question the accuracy of using inhaled particles to measure the alveolar dimension in vivo [57]."
+    }, {
+      "heading" : "4.2. Effects of Particle Size on Nanoparticle Deposition",
+      "text" : "The differences in transport and deposition in the alveoli between micron- and nanoparticles are briefly discussed below. For repairable micron particles (1–3 µm) that has negligible diffusivity, particles closely follow the respiratory flows and a well-defined aerosol front is often observed that visualize the carrier airflow [34]. The surface deposition of micron particles is also more localized, which concentrated near the inter-septal pores and the bottom of the alveoli. In contrast, nanoparticles exhibit more dispersed patterns in both transport and deposition. The smaller the particle, the higher the degree of dispersion will be. Nanoparticles are found to deposit anywhere within the alveoli, even though not uniformly. The random motions of nanoparticles greatly enhance their mixing with the residual air and lead to varying degrees of aerosol irreversibility peculiar to the size of the nanoparticles. In this study, we noticed that the respiratory flows are close to symmetric and reversible, with streamlines largely retaining their positions during inhalation and retracing their directions during exhalation. However, aerosol irreversibility was observed in both micron and nanoparticles, which is much more significant for nanoparticles than the micrometer particles. Likewise, the aerosol irreversibility increases with decreasing particle sizes for nanoparticles, which retains more particles in the alveoli during exhalation and give rise to higher deposition rate and more uniform deposition pattern. Sub-regional deposition rates are found to be sensitive to the size of nanoparticles (Figure 11). In the duct-alveolar model considered in this study, this sensitivity is most pronounced in the alveolar duct (cylinder) and the bottom alveolus (Sac 4), while is much less significant in the two lateral alveoli (Sac 2 and Sac 3) and the necks. The progressive decline in the cylinder deposition with increasing particle size is attributed to the diminishing diffusional screening effect, while the sharp increase of Sac 4 deposition rate from 600 nm to 1000 nm particles results from the gravitational sedimentation, which is proportional to the cubic of the particle diameter. The deposition rate in the lateral alveoli (Sac 2 and Sac 3) is almost independent of the particle size for particles smaller than 500 nm and shows a slight increase with particle size after that. It is also interesting to note that the particle size with the minimum deposition is different in models with different pore sizes. It is 600 nm in the 40-µm-pore model and 500 nm in the 80-µm-pore model. Even though we are not clear at this moment what factors cause this difference, it can largely be attributed to the interplay between the diffusive particles and the complex alveolar geometry, including the diffusional screening effect in the duct, the vena-contracta jet-like effect in the pore, and the diffusion-driven mixing in the alveolar space.\nNanomaterials 2019, 9, 1126 14 of 18"
+    }, {
+      "heading" : "4.3. Effects of Inter-Septal Pore Size on Nanoparticle Deposition",
+      "text" : "Surprisingly, the impacts from the inter-septal pore size is insignificant on both total and sub-regional deposition of nanoparticles in the duct-alveolar models considered in this study. This similarity may partially result from an identical VT/FRV ratio of 0.23 implemented for all models. A smaller pore size may strengthen the vena-contracta jet-like effect and increase the flow impedance through the pore. However, the quick volume expansion before and after the pore may restrict the vena-contracta effect and jet-induced mixing only to the close proximity of the pore. Moreover, the constant VT/FRV ratio gives rise to the same magnitude of wall expansion/contraction, which brings in and expels out the same volume of air. Based on a well-mixed aerosol inside the alveoli that is more dictated by the diffusion (particle size) than the convection (pore size), a similar number of particles are expected to be exhaled out regardless of the inter-septal pore sizes. In a recent study, Hofemeier et al. [40] also reported that variation in the acinar geometrical heterogeneity had an insignificant impact on the total acinar deposition. The inter-septal pore size is closely relevant to alveolar health, which enlarges in the presence of pulmonary diseases, such as asthma and COPD. In severe conditions, the inter-alveolar septum will break down either partially or entirely, as seen in emphysema. Results in this study indicate that the delivery efficiency may not be significantly affected as long as the patients can perform the required breathing maneuvers, in this case, a given tidal volume.\nElevated Nanoparticle Deposition When Released at Early Inhalation\nOne unexpected observation is that, when nanoparticles were released into the acinar region at the start of the inhalation, high deposition rates (74–95%) were predicted for all diffusive particles by excluding the deposition in the upstream airways (i.e., from the mouth to the respiratory bronchioles). This may initially contradict the long-accepted understanding that nanoparticles, especially 500–600 nm particles, do not deposit effectively in the lung and most inhaled dose will be exhaled out of the airway. This traditional understanding was based on two assumptions: (1) Deposition was considered in the whole respiratory tract that includes both the conducting airways and distal alveoli, and (2) nanoparticles were inhaled continuously throughout the entire inhalation cycle. One unique feature in alveolar ventilation is that dead space occupies more than 80% of the acinar region, while there are much smaller dead spaces in the conducting airways. Based on a 23% ratio of the tidal volume over FRV (functional residual volume) under normal breathing, the inhaled air only accounts for 18.7% (0.23/1.23) of the total volume of the alveolus at the end of the inhalation. When nanoparticles enter the alveoli, they mix with the residual air and fill the entire space heterogeneously depending on the nanoparticle diffusivity. Upon expiration, only 18.7% of the air will be exhaled and carries the suspending nanoparticles in it. The concentration of nanoparticles is generally higher near the alveolar entrance, which primarily depends on the nanoparticle diffusivity. However, overall, the majority of nanoparticles that have already mixed with the residual air will remain and eventually deposit either through diffusion or sedimentation. The second factor is the time point when nanoparticles enter the duct-alveoli geometry. Particles that reach the alveolar duct at the beginning of inhalation have more time to enter the terminal alveoli and penetrate deeper in the alveolar airspace. By contrast, particles that reach the duct at the end of inhalation penetrate much shallower. Moreover, they most likely do not have sufficient time to mix with the residual air and will be exhaled out during wall contraction. The observation that elevated deposition is possible when nanoparticles are released at the beginning of inhalation may have significant implications in systemic delivery of pulmonary nanomedicines. By optimizing the time to release drugs into the mouth, the maximum pulmonary dose can be achieved, or the control of pulmonary delivery efficiency can be realized. The optimization can also include factors that are related to drug carriers (such as particle size, charge, hygroscopic property), patients (breathing depth, frequency, holding), and devices (nebulizer, metered dose inhaler, dry powder inhaler), to name a few. Enhanced dosing of pulmonary nanomedicines will reduce dosing\nNanomaterials 2019, 9, 1126 15 of 18\nfrequency and improve patient compliance. However, such optimization should be performed in an integrated manner by considering the whole respiratory tract in opposite to the acinar region or conducting airway only."
+    }, {
+      "heading" : "4.4. Limitations",
+      "text" : "Limitations of this study that may affect the physical realism of the results include idealized alveolar model, simplified wall kinematics, and non-continuous inhalation of particles. Particle charge [58,59], size [60], and hygroscopy effect [61] were also neglected. Microscopy examinations have disclosed an intricate morphology of the in vivo pulmonary alveoli with polyhedral airspaces packed like a fractal [62–66]. The thickness of the interalveolar septal wall also varies [67]. The duct-alveolar model in this study was reconstructed from simple shapes (cylinders and spheres) with constant wall thickness. There was no more than one pore in one septum in this study, while there can be one to seven pores in life conditions [68]. In healthy lungs, the pore size ranges from 2 µm to 15 µm [18,68]. Likewise, the alveolar size can be different. Further studies of the alveolar models with smaller and multiple pores, as well as of different alveolar sizes, are warranted. Second, a sinusoidal waveform and an I:E (inspiration: expiration) ratio of 1:1 were adopted for the wall kinematics. A different waveform and I:E ratio may give different deposition results. Thirdly, nanoparticles were released into the alveolar geometry at the start of the inhalation and results hereof do not apply for continuous drug administration. Based on the dilute concentration of inhaled aerosols, particle interactions, such as collision and agglomeration, were not considered. It is also noted that nanoparticles were assumed to deposit on the alveolar walls upon their initial contact. In addition, without considering the respiratory tract above the alveoli, it is still premature to identify the optimal nanoparticle size for pulmonary delivery of nanomedicines. Future studies are needed that include the respiratory tract from the mouth to the terminal alveolar sacs, as well as particle biokinetics after their deposition. In summary, the behavior and fate of inhaled nanoparticles were numerically investigated in the duct-alveolar model with different pore sizes and rhythmic wall motions. Specific findings are:\nRhythmic alveolar wall motion is indispensable for inhaled nanomedicine to deposit in the distal alveoli. Diffusion-driven mixing of inhaled nanoparticles with residual air in the alveoli (termed as aerosol irreversibility) is the primary mechanism that keeps particles from being exhaled out of the alveoli. Concentrated deposition occurs in the alveolar entrance and pore size due to diffusional screening effect. Elevated deposition fractions (~85%, as the ratio of particles depositing in the alveolar model over the particles entering the alveolar model) were predicted for nanoparticles released at the beginning of the inhalation. Improved pulmonary doses of nanomedicine can be achieved by optimizing their release time. The intra-septal pore size was found to have an insignificant impact on nanoparticle deposition on both the total and sub-regional basis, indicating a potentially consistent dose of nanomedicine if the patient can perform the required breathing maneuver.\nAuthor Contributions: Conceptualization, J.X.; methodology, J.X.; software, M.T. and J.X.; validation, J.X. and M.T.; formal analysis, J.X. and M.T.; investigation, M.T. and J.X.; resources, J.X.; data curation, J.X.; writing—original draft preparation, J.X.; writing—review and editing, J.X. and M.T.; visualization, M.T.; supervision, J.X.; project administration, J.X.; funding acquisition, J.X.\nFunding: This study was funded by NSF Grant CBET 1745602.\nConflicts of Interest: The authors declare no conflict of interest."
+    } ],
+    "references" : [ {
+      "title" : "New therapies for asthma and chronic obstructive pulmonary disease",
+      "author" : [ "N.J. Gross", "P.J. Barnes" ],
+      "venue" : "Am. J. Respir. Crit. Care Med",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2016
+    }, {
+      "title" : "Nanomedicine in pulmonary delivery",
+      "author" : [ "H.M. Mansour", "Y.-S. Rhee", "X. Wu" ],
+      "venue" : "Int. J. Nanomed. 2009,",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2019
+    }, {
+      "title" : "Inhaled therapy in respiratory disease: The complex interplay of pulmonary kinetic processes. Can",
+      "author" : [ "J.M. Borghardt", "C. Kloft", "A. Sharma" ],
+      "venue" : "Respir. J. 2018,",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2732
+    }, {
+      "title" : "Emerging pharmaceutical therapies for COPD",
+      "author" : [ "S.P. Lakshmi", "A.T. Reddy", "R.C. Reddy" ],
+      "venue" : "Int. J. Chronic Obstruct. Pulmon. Dis. 2017,",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2017
+    }, {
+      "title" : "Targeted Delivery of Protein Drugs by Nanocarriers",
+      "author" : [ "R. Solaro", "F. Chiellini", "A. Battisti" ],
+      "venue" : "Materials 2010,",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 1928
+    }, {
+      "title" : "Gene therapy for alpha-1 antitrypsin deficiency lung disease",
+      "author" : [ "M.J. Chiuchiolo", "R.G. Crystal" ],
+      "venue" : "Ann. Am. Thorac. Soc. 2016,",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2016
+    }, {
+      "title" : "Gene therapy for alpha-1 antitrypsin deficiency",
+      "author" : [ "T.R. Flotte", "C. Mueller" ],
+      "venue" : "Hum. Mol. Genet",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2011
+    }, {
+      "title" : "Gene delivery to the lungs: Pulmonary gene therapy for cystic fibrosis",
+      "author" : [ "I. Villate-Beitia", "J. Zarate", "G. Puras", "J.L. Pedraz" ],
+      "venue" : "Drug Dev. Ind. Pharm",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2017
+    }, {
+      "title" : "Gene Therapy for Asthma",
+      "author" : [ "M. Mathieu", "P. Demoly" ],
+      "venue" : null,
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2001
+    }, {
+      "title" : "Alveolar epithelial cells are critical in protection of the respiratory tract by secretion of factors able to modulate the activity of pulmonary macrophages and directly control bacterial growth",
+      "author" : [ "O.D. Chuquimia", "D.H. Petursdottir", "N. Periolo", "C. Fernández" ],
+      "venue" : "Infect. Immun",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2013
+    }, {
+      "title" : "Colloidal gold particles as a new in vivo marker of early acute lung injury",
+      "author" : [ "K. Heckel", "R. Kiefmann", "M. Dorger", "M. Stoeckelhuber", "A.E. Goetz" ],
+      "venue" : "Am. J. Physiol. Lung Cell Mol. Physiol",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2004
+    }, {
+      "title" : "Evidence that exogenous substances can be phagocytized by alveolar epithelial cells and transported into blood capillaries",
+      "author" : [ "T. Kato", "T. Yashiro", "Y. Murata", "D.C. Herbert", "K. Oshikawa", "M. Bando", "S. Ohno", "Y. Sugiyama" ],
+      "venue" : "Cell Tissue Res",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2003
+    }, {
+      "title" : "Influence of particle size on drug delivery to rat alveolar macrophages following pulmonary administration of ciprofloxacin incorporated into liposomes",
+      "author" : [ "S. Chono", "T. Tanino", "T. Seki", "K. Morimoto" ],
+      "venue" : "J. Drug Target",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2006
+    }, {
+      "title" : "Inhaled nanoparticles—A current review",
+      "author" : [ "W. Yang", "J.I. Peters", "Williams", "R.O", "3rd" ],
+      "venue" : "Int. J. Pharm",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2008
+    }, {
+      "title" : "Nanotoxicology: An emerging discipline evolving from studies of ultrafine particles",
+      "author" : [ "G. Oberdorster", "E. Oberdorster", "J. Oberdorster" ],
+      "venue" : "Environ. Health Perspect",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2005
+    }, {
+      "title" : "The number of alveoli in the human lung",
+      "author" : [ "M. Ochs", "J.R. Nyengaard", "A. Jung", "L. Knudsen", "M. Voigt", "T. Wahlers", "J. Richter", "H.J. Gundersen" ],
+      "venue" : "Am. J. Respir. Crit. Care Med",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2004
+    }, {
+      "title" : "The pores of Kohn in pulmonary alveoli",
+      "author" : [ "C. Desplechain", "B. Foliguet", "E. Barrat", "G. Grignon", "F. Touati" ],
+      "venue" : "Bull. Eur. Physiopathol. Respir",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 1983
+    }, {
+      "title" : "Alveolar dynamics during respiration: Are the pores of Kohn a pathway to recruitment",
+      "author" : [ "E. Namati", "J. Thiesse", "J. de Ryk", "G. McLennan" ],
+      "venue" : "Am. J. Respir. Cell Mol. Biol",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2008
+    }, {
+      "title" : "The Clinical Significance of Collateral Ventilation",
+      "author" : [ "P.B. Terry", "R.J. Traystman" ],
+      "venue" : "Ann. Am. Thorac Soc. 2016,",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2016
+    }, {
+      "title" : "Scanning electronmicroscopic morphometry of emphysema in humans",
+      "author" : [ "A. Nagai", "H. Inano", "K. Matsuba", "W.M. Thurlbeck" ],
+      "venue" : "Am. J. Respir. Crit. Care Med",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 1994
+    }, {
+      "title" : "Gaseous Interchange Between Adjacent Lung Lobules",
+      "author" : [ "C.M. Van Allen", "G.E. Lindskog", "H.G. Richter" ],
+      "venue" : "Yale J. Biol. Med. 1930,",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 1930
+    }, {
+      "title" : "Collateral ventilation in man",
+      "author" : [ "P.B. Terry", "R.J. Traystman", "H.H. Newball", "G. Batra", "H.A. Menkes" ],
+      "venue" : "N. Engl. J. Med",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 1978
+    }, {
+      "title" : "Pathophysiology of airflow limitation in chronic obstructive pulmonary disease",
+      "author" : [ "J.C. Hogg" ],
+      "venue" : null,
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2004
+    }, {
+      "title" : "Effects of ageing on the alveolar pores of Kohn and on the cytoplasmic components of alveolar type II cells in monkey lungs",
+      "author" : [ "S. Shimura", "E.S. Boatman", "C.J. Martin" ],
+      "venue" : "J. Pathol",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 1986
+    }, {
+      "title" : "Relationship between collateral flow resistance and alveolar pores in the aging beagle dog",
+      "author" : [ "N.A. Gillett", "R.F. Gerlach", "B.A. Muggenburg", "J.R. Harkema", "W.C. Griffith", "J.L. Mauderly" ],
+      "venue" : "Exp. Lung Res",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 1989
+    }, {
+      "title" : "The Mechanics of Inhaled Pharmaceutical Aerosols",
+      "author" : [ "W.H. Finlay" ],
+      "venue" : null,
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2001
+    }, {
+      "title" : "An empirical formula describing aerosol deposition in man for any particle size",
+      "author" : [ "G. Rudolf", "J. Gebhart", "J. Heyder", "C.F. Schiller", "W. Stahlhofen" ],
+      "venue" : "J. Aerosol Sci",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 1986
+    }, {
+      "title" : "Mechanisms of particle deposition",
+      "author" : [ "K.K. Isaacs", "J.A. Rosati", "T.B. Martonen" ],
+      "venue" : "In Aerosols Handbook;",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2005
+    }, {
+      "title" : "A simple model for gravitational deposition of non-diffusing particles in oscillatory laminar pipe flow and its application to small airways",
+      "author" : [ "M. Kojic", "A. Tsuda" ],
+      "venue" : "J. Aerosol Sci",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2004
+    }, {
+      "title" : "Mathematical analysis of particle deposition in human lungs: An improved single path transport model",
+      "author" : [ "J.I. Choi", "C.S. Kim" ],
+      "venue" : "Inhal. Toxicol",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2007
+    }, {
+      "title" : "Deposition of aerosol particles in human lungs: In vivo measurement and modelling",
+      "author" : [ "C.S. Kim" ],
+      "venue" : "Biomarkers",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2009
+    }, {
+      "title" : "The effects of geometry on airflow in the acinar region of the human lung",
+      "author" : [ "H. Kumar", "M.H. Tawhai", "E.A. Hoffman", "C.L. Lin" ],
+      "venue" : "J. Biomech",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2009
+    }, {
+      "title" : "Computational modeling of aerosol transport, dispersion, and deposition in rhythmically expanding and contracting terminal alveoli",
+      "author" : [ "K. Talaat", "J. Xi" ],
+      "venue" : "J. Aerosol Sci",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2017
+    }, {
+      "title" : "Gravitational deposition in a rhythmically expanding and contracting alveolus",
+      "author" : [ "S. Haber", "D. Yitzhak", "A. Tsuda" ],
+      "venue" : "J. Appl. Physiol",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2003
+    }, {
+      "title" : "Shear flow over a self-similar expanding pulmonary alveolus during rhythmical breathing",
+      "author" : [ "S. Haber", "J.P. Butler", "H. Brenner", "I. Emanuel", "A. Tsuda" ],
+      "venue" : "J. Fluid Mech",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2000
+    }, {
+      "title" : "Flow and particle dispersion in a pulmonary alveolus—Part I: Velocity measurements and convective particle transport",
+      "author" : [ "S. Chhabra", "A.K. Prasad" ],
+      "venue" : "J. Biomech. Eng",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2010
+    }, {
+      "title" : "Respiratory flow phenomena and gravitational deposition in a three-dimensional space-filling model of the pulmonary acinar tree",
+      "author" : [ "J. Sznitman", "T. Heimsch", "J.H. Wildhaber", "A. Tsuda", "T. Rösgen" ],
+      "venue" : "J. Biomech. Eng",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2009
+    }, {
+      "title" : "Deposition of particles in the alveolar airways: Inhalation and breath-hold with pharmaceutical aerosols",
+      "author" : [ "N. Khajeh-Hosseini-Dalasm", "P.W. Longest" ],
+      "venue" : "J. Aerosol Sci",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2015
+    }, {
+      "title" : "One (sub-)acinus for all: Fate of inhaled aerosols in heterogeneous pulmonary acinar structures",
+      "author" : [ "P. Hofemeier", "K. Koshiyama", "S. Wada", "J. Sznitman" ],
+      "venue" : "Eur. J. Pharm. Sci",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2018
+    }, {
+      "title" : "Airflow and particle deposition in acinar models with interalveolar septal walls and different alveolar numbers",
+      "author" : [ "J. Xi", "M. Talaat", "H. Tanbour", "K. Talaat" ],
+      "venue" : "Comput. Math. Methods Med",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2018
+    }, {
+      "title" : "Deposition of bolus and continuously inhaled aerosols in rhythmically moving terminal alveoli",
+      "author" : [ "J. Xi", "K. Talaat", "X. Si" ],
+      "venue" : "J. Comput. Multiph. Flow 2018,",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2018
+    }, {
+      "title" : "Evaluation of chest motion and volumetry during the breathing cycle by dynamic MRI in healthy subjects: Comparison with pulmonary function tests",
+      "author" : [ "C. Plathow", "S. Ley", "C. Fink", "M. Puderbach", "M. Heilmann", "I. Zuna", "H.U. Kauczor" ],
+      "venue" : "Investig. Radiol",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2004
+    }, {
+      "title" : "Chest wall motion during tidal breathing",
+      "author" : [ "A. De Groote", "M. Wantier", "G. Cheron", "M. Estenne", "M. Paiva" ],
+      "venue" : "J. Appl. Physiol",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 1997
+    }, {
+      "title" : "The effects of body mass index on lung volumes",
+      "author" : [ "R.L. Jones", "M.M. Nzekwu" ],
+      "venue" : "Chest",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2006
+    }, {
+      "title" : "Modeling the pharyngeal anatomical effects on breathing resistance and aerodynamically generated sound",
+      "author" : [ "J. Xi", "X. Si", "J. Kim", "G. Su", "H. Dong" ],
+      "venue" : "Med. Biol. Eng. Comput",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2014
+    }, {
+      "title" : "Effect of laryngopharyngeal anatomy on expiratory airflow and submicrometer particle deposition in human extrathoracic airways",
+      "author" : [ "X. Si", "J. Xi", "J. Kim" ],
+      "venue" : "Open J. Fluid Dyn",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2013
+    }, {
+      "title" : "Computational investigation of particle inertia effects on submicron aerosol deposition in the respiratory tract",
+      "author" : [ "P.W. Longest", "J. Xi" ],
+      "venue" : "J. Aerosol Sci",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2007
+    }, {
+      "title" : "Effectiveness of direct Lagrangian tracking models for simulating nanoparticle deposition in the upper airways",
+      "author" : [ "P.W. Longest", "J. Xi" ],
+      "venue" : "Aerosol Sci. Technol",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2007
+    }, {
+      "title" : "Hood nebulization: Effects of head direction and breathing mode on particle inhalability and deposition in a 7-month-old infant model",
+      "author" : [ "J. Kim", "J. Xi", "X. Si", "A. Berlinski", "W.C. Su" ],
+      "venue" : "J. Aerosol Med. Pulm. Drug Deliv",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2014
+    }, {
+      "title" : "Simulation of airflow fields and microparticle deposition in realistic human lung airway models. Part II: Particle transport and deposition",
+      "author" : [ "Z. Li", "C. Kleinstreuer", "Z. Zhang" ],
+      "venue" : "Eur. J. Mech. B/Fluids",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2007
+    }, {
+      "title" : "Slip correction measurements of spherical solid aerosol particles in an improved Millikan apparatus",
+      "author" : [ "M.D. Allen", "O.G. Raabe" ],
+      "venue" : "Aerosol Sci. Technol",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 1985
+    }, {
+      "title" : "An investigation of particle trajectories in two-phase flow systems",
+      "author" : [ "S.A. Morsi", "A.J. Alexander" ],
+      "venue" : "J. Fluid Mech",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 1972
+    }, {
+      "title" : "Transport and deposition of micro-aerosols in realistic and simplified models of the oral airway",
+      "author" : [ "J. Xi", "P.W. Longest" ],
+      "venue" : "Ann. Biomed. Eng",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2007
+    }, {
+      "title" : "Parametric study on mouth–throat geometrical factors on deposition of orally inhaled aerosols",
+      "author" : [ "J. Xi", "J.E. Yuan", "M. Yang", "X. Si", "Y. Zhou", "Y.-S. Cheng" ],
+      "venue" : "J. Aerosol Sci",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2016
+    }, {
+      "title" : "Diffusional screening in the human pulmonary acinus",
+      "author" : [ "M. Felici", "M. Filoche", "B. Sapoval" ],
+      "venue" : "J. Appl. Physiol",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2003
+    }, {
+      "title" : "Use of aerosols to estimate mean air-space size in chronic obstructive pulmonary disease",
+      "author" : [ "W.D. Bennett", "G.C. Smaldone" ],
+      "venue" : "J. Appl. Physiol",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 1985
+    }, {
+      "title" : "Electrostatic Charge Effects on Pharmaceutical Aerosol Deposition in Human Nasal-Laryngeal Airways",
+      "author" : [ "J. Xi", "X. Si", "P.W. Longest" ],
+      "venue" : "Pharmaceutics",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2013
+    }, {
+      "title" : "Electrophoretic Particle Guidance Significantly Enhances Olfactory Drug Delivery: A Feasibility Study",
+      "author" : [ "J. Xi", "X.A. Si", "R. Gaide" ],
+      "venue" : "PLoS ONE 2014,",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2014
+    }, {
+      "title" : "Modeling of release position and ventilation effects on olfactory aerosol drug delivery",
+      "author" : [ "X.A. Si", "J. Xi", "J. Kim", "Y. Zhou", "H. Zhong" ],
+      "venue" : "Respir. Physiol. Neurobiol",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2013
+    }, {
+      "title" : "Dynamic growth and deposition of hygroscopic aerosols in the nasal airway of a 5-year-old child",
+      "author" : [ "J.W. Kim", "J. Xi", "X.A. Si" ],
+      "venue" : "Int. J. Numer. Methods Biomed. Eng",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2013
+    }, {
+      "title" : "Viewpoint: Unresolved mysteries",
+      "author" : [ "G.C. Smaldone", "W. Mitzner" ],
+      "venue" : "J. Appl. Physiol",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2012
+    }, {
+      "title" : "Morphometry of the human pulmonary acinus",
+      "author" : [ "B. Haefeli-Bleuer", "E.R. Weibel" ],
+      "venue" : "Anat. Rec",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 1988
+    }, {
+      "title" : "Flow field analysis in a compliant acinus replica model using particle image velocimetry (PIV)",
+      "author" : [ "E.J. Berg", "J.L. Weisman", "M.J. Oldham", "R.J. Robinson" ],
+      "venue" : "J. Biomech",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2010
+    }, {
+      "title" : "Multiscale imaging and registration-driven model for pulmonary acinar mechanics in the mouse",
+      "author" : [ "H. Kumar", "D.M. Vasilescu", "Y. Yin", "E.A. Hoffman", "M.H. Tawhai", "C.-L. Lin" ],
+      "venue" : "J. Appl. Physiol",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2013
+    }, {
+      "title" : "Breakdown of lung framework and an increase in pores of Kohn as initial events of emphysema and a cause of reduction in diffusing capacity",
+      "author" : [ "A. Yoshikawa", "S. Sato", "T. Tanaka", "M. Hashisako", "Y. Kashima", "T. Tsuchiya", "N. Yamasaki", "T. Nagayasu", "H. Yamamoto", "J. Fukuoka" ],
+      "venue" : "Int. J. Chronic Obstruct. Pulmon. Dis. 2016,",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2016
+    }, {
+      "title" : "The structure of the interalveolar septum of the mammalian lung",
+      "author" : [ "S.F. Ryan" ],
+      "venue" : "Anat. Rec",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 1969
+    }, {
+      "title" : "Pores of Kohn",
+      "author" : [ "J.L. Cordingley" ],
+      "venue" : "Thorax",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 1972
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 2,
+      "context" : "For instance, local applications of small molecules were tested to treat respiratory diseases, such as chronic obstructive pulmonary disease (COPD) and asthma [4,5].",
+      "startOffset" : 159,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 3,
+      "context" : "For instance, local applications of small molecules were tested to treat respiratory diseases, such as chronic obstructive pulmonary disease (COPD) and asthma [4,5].",
+      "startOffset" : 159,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 4,
+      "context" : "Protein/peptide delivery to the lung is promising for both local therapy of respiratory diseases and systemic management of thrombosis or diabetes [6].",
+      "startOffset" : 147,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 5,
+      "context" : "Targeted pulmonary delivery of genes to the disease site offers great potential for the treatment of genetic lung disorders, such as alpha-1-antitrypsin deficiency [7,8], cystic fibrosis [9], and asthma [10].",
+      "startOffset" : 164,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 6,
+      "context" : "Targeted pulmonary delivery of genes to the disease site offers great potential for the treatment of genetic lung disorders, such as alpha-1-antitrypsin deficiency [7,8], cystic fibrosis [9], and asthma [10].",
+      "startOffset" : 164,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 7,
+      "context" : "Targeted pulmonary delivery of genes to the disease site offers great potential for the treatment of genetic lung disorders, such as alpha-1-antitrypsin deficiency [7,8], cystic fibrosis [9], and asthma [10].",
+      "startOffset" : 187,
+      "endOffset" : 190
+    }, {
+      "referenceID" : 8,
+      "context" : "Targeted pulmonary delivery of genes to the disease site offers great potential for the treatment of genetic lung disorders, such as alpha-1-antitrypsin deficiency [7,8], cystic fibrosis [9], and asthma [10].",
+      "startOffset" : 203,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 9,
+      "context" : "Each section has different morphology, dimension, type of epithelium cell, as well as different mechanisms for drug deposition, absorption, and clearance [11].",
+      "startOffset" : 154,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 10,
+      "context" : "In the acinar region (alveoli), only particles smaller than 2 μm can get deposited, and only nanoparticles coated with albumin or phospholipids can translocate across the alveolus–capillary barrier, both chemicals naturally present in the alveolar epithelial lining fluid [12,13].",
+      "startOffset" : 272,
+      "endOffset" : 279
+    }, {
+      "referenceID" : 11,
+      "context" : "In the acinar region (alveoli), only particles smaller than 2 μm can get deposited, and only nanoparticles coated with albumin or phospholipids can translocate across the alveolus–capillary barrier, both chemicals naturally present in the alveolar epithelial lining fluid [12,13].",
+      "startOffset" : 272,
+      "endOffset" : 279
+    }, {
+      "referenceID" : 13,
+      "context" : "Particles 260 nm or smaller eludes the phagocytosis and cannot be easily cleared from the pulmonary region [15].",
+      "startOffset" : 107,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 14,
+      "context" : "Such nanocarriers can remain in the lungs for up to 700 days [16], which either remain in the alveolar cells or translocate into the interstitium, causing long-term accumulations and invoking toxicity issues.",
+      "startOffset" : 61,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 15,
+      "context" : "The alveoli exhibit a highly intricated architecture braced by interalveolar septal walls [17].",
+      "startOffset" : 90,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 16,
+      "context" : "Circular or oval apertures (pores of Kohn) exist in the septum, allowing communications of airflow and liquids between neighboring alveoli [18].",
+      "startOffset" : 139,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 17,
+      "context" : "The collateral ventilation equalizes pressures among alveoli and acts as an important mechanism in promoting alveolar recruitment [19] and preventing atelectasis (i.",
+      "startOffset" : 130,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 22,
+      "context" : "As the emphysema deteriorates, the septal walls break down, leading to enlarged sac airspace and weakened lung elastin [24].",
+      "startOffset" : 119,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 23,
+      "context" : "Aging can also cause the pores to enlarge and proliferate [25,26].",
+      "startOffset" : 58,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 24,
+      "context" : "Aging can also cause the pores to enlarge and proliferate [25,26].",
+      "startOffset" : 58,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 28,
+      "context" : "Using numerical methods, Kojic and Tsuda [30] elegantly demonstrated that particle deposition could be significantly underestimated using steady flow solutions to approximate tidal breathing.",
+      "startOffset" : 41,
+      "endOffset" : 45
+    }, {
+      "referenceID" : 29,
+      "context" : "[31,32] demonstrated that the rhythmic wall motions are essential to match in vivo alveolar deposition data with predictions from the single-path-transport model.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 30,
+      "context" : "[31,32] demonstrated that the rhythmic wall motions are essential to match in vivo alveolar deposition data with predictions from the single-path-transport model.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 31,
+      "context" : "[33] numerically investigated respiratory flows in honeycomb-like alveolar models and found recirculating stream traces in the alveolar airspace.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 32,
+      "context" : "Talaat and Xi [34] simulated particle dynamics in a terminal alveolus with rhythmic wall motions and reported significantly different particle motions from those in respiratory bronchioles or alveolar ducts [35–38].",
+      "startOffset" : 14,
+      "endOffset" : 18
+    }, {
+      "referenceID" : 32,
+      "context" : "In a terminal alveolus, the oscillating walls cause a particle to move forth and back, forming a multi-folding trajectory [34].",
+      "startOffset" : 122,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 33,
+      "context" : "By contrast, in a respiratory bronchiole or alveolar duct, particles remain in the alveolar airspace for several cycles, rotating counterclockwise during inhalation and clockwise during exhalation [35,38].",
+      "startOffset" : 197,
+      "endOffset" : 204
+    }, {
+      "referenceID" : 36,
+      "context" : "By contrast, in a respiratory bronchiole or alveolar duct, particles remain in the alveolar airspace for several cycles, rotating counterclockwise during inhalation and clockwise during exhalation [35,38].",
+      "startOffset" : 197,
+      "endOffset" : 204
+    }, {
+      "referenceID" : 15,
+      "context" : "There are more than 10,000 alveoli in one acinar unit [17].",
+      "startOffset" : 54,
+      "endOffset" : 58
+    }, {
+      "referenceID" : 39,
+      "context" : "[41] was adopted for its well-defined shape and dimension.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 15,
+      "context" : "There are ore than 10,000 alveoli in one acinar unit [17].",
+      "startOffset" : 53,
+      "endOffset" : 57
+    }, {
+      "referenceID" : 39,
+      "context" : "[41] s t f r its ell-defined shape and dimension.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 41,
+      "context" : "The rhythmic expansion and contraction of the alveolar wall were assumed to follow the chest [43,44], which moves a longer distance in the head-foot (x) and back-front (y) directions than the armarm (z) direction (i.",
+      "startOffset" : 93,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 42,
+      "context" : "The rhythmic expansion and contraction of the alveolar wall were assumed to follow the chest [43,44], which moves a longer distance in the head-foot (x) and back-front (y) directions than the armarm (z) direction (i.",
+      "startOffset" : 93,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 32,
+      "context" : "More details of the alveolar wall kinematics can be found in Talaat and Xi [34].",
+      "startOffset" : 75,
+      "endOffset" : 79
+    }, {
+      "referenceID" : 41,
+      "context" : "The rhyt i si and contraction of the alveolar wall were assumed t follow the chest [43,44], which moves a longer distance in the head-foot (x) nd back-front (y) directio s than the arm-arm (z) direction (i.",
+      "startOffset" : 83,
+      "endOffset" : 90
+    }, {
+      "referenceID" : 42,
+      "context" : "The rhyt i si and contraction of the alveolar wall were assumed t follow the chest [43,44], which moves a longer distance in the head-foot (x) nd back-front (y) directio s than the arm-arm (z) direction (i.",
+      "startOffset" : 83,
+      "endOffset" : 90
+    }, {
+      "referenceID" : 32,
+      "context" : "ore etails of the alveolar wall kinematics can be found in Tala t and Xi [34].",
+      "startOffset" : 73,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 44,
+      "context" : "A discrete-phase Lagrangian tracking model was applied to follow the particle paths [46,47].",
+      "startOffset" : 84,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 45,
+      "context" : "A discrete-phase Lagrangian tracking model was applied to follow the particle paths [46,47].",
+      "startOffset" : 84,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 46,
+      "context" : "This model, enhanced with the near-wall treatment algorithm [48], has been demonstrated in our previous studies to agree with experimental deposition results in the extratropic airway for both nanoparticles [49] and micron aerosols [50,51].",
+      "startOffset" : 60,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 47,
+      "context" : "This model, enhanced with the near-wall treatment algorithm [48], has been demonstrated in our previous studies to agree with experimental deposition results in the extratropic airway for both nanoparticles [49] and micron aerosols [50,51].",
+      "startOffset" : 207,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 48,
+      "context" : "This model, enhanced with the near-wall treatment algorithm [48], has been demonstrated in our previous studies to agree with experimental deposition results in the extratropic airway for both nanoparticles [49] and micron aerosols [50,51].",
+      "startOffset" : 232,
+      "endOffset" : 239
+    }, {
+      "referenceID" : 49,
+      "context" : "This model, enhanced with the near-wall treatment algorithm [48], has been demonstrated in our previous studies to agree with experimental deposition results in the extratropic airway for both nanoparticles [49] and micron aerosols [50,51].",
+      "startOffset" : 232,
+      "endOffset" : 239
+    }, {
+      "referenceID" : 50,
+      "context" : "Here, vi and ui are the local velocity of the particle and fluid, gi is the gravity, and τp is the particle relaxation time expressed as τp = Ccρp dp(2)/18μ, where Cc is the Cunningham correction factor for nanoparticles [52].",
+      "startOffset" : 221,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 51,
+      "context" : "The drag factor f is computed from the expression of Morsi and Alexander [53].",
+      "startOffset" : 73,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 52,
+      "context" : "In-house C and Fortran codes were developed to generate injection particle files, define alveolar wall motions, calculate Brownian motion force, and quantify spatial and temporal deposition fractions [54,55].",
+      "startOffset" : 200,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 53,
+      "context" : "In-house C and Fortran codes were developed to generate injection particle files, define alveolar wall motions, calculate Brownian motion force, and quantify spatial and temporal deposition fractions [54,55].",
+      "startOffset" : 200,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 32,
+      "context" : "In comparison to the well-defined particle front observed for micrometer aerosols [34], the nanoparticles appear more random and dispersed in distribution.",
+      "startOffset" : 82,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 32,
+      "context" : "In comparison to the well-defined particle front observed for micrometer aerosols [34], the nanoparticles appear more random and dispersed in distribution.",
+      "startOffset" : 82,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 32,
+      "context" : "Different from the micrometer particles that precipitate due to gravity in the absence of wall motion [34], nanoparticles remain suspending in the proximity of their release positions and continuously deposit onto the duct wall (Figure 6a).",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 32,
+      "context" : "Different from the micro eter particles that precipitate due to gravity in the absence of wall motion [34], nanoparticles remain susp nding i the proximity of their release positions nd c ntinuously deposit onto the duct",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 54,
+      "context" : "For all cases presented in Figure 8, an elevated deposition rate was noted in the duct, a phenomenon that is similar to the “diffusional screening” of inhaled gas [56], where significant O2 absorption occurs in the acinus entrance and proximal alveoli, causing a constant decrease in O2 concentration along a serially arranged alveoli.",
+      "startOffset" : 163,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 54,
+      "context" : "For all cases presented in Figure 8, an elevated deposition rate was noted in the duct, a phenomenon that is similar to the “diffusional screening” of inhaled gas [56], where significant O2 absorption occurs in the acinus entrance and proximal alveoli, causing a constant decrease in O2 concentration along a serially arranged alveoli.",
+      "startOffset" : 163,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 32,
+      "context" : "Will it be indispensable to nanoparticle deposition, and how important it is relative to the other two mechanisms? Even though this study was not devoted to this question, some conclusions can be made from the results in this and other studies [34,41,42].",
+      "startOffset" : 244,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 39,
+      "context" : "Will it be indispensable to nanoparticle deposition, and how important it is relative to the other two mechanisms? Even though this study was not devoted to this question, some conclusions can be made from the results in this and other studies [34,41,42].",
+      "startOffset" : 244,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 40,
+      "context" : "Will it be indispensable to nanoparticle deposition, and how important it is relative to the other two mechanisms? Even though this study was not devoted to this question, some conclusions can be made from the results in this and other studies [34,41,42].",
+      "startOffset" : 244,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 55,
+      "context" : "This observation also calls into question the accuracy of using inhaled particles to measure the alveolar dimension in vivo [57].",
+      "startOffset" : 124,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 32,
+      "context" : "Will it be indispensable to nanoparticle deposition, and how important it is relative to the other two mechanisms? Even though this study was not devoted to this question, some conclusions can be made from the results in this and other studies [34,41,42].",
+      "startOffset" : 244,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 39,
+      "context" : "Will it be indispensable to nanoparticle deposition, and how important it is relative to the other two mechanisms? Even though this study was not devoted to this question, some conclusions can be made from the results in this and other studies [34,41,42].",
+      "startOffset" : 244,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 40,
+      "context" : "Will it be indispensable to nanoparticle deposition, and how important it is relative to the other two mechanisms? Even though this study was not devoted to this question, some conclusions can be made from the results in this and other studies [34,41,42].",
+      "startOffset" : 244,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 55,
+      "context" : "This observation also calls into question the accuracy of using inhaled particles to measure the alveolar dimension in vivo [57].",
+      "startOffset" : 124,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 32,
+      "context" : "For repairable micron particles (1–3 μm) that has negligible diffusivity, particles closely follow the respiratory flows and a well-defined aerosol front is often observed that visualize the carrier airflow [34].",
+      "startOffset" : 207,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 38,
+      "context" : "[40] also reported that variation in the acinar geometrical heterogeneity had an insignificant impact on the total acinar deposition.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 56,
+      "context" : "Particle charge [58,59], size [60], and hygroscopy effect [61] were also neglected.",
+      "startOffset" : 16,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 57,
+      "context" : "Particle charge [58,59], size [60], and hygroscopy effect [61] were also neglected.",
+      "startOffset" : 16,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 58,
+      "context" : "Particle charge [58,59], size [60], and hygroscopy effect [61] were also neglected.",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 59,
+      "context" : "Particle charge [58,59], size [60], and hygroscopy effect [61] were also neglected.",
+      "startOffset" : 58,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 65,
+      "context" : "The thickness of the interalveolar septal wall also varies [67].",
+      "startOffset" : 59,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 66,
+      "context" : "There was no more than one pore in one septum in this study, while there can be one to seven pores in life conditions [68].",
+      "startOffset" : 118,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 16,
+      "context" : "In healthy lungs, the pore size ranges from 2 μm to 15 μm [18,68].",
+      "startOffset" : 58,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 66,
+      "context" : "In healthy lungs, the pore size ranges from 2 μm to 15 μm [18,68].",
+      "startOffset" : 58,
+      "endOffset" : 65
+    } ],
+    "year" : 2019,
+    "abstractText" : "Pulmonary delivery of nanomedicines has been extensively studied in recent years because of their enhanced biocompatibility, sustained-release properties, and surface modification capability. The lung as a target also offers many advantages over other routers, such as large surface area, noninvasive, quick therapeutic onset, and avoiding first-pass metabolism. However, nanoparticles smaller than 0.26 μm typically escape phagocytosis and remain in the alveoli for a long time, leading to particle accumulation and invoking tissue responses. It is imperative to understand the behavior and fates of inhaled nanoparticles in the alveoli to reliably assess therapeutic outcomes of nanomedicines or health risk of environmental toxins. The objective of this study is to numerically investigate nanoparticle deposition in a duct-alveolar model with varying sizes of inter-alveolar septal apertures (pores). A discrete phase Lagrangian model was implemented to track nanoparticle trajectories under the influence of rhythmic wall expansion and contraction. Both temporal and spatial dosimetry in the alveoli were computed. Wall motions are essential for nanoparticles to penetrate the acinar region and deposit in the alveoli. The level of aerosol irreversibility (i.e., mixing of inhaled nanoparticles with residual air in the alveolar airspace) is determined by the particle diffusivity, which in turn, dictates the fraction of particles being exhaled out. When deposition in the upper airways was not considered, high alveolar deposition rates (74–95%) were predicted for all nanoparticles considered (1–1000 nm), which were released into the alveoli at the beginning of the inhalation. The pore size notably affects the deposition pattern of inhaled nanoparticles but exerts a low impact upon the total deposition fractions. This finding indicates that consistent pulmonary doses of nanomedicine are possible in emphysema patients if breathing maneuver with the same tidal volume can be performed.",
+    "creator" : "LaTeX with hyperref package"
+  }
+}

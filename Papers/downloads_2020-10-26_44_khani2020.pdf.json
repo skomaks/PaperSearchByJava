@@ -1,0 +1,820 @@
+{
+  "name" : "downloads_2020-10-26_44_khani2020.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "ealization of a plasmonic optical switch using improved nano-disk esonators with Kerr-type nonlinearity: A theoretical and numerical study on hallenges and solutions",
+    "authors" : [ "hiva Khani", "Mohammad Danaie", "Pejman Rezaei" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Optics Communications 477 (2020) 126359\nR r c S F\nA\nK P N A N M\n1\nw i t d A t s t g u p i s i p t\nh R A 0\nContents lists available at ScienceDirect\nOptics Communications\njournal homepage: www.elsevier.com/locate/optcom\nealization of a plasmonic optical switch using improved nano-disk esonators with Kerr-type nonlinearity: A theoretical and numerical study on hallenges and solutions hiva Khani, Mohammad Danaie ∗, Pejman Rezaei aculty of Electrical and Computer Engineering, Semnan University, Semnan, Iran\nR T I C L E I N F O\neywords: lasmonic ano-disk resonator ll-optical switch onlinear Kerr effect etal–insulator–metal waveguide\nA B S T R A C T\nIn this paper, a novel all-optical plasmonic switch is presented. For the proposed structure, a nano-disk resonator coupled to parenthesis-shaped adjunctions and perpendicular metal–insulator–metal waveguides are used. The insulator which is used here, is an optically nonlinear Kerr-type material (InGaAsP). The data and control pulses are injected to the horizontal and vertical waveguides, respectively. Allocating two separate waveguides for the data and control signals prevents these signals from interfering with each other. One of the main benefits of the proposed switch is that a single wavelength can be used for the data and control signals. It prevents the amplitude modulation of the output signal and eliminates the need for harmonic suppression filters. The finite difference time domain (FDTD) method is used for numerical investigation of the switch. Based on the numerical simulations, the switch can operate for control pulses as narrow as 3 ps at 1028 nm. In addition to FDTD, analytical formulas have also been presented to model the switch, which are in excellent agreement with FDTD results. To provide a better perspective, besides the conventional frequency domain analysis, the time domain simulations are also presented. The main advantages of the proposed topology are: the ability to use an identical wavelength for data and control pulses (which originates from the novel resonator shape), having separate and isolated input and output data and control ports, requiring a small footprint area of 1.37 μm2, the simplicity of fabrication due to its simple and symmetric structure and finally the robustness of the design, where other nonlinear materials with higher Kerr indices can also be easily used to redesign the switch.\n. Introduction\nSurface plasmon polaritons (SPPs) are dispersive electromagnetic aves coupled to the electrons of plasma in the metal and dielectric nterface [1]. SPPs open up a new pathway for applications in miniaurized optical devices due to their notable ability to overcome the iffraction limit and manipulating light in a nanoscale domain [2]. ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc., can be redesigned sing SPPs with much more compact sizes. In this direction, various lasmonic filters [18–21], sensors [22–24], demultiplexers [25–27], ntersections [28,29], optical modulators [30,31], logic gates [32–34], witches [35,36] have been proposed in the literature. Since the scatterng and absorption cross sections of nanoparticles are enhanced at the lasmon resonance, plasmonic structures can also be used to increase he efficiency of solar cells [37,38]. It is worth mentioning that the MIM\n∗ Corresponding author. E-mail address: danaie@semnan.ac.ir (M. Danaie).\nstructures were previously used to design microwave circuits [39,40]. Therefore, such a potential can be used for integrating optical and electrical components which seems very interesting for having various types of components on a single chip.\nAmong the plasmonic structures, plasmonic switches are one of the key devices in the area of optical communications. In addition to plasmonic switches, other types of AOSs based on the fiber grating structures [41–43], cascaded long period fiber gratings [44], graphene [45, 46], metamaterial structures [47,48], mixed crystal topologies [49], etc. can also be designed. Based on the technique which is used to design optical switches, these components are classified into various types of electro-optic switches [50,51], thermo-optic switches [52, 53], and all-optical switches (AOSs) [54,55]. AOSs have remarkable advantages such as fast signal processing ability, immunity to electromagnetic interference and low cost fabrication capability. Consequently, these devices have attracted much attention in all-optical communication systems. Plasmonic AOSs can use optical nonlinear materials for the active control of optical signals. Conventionally, different\nttps://doi.org/10.1016/j.optcom.2020.126359 eceived 27 May 2020; Received in revised form 20 July 2020; Accepted 6 August vailable online 10 August 2020 030-4018/© 2020 Elsevier B.V. All rights reserved. 2020\ni\nt\nI\ni a n\n\uD835\uDEE5\nH c\nplasmonic AOSs based on these methods have been demonstrated by numerical simulations or experiments. For instance, metal–insulator– metal (MIM) WGs coupled with ring resonators [56–58], nano-disk resonators (NDRs) [59,60], stub resonators [61,62] and other types of resonators [63–66]. All of the aforementioned switches published in the literature use a single WG for both data and control signals. Due to lack of isolation between the data and control signals in these techniques, they are not much desirable for integrated optics.\nWe have tried to find solutions for having two isolated WGs for the data and control signals [67,68]. In [67] and [68], an asymmetric directional coupler and two perpendicular WGs have been used, respectively. However, based on the knowledge of the authors, in none of the mentioned plasmonic all-optical switches the time domain behavior of the switches has been investigated, while we have demonstrated the switching operation in time domain. In most of the mentioned papers usually it is assumed that the control signal creates a refractive index change. The transmission curves for the original refractive index and the perturbed refractive index case are usually presented to justify its operation as a switch. However, as we have recently shown in [64], things are not as simple as that. It is necessary to present time domain simulations to prove the correct operation of a switch when the Kerr effect is used. The self and cross modulation of control and data signals, and harmonic generation are the most important optical phenomena that are neglected in the frequency domain analysis. Furthermore, it should be noted that the refractive index change is not uniform in all of the resonator areas. This fact reduces the accuracy of the aforementioned method.\nIn this paper, an AOS based on an improved nano-disk resonator (INDR) [69] and two isolated WGs incorporating nonlinear Kerr materials has been designed and investigated. One of the WGs (the horizontal WG) is allocated to the data signal and another one (the vertical WG) passes the control signal. Using two separate WGs in the proposed structure results in an appropriate isolation between the data and control signals. It should be mentioned that, here the wavelengths of data and control signals can be equal. This provision eliminates the amplitude modulation of the output signal. In other words, the proposed switch does not need a filter for removing the harmonics. This decrease the total size of the structure and reduces the fabrication complexity. The metal and nonlinear insulator materials which are used to design the proposed AOS are silver and InGaAsP, respectively. Numerical simulations are performed using the finite difference time domain (FDTD) method. Furthermore, analytical formulas have also been proposed for obtaining the hysteresis curves of the nonlinear plasmonic structures which are in excellent agreement with FDTD results.\nThe rest of this paper is organized as follows: In Section 2, the proposed analytical formulas which are used for modeling the switching behavior of the switch have been presented. Section 3 investigates the building blocks of the switch which are dubbed as ‘‘Filter A’’ and ‘‘Filter B’’. In Section 4, the designed AOS and its performance are introduced and comprehensively studied, respectively. The two final sections (Sections 5 and 6) are devoted to the comparisons and conclusions, respectively."
+    }, {
+      "heading" : "2. Mathematical formulas and numerical analysis",
+      "text" : "The purpose of this section is to derive the mathematical formulas which can be used in analyzing nonlinear plasmonic cavities. Accordingly, first the numerical method and analytical formulas for obtaining the hysteresis curves in nonlinear cavities have been presented and compared. These formulas will later be used in Section 3 to verify the FDTD results. Thereafter, the procedure to calculate the effective width of the MIM plasmonic waveguides has been discussed. \uD835\uDEE5"
+    }, {
+      "heading" : "2.1. Hysteresis in nonlinear cavities",
+      "text" : "Here, two different methods for obtaining the hysteresis curves in nonlinear optical cavities have been discussed. The first one is the numerical method and the other one is through direct mathematical formulas. Both methods have been investigated for a nonlinear plasmonic cavity which is coupled to WGs from both sides assuming a Gaussian shaped transmission spectrum for the cavity (Fig. 1). Generally, a Gaussian function is defined as:\nT(\uD835\uDF06) = exp ⎡ ⎢\n⎢ ⎣\n−\n(\n\uD835\uDF06 − \uD835\uDF06c0 √\n2\uD835\uDF0E\n)2 ⎤\n⎥\n⎥ ⎦\n(1)\nWhere \uD835\uDF060 is the control wavelength, \uD835\uDF06c0 is the wavelength correspondng to the peak (which changes by applying the control signal) and \uD835\uDF0E denotes the width of the bell-shaped curve. In Fig. 1, the values of \uD835\uDF06c0 and \uD835\uDF0E are equal to 1577 nm and 12 nm, respectively. By applying a control signal, the refractive index of nonlinear Kerr material changes and the transmission spectrum shifts to the higher wavelengths. In other words, the location of \uD835\uDF06c0 shifts to another wavelength dubbed \uD835\uDF06\uD835\uDC50 . Here, we intend to investigate the behavior of the output power by changing the input power of the control signal.\nAs discussed earlier, Eq. (1) describes the transmission spectrum of the nonlinear cavity in the absence of the control signal. By using this relationship, the location of the displaced central wavelength (\uD835\uDF06\uD835\uDC50) can be obtained as follows. As known, there is the following relationship between the input (Iin) and output (Iout) optical power intensities in he linear regime.\nout = Iin.T (2)\nWhere, the transmission (T) can be calculated from Eq. (1). Here, the intensity of the output light can be obtained from Eq. (3).\nPout = Iout .\uD835\uDC4A\uD835\uDC52\uD835\uDC53\uD835\uDC53 (3)\nWhere, \uD835\uDC4A\uD835\uDC52\uD835\uDC53\uD835\uDC53 is the effective width of the waveguide, which will be discussed in details in Section 2.2. Based on Fig. 1, the quality factor (Q) of the cavity can be defined as:\nQ = \uD835\uDF06c0 2\uD835\uDF0E\n(4)\nSimilar to Eq. (1) we can also say that:\nPout = T.Pin (5)\nOn the other hand, the following relationship exists between the amount of the central wavelength-shift (\uD835\uDEE5\uD835\uDF06c) and the variation of the refractive index (\uD835\uDEE5n) of the nonlinear Kerr medium:\n\uD835\uDEE5\uD835\uDF06c = S.\uD835\uDEE5n (6)\nHere, S is the sensitivity of the cavity in nanometers per refractive index unit (nm/RIU). To obtain S, we can simply calculate the resonance wavelength of the cavity using FDTD method when it is filled with a material whose refractive index is n0. Then we need to change the refractive index from n0 to n0 + \uD835\uDEE5n and recalculate the resonance wavelength to obtain \uD835\uDEE5\uD835\uDF06c. The process is similar to what is done in refractive index sensors for calculating the sensitivity. Assuming that the intensity of light inside the cavity (I) is equal to \uD835\uDEFCIout , where \uD835\uDEFC s a constant (which depends on the cavity’s geometrical parameters nd its quality factor), then the variations of the refractive index of the onlinear material (\uD835\uDEE5n) can be obtained as:\nn = n2.\uD835\uDEFC.Iout (7)\nere, n2 represents the nonlinear refractive index coefficient. By the ombination of Eqs. (6) to (7), the following equation is obtained:\n\uD835\uDF06 = S.n .\uD835\uDEFC.I (8)\nc 2 out\nB\n\uD835\uDEE5\nA\n\uD835\uDF06\nT s u i i\nI\nT n\nI\nS m\nI\nN\n\uD835\uDF06\ny considering \uD835\uDEFC.S. n2 = \uD835\uDF09, Eq. (8) can be rewritten as:\n\uD835\uDF06c = \uD835\uDF09.Iout (9)\ns a result, the displaced central wavelength can be written as:\nc = \uD835\uDF06c0 + \uD835\uDF09.Iout (10)\no obtain the relationship between the input and output power intenities, which in some cases exhibit a hysteresis behavior, we initially se a numerical approach. For this purpose, we change the input light ntensity from Iin by a small amount of (\uD835\uDEE5Iin). Here, the new input ntensity Iin(new) is equal to:\nin(new) = Iin + \uD835\uDEE5Iin (11)\no obtain the newer value of the output power intensity (Iout(new)), the ew value of transmission (Tnew) should be calculated.\nout(new) = Tnew.Iin(new) (12)\nince Tnew cannot be directly calculated, Eq. (12) needs to be approxiated:\nout(new) ≃ Told.Iin(new) (13)\now, the parameters of \uD835\uDF06c(new) and Tnew can be updated as:\nc(new) = \uD835\uDF06c0 + \uD835\uDF09.Iout(new) (14)\nTnew = \uD835\uDC34max. exp ⎡ ⎢\n⎢ ⎣\n(\n\uD835\uDF060 − \uD835\uDF06c(new) √\n2\uD835\uDF0E\n)2 ⎤\n⎥\n⎥ ⎦\n(15)\nWhere, \uD835\uDF060 is the wavelength of the injected light. Finally, using the obtained results, the updated value of Iout can be calculated by:\nIout = Tnew.Iin(new) (16)\nThis procedure can be repeated for the incrementing steps of \uD835\uDEE5Iin to obtain the ‘‘increasing path’’ of the hysteresis curve. Decreasing the intensity by the \uD835\uDEE5Iin steps provides the ‘‘decreasing path’’ in the hysteresis curve. The total stages of the proposed numerical method are summarized in the flowchart depicted in Fig. 2. For the evaluation of the mentioned method, the output power versus the input power and the transmission spectrum associated with Fig. 1 have been presented in Fig. 3(a) and (b), respectively. The parameter used here are \uD835\uDF06 =\n0\n1550 nm, n2 = 3× 10−18 cm2/W. As seen a hysteresis curve is observed. Accordingly, the proposed method can be used for every nonlinear cavity with a Gaussian-shaped transmission spectrum. Also, the hysteresis curve of any nonlinear cavity that has the specified transmission function can be calculated by this procedure. As mentioned before, the input–output relationship can also be directly calculated. In this\nA\nP\nF g\n⎧\n⎪\n⎨\n⎪ ⎩\no t t s i\n2\nu o s t W\n\uD835\uDC4A\nmethod, a straight formula based on the existing parameters is obtained to investigate the relationship between the output power and input power of the control signal. The details of this procedure are discussed hereafter.\nIn Eq. (10), Iout can be replaced by ‘‘T. Iin’’, leading to:\n\uD835\uDF06c = \uD835\uDF06c0 + \uD835\uDF09.T.Iin (17)\nAlso, by combination of Eqs. (2) and (17), the following equation is derived:\nIin = \uD835\uDF06c − \uD835\uDF06c0 (18)\n\uD835\uDF09.T\ns seen in Eq. (18), Pin can be described as:\nin = \uD835\uDC4A\uD835\uDC52\uD835\uDC53\uD835\uDC53 . \uD835\uDF06c − \uD835\uDF06c0\n\uD835\uDF09.T (19)\nurthermore, T can be estimated by Eq. (1). Therefore, Pin and Pout are iven by:\nPin = \uD835\uDC53 ( \uD835\uDF06\uD835\uDC50 ) = \uD835\uDC4A\uD835\uDC52\uD835\uDC53\uD835\uDC53 . \uD835\uDF06c−\uD835\uDF06c0\n\uD835\uDF09 ∕(\uD835\uDC34max. exp\n[\n(\n\uD835\uDF060−\uD835\uDF06\uD835\uDC50 √\n2\uD835\uDF0E\n)2 ]\n)\nPout = T.Pin = \uD835\uDC54 ( \uD835\uDF06\uD835\uDC50 ) = \uD835\uDC4A\uD835\uDC52\uD835\uDC53\uD835\uDC53 . \uD835\uDF06c−\uD835\uDF06c0\n\uD835\uDF09\n(20)\nAs a result, to depict the Pout∕Pin curves, one can sweep the \uD835\uDF06c as an independent variable in Eq. (20) and calculate Pin and Pout as functions (f and g) of \uD835\uDF06c, then plot the obtained Pout versus the obtained Pin. The behavior of the output power versus the input power based n the direct method is also shown in Fig. 3(c). Fig. 3(d) shows the ransmittance versus the input power. As seen, the direct method and he numerical method are in perfect agreement. Whenever a negative lope is seen in the direct method’s curves a sudden jump is observed n numerical method’s results.\n.2. Calculation of the effective width of MIM plasmonic WGs\nIn an MIM waveguide, the intensity of the electric field is not niform in the cross-section of the waveguide. Fig. 4 shows the intensity f the electric field in MIM plasmonic WGs composed of a layer of air andwiched between two Ag slabs [19]. The WG widths are assumed o be 50 nm, 100 nm and 150 nm. Here, the effective width of the MIM\nGs can be obtained by Eq. (21):\n\uD835\uDC52\uD835\uDC53\uD835\uDC53 = ∫ |\uD835\uDC38|2 .\uD835\uDC51\uD835\uDC66\n\uD835\uDC3C0 (21)\nWhere, I0 denotes the central value of the intensity curve and \uD835\uDC38 is the electric field. It is worth mentioning that the electric field intensity can\nT T t\n3\nr g m r u r t t i h\n3\nt o h r d\nH\n\uD835\uDF00\na f\n\uD835\uDF14\nH m d\n\uD835\uDF00\nI t r a\ns I v\nbe calculated by:\n|\uD835\uDC38|2 = [Re (\uD835\uDC38)]2 + [\uD835\uDC3C\uD835\uDC5A (\uD835\uDC38)]2 (22)\nhe effective widths for some common MIM WGs are summarized in able 1. As seen, the effective width values are slightly different from he actual physical width.\n. Basic filters structures\nSo far, various methods have been proposed in the literature to ealize all-optical switches. One of them is the dynamic shift of the enerated Lorentzian (bell-shaped) mode in a plasmonic structure. As entioned in Section 2, this dynamic shift is achieved by changing the efractive index of the nonlinear insulator medium which happens by sing a control light, where a sharper Lorentzian mode results in a less equired control signal intensity. To obtain an AOS based on such a echnique, an INDR is used in this paper. On the other hand, we intend o use two separate cross-path WGs for the data and control signals n this work. Therefore, first the behavior of INDR subjected to the orizontal and vertical WGs are separately investigated.\n.1. INDR coupled to the horizontal WG (Filter A)\nFig. 5 shows the first structure (Filter A) and its transmission specrum which is derived from [69]. The structure of Filter A is composed f a NDR coupled to symmetric parenthesis-shaped adjunctions and a orizontal WG. The dimensions of Filter A are as follows: r1 = 400 nm, 2 = 416 nm, r3 = 461 nm, d = 45 nm, g = 16 nm, w = 50 nm and \uD835\uDEFD = 70 egrees.\nThe metal material (substrate medium) used for Filter A is silver. ere, silver is characterized by the Drude model [70]:\n2 (\uD835\uDF14) = \uD835\uDF00∞ − \uD835\uDF142\uD835\uDC5D\n\uD835\uDF14(\uD835\uDF14 + \uD835\uDC56\uD835\uDEFE) (23)\nWhere \uD835\uDF00∞, \uD835\uDF14p and \uD835\uDEFE are the dielectric permittivity at infinite frequency, the bulk plasma frequency and the damping constant of silver, respectively. The parameters’ values are equal to \uD835\uDF00∞ = 3.7, \uD835\uDF14p = 1.38×1016 Hz nd \uD835\uDEFE = 2.73 × 1013 Hz. Moreover, in Eq. (23), \uD835\uDF14 denotes the angular requency of the incident light, which is defined as:\n= 2\uD835\uDF0Bc0∕\uD835\uDF06 (24)\nere, c0 is the speed of light in vacuum. The nonlinear insulator aterial used for INDR and WGs is InGaAsP (a Kerr material) and its ielectric constant is described by [71]:\n1 = \uD835\uDF000 + \uD835\uDF12 (3) |\uD835\uDC38| 2 (25)\nn this formula, \uD835\uDF000, \uD835\uDF12 (3) and |\uD835\uDC38|2 are the linear dielectric constant, he third-order nonlinear susceptibility and the electric field intensity, espectively. The values of these parameters for InGaAsP are \uD835\uDF000 = 2.25 nd \uD835\uDF12 (3) = 1 × 10−18 \uD835\uDC5A 2\n\uD835\uDC49 2 [57].\nAs seen in Fig. 5(b) (the transmission spectrum of Filter A), this tructure produces two transmission peaks at the wavelengths of Mod = 1367 nm and Mod II = 1028 nm with the maximum transmittance alues of T1max = 76.8% and T2max = 85.5%. One of the generated modes needs to be selected as the data wavelength. The selected mode should have the following properties. Firstly, the selected mode should have sharp edges and an acceptable maximum transmittance peak value. Secondly, such a mode should guarantee minimum cross-talk\nbetween the cross WGs. The first condition is met by both modes. But the second condition should be investigated by analyzing the resonance profiles of Mode I and Mode II. Fig. 6 shows the field profile of Re (\uD835\uDC3Bz) at the wavelengths of Mode I and Mode II. As seen in Fig. 6, the first resonance mode (Fig. 6(a)) has even symmetry along the horizontal and vertical axes, while the second resonance mode (Fig. 6(b)) has even and odd symmetry along the horizontal and vertical axes, respectively. It can be inferred that by adding the vertical WG to Filter A, Mode II can pass through the horizontal WG without any leakage to the vertical WG. Therefore, such a mode can be a suitable candidate for the data wavelength."
+    }, {
+      "heading" : "3.2. INDR coupled to the vertical WG (Filter B)",
+      "text" : "The INDR coupled to the vertical WG (Filter B) and its transmission spectrum are shown in Fig. 7. As seen, this structure generates two modes (Mode I′ and Mode II′) too. Here, Mode I′ and Mode II′ pass relatively wide ranges of the wavelengths. Consequently, these modes can be suitable choices for the control wavelength. The central wavelengths of two modes are equal to 1028 nm and 1336 nm with the maximum transmittances of Tmax 1′ = 89.1% and Tmax 2′ = 93.6%.\nThe field profile of Re (\uD835\uDC3Bz) for the modes of Filter B are shown in Fig. 8. As seen, both modes have appeared in INDR and are transmitted to the output port of Filter B. Here, the central wavelength of Mode II′ (1028 nm) is considered as the control wavelength. Also, for the reasons mentioned above, the field profile of Filter B at Mode II′ shows that such a mode causes lower cross talk between the data and control WGs compared with Mode I′."
+    }, {
+      "heading" : "3.3. Power ratio analysis",
+      "text" : "To be able to use the formulas presented in Section 2 for obtaining the input–output curves associated with power intensities for Filter’s A and B, we need to take a closer look at the shapes of the transmission curves. Close-up depictions of the selected mode for Filter A and the selected mode for filter B are presented in Fig. 9(a) and (b), respectively. As seen in Fig. 9(a) the transmission curve is approximately Gaussianshaped. Therefore, we can use the method presented in Section 2 to calculate the hysteresis for Filter A, while we do not have such an option for filter B.\nTo study the feasibility of realizing an AOS using such resonators, the time domain simulation results of Filter A are shown in Fig. 10. At first, an optical pulse at the wavelength of Mode I (\uD835\uDF061 = 1028 nm) is applied to the input (left) port of Filter A. The input pulse and its response at the output (right) port are depicted in Fig. 10(a). As seen, the proposed structure creates a symmetric output signal. Fig. 10(b) depicts the output power versus the input power inserted to the waveguide. It is seen that Filter A does not have a hysteresis loop at the selected data wavelength. Therefore, a good switching operation can occur by Filter A at this wavelength. The similarity of the FDTD results and the results obtained using the method described in Section 2 is worth mentioning. Fig. 10(c) depicts the transmittance curve versus the input power when the wavelength of the input light is selected at the peak of the transmission curve shown in Fig. 9(a). As expected, by increasing the input power the transmission curve moves to the right side and the transmittance decreases.\nNow we choose another wavelength at the helm of the transmission curve at 1052 nm. When we increase the input power, the transmission curve moves to the right side and in this case we expect the transmittance to increase. To check the validity of our theory, the FDTD results associated with \uD835\uDF06 = 1024 nm are once again repeated for \uD835\uDF06 = 1052 nm, and the results are depicted in Fig. 10(d) to (f). As seen, a hysteresis curve is observed in this case. Once again good agreement between FDTD results and analytical results are observed.\nAs well as the previous structure (Filter A), the time domain behavior of Filter B has also been investigated. To perform the simulations,\nt \uD835\uDF06 3 s ( ( o a\nt d a i m s T he wavelengths of \uD835\uDF061 = 1028 nm (central wavelength of Mode II′) and 2 = 1052 nm (the wavelength with the maximum transmittance of .8% or 0.04 × Tmax 2′) have been selected. The obtained results are hown in Fig. 11(a)–(f). As seen, the input and output pulse signals from down port to up port) have symmetric shapes (Figs. 11(a) and d)). Also, there is a nearly linear relationship between the amplitude f the input and output pulse signals at both wavelengths (Figs. 11(b) nd (e)). In other words, by increasing or decreasing the amplitude of i\nhe input pulse, the amplitude of the output pulse is also increased or ecreased, respectively. Figs. 11(c) and (f) show the hysteresis curves t the wavelengths of 1028 nm and 1052 nm, respectively. As seen n Fig. 11(c), for the wavelength of 1028 nm (peak of Mode II′), the aximum transmittance is decreased at the rising edge of PIN (red olid curve) and increased at the falling edge of PIN (black dash curve). his mechanism occurs inversely for the wavelength of 1052 nm which\ns located at the helm of the transmittance curve. According to the\na w\ns b o t 7 ‘\nhysteresis curve for the control wavelength (Fig. 11(c)), the maximum displacement of transmittance is from 0.91 to 0.978 which is not a significant value. It makes this wavelength a good candidate for use as the control signal."
+    }, {
+      "heading" : "4. The proposed AOS",
+      "text" : "In this section, the main structure of the designed AOS has been investigated. As mentioned before, by changing the refractive index of the existing Kerr material in INDR and WGs, the switching operation can be obtained. First, the previously designed filters (Filter A and Filter B) have been combined. Thereafter, the effect of the control signal on the refractive index of the Kerr material and switching mechanism of the designed AOS has been investigated. Then, by sweeping some of the structural parameters, the effect of structural parameters on the data signal have been considered. At the end of this section, the time domain simulations and the related considerations are studied."
+    }, {
+      "heading" : "4.1. The design procedure of the proposed AOS",
+      "text" : "The schematic topology of the proposed AOS is shown in Fig. 12. As seen in this figure, the designed switch structure consists of a combination of two previous filters (Filter A and Filter B). This AOS has four ports named P1 to P4 (port 1 to 4). As mentioned before, f\nthe horizontal and vertical WGs have been considered as the data and control WGs, respectively. In other words, the data signal source (DSS) is located at the port 1. Also, port 3 is allocated to the control signal source (CSS).\nFig. 13 shows the transmission spectra of the designed AOS and compares them with the transmission spectra of Filter A and Filter B. As seen in Fig. 13(a), when only the DSS is applied to port 1 and the CSS is ‘‘off’’, the lower mode of Filter A (Mode I) can pass through the structure (from port 1 to port 2) and Mode II is eliminated. Similarly, if only the CSS is ‘‘on’’, the control signal (T34, the signal from port 3 to port 4) associated with Mode II′ of Filter B passes through the structure completely and does not leak to other ports (Fig. 13(b)). According to the simulation results, the wavelengths of Mode II and Mode II′ which re equal to 1028 nm are appropriate choices for the data and control avelengths.\nAfter determining the wavelengths of data and control signals, the witching mechanism of the proposed AOS has been investigated. Here, oth the DSS and CSS are at the ‘‘on’’ state. When the refractive index f the Kerr material is changed due to applying the CSS, the maximum ransmittance of the data wavelength of 1028 nm is changed from 6.8% to 10.9%. Accordingly, the switch status is changed from the ‘on’’ state to the ‘‘off’’ state. This case is shown in Fig. 14. To clarify the operating mechanism of the proposed AOS, the ield profile of \uD835\uDC3Bz magnitude has also been presented in Fig. 15. As\ni\n(\ns t F t\nn a w een, by applying only the DSS (Fig. 15(a)) and CSS (Fig. 15(b)), he data and control wavelengths can propagate in the structure. igs. 15(a) and (b) show that these wavelengths (data and control) ransmit almost completely to port 2 and port 4, respectively and do s\not leakage to other ports. As mentioned before, by applying data nd control sources simultaneously, the AOS turns off and the data avelength cannot pass through the structure. Fig. 15(c) shows this\nituation."
+    }, {
+      "heading" : "4.2. Investigation of the structural parameters’ effects",
+      "text" : "In this sub-section, some of the structural parameters including the radius of the NDR (r1), the gap between the NDR and parenthesis adjunctions (g) and the width of the parenthesis adjunctions (d) have been swept and their effects on the transmission spectra of the data signal have been investigated. These variations are shown in Fig. 16. As seen in Fig. 16(a), increasing the r1 value leads to a higher maximum transmittance peak and a higher resonance wavelength. Although the higher maximum transmittance peaks are achieved for r1 > 400 nm, the footprint of the structure increases too. Accordingly, r1 = 400 nm is the most suitable choice due to its acceptable maximum transmittance and its compact size.\nThe second parameter is ‘‘g’’. Fig. 16(b) shows that by increasing g from 10 nm to 22 nm, the coupling strength between the NDR and parenthesis adjunctions is decreased. In other words, the maximum transmittance value is decreased and the sharpness of the data mode edges is increased. Therefore, to have a trade-off between the design parameters, the value of 16 nm is selected for g. The last parameter is ‘‘d’’. The variation of this parameter is shown in Fig. 16(c). Here, similar to the g parameter, the middle value of d (45 nm) creates a suitable maximum transmittance value and sharp transition edges for the generated mode.\nAs known, by increasing the size of the resonator in a plasmonic structure, its resonance mode shifts to higher wavelengths with lower maximum transmittance values and higher quality factors. Here, by increasing the d parameter, the size of the parenthesis-shaped resonator\nincreases. Therefore, there is a suitable trade-off between the two design parameters of the lower maximum transmittance and higher quality factor. This is achieved by considering d = 45 nm."
+    }, {
+      "heading" : "4.3. Time domain simulation results of the proposed AOS",
+      "text" : "After designing the proposed AOS, to provide a better prospect of the switching mechanism, the time domain simulations of the designed switch have been presented. For this purpose, first, it is imperative that the input powers of the DSS and CSS (PIN-data and PIN-control) be determined. Initially, by applying only a continuous-wave at the wavelength of 1028 nm to port 1, PIN-data is selected. Fig. 17(a) shows the variations of the maximum normalized transmission of the data signal for different values of PIN-data. As seen in this figure, by increasing PIN-data, the maximum normalized transmission is decreased. Accordingly, to have a high transmittance value for the data signal, a low PIN-data equal to 1.34 W/μm with a maximum transmittance of 69% has been selected for the DSS. Thereafter, by turning on both the DSS and CSS, the variations of the contrast ratio (CR) have been investigated through changing PIN-control. Here, the CSS is a Gaussian-pulse at the wavelength of 1028 nm. The mentioned variations are shown in Fig. 17(b). This figure shows that when PIN-control is increased, the CR of the output signal increases initially and then decreases. The maximum CR (8.68 dB) occurs at PIN-control = 39.93 W/μm which is selected for designing the proposed AOS.\nAfter selecting PIN-data and PIN-control, the time-domain behavior of the output signal has been investigated. The continuous-wave signal\nand the Gaussian-shaped pulse which are used for the DSS and CSS are shown in Figs. 18(a) and (b), respectively. The output signal derived from these two inputs is presented in Fig. 18(c).\nAs seen in Fig. 18(c), when only the DSS with the input power of 1.34 W/μm is applied (the section from 0 ps to 3 ps), about 0.69 × PIN-data or 0.93 W/μm is transmitted to the output port (port 2). If the Gaussian-pulse of the CSS with the input power of 39.93 W/μm is also ‘‘on’’ (Fig. 18(b)), the transmitted power to the output port (at the range\nof 3 ps to 9 ps) is reduced to 0.17 W/μm or 0.126 × PIN-data. In other words, the status of the AOS changes from ‘‘on’’ to ‘‘off’’. Finally, when the control pulse is turned off again (from 9 ps to 12 ps), the AOS returns to its previous state (the ‘‘on’’ state).\nAs mentioned, the proposed AOS benefits from using identical data and control wavelengths (1028 nm). Such a property prevents the designed AOS to have any harmonic distortion at its ‘‘off’’ state (which is shown in Fig. 18(c)). To better clarify this issue, the time domain\no 1\nutput signals for other control wavelengths (1020 nm, 1035 nm and 325 nm) and different PIN-control(39.3 W/μm and 19.96 W/μm) have been presented in Fig. 19. Fig. 19(a) shows the transmission spectrum of the control signal and the location of the other selected control wavelengths with respect to the main control wavelength (\uD835\uDF06c = 1028 nm). As seen, the wavelengths of 1020 nm and 1035 nm are chosen at the peak\nof Mode II′ before and after the \uD835\uDF06c, respectively and the wavelength of 1325 nm is located at the peak of Mode I′.\nThe time domain output signals for the wavelengths of 1020 nm, 1035 nm and 1325 nm are shown in Figs. 19(b) and (c), Figs. 19(d) and (e) and Figs. 19(f) and (g), for different control signal powers, respectively. The left panel of these figures (Figs. 19(b), (d) and (f))\n(\nare allocated to the input power of 39.3 W/μm and the right panels are for PIN-control = 19.96 W/μm. As seen, in all of these cases, there is the amplitude modulation which is not desirable for the ‘‘off’’ state of the AOS. Also, by halving the input power of the control signal (right panel figures), although the amplitude modulation decreases, the CR values are also decreased. The reason for such a phenomenon can be explained by considering the variations of the CR versus the input power of the CSS (Fig. 17(b)). As mentioned before, by increasing the input power of the CSS, the CR increases initially and then decreases. Consequently, the CR for the CSS power of 19.96 W/μm is less than the CSS power of 39.93 W/μm. Consequently, for non-identical control wavelengths, a distortion removing filter is needed. This filter increases the total size of the structure. The main benefit of our structure is that we can use the same wavelength for both signals and prevent such undesired modulation effects.\nFinally, the input–output curves for the proposed AOS at the data and control wavelengths have been presented in Fig. 20(a)–(f) when Gaussian-shaped pulses are inserted to the ports separately. As seen, the behavior of the AOS at the data and control wavelengths are similar to Filter A and Filter B at the wavelengths of 1028 nm.\nAs mentioned, the data and control wavelengths are selected so that there is a minimum cross talk between the two cross-path WGs. The similarity of the transmission spectra of the AOS’ data and control signals with Filter A and Filter B verifies this issue. This causes the behavior of the designed AOS at the data and control wavelengths (1028 nm) to be the same as Filter A and Filter B, respectively. Therefore, similar to the basic filters, the symmetric input and output Gaussian signals (Figs. 20(a) and (d)) result in the hysteresis curves without bistability loops (Figs. 20(c) and (f)). In other words, the hysteresis curves of the proposed AOS at the data and control wavelengths are the same as Figs. 10(c) and 11 (c), respectively.\no A i\na f h p h u I i j w i i a d a a w s m\no"
+    }, {
+      "heading" : "5. Results, comparisons and discussions",
+      "text" : "In this section, comparisons between the proposed AOS and other works, in terms of characteristic parameters, are performed. Table 2 shows the properties of some AOSs. In this table, the comparison parameters include the types of the Kerr material used along with their nonlinear refractive indexes (n2), the control power intensity (I), the data and control wavelengths (\uD835\uDF06d and \uD835\uDF06c), the transmittances values f the data signals for the ‘‘on’’ and ‘‘off’’ states (Ton and Toff ), the OS sizes and the isolation of data and control WGs. Also, it has been\nnvestigated whether the time simulations are performed or not. In [58] ring resonators side-coupled an MIM plasmonic waveguide re used to create an optical switch. One of the ring resonators is illed with a Kerr-type material. In [58], the data and pump signals ave to be injected from a single port. To separate the high intensity ump signal from the low intensity data signals in such designs, very igh performance demultiplexers are needed. In [59] a similar idea is sed, in which the ring resonator is replaced by two disk resonators. n [59], the resonators are located at the arms of a T-junction. The dea is very clever and worth admiring. However, due to using a Tunction a large portion of the signal is reflected backwards. In simple ords, the maximum transmittance is less than 57%. The structure used n [60] uses parallel stubs connected to a main waveguide, one of which s terminated to a disk resonator filled with a Kerr-type material. It lso uses a single waveguide for both signals and needs high precision emultiplexers. The same problem exists in [66]. The references [67] nd [68] are authors’ previous publications. In [67] we have used an symmetric directional coupler which solves the problem of isolated aveguides, but needs a large footprint area. In [68] we have also olved the problem of separate waveguides and footprint area, but the aximum transmission is still less than 64%.\nHere, in addition to comparing the control power intensity, the type f Kerr materials is also compared. In order to have fair comparisons,\nthe dependence of the control power intensity to nonlinear index of the Kerr materials should be considered. If a nonlinear material with a high nonlinear refractive index is used, low control power intensity is needed to change the refractive index of Kerr material. Therefore, it is reasonable that the proposed AOS (due to its lower nonlinear refractive index) needs more control power intensity compared to other works.\nAs seen in this table, only the proposed switch uses identical data and control wavelengths among the presented works. This issue has been neglected in other designed AOSs, while the time domain simulations in this paper show that choosing two different wavelengths for data and control can cause problems. Other comparison parameters are the transmittance values of the data wavelength for the ‘‘on’’ and ‘‘off’’ states. The difference between the two values shows the \uD835\uDEE5Trans parameter. As seen, the proposed AOS has the highest transmittance variation between the on and off states among the other works. Also, as mentioned, the proposed AOS consists of two isolated WGs for the data and control wavelengths. This is the reason why the designed AOS has a larger footprint compared to other works. As known, there is a trade-off between the designing parameters. Therefore, although the proposed AOS has a larger size or needs more control power intensity, it has other better properties such as the same data and control wavelengths, separate and isolated data and control ports, simple structure.\nIn summary, the main novelty of the designed AOS is that by using a combination of an INDR and cross-path MIM WGs a compactsize all-optical switch is obtained which can use a same wavelength for both control and pump signals. This prevents the intermodulation between these signals and reduces harmonic distortion. Contrary to other circuits that use a common WG to pass the data and control signals, this paper uses two separated paths for such signals. In fact, this method prevents cross talk between the data and control ports. It is worth mentioning that in order to verify the correct operation of the proposed switch, its time domain behavior were investigated. Since the proposed AOS uses identical data and control wavelengths, it does not\na b\nD\nc i\nA\nc\nR\nneed an anti-distortion filter at its output port. Unfortunately, this issue is usually neglected in other simulation based papers published in the literature."
+    }, {
+      "heading" : "6. Conclusion",
+      "text" : "A novel structure for achieving the all optical switching mechanism was proposed and investigated in this paper. The structure consisted of an INDR coupled with two cross WGs. The nonlinear Kerr effect was used to procure the switching mechanism and the Kerr material which was used was InGaAsP. It is worth mentioning that sliver was used as the metal material and it was characterized by the Drude model in our numerical simulations. The FDTD method was utilized to simulate the proposed structure and the frequency and time-domain behavior of the switch were considered. In addition to the numerical simulations, an analytical method was also proposed for modeling the hysteresis in optical switches. Such a method was highly consistent with the numerical results obtained using FDTD method. It was shown that the switch can correctly operate for control pulses as narrow as 3ps at 1028 nm. The maximum transmittance value was 76.8% and the footprint area was 1.37 μm2. The proposed AOS due to isolated WGs nd having identical data and control wavelengths has the potential to e used in highly integrated optical circuits.\neclaration of competing interest\nThe authors declare that they have no known competing finanial interests or personal relationships that could have appeared to nfluence the work reported in this paper.\ncknowledgments\nThe authors would also like to thank the reviewers for their valuable omments.\neferences\n[1] W.L. Barnes, A. Dereux, T.W. Ebbesen, Surface plasmon subwavelength optics, Nature 424 (6950) (2003) 824–830. [2] D.K. Gramotnev, S.I. Bozhevolnyi, Plasmonics beyond the diffraction limit, Nature Photonics 4 (2) (2010) 83. [3] T. Zhang, J. Sun, Y. Yang, Z. Li, Photonic crystal filter based on defect mode and waveguide mode symmetry matching, Opt. Commun. 428 (2018) 53–56. [4] M. Danaie, R. Nasiri Far, A. Dideban, Design of a high-bandwidth Y-shaped photonic crystal power splitter for TE modes, Int. J. Opt. Photonics 12 (1) (2018) 33–42. [5] Z. Yang, K. Chen, C.G. Wang, X. She, N. Li, X.W. Shu, A photonic crystal beam splitter used for light path multiplexing: synergy of TIR and PBG light guiding, Opt. Quantum Electron. 52 (2) (2020) 84. [6] M. Danaie, R. Nasirifar, A. Dideban, Design of adjustable T-shaped and Y-shaped photonic crystal power splitters for TM and TE polarizations, Turk. J. Electr. Eng. Comput. Sci., Elektr. 25 (5) (2017) 4398–4408. [7] S. Foghani, H. Kaatuzian, M. Danaie, Simulation and design of a wideband T-shaped photonic crystal splitter, Opt. Appl. 40 (4) (2010) 863–872.\n[8] C. Qi, W. Shutao, L. Jiangtao, L. Na, P. Bo, Refractive index sensor based on photonic crystal nanocavity, Opt. Commun. (2020) 125393. [9] A. Geravand, M. Danaie, E. Danaee, Low cross-talk waveguide intersections for TE polarization using photonic crystals, Opt. Commun. 458 (2020) 124838. [10] E. Danaee, A. Geravand, M. Danaie, Wide-band low cross-talk photonic crystal waveguide intersections using self-collimation phenomenon, Opt. Commun. 431 (2019) 216–228. [11] A.E. Akosman, M. Mutlu, H. Kurt, E. Ozbay, Dual-frequency division demultiplexer based on cascaded photonic crystal waveguides, Physica B 407 (20) (2012) 4043–4047. [12] K. Abedi, S.M. Mirjalili, Slow light performance enhancement of Bragg slot photonic crystal waveguide with particle swarm optimization algorithm, Opt. Commun. 339 (2015) 7–13. [13] M. Moradi, M. Danaie, A.A. Orouji, Design and analysis of an optical full-adder based on nonlinear photonic crystal ring resonators, Optik 172 (2018) 127–136. [14] M. Danaie, A.R. Attari, M.M. Mirsalehi, S. Naseh, Optimization of twodimensional photonic crystal waveguides for TE and TM polarizations, Opt. Appl. 38 (4) (2008) 643–655. [15] M. Ghomashi, H. Kaatuzian, M. Danaie, Design and simulation of normally open and normally closed all-optical switches based on photonic crystal triple-waveguide directional coupler, Opt. Quantum Electron. 48 (1) (2016) 35. [16] M. Hoseini, M. Malekmohammad, All-optical high performance graphenephotonic crystal switch, Opt. Commun. 383 (2017) 159–164. [17] M. Danaie, H. Kaatuzian, Improvement of power coupling in a nonlinear photonic crystal directional coupler switch, Photon. Nanostruct.: Fundam. Appl. 9 (1) (2011) 70–81. [18] S. Khani, M. Danaie, P. Rezaei, Design of a single-mode plasmonic bandpass filter using a hexagonal resonator coupled to graded-stub waveguides, Plasmonics 14 (1) (2019) 53–62. [19] S. Khani, M. Danaie, P. Rezaei, Size reduction of MIM surface plasmon based optical bandpass filters by the introduction of arrays of silver nano-rods, Physica E 113 (2019) 25–34. [20] L. Shi, J. He, C. Tan, Y. Liu, J. Hu, X. Wu, S. Zhan, et al., Plasmonic filter with highly selective wavelength in a fixed dimension based on the loaded rectangular ring cavity, Opt. Commun. 439 (2019) 125–128. [21] S. Khani, M. Danaie, P. Rezaei, Tunable single-mode bandpass filter based on metal–insulator–metal plasmonic coupled U-shaped cavities, IET Optoelectron. 13 (4) (2019) 161–171. [22] A. Alipour, A. Mir, A. Farmani, Ultra high-sensitivity and tunable dual-band perfect absorber as a plasmonic sensor, Opt. Laser Technol. 127 (2020) 106201. [23] M.R. Rakhshani, Optical refractive index sensor with two plasmonic doublesquare resonators for simultaneous sensing of human blood groups, Photon. Nanostruct.: Fundam. Appl. 39 (2020) 100768. [24] M. Danaie, A. Shahzadi, Design of a high-resolution metal–insulator–metal plasmonic refractive index sensor based on a ring-shaped Si resonator, Plasmonics 14 (6) (2019) 1453–1465. [25] M.R. Pav, N. Granpayeh, S.P. Hosseini, A. Rahimzadegan, Ultracompact double tunable two-channel plasmonic filter and 4-channel multi/demultiplexer design based on aperture-coupled plasmonic slot cavity, Opt. Commun. 437 (2019) 285–289. [26] S. Khani, M. Danaie, P. Rezaei, Double and triple-wavelength plasmonic demultiplexers based on improved circular nanodisk resonators, Opt. Eng. 57 (10) (2018) 107102. [27] L. Hajshahvaladi, H. Kaatuzian, M. Danaie, Design and analysis of a plasmonic demultiplexer based on band-stop filters using double-nanodisk-shaped resonators, Opt. Quantum Electron. 51 (12) (2019) 391. [28] M. Yuan, Y. Li, Y. Lu, Y. Zhang, Z. Zhang, X. Zhang, W. Zhang, et al., High-performance and compact broadband terahertz plasmonic waveguide intersection, Nanophotonics 8 (10) (2019) 1811–1819. [29] M. Danaie, A. Geravand, Design of low-cross-talk metal–insulator–metal plasmonic waveguide intersections based on proposed cross-shaped resonators, J. Nanophotonics 12 (4) (2018) 046009.\n[30] Y. Zhu, C. Deng, L. Huang, G. Hu, B. Yun, R. Zhang, Y. Cui, Hybrid plasmonic graphene modulator with buried silicon waveguide, Opt. Commun. 456 (2020) 124559. [31] B. Li, S. Zu, J. Zhou, Q. Jiang, B. Du, H. Shan, Z. Fang, et al., Single-nanoparticle plasmonic electro-optic modulator based on MoS2 monolayers, ACS Nano 11 (10) (2017) 9720–9727. [32] N. Nozhat, H. Alikomak, M. Khodadadi, All-optical XOR and NAND logic gates based on plasmonic nanoparticles, Opt. Commun. 392 (2017) 208–213. [33] H. Yang, E. Owiti, S. Li, Y. Pei, H. Shi, X. Sun, Ag nanoprism metamaterial based tunable plasmonic logic gate, J. Phys. D: Appl. Phys. 50 (44) (2017) 445103. [34] M. Moradi, M. Danaie, A.A. Orouji, Design of all-optical XOR and XNOR logic gates based on Fano resonance in plasmonic ring resonators, Opt. Quantum Electron. 51 (5) (2019) 154. [35] Y. Shahamat, M. Vahedi, Designing ultra-compact high efficiency electro-optical plasmonic switches by using of nanocavity reflectors, Opt. Commun. 410 (2018) 25–29. [36] P.P. Sahu, Theoretical investigation of all optical switch based on compact surface plasmonic two mode interference coupler, J. Lightwave Technol. 34 (4) (2015) 1300–1305. [37] X. Hu, H. Wang, M. Wang, Z. Zang, Interfacial defects passivation using fullerenepolymer mixing layer for planar-structure perovskite solar cells with negligible hysteresis, Sol. Energy 206 (2020) 816–825. [38] S. Cao, H. Wang, H. Li, J. Chen, Z. Zang, Critical role of interface contact modulation in realizing low-temperature fabrication of efficient and stable CsPbIBr2 perovskite solar cells, Chem. Eng. J. (2020) 124903. [39] S. Khani, M. Danaie, P. Rezaei, Miniaturized microstrip dual-band bandpass filter with wide upper stop-band bandwidth, Analog Integr. Circuits Signal Process. 98 (2) (2019) 367–376. [40] S. Khani, M. Danaie, P. Rezaei, A. Shahzadi, Compact ultra-wide upper stopband microstrip dual-band BPF using tapered and octagonal loop resonators, Frequenz 74 (1–2) (2020) 61–71. [41] Z.G. Zang, Y.J. Zhang, Low-switching power (< 45 mW) optical bistability based on optical nonlinearity of ytterbium-doped fiber with a fiber Bragg grating pair, J. Modern Opt. 59 (2) (2012) 161–165. [42] Z. Zang, Y. Zhang, Analysis of optical switching in a Yb 3+-doped fiber Bragg grating by using self-phase modulation and cross-phase modulation, Appl. Opt. 51 (16) (2012) 3424–3430. [43] Z. Zang, All-optical switching in Sagnac loop mirror containing an ytterbium-doped fiber and fiber Bragg grating, Appl. Opt. 52 (23) (2013) 5701–5706. [44] Z.G. Zang, W.X. Yang, Theoretical and experimental investigation of all-optical switching based on cascaded LPFGs separated by an erbium-doped fiber, J. Appl. Phys. 109 (10) (2011) 103106. [45] A. Farmani, A. Zarifkar, M.H. Sheikhi, M. Miri, Design of a tunable graphene plasmonic-on-white graphene switch at infrared range, Superlattices Microstruct. 112 (2017) 404–414. [46] A. Farmani, A. Mir, Z. Sharifpour, Broadly tunable and bidirectional terahertz graphene plasmonic switch based on enhanced Goos-Hänchen effect, Appl. Surf. Sci. 453 (2018) 358–364. [47] H. Ji, B. Zhang, G. Wang, W. Wang, J. Shen, Photo-excited multi-frequency terahertz switch based on a composite metamaterial structure, Opt. Commun. 412 (2018) 37–40. [48] G. Wang, J. Zhang, B. Zhang, T. He, Y. He, J. Shen, Photo-excited terahertz switch based on composite metamaterial structure, Opt. Commun. 374 (2016) 64–68. [49] Y. Ma, Z. Peng, S. Ding, F. Peng, Q. Zhang, X. Yu, Diode-pumped acoustooptically Q-switched laser with Nd3+ doped GdYNbO4 mixed crystal, Infrared Phys. Technol. 92 (2018) 295–298. [50] A.N. Taheri, H. Kaatuzian, Numerical investigation of a nano-scale electroplasmonic switch based on metal-insulator-metal stub filter, Opt. Quantum Electron. 47 (2) (2015) 159–168.\n[51] A.N. Taheri, H. Kaatuzian, Design and simulation of a nanoscale electroplasmonic 1 × 2 switch based on asymmetric metal–insulator–metal stub filters, Appl. Opt. 53 (28) (2014) 6546–6553. [52] Z. Qi, G. Hu, B. Yun, X. Zhang, Y. Cui, Fast response and low power consumption 1 × 2 thermo-optic switch based on dielectric-loaded surface plasmon polariton waveguides, J. Modern Opt. 63 (14) (2016) 1354–1363. [53] A. Pitilakis, E.E. Kriezis, Longitudinal 2 × 2 switching configurations based on thermo-optically addressed dielectric-loaded plasmonic waveguides, J. Lightwave Technol. 29 (17) (2011) 2636–2646. [54] M. Ghadrdan, M.A. Mansouri-Birjandi, Design and implementation of optical switches based on nonlinear plasmonic ring resonators: circular, square and octagon, Photon. Nanostruct.: Fundam. Appl. 29 (2018) 15–21. [55] S. Armaghani, S. Khani, M. Danaie, Design of all-optical graphene switches based on a Mach-Zehnder interferometer employing optical Kerr effect, Superlattices Microstruct. 135 (2019) 106244. [56] X. Bana, X. Pang, X. Li, B. Hu, Y. Guo, H. Zheng, A nonlinear plasmonic waveguide based all-optical bidirectional switching, Opt. Commun. 406 (2018) 124–127. [57] M. Tian, P. Lu, L. Chen, D. Liu, C. Lv, All-optical switching in MIM waveguide resonator with an outer portion smooth bend structure containing nonlinear optical materials, Opt. Commun. 285 (21–22) (2012) 4562–4566. [58] T. Nurmohammadi, K. Abbasian, R. Yadipour, Ultra-fast all-optical plasmonic switching in near infra-red spectrum using a Kerr nonlinear ring resonator, Opt. Commun. 410 (2018) 142–147. [59] J. Tao, Q.J. Wang, X.G. Huang, All-optical plasmonic switches based on coupled nano-disk cavity structures containing nonlinear material, Plasmonics 6 (4) (2011) 753. [60] H. Lu, X. Liu, L. Wang, Y. Gong, D. Mao, Ultrafast all-optical switching in nanoplasmonic waveguide with Kerr nonlinear resonator, Opt. Express 19 (4) (2011) 2910–2915. [61] S. Paul, M. Ray, Simultaneous switching at multiple wavelengths using plasmon induced transparency and Fano resonance, IEEE Photonics Technol. Lett. 29 (9) (2017) 739–742. [62] G. Wang, H. Lu, X. Liu, Y. Gong, Numerical investigation of an all-optical switch in a graded nonlinear plasmonic grating, Nanotechnology 23 (44) (2012) 444009. [63] Y. Xiang, W. Cai, L. Wang, C. Ying, X. Zhang, J. Xu, Design methodology for all-optical bistable switches based on a plasmonic resonator sandwiched between dielectric waveguides, J. Opt. 16 (2) (2014) 025003. [64] S. Khani, M. Danaie, P. Rezaei, Hybrid all-optical infrared metal-insulator-metal plasmonic switch incorporating photonic crystal bandgap structures, Photon. Nanostruct.: Fundam. Appl. (2020) 100802. [65] Y. Kong, R. Lin, W. Qian, Q. Wei, C. Liu, S. Wang, Active dual-wavelength optical switch-based plasmonic demultiplexer using metal-Kerr nonlinear material-metal waveguide, IEEE Photonics J. 9 (4) (2017) 1–8. [66] Z. Zhang, J. Yang, X. He, Y. Han, J. Zhang, J. Huang, S. Xu, All-optical multi-channel switching at telecommunication wavelengths based on tunable plasmon-induced transparency, Opt. Commun. 425 (2018) 196–203. [67] S. Khani, M. Danaie, P. Rezaei, All-optical plasmonic switches based on asymmetric directional couplers incorporating bragg gratings, Plasmonics (2019) 1–11. [68] S. Khani, M. Danaie, P. Rezaei, Compact and low-power all-optical surface plasmon switches with isolated pump and data waveguides and a rectangular cavity containing nano-silver strips, Superlattices Microstruct. (2020) 106481. [69] S. Khani, M. Danaie, P. Rezaei, Realization of single-mode plasmonic bandpass filters using improved nanodisk resonators, Opt. Commun. 420 (2018) 147–156. [70] J. Park, H. Kim, B. Lee, High order plasmonic Bragg reflection in the metal-insulator-metal waveguide Bragg grating, Opt. Express 16 (1) (2008) 413–425. [71] X. Wang, H. Jiang, J. Chen, P. Wang, Y. Lu, H. Ming, Optical bistability effect in plasmonic racetrack resonator with high extinction ratio, Opt. Express 19 (20) (2011) 19415–19421."
+    } ],
+    "references" : [ {
+      "title" : "Surface plasmon subwavelength optics",
+      "author" : [ "W.L. Barnes", "A. Dereux", "T.W. Ebbesen" ],
+      "venue" : "Nature 424 (6950) ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Plasmonics beyond the diffraction limit",
+      "author" : [ "D.K. Gramotnev", "S.I. Bozhevolnyi" ],
+      "venue" : "Nature Photonics 4 (2) ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Photonic crystal filter based on defect mode and waveguide mode symmetry matching",
+      "author" : [ "T. Zhang", "J. Sun", "Y. Yang", "Z. Li" ],
+      "venue" : "Opt. Commun. 428 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Design of a high-bandwidth Y-shaped photonic crystal power splitter for TE modes",
+      "author" : [ "M. Danaie", "R. Nasiri Far", "A. Dideban" ],
+      "venue" : "Int. J. Opt. Photonics 12 (1) ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A photonic crystal beam splitter used for light path multiplexing: synergy of TIR and PBG light guiding",
+      "author" : [ "Z. Yang", "K. Chen", "C.G. Wang", "X. She", "N. Li", "X.W. Shu" ],
+      "venue" : "Opt. Quantum Electron. 52 (2) ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Design of adjustable T-shaped and Y-shaped photonic crystal power splitters for TM and TE polarizations",
+      "author" : [ "M. Danaie", "R. Nasirifar", "A. Dideban" ],
+      "venue" : "Turk. J. Electr. Eng. Comput. Sci., Elektr. 25 (5) ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Simulation and design of a wideband T-shaped photonic crystal splitter",
+      "author" : [ "S. Foghani", "H. Kaatuzian", "M. Danaie" ],
+      "venue" : "Opt. Appl. 40 (4) ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Refractive index sensor based on photonic crystal nanocavity",
+      "author" : [ "C. Qi", "W. Shutao", "L. Jiangtao", "L. Na", "P. Bo" ],
+      "venue" : "Opt. Commun. ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Low cross-talk waveguide intersections for TE polarization using photonic crystals",
+      "author" : [ "A. Geravand", "M. Danaie", "E. Danaee" ],
+      "venue" : "Opt. Commun. 458 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Wide-band low cross-talk photonic crystal waveguide intersections using self-collimation phenomenon",
+      "author" : [ "E. Danaee", "A. Geravand", "M. Danaie" ],
+      "venue" : "Opt. Commun. 431 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Dual-frequency division demultiplexer based on cascaded photonic crystal waveguides",
+      "author" : [ "A.E. Akosman", "M. Mutlu", "H. Kurt", "E. Ozbay" ],
+      "venue" : "Physica B 407 (20) ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Slow light performance enhancement of Bragg slot photonic crystal waveguide with particle swarm optimization algorithm",
+      "author" : [ "K. Abedi", "S.M. Mirjalili" ],
+      "venue" : "Opt. Commun. 339 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Design and analysis of an optical full-adder based on nonlinear photonic crystal ring resonators",
+      "author" : [ "M. Moradi", "M. Danaie", "A.A. Orouji" ],
+      "venue" : "Optik 172 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Optimization of twodimensional photonic crystal waveguides for TE and TM polarizations",
+      "author" : [ "M. Danaie", "A.R. Attari", "M.M. Mirsalehi", "S. Naseh" ],
+      "venue" : "Opt. Appl. 38 (4) ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Design and simulation of normally open and normally closed all-optical switches based on photonic crystal triple-waveguide directional coupler",
+      "author" : [ "M. Ghomashi", "H. Kaatuzian", "M. Danaie" ],
+      "venue" : "Opt. Quantum Electron. 48 (1) ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "All-optical high performance graphenephotonic crystal switch",
+      "author" : [ "M. Hoseini", "M. Malekmohammad" ],
+      "venue" : "Opt. Commun. 383 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Improvement of power coupling in a nonlinear photonic crystal directional coupler switch",
+      "author" : [ "M. Danaie", "H. Kaatuzian" ],
+      "venue" : "Photon. Nanostruct.: Fundam. Appl. 9 (1) ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Design of a single-mode plasmonic bandpass filter using a hexagonal resonator coupled to graded-stub waveguides",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "Plasmonics 14 (1) ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Size reduction of MIM surface plasmon based optical bandpass filters by the introduction of arrays of silver nano-rods",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "Physica E 113 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "S",
+      "author" : [ "L. Shi", "J. He", "C. Tan", "Y. Liu", "J. Hu", "X. Wu" ],
+      "venue" : "Zhan, et al., Plasmonic filter with highly selective wavelength in a fixed dimension based on the loaded rectangular ring cavity, Opt. Commun. 439 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Tunable single-mode bandpass filter based on metal–insulator–metal plasmonic coupled U-shaped cavities",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "IET Optoelectron. 13 (4) ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Ultra high-sensitivity and tunable dual-band perfect absorber as a plasmonic sensor",
+      "author" : [ "A. Alipour", "A. Mir", "A. Farmani" ],
+      "venue" : "Opt. Laser Technol. 127 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Optical refractive index sensor with two plasmonic doublesquare resonators for simultaneous sensing of human blood groups",
+      "author" : [ "M.R. Rakhshani" ],
+      "venue" : "Photon. Nanostruct.: Fundam. Appl. 39 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Design of a high-resolution metal–insulator–metal plasmonic refractive index sensor based on a ring-shaped Si resonator",
+      "author" : [ "M. Danaie", "A. Shahzadi" ],
+      "venue" : "Plasmonics 14 (6) ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Ultracompact double tunable two-channel plasmonic filter and 4-channel multi/demultiplexer design based on aperture-coupled plasmonic slot cavity",
+      "author" : [ "M.R. Pav", "N. Granpayeh", "S.P. Hosseini", "A. Rahimzadegan" ],
+      "venue" : "Opt. Commun. 437 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Double and triple-wavelength plasmonic demultiplexers based on improved circular nanodisk resonators",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "Opt. Eng. 57 (10) ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Design and analysis of a plasmonic demultiplexer based on band-stop filters using double-nanodisk-shaped resonators",
+      "author" : [ "L. Hajshahvaladi", "H. Kaatuzian", "M. Danaie" ],
+      "venue" : "Opt. Quantum Electron. 51 (12) ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "W",
+      "author" : [ "M. Yuan", "Y. Li", "Y. Lu", "Y. Zhang", "Z. Zhang", "X. Zhang" ],
+      "venue" : "Zhang, et al., High-performance and compact broadband terahertz plasmonic waveguide intersection, Nanophotonics 8 (10) ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Design of low-cross-talk metal–insulator–metal plasmonic waveguide intersections based on proposed cross-shaped resonators",
+      "author" : [ "M. Danaie", "A. Geravand" ],
+      "venue" : "J. Nanophotonics 12 (4) (2018) 046009.  S. Khani, M. Danaie and P. Rezaei  Optics Communications 477 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Hybrid plasmonic graphene modulator with buried silicon waveguide",
+      "author" : [ "Y. Zhu", "C. Deng", "L. Huang", "G. Hu", "B. Yun", "R. Zhang", "Y. Cui" ],
+      "venue" : "Opt. Commun. 456 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Z",
+      "author" : [ "B. Li", "S. Zu", "J. Zhou", "Q. Jiang", "B. Du", "H. Shan" ],
+      "venue" : "Fang, et al., Single-nanoparticle plasmonic electro-optic modulator based on MoS2 monolayers, ACS Nano 11 (10) ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "All-optical XOR and NAND logic gates based on plasmonic nanoparticles",
+      "author" : [ "N. Nozhat", "H. Alikomak", "M. Khodadadi" ],
+      "venue" : "Opt. Commun. 392 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Ag nanoprism metamaterial based tunable plasmonic logic gate",
+      "author" : [ "H. Yang", "E. Owiti", "S. Li", "Y. Pei", "H. Shi", "X. Sun" ],
+      "venue" : "J. Phys. D: Appl. Phys. 50 (44) ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Design of all-optical XOR and XNOR logic gates based on Fano resonance in plasmonic ring resonators",
+      "author" : [ "M. Moradi", "M. Danaie", "A.A. Orouji" ],
+      "venue" : "Opt. Quantum Electron. 51 (5) ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Designing ultra-compact high efficiency electro-optical plasmonic switches by using of nanocavity reflectors",
+      "author" : [ "Y. Shahamat", "M. Vahedi" ],
+      "venue" : "Opt. Commun. 410 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Theoretical investigation of all optical switch based on compact surface plasmonic two mode interference coupler",
+      "author" : [ "P.P. Sahu" ],
+      "venue" : "J. Lightwave Technol. 34 (4) ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Interfacial defects passivation using fullerenepolymer mixing layer for planar-structure perovskite solar cells with negligible hysteresis",
+      "author" : [ "X. Hu", "H. Wang", "M. Wang", "Z. Zang" ],
+      "venue" : "Sol. Energy 206 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Critical role of interface contact modulation in realizing low-temperature fabrication of efficient and stable CsPbIBr2 perovskite solar cells",
+      "author" : [ "S. Cao", "H. Wang", "H. Li", "J. Chen", "Z. Zang" ],
+      "venue" : "Chem. Eng. J. ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Miniaturized microstrip dual-band bandpass filter with wide upper stop-band bandwidth",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "Analog Integr. Circuits Signal Process. 98 (2) ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Compact ultra-wide upper stopband microstrip dual-band BPF using tapered and octagonal loop resonators",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei", "A. Shahzadi" ],
+      "venue" : "Frequenz 74 (1–2) ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Low-switching power (< 45 mW) optical bistability based on optical nonlinearity of ytterbium-doped fiber with a fiber Bragg grating pair",
+      "author" : [ "Z.G. Zang", "Y.J. Zhang" ],
+      "venue" : "J. Modern Opt. 59 (2) ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Analysis of optical switching in a Yb 3+-doped fiber Bragg grating by using self-phase modulation and cross-phase modulation",
+      "author" : [ "Z. Zang", "Y. Zhang" ],
+      "venue" : "Appl. Opt. 51 (16) ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "All-optical switching in Sagnac loop mirror containing an ytterbium-doped fiber and fiber Bragg grating",
+      "author" : [ "Z. Zang" ],
+      "venue" : "Appl. Opt. 52 (23) ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Theoretical and experimental investigation of all-optical switching based on cascaded LPFGs separated by an erbium-doped fiber",
+      "author" : [ "Z.G. Zang", "W.X. Yang" ],
+      "venue" : "J. Appl. Phys. 109 (10) ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Design of a tunable graphene plasmonic-on-white graphene switch at infrared range",
+      "author" : [ "A. Farmani", "A. Zarifkar", "M.H. Sheikhi", "M. Miri" ],
+      "venue" : "Superlattices Microstruct. 112 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Broadly tunable and bidirectional terahertz graphene plasmonic switch based on enhanced Goos-Hänchen effect",
+      "author" : [ "A. Farmani", "A. Mir", "Z. Sharifpour" ],
+      "venue" : "Appl. Surf. Sci. 453 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Photo-excited multi-frequency terahertz switch based on a composite metamaterial structure",
+      "author" : [ "H. Ji", "B. Zhang", "G. Wang", "W. Wang", "J. Shen" ],
+      "venue" : "Opt. Commun. 412 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Photo-excited terahertz switch based on composite metamaterial structure",
+      "author" : [ "G. Wang", "J. Zhang", "B. Zhang", "T. He", "Y. He", "J. Shen" ],
+      "venue" : "Opt. Commun. 374 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Diode-pumped acoustooptically Q-switched laser with Nd3+ doped GdYNbO4 mixed crystal",
+      "author" : [ "Y. Ma", "Z. Peng", "S. Ding", "F. Peng", "Q. Zhang", "X. Yu" ],
+      "venue" : "Infrared Phys. Technol. 92 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Numerical investigation of a nano-scale electroplasmonic switch based on metal-insulator-metal stub filter",
+      "author" : [ "A.N. Taheri", "H. Kaatuzian" ],
+      "venue" : "Opt. Quantum Electron. 47 (2) ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Design and simulation of a nanoscale electroplasmonic 1 × 2 switch based on asymmetric metal–insulator–metal stub filters",
+      "author" : [ "A.N. Taheri", "H. Kaatuzian" ],
+      "venue" : "Appl. Opt. 53 (28) ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Fast response and low power consumption 1 × 2 thermo-optic switch based on dielectric-loaded surface plasmon polariton waveguides",
+      "author" : [ "Z. Qi", "G. Hu", "B. Yun", "X. Zhang", "Y. Cui" ],
+      "venue" : "J. Modern Opt. 63 (14) ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Longitudinal 2 × 2 switching configurations based on thermo-optically addressed dielectric-loaded plasmonic waveguides",
+      "author" : [ "A. Pitilakis", "E.E. Kriezis" ],
+      "venue" : "J. Lightwave Technol. 29 (17) ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Design and implementation of optical switches based on nonlinear plasmonic ring resonators: circular",
+      "author" : [ "M. Ghadrdan", "M.A. Mansouri-Birjandi" ],
+      "venue" : "square and octagon, Photon. Nanostruct.: Fundam. Appl. 29 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Design of all-optical graphene switches based on a Mach-Zehnder interferometer employing optical Kerr effect",
+      "author" : [ "S. Armaghani", "S. Khani", "M. Danaie" ],
+      "venue" : "Superlattices Microstruct. 135 ",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "A nonlinear plasmonic waveguide based all-optical bidirectional switching",
+      "author" : [ "X. Bana", "X. Pang", "X. Li", "B. Hu", "Y. Guo", "H. Zheng" ],
+      "venue" : "Opt. Commun. 406 ",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "All-optical switching in MIM waveguide resonator with an outer portion smooth bend structure containing nonlinear optical materials",
+      "author" : [ "M. Tian", "P. Lu", "L. Chen", "D. Liu", "C. Lv" ],
+      "venue" : "Opt. Commun. 285 (21–22) ",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Ultra-fast all-optical plasmonic switching in near infra-red spectrum using a Kerr nonlinear ring resonator",
+      "author" : [ "T. Nurmohammadi", "K. Abbasian", "R. Yadipour" ],
+      "venue" : "Opt. Commun. 410 ",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "All-optical plasmonic switches based on coupled nano-disk cavity structures containing nonlinear material",
+      "author" : [ "J. Tao", "Q.J. Wang", "X.G. Huang" ],
+      "venue" : "Plasmonics 6 (4) ",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Ultrafast all-optical switching in nanoplasmonic waveguide with Kerr nonlinear resonator",
+      "author" : [ "H. Lu", "X. Liu", "L. Wang", "Y. Gong", "D. Mao" ],
+      "venue" : "Opt. Express 19 (4) ",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Simultaneous switching at multiple wavelengths using plasmon induced transparency and Fano resonance",
+      "author" : [ "S. Paul", "M. Ray" ],
+      "venue" : "IEEE Photonics Technol. Lett. 29 (9) ",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Numerical investigation of an all-optical switch in a graded nonlinear plasmonic grating",
+      "author" : [ "G. Wang", "H. Lu", "X. Liu", "Y. Gong" ],
+      "venue" : "Nanotechnology 23 (44) ",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Design methodology for all-optical bistable switches based on a plasmonic resonator sandwiched between dielectric waveguides",
+      "author" : [ "Y. Xiang", "W. Cai", "L. Wang", "C. Ying", "X. Zhang", "J. Xu" ],
+      "venue" : "J. Opt. 16 (2) ",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Hybrid all-optical infrared metal-insulator-metal plasmonic switch incorporating photonic crystal bandgap structures",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "Photon. Nanostruct.: Fundam. Appl. ",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Active dual-wavelength optical switch-based plasmonic demultiplexer using metal-Kerr nonlinear material-metal waveguide",
+      "author" : [ "Y. Kong", "R. Lin", "W. Qian", "Q. Wei", "C. Liu", "S. Wang" ],
+      "venue" : "IEEE Photonics J. 9 (4) ",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "All-optical multi-channel switching at telecommunication wavelengths based on tunable plasmon-induced transparency",
+      "author" : [ "Z. Zhang", "J. Yang", "X. He", "Y. Han", "J. Zhang", "J. Huang", "S. Xu" ],
+      "venue" : "Opt. Commun. 425 ",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "All-optical plasmonic switches based on asymmetric directional couplers incorporating bragg gratings",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "Plasmonics ",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Compact and low-power all-optical surface plasmon switches with isolated pump and data waveguides and a rectangular cavity containing nano-silver strips",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "Superlattices Microstruct. ",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Realization of single-mode plasmonic bandpass filters using improved nanodisk resonators",
+      "author" : [ "S. Khani", "M. Danaie", "P. Rezaei" ],
+      "venue" : "Opt. Commun. 420 ",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "High order plasmonic Bragg reflection in the metal-insulator-metal waveguide Bragg grating",
+      "author" : [ "J. Park", "H. Kim", "B. Lee" ],
+      "venue" : "Opt. Express 16 (1) ",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Optical bistability effect in plasmonic racetrack resonator with high extinction ratio",
+      "author" : [ "X. Wang", "H. Jiang", "J. Chen", "P. Wang", "Y. Lu", "H. Ming" ],
+      "venue" : "Opt. Express 19 (20) ",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Surface plasmon polaritons (SPPs) are dispersive electromagnetic aves coupled to the electrons of plasma in the metal and dielectric nterface [1].",
+      "startOffset" : 142,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 1,
+      "context" : "SPPs open up a new pathway for applications in miniaurized optical devices due to their notable ability to overcome the iffraction limit and manipulating light in a nanoscale domain [2].",
+      "startOffset" : 182,
+      "endOffset" : 185
+    }, {
+      "referenceID" : 2,
+      "context" : "ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc.",
+      "startOffset" : 166,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 7,
+      "context" : "ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc.",
+      "startOffset" : 196,
+      "endOffset" : 199
+    }, {
+      "referenceID" : 8,
+      "context" : "ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc.",
+      "startOffset" : 214,
+      "endOffset" : 220
+    }, {
+      "referenceID" : 9,
+      "context" : "ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc.",
+      "startOffset" : 214,
+      "endOffset" : 220
+    }, {
+      "referenceID" : 10,
+      "context" : "ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc.",
+      "startOffset" : 237,
+      "endOffset" : 241
+    }, {
+      "referenceID" : 11,
+      "context" : "ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc.",
+      "startOffset" : 262,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 12,
+      "context" : "ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc.",
+      "startOffset" : 279,
+      "endOffset" : 283
+    }, {
+      "referenceID" : 13,
+      "context" : "ccordingly, almost all of the passive and active photonic devices hat are designed and fabricated based on the photonic crystal (PhC) tructures including PhC filters [3], splitters [4–7], sensors [8], inersections [9,10], demultiplexers [11], slow light buffers [12], logic ates [13], waveguides [14], switches [15–17] etc.",
+      "startOffset" : 296,
+      "endOffset" : 300
+    }, {
+      "referenceID" : 27,
+      "context" : "In this direction, various lasmonic filters [18–21], sensors [22–24], demultiplexers [25–27], ntersections [28,29], optical modulators [30,31], logic gates [32–34], witches [35,36] have been proposed in the literature.",
+      "startOffset" : 107,
+      "endOffset" : 114
+    }, {
+      "referenceID" : 28,
+      "context" : "In this direction, various lasmonic filters [18–21], sensors [22–24], demultiplexers [25–27], ntersections [28,29], optical modulators [30,31], logic gates [32–34], witches [35,36] have been proposed in the literature.",
+      "startOffset" : 107,
+      "endOffset" : 114
+    }, {
+      "referenceID" : 29,
+      "context" : "In this direction, various lasmonic filters [18–21], sensors [22–24], demultiplexers [25–27], ntersections [28,29], optical modulators [30,31], logic gates [32–34], witches [35,36] have been proposed in the literature.",
+      "startOffset" : 135,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 30,
+      "context" : "In this direction, various lasmonic filters [18–21], sensors [22–24], demultiplexers [25–27], ntersections [28,29], optical modulators [30,31], logic gates [32–34], witches [35,36] have been proposed in the literature.",
+      "startOffset" : 135,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 34,
+      "context" : "In this direction, various lasmonic filters [18–21], sensors [22–24], demultiplexers [25–27], ntersections [28,29], optical modulators [30,31], logic gates [32–34], witches [35,36] have been proposed in the literature.",
+      "startOffset" : 173,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 35,
+      "context" : "In this direction, various lasmonic filters [18–21], sensors [22–24], demultiplexers [25–27], ntersections [28,29], optical modulators [30,31], logic gates [32–34], witches [35,36] have been proposed in the literature.",
+      "startOffset" : 173,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 36,
+      "context" : "Since the scatterng and absorption cross sections of nanoparticles are enhanced at the lasmon resonance, plasmonic structures can also be used to increase he efficiency of solar cells [37,38].",
+      "startOffset" : 184,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 37,
+      "context" : "Since the scatterng and absorption cross sections of nanoparticles are enhanced at the lasmon resonance, plasmonic structures can also be used to increase he efficiency of solar cells [37,38].",
+      "startOffset" : 184,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 38,
+      "context" : "structures were previously used to design microwave circuits [39,40].",
+      "startOffset" : 61,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 39,
+      "context" : "structures were previously used to design microwave circuits [39,40].",
+      "startOffset" : 61,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 43,
+      "context" : "In addition to plasmonic switches, other types of AOSs based on the fiber grating structures [41–43], cascaded long period fiber gratings [44], graphene [45, 46], metamaterial structures [47,48], mixed crystal topologies [49], etc.",
+      "startOffset" : 138,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 44,
+      "context" : "In addition to plasmonic switches, other types of AOSs based on the fiber grating structures [41–43], cascaded long period fiber gratings [44], graphene [45, 46], metamaterial structures [47,48], mixed crystal topologies [49], etc.",
+      "startOffset" : 153,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 45,
+      "context" : "In addition to plasmonic switches, other types of AOSs based on the fiber grating structures [41–43], cascaded long period fiber gratings [44], graphene [45, 46], metamaterial structures [47,48], mixed crystal topologies [49], etc.",
+      "startOffset" : 153,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 46,
+      "context" : "In addition to plasmonic switches, other types of AOSs based on the fiber grating structures [41–43], cascaded long period fiber gratings [44], graphene [45, 46], metamaterial structures [47,48], mixed crystal topologies [49], etc.",
+      "startOffset" : 187,
+      "endOffset" : 194
+    }, {
+      "referenceID" : 47,
+      "context" : "In addition to plasmonic switches, other types of AOSs based on the fiber grating structures [41–43], cascaded long period fiber gratings [44], graphene [45, 46], metamaterial structures [47,48], mixed crystal topologies [49], etc.",
+      "startOffset" : 187,
+      "endOffset" : 194
+    }, {
+      "referenceID" : 48,
+      "context" : "In addition to plasmonic switches, other types of AOSs based on the fiber grating structures [41–43], cascaded long period fiber gratings [44], graphene [45, 46], metamaterial structures [47,48], mixed crystal topologies [49], etc.",
+      "startOffset" : 221,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 49,
+      "context" : "Based on the technique which is used to design optical switches, these components are classified into various types of electro-optic switches [50,51], thermo-optic switches [52, 53], and all-optical switches (AOSs) [54,55].",
+      "startOffset" : 142,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 50,
+      "context" : "Based on the technique which is used to design optical switches, these components are classified into various types of electro-optic switches [50,51], thermo-optic switches [52, 53], and all-optical switches (AOSs) [54,55].",
+      "startOffset" : 142,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 51,
+      "context" : "Based on the technique which is used to design optical switches, these components are classified into various types of electro-optic switches [50,51], thermo-optic switches [52, 53], and all-optical switches (AOSs) [54,55].",
+      "startOffset" : 173,
+      "endOffset" : 181
+    }, {
+      "referenceID" : 52,
+      "context" : "Based on the technique which is used to design optical switches, these components are classified into various types of electro-optic switches [50,51], thermo-optic switches [52, 53], and all-optical switches (AOSs) [54,55].",
+      "startOffset" : 173,
+      "endOffset" : 181
+    }, {
+      "referenceID" : 53,
+      "context" : "Based on the technique which is used to design optical switches, these components are classified into various types of electro-optic switches [50,51], thermo-optic switches [52, 53], and all-optical switches (AOSs) [54,55].",
+      "startOffset" : 215,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 54,
+      "context" : "Based on the technique which is used to design optical switches, these components are classified into various types of electro-optic switches [50,51], thermo-optic switches [52, 53], and all-optical switches (AOSs) [54,55].",
+      "startOffset" : 215,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 58,
+      "context" : "For instance, metal–insulator– metal (MIM) WGs coupled with ring resonators [56–58], nano-disk resonators (NDRs) [59,60], stub resonators [61,62] and other types of resonators [63–66].",
+      "startOffset" : 113,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 59,
+      "context" : "For instance, metal–insulator– metal (MIM) WGs coupled with ring resonators [56–58], nano-disk resonators (NDRs) [59,60], stub resonators [61,62] and other types of resonators [63–66].",
+      "startOffset" : 113,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 60,
+      "context" : "For instance, metal–insulator– metal (MIM) WGs coupled with ring resonators [56–58], nano-disk resonators (NDRs) [59,60], stub resonators [61,62] and other types of resonators [63–66].",
+      "startOffset" : 138,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 61,
+      "context" : "For instance, metal–insulator– metal (MIM) WGs coupled with ring resonators [56–58], nano-disk resonators (NDRs) [59,60], stub resonators [61,62] and other types of resonators [63–66].",
+      "startOffset" : 138,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 66,
+      "context" : "We have tried to find solutions for having two isolated WGs for the data and control signals [67,68].",
+      "startOffset" : 93,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 67,
+      "context" : "We have tried to find solutions for having two isolated WGs for the data and control signals [67,68].",
+      "startOffset" : 93,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 66,
+      "context" : "In [67] and [68], an asymmetric directional coupler and two perpendicular WGs have been used, respectively.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 67,
+      "context" : "In [67] and [68], an asymmetric directional coupler and two perpendicular WGs have been used, respectively.",
+      "startOffset" : 12,
+      "endOffset" : 16
+    }, {
+      "referenceID" : 63,
+      "context" : "However, as we have recently shown in [64], things are not as simple as that.",
+      "startOffset" : 38,
+      "endOffset" : 42
+    }, {
+      "referenceID" : 68,
+      "context" : "In this paper, an AOS based on an improved nano-disk resonator (INDR) [69] and two isolated WGs incorporating nonlinear Kerr materials has been designed and investigated.",
+      "startOffset" : 70,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 18,
+      "context" : "4 shows the intensity f the electric field in MIM plasmonic WGs composed of a layer of air andwiched between two Ag slabs [19].",
+      "startOffset" : 122,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 68,
+      "context" : "5 shows the first structure (Filter A) and its transmission specrum which is derived from [69].",
+      "startOffset" : 90,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 69,
+      "context" : "ere, silver is characterized by the Drude model [70]:",
+      "startOffset" : 48,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 70,
+      "context" : "The nonlinear insulator aterial used for INDR and WGs is InGaAsP (a Kerr material) and its ielectric constant is described by [71]:",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 57,
+      "context" : "In [58] ring resonators side-coupled an MIM plasmonic waveguide re used to create an optical switch.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 57,
+      "context" : "In [58], the data and pump signals ave to be injected from a single port.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 58,
+      "context" : "In [59] a similar idea is sed, in which the ring resonator is replaced by two disk resonators.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 58,
+      "context" : "n [59], the resonators are located at the arms of a T-junction.",
+      "startOffset" : 2,
+      "endOffset" : 6
+    }, {
+      "referenceID" : 59,
+      "context" : "The structure used n [60] uses parallel stubs connected to a main waveguide, one of which s terminated to a disk resonator filled with a Kerr-type material.",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 66,
+      "context" : "The references [67] nd [68] are authors’ previous publications.",
+      "startOffset" : 15,
+      "endOffset" : 19
+    }, {
+      "referenceID" : 67,
+      "context" : "The references [67] nd [68] are authors’ previous publications.",
+      "startOffset" : 23,
+      "endOffset" : 27
+    }, {
+      "referenceID" : 66,
+      "context" : "In [67] we have used an symmetric directional coupler which solves the problem of isolated aveguides, but needs a large footprint area.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 67,
+      "context" : "In [68] we have also olved the problem of separate waveguides and footprint area, but the aximum transmission is still less than 64%.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    } ],
+    "year" : 2020,
+    "abstractText" : "In this paper, a novel all-optical plasmonic switch is presented. For the proposed structure, a nano-disk resonator coupled to parenthesis-shaped adjunctions and perpendicular metal–insulator–metal waveguides are used. The insulator which is used here, is an optically nonlinear Kerr-type material (InGaAsP). The data and control pulses are injected to the horizontal and vertical waveguides, respectively. Allocating two separate waveguides for the data and control signals prevents these signals from interfering with each other. One of the main benefits of the proposed switch is that a single wavelength can be used for the data and control signals. It prevents the amplitude modulation of the output signal and eliminates the need for harmonic suppression filters. The finite difference time domain (FDTD) method is used for numerical investigation of the switch. Based on the numerical simulations, the switch can operate for control pulses as narrow as 3 ps at 1028 nm. In addition to FDTD, analytical formulas have also been presented to model the switch, which are in excellent agreement with FDTD results. To provide a better perspective, besides the conventional frequency domain analysis, the time domain simulations are also presented. The main advantages of the proposed topology are: the ability to use an identical wavelength for data and control pulses (which originates from the novel resonator shape), having separate and isolated input and output data and control ports, requiring a small footprint area of 1.37 μm2, the simplicity of fabrication due to its simple and symmetric structure and finally the robustness of the design, where other nonlinear materials with higher Kerr indices can also be easily used to redesign the switch.",
+    "creator" : "Elsevier"
+  }
+}

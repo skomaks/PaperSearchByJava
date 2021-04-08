@@ -1,0 +1,857 @@
+{
+  "name" : "twin.sci-hub.se_6349_e9e88eedd46c18f897e495616f6dfadc_ghanbari2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Performance and emission characteristics of a CI engine using nano particles additives in biodiesel-diesel blends and modeling with GP approach",
+    "authors" : [ "M. Ghanbari", "G. Najafi", "B. Ghobadian", "M. Kiani Deh Kiani" ],
+    "emails" : [ "g.najafi@modares.ac.ir" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nFuel\njournal homepage: www.elsevier .com/locate / fuel\nFull Length Article\nPerformance and emission characteristics of a CI engine using nano particles additives in biodiesel-diesel blends and modeling with GP approach\nhttp://dx.doi.org/10.1016/j.fuel.2017.04.117 0016-2361/ 2017 Elsevier Ltd. All rights reserved.\n⇑ Corresponding author. E-mail address: g.najafi@modares.ac.ir (G. Najafi).\nPlease cite this article in press as: Ghanbari M et al. Performance and emission characteristics of a CI engine using nano particles additives in bio diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/10.1016/j.fuel.2017.04.117\nM. Ghanbari a, G. Najafi a,⇑, B. Ghobadian a, T. Yusaf b, A.P. Carlucci c, M. Kiani Deh Kiani d a Tarbiat Modares University, Tehran, Iran b Faculty of Engineering and Surveying, USQ University, Toowoomba, Australia cUniversity of Salento, Lecce, Italy dDepartment of Biosystem Mechanical Engineering, Shahid Chamran University of Ahvaz, Ahvaz, Iran\nh i g h l i g h t s\nUsing nano-diesel-biodiesel increased the brake power, torque and decrease bsfc of CI engine. The CO2 and NOx increased while the concentration of CO and HC were decreased with nano-biodiesel-diesel blends. Good correlation was observed between genetic programming predicted results and experimental data. GP proved to be a useful tool for correlation and simulation of engine parameters. GP provided an accurate and simple approach in the analysis of the CI engine performance and emissions.\na r t i c l e i n f o\nArticle history: Received 11 February 2017 Received in revised form 19 April 2017 Accepted 25 April 2017 Available online xxxx\nKeywords: Nano additives Diesel-biodiesel blends Ultrasonic Genetic programming\na b s t r a c t\nThe performance and the exhaust emissions of a diesel engine operating on nano-diesel-biodiesel blended fuels has been investigated. Multi wall carbon nano tubes (CNT) (40, 80 and 120 ppm) and nano silver particles (40, 80 and 120 ppm) were produced and added as additive to the biodiesel-diesel blended fuel. Six cylinders, four-stroke diesel engine was fuelled with these new blended fuels and operated at different engine speeds. Experimental test results indicated the fact that addingnanoparticles to diesel and biodiesel fuels, increased diesel engine performance variables including engine power and torque output up to 2% and brake specific fuel consumption (bsfc) was decreased 7.08% compared to the net diesel fuel. CO2 emission increased maximum 17.03% and CO emission in a biodiesel-diesel fuel with nano-particles was lower significantly (25.17%) compared to pure diesel fuel. UHC emission with silver nano-diesel-biodiesel blended fuel decreased (28.56%) while with fuels that contains CNT nano particles increased maximum 14.21%. With adding nano particles to the blended fuels, NOx increased 25.32% compared to the net diesel fuel. This study also presents genetic programming (GP) basedmodel to predict the performance and emission parameters of a CI engine in terms of nano-fuels and engine speed. Experimental studies were completed to obtain training and testing data. The optimum models were selected according to statistical criteria of root mean square error (RMSE) and coefficient of determination (R2). It was observed that the GP model can predict engine performance and emission parameters with correlation coefficient (R2) in the range of 0.93–1 and RMSE was found to be near zero. The simulation results demonstrated that GP model is a good tool to predict the CI engine performance and emission parameters.\n2017 Elsevier Ltd. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "The CI engines are widely utilized due to its reliable operation and economy. As the petroleum reserves are depleting at a faster\nrate, an urgent need for a renewable alternative fuel arise. Also the threat of global warming and the stringent government regulation made the engine manufacturers and the consumers to follow the emission norms to save the environment from pollution.\nAmong the many alternative fuels, biodiesel is considered as a most desirable fuel extender and fuel additive due to its high oxygen content and renewable in nature [1]. Among the various\ndiesel-\ntechniques available to reduce exhaust emissions, the utilize of fuel-borne catalyst is currently focused due to the advantage of increase in fuel efficiency while reducing greenhouse gas emissions. The influence of cerium oxide additive on ultrafine diesel particle emissions and kinetics of oxidation was studied by Jung et al. [2]. It has been detected that addition of cerium to diesel cause significant reduction in number weighted size distributions and light-off temperature and the oxidation rate was increased significantly.\nThe structural and morphological characterization of a Ce-Zr mixed oxide supported Mn oxide as well as on its catalytic activity in the oxidation of particulate matter arising from diesel engines has been studied by Escribano et al. [3]. Mn-Ce-Zr catalyst shows high activity in the soot oxidation producing CO2 and CO as a byproduct in the range 425–725 K. Idriss investigated the complexity of the ethanol reactions on the surfaces of noble metals/cerium oxide catalysts [4]. The hazard and risk assessment with the use of nano-particle cerium oxide bases diesel fuel was studied by Barry Park et al. [5]. Effects of cerium oxide nano-particles addition in diesel and diesel-biodiesel-ethanol blends on performance and emission characteristics of a CI engine has been studied and results showed that the cerium oxide acts as an oxygen donating catalyst and provides oxygen for the oxidation of CO or absorbs oxygen for the reduction of NOx. The activation energy of cerium oxide acts to burn off carbon deposits within the engine cylinder at the wall temperature and prevents the deposition of non-polar compounds on the cylinder wall results reduction in HC emissions. The tests revealed that cerium oxide nano-particles can be used as additive in diesel and diesel-biodiesel-ethanol blend to improve complete combustion of the fuel and reduce the exhaust emissions significantly [1]. Carbon nano-tubes (CNTs) are as useful additives for increasing the octane number. Functionalized carbon nanotubes containing amide groups have a high reactivity and can react with many chemicals. These compounds can be solubilized in gasoline to increase the octane number. In a study, the aminofunctionalized carbon nano-tubes were added to gasoline. Research octane number analysis showed that these additives increase octane number of the desired samples [6].\nExperimental investigations to measure the performance and emission parameters of internal combustion engines are complex, time consuming and costly. To predict the parameters from the engines, one approach is to utilize numerical models [7]. The alternative to a mathematical model is the experiment-based approach. Genetic algorithm (GA), which is based on solutions of fixed length chromosomes, usually consisting of binary genes, organized into sequences, often termed schema is the most commonly used evolutionary-computation algorithm [8,9]. Evolutionary computation (EC) is drawing attentions for solving real engineering problems. This approach is to be robust in delivering global optimal solutions and coping with the restrictions encountered in traditional methods. EC harnesses the power of natural selection to turn computers into optimization tools [10–13]. This is very applicable to different problems in the manufacturing industry [11–17].\nOne of most important EC methods is genetic programming (GP). GP is a similar technique as genetic algorithm, an evolutionary computation method for imitating biological evolution of living organisms. Genetic Algorithms (GAs) and genetic programming (GP) have been found to offer advantages dealing with system modeling and optimization, especially for complex and nonlinear systems. GP has been applied to a wide range of problems in artificial intelligence, engineering and science, chemical and biological processes and mechanical issues [18–22]. Pires, et al. [23] used GP method to predict the next day hourly average tropospheric ozone (O3) concentrations. The results showed very good agreement between predicted and measured data. Prediction of compressive and tensile strength of limestone was carried out via genetic pro-\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\ngramming as reported by Baykasoglu, et al., [24]. Another interesting genetic programming application was conducted by Cevik and Cabalar [25] for prediction of peak ground acceleration (PGA) using strong-ground-motion data. In this research, they demonstrated a high correlation between PGA and predictions. Multigene genetic programming is a recently developed approach for improving accuracy of GP that was developed by Hinchliffe, Willis, Hiden, Tham, McKay and Barton [26] and Hiden [27] and have been utilized in some recent research works [28,29]. Kiani et al. [30] studied the application of genetic programming to predict an SI engine brake power and torque using ethanol-gasoline fuel blends. At this study, the optimum models were selected according to statistical criteria of root mean square error (RMSE) and coefficient of determination (R2). The values of RMSE and R2 for brake power were found to be 0.388 and 0.998. It was observed that the GP model can predict engine torque with correlation coefficient in the range of 0.99–1 and RMSE was found to be 0.731. The simulation results demonstrated that GP model is a good tool to predict the engine brake power and torque under test [30]. Numerous studies have been under taken by using GA for optimization of engine characteristics [31–41]. Numerous studies have been undertaken by using genetic programming (GP) [42–46]. GP has been utilized to construct prediction model for diagnosing the engine valve faults. Kalogirou [47] reviewed ANN and GP for the modeling and control of engine combustion. A GP based mathematical model developed for the prediction of SI engine torque and brake specific fuel consumption in terms of spark advance, throttle position and engine speed [48,49].\nThe properties, combustion- and emission parameters of some common bio-fuels used in diesel engines as used under both steady-state and transient conditions, has been investigated [65,66].\nIn the present research study, the stable diesel biodiesel blends are prepared using vegetable waste oil methyl ester as additive and the emission reduction potential are investigated using nano silver and carbon nano tubes particles as fuel borne additive with neat diesel and diesel-biodiesel blends on the compression ignition engine. Parallel a multi-gene genetic programming (GP) algorithm based mathematical model for predicting an CI engine performance parameters and emission parameters in relation to input variables including engine speed, and nano-particles in dieselbiodiesel fuel blends.\nThe innovative characteristics of the present study compared to existing similar studies is utilize the new nano particles and additives with diesel-biodiesel blended fuels to investigate the performance and emission parameters of CI engine. This study also presents genetic programming (GP) based model to predict the performance and emission parameters of a CI engine in terms of nano-fuels and engine speed. Experimental studies were completed to obtain training and testing data."
+    }, {
+      "heading" : "2. Experimental work",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Description of the experimental setup",
+      "text" : "In this study, the experiments were performed on a CI engine, 6 Cylinder, naturally aspirated, direct injection; fuel injection system of engine was solid and mechanical injection with distributer system. The shape of combustion chamber was Shallow depth chamber. Fuel injector type was single hole nozzle with hole diameter of 0.2 mm and spray cone angle obtained ranges from 5 to 20 degree, it requires high injection pressure in the range of 150–180 bar. The engine specification is given in Table 1. A 190 kW SCHENCKWT190 eddy–current dynamometer was used in the experiments. Fuel consumption rate was measured in the range of 0.4–45 kg/h\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nby using laminar type flow meter, Pierburg model. The measuring precision error for the calibration factors was ±0.1%, according to the DIN 1319 standard. The confidence level for this model was around 95%. Air consumption was measured using an AVL Flowsonix air flow meter. The measurement range was 0. . . ±1400 kg/ h, with the error of <± 1%. The relative air–fuel ratio, the emission parameters and the exhaust gas temperature from an online and accurately calibrated exhaust gas analyser DIGAS4000 were recorded. The emission parameters from an online and accurately calibrated exhaust gas analyser DIGAS 4000 were recorded. AVL DIGAS analyzer is used to measure the exhaust constituents such as CO, HC and NOx. The sensitivity and the measurement accuracy of the instruments used for measuring the exhaust gas concentration have been listed in Table 2. The testing temperature was controlled, and temperature measurement accuracy was ±1 C.\nSeparate fuel tanks were fitted to the diesel engine and these contained diesel and the biodiesel–diesel blends. Fig. 1 shows the schematic diagram of the experimental setup. Also the use of carbon nano tubes (CNT) and silver nano particles in neat diesel and diesel-biodiesel blend has the tendency to settle down at the fuel tank. B20 (B20 or BD: 20%vol. Biodiesel and 80%vol. diesel blend), silver nano particle with the size of 50 nm and CNT nano particle with the diameter of 5 nm are used in the test. After series of experiments, it is found that the blends subjected to high speed blending followed by ultrasonic bath stabilization improves the stability. Vegetable methyl ester (Biodiesel) prepared from the waste cooking oil (WCO) through transestrification process\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\n(Fig. 2), and then blended with diesel fuel. The performance tests for the diesel-biodiesel blends and neat diesel with nano silver and CNT nano particles as fuel-borne catalyst additive are carried out on a computerized diesel engine. A computerized data acquisition system is used to collect, store and analyze the data. All tests were carried out at full load (WTO) condition. An important criterion of the full load performance is the maximum torque value as compared to that in the engine specification, so due to investigate the variation of performance and emission parameters at critical condition, the full load was selected. The load applied on the engine is measured by the load cell connected to the eddy current dynamometer. All the experiments are conducted and the results are recorded under steady state conditions.\nIn transestrification process, the KOH (grade 99%) and methanol (grade 99.9%) were prepared from Merck Chemical Industries, Germany, and was utilized without further purification. Also, the required standards were needed to be considered in GC device (i.e. the methyl ester of fatty acids C18:2, C18:1, C18:3, C16:1 and C16:0) and n-heptanes were provided by Sigma-Aldrich Company. A Gas Chromatography (GC) unit of Perkin Elmer clarus on BS-EN standard were used for biodiesel yield and percentage of methyl ester content of the produced biodiesel. The purified methylated using Metcalf method, and the prepared sample was injected into GC device in order to determine fatty acids profile and molecular weight of the used oil (Fig. 3). The physical and chemical properties of WCO and the chromatogram of the WCO for this investigation are shown in Table 3 and Fig. 3c, respectively. The produced Biodiesel properties in comparison with ASTM D6751 standard has been described in Table 4.\nAn ultrasonic processor (UP400S, Hielscher, USA) was used to perform the transestrification reaction and even mixing biodiesel and nano-particles before the engine tests. The equipment consisted of the processor, the sonotrode, and the PC control (UPC400T). The processor operated at 400 W and 24 kHz frequency. The amplitude and the pulse for the reaction were adjustable from 20 to 100%. The titanium sonotrode (H22D) with a diameter of 22 mm and a length of 100 mm was used to transmit the ultrasound into the liquid. According to the results of similar studies for optimal reaction temperature, reaction temperature as an effective factor in reaction efficiency, was kept constant at 45 C by a circulator apparatus test set. The schematic diagram of the experimental set-up used in this study is shown in Fig. 4.\nConsidering the accomplished researches about nano fuels and diesel fuel nano additives, two silver nano-particles (Ag) and carbon nano tubes (CNT) were applied as nano additives to these fuels. Furthermore based on researches conducted about the effect of concentrations of used nano-particles in reduction of exhaust\numents (a) real and (b) schematic.\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nFig. 2. Transestrification reaction of waste cooking oil with methanol in the presence of catalyst [50,51].\nFig. 3. (a) samples, (b) gas chromatography (GC) analyzer and (c) the yields of fish oil compounds according to the carbon numbers in the chain by GC.\nemissions, in this study three concentrations (40, 80 and 120 ppm) were applied. In order to ensure the validity of nano-particles utilized in this research, SEM and TEM pictures were taken (Fig. 5).\nNano silver and Multi-walled carbon nano-tubes with 90–95% purity prepared by CVD method over Co-Mo/MgO catalyst [52,53]. The average diameter of the nano tubes varies from 5 to 20 nm and their length from 5 to 15 mm. Specification of fuels and applied nano-additives with different concentrations are indicated in Table 5. Fig. 6 indicates a general schematic picture of the whole experiment and the equipments were being used."
+    }, {
+      "heading" : "2.2. Testing procedure",
+      "text" : "The performance and emission from the CI engine running on biodiesel (derived from vegetable cooking oil) and blended with diesel fuel were evaluated and compared with diesel fuel. A\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\nHielscher ultrasonic processor (UP400S) was utilized for mixing biodiesel, diesel and nano-particles before the engine tests. In the first phase, experiments were performed with the biodiesel (B20) in five engine speeds 800,850, 900, 950 and 1000 rpm. Next, silver and CNT nano-particles with concentrations of 40, 80 and 120 ppm were added to biodiesel.\nAbove 20% biodiesel, some parts of engine should be modified; therefore, only experimental results obtained up to this percentage of biodiesel will be presented. The fuel blends were prepared just before starting the experiment to ensure that the fuel mixture was homogenous. A series of experiments were carried out using diesel, and biodiesel blends. All the blends were tested under varying engine speed conditions. The engine was started using diesel fuel and it was operated until it reached the steady state condition. The engine speed, fuel consumption, and load were measured, while the brake power, brake specific fuel consumption (bsfc), were computed. After the engine reached the stabilized working condition, emission parameters such as CO, CO2, HC, NOx from an online and accurately calibrated exhaust gas analyser were recorded. All experiments have been carried out at full load conditions."
+    }, {
+      "heading" : "3. Experimental results",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Engine performance",
+      "text" : ""
+    }, {
+      "heading" : "3.1.1. Brake power and torque output",
+      "text" : "Fig. 7 shows the effect of various fuels on engine brake power. When the nano content in the diesel fuel and diesel-biodiesel blended fuel is increased, the engine brake power slightly increased for all engine speeds. The gain of the engine power can be attributed to the increase of the indicated mean effective\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\npressure for higher nano content blends [54]. The heat of evaporation of nano-diesel is higher than that diesel fuel, this provides fuel–air charge cooling and increases the density of the charge, and thus higher power output is obtained [55]. With the increase in concentration of nano silver and carbon nano tubes, the density of the mixture and the engine volumetric efficiency increases and this causes the increase of power [56]. The addition of nano particles with neat diesel and diesel-biodiesel blends accelerates early initiation of combustion and the ignition delay decreases. The\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\naddition of biodiesel increases the ignition delay, hence more fuel is accumulated in the premixed combustion phase is the cause for faster combustion which results in higher peak pressure. Higher peak pressure causes to have higher brake power [1]. The brake power of CNT120-diesel-biodiesel is higher among all the fuel blends. The brake power of the nano-diesel blends is lower than nano-diesel-biodiesel blends. A small improvement in brake power is observed with the addition of nano particles with diesel and diesel-biodiesel blends. The highest brake power is observed as\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nCarbon nanotubes has been produced and available for both research and industrial purposing. The production cost of the nanotubes additives in diesel and biodiesel blends in diesel engine was $3 per gram.\n2.03% for CNT120-D80-B20 blend whereas it is 1.84% for CNT120D100 compared to the neat diesel fuel. Experimental results proved that the increase of nano particles content and biodiesel increases the torque of the engine. Added biodiesel produces lean mixtures that increase the relative air–fuel ratio to a higher value and makes the burning more efficient [57]. The improved antiknock behaviour (due to the addition of biodiesel and nano particles) allowed a more advanced timing that results in higher combustion pressure and thus higher torque [58]. A small improvement in brake torque is observed with the addition of nano particles with diesel and diesel-biodiesel blends. The highest brake torque is observed as 2% for CNT120-BD (Diesel 80%-Biodiesel 20% vol.) blend whereas it is 1.8% for CNT120-D100 compared to the neat diesel fuel."
+    }, {
+      "heading" : "3.1.2. Brake specific fuel consumption",
+      "text" : "The specific fuel consumption is lower for the nano-diesel and nano-diesel-biodiesel blends than neat diesel fuel at all the engine speed. This is due to higher calorific value of the diesel-biodiesel blend than neat diesel; less quantity of fuel is consumed to maintain the engine speed constant. As shown in Fig. 8, the bsfc\ndecreases as the nano concentration increases. This phenomenon is due to the result of nano silver and CNT nano addition which promotes combustion [1]. The lowest bsfc observed as 202.96 g/ kW.h for the BD-CNT 120 blend whereas it is 222.18 g/kW.h for neat diesel. The variation of bsfc with nano-diesel-biodiesel fuels is shown in Fig. 8. Improvement in bsfc is observed with the addition of nano particles with diesel and diesel-biodiesel blends. The highest decrease for bsfc is observed as 7.08% for CNT120-D80B20 blend whereas it is 5.7% for CNT120-D100 compared to the neat diesel fuel."
+    }, {
+      "heading" : "3.2. Engine emissions",
+      "text" : ""
+    }, {
+      "heading" : "3.2.1. CO emission",
+      "text" : "Fig. 9 shows the concentrations of CO emission for different engine speeds and different fuel blends. The carbon monoxide emission decreases with the use of diesel-biodiesel-nano blends than neat diesel. It can be seen from this figure that when nano concentration increases, the CO concentration decreases which means the combustion is tuned to be completed. The addition of nano silver and carbon nano tubes particles further decreases the CO emission when comparing with neat diesel. The variation of CO emission with nano-diesel-biodiesel fuels is shown in Fig. 9. The CO of CNT120-diesel-biodiesel is lowest among all the fuel blends. The lowest CO emission is observed as 25.17% for CNT120-D80-B20 blend whereas it is 22.48% for CNT120-D100 compared to the neat diesel fuel."
+    }, {
+      "heading" : "3.2.2. CO2 emission",
+      "text" : "Fig. 10 shows the relationship between the CO2 concentrations and engine speeds for different blends percentage. Experimental results indicate that CO2 concentration increases as the biodiesel and nano particles concentration increases. CO2 emission depends on relative air–fuel ratio and CO emission concentration [55,60]. As a result of the lean burning associated with increasing nano particles, the CO2 emission increased because of the improved\nstrification reaction, (b) ultrasonic set-up and (c) nano-diesel-biodiesel blend.\nFig. 7. (a) Brake power with nano-diesel-biodiesel blends compared to neat diesel fuel (1000 rpm), (b) brake power at different nano-diesel fuel blends and engine speeds and (c) brake power at different nano-biodiesel fuel blends and engine speeds.\ncombustion [56–60,49,61,21,62–68]. Variation of CO2 with nanodiesel-biodiesel blends compared to neat diesel fuel has been indicated in Fig. 10."
+    }, {
+      "heading" : "3.2.3. HC emission",
+      "text" : "HC emissions for different speeds and blended fuels are illustrated in Fig. 11. This result indicates that adding of nano particles and blending of biodiesel with diesel fuel can significantly reduce HC emissions. The concentration of HC emission decreases with the increase of the relative air–fuel ratio, the reason for the decrease of HC concentration is similar to that of CO concentration described above [57–60]. The addition of nano silver particles decreases the HC emission while addition of carbon nano tubes increases the HC emission when comparing with neat diesel fuel. The use of oxygenated additives promotes complete combustion is the cause for the hydrocarbon emission reduction, but in the case of CNT particles due to have carbon in their structure, HC emission increases [1]. The variation of HC with nano-diesel-biodiesel fuels is shown in Fig. 11. The highest decrease for HC is observed as 28.56% for Ag120-BD blend whereas it is increased maximum 14.21% for CNT120-BD compared to the neat diesel fuel."
+    }, {
+      "heading" : "3.2.4. Nox emission",
+      "text" : "Considering the NOx emission, Fig. 12 shows that the NOx concentration is higher when nano particles concentration increases. It shows that as the concentration of nano particles in the blends increased, NOx emission was increased. When the combustion process is closer to stoichiometric, flame temperature increases, there-\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\nfore, the NOx emission is increased, particularly by the increase of thermal NO [68–84]. The NOx emission is lower for the neat diesel when comparing to all the fuel blends. The effect of oxygenated additives enhances combustion and the longer ignition delay due to biodiesel and nano particles addition results in faster premixed combustion is the cause for higher combustion temperature and the subsequent higher NOx emission. Variation of NOx with nano-diesel-biodiesel blends compared to neat diesel fuel has been indicated in Fig. 12.\nIt should be mentioned that operating discrepancies such as injector clogging on CI engine operation mainly during operation with biodiesel and additives has not been observed."
+    }, {
+      "heading" : "4. GP model development",
+      "text" : ""
+    }, {
+      "heading" : "4.1. Overview of genetic programming",
+      "text" : "Genetic programming (GP) is a sub-branch of evolutionary algorithms (EAs) emulating the natural evolution of species. Genetic programming (GP) technique is an extension to Genetic Algorithm (GA). The main difference between GA and GP resides in the nature of the individuals: in GAs the individuals are symbolic strings of fixed length (chromosomes); in GP the individuals are nonlinear entities of different sizes and shapes (parse trees) [49].\nKoza [61] was one of the scientists who first suggested the use of GP to find a symbolic regression tree matching to the mathematical formula which can best fit the data according to a fitness criterion. Fitting such a model was performed in an optimization frame\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nFig. 8. (a) bsfc with nano-diesel-biodiesel blends compared to neat diesel fuel (1000 rpm), (b) bsfc at different nano-diesel fuel blends and engine speeds and (c) bsfc at different nano-biodiesel fuel blends and engine speeds.\nwork in which the error of the created symbolic trees versus sample data is minimized via regression. Thus, it is intrinsically suitable for modeling of complex industrial problems. In order to emulate the evolutionary process in the design of GP, certain components should be defined. These include n-ary arithmetic functions, problem decision variables and evolutionary operators such as reproduction, crossover, and mutation to symbolic expressions. The symbolic expressions, called individuals or solutions, are generated to create the initial population. A population in evolutionary algorithms is a set of a defined number of solutions at an iteration of the algorithm. The initial expressions are produced with tree-based encoding. For instance, the mathematical expression (ðb x1 þ sinðx3ÞÞ tanhða x2Þ) can be indicated by diagram as shown in Fig. 13. These expressions are constituted of elements from two distinctive parameter groups: (i) a functional set and (ii) a terminal set. The functional set is generally arithmetic function, e.g. f = {*, +, , sin, cos, log, power . . .}. The arguments for these functions are supplied from the terminal set that includes the decision variables and constants. For instance, in Fig. 13 the function set (F) is composed of F = {*, +, sin, tanh} and the terminal set (T) is composed of T = {x1, x2, x3, a, b}. The initial solutions are restricted in terms of tree depth or length of expression to fill the first population in the algorithm with the potential building blocks of individuals to be created at the next step of the algorithm. A basic flowchart of the genetic programming model has been presented in Fig. 14.\nAt each generation a new population is created through selecting individuals based on their fitness and using the genetic operators (reproduction, crossover, and mutation). In reproduction\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\noperation, part of population (the fittest individuals) is preserved so that new generation is the result of genetic operations on the individuals of the actual population. In crossover operation two individuals (parents) are selected, their tree structures are broken at a randomly selected crossover point, and the produced subtrees are recombined to form two new individuals (offspring) [21]. Fig. 15 demonstrates the crossover operation. Mutation operation includes selecting an individual, randomly choosing a branch and deleting and replacing it with a new random branch (Fig. 16). The existing population will then be substituted with the new population. The procedure is iterated until a termination criterion (achievement of the maximum number of generations or a determined error defined) is satisfied.\nIn reproduction operation, part of population (the fittest individuals) is preserved so that new generation is the result of genetic operations on the individuals of the actual population. In crossover operation two individuals (parents) are selected, their tree structures are broken at a randomly selected crossover point, and the produced sub-trees are recombined to form two individuals (offspring) [62]. The existing population will then be substituted with the new population. The procedure is iterated until a termination criterion (achievement of the maximum number of generations or a determined error defined) is satisfied. A newly developed method for improving the precision of GP is ‘‘multi-gene genetic programming”. The main difference between the traditional and the multi-gene GP is the number of trees which can be used. In the traditional GP, a single tree represents the model however, in the multi-gene GP several trees may express the model. All of these genes possess specific optimal weights and sum of weighted genes\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nFig. 9. (a) Variation of CO with nano-diesel-biodiesel blends compared to neat diesel fuel (1000 rpm), (b) CO at different nano-diesel fuel blends and engine speeds and (c) CO at different nano-biodiesel fuel blends and engine speeds.\nplus a bias term would form the final formula as the best resulted numerical model. Multi-gene GP can be shown as the follow:\nY ¼ a0 þ a1 gene1 þ a2 gene2 þ . . .þ an genen ð1Þ In which, a0 is the bias term and ai is weight of the ith gene. Indeed, multi-gene GP is a linear combination of nonlinear terms, and this feature allows identifying the model of engineering problems in a highly precise manner."
+    }, {
+      "heading" : "4.2. Modeling with GP",
+      "text" : "The GP was used in this study to perform a multi-gene genetic programming for precise prediction of diesel engine performance (power, torque, BSFC) and emission (CO, CO2, UHC and NOx) parameters. The genetic programming and Symbolic Regression is a new code that has been written on the basis of multi-gene GP for utilize with MATLAB [63]. The GP has the possibility of setting some limitations to avoid bloating. Bloating is defined as the unnecessary growth of the model without any significant improvement in the fitness. In order to avoid bloating, some restrictions were imposed on initial parameters such as maximum number of genes, maximum depth of genes and trees, and maximum number of nodes per tree. In addition, lexicographic tournament selection that is an efficient method for restraining the model bloating was utilized in GP. It is noteworthy that the present investigation has considered root mean square error (RMSE) as the fitness function of the analysis. The RMSE is defined as: RMSE ¼ ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi 1 n Xn i¼1 ðti oiÞ2 vuut ð2Þ\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\nwhere t is the experimental value, o is the predicted value and n is the total number of data. Table 6 indicates the range of the initial parameters used in the GP runs. Other initial parameters were adjusted to their default values in GPTIPS, according to Searson [64].\nThree statistical evaluation criteria were applied to assess the model performance:\n(i) The root mean square error (RMSE) (Eq. (2)), (ii) The coefficient of determination (R2) defined in Eq. (3) and (iii) Variation explained (VE) has been described at Eq. (4):\nR2 ¼ 1\nXn i¼1 ðti oiÞ2 Xn i¼1 ðti tiÞ2 0 BBBB@ 1 CCCCA\nð3Þ"
+    }, {
+      "heading" : "VE ¼ 100 R2 ð4Þ",
+      "text" : "For developing the GP model, the data (560 test in total), taken from the experimental study were used as training and testing sets for the GP architecture. Datawas divided into two subsets including the training and testing with a ratio of 0.75 and 0.25, respectively."
+    }, {
+      "heading" : "4.2.1. Brake power",
+      "text" : "The following equation was selected as the best model for brake power.\nBP ¼ 0:9887x1 þ 0:07344x3 þ 0:03672squareðsinðx1ÞÞ þ0:03744 sinðx2x3Þðx3 1:0Þ 0:03744 sinðx2x3Þðsinðx1Þ\ntanhðx3ÞÞ 0:02236 ð5Þ\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nFig. 10. (a) Variation of CO2 with nano-diesel-biodiesel blends compared to neat diesel fuel (1000 rpm), (b) CO2 at different nano-diesel fuel blends and engine speeds and (c) CO2 at different nano-biodiesel fuel blends and engine speeds.\nwhere BP is the engine brake power (kW), and x1, x2 and x3 are the engine speed (rpm), Ag (ppm) and CNT (ppm) nano particle concentration, respectively. Accuracy of the equation is studied by plotting the measured values versus predicted by GP values for training and testing sets (Fig. 17). The values of R2 and RMSE are 0.9995 and 0.0901 respectively for testing set (Fig. 17a) and 0.9998 & 0.0458 respectively for training set (Fig. 17b). There is a good correlation between the predictions from multi-gene GP and the measured data. A comparison of the error during testing and training by using GP and experimental results has been illustrated in Fig. 17c & d. It was proved that the multi-gene GP model can predict engine brake power with a high variation explained (99.95% for testing and 99.99% for training) and very low root mean square (RMS) error (0.09 for testing and 0.04 for training)."
+    }, {
+      "heading" : "4.2.2. Torque",
+      "text" : "The following equation was selected as the best model for engine torque:\nT ¼ 0:9936x1 þ 0:8786 tanhðexpðx3ÞÞ þ 0:23 sinðx2Þ þ 0:01404x1ðx2 2x1 þ x3Þ 0:5181 ð6Þ\nwhere T is the engine torque (Nm). Accuracy of the equation is studied by plotting the measured values versus predicted by GP values for training and testing sets (Fig. 18). The values of R2 and RMSE are 0.9965 and 0.88868 respectively for testing set (Fig. 18a) and\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\n0.9993 & 0.38851 respectively for training set (Fig. 18b). There is a good correlation between the predictions from multi-gene GP and the measured data. A comparison of the error during testing and training by using GP and experimental results has been illustrated in Fig. 18c & d. It was proved that the multi-gene GP model can predict engine torque with a high variation explained (99.95% for testing and 99.93% for training) and very low root mean square (RMS) error (0.88 for testing and 0.38 for training)."
+    }, {
+      "heading" : "4.2.3. BSFC",
+      "text" : "The following equation was selected as the best model for brake specific fuel consumption:\nBSFC¼1:494sinðsinðx1þx3ÞÞ 0:5299x2 0:5299x3 1:494x1 1:494tanhðexpðx3ÞÞ 1:133sinðx1þx3Þþ1:133sinðsinðsinðx1ÞÞÞ\n0:5299cosðx1Þþ1:286 ð7Þ\nwhere BSFC is the brake specific fuel consumption (g/kW.h). Accuracy of the equation is studied by plotting the measured values versus predicted by GP values for training and testing sets (Fig. 19). The values of R2 and RMSE are 0.9477 and 1.5521 respectively for testing set (Fig. 19a) and 0.9678 & 1.15 respectively for training set (Fig. 19b). There is a good correlation between the predictions from multi-gene GP and the measured data. A comparison of the error during testing and training by using GP and experimental\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nFig. 11. (a) Variation of UHC with nano-diesel-biodiesel blends compared to neat diesel fuel (1000 rpm), (b) UHC at different nano-diesel fuel blends and engine speeds and (c) UHC at different nano-biodiesel fuel blends and engine speeds.\nresults has been illustrated in Fig. 19c & d. It was proved that the multi-gene GP model can predict BSFC with a high variation explained (94.77% for testing and 96.78% for training) and very low root mean square (RMS) error (1.55 for testing and 1.15 for training)."
+    }, {
+      "heading" : "4.2.4. CO",
+      "text" : "The following equation was selected as the best model for CO emission:\nCO ¼ 0:3337x3 þ 2:276 sinðtanhðx2 expðsinðx2ÞÞÞÞ þ0:3337psqrootðp logðx3Þ x1Þ þ 5:612 sinðtanhðexpðtanhðsin 9x1ÞÞÞÞÞ\n0:3337 sinðx2 x3Þp logðtanhðx1ÞÞ 2:305 ð8Þ\nwhere CO is the CO emission (%Vol.). Accuracy of the equation is studied by plotting the measured values versus predicted by GP values for training and testing sets (Fig. 20). The values of R2 and RMSE are 0.9337 and 0.2678 respectively for testing set (Fig. 20a) and 0.9922 & 0.0934 respectively for training set (Fig. 20b). There is a good correlation between the predictions from multi-gene GP and the measured data. A comparison of the error during testing and training by using GP and experimental results has been illustrated in Fig. 20c & d. It was proved that the multi-gene GP model can predict CO with a high variation explained (93.37% for testing and 99.28% for training) and very low root mean square (RMS) error (0.2678 for testing and 0.0934 for training)."
+    }, {
+      "heading" : "4.2.5. CO2",
+      "text" : "The following equation was selected as the best model for CO2 emission:\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\nCO2 ¼ 0:2033x2 þ 0:2033x3 þ 0:2033 tanhðx1 x2Þ þ0:2033 tanhðx3 þ tanhðx1ÞÞ 0:3871psqrootðtanhðtanhðx3ÞÞ\nx3 tanhðx1ÞÞ þ 1:373 tanhðtanhðx1ÞÞ þ 0:3083 ð9Þ\nwhere CO2 is the CO2 emission (%Vol.). Accuracy of the equation is studied by plotting the measured values versus predicted by GP values for training and testing sets (Fig. 21). The values of R2 and RMSE are 0.9486 and 0.2358 respectively for testing set (Fig. 21a) and 0.9922 & 0.0936 respectively for training set (Fig. 21b). There is a good correlation between the predictions from multi-gene GP and the measured data. A comparison of the error during testing and training by using GP and experimental results has been illustrated in Fig. 21c & d. It was proved that the multi-gene GP model can predict CO2 with a high variation explained (94.86% for testing and 99.22% for training) and very low root mean square (RMS) error (0.2358 for testing and 0.0936 for training)."
+    }, {
+      "heading" : "4.2.6. UHC",
+      "text" : "The following equation was selected as the best model for HC emission:\nHC ¼ 0:6149 sinðx1Þ 0:2822x2 1:23x1 þ 0:6149 tanhðx3Þ 2073 cosðtanhðx1 2x2 þ x3ÞÞ þ 0:1573psqrootðp logðx2ÞÞ cosðx1Þ\n0:1573 sinð x2 9:769Þ sinðx1Þ 0:2073x1 tanhðx3Þ þ0:2073x3 cosðx1 þ x2Þ cosðx1Þ þ 0:1191\nð10Þ where HC is the HC emission (ppm). Accuracy of the equation is studied by plotting the measured values versus predicted by GP\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nFig. 12. (a) Variation of NOx with nano-diesel-biodiesel blends compared to neat diesel fuel (1000 rpm), (b) NOx at different nano-diesel fuel blends and engine speeds and (c) NOx at different nano-biodiesel fuel blends and engine speeds.\nvalues for training and testing sets (Fig. 22). The values of R2 and RMSE are 0.9388 and 0.8699 respectively for testing set (Fig. 22a) and 0.9961 & 0.2439 respectively for training set (Fig. 22b). There is a good correlation between the predictions from multi-gene GP and the measured data. A comparison of the error during testing and training by using GP and experimental results has been illustrated in Fig. 22c & d. It was proved that the multi-gene GP model can predict HC with a high variation explained (93.886% for testing and 99.61% for training) and very low root mean square (RMS) error (0.8699 for testing and 0.2439 for training)."
+    }, {
+      "heading" : "4.2.7. Nox",
+      "text" : "The following equation was selected as the best model for NOx emission:\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\nNOx¼1:184tanhðtanhðtanhðx1ÞÞ 0:2114Þ 0:2048expð5:262x2tanhðx3ÞÞþ0:04838sinðx2þtanhðx1Þ 6:525Þ þ0:04849expðx2 1:0x1Þ 0:2048tanhð5:262x2þcosðx1ÞÞþ0:4438\nð11Þ\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nFig. 15. Crossover operation between two parents.\nAccuracy of the equation is studied by plotting the measured values versus predicted by GP values for training and testing sets (Fig. 23). The values of R2 and RMSE are 0.9843 and 23.169 respectively for testing set (Fig. 23a) and 0.9884 & 23.22 respectively for training set (Fig. 23b). There is a good correlation between the predictions from multi-gene GP and the measured data. A comparison\nPlease cite this article in press as: Ghanbari M et al. Performance and emission diesel blends and modeling with GP approach. Fuel (2017), http://dx.doi.org/1\nof the error during testing and training by using GP and experimental results has been illustrated in Fig. 23c & d. It was proved that the multi-gene GP model can predict NOx with a high variation explained (98.43% for testing and 98.84% for training) and very low root mean square (RMS) error (23.16 for testing and 23.22 for training).\nDue to comparison, R2 and RMSE values for Performance & Emission parameters are listed in Table 7. Experimental Data analysis by the GP revealed that there is a good correlation between the GP predicted results and the experimental data (Table 6). Therefore GP proved to be a useful tool for correlation and simulation of engine parameters."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "The present work demonstrates that the use of nano-dieselbiodiesel blended fuel will increase the brake power and torque and decrease the brake specific fuel consumption. It was also found that the CO2 and NOx concentrations were increased while the concentration of CO and HC were decreased when nano-biodieseldiesel blends are used. The multi-gene genetic programming results are very good, R values in this model are very close to one, while root mean square errors (RMSE) were found to be very low. Analysis of the experimental data by the GP revealed that there is a good correlation between the GP predicted results and the experimental data. Therefore GP proved to be a useful tool for correlation and simulation of engine parameters. GP provided\ncharacteristics of a CI engine using nano particles additives in biodiesel0.1016/j.fuel.2017.04.117\nFig. 23. Measured versus predicted values of NOx emission (a) testing set data, (b) training data set. Experimental results and the GP model prediction of NOx for (c) testing set data, (d) training data.\nan accurate and simple approach in the analysis of this complex, multivariate problem, the analysis of the CI engine performance and emissions."
+    } ],
+    "references" : [ {
+      "title" : "Effects of cerium oxide nanoparticle addition in diesel and diesel-biodiesel-ethanol blends on the performance and emission characteristics of a CI engine",
+      "author" : [ "V Arul Mozhi Selvan", "RB Anand", "M. Udayakumar" ],
+      "venue" : "ARPN J Eng Appl Sci 2009;4(7):1–6",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2009
+    }, {
+      "title" : "The influence of a cerium additive on ultrafine diesel particulate emissions and kinetic of oxidation",
+      "author" : [ "H Jung", "DB Kittelson", "MR. Zachariah" ],
+      "venue" : "Combust Flame 2005;142:276–88",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2005
+    }, {
+      "title" : "A study of a ceria-zirconia-supported manganese oxide catalyst for combustion of diesel soot particles",
+      "author" : [ "V Sanchez Escribano", "E Fernandez Lopez", "JM Gallardo-Amores", "del Hoyo Martínez C", "C Pistarino", "M Panizza" ],
+      "venue" : "Combust Flame 2008;153:97–104",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2008
+    }, {
+      "title" : "Ethanol reactions over the surface of noble metal/cerium oxide catalysts",
+      "author" : [ "H. Idriss" ],
+      "venue" : "Platinum Metals Rev 2004;48(3):105–15",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2004
+    }, {
+      "title" : "Hazard and risk assessment of a nano-particulate cerium oxide based diesel fuel additive-a case study",
+      "author" : [ "B Park", "K Donaldson", "R Duffin", "L Tran", "F Kelly", "I Mudway" ],
+      "venue" : "Inhalation Toxicol",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2008
+    }, {
+      "title" : "Increasing the octane number of gasoline using functionalized carbon nanotubes",
+      "author" : [ "S Safari Kish", "A Rashidi", "HR Aghabozorg", "L. Moradi" ],
+      "venue" : "Appl Surf Sci 2010;256:3472–7",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2010
+    }, {
+      "title" : "Neural-network fundamentals for scientists and engineers. In: Efficiency, cost, optimization, simulation and environmental impact of energy systems ECOS’01, Istanbul, Turkey",
+      "author" : [ "Massie DD" ],
+      "venue" : "July 4–6,",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2001
+    }, {
+      "title" : "Adaptation in Natural and Artificial Systems",
+      "author" : [ "Holland JH" ],
+      "venue" : "Ann Arbor: University of Michigan",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 1975
+    }, {
+      "title" : "Evolutionary computing based mobile robot localization",
+      "author" : [ "NM Kwok", "DK Liu", "G. Fang" ],
+      "venue" : "Eng Appl Artif Intell",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2006
+    }, {
+      "title" : "Application of genetic algorithm for optimization of vegetable oil hydrogenation process",
+      "author" : [ "Izadifar M", "Jahromi MZ" ],
+      "venue" : "Appl Therm Eng 2007;78:1–8",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2007
+    }, {
+      "title" : "Heat exchanger network synthesis with an interactive multi-objective optimization method",
+      "author" : [ "T Laukkanen", "T Tveit", "V Ojalehto", "K Miettinen", "Bilevel. Fogelholm C" ],
+      "venue" : "Appl Therm Eng 2012;48:301–16",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2012
+    }, {
+      "title" : "An evolutionary approach for worst-case tolerance design",
+      "author" : [ "J. Tsai" ],
+      "venue" : "Eng Appl Artif Intell 2012;25:917–25",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2012
+    }, {
+      "title" : "Application of genetic programming for modelling of material characteristics",
+      "author" : [ "L Gusel", "M. Brezocnik" ],
+      "venue" : "Expert Syst Appl 2011;38:15014–9",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2011
+    }, {
+      "title" : "Static and dynamic modeling of solid oxide fuel cell using genetic programming. Energy 2009;34:740–51",
+      "author" : [ "Chakraborty UK" ],
+      "venue" : null,
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2009
+    }, {
+      "title" : "Genetic algorithms and non-intrusive energy management system based economic dispatch for cogeneration units. Energy 2011;36(1):181–90",
+      "author" : [ "Chang HH" ],
+      "venue" : null,
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2011
+    }, {
+      "title" : "Function identification for the intrinsic strength and elastic properties of granitic rocks via genetic programming (GP)",
+      "author" : [ "M. Karakus" ],
+      "venue" : "Geosci",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2011
+    }, {
+      "title" : "Genetic programming-based formulation for distortional buckling stress of cold-formed steel members",
+      "author" : [ "M. Pala" ],
+      "venue" : "J Constr Steel Res",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2008
+    }, {
+      "title" : "Evaluating the strength of intact rocks through genetic programming",
+      "author" : [ "M Asadi", "M Eftekhari", "MH. Bagheripour" ],
+      "venue" : "Applied Soft Computing",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2011
+    }, {
+      "title" : "Solving the ocean color problem using a genetic programming approach",
+      "author" : [ "C. Fonlupt" ],
+      "venue" : "Applied Soft Computing",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2001
+    }, {
+      "title" : "Comparison of experimental designs for simulation-based symbolic regression of manufacturing systems",
+      "author" : [ "B Can", "C. Heavey" ],
+      "venue" : "Comput Ind Eng",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2011
+    }, {
+      "title" : "Using weighted genetic programming to program squat wall strengths and tune associated formulas",
+      "author" : [ "Tsai HC" ],
+      "venue" : null,
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2011
+    }, {
+      "title" : "Prediction of tropospheric ozone concentrations: application of a methodology based on the Darwin’s Theory of Evolution",
+      "author" : [ "JCM Pires", "MCM Alvim-Ferraz", "MC Pereira", "FG. Martins" ],
+      "venue" : "Expert Syst Appl 2011;38:1903–8",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 1903
+    }, {
+      "title" : "Prediction of compressive and tensile strength of limestone via genetic programming",
+      "author" : [ "A Baykasoglu", "H Gullu", "H Canak", "L. Ozbakir" ],
+      "venue" : "Expert Syst Appl 2008;35:111–23",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2008
+    }, {
+      "title" : "Modelling damping ratio and shear modulus of sand-mica mixtures using genetic programming",
+      "author" : [ "Cevik A", "Cabalar AF" ],
+      "venue" : "Expert Syst Appl",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2009
+    }, {
+      "title" : "Modelling Chemical Process Systems Using a Multi-Gene Genetic Programming Algorithm",
+      "author" : [ "MP Hinchliffe", "MJ Willis", "HG Hiden", "MT Tham", "B McKay", "G. Barton" ],
+      "venue" : "In: proceedings of the First Annual Conf on Genetic programming (Late Breaking Paper)",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 1996
+    }, {
+      "title" : "Prediction of strain energy-based liquefaction resistance of sand–silt mixtures: an evolutionary approach",
+      "author" : [ "MH Baziar", "Y Jafarian", "H Shahnazari", "V Movahed", "MA. Tutunchian" ],
+      "venue" : "Geosci",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2011
+    }, {
+      "title" : "Genetic programming for predicting aseismic abilities of school buildings",
+      "author" : [ "HM Chen", "WK Kao", "HC. Tsai" ],
+      "venue" : null,
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2012
+    }, {
+      "title" : "Application of genetic programming to predict an SI engine brake power and torque using ethanol-gasoline fuel blends",
+      "author" : [ "M Kiani", "B Ghobadian", "F Ommi", "G. Najafi" ],
+      "venue" : "Int J Nat Eng Sci",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2013
+    }, {
+      "title" : "Combining neural networks and genetic algorithms to predict and reduce diesel engine emission",
+      "author" : [ "JM Alonso", "F Alvarruiz", "JM Desantes", "L Hernández", "V Hernández", "G. Moltó" ],
+      "venue" : "IEEE Trans Evol Comput 2007;11:46–55",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2007
+    }, {
+      "title" : "Genetic algorithm and artificial neural network for engine optimization of efficiency and NOX emission",
+      "author" : [ "U. Kesgin" ],
+      "venue" : "Fuel 2004;83:885–95",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2004
+    }, {
+      "title" : "Modelling and multi-objective optimization of a variable valve-timing spark-ignition engine using polynomial neural networks and evolutionary algorithms. Energy Convers Manage 2007;48:1029–41",
+      "author" : [ "K Atashkari", "N Nariman-Zadeh", "M Gölcü", "A Khalkhali", "A. Jamali" ],
+      "venue" : null,
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2007
+    }, {
+      "title" : "Investigation into the optimization control technique of hydrogen-fueled engines based on genetic algorithms",
+      "author" : [ "Z Yang", "L Wang", "S. Li" ],
+      "venue" : "Int J Hydrogen Energy 2008;33:6780–91",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2008
+    }, {
+      "title" : "Multi-objective optimization of diesel engine emissions and fuel economy using genetic algorithms and phenomenological model. SAE 2002[paperno:01–2778",
+      "author" : [ "T Hiroyasu", "M Miki", "J Kamiura", "S Watanabe", "H. Hiroyasu" ],
+      "venue" : null,
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2002
+    }, {
+      "title" : "Performance prediction and optimization for liquid rocket engine nozzle",
+      "author" : [ "G Cai", "J Fang", "X Xu", "M. Liu" ],
+      "venue" : "Aerosp Sci Technol",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2007
+    }, {
+      "title" : "A case study on the application of a genetic algorithm for optimization of engine parameters",
+      "author" : [ "Verma R", "Lakshminarayanan PA" ],
+      "venue" : "PI Mech Eng D-J Automobile Eng",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2006
+    }, {
+      "title" : "Optimization of system parameters for gas generator engines",
+      "author" : [ "XY Tong", "GB Cai", "YT Zheng", "J. Fang" ],
+      "venue" : "Acta Astronaut",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2006
+    }, {
+      "title" : "Genetic programming: On The Programming of Computers by Means of Naturals Election",
+      "author" : [ "Koza JR" ],
+      "venue" : null,
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 1992
+    }, {
+      "title" : "Optimization of capacity and operation for CCHP system by genetic algorithm",
+      "author" : [ "JJ Wang", "YY Jing", "CF. Zhang" ],
+      "venue" : "Appl Energy 2010;87:1325–35",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2010
+    }, {
+      "title" : "Minimization of the fuel consumption of a gasoline engine using dynamic optimization",
+      "author" : [ "B Saerens", "J Vandersteen", "T Persoons", "J Swevers", "M Diehl", "E. Bulk" ],
+      "venue" : "Appl Energy 2009;86:1582–8",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2009
+    }, {
+      "title" : "The effect of boost pressure on the performance characteristics of a diesel engine: a neuro-fuzzy approach",
+      "author" : [ "I Al-Hinti", "M Samhouri", "A Al-Ghandoor", "A. Sakhrieh" ],
+      "venue" : "Appl Energy 2009;86:113–21",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2009
+    }, {
+      "title" : "Application of system identification techniques to aircraft gas turbine engines",
+      "author" : [ "C Evans", "PJ Fleming", "DC Hill", "JP Norton", "I Pratt", "D. Rees" ],
+      "venue" : "Control Eng Pract 2001;9:135–48",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2001
+    }, {
+      "title" : "Nonlinear identification of aircraft gas-turbine dynamics",
+      "author" : [ "AE Ruano", "PJ Fleming", "C Teixeira", "K Rodríguez-Vázquez", "CM. Fonseca" ],
+      "venue" : "NeuroComputing",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2003
+    }, {
+      "title" : "System identification strategies applied to aircraft gas turbine engines",
+      "author" : [ "V Arkov", "C Evans", "PJ Fleming", "DC Hill", "JP Norton", "I. Pratt" ],
+      "venue" : "Annu Rev Control",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2000
+    }, {
+      "title" : "Nonlinear model structure identification using genetic programming",
+      "author" : [ "GJ Gray", "DJ Murray-Smith", "Y Li", "KC Sharman", "T. Weinbrenner" ],
+      "venue" : "Control Eng Pract",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 1998
+    }, {
+      "title" : "Artificial intelligence for the modeling and control of combustion processes: a review",
+      "author" : [ "Kalogirou SA" ],
+      "venue" : "Prog Energy Combust",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2003
+    }, {
+      "title" : "Prediction of torque and specific fuel consumption of a gasoline engine by using artificial neural networks. Appl Energy 2010;87:349–55",
+      "author" : [ "NK Togun", "S. Baysec" ],
+      "venue" : null,
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2010
+    }, {
+      "title" : "Genetic programming approach to predict torque and brake specific fuel consumption of a gasoline engine. Appl Energy 2010;87:3401–8",
+      "author" : [ "N Togun", "S. Baysec" ],
+      "venue" : null,
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2010
+    }, {
+      "title" : "Enhancing biodiesel production from soybean oil using ultrasonics",
+      "author" : [ "P Chand", "VR Chintareddy", "JG Verkade", "D. Grewell" ],
+      "venue" : "Energy Fuels",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2010
+    }, {
+      "title" : "Genetic algorithm approach to optimize biodiesel production by ultrasonic system",
+      "author" : [ "E Fayyazi", "B Ghobadian", "G Najafi", "B. Hosseinzadeh" ],
+      "venue" : "Chem Prod Process Model 2013:1–12",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2013
+    }, {
+      "title" : "Single wall carbon nano tubes synthesized using organic additives to Co–Mo catalysts supported on nano porous MgO",
+      "author" : [ "AM Rashidi", "MM Akbarnejad", "AA Khodadadi", "Y Mortazavi", "A. Ahmadpour" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2007
+    }, {
+      "title" : "Increasing the octane number of gasoline using functionalized carbon nano tubes",
+      "author" : [ "S SafariKish", "AM Rashidi", "HR Aghabozorg", "L. Moradi" ],
+      "venue" : "Appl Surf Sci 2010;256:3472–7",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2010
+    }, {
+      "title" : "Experimental and theoretical investigation of using gasoline– ethanol blends in spark-ignition engines. Renew Energy 2005;30:1733–47",
+      "author" : [ "H. Bayraktar" ],
+      "venue" : "Fuel (2017),",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2017
+    }, {
+      "title" : "Experimental determination of suitable ethanol–gasoline blend rate at high compression ratio for gasoline engine",
+      "author" : [ "Celik MB" ],
+      "venue" : "Appl Therm Eng 2008;28:396–404",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2008
+    }, {
+      "title" : "Effect of ethanol-unleaded gasoline blends on engine performance and exhaust emissions",
+      "author" : [ "M. Al-Hasan" ],
+      "venue" : "Energy Conv Manage 2003;44:1547–61",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2003
+    }, {
+      "title" : "Engine performance and pollutant emission of an SI engine using ethanol–gasoline blended fuels",
+      "author" : [ "WD Hsieh", "RH Chen", "TL Wu", "TH. Lin" ],
+      "venue" : "Atmos Environ 2002;36:403–10",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2002
+    }, {
+      "title" : "Biofuels (alcohols and biodiesel) applications as fuels for internal combustion engines",
+      "author" : [ "Agarwal AK" ],
+      "venue" : "Prog Energy Combust Sci 2007;33:233–71",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2007
+    }, {
+      "title" : "Interest of combining an additive with diesel ethanol blends for use in diesel engines. Fuel 2001;80(4):565–74",
+      "author" : [ "Z Mouloungui", "G Vaitilingom", "JC Berge", "PS. Caro" ],
+      "venue" : null,
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2001
+    }, {
+      "title" : "The influence of air–fuel ratio on engine performance and pollutant emission of an SI engine using ethanol–gasolineblended fuels",
+      "author" : [ "CW Wu", "RH Chen", "JY Pu", "TH. Lin" ],
+      "venue" : "Atmos Environ 2004;38:7093–100",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2004
+    }, {
+      "title" : "Genetic Programming: On the Programming of Computers by Means of Natural Selection",
+      "author" : [ "Koza JR" ],
+      "venue" : null,
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 1992
+    }, {
+      "title" : "A comparison of genetic programming and artificial neural networks in meta modeling of discrete-event simulation models",
+      "author" : [ "B Can", "C. Heavey" ],
+      "venue" : "Comput Oper Res",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2012
+    }, {
+      "title" : "GPTIPS: Genetic Programming & Symbolic Regression for MATLAB",
+      "author" : [ "Searson DP" ],
+      "venue" : "http://gptips.sourceforge.net;",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2009
+    }, {
+      "title" : "GPTIPS: Genetic Programming & Symbolic Regression for MATLAB, User Guide",
+      "author" : [ "Searson DP" ],
+      "venue" : null,
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2009
+    }, {
+      "title" : "Impact of properties of vegetable oil, bio-diesel, ethanol and n-butanol on the combustion and emissions of turbocharged HDDI diesel engine operating under steady and transient conditions. Fuel 2015;156:1–19",
+      "author" : [ "DC Rakopoulos", "CD Rakopoulos", "EG. Giakoumis" ],
+      "venue" : null,
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2015
+    }, {
+      "title" : "Butanol or DEE blends with either straight vegetable oil or biodiesel excluding fossil fuel: comparative effects on diesel engine combustion attributes, cyclic variability and regulated emissions trade-off. Energy 2016;115:314–25",
+      "author" : [ "DC Rakopoulos", "CD Rakopoulos", "DC. Kyritsis" ],
+      "venue" : null,
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2016
+    }, {
+      "title" : "Effect of Al2O3 nanoparticles in biodiesel-diesel-ethanol blends at various injection strategies: performance, combustion and emission characteristics",
+      "author" : [ "Venu Harish", "Madhavan Venkataramanan" ],
+      "venue" : "Fuel 2016;186(15):176–89",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2016
+    }, {
+      "title" : "Analyzing and evaluation of carbon nanotubes additives to diesohol-B2 fuels on performance and emission of diesel engines. Fuel 2017;196(15):110–23",
+      "author" : [ "Heydari-Maleney Khadijeh", "Taghizadeh-Alisaraei Ahmad", "Ghobadian Barat", "Abbaszadeh-Mayvan Ahmad" ],
+      "venue" : null,
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2017
+    }, {
+      "title" : "Effect of cerium oxide nanoparticles and carbon nanotubes as fuel-borne additives in diesterol blends on the performance, combustion and emission characteristics of a variable compression ratio engine. Fuel 2014;130(15):160–7",
+      "author" : [ "V Arul Mozhi Selvan", "RB Anand", "M. Udayakumar" ],
+      "venue" : null,
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 2014
+    }, {
+      "title" : "A novel soluble nanocatalysts in diesel–biodiesel fuel blends to improve diesel engines performance and reduce exhaust emissions",
+      "author" : [ "Mirzajanzadeh Mehrdad", "Tabatabaei Meisam", "Ardjmand Mehdi", "Rashidi Alimorad", "Ghobadian Barat", "Barkhi Mohammad" ],
+      "venue" : "Fuel 2015;139:374–82",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2015
+    }, {
+      "title" : "Partially premixed low temperature combustion using dimethyl carbonate (DMC) in a DI diesel engine for favorable smoke/NOx emissions",
+      "author" : [ "B Rajesh Kumar", "S. Saravanan" ],
+      "venue" : "Fuel 2016;180:396–406",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : "71",
+      "year" : 2016
+    }, {
+      "title" : "Trace metals and ions in particulates emitted by biodiesel fuelled engine. Fuel 2017;188:603–9",
+      "author" : [ "Shukla Pravesh Chandra", "Gupta Tarun", "Labhsetwar Nitin Kumar", "Agarwal Avinash Kumar" ],
+      "venue" : null,
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2017
+    }, {
+      "title" : "A molecular dynamics study of nanoparticleformation from bioethanol-gasoline blend emissions",
+      "author" : [ "Manzetti Sergio", "Andersen Otto" ],
+      "venue" : "Fuel 2016;183:55–63",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2016
+    }, {
+      "title" : "Synthesis of stable cerium zirconium oxide nanoparticle – diesel suspension and investigation of its effects on diesel properties and smoke",
+      "author" : [ "C Sajeevan Ajin", "V. Sajith" ],
+      "venue" : "Fuel 2016;183:155–63",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2016
+    }, {
+      "title" : "Rhamnolipid based glycerol-in-diesel microemulsion fuel: formation and characterization",
+      "author" : [ "Leng Lijian", "Yuan Xingzhong", "Zeng Guangming", "Chen Xiaohong", "Wang Hou", "Li Hui" ],
+      "venue" : "Fuel 2015;147:76–81",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2015
+    }, {
+      "title" : "Aluminum oxide and copper oxide nanodiesel fuel properties and usage in a compression ignition engine. Fuel 2016;163:80–7",
+      "author" : [ "Gumus Soner", "Ozcan Hakan", "Ozbey Mustafa", "Topaloglu Bahattin" ],
+      "venue" : null,
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 2016
+    }, {
+      "title" : "Investigating the influence of additives-fuel on diesel engine performance and emissions: analytical modeling and experimental validation",
+      "author" : [ "Fayyazbakhsh Ahmad", "Pirouzfar Vahid" ],
+      "venue" : "Fuel 2016;171(1):167–77",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : "77",
+      "year" : 2016
+    }, {
+      "title" : "Aluminum oxide and copper oxide nanodiesel fuel properties and usage in a compression ignition engine. Fuel 2016;163(1):80–7",
+      "author" : [ "Gumus Soner", "Ozcan Hakan", "Ozbey Mustafa", "Topaloglu Bahattin" ],
+      "venue" : null,
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : "78",
+      "year" : 2016
+    }, {
+      "title" : "Solar energy in Iran: current state and outlook",
+      "author" : [ "G Najafi", "B Ghobadian", "R Mamat", "T Yusaf", "WH. Azmi" ],
+      "venue" : "Renew Sustain Energy Rev 2015;49:931–42",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : "79",
+      "year" : 2015
+    }, {
+      "title" : "An experimental investigation of the effective parameters on wet washing of biodiesel purification",
+      "author" : [ "A Abbaszadeh", "B Ghobadian", "G Najafi", "T. Yusaf" ],
+      "venue" : "Int J Automot Mech Eng",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : "80",
+      "year" : 2014
+    }, {
+      "title" : "LLK1694-wind energy resources and development in Iran",
+      "author" : [ "G Najafi", "B. Ghobadian" ],
+      "venue" : "Renew Sustain Energy Rev 2011;15(6):2719–28",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : "81",
+      "year" : 2011
+    }, {
+      "title" : "SVM and ANFIS for prediction of performance and exhaust emissions of a SI engine with gasoline-ethanol blended fuels",
+      "author" : [ "G Najafi", "B Ghobadian", "A Moosavian", "T Yusaf", "R Mamat", "M Kettner" ],
+      "venue" : "Appl Therm Eng 2016;95:186–203",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : "82",
+      "year" : 2016
+    }, {
+      "title" : "An ultrasound-assisted system for the optimization of biodiesel production from chicken fat oil using a genetic algorithm and response surface methodology",
+      "author" : [ "E Fayyazi", "B Ghobadian", "G Najafi", "B Hosseinzadeh", "R Mamat", "J. Hosseinzadeh" ],
+      "venue" : "Ultrason Sonochem 2015;26:312–20",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : "83",
+      "year" : 2015
+    }, {
+      "title" : "Investigation of fossil fuel and liquid biofuel blend properties using artificial neural network",
+      "author" : [ "P Nematizade", "B Ghobadian", "G. Najafi" ],
+      "venue" : "Int J Automot Mech Eng",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : "84",
+      "year" : 2012
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Among the many alternative fuels, biodiesel is considered as a most desirable fuel extender and fuel additive due to its high oxygen content and renewable in nature [1].",
+      "startOffset" : 165,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 3,
+      "context" : "Idriss investigated the complexity of the ethanol reactions on the surfaces of noble metals/cerium oxide catalysts [4].",
+      "startOffset" : 115,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 0,
+      "context" : "The tests revealed that cerium oxide nano-particles can be used as additive in diesel and diesel-biodiesel-ethanol blend to improve complete combustion of the fuel and reduce the exhaust emissions significantly [1].",
+      "startOffset" : 211,
+      "endOffset" : 214
+    }, {
+      "referenceID" : 5,
+      "context" : "Research octane number analysis showed that these additives increase octane number of the desired samples [6].",
+      "startOffset" : 106,
+      "endOffset" : 109
+    }, {
+      "referenceID" : 6,
+      "context" : "To predict the parameters from the engines, one approach is to utilize numerical models [7].",
+      "startOffset" : 88,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 7,
+      "context" : "Genetic algorithm (GA), which is based on solutions of fixed length chromosomes, usually consisting of binary genes, organized into sequences, often termed schema is the most commonly used evolutionary-computation algorithm [8,9].",
+      "startOffset" : 224,
+      "endOffset" : 229
+    }, {
+      "referenceID" : 21,
+      "context" : "[23] used GP method to predict the next day hourly average tropospheric ozone (O3) concentrations.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 23,
+      "context" : "Another interesting genetic programming application was conducted by Cevik and Cabalar [25] for prediction of peak ground acceleration (PGA) using strong-ground-motion data.",
+      "startOffset" : 87,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 24,
+      "context" : "Multigene genetic programming is a recently developed approach for improving accuracy of GP that was developed by Hinchliffe, Willis, Hiden, Tham, McKay and Barton [26] and Hiden [27] and have been utilized in some recent research works [28,29].",
+      "startOffset" : 164,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 25,
+      "context" : "Multigene genetic programming is a recently developed approach for improving accuracy of GP that was developed by Hinchliffe, Willis, Hiden, Tham, McKay and Barton [26] and Hiden [27] and have been utilized in some recent research works [28,29].",
+      "startOffset" : 237,
+      "endOffset" : 244
+    }, {
+      "referenceID" : 26,
+      "context" : "Multigene genetic programming is a recently developed approach for improving accuracy of GP that was developed by Hinchliffe, Willis, Hiden, Tham, McKay and Barton [26] and Hiden [27] and have been utilized in some recent research works [28,29].",
+      "startOffset" : 237,
+      "endOffset" : 244
+    }, {
+      "referenceID" : 27,
+      "context" : "[30] studied the application of genetic programming to predict an SI engine brake power and torque using ethanol-gasoline fuel blends.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 27,
+      "context" : "The simulation results demonstrated that GP model is a good tool to predict the engine brake power and torque under test [30].",
+      "startOffset" : 121,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 44,
+      "context" : "Kalogirou [47] reviewed ANN and GP for the modeling and control of engine combustion.",
+      "startOffset" : 10,
+      "endOffset" : 14
+    }, {
+      "referenceID" : 45,
+      "context" : "A GP based mathematical model developed for the prediction of SI engine torque and brake specific fuel consumption in terms of spark advance, throttle position and engine speed [48,49].",
+      "startOffset" : 177,
+      "endOffset" : 184
+    }, {
+      "referenceID" : 46,
+      "context" : "A GP based mathematical model developed for the prediction of SI engine torque and brake specific fuel consumption in terms of spark advance, throttle position and engine speed [48,49].",
+      "startOffset" : 177,
+      "endOffset" : 184
+    }, {
+      "referenceID" : 62,
+      "context" : "The properties, combustion- and emission parameters of some common bio-fuels used in diesel engines as used under both steady-state and transient conditions, has been investigated [65,66].",
+      "startOffset" : 180,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 63,
+      "context" : "The properties, combustion- and emission parameters of some common bio-fuels used in diesel engines as used under both steady-state and transient conditions, has been investigated [65,66].",
+      "startOffset" : 180,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 47,
+      "context" : "Transestrification reaction of waste cooking oil with methanol in the presence of catalyst [50,51].",
+      "startOffset" : 91,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 48,
+      "context" : "Transestrification reaction of waste cooking oil with methanol in the presence of catalyst [50,51].",
+      "startOffset" : 91,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 49,
+      "context" : "Nano silver and Multi-walled carbon nano-tubes with 90–95% purity prepared by CVD method over Co-Mo/MgO catalyst [52,53].",
+      "startOffset" : 113,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 50,
+      "context" : "Nano silver and Multi-walled carbon nano-tubes with 90–95% purity prepared by CVD method over Co-Mo/MgO catalyst [52,53].",
+      "startOffset" : 113,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 51,
+      "context" : "pressure for higher nano content blends [54].",
+      "startOffset" : 40,
+      "endOffset" : 44
+    }, {
+      "referenceID" : 52,
+      "context" : "The heat of evaporation of nano-diesel is higher than that diesel fuel, this provides fuel–air charge cooling and increases the density of the charge, and thus higher power output is obtained [55].",
+      "startOffset" : 192,
+      "endOffset" : 196
+    }, {
+      "referenceID" : 53,
+      "context" : "With the increase in concentration of nano silver and carbon nano tubes, the density of the mixture and the engine volumetric efficiency increases and this causes the increase of power [56].",
+      "startOffset" : 185,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 0,
+      "context" : "Higher peak pressure causes to have higher brake power [1].",
+      "startOffset" : 55,
+      "endOffset" : 58
+    }, {
+      "referenceID" : 54,
+      "context" : "Added biodiesel produces lean mixtures that increase the relative air–fuel ratio to a higher value and makes the burning more efficient [57].",
+      "startOffset" : 136,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 55,
+      "context" : "The improved antiknock behaviour (due to the addition of biodiesel and nano particles) allowed a more advanced timing that results in higher combustion pressure and thus higher torque [58].",
+      "startOffset" : 184,
+      "endOffset" : 188
+    }, {
+      "referenceID" : 0,
+      "context" : "This phenomenon is due to the result of nano silver and CNT nano addition which promotes combustion [1].",
+      "startOffset" : 100,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 52,
+      "context" : "CO2 emission depends on relative air–fuel ratio and CO emission concentration [55,60].",
+      "startOffset" : 78,
+      "endOffset" : 85
+    }, {
+      "referenceID" : 57,
+      "context" : "CO2 emission depends on relative air–fuel ratio and CO emission concentration [55,60].",
+      "startOffset" : 78,
+      "endOffset" : 85
+    }, {
+      "referenceID" : 0,
+      "context" : "The use of oxygenated additives promotes complete combustion is the cause for the hydrocarbon emission reduction, but in the case of CNT particles due to have carbon in their structure, HC emission increases [1].",
+      "startOffset" : 208,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 46,
+      "context" : "The main difference between GA and GP resides in the nature of the individuals: in GAs the individuals are symbolic strings of fixed length (chromosomes); in GP the individuals are nonlinear entities of different sizes and shapes (parse trees) [49].",
+      "startOffset" : 244,
+      "endOffset" : 248
+    }, {
+      "referenceID" : 58,
+      "context" : "Koza [61] was one of the scientists who first suggested the use of GP to find a symbolic regression tree matching to the mathematical formula which can best fit the data according to a fitness criterion.",
+      "startOffset" : 5,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 19,
+      "context" : "In crossover operation two individuals (parents) are selected, their tree structures are broken at a randomly selected crossover point, and the produced subtrees are recombined to form two new individuals (offspring) [21].",
+      "startOffset" : 217,
+      "endOffset" : 221
+    }, {
+      "referenceID" : 59,
+      "context" : "In crossover operation two individuals (parents) are selected, their tree structures are broken at a randomly selected crossover point, and the produced sub-trees are recombined to form two individuals (offspring) [62].",
+      "startOffset" : 214,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 60,
+      "context" : "The genetic programming and Symbolic Regression is a new code that has been written on the basis of multi-gene GP for utilize with MATLAB [63].",
+      "startOffset" : 138,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 61,
+      "context" : "Other initial parameters were adjusted to their default values in GPTIPS, according to Searson [64].",
+      "startOffset" : 95,
+      "endOffset" : 99
+    } ],
+    "year" : 2017,
+    "abstractText" : "The performance and the exhaust emissions of a diesel engine operating on nano-diesel-biodiesel blended fuels has been investigated. Multi wall carbon nano tubes (CNT) (40, 80 and 120 ppm) and nano silver particles (40, 80 and 120 ppm) were produced and added as additive to the biodiesel-diesel blended fuel. Six cylinders, four-stroke diesel engine was fuelled with these new blended fuels and operated at different engine speeds. Experimental test results indicated the fact that addingnanoparticles to diesel and biodiesel fuels, increased diesel engine performance variables including engine power and torque output up to 2% and brake specific fuel consumption (bsfc) was decreased 7.08% compared to the net diesel fuel. CO2 emission increased maximum 17.03% and CO emission in a biodiesel-diesel fuel with nano-particles was lower significantly (25.17%) compared to pure diesel fuel. UHC emission with silver nano-diesel-biodiesel blended fuel decreased (28.56%) while with fuels that contains CNT nano particles increased maximum 14.21%. With adding nano particles to the blended fuels, NOx increased 25.32% compared to the net diesel fuel. This study also presents genetic programming (GP) basedmodel to predict the performance and emission parameters of a CI engine in terms of nano-fuels and engine speed. Experimental studies were completed to obtain training and testing data. The optimum models were selected according to statistical criteria of root mean square error (RMSE) and coefficient of determination (R). It was observed that the GP model can predict engine performance and emission parameters with correlation coefficient (R) in the range of 0.93–1 and RMSE was found to be near zero. The simulation results demonstrated that GP model is a good tool to predict the CI engine performance and emission parameters. 2017 Elsevier Ltd. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

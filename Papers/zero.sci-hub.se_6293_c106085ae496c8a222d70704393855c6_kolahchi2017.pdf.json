@@ -1,0 +1,503 @@
+{
+  "name" : "zero.sci-hub.se_6293_c106085ae496c8a222d70704393855c6_kolahchi2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "A comparative study on the bending, vibration and buckling of viscoelastic sandwich nano-plates based on different nonlocal theories using DC, HDQ and DQ methods",
+    "authors" : [ "Reza Kolahchi" ],
+    "emails" : [ "r.kolahchi@gmail.com" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "In this paper, bending, buckling and buckling of embedded nano-sandwich plates are investigated based on refined zigzag theory (RZT), sinusoidal shear deformation theory (SSDT), first order shear deformation theory (FSDT) and classical plate theory (CPT). In order to present a realistic model, the material properties of system are assumed viscoelastic using Kelvin–Voigt model. The elastic medium is simulated by orthotropic visco-Pasternak medium. Based on energy method and D’Alembert’s principle, the derivation of the nonlinear equations of motion is presented. A novel numerical method namely as differential cubature (DC) method is applied for obtaining the static response, the natural frequencies and the buckling loads of nanosandwich plates. The effects of different parameters such as nonlocal parameter, structural damping, viscoelastic foundation, geometrical parameters, stiffness of core and boundary conditions are shown on the bending, buckling and vibration behaviors of nanostructure. The accuracy of the proposed method is verified by comparing its numerical predictions with other published works as well as solution of system with differential quadrature (DQ) and harmonic differential quadrature (HDQ) methods. The numerical investigation shows that RZT is highly accurate in predicting the deflection, frequency and buckling load of nano-sandwich plates without requiring any shear correction factors. Keywords: Visco-nano-sandwich plate; Bending; Buckling; Vibration; Different theories; DCM."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Due to the high stiffness-to-weight and strength-to-weight ratios and other superior properties of composite and sandwich materials compared with traditional isotropic ones, laminated composites have been increasingly used in various engineering structures and aerospace industrial applications involving aircraft, helicopters, missiles, launchers, satellites and etc. Nowadays, the application of nano structures in aerospace research is growing. For example, from November 2013 to January 2014, 94 nanosatellites are launched and more than 1,000 nanosats are projected to be launched in the next five years. Since the analysts and designers must have a deep understanding of these structures, the mechanical behaviors of them such as bending, buckling and vibration are firmly necessary especially in nano-scale. In particular, by the wide use of laminated composite plates in industrial applications, studies on modeling the behaviors of laminated nanoplates with complicated geometry become more important in design procedures, especially for dynamic loading conditions. In order to predict the elasto-dynamic response of the sandwich structures, two approaches can be used. Three-dimensional (3D) elasticity which is a comprehensive and reference solution and applied by many researchers. For example, Pagano [1] and Noor et al. [2] used form 3D elasticity solution for bending, buckling and vibration of simply supported sandwich structures. Another approach is two-dimensional (2D) solution which may be classified into two categories: of Equivalent Single Layer (ESL) and Layer-Wise (LW) models. In ESL models, the multilayered structure is considered as a single equivalent layer with a general stress-strain relation. Classical Lamination Theory (CLT), First-order Shear Deformation Theory (FSDT) and Higher-order Shear Deformation Theory (HSDT) are the examples of ESL modes. It is a well known fact that the CLT generally provides inaccurate results since it neglects transverse shear\ndeformation, whereas the accuracy of the FSDT strongly depends on the shear correction factors. The results of HSDT are more accurate with respect to CLT and FSDT but generally, ESL theories become inaccurate when the plate is thick [3]. In conclusion, the ESL models have to be limited to the prediction of the global response quantities for relatively thin sandwich structures. Contrary to the ESL models, in the LW theories, every single layer is treated as a plate itself and the kinematic description is given for every single layer. This model is used by [4] for vibration of sandwich structures. The influence of the quadratic and cubic terms on non-linear dynamic characteristics of the angle-ply composite laminated rectangular plate with parametric and external excitations was investigated by Sayed and Mousa [5]. Non-linear static and dynamic analysis was presented by Nath et al. [6] for composite laminated anti-symmetric square plates supported on non-linear elastic foundation subjected to uniformly distributed transverse and step loading, respectively. A generalized non-polynomial quasi-3D shear deformation theory for advanced composite plates was presented by Mantari [7]. Thai et al. [8] presented a generalized LW higher-order shear deformation theory for laminated composite and sandwich plates. A layerwise shear deformation theory for composite laminated plates was discretized by Liu et al. [9] using a differential quadrature finite element method (DQFEM). However, LW models provide very accurate predictions but the only problem is increasing the number of unknowns with increasing the number of layers. Recently, for overcoming the inaccuracy of ESL models and time-consuming calculations of LW models, the ZigZag theories (ZZ) is introduced. The kinematics of this model is based on an ESL-type description with assuming continuity condition of displacements and transverse stresses between layers with more computationally-efficient than LW models (i.e. the number of kinematic unknowns is regardless of the number of layers). Di Sciuva, who pioneered these\nmodels, proposed a linear ZZ (LZZ) and cubic ZZ (CZZ) displacement- based model [10, 11] for bending, free vibration and buckling analysis of multilayer composite plates. Based on thirdorder zigzag model, Xiaohui and Wanji [12] studied the vibration of sandwich plates with soft cores. Bending, vibration and buckling analysis of sandwich plates with soft core were studied by Pandit et al. [13] using higher-order ZZ model. The Refined Zigzag Theory (RZT) is introduced by Tessler et al. for beams [13], plates [15], and shells [16]. Alipour and Shariyat [17] devoted the stress and deformation analysis of functionally graded annular sandwich plates subjected to non-uniform normal and/or shear tractions. A new trigonometric zigzag theory was proposed by Sahoo and Singh [18] for the static analysis of laminated composite and sandwich plates. This theory considers shear strain shape function assuming the non-linear distribution of in-plane displacement across the thickness. None of the research mentioned above, have considered nanostructures. Mechanical analysis of nano-plates has been investigated by many researchers. Based on\nSmall-scale effects on nonlinear\nvibration analysis of a single-layer boron nitride sheet were studied by Ghorbanpour Arani et al. [20] using DC and HDQ methods. Kolahchi et al. [21] investigated nonlocal nonlinear buckling analysis of embedded polymeric temperature-dependent microplates resting on an elastic matrix as orthotropic temperature-dependent elastomeric medium. The same corresponding author [22] presented bending analysis of functionally\nKelvin–Voigt"
+    }, {
+      "heading" : "2. Kinematics of different theories",
+      "text" : "Consider a laminated plate of uniform thickness 2h with bonded orthotropic layers as shown in Fig. 1. The orthogonal Cartesian coordinate system (x, y, z) is taken as reference where the thickness coordinate z ranges from -h to +h. The nanostructure is located on a viscoelastic medium with spring constant, shear layer and damping coefficient. Here, four theories namely as RZT, SSDT, FSDT and CPT are used for mathematical modeling of structure. 2.1. RZT\nBased on RZT, The orthogonal components of the displacement vector can be expressed as [16]\n(1a)\n(1b)\n(1c)\nwhere the superscript (k) is used to denote quantities corresponding to the kth lamina. The kinematic unknowns of RZT are seven: the same five kinematic variables (u and are the in-\nplane uniform displacements, is the transverse deflection, and are the average rotations\nof the transverse normal around the positive y-axis and the negative x- axis, respectively) and\ntwo additional variables ( and are the amplitude of the zigzag rotations). and are\nzigzag functions which for the complete derivation of the zigzag functions, refer to [16]. However, based on von Kàrmàn’s nonlinear theory, strain–displacement relations are [26]\n(2a)\n(2b)\n(2c)\n(2d)\nwhere (.),a denotes the partial derivative with respect to the mid-plane coordinate. 2.2. SSDT Based on the SSDT, the displacement fields can be obtained as [27]\n(3a)\n(3b)\n(3c)\nwhere\n(4)\nThe kinematic relations can be obtained as follows\n(5a)\n(5b)\n(5c)\n(5d)\nwhere ."
+    }, {
+      "heading" : "2.3. FSDT",
+      "text" : "The displacement field of this theory may be obtained from RZT considering and equal\nto zero as follows [28]\n(6a)\n(6b)\n(6c)\nHence, the strain-displacement of this theory is\n(7a)\n(7b)\n(7c)\n(7d)"
+    }, {
+      "heading" : "2.4. CPT",
+      "text" : "The displacement field of this theory may be obtained from SSDT considering equal to zero as follows [28]\n(8a)\n(8b)\n(8c)\nThe kinematic relations can be obtained as follows\n(9a)\n(9b)\n(9c)"
+    }, {
+      "heading" : "3. Nonlocal elasticity theory",
+      "text" : "Based on the theory of nonlocal elasticity, the stress tensor at a reference point depends not only on the strain at same position but also on all other points of the body. The constitutive equation of the nonlocal elasticity can be written as [29]\n,\n000 000\n00 00 00 ))(1(\n)()(\n4445\n4555\n662616\n262212\n161211 )()(\n22 0\nk\nxz\nyz\nxy\nyy\nxx kkl\nxz\nyz\nxy\nyy\nxx knl\nxz\nyz\nxy\nyy\nxx\nQQ QQ\nQQQ QQQ QQQ ae\n(10)\nwhere )(Pnlij and )(Pl ij represent the nonlocal and local stress; 2 is the Laplacian operator; 0e\ndenotes a constant appropriate to each material, and a is an internal characteristic length of the material. Consequently, 20 )( ae is a constant parameter which is obtained with molecular\ndynamics, experimental results, experimental studies and molecular structure mechanics. In\naddition, are the transformed elastic stiffness coefficients which the expression of\nthese coefficients in terms of the elastic moduli corresponding to the material coordinates, can be found, e.g., in [30]. 4. Motion equations The plate equations of motion are derived from the D’Alembert’s principle which may be written as\n(11)\nwhere is the variational operator, U, Wi and We represent the strain energy, the work of inertial forces and the work of the external loads, respectively. 4.1. Strain energy variation The variation of the total strain energy, for three theories can be expressed as\n(12)\nRZT and FSDT\nSubstituting Eq. (2) in Eq. (12) and integrating by parts, the variation of the total strain energy reads\n(13)\nNoted that neglecting , , and , the total variation of strain energy for FSDT can\nbe obtained.\nSSDT and CPT\nSubstituting Eq. (5) in Eq. (12) and integrating by parts, the variation of the total strain energy reads\n(14)\nwhere the resultants force and moments can be defined as\nτ (15)\n(16)\nτ ′ τ τ ′ τ (17)\nwhere ′ is shear correction factor. Noted that neglecting , and , the total variation of\nstrain energy for CPT can be obtained. 4.2. Inertial forces variation The virtual work of the inertial forces, is\n(18)\nwhere is the material mass density of the kth layer. Moreover, the dot indicates differentiation with respect to the time variable.\nRZT and FSDT\nSubstituting Eq. (1) in Eq. (18) and performing integration through the thickness, the variation of internal force can be written as\n(19)\nNoted that neglecting and (j=1,2,3) the total variation of internal force for FSDT can be\nobtained.\nSSDT and CPT\nSubstituting Eq. (3) in Eq. (18) and performing integration through the thickness, the variation of internal force can be written as\n(20)\nwhere the following definitions for the mass moments of inertia have been adopted\n(21)\n(i=x,y) (22)\n(23)\nNoted that neglecting and the total variation of internal force for CPT can be obtained."
+    }, {
+      "heading" : "4.3. External forces variation",
+      "text" : "The variation of the work of external forces, , is [24]\n(24)\nwhere\n,coscossin2sin\nsinsincos2cos\n, 2 ,, 2\n, 2 ,, 2 1\nyyxyxxg\nyyxyxxgdw\nwwwk\nwwwkwcwkQq (25)\nwhere angle θ describes the local ξ direction of orthotropic foundation with respect to the global\nx-axis of the system; wk1 , dc , gk and gk , respectively are spring, damper, -shear and -\nshear constants. In addition, Q in the uniform distributed load applied at the over surface of nanoplate. 4.4. D’Alembert’s principle Using D’Alembert’s principle (Eq. (11)), the differential equations of motion for all theories may be obanied.\nRZT\nSubstituting Eqs. (13), (19) and (24) into Eq. (11) yields\n(26a)\n(26b)\n(26c)\n(26d)\n(26e)\n(26f)\n(26g)\nSSDT\nSubstituting Eqs. (14), (20) and (24) into Eq. (11) yields\n(27a)\n(27b)\n(27c)\n(27d)\nFSDT\nThe motion equations of this theory can be obtained from Eq. (26) neglecting , , ,\n, and (j=1,2,3) as follows\n(28a)\n(28b)\n(28c)\n(28d)\n(28e)\nCPT\nThe motion equations of this theory can be obtained from Eq. (27) neglecting and as follows\n(29a)\n(29b)\n(29d)\nSubstituting Eq. (11) into Eqs. (15)–(17) and then integrating over the laminate thickness yields\nRZT and FSDT\n(30)\n(31)\n(32)\n(33)\n(34)\nNoted that ignoring , the resultants force and moment of FSDT can be\nobtained.\nSSDT and CPT\n(35)\n(36)\n(37)\n(38)\nNoted that ignoring , the resultants forces and moment of CPT can be obtained. The\ndefinition of resultants force and moment in above relations are\n(39)\n(a=x,y) (40)\n(a=x,y) (41)\n(42)\n(43)\nBy introducing Eq. (30)-(43) in motion equations, the governing equations in terms of displacements may be derived. According to Kelvin–Voigt [24] at real life, nano structure mechanical properties depend on the time variation. By considering this model, elastic constant\nof layers can be substitute as , where g is structural damping parameter."
+    }, {
+      "heading" : "5. Solution methods",
+      "text" : ""
+    }, {
+      "heading" : "5.1. DCM",
+      "text" : "DCM is a numerical procedure expressing a calculus operator ( ) value of the function ( yxf ,\n) at a discrete point in the solution domain as a weighted linear sum of discrete function values chosen within the overall domain of a problem. For a two-dimensional problem, supposing that there are N arbitrarily located grid points, the cubature approximation at the ith discrete point can be expressed as [24]\n,),(, 1\nN\nj jjiji yxfCyxf\n(44)\nwhere ijC and N are the cubature weighting coefficients and total number of grid points in the\nsolution domain, respectively. The computation of the weighting coefficients can be done using the following expression\n.,...,2,1,1,...,2,1,0,,...,2,1,0,)( 1\nNiNyxfCyx N\nj jjiji\n(45)\nThe above equation may be written in matrix form as\n. . .\n. 2\n1\ni\nin\ni\ni\njj yx\nC\nC C\nyx\n(46)\nThe coefficient matrix, jj yx can be expanded with j in column wise and one row of each pair\nof , . Also, each pair of , is required to fill the column on the right of the equal sign. The\ncubature weighting coefficients may be obtained by solving Eq. (30) repeatedly for Ni ,...,2,1 ,\nrespectively. 5.2. DQM and HDQM In this methods, the differential equations are changed into a first order algebraic equation by employing appropriate weighting coefficients. Because weighting coefficients do not relate to any special problem and only depend on the grid spacing. In other words, the partial derivatives of a function ( yxf , ) are approximated with respect to specific variables (say x and y ), at a\ndiscontinuous point in a defined domain ( Lx0 and by0 ) as a set of linear weighting\ncoefficients and the amount represented by the function itself at that point and other points throughout the domain. The approximation of the thn and thm derivatives function with respect to\nx and y , respectively may be expressed in general form as [31, 32]\n),,(),(\n),,(),(\n),,(),(\n1\n)()(\n1\n)(\n1\n)()(\n1\n)()(\nlk\nN l jl m ik n N k ji mn xy\nli\nN l jl m ji m y\njk\nN k ik n ji n x\nyxfBAyxf\nyxfByxf\nyxfAyxf\nyx\ny\nx\n(47)\nwhere xN and yN denotes the number of points in x and y directions, respectively, and jlik BA ,\nare the weighting coefficients which can be found in Refs. [31, 32]."
+    }, {
+      "heading" : "5.3. Motion equations as matrix form",
+      "text" : "Based on Eqs. (44) and (47) and considering the displacement vector as tYed , the motion equations for all theories may be written in matrix form as follows\n, 02 QY Y MCCPKKK\nd\nb NLLGNLL\n(48)\nwhere ][K and ][ NLK are the linear and nonlinear stiffness matrixes, respectively; ][ LC and\n][ NLC are the linear and nonlinear damp matrixes, respectively; ][M is the mass matrix; Y is the displacement vector where subscript b and d represent boundary and domain points; is the frequency and P is the buckling load. However, based on an iterative method, for analysis of bending, buckling and vibration we have\nBending\nFor analysis of bending, 0P . Hence\n, 0 QY Y KK\nd\nb NLL\n(48)\nThe main purpose is calculating the deflection of structure.\nBuckling\nFor analysis of buckling, 0Q . Hence considering , and\n, we have\n, 0 0\nd\nb GNLL Y\nY PKKK\n(50)\nThe main purpose is calculating the buckling load of structure.\nVibration\nFor analysis of vibration, 0PQ . Hence\n, 0 02\nd\nb NLLNLL Y\nY MCCKK\n(51)\nThe main purpose is calculating the frequency of structure. 6. Numerical results In this section, the effects of the geometrical parameters, nonlocal parameter, viscoelastic medium, structural damping, boundary condition, mode number and loading type on the bending, buckling and vibration of nanostructure are investigated. Mechanical material properties of facesheets and cores are listed in Table 1 [33]. For convenience, the following nondimensionalizations are used for deflection, buckling load and frequency in presenting the numerical results in graphical and tabular form:\n, ( ), ("
+    }, {
+      "heading" : "6.1. Convergence of numerical methods",
+      "text" : "The convergence and accuracy of the DQ, HDQ and DC methods in evaluating the dimensionless deflection, buckling load and frequency of structure for RZT is shown in Table 2. The results are prepared for different values of the DQ, HDQ and DC methods grid points. Fast rate of convergence of the methods are quite evident and it is proven that the DC solutions are very close to the DQ and HDQ solution. As can be seen, fifteen and thirteen grid points can yield accurate results in DQ and HDQ methods, respectively. Furthermore, the deflection, buckling load and frequency in DC method may be converged with 113 grid points. Another interesting finding that one can draw from the table is that the DC method solution with 113 grid points is able to reach comparable results with the DQ and HDQ methods respectively using 15×15 and\n13×13 (i.e. 225 and 169) grid points. This is an advantage that the DC method has over the DQ and HDQ methods in terms of computational effectiveness. 6.2. Validation To the best of the authors’ knowledge no published literature is available for bending, buckling and vibration of viscoelastic nano-sandwich plates. Since, no reference to such a work is found to-date in the literature; its validation is not possible. However, in an attempt to validate this work as far as possible, three methods are applied as follows:\nThree numerical methods are used and compared with each others in Table 2. It can be observed that the final converged solution of three methods agree well with each others, indicating validation of this work. Calculating the deflection, buckling load and frequency using four theories namely as RZT, SSDT, FSDT and CPT A simplified analysis of this paper is carried out without considering the nonlinear terms in motion equations, viscoelastic foundation, structural damping and nonlocal parameter.\nFor bending validation (Table 3), present results are compared with the work of Pagano [34] and Iurlaro et al. [18] who studied linear bending of isotropic simply supported laminated plates with normalized lamina thickness ( hh k 2/2 )( ) and orientation as (0.1/0.2/0.7) and (0,core,0), respectively. However, considering the material properties the same as Ref. [34], the normalized maximum (central) deflection, of system is shown for different core-to-face stiffness ratio ( tc EE 11 / ) and span-to-thickness ratio ( ha 2/ ). For this problem, the exact elasticity solution presented by Pagano [34] is used as a reference for assessing the performances of RZT and SSDT. As can be seen, RZT ensures very accurate results if compared with the reference solutions, for both cases of stiff and soft core. In addition,\nfor thin structure (i.e. 1002/ ha ), the results of SSDT and FSDT are close to the results of RZT and 3D elasticity solution. For thick plates (i.e. 62/ ha ), when the core of sandwich plate is stiff (i.e. 111 10/ tc EE ), the deflection computed by SSDT, FSDT and CPT are more accurate results than when a soft core (i.e. 311 10/ tc EE ) is used. In order to validate the buckling analysis of laminated plates (Table 4), 11 layers laminated plate with normalized lamina thickness ( hh k 2/2 )( ) and orientation as ((0.1tf/0.1tf/)5/tc/(0.5tf/0.5tf) 5) and ((0/90) 5/core/(0/90) 5), respectively, is considered with the material properties the same as\n[33]. Comparison of the dimensionless buckling load ( ), for different\nvalues of span-to-thickness ratio ( ha 2/ ) and face-to-overall thickness ratio ( ht f 2/ ) is made.\nSeveral works are considered in order to validate the presented results. Solution quoted as 3D [2] is taken as reference in the comparison. The FSDT, with the classical shear correction factors (k/=5/6), overestimates the uni-axial buckling load parameter; whereas the results of SSDT and RZT converge to the reference solutions. For the present problem, SSDT and RZT provide accurate results especially when the plate has a thick core layer, regardless the span-to-thickness ratio. The LZZ and CZZ results are very close to those obtained by means of RZT, the latter being slightly better and leading to highly accurate predictions within the considered ranges of\nha 2/ and ht f 2/ .\nFor vibration validation, in Table 5, the first three dimensionless frequencies (\n, where and are the mass density and the transverse Young’s modulus\nof the face, respectively.) obtained using RZT, SSDT and FSDT for two values of the span-tothickness ratio are presented and compared with other solutions available in literature. For this problem, an orthotropic simply supported laminated plates with normalized lamina thickness (\nhh k 2/2 )( ) and orientation as (0.5tf/0.5tf/ tc /0.5tf/0.5tf) and (0/90/core/0/90), respectively, is considered with the material properties the same as [12]. Solution quoted as LW [35] is obtained using a layer-wise model and can be taken as a reference result in this comparison since this model is able to estimate accurate natural frequencies for laminated composite and sandwich plates. Moreover, solution quoted as HSDT [36] is obtained by means of a higher-order ESL theory which assumes a cubic variation across the thickness for the three displacement components. In addition, the results of present work calculated by RZT and FSDT are compared with the results of Iurlaro et al. [18] obtained by the same theories. Finally, other two models are used for comparison purposes, i.e., the linear (LZZ) [10] and the cubic (CZZ) [11] Di Sciuva’s original zigzag model. It can be found that the frequencies predicted by HSDT and FSDT are highly overestimate with respect to LW and RZT although this overestimation becomes lower in thin plates (i.e. 1002/ ha ). Comparing the results of SSDT with other theories, it can be concluded that unlike the HSDT and FSDT, the frequencies predicted by this theory are close to the LW and RZT especially is first mode and thin structure. In thick plate, the error of SSDT for first mode with respect to LW is 11% while this error becomes 2% for thin plates. It is interesting that SSDT ensures better results than the HSDT model. The RZT results are very close to those obtained with LZZ, CZZ and LW, even if RZT and LZZ are linear models whereas CZZ is cubic. 6.3. Bending analysis In this section, nonlinear bending analysis of a laminated cross-ply nano-plates resting on elastic foundation is studied. Numerical solutions based on DCM and RZT are presented and compared with SSDT and CPT. Moreover, a comparison with the results obtained by means of FSDT and different values of the shear correction factors is performed.\nIn Table 6, dimensionless deflection of 3 layers cross-ply laminated composite plates with 102/ ha is shown for different type of elastic medium, theories and nonlocal parameters. Here,\nthree type of elastic foundation is considered as without elastic medium ( 01 ggw kkk ),\nwith Winkler medium ( 0,01 ggw kkk ) and with orthotropic Pasternak medium (\n0,,1 ggw kkk ). It can be seen that the deflection of orthotropic Pasternak medium is lower\nthan Winkler one. It is due to the fact that in Pasternak medium, spring and shear constant are considered and the stiffness of structure is higher. However, considering elastic medium increases the stiffness of laminated nanoplates and consequently the bending deflection reduces. In addition, size affects leads to softer structure and increase in the deflection. The RZT results match very well with the 3D exact elasticity solution (Table 3) without using any shear correction factor. It can be seen that the proposed SSDT give identical results of deflections for all values of nonlocal parameters. It should be noted that the proposed SSDT involves four unknowns as against seven in case of conventional RZT. Results collected in this table show that the FSDT solution, computed with the classical values of the shear correction factors ( 6/5)( 2'k ), is very stiff, whereas the solution improves and it approaches to the RZT when the\ndetermined shear correction factors ( 002.0)( 2'k ) by the procedure described in [37] are used.\nThe error of CPT for the present structure with respect to RZT and SSDT is very high and however, CPT cannot be used for laminated plates. The calculated results for the dimensionless deflection of the laminated nano-plates with various orientations and different boundary condition are presented in Table 7. It is observed that the minimum deflection occurs at ϕ =45o. It can be also concluded that the angle-ply laminated plate has lower deflection with respect to cross-ply one. Furthermore, the results of SSDT are very close to RZT and the CPT underestimates the deflection of structure. Since the transverse shear\ndeformation effects are not considered in CPT. When the sandwich nano-plate with a stiff core is considered (i.e. 111 10/ tc EE ), the use of shear corrections factors computed as in [37] lead to slightly more accurate results by FSDT than with classical values ( 6/5)( 2'k ). On the other hand,\nwhen using a soft core (i.e. 411 10/ tc EE ), the classical correction factors are inadequate. These results confirm the observation by Birman and Bert [38] on the use of shear correction factors for the FSDT-based static and dynamic analysis of sandwich plates, i.e., none of the shear correction factors proposed in literature are able to produce accurate results in a wide range of cases. 6.4. Buckling analysis In this section, results concerning the buckling load of an embedded sandwich nano-plate subjected to uniform uni-axial compressive load. Buckling loads may be calculated within RZT, SSDT, FSDT and CPT as eigenvalues of the stability equations, Eq. (50). In Table 8, the buckling loads of nano-structure subjected to different loading types are compared for the different theories, nonlocal parameter and aspect ratio (a/b). The FSDT and CPT results, obtained with the classical values for the shear correction factors, overestimate the reference solutions (RZT). Instead, the use of the shear correction factors computed as in [37] improves FSDT buckling load predictions. Solution obtained with the SSDT fit approximately with those obtained with the RZT, for every value of the aspect ratio and nonlocal parameter considered. In addition, increasing nonlocal parameter leads to lower buckling loads due to decrease in the stiffness of structure. With respect to the effect of aspect ratio, it can be found that with increasing a/b , the buckling load decreases. Furthermore, for the case of square sandwich nano-plate (a/b=1), the buckling loads of all theories for loading types of (-1,0) and 0,- 1) are equal.\nBuckling load values obtained by means of several theories for different boundary conditions and two cases of without elastic medium and with orthotropic Pasternak medium, are reported in Table 9. The same as Table 8, the FSDT with the classical values of the shear correction factors and CPT solutions overestimates the buckling load with respect to RZT. The SSDT and FSDT results with the especial shear correction factors [37], improves the buckling load and its results approach the RZT solution. It is also found that the buckling load predicted by CCCC boundary condition is higher than other boundary conditions. Furthermore, the buckling load of sandwich nano-plate embedded in elastic medium is higher than the nano-structure without elastic medium. In addition, the laminated nano-plates with the angle-ply face sheets have higher stiffness and consequently higher buckling load especially in angle of 45o. 6.5. Free vibration In this section, free-vibration analyses are conducted for viscoelastic sandwich nano-plates embedded in viscoelastic foundation.\nIn order to investigate the influence of the dimensionless structural damping ( // 11QhgG )\nand damper coefficient of viscoelastic medium ( 11/ QcC dD ) on the vibration of presented structure, the fundamental frequency has been estimated for different theories (Table 10). As can be seen, the calculated eigenvalues are complex due to the damping of structure. The real and imaginary parts indicate the damping and frequency of system. The FSDT and CPT highly overestimate the frequencies. This is due to the difference of mechanical properties between core and faces which causes an overestimation of the stiffness of the plate. The SSDT ensures better results than the FSDT since the error with respect to RZT is always below 4%. It is also interest to mention that the frequency decreases with increasing dimensionless structural damping and damper coefficient of viscoelastic medium.\nResults reported in Table 11 show the eigenvalues of sandwich nano-plate for different theories, boundary conditions and thickness to length ration (h/a). As can be seen that with increasing h/a, The frequency of system increases. In addition, the frequency of structure with CCCC boundary condition is maximum. With respect to compare the results of different theories, it can be concluded that the results of SSDT is close to the results of RZT while the FSDT and CPT overestimate the frequency. 6.6. Comparison of bending, buckling and vibration The effect of shear deformation on the bending, buckling, and vibration responses of sandwich nano-plates is shown in Fig. 2 for CCCC boundary condition. In this figure, the deflection, buckling load, and frequency ratios are defined as the ratios of those predicted by RZT to the correspondences predicted by CPT where the shear deformation effect is omitted. It is observed that, the effect of shear deformation increases the deflections and decreases the buckling loads and frequency, and this effect is significant for short sandwich nano-plates at higher vibration modes (see Fig. 3). This indicates that the shear deformation effect results in a reduction of the structure stiffness. To illustrate the small scale effect on the responses of sandwich nano-plates, Fig. 4 plots the deflection, buckling load, and frequency ratios with respect to the small scale coefficient for CCCC boundary condtion with a/2h= 10. The deflection, buckling load, and frequency ratios are defined as the ratios of those predicted by the nonlocal theory to the correspondences predicted by the local theory (i.e., 0 ). It can be seen that the deflection ratio is greater than unity,\nwhereas the buckling load and frequency ratios are smaller than unity. It means that the local theory underestimates the deflections and overestimates the buckling loads as well as natural frequencies of the structure compared to the nonlocal one. This is due to the fact that the local\ntheory is unable to capture the small scale effect of the system. The difference between the local and nonlocal theories is especially significant for the higher modes (see Fig. 5). In general, the effects of small scale and shear deformation are similar, and the inclusion of the small scale and shear deformation effects will reduce the stiffness of the structure, and consequently, leads to an increase in the deflections and a reduction of the buckling loads and frequencies. 7. Conclusions Based on RZT, SSDT, FSDT and CPT, the nonlinear motion equations of viscoelastic sandwich nano-plates were derived capturing the size effects. Then, three problems of bending, buckling and vibration of presented structure have been solved numerically using DCM, HDQM and DQM. Several numerical studies have been performed in order to assess the accuracy of RZT in predicting response of sandwich nano-plates, i.e., maximum deflection, frequency and buckling loads. Moreover, the effects of span-to-thickness ratio, core-to-face thickness ratio, aspect ratio, core-to-face stiffness ratio, elastic medium, structural damping, nonlocal parameter and boundary conditions were investigated. The numerical results demonstrated that for the sandwich nano-plates examined, RZT exhibits the same accuracy in predicting the global response quantities as the 3D elasticity solution. Furthermore, the present numerical studies have also demonstrated that FSDT, using specially derived shear correction factors, gives more accurate predictions for the global response quantities than those obtained with the classically adopted values. In particular, for decreasing values of the core-to-face stiffness ratio, an over-estimation of the maximum deflection was observed. It is observed that the inclusion of the small scale and shear deformation effects lead to an increase in the deflections and a reduction of the buckling loads and natural frequencies of system. Furthermore, increasing the nonlocal parameter,\nstructural damping and damper coefficient of elastic medium leads to decrease in the frequency of nano-structure."
+    } ],
+    "references" : [ {
+      "title" : "Exact solutions for rectangular bidirectional composites and sandwich plates",
+      "author" : [ "N.J. Pagano" ],
+      "venue" : "J. Compos. Mater. 4 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 1970
+    }, {
+      "title" : "Three-dimensional solutions for initially stressed structural sandwiches",
+      "author" : [ "A.K. Noor", "J.M. Peters", "W.S. Burton" ],
+      "venue" : "J. Eng. Mech. 120 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "Numerical assessment of the core deformability effect on the behavior of sandwich beams",
+      "author" : [ "M. Di Sciuva", "U. Icardi" ],
+      "venue" : "Compos. Struct. 52 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Analytical solutions for vibrations of laminated and sandwich plates using mixed theory",
+      "author" : [ "M.K. Rao", "Y.M. Desai" ],
+      "venue" : "Compos. Struct. 63 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Second-order approximation of angle-ply composite laminated thin plate under combined excitations",
+      "author" : [ "M. Sayed", "A.A. Mousa" ],
+      "venue" : "Commun Nonlinear Sci Numer Simul 17 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Nonlinear statics and dynamics of antisymmetric composite laminated square plates supported on nonlinear elastic subgrade",
+      "author" : [ "Y. Nath", "M. Prithviraju", "A.A. Mufti" ],
+      "venue" : "Commun Nonlinear Sci Numer Simul 11 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "General recommendations to develop 4-unknowns quasi-3D HSDTs to study FGMs",
+      "author" : [ "J.L. Mantari" ],
+      "venue" : "Aerosp. Sci. Technol. 58 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Analysis of composite plates using a layerwise theory and a differential quadrature finite element method, Compos",
+      "author" : [ "B. Liu", "A.J.M. Ferreira", "Y.F. Xing", "A.M.A. Neves" ],
+      "venue" : null,
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2015
+    }, {
+      "title" : "Vibration and buckling of simply supported thick multilayered orthotropic plates: an evaluation of a new displacement model",
+      "author" : [ "M. Di Sciuva" ],
+      "venue" : "J. Sound Vib. 105 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 1986
+    }, {
+      "title" : "Multilayered anisotropic plate models with continuous interlaminar stresses",
+      "author" : [ "M. Di Sciuva" ],
+      "venue" : "Compos. Struct. 22 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 1992
+    }, {
+      "title" : "Free vibration analysis of laminated and sandwich plates using quadrilateral element based on an improved zig-zag theory",
+      "author" : [ "R. Xiaohui", "C. Wanji" ],
+      "venue" : "J. Compos. Mater. 45 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Buckling of laminated sandwich plates with soft core based on an improved higher order zigzag theory",
+      "author" : [ "M.K. Pandit", "A.H. Sheikh", "B.N. Singh" ],
+      "venue" : "Thin Wall. Struct. 46 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "A refined zigzag beam theory for composite and sandwich beams",
+      "author" : [ "A. Tessler", "M. Di Sciuva", "M. Gherlone" ],
+      "venue" : "J. Compos. Mater. 43 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "A consistent refinement of first-order shear deformation theory for laminated composite and sandwich plates using improved zigzag kinematics",
+      "author" : [ "A. Tessler", "M. Di Sciuva", "M. Gherlone" ],
+      "venue" : "J. Mech. Mater. Struct. 5 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Analytical stress analysis of annular FGM sandwich plates with non-uniform shear and normal tractions",
+      "author" : [ "M.M. Alipour", "M. Shariyat" ],
+      "venue" : "employing a zigzag-elasticity plate theory, Aerosp. Sci. Technol. 32 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "A new trigonometric zigzag theory for static analysis of laminated composite and sandwich plates",
+      "author" : [ "R. Sahoo", "B.N. Singh" ],
+      "venue" : "Aerosp. Sci. Technol. 35 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Elastic foundation effect on nonlinear thermo-vibration of embedded doublelayered orthotropic grapheme sheets using differential quadrature Method",
+      "author" : [ "A. Ghorbanpour Arani", "R. Kolahchi", "A.A. Mosallaie Barzoki", "M.R. Mozdianfard", "S.M. Noudeh Farahani" ],
+      "venue" : "Proceed. IMechE Part C: J. Mech. Eng. Sci. 227 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Nonlinear surface and nonlocal piezoelasticity theories for vibration of embedded single-layer boron nitride sheet using harmonic differential quadrature and differential cubature methods",
+      "author" : [ "A. Ghorbanpour Arani", "A. Fereidoon", "R. Kolahchi" ],
+      "venue" : "J. Intell. Mat. Syst. Struct. 26 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A nonlocal nonlinear analysis for buckling in embedded FG-SWCNT-reinforced microplates subjected to magnetic field",
+      "author" : [ "R. Kolahchi", "M. Rabani Bidgoli", "G. Beygipoor", "M.H. Fakhar" ],
+      "venue" : "J. Mech. Sci. Tech. 29 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Size-dependent bending analysis of FGM nano-sinusoidal plates resting on orthotropic elastic medium",
+      "author" : [ "R. Kolahchi", "A.M. Moniri Bidgoli", "M.M. Heydari" ],
+      "venue" : "Struct. Eng. Mech. 55 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Visco-surface-nonlocal piezoelasticity effects on nonlinear dynamic stability of graphene sheets integrated with ZnO sensors and actuators using refined zigzag theory",
+      "author" : [ "A. Ghorbanpour Arani", "R. Kolahchi", "M.S. Zarei" ],
+      "venue" : "Compos. Struct. 132 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermal buckling analysis of functionally graded rectangular nanoplates based on nonlocal third-order shear deformation theory",
+      "author" : [ "M.R. Nami", "M. Janghorban", "M. Damadam" ],
+      "venue" : "Aerosp. Sci. Technol. 41 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "An efficient computational approach for sizedependent analysis of functionally graded nanoplates",
+      "author" : [ "N.T. Nguyen", "D. Hui", "J. Lee", "H.N. Xuan" ],
+      "venue" : "Comput. Methods Appl. Mech. Eng. 297 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Nonlinear analysis of plates",
+      "author" : [ "C. Chueng-Yuan" ],
+      "venue" : "McGraw-Hill Book Company",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 1980
+    }, {
+      "title" : "A new sinusoidal shear deformation theory for bending",
+      "author" : [ "H.T. Thai", "T.P. Vo" ],
+      "venue" : "buckling, and vibration of functionally graded plates, Appl. Math. Model. 37 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Buckling of bars",
+      "author" : [ "D.O. Brush", "B.O. Almroth" ],
+      "venue" : "plates and shells, McGraw-Hill, New York",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 1975
+    }, {
+      "title" : "Effect of size on the chaotic behavior of nano resonators",
+      "author" : [ "H. Alemansour", "E. Maani Miandoab", "H. Nejat Pishkenari" ],
+      "venue" : "Commun Nonlinear Sci Numer Simul 44 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Mechanics of laminated composite plates",
+      "author" : [ "J.N. Reddy" ],
+      "venue" : "Theory and analysis. CRC Press, Inc.",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Moniri bidgoli, Size-dependent sinusoidal beam model for dynamic instability of single-walled carbon nanotubes",
+      "author" : [ "A.M.R. Kolahchi" ],
+      "venue" : "Appl. Math. Mech",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2016
+    }, {
+      "title" : "Differential quadrature procedure for in-plane vibration analysis of variable thickness circular arches traversed by a moving point load",
+      "author" : [ "S.A. Eftekhari" ],
+      "venue" : "Appl. Math. Model. 40 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Buckling load design of sandwich panels made with hybrid laminated faces and transversely flexible core",
+      "author" : [ "M.A. Aiello", "L. Ombres" ],
+      "venue" : "J. Sandwich Mater. Struct. 9 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Exact solutions for composite laminates in cylindrical bending",
+      "author" : [ "N.J. Pagano" ],
+      "venue" : "J. Compos. Mater. 3 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 1969
+    }, {
+      "title" : "Analytical solutions for vibrations of laminated and sandwich plates using mixed theory",
+      "author" : [ "M.K. Rao", "Y.M. Desai" ],
+      "venue" : "Compos. Struct. 63 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Bending",
+      "author" : [ "S. Srinivas", "A.K. Rao" ],
+      "venue" : "vibration and buckling of simply supported thick orthotropic rectangular plates and laminates, Int. J. Solids Struct. 6 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 1970
+    }, {
+      "title" : "A formulation of multiquadric radial basis function method for the analysis of laminated composite plates",
+      "author" : [ "A.J.M. Ferreira" ],
+      "venue" : "Compos. Struct. 59 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "For example, Pagano [1] and Noor et al.",
+      "startOffset" : 20,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 1,
+      "context" : "[2] used form 3D elasticity solution for bending, buckling and vibration of simply supported sandwich structures.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 2,
+      "context" : "The results of HSDT are more accurate with respect to CLT and FSDT but generally, ESL theories become inaccurate when the plate is thick [3].",
+      "startOffset" : 137,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 3,
+      "context" : "This model is used by [4] for vibration of sandwich structures.",
+      "startOffset" : 22,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 4,
+      "context" : "The influence of the quadratic and cubic terms on non-linear dynamic characteristics of the angle-ply composite laminated rectangular plate with parametric and external excitations was investigated by Sayed and Mousa [5].",
+      "startOffset" : 217,
+      "endOffset" : 220
+    }, {
+      "referenceID" : 5,
+      "context" : "[6] for composite laminated anti-symmetric square plates supported on non-linear elastic foundation subjected to uniformly distributed transverse and step loading, respectively.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 6,
+      "context" : "A generalized non-polynomial quasi-3D shear deformation theory for advanced composite plates was presented by Mantari [7].",
+      "startOffset" : 118,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 7,
+      "context" : "[9] using a differential quadrature finite element method (DQFEM).",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 8,
+      "context" : "models, proposed a linear ZZ (LZZ) and cubic ZZ (CZZ) displacement- based model [10, 11] for bending, free vibration and buckling analysis of multilayer composite plates.",
+      "startOffset" : 80,
+      "endOffset" : 88
+    }, {
+      "referenceID" : 9,
+      "context" : "models, proposed a linear ZZ (LZZ) and cubic ZZ (CZZ) displacement- based model [10, 11] for bending, free vibration and buckling analysis of multilayer composite plates.",
+      "startOffset" : 80,
+      "endOffset" : 88
+    }, {
+      "referenceID" : 10,
+      "context" : "Based on thirdorder zigzag model, Xiaohui and Wanji [12] studied the vibration of sandwich plates with soft cores.",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 11,
+      "context" : "for beams [13], plates [15], and shells [16].",
+      "startOffset" : 10,
+      "endOffset" : 14
+    }, {
+      "referenceID" : 13,
+      "context" : "for beams [13], plates [15], and shells [16].",
+      "startOffset" : 23,
+      "endOffset" : 27
+    }, {
+      "referenceID" : 14,
+      "context" : "Alipour and Shariyat [17] devoted the stress and deformation analysis of functionally graded annular sandwich plates subjected to non-uniform normal and/or shear tractions.",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 15,
+      "context" : "A new trigonometric zigzag theory was proposed by Sahoo and Singh [18] for the static analysis of laminated composite and sandwich plates.",
+      "startOffset" : 66,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 18,
+      "context" : "[21] investigated nonlocal nonlinear buckling analysis of embedded polymeric temperature-dependent microplates resting on an elastic matrix as orthotropic temperature-dependent elastomeric medium.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 19,
+      "context" : "The same corresponding author [22] presented bending analysis of functionally",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 23,
+      "context" : "However, based on von Kàrmàn’s nonlinear theory, strain–displacement relations are [26] (2a)",
+      "startOffset" : 83,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 24,
+      "context" : "SSDT Based on the SSDT, the displacement fields can be obtained as [27] (3a)",
+      "startOffset" : 67,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 25,
+      "context" : "CPT The displacement field of this theory may be obtained from SSDT considering equal to zero as follows [28] (8a)",
+      "startOffset" : 105,
+      "endOffset" : 109
+    }, {
+      "referenceID" : 26,
+      "context" : "The constitutive equation of the nonlocal elasticity can be written as [29]",
+      "startOffset" : 71,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 21,
+      "context" : "External forces variation The variation of the work of external forces, , is [24] (24)",
+      "startOffset" : 77,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 21,
+      "context" : "According to Kelvin–Voigt [24] at real life, nano structure mechanical properties depend on the time variation.",
+      "startOffset" : 26,
+      "endOffset" : 30
+    }, {
+      "referenceID" : 21,
+      "context" : "For a two-dimensional problem, supposing that there are N arbitrarily located grid points, the cubature approximation at the ith discrete point can be expressed as [24]",
+      "startOffset" : 164,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 28,
+      "context" : "The approximation of the th n and th m derivatives function with respect to x and y , respectively may be expressed in general form as [31, 32]",
+      "startOffset" : 135,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 29,
+      "context" : "The approximation of the th n and th m derivatives function with respect to x and y , respectively may be expressed in general form as [31, 32]",
+      "startOffset" : 135,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 30,
+      "context" : "Mechanical material properties of facesheets and cores are listed in Table 1 [33].",
+      "startOffset" : 77,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 31,
+      "context" : "For bending validation (Table 3), present results are compared with the work of Pagano [34] and Iurlaro et al.",
+      "startOffset" : 87,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 15,
+      "context" : "[18] who studied linear bending of isotropic simply supported laminated plates with",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 31,
+      "context" : "[34], the normalized maximum (central) deflection, of system is shown for",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 31,
+      "context" : "problem, the exact elasticity solution presented by Pagano [34] is used as a reference for assessing the performances of RZT and SSDT.",
+      "startOffset" : 59,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 30,
+      "context" : "5tf) 5) and ((0/90) 5/core/(0/90) 5), respectively, is considered with the material properties the same as [33].",
+      "startOffset" : 107,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 1,
+      "context" : "Solution quoted as 3D [2] is taken as reference in the comparison.",
+      "startOffset" : 22,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 10,
+      "context" : "5tf) and (0/90/core/0/90), respectively, is considered with the material properties the same as [12].",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 32,
+      "context" : "Solution quoted as LW [35] is obtained using a layer-wise model and can be taken as a reference result in this comparison since this model is able to estimate accurate natural frequencies for laminated composite and sandwich plates.",
+      "startOffset" : 22,
+      "endOffset" : 26
+    }, {
+      "referenceID" : 33,
+      "context" : "Moreover, solution quoted as HSDT [36] is obtained by means of a higher-order ESL theory which assumes a cubic variation across the thickness for the three displacement components.",
+      "startOffset" : 34,
+      "endOffset" : 38
+    }, {
+      "referenceID" : 8,
+      "context" : ", the linear (LZZ) [10] and the cubic (CZZ) [11] Di Sciuva’s original zigzag model.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 9,
+      "context" : ", the linear (LZZ) [10] and the cubic (CZZ) [11] Di Sciuva’s original zigzag model.",
+      "startOffset" : 44,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 34,
+      "context" : "0 ) ( 2 ' k ) by the procedure described in [37] are used.",
+      "startOffset" : 44,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 34,
+      "context" : "1 1 1 10 / t c E E ), the use of shear corrections factors computed as in [37] lead to",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 34,
+      "context" : "Instead, the use of the shear correction factors computed as in [37] improves FSDT buckling load predictions.",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 34,
+      "context" : "The SSDT and FSDT results with the especial shear correction factors [37], improves the buckling load and its results approach the RZT solution.",
+      "startOffset" : 69,
+      "endOffset" : 73
+    } ],
+    "year" : 2017,
+    "abstractText" : null,
+    "creator" : "Elsevier"
+  }
+}

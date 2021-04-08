@@ -1,0 +1,274 @@
+{
+  "name" : "downloads_2019-10-25_cd_abdelaziz2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Design and Control of Electromagnetic System Navigating micro/nano Robots",
+    "authors" : [ "Mostafa Abdelaziz", "Maki Habib" ],
+    "emails" : [ "mostafa.abdelaziz@aucegypt.edu", "maki@auegypt.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "978-1-5386-9257-8/19/$31.00 ©2019 IEEE\nDesign and Control of Electromagnetic System Navigating micro/nano Robots\nMostafa Abdelaziz Robotics, Control and Smart Systems American University in Cairo (AUC)\nCairo, Egypt mostafa.abdelaziz@aucegypt.edu\nMaki Habib Robotics, Control and Smart Systems American University in Cairo (AUC)\nCairo, Egypt maki@auegypt.edu\nAbstract----- Actuation and navigation of micro/nano robot (MNR) has great promising potential in biomedical applications as it facilitates the motion of such robots within human body. This paper investigates the design of electromagnetic system which is composed of of two pairs of Helmholtz coils and two pairs of Maxwell coils and study its effect on the motion of the MNR. This is supported by the theoretical analysis of the coils and the associated magnetic fields. Accordingly, the locomotion of an MNR was tested through simulations along different orientations in the x-y plane of motion. In addition, a simulation test was carried by navigating MNR inside a Y bifurcation blood vessel. The simulation results confirm the efficient control of the magnetic force generated from Maxwell coils and torque resulted from Helmholtz coils acting on the MNR.\nKeywords----- Biomedical; Electromagnetic system; Magnetic field; Microrobots; Nanorobots;\nI. INTRODUCTION Micro/nano robots (MNRs) which are wirelessly controlled have various potential applications in medical and biological fields [1]. MNRs are widely studied for biomedical applications targeting drug delivery, cell manipulation, micro surgery, etc. [2], [3].\nMagnetic actuation using magnetic field is shown to be preferred technique for controlling magnetic MNRs that have size range from micrometer to centimeters, so this technique could be used in several medical field applications [3], [4].\nPropulsion and navigation of MNR using the gradient of magnetic field is a wireless non-contact manipulating technique that can actuate magnetic MNR. This technique does not cause harm to body tissues and cells if it is used under safe magnetic field value [5], [6]. MRI concept uses direct magnetic field gradient technique, it consists of two pairs of coils. In this technique, one pair of Helmholtz coils have been used to produce a constant homogenous magnetic field in the required orientation, the other coils used are one pair of Maxwell coils which are implemented to generate magnetic field gradient for the propulsion of micro/nano magnetic robots [16, 17].\nThis paper investigates the design and the control of the electromagnetic system and examines its effect on navigating MNRs inside blood vessels. The presented work is supported by theoretical analysis of the coils and the magnetic field. Simulation based analysis for the electromagnetic system is\nconducted using COMSOL Multiphysics to test and illustrate motion of MNRs within the electromagnetic system.\nII. PROBLEM DESCRIBTION AND NUMERICAL ANALYSIS There is a demand to develop an effective actuation system that can control the motion of MNRs. Hence, designing a magnetic actuation system that can actuate such robots and other magnetic particles inside blood vessels with the ability to overcome the drag forces affecting it, is the focus of this paper. In order to facilitate such design, it is important to study all forces acting on these robots. These forces include the magnetic force generated from the magnetic system (Fm), the drag force resulted from the blood flow (Fd) and the apparent weight of the MNR ( ) which is neglected as it is very small compared to the other forces [7]. The forces acting on a robot moving inside a blood vessel environment is illustrated in Fig.1.\nNewton’s law is used to describe the motion of an MNR as follows.\n(1) Where mp is the mass of the MNR, v is its velocity and is\nthe total force applied on it and can be expressed as:\n(2) Where is the magnetic force required to actuate the MNR\nand is the resistive drag force. The magnetic force resulting from a magnetic gradient is expressed as [9]\n(3) Where is the volume of the MNR, is the magnetization\nsaturation and is the magnetic field gradient.\n! \"\nUsing Navier Stokes law to obtain the fluidic drag force on a sphere considering that the range of Reynold’s number is 0 < Re < 1 which is the condition that can be experienced in small blood vessels whose diameter are in mm scale [10].\n!\" (4) Where A is the cross-sectional area of the MNR, f is the density of the fluid, (vp-vf) is the relative velocity between the velocity of the moving MNR and the velocity of the fluid flow inside a vessel having infinite diameter [11].\nA non-dimensional term CMD is used to describe the ratio between the magnetic force needed to actuate the MNR and the drag force acting on it, [12] and this term is named as the Magnetic Richardson Number.\n#$% &'&( (5) Hence, for a sucusseful actuation of the MNR against the blood flow, CMD must be great than 1 to allow navigation of the MNR against blood flow, this fact demands to understand the main features of the blood vessels that include its diameter, wall thickness and the average blood velocity as illustrated in Table 1.\nMATLAB was used to conduct numerical analysis. The Magnetic Richardson parameter CMD was plotted versus which is defined as the ratio of the robot diameter to the diameter of a blood vessel for three types of blood vessels (artery, small arterioles and capillaries) as illustrated in Fig. 2, Fig. 3 and Fig. 4. Each curve describes a different magnetic gradient value, according to the presently used magnetic gradient in clinical MRIs the values of magnetic gradient picked are (0.03, 0.045, 0.05, 0.06, 0.1,0.2, 0.3, 0.4) T.\nIt can be deduced from Fig. 2 that it is possible to navigate a robot inside an artery against the blood flow with an optimal ratio between the diameter of the MNR and the diameter of the blood vessel which is the artery. The optimum value for is between 0.4 and 0.6. While from Fig. 3 and Fig. 4 it can be deduced that actuating an MNR against the blood flow is not possible based on the usage of the current clinical and preclinical magnetic gradients even if the blood flow velocity is very low as in case of the capillaries and the arterioles.\nThe CMD parameter was plotted against different magnetic field gradient for a magnetic micro robot having a diameter of 200 )m and magnetization saturation of *+, A/m as shown in\nFig. 5. This figure shows that the least required magnetic gradient is 500 mT/m to navigate and actuate an MNR to overcome the drag force and move against the flow of blood. On the other hand, for a different magnetization saturation (*+ A/m), a magnetic field gradient of 160 mT/m is required as illustrated in Fig. 6.\nFig. 2 # - on the Y-axis and the ratio of robot to vessel diameter . /0 123 on the x-axis4 for an artery (v=0.1 m/s, r=1 mm)\nIn cases where the diameter of the vessels is very small, actuation of the MNRs will be very difficult as it requires a high magnetic gradient. Hence, another approach could be used instead of propelling the MNR against the flow. The flow can be used to actuate and move the robot and the function of the magnetic field gradient will be used to steer it.\nIII. ELECTROMAGMNETIC CONFIGURATION OF COIL SYSTEM The proposed coil system configuration is illustrated in Fig. 7 consist of two pairs of Helmholtz coils and two pairs of Maxwell coils aligned perpendicularly along the x and y axes. The Helmholtz coils generate constant homogenous magnetic field under two conditions: firstly, the distance between the two Helmholtz coils must equal to the radius of the Helmholtz coil, secondly the current flows in one pair of Helmholtz coils must equal in magnitude and in the same direction [17]. Accordingly, the two pairs of Helmholtz coils aligned perpendicularly to generate a constant homogenous magnetic field are used to align an MNR in the desired direction as shown in Fig. 8 (a).\nMaxwell coils are used to produce magnetic gradient as shown in Fig. 8 (b) [18]. The distance between two Maxwell coils must be equal to ;< multiplies the radius of the coil. Moreover, the current flow in Maxwell coils is equal in magnitude but opposite in direction. Consequently, by combining both the Helmholtz and Maxwell coils a constant homogenous magnetic force and torque within the operational space formed by the coils. The specification of these coils are shown in Table 2."
+    }, {
+      "heading" : "SYSTEM",
+      "text" : "The region of interest (ROI) between the Helmholtz coils will have a uniform magnetic field generated from the coils, by introducing an MNR within the ROI and is influenced by the generated magnetic torque = > ? (6) Such that V is the volume of the MNR and M is magnetization saturation of the MNR, and B is the magnetic flux that can be expressed as ? )@)AB (7) Where )@ is the permeability in air of the microrobot, )A is the relative permeability of the material of the robot, and H is the magnetic field intensity.\nAligning the MNR in the desired orientation requires the current supplied to both Helmholtz coils in x and y axes to be adjusted to satisfy 1 0 C D . Maxwell coils produce uniform magnetic gradient which generates a propulsion force that is expressed as\nE F GH? (8)\nWhere F is the propulsion force, Gis a gradient operator. Thus, the magnetic field on the x--y plan generated from the two pairs of Maxwell coils is expressed as follows [19]:\nI? ?JK I L M +F,LJMLJN +F,L NK (9)\nwhere Bx and By are the magnetic field in x and y directions respectively, while gx and gy are the magnetic flux gradient produced from Maxwell coils in x and y directions respectively."
+    }, {
+      "heading" : "The propulsive force can be expressed as [20], [21]",
+      "text" : "I JK O PQ CEL +F,LJH RSCELJ +F,L HT (10)\nFor actuating and propelling the MNR in the desired orientation the ratio between the propulsion forces in both x and y directions must be equal to 1 0 C such that: [21]\n&D& UVSC WDXYFZW W XYFZWD (11)\nV. SIMULATION RESULTS COMSOL Multiphysics can provide Multiphysics applications for both magnetic and fluid physics. Hence, it was used for simulating the electromagnetic system and execute the different results for the developed electromagnetic actuation system.\nThe simulation started with studying the magnetic field along x-axis produced from Helmholtz coils alone, the Maxwell coils, and combining both the Helmholtz and Maxwell together in order to verify the capability of the electromagnetic system according to the theoretical analysis.\nA. Helmholtz coil The magnetic flux density produced from the Helmholtz coils along the [ -axis is illustrated in Fig. 9, while the arrows express the direction of the magnetic flux.\nThe simulation results showed that the magnetic flux strength has a great uniformity in the ROI. This uniformity is illustrated in Fig. 10a), while Fig. 10 b) shows the direction of the magnetic flux density within the ROI. In order to verify that the Helmholtz coils generate a uniform constant magnetic field, an electric current with 4A magnitude is supplied to the Helmholtz coils, the generated magnetic flux density is constant with value of 4.8 mT (3800 A/m) within the ROI is shown in Fig. 11.\nThe magnetic field gradient generated from the Helmholtz coils will be zero due to the uniformity of the magnetic field in the ROI, and Fig. 12 illustrates this case. This is true as the target of the Helmholtz coils has to control the orientation and not the propulsive force.\nB. Maxwell coil The magnetic flux density on the x-y plane generated from\nMaxwell coils along the x-axis is illustrated in Fig. 13 and Fig. 14a) respectively, while the arrows shows the direction of the magnetic flux density illustrated in Fig. 14b). Fig. 15 illustrates the distribution of the magnetic flux density within the ROI between the Maxwell coils.\nThe magnetic flux strength distribution generated from the Maxwell coils is different from that produced by the Helmholtz coils, since it is non-uniform with a linear distribution within the ROI. The magnitude of the magnetic flux density will be maximum around the coils and will decrease far away from the coils till it reaches zero at the center of the ROI. Supplying the Maxwell coils with current its magnitude is 4A, a maximum\nvalue of the magnetic flux density is achieved near one of the two coils (+3mT), while it is a zero value at the center and minimum near to the other coil (-3mT). Zero magnetic flux density at the center of the ROI results in difficulty of propelling and actuating an MNR at this region. Hence, in order to have a full control of the MNR motion in the whole ROI both Maxwell and Helmholtz coils are needed.\nSupplying both Maxwell coils with current equal in magnitude and opposite in direction such that the first coil is supplied with 4A and the second one with -4A, yield 130 mT/m magnitude of magnetic gradient as shown in Fig. 16. Moreover, it is validated from the simulations that by increasing the supplied current will lead to increase the magnitude of the\nmagnetic field gradient. Consequently, several magnetic forces of different magnitudes can be achieved by varying the supplied current in the Maxwell coils. By changing the supplied current into 5A, the magnitude of the magnetic flux gradient achieved in the ROI is 155 mT/m. According to the analysis done in the second section and simulation, the obtained magnitude of the magnetic field gradient is enough to navigate and propel a 200 )m MNR with saturation magnetization 106 A/m moving against blood flow inside blood vessels. In addition, to flip the direction of the supplied current between both Maxwell coils results in an opposite direction of the magnetic field gradient, which results in controlling the navigation direction of an MNR. Fig. 17a and 17b illustrate the direction of the magnetic field gradient\na) Orientation angle is 0o b) Orientation angle is 0o\nFig. 17 Magnetic field gradient direction depending on the dirction of the supplied a) C=0º; b) C=180º.\nC. Helmholtz and Maxwell coils\nHelmholtz coils are used to produce a homogenous and constant magnetic field within an ROI, while Maxwell coils generate magnetic field gradient within the ROI. In order to navigate and actuate an MNR in the required orientation, a combined of both Helmholtz and Maxwell coils are required to work together. Fig. 18 shows the resultant magnetic flux density generated from both types of coils along the x-axis.\nD. 2D Helmholtz and Maxwell coils 2D Electromagnetic system is proposed in this paper and it consists of two pairs of Helmholtz and two pairs of Maxwell coils aligned orthogonally to each other along both x and y axes. This perpendicular configuration of Helmholtz coils yields in a 2D uniform resultant magnetic flux density. The desired orientation required to align and propel an MNR can be calculated using ?[/?N=tanC, which depends on the ratio between the supplied currents to the Helmholtz coils. Moreover, both pairs of Maxwell coils will produce 2D\nmagnetic gradient which propels and moves the MNR. Fig. 19 illustrates the different directions that can be obtained in the 2D x-y plane of motion.\na) Orientation angle 45o b) Orientation angle 45o\nc) Orientation angle 45o d) Orientation angle 45o\nFig. 19 magnetic field gradient direction a) 45º orientation; b) 135º orientation; c) 225º orientation; d) 315º orientation.\nVI. MICRO/NANO ROBOT TRACKING Two simulation tests were carried out to verify the proposed 2D electromagnetic system, the first one is to test the ability to adjust and navigate an MNR in the required orientation, while the second one is to test the ability of an MNR to propel against blood flow.\nA. 2D micro/nano robot alignment A cylinder was inserted at the center of the ROI. Several analyses were carried out to check the ability of the MNR to be aligned to a different orientation by varying the current supplied to the two pairs of Maxwell coils. Fig. 20 illustrates the position of the cylinder inside the ROI. The different supplied currents are interpreted in Table 3.\nFig. 21 illustrates the resultant MNR trajectories after\nsupplying the currents to both Maxwell coils pairs for 2 seconds. The results verified the ability to control the orientation of an MNR in the required direction and orientation by changing the current supplied to both Maxwell pairs.\na) Orientation angle 0o b) Orientation angle 1800\nc) Orientation angle 90o d) Orientation angle 270o\ne) Orientation angle 45o f) Orientation angle 315o\ng) Orientation angle 135o h) Orientation angle 225o Fig. 21 MNR orientations and trajectories with different applied current .\nB. Propelling against blood flow Another simulation test was carried out to examine the proposed electromagnetic system ability to actuate and propel an MNR inside a blood vessel but against blood flow. As deduced earlier a minimum magnitude of the magnetic field gradient of 160 mT/m is required to actuate and navigate a 200 )m magnetic MNR in an artery as stated in Fig. 6. The artery was modeled as a cylinder with dimensions 3 cm height and 1 cm radius and placed inside the ROI. It contains blood, such that the blood velocity is 0.001 m/s. Magnetic field gradient have been enforced opposite to the flow of blood. Fig. 22 illustrates the directions of magnetic force and blood flow. A 100 )m MNR with 106 A/m was positioned at the center of the cylinder.\na) Without Magnetic Force b) With Magnetic Force Fig. 23 MNR trajectories without and with applied magnetic gardient: a)\nwithout magnetic gardient b) with magnetic gradient.\nVII. TESTING IN A Y SHAPED BIFURCATION VESSEL A Y shaped bifurcation blood vessel consisting of the\nmain inlet and two outlet branches was selected for this test, as shown in Fig. 24. The Y shaped vessel is of 0.5 mm in radius and 2 mm in length. These dimensions are mimicking the dimensions of a large arteriole.\nThe blood flow is steady creeping flow and the flow was assumed to enter from the inlet into the channel and exit from the two outlets. The parameters of the fluid in the Y shaped channel were selected to be like blood behavior with flow velocity 1 mm/s and the viscosity of the blood is 0.004 Pa.s.\nFig. 25 shows the profile of the blood velocity flow from the main inlet to the two outlets in the vessel, it can be deduced that near the walls there is a low velocity while at the center high velocity can be detected.\na) Magnetic gradient direction b) MNR Trajectory\na) Magnetic gradient direction b) MNR Trajectory\nFig. 27 Magnetic Field Gradient Direction b) The Trajectory of an MNR with 50 )m diameter.\nVIII. CONCLUSION This paper proposed the use of Electromagnetic system consisting of two pairs of Helmholtz coils and two pairs Maxwell coils organized orthogonally to navigate an MNR inside blood vessels.\nThe optimal range for the ratio of the MNR diameter to the blood vessel diameter has been calculated which results in efficiently navigating and steering an MNR in each type of blood vessel, it was found the range of this ratio lies between 0.4 and 0.6.\nThe magnitude of the magnetic field gradient required to navigate and propel an MNR against the flow varies according to the size of MNR. This due to the fact that the magnetic force is directly proportional to the volume of the moving MNR, and to the drag force is directly proportional to the area of the MNR. The simulation and the numerical analysis showed that there is no clinical or preclinical magnetic gradient that can propel an MNR with a diameter less than 20 )m against the blood flow.\nThe proposed configuration of electromagnetic system was used to navigate an MNR in all orientations and directions within the x-y plane of motion.\nIn addition, the magnetic field gradient was used to control and steer an MNR moving with the flow inside blood vessels, this was applied on a moving micro robot inside a Y bifurcation blood vessel and worked efficiently.\nFor the future work 3-dimensional (3D) navigation and actuation of a micro/nano robot is needed to be investigated using a proper electromagnetic system."
+    } ],
+    "references" : [ {
+      "title" : "Design and development of an electro magnetic manipulation system to actuate bioengineered magnetic micro/nanoparticles",
+      "author" : [ "T. Batgerel", "A.R.Unnithan", "C.H. Park", "C.S. Kim" ],
+      "venue" : "Journal of Mechanical Science and Technology,",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2018
+    }, {
+      "title" : "Magnetoelectric micromachines with wirelessly controlled navigation and functionality",
+      "author" : [ "X.-Z. Chen", "N. Shamsudhin", "M. Hoop", "R. Pieters", "E. Siringil", "M.S. Sakar", "B.J. Nelson", "S. Pane" ],
+      "venue" : "Materials Horizons,vol. 3,",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2016
+    }, {
+      "title" : "Motion manipulation of micro- and nanomotors",
+      "author" : [ "Y. Tu", "F. Peng", "D.A. Wilson" ],
+      "venue" : "Advanced Materials,",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 1701
+    }, {
+      "title" : "Magnetic field effect on laminar heat transfer in a pipe for thermal entry region",
+      "author" : [ "A. Malekzadeh", "A. Heydarinasab", "M. Jahangiri" ],
+      "venue" : "Journal of Mechanical Science and Technology,",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2011
+    }, {
+      "title" : "Naletova, “Motions of objects with magnetizable materials along a horizontal plane in a rotating magnetic field",
+      "author" : [ "D.A. Pelevina", "V.A. Turkov", "V.A.S.A. Kalmykov" ],
+      "venue" : "Journal of Magnetism and Magnetic Materials,",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2015
+    }, {
+      "title" : "Method of propulsion of a ferromagnetic core in the cardiovascular system through magnetic gradients generated by an MRI system.",
+      "author" : [ "J-B. Mathieu", "G.Beaudin", "S. Martel" ],
+      "venue" : "IEEE Transactions on Biomedical Engineering,",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2006
+    }, {
+      "title" : "Three-dimensional controlled motion of a microrobot using magnetic gradients",
+      "author" : [ "K. Belharet", "D. Folio", "A. Ferreira" ],
+      "venue" : "Advanced Robotics, vol. 25, no. 8, pp. 1069–1083, 2011.",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Electromechanics of Particles",
+      "author" : [ "T.B. Jones" ],
+      "venue" : null,
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 1995
+    }, {
+      "title" : "Method of propulsion of a ferromagnetic core in the cardiovascular system through magnetic gradients generated by an MRI system",
+      "author" : [ "J.B. Mathieu", "G. Beaudoin", "S. Martel" ],
+      "venue" : "IEEE Transactions on Biomedical Engineering, vol. 53, no. 2, pp. 292–2999, 2006.",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Revisit of the wall effect on the settling of cylindrical particles in the inertial regime",
+      "author" : [ "R. Lau", "M. Hassan", "W. Wong", "T. Chen" ],
+      "venue" : "Industrial & Engineering Chemistry Research, vol. 49, no. 18, pp.8870-8876, 2010.",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "The behaviors of ferromagnetic nano-particles in and around blood vessels under applied magnetic fields",
+      "author" : [ "a. Nacev", "C. Beni", "O. Bruno", "B. Shapiro" ],
+      "venue" : "ournal of magnetism and magnetic materials, vol. 323, no. 6, pp.651-668, 2011.",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Nanorobotics: Current Approaches and Techniques",
+      "author" : [ "C. Mavroidis", "A. Ferreira" ],
+      "venue" : "Springer Science & Business Media,",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2013
+    }, {
+      "title" : "Dimensions of blood vessels from distributing artery to collecting vein",
+      "author" : [ "M.P. Wiedeman" ],
+      "venue" : "Circulation research, vol. 12, no. 4, pp. 375-378, 1963.",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 1963
+    }, {
+      "title" : "Encyclopaedia Britannica",
+      "author" : [ "T.E. o. E. Britannica" ],
+      "venue" : "23 August 2016. [Online]. Available: https://www.britannica.com/science/blood-vessel. [Accessed 28 Febraury 2017].",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "MSD Manual, Consumer Version",
+      "author" : [ "M.J. Shea" ],
+      "venue" : "[Online]. Available: http://www.msdmanuals.com/home/heart-and-blood-vesseldisorders/biology-of-the-heart-and-blood-vessels/blood-vessels. [Accessed 27 February 2017].",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Modeling and control of untethered biomicrorobots in a fluidic environment using electromagnetic fields.",
+      "author" : [ "K.B. Yesin", "K. Vollmers", "B.J. Nelson" ],
+      "venue" : "The International Journal of Robotics Research,",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2006
+    }, {
+      "title" : "Two-dimensional locomotion of a microrobot with a novel stationary electromagnetic actuation system",
+      "author" : [ "H. Choi", "J. Choi", "S. Jeong", "C. Yu", "J. Park", "S. Park" ],
+      "venue" : "Smart Materials and Structures, vol. 18, no. 11, p.115017, 2009.",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Gradient waveform synthesis for magnetic propulsion using MRI gradient coils",
+      "author" : [ "B.H. Han", "S. Park", "S.Y. Lee" ],
+      "venue" : "Physics in Medicine & Biology,",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2008
+    }, {
+      "title" : "Two-dimensional actuation of a microrobot with a stationary two-pair coil system",
+      "author" : [ "H. Choi", "J. Choi", "G. Jang", "J. Park", "S. Park" ],
+      "venue" : "Smart Materials and Structures, vol. 18, no. 5, p. 055007, 2009.",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Two-dimensional locomotive permanent magnet using electromagnetic actuation system with two pairs stationary coils.",
+      "author" : [ "J. Choi", "H. Choi", "K. Cha", "J. Park", "S. Park" ],
+      "venue" : "In Robotics and Biomimetics (ROBIO),",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2009
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Micro/nano robots (MNRs) which are wirelessly controlled have various potential applications in medical and biological fields [1].",
+      "startOffset" : 126,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 2,
+      "context" : "Magnetic actuation using magnetic field is shown to be preferred technique for controlling magnetic MNRs that have size range from micrometer to centimeters, so this technique could be used in several medical field applications [3], [4].",
+      "startOffset" : 228,
+      "endOffset" : 231
+    }, {
+      "referenceID" : 3,
+      "context" : "This technique does not cause harm to body tissues and cells if it is used under safe magnetic field value [5], [6].",
+      "startOffset" : 107,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 4,
+      "context" : "This technique does not cause harm to body tissues and cells if it is used under safe magnetic field value [5], [6].",
+      "startOffset" : 112,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 14,
+      "context" : "In this technique, one pair of Helmholtz coils have been used to produce a constant homogenous magnetic field in the required orientation, the other coils used are one pair of Maxwell coils which are implemented to generate magnetic field gradient for the propulsion of micro/nano magnetic robots [16, 17].",
+      "startOffset" : 297,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 15,
+      "context" : "In this technique, one pair of Helmholtz coils have been used to produce a constant homogenous magnetic field in the required orientation, the other coils used are one pair of Maxwell coils which are implemented to generate magnetic field gradient for the propulsion of micro/nano magnetic robots [16, 17].",
+      "startOffset" : 297,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 5,
+      "context" : "These forces include the magnetic force generated from the magnetic system (Fm), the drag force resulted from the blood flow (Fd) and the apparent weight of the MNR ( ) which is neglected as it is very small compared to the other forces [7].",
+      "startOffset" : 237,
+      "endOffset" : 240
+    }, {
+      "referenceID" : 6,
+      "context" : "1 Forces applied on a micro/nano robot navigationg inside blood vessel [8]",
+      "startOffset" : 71,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 7,
+      "context" : "The magnetic force resulting from a magnetic gradient is expressed as [9] (3)",
+      "startOffset" : 70,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 8,
+      "context" : "Using Navier Stokes law to obtain the fluidic drag force on a sphere considering that the range of Reynold’s number is 0 < Re < 1 which is the condition that can be experienced in small blood vessels whose diameter are in mm scale [10].",
+      "startOffset" : 231,
+      "endOffset" : 235
+    }, {
+      "referenceID" : 9,
+      "context" : "Where A is the cross-sectional area of the MNR, f is the density of the fluid, (vp-vf) is the relative velocity between the velocity of the moving MNR and the velocity of the fluid flow inside a vessel having infinite diameter [11].",
+      "startOffset" : 227,
+      "endOffset" : 231
+    }, {
+      "referenceID" : 10,
+      "context" : "A non-dimensional term CMD is used to describe the ratio between the magnetic force needed to actuate the MNR and the drag force acting on it, [12] and this term is named as the Magnetic Richardson Number.",
+      "startOffset" : 143,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 11,
+      "context" : "TABLE 1 BLOOD VESSEL’S CHARACTERISTICS [13,14,15,16]",
+      "startOffset" : 39,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 12,
+      "context" : "TABLE 1 BLOOD VESSEL’S CHARACTERISTICS [13,14,15,16]",
+      "startOffset" : 39,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 13,
+      "context" : "TABLE 1 BLOOD VESSEL’S CHARACTERISTICS [13,14,15,16]",
+      "startOffset" : 39,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 14,
+      "context" : "TABLE 1 BLOOD VESSEL’S CHARACTERISTICS [13,14,15,16]",
+      "startOffset" : 39,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 15,
+      "context" : "The Helmholtz coils generate constant homogenous magnetic field under two conditions: firstly, the distance between the two Helmholtz coils must equal to the radius of the Helmholtz coil, secondly the current flows in one pair of Helmholtz coils must equal in magnitude and in the same direction [17].",
+      "startOffset" : 296,
+      "endOffset" : 300
+    }, {
+      "referenceID" : 16,
+      "context" : "(b) Navigation and motion of MNR using Maxwell coil [18].",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 17,
+      "context" : "Thus, the magnetic field on the x--y plan generated from the two pairs of Maxwell coils is expressed as follows [19]: I? ?JK I L M +F,LJM LJN +F,L NK (9)",
+      "startOffset" : 112,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 18,
+      "context" : "The propulsive force can be expressed as [20], [21] I \fJK O PQ CEL +F,LJH RSCELJ +F,L HT (10)",
+      "startOffset" : 41,
+      "endOffset" : 45
+    }, {
+      "referenceID" : 19,
+      "context" : "The propulsive force can be expressed as [20], [21] I \fJK O PQ CEL +F,LJH RSCELJ +F,L HT (10)",
+      "startOffset" : 47,
+      "endOffset" : 51
+    }, {
+      "referenceID" : 19,
+      "context" : "For actuating and propelling the MNR in the desired orientation the ratio between the propulsion forces in both x and y directions must be equal to 1 0 C such that: [21] &D & UVSC WDXYFZW W XYFZWD (11)",
+      "startOffset" : 165,
+      "endOffset" : 169
+    } ],
+    "year" : 2019,
+    "abstractText" : "---Actuation and navigation of micro/nano robot (MNR) has great promising potential in biomedical applications as it facilitates the motion of such robots within human body. This paper investigates the design of electromagnetic system which is composed of of two pairs of Helmholtz coils and two pairs of Maxwell coils and study its effect on the motion of the MNR. This is supported by the theoretical analysis of the coils and the associated magnetic fields. Accordingly, the locomotion of an MNR was tested through simulations along different orientations in the x-y plane of motion. In addition, a simulation test was carried by navigating MNR inside a Y bifurcation blood vessel. The simulation results confirm the efficient control of the magnetic force generated from Maxwell coils and torque resulted from Helmholtz coils acting on the MNR. Keywords----Biomedical; Electromagnetic system; Magnetic field; Microrobots; Nanorobots;",
+    "creator" : "'Certified by IEEE PDFeXpress at 04/13/2019 12:01:24 PM'"
+  }
+}

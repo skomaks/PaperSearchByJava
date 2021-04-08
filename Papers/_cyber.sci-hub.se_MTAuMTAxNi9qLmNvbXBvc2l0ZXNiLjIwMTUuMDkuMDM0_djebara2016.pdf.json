@@ -1,0 +1,359 @@
+{
+  "name" : "_cyber.sci-hub.se_MTAuMTAxNi9qLmNvbXBvc2l0ZXNiLjIwMTUuMDkuMDM0_djebara2016.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Modeling of the effect of particles size, particles distribution and particles number on mechanical properties of polymer-clay nano-composites: numerical homogenization versus experimental results",
+    "authors" : [ ],
+    "emails" : [ "toufik.kanit@univ-lille1.fr" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "M AN\nUS CR\nAC CE\nPT ED\nThe main goal of this paper is to predict the elastic modulus of partially intercalated and\nexfoliated polymer-clay nano-composites using numerical homogenization techniques based on the finite element method. The representative volume element was employed here to capture nanocomposites microstructure, where both intercalated exfoliated and clay platelets coexisted together. The effective macroscopic properties of the studied microstructure are obtained with two boundary conditions: periodic boundary conditions and kinematic uniform boundary conditions. The effect of particle volume fractions, aspect ratio, number and distribution of particles and the type of boundary conditions are numerically studied for different configurations. This paper investigate also the performance of several classical analytical models as Mori and Tanaka model, Halpin and Tsai model, generalized self consistent model through their ability to estimate the mechanical properties of nano-composites. A comparison between simulation results of polypropylene clay nanocomposites, analytical methods and experimental data has confirmed the validity of the set results.\nKeywords\nA. Polymer–matrix composites; A. Particle-reinforcement; B. Microstructures; C. Computational modeling ; nano-composites.\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nNemeclature\nGeometric parameters\nζ Aspect ratio of clay particles\nP Volume fraction\nw f weight fraction\nfρ clay particle density\nmρ matrix density\nEffective properties\nijE and ij∑ macroscopic strain and macroscopic stress tensors\nijε and ijσ the average value of strain and average value stress\nijσ second rang stress tensor\nUi displacement field υ Periodic fluctuation\nappK and appµ apparent elastic properties of bulk and shear moduli\ncE effective elastic modulus\ncν effective Poisson coefficient\nf f f k Eµ\nbulk,shear and young’s moduli of clay particles\nm m m k Eµ bulk,shear and young’s moduli of matrix\nrε Relative error\nAnalytical models\nR and V Reuss and Voigt bounds\n+HS and −HS Upper and lower Hashin-Shtrikman bounds\nGSC and HT Generalized self consistent and Halpin-Tsai models\nM AN\nUS CR\nIP T\nAC CE\nPT ED"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Polymeric composites reinforced with nanoscale reinforcements such as nanotube-reinforced,\nsilica nanoparticle-reinforced and nanoclay-reinforced have recently attracted a tremendous attention in researchers and industrials, since they exhibit enhanced mechanical properties. According to Kojima et al. (1993), clay nanoparticles are classified best candidates to strengthen polymers materials, due to their mechanical and physical properties, their high aspect ratio, their high availability in nature and production low cost.\nGenerally, there are three different techniques to characterize the behavior of nanocomposites\n: experimental approaches, analytical methods based on the theories of bounds and models and numerical methods based on the representative volume element (RVE) coupled with finite element methods (FEM). It should be mention that in experimental works it is very difficult to control the influence of the particle size, particles shape and its distributions on the macroscopic behavior of polymer clay nanocomposites (PCN). For that, some works confront the experimental data with numerical and analytical methods to determine the effect of morphological parameters. The elastic properties are then determined by applying analytical or numerical methods. The most important ones are: Mori and Tanaka (1973) (MT), Halpin and Tsai (1967) (HT) and general self consistent (SC) method. For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al. (2007), Dong and Bhattacharyya (2010), Figiel and Buckley (2009) and Pahlavanpour et al. (2014).\nFornes and Paul (2003) proposed an experimental work to understand the origin of the\nsuperior reinforcing efficiency observed in well exfoliated polymer clay nanocomposites compared to conventional reinforcements using composite theory. They found that composite theories of HT and MT were employed to better understanding of the superior reinforcement observed for wellexfoliated nanocomposites relative to conventional glass fibers composites. Sheng et al. (2004) employed 2D aligned microstructures combined with micromechanical models of MT, HT and FEM to predict the stiffness of polymer clay nanocomposites. The particles were assumed to be all aligned and isotropic. Hbaieb et al. (2007) have used 2D and 3D FEM models of the polymer/clay nanocomposites with aligned and randomly oriented particles to determine the elastic properties of this material. They calculated the effective Young’s modulus for random and aligned particles and confront the results to MT model. The authors concluded that the MT model did not predict\nM AN\nUS CR\nIP T\nAC CE\nPT ED\naccurately the stiffness of the composites. Dong and Bhattacharyya (2010) predicted the elastic moduli of polymer clay nanocomposites using numerical technique based on mapping the real 2D micro-nanostructures of clay platelets. The results were verified by the comparison of numerical results to experimental data and the conventional composites theories as HT and Hui and Shia (1998) models. The results show that the numerical simulations provide the great insight to well predict the elastic modulus of Polypropylene (PP) / clay nanocomposites in comparison to conventional composites theories.\nRecently, Pahlavanpour et al. (2014) evaluated the performance of commonly used analytical\nmicromechanical models to predict the elastic properties of polymer / clay nanocomposites with the help of numerical simulations based FEM. The results show that the comparison between analytical and simulations revealed that the MT model is the most reliable method to be used for the possible ranges of modulus contrast, aspect ratio and volume fraction. Lielens et al. (1998) give a best prediction compared to MT model at high volume fractions when the rigidity contrast between effective particle and polymer is also high. The SC scheme overestimates the axial Young’s modulus for all studied cases of PCN (polymer clay nanocomposites).\nThe majority of micromechanical analytical models do not take into account the influence of\nthe particle shape on the effective properties of nanocomposites. The classical models, their accuracy and their range of applicability, based on more or less suitable hypotheses, cannot be established in the absence of an exact solution, see El Moumen et al. (2015b). This can only be obtained by solving numerically the boundary value problem for a RVE of nanocomposites.\nIn the present paper, the main goal is to predict the effect of particle size, particles number\nand particles distribution on mechanical properties of randomly partially intercalated and exfoliated polymer clay nanocomposites using numerical homogenization techniques. Several microstructures with different volume fractions and aspect ratio ranging from 5% to 40% are generated. FEM simulations of detailed microstructures are performed with different boundary conditions. The effect of boundary conditions in mechanical properties of clay nanocomposites is also investigated. The RVE size of microstructures and their effective elastic properties are compared and related with number of particles. The results are then compared with both of experimental data of polypropylene montmorillonite nanocomposites (PP/MMT) and conventional composites theories of analytical model."
+    }, {
+      "heading" : "2. Generation of microstructures and finite element mesh",
+      "text" : "2.1. Morphology of microstructures\nM AN\nUS CR\nIP T\nAC\nCE\nPT ED\nNanocomposites morphologies were reconstructured digitally using Poisson process.\nRandomly distributed particles were generated in RVE with an algorithm implemented in MATLAB software. The algorithm is based on composite microstructures and is elaborated by El Moumen et al. (2015b) for the case of microstructures with ellipsoidal particles. The algorithm was adapted to intercalated and exfoliated polymer clay particles. This process is widely used for generating of composites reinforced with spherical or cylindrical particles, see El Moumen et al. (2013). The idea is to embed points randomly in a 2D plane according to a Poisson law. These points represent the center of each inclusion and then a straight line with a random orientation is generated from each of these points.\nIn this study, we have considered a 2D microstructure of partially intercalated and exfoliated\npolymer clay nanocomposites. The morphology of clay platelets (MMT) were carried with different values of aspect ratios : ζ=5, ζ=10, ζ=20, ζ=40, embedded and randomly oriented in a PP matrix with various volume fractions of 4.5%, 6% and 10%. Figure 1 shows some examples of the generated microstructures of clay platelets in the matrix including exfoliated and intercalated distribution. The physical and mechanical properties affected to each phase are given by Sheng et al. (2004) and Kim et al. 2007 and listed in Table 1. It should mention that both of the matrix and clay particles are isotropic and the particles are assumed to be perfectly bound to the matrix.\nFigure 1. RVE including randomly oriented particles for an aspect ratio ζ=40 and volume fraction of: (a) 4.5 %, (b) 6 % and (c) 10% of particles.\nν )(MPaE )(MPak )(MPaµ Density (g/cm3) Matrix (PP) 0.35 1760 2173 652 0.9\nClay particles (MMT) 0.26 48300 39931 19167 1.8\nTable 1. Physical properties of PP/Clay nano-composites. Where ν , E , k and µ are the Poisson ratio, Young’s modulus, bulk modulus and shear modulus respectively.\nM AN\nUS CR\nIP T\nAC CE\nPT\nED\n2.2. Finite element meshing\nOnce the geometry of the microstructure is performed, a mesh can be generated. The regular\nfinite element mesh is superimposed on the image of the microstructure using the so-called multiphase element technique. This technique was developed by Lippmann et al. (1997) and extensively used by El Moumen et al. (2014) and El Moumen et al. (2015b) for homogenization of real and virtual composite microstructures respectively. Indeed, the image of the microstructure is used to attribute the proper phase property to each integration point of a regular mesh, according to the color of the underlying element. Figure 2 shows an example of a regular mesh with grid of 500 by 500 finite elements.\nFigure 2. Meshing technique : (a) polymer clay nano-composites image and (b) associated mesh"
+    }, {
+      "heading" : "3. Computational homogenization",
+      "text" : "3.1. Boundary conditions\nTwo types of boundary conditions are considered to be prescribed on the boundary of the\ndomain. In the case of linear elasticity, these conditions are: kinematic uniform boundary conditions (KUBC) and periodicity conditions (PBC). It should be noted that the minimal size required to estimate the effective properties is much lower for PBC compared to KUBC. The results produced by the periodic boundary conditions converge more rapidly than the ones obtained by KUBC, see Kanit et al. (2003). In heterogeneous materials, 2D macroscopic effective bulk and shear moduli were calculated by solving two fundamental boundary value problems with imposed average strain, Kanit et al. (2003).\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nThe macroscopic imposed strain tensors, kE and µE , used to compute macroscopic in-plane bulk\nappk and shear appµ moduli are given by :\n     = 10\n01kE and 0 0.5\n0.5 0 Eµ   =    \n(1)\nTherefore, we can define the apparent macroscopic bulk modulus appk and the apparent macroscopic shear modulus appµ as :\n1 ( ) 4 appk trace σ= < > and >=< 12σµapp (2)\nThe sign >< σ means average value of the local stress σ .\n3.2. Convergence of macroscopic elastic properties\nThe convergence of the macroscopic effective properties is obtained studying the will-know\nmesh density. It is defined as the number of finite elements necessary to mesh elementary volume of nanocomposites. For that purpose, a specific 2D microstructure made of random clay particles is considered. The number of particles and the geometry of the microstructure are unchanged, but different mesh resolutions are used. Figure 3 shows the results of computations of the macroscopic elastic properties as a function of the number of used finite elements for each mesh resolution. The number of nodes increases from 341 (mesh contains 100 elements) to 251001 (mesh contains 250000 elements), keeping the same microstructure containing 100 particles occupying 10% of total surface. Figure 3 shows that the homogenized properties first rapidly decrease for finer meshes and tends to stabilize for large volumes. This figure also shows that the number of finite elements in which it begins convergence is approximately 81000 elements / 100 particles. It appears that a mesh density of 81000 elements per 100 particles is necessary to get a precision of 1%.\nM AN\nUS CR\nIP T\nAC CE\nPT ED\n0 5 0 0 0 0 1 0 0 0 0 0 1 5 0 0 0 0 2 0 0 0 0 0 2 5 0 0 0 0 3 0 0 0 0 0 3 5 0 0 0 0 N u m b e r o f f in ite e le m e n ts\n2 3 5 0\n2 4 0 0\n2 4 5 0\n2 5 0 0\n2 5 5 0\n2 6 0 0\n2 6 5 0\n2 7 0 0\n2 7 5 0\nbu lk\nm o\ndu lu\ns k\n[M P\na ]\nFigure 3. Variation of macroscopic bulk moduli with changing the number of finite elements for various mesh grids\n3.3. Numerical results\nIn this part, the effect of clay particles distribution and particles number, aspect ratio and the\ntype of boundary conditions on the effective elastic properties of PP/nano-clay particles is presented. For each microstructure of nanocomposites, containing random particles, n different realizations were created to estimate the elastic moduli and to study the effect of distribution. The difference between created realizations is: orientation and disposition of particles, its distribution and the size of microstructures. The number of realizations, considered for each volume size containing N particles, is given in Table 2. For illustration, Figure 4 gives an example of the generated partially intercalated and exfoliated realization with same volume fractions but different distributions.\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nFigure 4. Examples of considered realizations n to study the effect of particles distribution for an aspect ratio of 40 and 10% of volume fraction: (a) 30=n , (b) 50=n and (c) 100=n particles.\nThe simulations are performed with the finite element method. Depending on boundary\nconditions and different realizations, macroscopic linear properties, in-plane bulk and shear moduli, were calculated to find the elastic behavior. The set obtained results for the apparent and effective properties of each aspect ratio are presented in Figures 5, 6 and 7. These curves explain the variation of the macroscopic properties of PP/clay nano-composites with the change in number of particles N . These figures show also the fluctuation of the results for different realizations, the mean values and its interval of confidence for the apparent properties. It appears that, for both boundary conditions, the error decreases when the number of particles increases, and tends to zero for large volumes. For these reasons, one realization is enough to describe the elastic behavior of nano-composites for volumes larger than the deterministic RVE. The same results are shown by El Moumen et al. (2014) for random composites reinforced with natural particles. For each modulus, the two values of\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nboundary conditions, KUBC and PBC, converge towards to the same limit starting from 50 particles. It appears also that the distribution of particles does not affect the elastic properties in volumes larger than 50 particles for different aspect ratios. It should be mention that the particle volume fractions and the aspect ratio are the principal morphological parameters which influence the elastic properties of nano-composite estimated with numerical simulations. For illustration, the effective properties found, in the case of PBC, are reported in Table 3 and compared with analytical methods such as Voigt (V) and Reuss (R) bounds, Hashin and Shtrikman (HS) bounds and generalized self consistent estimates of Christensen and Lo (1979). This table gives a comparison of the analytical approximation methods briefly recalled in the introduction to the finite element results regarding the set generated microstructures for different ratios. It is clear from this table and figures that the estimations provided by the approximation schemes are close to the corresponding finite element simulations in the case of low volume fractions. The maximum difference between numerical and analytical results is obtained in the case of height volume fraction of particles with large aspect ratio. This difference is around of 15 %. For illustration, an example of the deformed microstructures of nano-composites is presented in the Figure 8 for computations of the bulk and shear modulus.\nM AN\nUS CR\nIP T\nAC\nCE\nPT ED\nζ (%)P Effective properties R\n−HS GSC (%)rε Numerical\nresults +HS V\n5\n4.5 effk 2269 2296 2296 2.31 2349 2805 3872 effµ 681 699 699 3 720 961 1485\n6 effk 2304 2340 2340 2.95 2409 3023 4438 effµ 692 716 716 4.33 747 1068 1763\n10 effk 2400 2463 2463 4.55 2575 3629 8949 effµ 722 763 764 6.15 811 1365 2503\n10\n4.5 effk 2270 2296 2296 4.18 2392 2805 3872 effµ 681 699 699 5.72 739 961 1485\n6 effk 2304 2340 2340 6.07 2482 3023 4438 effµ 692 716 716 8.80 779 1068 1763\n10 effk 2400 2463 2463 8.97 2684 3629 8949 effµ 722 763 764 14.67 873 1365 2503\n20\n4.5 effk 2270 2296 2296 7.01 2457 2805 3872 effµ 681 699 699 9.16 763 961 1485\n6 effk 2304 2340 2340 8.80 2546 3023 4438 effµ 692 716 716 12.99 809 1068 1763\n10 effk 2400 2463 2463 12.51 2771 3623 8949 effµ 722 763 764 17.28 896 1365 2503\n40\n4.5 effk 2270 2296 2296 10.19 2530 2805 3872 effµ 681 699 699 13.45 793 961 1485\n6 effk 2304 2340 2340 12.65 2636 3023 4438 effµ 692 716 716 15.92 830 1068 1763\n10 effk 2400 2463 2463 18.51 2919 3629 8949 effµ 722 763 764 18.46 905 1365 2503\nM AN\nUS CR\nIP T\nAC"
+    }, {
+      "heading" : "4. Experimental results versus numerical and analytical approaches",
+      "text" : "The objective of this section is to present a confrontation between numerical, analytical and\nexperimental results of the estimated elastic moduli. The numerical results are obtained using the homogenization technique and the analytical ones by micromechanical models. The most important micromechanical models are the VR, HS bounds and HT model. These models generally consider the volume fraction and the aspect ratio of parrticles inside the matrix. For the experimental results, table 4 presents the values of the elastic modulus, extracted from the literature, see Dong and Bhattacharyya (2010), as a function of particle weight fractions.\nSince the volume fraction is a very important parameter in finite element simulations and\nmicromechanical models, it is very important to establish a quantitative relation between the weight ratio and the volume fraction, to properly compare the simulation results with those of experimental data. For a two-phase composite material consisting of a matrix and particles, the volume fraction can be calculated from the weight fraction fw , matrix density mρ , and clay particle density fρ as\nfollows :\nYu Dong et al. (2009)\n4.1. Numerical prediction of nanocomposites Young’s modulus\nThe same methodology used in the last section for numerical homogenization of bulk and shear moduli is used in this part for elastic modulus. Numerical bulk and shear moduli are determined for\nM AN\nUS CR\nIP T\nAC\nCE\nPT ED\ndifferent volume fractions of clay particles with different aspects ratio. Thus, the effective elastic modulus effE and effective Poisson ratio effν of the polymer clay nanocomposites are calculated according to the 2D isotropy relations as given by Meille and Garboczi (2001):\n4\n, 1 1\neff\neff eff\nE\nk µ\n= +\neffeff effeff eff\nk\nk µ µν + −= (4)\nTable 5 gives the set obtained numerical results confronted to the results of micromechanical models. It appears that the analytical models give a good prediction of Young’s modulus in the case of lower volume fractions with small aspect ratio. However, the difference between analytical and numerical results becomes important by increasing the volume fraction and the aspect ratio of particles.\n4.2. Confrontation of experimental, numerical and analytical results\nFigure 9 shows the confrontation of numerical results with the predictions of the HT model,\nHS bounds and the experimental data. The variation is given as a function of the volume fraction of clay particles at various aspect ratio ranging from 5=ζ to 40=ζ . From this figure it appears that:\n• There is a good agreement between both of numerical simulation and experimental data for\ndifferent volume fractions. At higher volume fractions there is a small difference that may be associated to the size of experimental samples as shown by Kanit et al. (2006) and El Moumen et al. (2014). In experimental characterization, with increasing of the volume\nζ (%)P effE )(MPa\nR −HS Numerical results Error (%) HT +HS V\n4.5 1840 2143 2205 1.5 2165 2863 3854 6 1868 2192 2280 1.13 2306 3157 4552 10 1948 2329 2467 8.73 2703 3967 6414\n4.5 1840 2143 2257 5.92 2399 2863 3854 6 1868 2192 2371 9.54 2621 3157 4552\n10 1948 2329 2605 19.6 3240 3967 6414\n4.5 1840 2143 2328 14.25 2715 2863 3854 6 1868 2192 2455 19.38 3045 3157 4552\n10 1948 2329 2738 30.74 3953 3967 6414\n4.5 1840 2143 2416 20.94 3056 2863 3854 6 1868 2192 2526 27.88 3498 3157 4552\n10 1948 2329 2763 41.28 4705 3967 6414\nM AN\nUS CR\nIP T\nAC\nCE\nPT ED\nfractions the numbers of particles is also increased and leads to creation of clustered particles. This particle clustering causes a decrease in elastic modulus as clearly shown in Figure 9, see for example Hbaieb et al. (2007). • The HT model results clearly overestimate the elastic modulus, because the difference\nbetween this model and the numerical simulation and experimental data increases with increasing the volume fraction and the aspect ratio of particles, excluding the case of the small aspect ratios ( 5=ζ and 10=ζ ), where the HT model gives a reasonable prediction of\nthe elastic modulus. The results of the HT model are well located between upper and lower HS bounds, but in the case of high ratio, 40=ζ , the results are clearly diverged out the HS\nbounds.\n0 0 .0 1 0 .0 2 0 .0 3 0 .0 4 0 .0 5 0 .0 6 0 .0 7 0 .0 8 0 .0 9 0 .1 0 .1 1 0 .1 2\nV olum e Fra c tio n\n0\n1 0 0 0\n2 0 0 0\n3 0 0 0\n4 0 0 0\n5 0 0 0\n6 0 0 0\n7 0 0 0\n8 0 0 0\nE la\nst ic\nM od\nul u\ns (M\nP a)\nV R bo u n d s H S bo u n d s S im u la tion ( ) S im u la tion ( ) S im u la tion ( ) S im u la tion ( ) H -T m o d e l E x p er im e n ta l d a ta Y u d o ng (2 00 9 )\nFigure 9. Confrontation of numerical, experimental and analytical Young’s modulus of PP/clay nanocomposites.\nM AN\nUS CR\nIP T\nAC CE\nPT ED"
+    }, {
+      "heading" : "5. Conclusion",
+      "text" : "In this paper, we have presented a confrontation between numerical, experimental and\nanalytical results of samples representing PP matrix/clay nanocomposites. Numerical homogenization is handled by finite element method based on the representative volume element (RVE) and compared to the classical analytical models and experimental data. An original method, based on Poisson process, has been used to generate automatically the microstructure of PP/clay nanocomposites representing this material. This method consists in randomly placing nonoverlapping exfoliation / intercalation particles in the RVE. Several microstructures were generated depending on the aspect ratio of particles ranging from 5 to 40 for different volume fractions. The mesh of the microstructures is obtained using the so-called multi-phase element method. The validity of the obtained results relies mainly on the hypothesis that the microstructures are statistically representative and the number of used element is enough to achieve a good convergence of macroscopic properties. These conditions were performed by studying the mesh density. It appears the existence of a small difference (0.01%) between the results obtained by different microstructures of nanocomposites. Two different boundary conditions as well as kinematic uniform and periodic boundary conditions were imposed in order to assess the effect of these conditions on the microstructures of PP/clay nanocomposites. It appears that the overall properties estimated on the volume containing more than 50 particles are independent of boundary conditions. This size can be considered as the minimum volume for which the numerical results are representatives. The influence of the shape was highlighted through the comparison of numerical results performed on the microstructures with different aspect ratio. It appears a difference in the elastic moduli regarding the aspect ratio, especially in the case of high particle volume fractions. The confrontation of the numerical results to the some of the most used analytical models (as VR and HS bounds, HT and GSC models) and experimental approaches is presented. Globally, in the case of lower volume fraction and small aspect ratio, all the analytical models provide good approximations for different studied configurations. However, when the aspect ratio and / or particles volume fractions become important, the VR bounds and HT models are largely diverges compared to experimental results and finite element simulated results. This study then shows that the explicit analytical models may correctly estimate the effective mechanical properties of PP/Clay nanocomposites based MMT, expect the case of high volume fractions and aspect ratio less than 10.\nM AN\nUS CR\nIP T\nAC CE\nPT ED"
+    } ],
+    "references" : [ {
+      "title" : "Use of classical variational principles to determine bounds for the effective bulk modulus in heterogeneous media",
+      "author" : [ "MJ Beran", "J. Molyneux" ],
+      "venue" : "Quart. Appl. Math",
+      "citeRegEx" : "Beran and Molyneux,? \\Q1966\\E",
+      "shortCiteRegEx" : "Beran and Molyneux",
+      "year" : 1966
+    }, {
+      "title" : "Solutions for effective shear properties in three phase sphere and cylinder models",
+      "author" : [ "Christensen R M", "Lo KH" ],
+      "venue" : "J. Appl. Mech. Phys. Solids",
+      "citeRegEx" : "M and KH.,? \\Q1979\\E",
+      "shortCiteRegEx" : "M and KH.",
+      "year" : 1979
+    }, {
+      "title" : "Mapping the real micro/nanostructures for the prediction of elastic moduli of polypropylene/clay nanocomposites",
+      "author" : [ "Y Dong", "D. Bhattacharyya" ],
+      "venue" : "Polymer",
+      "citeRegEx" : "Dong and Bhattacharyya,? \\Q2010\\E",
+      "shortCiteRegEx" : "Dong and Bhattacharyya",
+      "year" : 2010
+    }, {
+      "title" : "Effect of overlapping inclusions on effective elastic properties of composites",
+      "author" : [ "A El Moumen", "T Kanit", "A Imad", "H. El Minor" ],
+      "venue" : "Mechanics Research Communications",
+      "citeRegEx" : "Moumen et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Moumen et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "A multiscale approach and microstructure design of the elastic composite behavior reinforced with natural particles",
+      "author" : [ "A El Moumen", "A Imad", "T Kanit", "E Hilali", "H. El Minor" ],
+      "venue" : "Composites Part B : Engineering",
+      "citeRegEx" : "Moumen et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Moumen et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Computational thermal conductivity in porous materials using homogenization techniques : numerical and statistical approaches",
+      "author" : [ "A El Moumen", "T Kanit", "A Imad", "H. El Minor" ],
+      "venue" : "Computational Materials Science",
+      "citeRegEx" : "Moumen et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Moumen et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Effect of reinforcement shape on physical properties and representative volume element of particles-reinforced composites: statistical and numerical approaches",
+      "author" : [ "A El Moumen", "T Kanit", "A Imad", "H. El Minor" ],
+      "venue" : "Mechanics of Materials",
+      "citeRegEx" : "Moumen et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Moumen et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "On the modelling of highly elastic flows of amorphous thermoplastics",
+      "author" : [ "L Figiel", "P. Buckley C" ],
+      "venue" : "International Journal of Non-linear Mechanics,",
+      "citeRegEx" : "Figiel and C,? \\Q2009\\E",
+      "shortCiteRegEx" : "Figiel and C",
+      "year" : 2009
+    }, {
+      "title" : "Modeling properties of nylon 6/clay nanocomposites using composite theories",
+      "author" : [ "Fornes TD", "Paul DR" ],
+      "venue" : "Polymer",
+      "citeRegEx" : "TD and DR.,? \\Q2003\\E",
+      "shortCiteRegEx" : "TD and DR.",
+      "year" : 2003
+    }, {
+      "title" : "A variational approach to the theory of the elastic behavior of multiphase materials",
+      "author" : [ "Z Hashin", "S. Shtrikman" ],
+      "venue" : "J. Mech. Phys. Solids",
+      "citeRegEx" : "Hashin and Shtrikman,? \\Q1963\\E",
+      "shortCiteRegEx" : "Hashin and Shtrikman",
+      "year" : 1963
+    }, {
+      "title" : "Environmental factors in composite materials",
+      "author" : [ "C Halpin J", "SW Tsai" ],
+      "venue" : "AFML TR 67-423,",
+      "citeRegEx" : "J and Tsai,? \\Q1967\\E",
+      "shortCiteRegEx" : "J and Tsai",
+      "year" : 1967
+    }, {
+      "title" : "Modeling stiffness of polymer/clay nanocomposites",
+      "author" : [ "K Hbaieb", "QX Wang", "YHJ hia", "B. Cotterell" ],
+      "venue" : "Polymer",
+      "citeRegEx" : "Hbaieb et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Hbaieb et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "Simple formulae for the effective moduli of unidirectional aligned composites",
+      "author" : [ "CY Hui", "D. Shia" ],
+      "venue" : "Polymer Engineering Science",
+      "citeRegEx" : "Hui and Shia,? \\Q1998\\E",
+      "shortCiteRegEx" : "Hui and Shia",
+      "year" : 1998
+    }, {
+      "title" : "Determination of the size of the representative volume element for random composites : statistical and numerical approach",
+      "author" : [ "T Kanit", "S Forest", "I Galliet", "V Mounoury", "D. Jeulin" ],
+      "venue" : "International Journal of Solids and Structures",
+      "citeRegEx" : "Kanit et al\\.,? \\Q2003\\E",
+      "shortCiteRegEx" : "Kanit et al\\.",
+      "year" : 2003
+    }, {
+      "title" : "Apparent and effective physical properties of heterogeneous materials : representativity of samples of two materials from food industry",
+      "author" : [ "T Kanit", "F Nguyen", "S Forest", "D Jeulin", "M Reed", "S. Singleton" ],
+      "venue" : "Computer Methods in Applied Mechanics and Engineering",
+      "citeRegEx" : "Kanit et al\\.,? \\Q2006\\E",
+      "shortCiteRegEx" : "Kanit et al\\.",
+      "year" : 2006
+    }, {
+      "title" : "Structure and properties of polypropylene-based nanocomposites : effect of PP-g-MA to organoclay ratio",
+      "author" : [ "Kim DH", "Fasulo PD", "Rodgers W.R", "Paul DR" ],
+      "venue" : "Polymer",
+      "citeRegEx" : "DH et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "DH et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "Mechanical properties of nylon 6-clay hybrid",
+      "author" : [ "Y Kojima", "A Usuki", "M Kawasumi", "A Okada", "Y Fukushima", "T Karauchi", "O. Kamigaito" ],
+      "venue" : "J. Mater. Sci",
+      "citeRegEx" : "Kojima et al\\.,? \\Q1993\\E",
+      "shortCiteRegEx" : "Kojima et al\\.",
+      "year" : 1993
+    }, {
+      "title" : "Prediction of thermo-mechanical properties for compression moulded composites",
+      "author" : [ "G Lielens", "P Pirotte", "A Couniot", "F Dupret", "R. Keunings" ],
+      "venue" : "Composites Part A : Applied Science and Manufacturing",
+      "citeRegEx" : "Lielens et al\\.,? \\Q1998\\E",
+      "shortCiteRegEx" : "Lielens et al\\.",
+      "year" : 1998
+    }, {
+      "title" : "3D-finite-element-modelling of microstructures with the method of multiphase elements",
+      "author" : [ "N Lippmann", "T Steinkopff", "S Schmauder", "P. Gumbsch" ],
+      "venue" : "Computational Materials Science",
+      "citeRegEx" : "Lippmann et al\\.,? \\Q1997\\E",
+      "shortCiteRegEx" : "Lippmann et al\\.",
+      "year" : 1997
+    }, {
+      "title" : "Linear elastic properties of 2D and 3D models of porous materials made from elongated objects. Modelling and Simulation in Materials",
+      "author" : [ "Meille S", "Garboczi EJ" ],
+      "venue" : "Science and Engineering",
+      "citeRegEx" : "S and EJ.,? \\Q2001\\E",
+      "shortCiteRegEx" : "S and EJ.",
+      "year" : 2001
+    }, {
+      "title" : "Average stress in matrix and average elastic energy of materials with misfitting inclusions",
+      "author" : [ "T Mori", "K. Tanaka" ],
+      "venue" : "Acta Metallurgica",
+      "citeRegEx" : "Mori and Tanaka,? \\Q1973\\E",
+      "shortCiteRegEx" : "Mori and Tanaka",
+      "year" : 1973
+    }, {
+      "title" : "Numerical and analytical modeling of the stiffness of Polymer–Clay Nanocomposites with aligned particles: one and two step methods",
+      "author" : [ "M Pahlavanpour", "P Hubert", "M. Lévesque" ],
+      "venue" : "Computational Materials Science",
+      "citeRegEx" : "Pahlavanpour et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Pahlavanpour et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Multiscale micromechanical modeling of polymer/clay nanocomposites and the effective clay particle",
+      "author" : [ "N Sheng", "MC Boyce", "DM Parks", "GC Rutledge", "JI Abes", "RE. Cohen" ],
+      "venue" : "Polymer",
+      "citeRegEx" : "Sheng et al\\.,? \\Q2004\\E",
+      "shortCiteRegEx" : "Sheng et al\\.",
+      "year" : 2004
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 12,
+      "context" : "According to Kojima et al. (1993), clay nanoparticles are classified best candidates to strengthen polymers materials, due to their mechanical and physical properties, their high aspect ratio, their high availability in nature and production low cost.",
+      "startOffset" : 13,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 12,
+      "context" : "According to Kojima et al. (1993), clay nanoparticles are classified best candidates to strengthen polymers materials, due to their mechanical and physical properties, their high aspect ratio, their high availability in nature and production low cost. Generally, there are three different techniques to characterize the behavior of nanocomposites : experimental approaches, analytical methods based on the theories of bounds and models and numerical methods based on the representative volume element (RVE) coupled with finite element methods (FEM). It should be mention that in experimental works it is very difficult to control the influence of the particle size, particles shape and its distributions on the macroscopic behavior of polymer clay nanocomposites (PCN). For that, some works confront the experimental data with numerical and analytical methods to determine the effect of morphological parameters. The elastic properties are then determined by applying analytical or numerical methods. The most important ones are: Mori and Tanaka (1973) (MT), Halpin and Tsai (1967) (HT) and general self consistent (SC) method.",
+      "startOffset" : 13,
+      "endOffset" : 1053
+    }, {
+      "referenceID" : 12,
+      "context" : "According to Kojima et al. (1993), clay nanoparticles are classified best candidates to strengthen polymers materials, due to their mechanical and physical properties, their high aspect ratio, their high availability in nature and production low cost. Generally, there are three different techniques to characterize the behavior of nanocomposites : experimental approaches, analytical methods based on the theories of bounds and models and numerical methods based on the representative volume element (RVE) coupled with finite element methods (FEM). It should be mention that in experimental works it is very difficult to control the influence of the particle size, particles shape and its distributions on the macroscopic behavior of polymer clay nanocomposites (PCN). For that, some works confront the experimental data with numerical and analytical methods to determine the effect of morphological parameters. The elastic properties are then determined by applying analytical or numerical methods. The most important ones are: Mori and Tanaka (1973) (MT), Halpin and Tsai (1967) (HT) and general self consistent (SC) method.",
+      "startOffset" : 13,
+      "endOffset" : 1082
+    }, {
+      "referenceID" : 12,
+      "context" : "According to Kojima et al. (1993), clay nanoparticles are classified best candidates to strengthen polymers materials, due to their mechanical and physical properties, their high aspect ratio, their high availability in nature and production low cost. Generally, there are three different techniques to characterize the behavior of nanocomposites : experimental approaches, analytical methods based on the theories of bounds and models and numerical methods based on the representative volume element (RVE) coupled with finite element methods (FEM). It should be mention that in experimental works it is very difficult to control the influence of the particle size, particles shape and its distributions on the macroscopic behavior of polymer clay nanocomposites (PCN). For that, some works confront the experimental data with numerical and analytical methods to determine the effect of morphological parameters. The elastic properties are then determined by applying analytical or numerical methods. The most important ones are: Mori and Tanaka (1973) (MT), Halpin and Tsai (1967) (HT) and general self consistent (SC) method. For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966).",
+      "startOffset" : 13,
+      "endOffset" : 1228
+    }, {
+      "referenceID" : 7,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966).",
+      "startOffset" : 128,
+      "endOffset" : 156
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites.",
+      "startOffset" : 186,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al.",
+      "startOffset" : 186,
+      "endOffset" : 436
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al.",
+      "startOffset" : 186,
+      "endOffset" : 457
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al. (2007), Dong and Bhattacharyya (2010), Figiel and Buckley (2009) and Pahlavanpour et al.",
+      "startOffset" : 186,
+      "endOffset" : 479
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al. (2007), Dong and Bhattacharyya (2010), Figiel and Buckley (2009) and Pahlavanpour et al.",
+      "startOffset" : 186,
+      "endOffset" : 510
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al. (2007), Dong and Bhattacharyya (2010), Figiel and Buckley (2009) and Pahlavanpour et al.",
+      "startOffset" : 186,
+      "endOffset" : 537
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al. (2007), Dong and Bhattacharyya (2010), Figiel and Buckley (2009) and Pahlavanpour et al. (2014). Fornes and Paul (2003) proposed an experimental work to understand the origin of the superior reinforcing efficiency observed in well exfoliated polymer clay nanocomposites compared to conventional reinforcements using composite theory.",
+      "startOffset" : 186,
+      "endOffset" : 568
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al. (2007), Dong and Bhattacharyya (2010), Figiel and Buckley (2009) and Pahlavanpour et al. (2014). Fornes and Paul (2003) proposed an experimental work to understand the origin of the superior reinforcing efficiency observed in well exfoliated polymer clay nanocomposites compared to conventional reinforcements using composite theory.",
+      "startOffset" : 186,
+      "endOffset" : 592
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al. (2007), Dong and Bhattacharyya (2010), Figiel and Buckley (2009) and Pahlavanpour et al. (2014). Fornes and Paul (2003) proposed an experimental work to understand the origin of the superior reinforcing efficiency observed in well exfoliated polymer clay nanocomposites compared to conventional reinforcements using composite theory. They found that composite theories of HT and MT were employed to better understanding of the superior reinforcement observed for wellexfoliated nanocomposites relative to conventional glass fibers composites. Sheng et al. (2004) employed 2D aligned microstructures combined with micromechanical models of MT, HT and FEM to predict the stiffness of polymer clay nanocomposites.",
+      "startOffset" : 186,
+      "endOffset" : 1035
+    }, {
+      "referenceID" : 0,
+      "context" : "For analytical bounds, the used micromechanical methods are: the first order bounds of Voigt (1889), the second order bounds of Hashin and Shtrikman (1963) and the third order bounds of Beran and Molyneux (1966). For numerical characterization, the technique of the homogenization based on RVE and FEM is introduced in many situations in order to estimate the effective properties of nanocomposites. For example, Fornes and Paul (2003), Sheng et al. (2004), Hbaieb et al. (2007), Dong and Bhattacharyya (2010), Figiel and Buckley (2009) and Pahlavanpour et al. (2014). Fornes and Paul (2003) proposed an experimental work to understand the origin of the superior reinforcing efficiency observed in well exfoliated polymer clay nanocomposites compared to conventional reinforcements using composite theory. They found that composite theories of HT and MT were employed to better understanding of the superior reinforcement observed for wellexfoliated nanocomposites relative to conventional glass fibers composites. Sheng et al. (2004) employed 2D aligned microstructures combined with micromechanical models of MT, HT and FEM to predict the stiffness of polymer clay nanocomposites. The particles were assumed to be all aligned and isotropic. Hbaieb et al. (2007) have used 2D and 3D FEM models of the polymer/clay nanocomposites with aligned and randomly oriented particles to determine the elastic properties of this material.",
+      "startOffset" : 186,
+      "endOffset" : 1264
+    }, {
+      "referenceID" : 2,
+      "context" : "Dong and Bhattacharyya (2010) predicted the elastic moduli of polymer clay nanocomposites using numerical technique based on mapping the real 2D micro-nanostructures of clay platelets.",
+      "startOffset" : 0,
+      "endOffset" : 30
+    }, {
+      "referenceID" : 2,
+      "context" : "Dong and Bhattacharyya (2010) predicted the elastic moduli of polymer clay nanocomposites using numerical technique based on mapping the real 2D micro-nanostructures of clay platelets. The results were verified by the comparison of numerical results to experimental data and the conventional composites theories as HT and Hui and Shia (1998) models. The results show that the numerical simulations provide the great insight to well predict the elastic modulus of Polypropylene (PP) / clay nanocomposites in comparison to conventional composites theories. Recently, Pahlavanpour et al. (2014) evaluated the performance of commonly used analytical micromechanical models to predict the elastic properties of polymer / clay nanocomposites with the help of numerical simulations based FEM.",
+      "startOffset" : 0,
+      "endOffset" : 592
+    }, {
+      "referenceID" : 2,
+      "context" : "Dong and Bhattacharyya (2010) predicted the elastic moduli of polymer clay nanocomposites using numerical technique based on mapping the real 2D micro-nanostructures of clay platelets. The results were verified by the comparison of numerical results to experimental data and the conventional composites theories as HT and Hui and Shia (1998) models. The results show that the numerical simulations provide the great insight to well predict the elastic modulus of Polypropylene (PP) / clay nanocomposites in comparison to conventional composites theories. Recently, Pahlavanpour et al. (2014) evaluated the performance of commonly used analytical micromechanical models to predict the elastic properties of polymer / clay nanocomposites with the help of numerical simulations based FEM. The results show that the comparison between analytical and simulations revealed that the MT model is the most reliable method to be used for the possible ranges of modulus contrast, aspect ratio and volume fraction. Lielens et al. (1998) give a best prediction compared to MT model at high volume fractions when the rigidity contrast between effective particle and polymer is also high.",
+      "startOffset" : 0,
+      "endOffset" : 1025
+    }, {
+      "referenceID" : 2,
+      "context" : "Dong and Bhattacharyya (2010) predicted the elastic moduli of polymer clay nanocomposites using numerical technique based on mapping the real 2D micro-nanostructures of clay platelets. The results were verified by the comparison of numerical results to experimental data and the conventional composites theories as HT and Hui and Shia (1998) models. The results show that the numerical simulations provide the great insight to well predict the elastic modulus of Polypropylene (PP) / clay nanocomposites in comparison to conventional composites theories. Recently, Pahlavanpour et al. (2014) evaluated the performance of commonly used analytical micromechanical models to predict the elastic properties of polymer / clay nanocomposites with the help of numerical simulations based FEM. The results show that the comparison between analytical and simulations revealed that the MT model is the most reliable method to be used for the possible ranges of modulus contrast, aspect ratio and volume fraction. Lielens et al. (1998) give a best prediction compared to MT model at high volume fractions when the rigidity contrast between effective particle and polymer is also high. The SC scheme overestimates the axial Young’s modulus for all studied cases of PCN (polymer clay nanocomposites). The majority of micromechanical analytical models do not take into account the influence of the particle shape on the effective properties of nanocomposites. The classical models, their accuracy and their range of applicability, based on more or less suitable hypotheses, cannot be established in the absence of an exact solution, see El Moumen et al. (2015b). This can only be obtained by solving numerically the boundary value problem for a RVE of nanocomposites.",
+      "startOffset" : 0,
+      "endOffset" : 1648
+    }, {
+      "referenceID" : 3,
+      "context" : "The algorithm is based on composite microstructures and is elaborated by El Moumen et al. (2015b) for the case of microstructures with ellipsoidal particles.",
+      "startOffset" : 76,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 3,
+      "context" : "The algorithm is based on composite microstructures and is elaborated by El Moumen et al. (2015b) for the case of microstructures with ellipsoidal particles. The algorithm was adapted to intercalated and exfoliated polymer clay particles. This process is widely used for generating of composites reinforced with spherical or cylindrical particles, see El Moumen et al. (2013). The idea is to embed points randomly in a 2D plane according to a Poisson law.",
+      "startOffset" : 76,
+      "endOffset" : 376
+    }, {
+      "referenceID" : 22,
+      "context" : "The physical and mechanical properties affected to each phase are given by Sheng et al. (2004) and Kim et al.",
+      "startOffset" : 75,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 14,
+      "context" : "This technique was developed by Lippmann et al. (1997) and extensively used by El Moumen et al.",
+      "startOffset" : 32,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 3,
+      "context" : "(1997) and extensively used by El Moumen et al. (2014) and El Moumen et al.",
+      "startOffset" : 34,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 3,
+      "context" : "(1997) and extensively used by El Moumen et al. (2014) and El Moumen et al. (2015b) for homogenization of real and virtual composite microstructures respectively.",
+      "startOffset" : 34,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 13,
+      "context" : "The results produced by the periodic boundary conditions converge more rapidly than the ones obtained by KUBC, see Kanit et al. (2003). In heterogeneous materials, 2D macroscopic effective bulk and shear moduli were calculated by solving two fundamental boundary value problems with imposed average strain, Kanit et al.",
+      "startOffset" : 115,
+      "endOffset" : 135
+    }, {
+      "referenceID" : 13,
+      "context" : "The results produced by the periodic boundary conditions converge more rapidly than the ones obtained by KUBC, see Kanit et al. (2003). In heterogeneous materials, 2D macroscopic effective bulk and shear moduli were calculated by solving two fundamental boundary value problems with imposed average strain, Kanit et al. (2003).",
+      "startOffset" : 115,
+      "endOffset" : 327
+    }, {
+      "referenceID" : 3,
+      "context" : "The same results are shown by El Moumen et al. (2014) for random composites reinforced with natural particles.",
+      "startOffset" : 33,
+      "endOffset" : 54
+    }, {
+      "referenceID" : 9,
+      "context" : "For illustration, the effective properties found, in the case of PBC, are reported in Table 3 and compared with analytical methods such as Voigt (V) and Reuss (R) bounds, Hashin and Shtrikman (HS) bounds and generalized self consistent estimates of Christensen and Lo (1979). This table gives a comparison of the analytical approximation methods briefly recalled in the introduction to the finite element results regarding the set generated microstructures for different ratios.",
+      "startOffset" : 171,
+      "endOffset" : 275
+    }, {
+      "referenceID" : 2,
+      "context" : "For the experimental results, table 4 presents the values of the elastic modulus, extracted from the literature, see Dong and Bhattacharyya (2010), as a function of particle weight fractions.",
+      "startOffset" : 117,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 9,
+      "context" : "At higher volume fractions there is a small difference that may be associated to the size of experimental samples as shown by Kanit et al. (2006) and El Moumen et al.",
+      "startOffset" : 126,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 3,
+      "context" : "(2006) and El Moumen et al. (2014). In experimental characterization, with increasing of the volume ζ (%) P eff E ) (MPa R − HS Numerical results Error (%) HT + HS V",
+      "startOffset" : 14,
+      "endOffset" : 35
+    }, {
+      "referenceID" : 11,
+      "context" : "This particle clustering causes a decrease in elastic modulus as clearly shown in Figure 9, see for example Hbaieb et al. (2007). • The HT model results clearly overestimate the elastic modulus, because the difference between this model and the numerical simulation and experimental data increases with increasing the volume fraction and the aspect ratio of particles, excluding the case of the small aspect ratios ( 5 = ζ and 10 = ζ ), where the HT model gives a reasonable prediction of the elastic modulus.",
+      "startOffset" : 108,
+      "endOffset" : 129
+    } ],
+    "year" : 2015,
+    "abstractText" : "The main goal of this paper is to predict the elastic modulus of partially intercalated and exfoliated polymer-clay nano-composites using numerical homogenization techniques based on the finite element method. The representative volume element was employed here to capture nanocomposites microstructure, where both intercalated exfoliated and clay platelets coexisted together. The effective macroscopic properties of the studied microstructure are obtained with two boundary conditions: periodic boundary conditions and kinematic uniform boundary conditions. The effect of particle volume fractions, aspect ratio, number and distribution of particles and the type of boundary conditions are numerically studied for different configurations. This paper investigate also the performance of several classical analytical models as Mori and Tanaka model, Halpin and Tsai model, generalized self consistent model through their ability to estimate the mechanical properties of nano-composites. A comparison between simulation results of polypropylene clay nanocomposites, analytical methods and experimental data has confirmed the validity of the set results.",
+    "creator" : "Elsevier"
+  }
+}

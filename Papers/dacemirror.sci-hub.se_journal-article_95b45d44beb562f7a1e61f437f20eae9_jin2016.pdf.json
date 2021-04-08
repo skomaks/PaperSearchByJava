@@ -1,0 +1,626 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_95b45d44beb562f7a1e61f437f20eae9_jin2016.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "On the contact behavior of micro-/nano-structured interface used in vertical-contact-mode triboelectric nanogenerators",
+    "authors" : [ "Congrui Jin", "Danial Sharifi Kia", "Matthew Jones", "Shahrzad Towfighian" ],
+    "emails" : [ "cjin@binghamton.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nNano Energy\nhttp://d 2211-28\nn Corr E-m\njournal homepage: www.elsevier.com/locate/nanoen\nOn the contact behavior of micro-/nano-structured interface used in vertical-contact-mode triboelectric nanogenerators\nCongrui Jin n, Danial Sharifi Kia, Matthew Jones, Shahrzad Towfighian Department of Mechanical Engineering, State University of New York at Binghamton, Binghamton, NY 13902, USA\na r t i c l e i n f o\nArticle history: Received 25 March 2016 Received in revised form 16 May 2016 Accepted 25 June 2016 Available online 28 June 2016\nKeywords: Energy harvesting Triboelectric nanogenerator Microstructure Contact interface Contact mechanics Pyramid array\nx.doi.org/10.1016/j.nanoen.2016.06.049 55/& 2016 Elsevier Ltd. All rights reserved.\nesponding author. ail address: cjin@binghamton.edu (C. Jin).\na b s t r a c t\nThe triboelectric nanogenerator (TENG) has attracted enormous amount of attention in the research community in recent years because of its simple design, high energy conversion efficiency, broad application areas, a wide materials spectrum, and low-temperature easy fabrication. A key factor that dictates the performance of the TENGs is the surface charge density, which can be taken as a standard to characterize the matrix of performance of a material for a TENG. The triboelectric charge density can be improved by increasing the effective contact area, and in order to increase the contact area in a limited device size, micro-/nano-structures are often designed at the contact surfaces. Expert knowledge in contact mechanics, especially in adhesion and detachment mechanisms of the micro-/nano-structured interface, is thus becoming essential for a better understanding of the impact of interfacial design on the power generation of TENGs. Such an emerging field provides a platform for electrical engineers, chemical engineers, and mechanicians to share knowledge and build collaborations, which will enable the TENG researchers to pursue new design philosophies to achieve enhanced performance. In this paper, systematical numerical studies on the adhesive contact at the micro-/nano-structured interface are presented. We use a numerical simulation package in which the adhesive interactions are represented by an interaction potential and the surface deformations are coupled by using half-space Green's functions discretized on the surface. The results confirmed that the deformation of interfacial structures directly determines the pressure-voltage relationship of TENG, and it can be seen that our numerical results provided a better fit with the experimental data than the previous studies.\n& 2016 Elsevier Ltd. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "To scavenge mechanical energy from the ambient environment, in 2012, Wang's group at Georgia Institute of Technology invented a new method to convert mechanical energy into electricity based on triboelectrification and electrostatic induction [1], which is called the triboelectric nanogenerator (TENG), and since then TENG has attracted enormous amount of attention in the research community because of its simple design, high energy conversion efficiency, broad application areas, a wide materials spectrum, and low-temperature easy fabrication [2–20].\nWhile there are many factors that would affect the power output of the TENGs, such as humidity and the frequency of vibration, a key factor that dictates the performance of the TENGs is the surface charge density, which can be taken as a standard to characterize the matrix of performance of a material for a TENG. The triboelectric charge density can be improved by selecting a\nproper charging material and by increasing the contact area. While the material issue can be intuitively addressed by combining a strong electron donating material and a strong electron accepting material, the contact area issue is much more complicated. To increase the effective contact area in a limited device size, micro-/ nano-structures are often designed at the contact surfaces [21–33]. For example, in a recent study to fabricate transparent TENGs [21], three types of regular and uniform polymer patterned arrays, i.e., line micropatterns, cube micropatterns, and pyramid micropatterns, were fabricated and compared with flat surfaces with no micropatterns. A dramatic increase in surface charge density, and therefore power generation, of the micropatterned surfaces over the unpatterned surfaces has been found, and the surfaces with pyramid micropatterns has shown the largest effective triboelectric effect. However, despite the invention of various interfacial structures, systematical analyses of the underlying phenomena of contact interfaces have been surprisingly modest so far. It is still unclear how the surface structures, such as roughness, dielectric properties, and the presence of nanostructures, would affect the magnitude of the charge density [34]. More fundamental studies\non this issue are urgently needed. In a recent attempt to investigate the impact of contact pressure on output voltage of TENGs based on deformation of interfacial structures [35], Seol et al. conducted both experimental and theoretical analyses of the contact problem of the pyramid array structures. Their theoretical analysis has shown that the opencircuit voltage should be proportional to the power of two-thirds of the applied contact pressure, and on the other hand, their experimental results, however, have shown that the open-circuit voltage has two distinctive regimes: increment and saturation, depending on the applied pressure, which means that the opencircuit voltage sensitively responds to the pressure change in a low-pressure regime, while the sensitivity significantly decreased in a high-pressure regime. Despite the elegance and sophistication of the analysis employed by Seol et al. the work of adhesion of the interface was not considered as a factor affecting the output voltage of TENGs, and thus never used in their analysis. Moreover, no attempt has been made to solve the JKR-type adhesive contact of the pyramid array structures. As the experimentally measured elastic modulus of PDMS was usually only about 0.36–0.87 MPa [36], the contact problem should be considered as JKR-type and so the influence of Van der Waals forces within the contact zone should be taken into account.\nAlthough JKR model predicts high elastic deformation of soft and highly adhering materials correctly [37], to our knowledge, the JKR-type adhesive contact for elastic bodies involving more general shapes, such as pyramids, has not been explored either analytically or numerically. In this paper, numerical studies on the adhesive contact of pyramidal PDMS micro-structures are presented. We use a numerical simulation method in which the adhesive interactions are represented by an interaction potential and the surface deformations are coupled by using half-space Green's functions discretized on the surface. The DMT-type and JKR-typeto-DMT-type transition regimes have been explored by conducting the simulations using smaller values of Tabor parameters. A guideline for the design of the interfacial structure is then deduced from the systematical analyses.\nThe paper is organized as follows: In Section 2, mathematical formulation is presented for the pyramidal adhesive contact problem, and essential dimensionless parameters for the problem are defined. In Sections 3, 4 and 5, detailed numerical simulation results are presented, as well as the comparison with existing experimental data. The DMT-type and JKR-type-to-DMT-type transition regimes have been explored. Based on the simulation\nresults, the relationship among the voltage between the two electrodes, the amount of transferred charges in between, and the separation distance between the two triboelectric charged layers was analyzed. Finally, the conclusions drawn from the numerical studies are summarized in Section 6."
+    }, {
+      "heading" : "2. Governing equations for the contact problem",
+      "text" : "A typical state for a vertical contact mode TENG is illustrated in Fig. 1. When a constant downward pressure is applied to the TENG, the rigid floating-metal plate and the soft polymer layer with the interfacial structures come into contact. The total contact area between the metal surface and the polymer surface will be dependent on the applied pressure and the interfacial structure, i.e., a stronger pressure will cause a larger deformation of the interfacial structure, resulting in a larger surface charge density. In this section, the problem formulation of the adhesive contact problem for pyramid PDMS micro-structures will be presented. We here focus on a unit block of the pyramid array with a base length of L within one pitch of a pyramid, a base length of m in a pyramid itself, and inter-pyramid space of L-m, as shown in Fig. 2. The height of the pyramid itself is denoted as n.\nFor surface interaction, the empirical potential often used is the Lennard-Jones potential. The Lennard–Jones potential is a pair potential and it describes the potential energy of interaction U between two non-bonding atoms or molecules based on their distance of separation:\n( ) ( )ε σ σ( ) = − ( )⎡⎣ ⎤⎦U r r r4 / / 10 0 12 0 6\nwhere ε0 and σ0 are potential parameters and r is the distance between the two atoms or molecules. Integrating Eq. (1) over the surface area, we can obtain the relationship between the local pressure p and the air gap h as follows:\n( ) ( ) ε ε ε( ) = − ( ) ⎡⎣ ⎤⎦p h W h h83 / / 2 ad 9 3\nwhere Wad is the work of adhesion, which is just the tensile force integrated over the distance necessary to pull apart the two bodies and ε is a length parameter equal to the range of the surface interaction. For stiff materials, its value should be on the order of interatomic spacing, however, for compliant materials, its value usually becomes much larger [38].\ntrification occurs when a rigid metal plate comes into contact with a soft polymer al structures are compressed and deformed during the contact, and the triboelectric tact pressure.\nThe Derjaguin's Approximation [39] is then applied to Eq. (2). This approximation relates the force law between two curved surfaces to the interaction energy per unit area between two planar surfaces, which makes this approximation a very useful tool, since forces between two planar bodies are often much easier to calculate. This approximation is widely used to estimate forces between colloidal particles. Note that Greenwood also adopted this approximation in his simulation of the adhesive contact between two inclined surfaces [40]. The separation between the two surfaces due to the surface interaction as well as the applied load, denoted by h, as shown in Fig. 2, will be expressed by the following equation:\n∬α ε π( ) = − + + + * ( ′ ′) ′ ′ ( − ′) + ( − ′) ( )Ω h x y h E p x y dx dy x x y y , 1 , 3 0 2 2\nwhere the parameter α is the displacement between the two surfaces with respect to the zero force position ε=h , which is often called indentation depth in indentation tests, and the parameter *E represents the effective elastic contact modulus. For the adhesive contact between two linearly elastic isotropic materials with Young's modulus Ei and Poisson's ratio νi, where i¼1, 2, *E is defined as the effective Young's modulus, i.e., if both materials feature significant compliances, the compliances add up as the following:\nν ν * = − + − ( )E E E 1 1 1 4 1 2\n1\n2 2\n2\nAs shown in Fig. 2, the parameter ho in Eq. (3) is the initial air gap written in rectangular coordinates, i.e., the separation of the surfaces in the absence of applied and adhesive forces. The initial air gap for a right square pyramid with a base size of ×m m and a height of n, as shown in Fig. 2, can be written as the following:\n( ) = (| + | + | − |) − × −\n( ) = − × − ( )\n⎡ ⎣⎢\n⎤ ⎦⎥ ⎡ ⎣⎢\n⎤ ⎦⎥\n⎡ ⎣⎢\n⎤ ⎦⎥ ⎡ ⎣⎢\n⎤ ⎦⎥\nh x y n m x y x y inside m m m m h x y n outside m m m m , 2 , 2 2 , 2\n, 2 , 2 2 , 2 5\n0\n0\nThe computational domain is taken as the whole unit block, i.e., the finite square Ω = [ − ] × [ − ]L L L L/2, /2 /2, /2 . The total normal load f can then be written as follows:\n∫ ∫= ( ) ( )Ωf p x y dxdy, 6 To implement the formulae into numerical simulation, we then\nintroduce the following dimensionless variables:\nε α ε μ ε ε ε\nε ε\nπ ε ε ε\n= − = = *\n= =\n= = = = ¯ = ( )\n⎜ ⎟\n⎜ ⎟ ⎜ ⎟\n⎛ ⎝⎜\n⎞ ⎠⎟\n⎛ ⎝ ⎞ ⎠\n⎛ ⎝ ⎞ ⎠\n⎛ ⎝ ⎞ ⎠\nH h\nD mW nE\nU h X x n m\nY y n m P p W F\nn f m W\nN n L L n m\n1, , , , ,\n, , 3\n, 2 , 7\nad\nad ad\n2/3\n0 0\n2\n2\nwhere D is the normalized displacement, i.e. the normalized indentation depth in indentation tests. The parameter μ is the so called Tabor parameter [41]. This parameter, proposed by Tabor in 1976, is often used to decide whether the JKR or DMT model would best describe a contact system, as Greenwood [40] concluded that the limits of the Maugis-Dugdale model correspond to Tabor's limits, i.e. the small values of Tabor parameter describe the material behavior in DMT-type regime, and the large values of the Tabor parameter describe the contact behavior for JKR-type regime.\nThen the normalized (Eqs. (2), (3) and 6) can be written as follows, respectively:\n= [( + ) − ( + ) ] ( ) − −P H H 8 3 1 1 8 9 3\n∫ ∫ ( ) μ π = − + + [ ( ′ ′) + ] − [ ( ′ ′) + ] ( − ′) + ( − ′) ′ ′ Ω\n− −\n9 H D U\nH X Y H X Y\nX X Y Y dX dY 8 3 , 1 , 1 0\n3/2 9 3\n2 2\n∬π Ω= ( ) = [ − ¯ ¯ ] × [ − ¯ ¯ ] ( )ΩF P X Y dXdY L L L L 1 3 , , /2, /2 /2, /2 10\nwhere\n( ) = | − | + | + | [ − ] × [ − ]\n( ) = [ − ] × [ − ] ( )"
+    }, {
+      "heading" : "U x y X Y X Y inside N N N N",
+      "text" : "U x y N outside N N N N\n, , ,\n, 2 , , 11\n0\n0\nEq. (9) is then solved by a virtual state relaxation (VSR) method: the indentation depth D is gradually increased, and the H vector obtained from the previous step is used as an initial state\nfor computing H vector in the next step. In each step, we let time evolve until the final state in equilibrium is reached. This method accurately plots all the stable equilibria for each value of D. In all the simulation cases, we first increase the value of D from minimum to the maximum indentation depth to simulate the approach process, and then we decrease the value of D back to the minimum to simulate the detachment process. This method has been extensively calibrated and validated in the past few years, showing superior capabilities in reproducing and predicting the contact behavior of adhesive materials in various kinds of contact problems [42–44]."
+    }, {
+      "heading" : "3. Relationship between applied pressure and contact area",
+      "text" : "In this section, we numerically simulate the approaching process of the soft micro-structured interface coming into contact with the rigid metal plate for different geometrical parameters of the pyramidal micro-structures. In the analysis conducted by Seol et al. all the geometrical parameters about the pyramid microstructures are provided, but none of the material parameters are available, so the material parameters are assumed here based on our previous experimental experience and the information provided by the existing literature. The Young's modulus of the pyramid PDMS micro-structure is assumed to be 0.44 MPa, which is within the nominal range of 0.36 to 0.87 MPa [36]. We assume that ν = 0.5 for the PDMS micro-structures [45], and the metal plate is assumed to be rigid. Based on Eq. (4), we can obtain that * =E 0.59 MPa. The work of adhesion Wad can be varied from 25 to 1000 mJ/m2 [46], and based on our previous experimental results we assume that =W 54ad mJ/m2 [44], which is close to the nominal value of 100 mJ/m2used by Tafazzoli et al. [46]. For the pyramidal\nmicro-structures fabricated by Seol et al. because of the nature of anisotropic etching of silicon with the aid of KOH, the side angle of the pyramid is always 54.7°, which means the ratio of n/m is always equal to 0.7. In their experiments, the ratio of m/L is fixed as 0.5. In their experiments, three groups of experimental samples have been tested, and the geometrical parameters are shown as follows: L¼2.0 mm, m¼1.0 mm, and n¼0.7 mm for group A; L¼5.0 mm, m¼2.5 mm, and n¼1.75 mm for group B; and L¼10.0 mm, m¼5.0 mm, and n¼3.5 mm for group C. Substituting * =E 0.59 MPa, =W 54ad mJ/m2, and n/m¼0.7 into the expression for Tabor parameter as shown in Eq. (7), we can obtain the relationship between the Tabor parameter m and the length parameter ε. If we assume that μ > 0.5 [43], we can obtain ϵ < 0.37 mm, which is a very reasonable range for compliant materials [38,42]. In the following numerical simulations, we assume that the value of the Tabor parameter is always equal to 0.5.\nThe relationship among the force, the displacement, and the contact area will be discussed based on the numerical results. However, as pointed out by Greenwood [40], any criterion to define contact area can be disputable, because the air gap in this context is assumed to be always nonzero. In the current study, Greenwood's definition for contact area will be adopted, i.e., the edge of contact area will be regarded as the location of the tensile peak stress [40]. In the following discussion, the normalized contact region length obtained directly from the numerical simulation is denoted by Λ = | | = | |X Y2 2c c c , where ( X Y,c c) is the coordinate for the tensile peak stress at the corner of the contact area. The dimensional contact region length λc is related to the dimensionless contact region length Λc by Λ λ ε= ( )n m/c c .\nFig. 3 plots the normalized pressure distributions in the unit block for the pyramid micro-structure pressed by the rigid metal plate for different values of displacement. Positive values of P\ne rigid metal plate when the normalized indentation depth: (a) D¼1.0, (b) D¼3.0, d, and the geometrical parameters are shown as follows: L¼2.0 mm, m¼1.0 mm, and mm, m¼5.0 mm, and n¼3.5 mm for group C. The results show the transition from\nrepresent compressive forces between surfaces, and the edge of contact area can be regarded as the location of the tensile peak stress, which is colored by the deepest shade of blue in the current color scheme. It can be seen that the maximum compressive contact pressure at the center of the contact area forms a sharp peak. In other words, at the center of the pyramid, the pressure is the largest because the compression of polymer is most severe, while the pressure becomes smaller as the distance from the center increases. It can be seen that when the displacement is small or the applied pressure is weak, only the top part of the pyramid is compressed, and under this partial-contact condition, the deformed profile sensitively responds to a small change of pressure. The deformation eventually becomes saturated as the applied pressure further increases, and the entire area of the pyramid structure is fully in contact with the top metal plate.\nFig. 4(a) plots the normalized contact region length Λc versus the normalized displacement D. The three different curves correspond to the numerical simulation results for group A, B, and C, respectively. It confirms that when the displacement is small, only the partial contact is achieved, and the contact area increases with increasing displacement. The deformation eventually becomes saturated as the displacement further increases. The partial-contact-to-full-contact transition happens at D¼1.75 for group A, D¼5.20 for group B, and D¼10.95 for group C, respectively, which is consistent with the results shown in Fig. 3. Fig. 4(b) plots the normalized contact region length Λc versus the normalized force F, and Fig. 4(c) plots the normalized force F versus the normalized displacement D, which shows that stronger applied pressure is required as displacement is increased. The effect of different pyramidal shapes and the effect of using different Tabor parameters have been discussed in the Supplementary information."
+    }, {
+      "heading" : "4. Relationship between pressure and open-circuit voltage",
+      "text" : "Our analysis so far has been focusing on a single unit block. The total contact area of the device can be obtained by multiplying the contact area of a unit block λc2 and the total number of unit blocks. For the pyramid structure with a base length of L, assuming that the total sample size is equal to S, the number of unit blocks will be S/L2, and then the total contact area will be λc2S/L2. Although some recent studies [47–50] suggest that each charged surface actually has surface charge distributions fluctuating rapidly between positive and negative values, like a random “mosaic”, instead of having uniform surface charge distributions, we here simply adopt the assumption made by Seol et al. and the vast majority of studies [51,52] that the total triboelectric charge can be obtained by multiplying the total contact area and the uniform\nsurface charge density σ , which is a parameter for intrinsic material property. The open-circuit voltage VOC can then be determined by the total amount of triboelectric charge σλ S L/c2 2 and parasitic capacitance CP. The parasitic capacitance is formed by the polymer layer. The fixed triboelectric charges at the polymer surface serves as a virtual electrode which makes a pair with actual metal electrode attached to the polymer layer. The value of CP is determined by total thickness of the polymer layer T, dielectric constant of the polymer εr , and total device area S. The resultant relationship can be shown as follows:\nσλ σλ ε ε\nσ ε ε λ= = ( ) = ( ) ⎛ ⎝⎜ ⎞ ⎠⎟ ⎛ ⎝⎜ ⎞ ⎠⎟V S L C S L S T T L/ 12 OC c\nP\nc\nr r c\n2\n2\n2\n2 0 0\n2 2\nwhere ε = × −8.85 100 12 F/m is the vacuum permittivity. It can be seen that VOC is a function of material parameters σ and εr , structural parameters T and L, and contact area from a unit block λc2; and VOC is independent on total device area S.\nThe relationship between λc and f has been analyzed in the previous section, and based on Eq. (12), we can derive the relationship between VOC and f. We assume that εr is equal to 2.40 [53], the thickness of the polymer layer is 400 mm (provided by Seol et al. through private communication), and the uniform surface charge density σ is equal to 5.84 mC/m2. Fig. 5 presents the relationship between the pressure f/L2 and the open-circuit voltage VOC. The three different curves correspond to the numerical\nsimulation results for group A, B, and C, respectively. The experimental data provided by Seol et al. are also plotted for comparison.\nThree important tendencies are found from the results. 1) A small-size pyramid array (e.g. L¼2 mm sample) produces a larger VOC than a large-size pyramid array (e.g. L¼10 mm sample) in the partial-contact range, as a consequence of the larger density of contact points of the small-size structure array. When the applied pressure is so low that only the peak of the pyramid is in contact, the number of contact points determines the total contact area. This result implies that the high density of structures with small unit size, such as vertical nanowire array, will present an excellent performance in terms of the ultralow pressure application. 2) As shown in Eq. (12), when the values of σ , εr , T, and L are fixed, the open-circuit voltage solely depends on ( )λLc22 . Under the full-contact condition, we have λ ≈ mc . Since in the experiments, the ratio of m/L is 0.5 for all the three groups of samples, and thus we can see that the open-circuit voltages are the same for all the three cases once the full contact condition has been achieved. 3) It can be seen that our numerical results provided a better fit with the experimental data than the previous studies, especially when the applied pressure is large, and our model accurately predicts the transition from partial contact to full contact.\nThe notable discrepancy between the experimental data and numerical results in the range of small applied pressure is probably caused by the fact that when the value of Tabor parameter is not very small as in this cases involving PDMS, the contact and separation between two surfaces do not occur smoothly, and there are sudden jumping in or jumping out of contact behaviors [40,42– 44]. When two bodies move closer from a large separation, a turning point exists indicating the sudden jumping-on of contacting surfaces when they move infinitesimally closer. This significantly complicates the experimental measurements to accurately determine the contact area and the initial force. This issue is well known, and it also exists in the nanoindentation tests on PDMS [54–58]. As discussed by Kaufman and Klapperich [56], “Adhesion models, such as Johnson-Kendall-Roberts (JKR), can be successfully applied to both quasi-static and dynamic nanoindentation experiments to accurately determine elastic modulus values that demonstrate this jump-into-contact behavior. In a prototypical indent, the indenter tip senses a negative load as it approaches the sample such that a minimum force is seen on the loading curve prior to the applied load increasing. The minimum force on the loading curve is then defined as the jump-into-contact and zero displacement position”. Wang et al. also discussed this issue, and according to them, many nanoindentation studies ignored this initial contact adhesion force effect, reporting only the positive load portion of the load–displacement curve [55]."
+    }, {
+      "heading" : "5. Real-time output of TENG",
+      "text" : "In this section, the impact of the deformation of interfacial structures on the real-time power output of TENG will be investigated. The theoretical model for a conductor-to-dielectric vertical-contact-mode TENG is shown in Fig. 6. It shows that the motion of the top metal plate can be modeled as a spring-mass system, and thus the equation of motion of the top metal plate is shown as follows:\n¨ ( ) + ( ) = ( ) = ( ) + ( ) ( )y t k M y t P t S M P t S F t M 13 e t a e\nwhere S is the area of the top plate, M is the mass of the top plate, Pt(t) is the total pressure on the top plate, and ke is the equivalent stiffness. The total force Pt(t)S is the summation of the applied force Pa(t)S and the electrostatic force Fe(t). For high frequency\ninput pressures, some amount of damping can be added to the equation.\nAssume that the amount of transferred charges between the two electrodes is denoted as Q(t), the voltage between the two electrodes is denoted as V(t), and the distance between the top metal plate and the PDMS layer is denoted as d(t). Note that the initial separation is d(0)¼d0. Remember that the thickness of the polymer layer is T, and dielectric constant of the polymer is εr . From the Gauss theorem, the electric field strength at each region is given by = −\nε ε ( )EPDMS Q t S r0 and = σ ε − ( ) + ( )Eair Q t A t S 0 , respectively [18].\nThe voltage between the two electrodes can then be written as follows:\nε ε σ ε ( ) = + ( ) = − ( ) + ( ) + ( ) ( )\n( ) ⎛ ⎝⎜ ⎞ ⎠⎟V t E T E d t Q t S T d t A t d t S 14 PDMS air r0 0\nNote that A(t) is the contact area λ ( )tc2 S/L2, which is different from the area of the top plate S, because of the existence of the pyramid micro-structures.\nIn addition to the applied force, the top plate also experiences electrostatic force, as the top plate and the PDMS layer can be considered as a parallel-plate capacitor of area A(t) and separation d(t). The capacitance can be calculated as ( ) = ε ( )\n( ) C t A t d t 0 , and the\namount of energy stored in the charged capacitor is ( ) = ( ) ( )W t C t V t1\n2 2. The electrostatic force can then be obtained as\n( ) = ∂ ( ) ∂ ( ) = ( ) ( ) ∂ ( ) ∂ ( ) + ∂ ( ) ∂ ( ) ( ) ( ) F t W t y t C t V t V t y t C t y t V t 1 2 15 e 2\nWhen the TENG is working, the top plate and the PDMS layer will either be in contact or not in contact. When they are not in contact, we have ( ) = − ( )d t d y t0 . In general cases that a verticalcontact-mode TENG is connected to an arbitrary resistor R, the output properties can be estimated by combining Eq. (14) with Ohm's law:\n( )ε ε σ ε ( ) = ( ) = ( ) = − ( ) + − ( ) + ( )[ − ( )] ⎛ ⎝⎜ ⎞ ⎠⎟ 16V t I t R R dQ t dt Q t S T d y t A t d y t Sr0 0 0 0\nThe power can then be obtained as W(t)¼ I(t)V(t). Two special cases of the open-circuit condition and short-circuit condition can first be analyzed. At open-circuit condition, there is no charge transfer, which means that Q is equal to zero. Therefore, the opencircuit voltage VOC is given by\nσ ε ( ) = ( )[ − ( )] ( ) V t A t d y t S 17OC 0\n0\nAt short-circuit condition, V is equal to zero. Therefore, the\ntransferred charge QSC and current ISC are, respectively, given by\nσ ε ( ) = ( )[ − ( )] + − ( ) ( ) Q t A t d y t T d y t/ 18 SC\nr\n0\n0\nσ ε ε ( ) = ( ) = − ( ) ̇ ( ) [ + − ( )] ( ) I t dQ t dt A t y t T T d y t / / 19 SC SC r r 0 2\nSubstituting Eq. (16) into Eq. (15) gives\n( )\nε ε ε\nσ ε ε\nσ ε\nε ε ε\nσ ε\n( ) = ( ) − ( ) − ( ) + − ( ) + ( )[ − ( )] ( ) − ( )\n+ ( ) [ − ( )] − ( ) + − ( ) + ( )[ − ( )]\n⎛ ⎝⎜\n⎛ ⎝⎜\n⎞ ⎠⎟\n⎞ ⎠⎟ ⎛ ⎝⎜\n⎞ ⎠⎟\n⎛ ⎝⎜\n⎛ ⎝⎜\n⎞ ⎠⎟\n⎞ ⎠⎟ 20\nF t A t d y t Q t S T d y t\nA t d y t S Q t S\nA t S\nA t d y t\nQ t S T d y t\nA t d y t S 1 2\ne r\nr\n0\n0 0 0\n0\n0 0 0\n0\n0 2 0\n0 0\n0\n2\nTherefore, when the top plate and the PDMS layer are not in contact, the governing equations can be obtained as follows:\nσ\n( ) = − ( ) ϵ ϵ + − ( )\n+ ( ) − ( )\nϵ\n( ) + ( ) = ( ) + ( ) ( )\n⎧\n⎨\n⎪⎪⎪⎪\n⎩\n⎪⎪⎪⎪\n⎛ ⎝⎜\n⎞ ⎠⎟\n⎡⎣ ⎤⎦\nR dQ t dt Q t S T d y t\nA t d y t\nS\ny t k M y t P t S F t M 21\nr\ne a e\n0 0\n0\n0\nWhen the top plate and the PDMS layer are in contact, we have ( ) =y t d0. Therefore, the voltage can be written as\nε ε ( ) = − ( )\n( ) ⎛ ⎝⎜ ⎞ ⎠⎟V t Q t S T 22r0\nIn this case, the surface charges on each surface are close enough to cancel each other out. Thus, the electrostatic force is equal to zero when they are in contact.\nWe introduce the following dimensionless variables:\n( )\nσ\nγ γ ε\nγ ε\nγ σ ε\n¯ = ¯ (¯) = ( ) (¯) = ( ) ¯ (¯) = ( ) ¯ (¯) = ( )\n= ( ) = = = ( ) 23\nt t\nM k y t y t d\nP t P t S d k Q t Q t S F t F t d k\nA t S\nd M k\nSR T d\nA t d k\n/ , , , ,\n, / , ,\ne a\na\ne e\ne\ne\ne\nr e\n0 0 0\n1 2 0\n0 3\n0 4\n2\n0 0\nThen Eq. (21) can be written as follows:\n( )γ γ γ¯ (¯)¯ = − ¯ (¯)( + − ¯ (¯)) + − ¯ (¯) ¯ (¯) + ¯ (¯) = ¯ (¯) + ¯ (¯) ( ) ⎧ ⎨⎪ ⎩⎪ ⎡⎣ ⎤⎦dQ t dt Q t y t y t y t y t P t F t 1 1 24a e 2 3 1\nwhere ( )( )γ γ γ γ¯ (¯) = − ¯ (¯)( + − ¯ (¯)) + [ − ¯ (¯)] ¯ (¯) − +− ¯ (¯)⎜ ⎛ ⎝F t Q t y t y t Q t1 1e y t4 1 1 3 1 1 )( )γ γ− ¯ (¯)( + − ¯ (¯)) + [ − ¯ (¯)][ − ¯ (¯)] Q t y t y t1 1y t12 1 3 1 22 . To study the real time output of TENG, we first focus on a special case when A(t)¼S, i.e., the contact area will not increase with the applied force. This happens when there are no micro-/ nano-structures at the interface, i.e., the interface is flat, or the force is so large that the deformation of the micro-/nano-structures has been saturated. In the experiments conducted in Ref. [24], to trigger the TENG, a mechanical shaker was used to apply impulse impact, and then open-circuit voltage and short-circuit current were measured to characterize the TENG's electric performance. It has been shown that with a contacting force of 10 N, the TENG can produce Isc ranging from 160 μA to 175 μA, and VOC ranging from 200 V to 210 V. To simulate these results, we substitute the material parameters into (Eqs. (23) and 24) and the numerical results are shown in Fig. 7. Most of the material parameters were provided by Ref. [24], and so we have M¼13.45 g [24], R¼1 M Ω [24], S¼38.71 cm2 [24], T¼10 mm [24], and d0 ¼1 mm [24]. The spring constant is assumed to be 1278.88 N/m [24], and since four springs are used in TENG [24], we have ke ¼4k¼5.12 kN/m. We also assume that ε = 2.40r [53] and σ\n¼1.77 mC/m2. Fig. 7 plots the input pressure, the displacement of the top plate, the velocity of the top plate, the charge, the current, the voltage, the short-circuit current, the open-circuit current, and the power under a square wave input of pressure with an amplitude of 10 N/38.71 cm2 and a frequency of 5 Hz. It can be seen that our numerical results agree very well with the experimental data [24].\nIn the experiments conducted in Ref. [35], the contact area increases with increasing applied pressure until the deformation is saturated. Since the relationship between VOC and Pa(t) in the static case has been provided, we can derive the relationship between the total contact area A(t) and the pressure Pa(t). Since most of the material parameters were not provided by Ref. [35], we here assume that M¼13.45 g [24], R¼1 M Ω [24], S¼4.00 cm2 [35], T¼400 mm (provided by Seol et al. through private communication), ke¼5.12 kN/m [24], ε = 2.40r [53], σ ¼5.84 mC/m2, and d0 ¼0.1 mm. Fig. 8(a) plots the curves for the total contact area A(t) versus the pressure Pa(t). The three different curves correspond to the numerical simulation results for group A, B, and C, respectively. Then, as in the experiments, we assume that pressures from 10 kPa to 150 kPa with a step of 10 kPa are sequentially applied in form of a square wave with a frequency of 2 Hz. To simulate these results, we substitute the relationship between the total contact area and the applied pressure into (Eqs. (23) and 24), and the numerical results for real time output of VOC for group A are shown in Fig. 8(b), which match the experimental data very well. It can be seen that the deformation of interfacial structures directly determines the pressure-voltage relationship of TENG. The real time output of VOC during the continuous deformation of PDMS structures are discussed in Supplementary information."
+    }, {
+      "heading" : "6. Concluding remarks",
+      "text" : "In this paper, numerical studies on the adhesive contact of the pyramidal micro-/nano-structures used in the vertical-contactmode triboelectric nanogenerators are presented. We use a numerical simulation method in which the adhesive interactions are represented by an interaction potential and the surface deformations are coupled by using half-space Green's functions discretized on the surface. The results confirmed that the deformation of interfacial structures directly determines the pressure-voltage relationship of TENG. The transition from partial contact to full contact has been analyzed in great details. It can be seen that our numerical results provide a better fit with the experimental data than previous studies. This numerical simulation package can be easily extended to include other types of micro-/nano-structures, such as line micropatterns and cube micropatterns. It can also be used to simulate the contact behavior of randomly rough surfaces, but the simulation will be based on a system consisting of billions of surface points for height distribution, which is quite involved and necessitates a large computer.\nIt can be concluded that the interfacial structure of the TENG should be carefully designed with consideration of a specific target application, and our simulation package provides a powerful tool to predict the contact behavior of the designed micro-/nanostructures. The design of the interfacial structure can be customized to provide controllable pressure sensitivity and sensing range, which can be another potential advantage when the TENG is designed for a self-powered pressure sensor.\nBesides the TENG research, this work has many other applications. For example, instrumented indentation, using preferably pyramid indenters such as Vickers, Berkovich and Knoop, has proved to be very useful in testing small material volumes [59]. Although instrumented indentation has been in use for about 30 years, many fundamental issues remain unclear, such as the\nexplicit relations between the normal applied load and the depth of penetration, details of the contact area shapes, the contact pressure distributions, and the effect of geometrical imperfections, etc. [60]. The current study will be very useful in the investigation of those issues."
+    }, {
+      "heading" : "Acknowledgment",
+      "text" : "This work is supported by start-up funds provided by the Department of Mechanical Engineering at State University of New York at Binghamton. Prof. Yang-Kyu Choi at Korea Advanced Institute of Science and Technology is thanked for kindly providing the material parameters used in the experiments."
+    }, {
+      "heading" : "Appendix A. Supporting information",
+      "text" : "Supplementary data associated with this article can be found in the online version at http://dx.doi.org/10.1016/j.nanoen.2016.06.049."
+    } ],
+    "references" : [ {
+      "title" : "Z",
+      "author" : [ "F.R. Fan", "Z.Q. Tian" ],
+      "venue" : "Lin Wang, Nano Energy 1 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Z",
+      "author" : [ "Y. Yang", "G. Zhu", "H. Zhang", "J. Chen", "X. Zhong", "Z.H. Lin", "Y. Su", "P. Bai", "X. Wen" ],
+      "venue" : "L. Wang, ACS Nano 7 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "G",
+      "author" : [ "P. Bai", "G. Zhu", "Z. Lin", "Q. Jing", "J. Chen" ],
+      "venue" : "Zhang, ACS Nano 7 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "W",
+      "author" : [ "X.S. Zhang", "M. Di Han", "R.X. Wang", "B. Meng", "F.Y. Zhu", "X.M. Sun", "W. Hu" ],
+      "venue" : "Wang, Z.H. Li, H.X. Zhang, Nano Energy 4 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Adv",
+      "author" : [ "G. Zhu", "Y.S. Zhou", "P. Bai", "X.S. Meng", "Q. Jing", "J. Chen", "Z.L. Wang" ],
+      "venue" : "Mater. 26 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "J",
+      "author" : [ "M.L. Seol", "J.H. Woo", "S.B. Jeon", "D. Kim", "S.J. Park" ],
+      "venue" : "Hur, Y.K. Choi, Nano Energy 14 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Adv",
+      "author" : [ "G. Cheng", "L. Zheng", "Z.-H. Lin", "J. Yang", "Z. Du", "Z.L. Wang" ],
+      "venue" : "Energy Mater. 5 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "X",
+      "author" : [ "P.K. Yang", "Z.H. Lin", "K.C. Pradel", "L. Lin", "X. Li" ],
+      "venue" : "Wen, J.H. He, Z.L. Wang, ACS Nano 9 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Adv",
+      "author" : [ "S. Wang", "X. Mu", "Y. Yang", "C. Sun", "A.Y. Gu", "Z.L. Wang" ],
+      "venue" : "Mater. 27 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Y",
+      "author" : [ "J. Yang", "J. Chen", "Y. Liu", "W. Yang" ],
+      "venue" : "Su, Z.L. Wang, ACS Nano 8 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "X",
+      "author" : [ "L. Lin", "Y. Xie", "S. Wang", "W. Wu", "S. Niu" ],
+      "venue" : "Wen, Z.L. Wang, L.I.N.E.T. Al, ACS Nano 7 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Angew",
+      "author" : [ "Z. Lin", "G. Zhu", "Y.S. Zhou", "Y. Yang", "P. Bai", "J. Chen", "Z.L. Wang" ],
+      "venue" : "Chem. 52 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Adv",
+      "author" : [ "Y. Yang", "Y. Zhou", "H. Zhang", "Y. Liu", "S. Lee" ],
+      "venue" : "Mater. 25 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Z",
+      "author" : [ "T.C. Hou", "Y. Yang", "H. Zhang", "J. Chen", "L.J. Chen" ],
+      "venue" : "Lin Wang, Nano Energy 2 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Adv",
+      "author" : [ "W. Tang", "Y. Han", "C. Han", "C. Gao", "X. Cao" ],
+      "venue" : "Mater. 27 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Appl",
+      "author" : [ "M. Taghavi", "A. Sadeghi", "B. Mazzolai", "L. Beccai", "V. Mattoli" ],
+      "venue" : "Surf. Sci. 323 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Y",
+      "author" : [ "J. Chen", "G. Zhu", "J. Yang", "Q. Jing", "P. Bai", "W. Yang", "X. Qi" ],
+      "venue" : "Su, Z.L. Wang, ACS Nano 9 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Energy Environ",
+      "author" : [ "S. Niu", "S. Wang", "L. Lin", "Y. Liu", "Y.S. Zhou", "Y. Hu", "Z.L. Wang" ],
+      "venue" : "Sci. 6 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "Y.S. Zhou", "Y. Liu", "G. Zhu", "Z. Lin", "C. Pan", "Q. Jing" ],
+      "venue" : "13 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "R",
+      "author" : [ "V. Nguyen" ],
+      "venue" : "Yang, Nano Energy 2 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "F.R. Fan", "L. Lin", "G. Zhu", "W. Wu", "R. Zhang", "Z.L. Wang" ],
+      "venue" : "12 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "S. Wang", "L. Lin", "Z.L. Wang" ],
+      "venue" : "12 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "L",
+      "author" : [ "G. Cheng", "Z.H. Lin" ],
+      "venue" : "Lin, Z.L. Du, Z.L. Wang, ACS Nano 7 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "G. Zhu", "Z.H. Lin", "Q. Jing", "P. Bai", "C. Pan", "Y. Yang", "Y. Zhou", "Z.L. Wang" ],
+      "venue" : "13 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "G",
+      "author" : [ "Z.H. Lin", "Y. Xie", "Y. Yang", "S. Wang" ],
+      "venue" : "Zhu, Z.L. Wang, ACS Nano 7 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Adv",
+      "author" : [ "Z.H. Lin", "G. Cheng", "Y. Yang", "Y.S. Zhou", "S. Lee", "Z.L. Wang" ],
+      "venue" : "Funct. Mater. 24 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "G. Zhu", "C. Pan", "W. Guo", "C.Y. Chen", "Y. Zhou", "R. Yu", "Z.L. Wang" ],
+      "venue" : "12 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Y",
+      "author" : [ "W. Yang", "J. Chen", "G. Zhu", "J. Yang", "P. Bai" ],
+      "venue" : "Su, ACS Nano 7 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Adv",
+      "author" : [ "J. Chen", "G. Zhu", "W. Yang", "Q. Jing", "P. Bai", "Y. Yang", "T.C. Hou", "Z.L. Wang" ],
+      "venue" : "Mater. 25 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "C.K. Jeong", "K.M. Baek", "S. Niu", "T.W. Nam", "Y.H. Hur", "D.Y. Park", "G. Hwang", "M. Byun", "Z.L. Wang", "Y.S. Jung", "K.J. Lee" ],
+      "venue" : "14 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Adv",
+      "author" : [ "K.Y. Lee", "J. Chun", "J.-H. Lee", "K.N. Kim", "N.-R. Kang", "J.-Y. Kim", "M.H. Kim", "K.-S. Shin", "M.K. Gupta", "J.M. Baik", "S.-W. Kim" ],
+      "venue" : "Mater. 26 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "J",
+      "author" : [ "M.-L. Seol", "J.-H. Woo", "D.-I. Lee", "H. Im" ],
+      "venue" : "Hur, Y.-K. Choi, Small 10 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Faraday Discuss",
+      "author" : [ "Z.L. Wang" ],
+      "venue" : "176 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "D",
+      "author" : [ "M.-L. Seol", "S.-H. Lee", "J.-W. Han" ],
+      "venue" : "Kim, G.-H. Cho, Y.-K. Choi, Nano Energy 17 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "in: Proceedings of IEEE MEMS’99",
+      "author" : [ "D. Armani", "C. Liu", "N. Aluru" ],
+      "venue" : "Orlando, FL, 7–21 January",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Contact Mechanics",
+      "author" : [ "K. Johnson" ],
+      "venue" : "Cambridge University Press, Cambridge",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 1985
+    }, {
+      "title" : "J",
+      "author" : [ "T. Tang", "A. Jagota", "C.Y. Hui", "M. Chaudhury" ],
+      "venue" : "Adhes. 82 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Untersuchungen über die Reibung und Adhäsion",
+      "author" : [ "B.V. Derjaguin" ],
+      "venue" : "IV. Theorie des Anhaftens kleiner Teilchen. Kolloid Z., 69",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 1934
+    }, {
+      "title" : "Proc",
+      "author" : [ "J.A. Greenwood" ],
+      "venue" : "R. Soc. A 453 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "J",
+      "author" : [ "D. Tabor" ],
+      "venue" : "Colloid Interface Sci. 58 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 1977
+    }, {
+      "title" : "Sci",
+      "author" : [ "C. Jin", "J. Adhes" ],
+      "venue" : "Technol. 30 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "D: Appl",
+      "author" : [ "C. Jin", "A. Jagota", "C.-Y. Hui", "J. Phys" ],
+      "venue" : "Phys. 44 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "A",
+      "author" : [ "C. Jin", "K. Khare", "S. Vajpayee", "S. Yang" ],
+      "venue" : "Jagota, C.-Y. Hui, Soft Matter 7 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "S",
+      "author" : [ "B. Wang" ],
+      "venue" : "Krause, Macromolecules 20 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 1987
+    }, {
+      "title" : "M",
+      "author" : [ "A. Tafazzoli", "C. Pawashe" ],
+      "venue" : "Sitti, in: Proceedings of IEEE International Conference on Robotics and Automation",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Angew",
+      "author" : [ "M.M. Apodaca", "P.J. Wesson", "K.J.M. Bishop", "M.A. Ratner", "B.A. Grzybowski" ],
+      "venue" : "Chem. Int. Ed. 49 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "B",
+      "author" : [ "H.T. Baytekin", "Z. Patashinski", "M. Branicki", "B. Baytekin", "S. Soh" ],
+      "venue" : "Grzybowski, Science 333 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Chem",
+      "author" : [ "B. Baytekin", "H.T. Baytekin", "B.A. Grzybowski", "J. Am" ],
+      "venue" : "Soc. 134 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "J",
+      "author" : [ "K. Brormann", "K. Burger", "A. Jagota", "R. Bennewitz" ],
+      "venue" : "Adhes. 88 ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "J",
+      "author" : [ "L.H. Lee" ],
+      "venue" : "Electrostat. 32 ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "F",
+      "author" : [ "F. Saurenbach", "D. Wollmann", "B.D. Terris" ],
+      "venue" : "Diaz, Langmuir 8 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 1992
+    }, {
+      "title" : "Extrem",
+      "author" : [ "Y. Yu", "X. Wang" ],
+      "venue" : "Mech. Lett. ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Behav",
+      "author" : [ "J.C. Kohn", "D.M. Ebenstein", "J. Mech" ],
+      "venue" : "Biomed. Mater. 20 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Polym",
+      "author" : [ "Z. Wang", "A.A. Volinsky", "N.D. Gallant", "J. Appl" ],
+      "venue" : "Sci. 132 ",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Behav",
+      "author" : [ "J.D. Kaufman", "C.M. Klapperich", "J. Mech" ],
+      "venue" : "Biomed. Mater. 2 ",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Res",
+      "author" : [ "Y.F. Cao", "D.H. Yang", "W. Soboyejoy", "J. Mater" ],
+      "venue" : "20 ",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "J",
+      "author" : [ "D.M. Ebenstein", "K.J. Wahl" ],
+      "venue" : "Colloid Interface Sci. 298 ",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Nanoindentation",
+      "author" : [ "A. Fischer-Cripps" ],
+      "venue" : "Springer, New York",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 2002
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "To scavenge mechanical energy from the ambient environment, in 2012, Wang's group at Georgia Institute of Technology invented a new method to convert mechanical energy into electricity based on triboelectrification and electrostatic induction [1], which is called the triboelectric nanogenerator (TENG), and since then TENG has attracted enormous amount of attention in the research community because of its simple design, high energy conversion efficiency, broad application areas, a wide materials spectrum, and low-temperature easy fabrication [2–20].",
+      "startOffset" : 243,
+      "endOffset" : 246
+    }, {
+      "referenceID" : 20,
+      "context" : "For example, in a recent study to fabricate transparent TENGs [21], three types of regular and uniform polymer patterned arrays, i.",
+      "startOffset" : 62,
+      "endOffset" : 66
+    }, {
+      "referenceID" : 32,
+      "context" : "It is still unclear how the surface structures, such as roughness, dielectric properties, and the presence of nanostructures, would affect the magnitude of the charge density [34].",
+      "startOffset" : 175,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 33,
+      "context" : "In a recent attempt to investigate the impact of contact pressure on output voltage of TENGs based on deformation of interfacial structures [35], Seol et al.",
+      "startOffset" : 140,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 34,
+      "context" : "87 MPa [36], the contact problem should be considered as JKR-type and so the influence of Van der Waals forces within the contact zone should be taken into account.",
+      "startOffset" : 7,
+      "endOffset" : 11
+    }, {
+      "referenceID" : 35,
+      "context" : "Although JKR model predicts high elastic deformation of soft and highly adhering materials correctly [37], to our knowledge, the JKR-type adhesive contact for elastic bodies involving more general shapes, such as pyramids, has not been explored either analytically or numerically.",
+      "startOffset" : 101,
+      "endOffset" : 105
+    }, {
+      "referenceID" : 36,
+      "context" : "For stiff materials, its value should be on the order of interatomic spacing, however, for compliant materials, its value usually becomes much larger [38].",
+      "startOffset" : 150,
+      "endOffset" : 154
+    }, {
+      "referenceID" : 37,
+      "context" : "The Derjaguin's Approximation [39] is then applied to Eq.",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 38,
+      "context" : "Note that Greenwood also adopted this approximation in his simulation of the adhesive contact between two inclined surfaces [40].",
+      "startOffset" : 124,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 39,
+      "context" : "The parameter μ is the so called Tabor parameter [41].",
+      "startOffset" : 49,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 38,
+      "context" : "This parameter, proposed by Tabor in 1976, is often used to decide whether the JKR or DMT model would best describe a contact system, as Greenwood [40] concluded that the limits of the Maugis-Dugdale model correspond to Tabor's limits, i.",
+      "startOffset" : 147,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 43,
+      "context" : "5 for the PDMS micro-structures [45], and the metal plate is assumed to be rigid.",
+      "startOffset" : 32,
+      "endOffset" : 36
+    }, {
+      "referenceID" : 44,
+      "context" : "The work of adhesion Wad can be varied from 25 to 1000 mJ/m(2) [46], and based on our previous experimental results we assume that = W 54 ad mJ/m(2) [44], which is close to the nominal value of 100 mJ/m(2)used by Tafazzoli et al.",
+      "startOffset" : 63,
+      "endOffset" : 67
+    }, {
+      "referenceID" : 42,
+      "context" : "The work of adhesion Wad can be varied from 25 to 1000 mJ/m(2) [46], and based on our previous experimental results we assume that = W 54 ad mJ/m(2) [44], which is close to the nominal value of 100 mJ/m(2)used by Tafazzoli et al.",
+      "startOffset" : 149,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 36,
+      "context" : "37 mm, which is a very reasonable range for compliant materials [38,42].",
+      "startOffset" : 64,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 40,
+      "context" : "37 mm, which is a very reasonable range for compliant materials [38,42].",
+      "startOffset" : 64,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 38,
+      "context" : "However, as pointed out by Greenwood [40], any criterion to define contact area can be disputable, because the air gap in this context is assumed to be always nonzero.",
+      "startOffset" : 37,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 38,
+      "context" : ", the edge of contact area will be regarded as the location of the tensile peak stress [40].",
+      "startOffset" : 87,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 49,
+      "context" : "and the vast majority of studies [51,52] that the total triboelectric charge can be obtained by multiplying the total contact area and the uniform surface charge density σ , which is a parameter for intrinsic material property.",
+      "startOffset" : 33,
+      "endOffset" : 40
+    }, {
+      "referenceID" : 50,
+      "context" : "and the vast majority of studies [51,52] that the total triboelectric charge can be obtained by multiplying the total contact area and the uniform surface charge density σ , which is a parameter for intrinsic material property.",
+      "startOffset" : 33,
+      "endOffset" : 40
+    }, {
+      "referenceID" : 51,
+      "context" : "40 [53], the thickness of the polymer layer is 400 mm (provided by Seol et al.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 54,
+      "context" : "As discussed by Kaufman and Klapperich [56], “Adhesion models, such as Johnson-Kendall-Roberts (JKR), can be successfully applied to both quasi-static and dynamic nanoindentation experiments to accurately determine elastic modulus values that demonstrate this jump-into-contact behavior.",
+      "startOffset" : 39,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 53,
+      "context" : "also discussed this issue, and according to them, many nanoindentation studies ignored this initial contact adhesion force effect, reporting only the positive load portion of the load–displacement curve [55].",
+      "startOffset" : 203,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 17,
+      "context" : "S r 0 and = σ ε − ( ) + ( ) Eair Q t A t S 0 , respectively [18].",
+      "startOffset" : 60,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 23,
+      "context" : "[24], to trigger the TENG, a mechanical shaker was used to apply impulse impact, and then open-circuit voltage and short-circuit current were measured to characterize the TENG's electric performance.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 23,
+      "context" : "71 cm(2) [24], T1⁄410 mm [24], and d0 1⁄41 mm [24].",
+      "startOffset" : 9,
+      "endOffset" : 13
+    }, {
+      "referenceID" : 23,
+      "context" : "71 cm(2) [24], T1⁄410 mm [24], and d0 1⁄41 mm [24].",
+      "startOffset" : 25,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 23,
+      "context" : "71 cm(2) [24], T1⁄410 mm [24], and d0 1⁄41 mm [24].",
+      "startOffset" : 46,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 23,
+      "context" : "88 N/m [24], and since four springs are used in TENG [24], we have ke 1⁄44k1⁄45.",
+      "startOffset" : 7,
+      "endOffset" : 11
+    }, {
+      "referenceID" : 23,
+      "context" : "88 N/m [24], and since four springs are used in TENG [24], we have ke 1⁄44k1⁄45.",
+      "startOffset" : 53,
+      "endOffset" : 57
+    }, {
+      "referenceID" : 23,
+      "context" : "It can be seen that our numerical results agree very well with the experimental data [24].",
+      "startOffset" : 85,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 33,
+      "context" : "[35], the contact area increases with increasing applied pressure until the deformation is saturated.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 33,
+      "context" : "00 cm(2) [35], T1⁄4400 mm (provided by Seol et al.",
+      "startOffset" : 9,
+      "endOffset" : 13
+    }, {
+      "referenceID" : 57,
+      "context" : "For example, instrumented indentation, using preferably pyramid indenters such as Vickers, Berkovich and Knoop, has proved to be very useful in testing small material volumes [59].",
+      "startOffset" : 175,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 23,
+      "context" : "It can be seen that our numerical results agree very well with the experimental data [24].",
+      "startOffset" : 85,
+      "endOffset" : 89
+    } ],
+    "year" : 2016,
+    "abstractText" : "The triboelectric nanogenerator (TENG) has attracted enormous amount of attention in the research community in recent years because of its simple design, high energy conversion efficiency, broad application areas, a wide materials spectrum, and low-temperature easy fabrication. A key factor that dictates the performance of the TENGs is the surface charge density, which can be taken as a standard to characterize the matrix of performance of a material for a TENG. The triboelectric charge density can be improved by increasing the effective contact area, and in order to increase the contact area in a limited device size, micro-/nano-structures are often designed at the contact surfaces. Expert knowledge in contact mechanics, especially in adhesion and detachment mechanisms of the micro-/nano-structured interface, is thus becoming essential for a better understanding of the impact of interfacial design on the power generation of TENGs. Such an emerging field provides a platform for electrical engineers, chemical engineers, and mechanicians to share knowledge and build collaborations, which will enable the TENG researchers to pursue new design philosophies to achieve enhanced performance. In this paper, systematical numerical studies on the adhesive contact at the micro-/nano-structured interface are presented. We use a numerical simulation package in which the adhesive interactions are represented by an interaction potential and the surface deformations are coupled by using half-space Green's functions discretized on the surface. The results confirmed that the deformation of interfacial structures directly determines the pressure-voltage relationship of TENG, and it can be seen that our numerical results provided a better fit with the experimental data than the previous studies. & 2016 Elsevier Ltd. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

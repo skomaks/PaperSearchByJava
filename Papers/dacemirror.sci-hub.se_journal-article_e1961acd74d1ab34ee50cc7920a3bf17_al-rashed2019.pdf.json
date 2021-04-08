@@ -1,0 +1,477 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_e1961acd74d1ab34ee50cc7920a3bf17_al-rashed2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Numerical assessment into the hydrothermal and entropy generation characteristics of biological water-silver nano-fluid in a wavy walled microchannel heat sink",
+    "authors" : [ "Abdullah A.A.A. Al-Rashed", "Amin Shahsavar", "Omid Rasooli", "M.A. Moghimi", "Arash Karimipour", "Minh Duc Trane" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nInternational Communications in Heat and Mass Transfer\njournal homepage: www.elsevier.com/locate/ichmt\nNumerical assessment into the hydrothermal and entropy generation characteristics of biological water-silver nano-fluid in a wavy walled microchannel heat sink\nAbdullah A.A.A. Al-Rasheda, Amin Shahsavarb, Omid Rasoolib, M.A. Moghimic, Arash Karimipourd, Minh Duc Trane,f,⁎\na Department of Automotive and Marine Engineering Technology, College of Technological Studies, The Public Authority for Applied Education and Training, Kuwait bDepartment of Mechanical Engineering, Kermanshah University of Technology, Kermanshah, Iran c Department of Mechanical and Aeronautical Engineering, University of Pretoria, Pretoria, South Africa dDepartment of Mechanical Engineering, Najafabad Branch, Islamic Azad University, Najafabad, Iran e Division of Computational Mechatronics, Institute for Computational Science, Ton Duc Thang University, Ho Chi Minh City, Vietnam f Faculty of Electrical & Electronics Engineering, Ton Duc Thang University, Ho Chi Minh City, Vietnam\nA R T I C L E I N F O\nKeywords: Biological nano-fluid Microchannel heat sink Fluid flow Thermal performance Entropy generation\nA B S T R A C T\nThe objective of this numerical assessment is to examine the hydrothermal and irreversibility behaviour of a biologically synthesized water-silver nano-fluid in a wavy microchannel heat sink (MCHS). The green tea leaf extract is utilized to prepare silver nanoadditives. The impacts of nanoadditives volume fraction, Reynolds number, amplitude and wavelength of the channel on the convective heat transfer coefficient, CPU surface temperature, pumping power, as well as the thermal, frictional, and total irreversibilities are investigated. The results show that enhancing the Reynolds number and nanoadditives fraction intensifies the performance of heat sink by boosting the convective heat transfer coefficient of the working fluid which favorably reduces the CPU surface temperature and the rate of thermal and total irreversibilities and importantly leads to the temperature uniformity of the CPU surface. However, increase in Reynolds number adversely affects both the pumping power and the frictional irreversibility in the system. In addition, it is found that the nano-fluid always has a better cooling performance in comparison with the pure water. Moreover, it is reported that augmenting the wavelength results in an increase in the hydrothermal performance of nano-fluid and decrease in the global total entropy generation rate."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "The traditional & conventional approaches within the heating, cooling systems should be modified to improve the heat transfer mechanism through them. That should be more noticed these days with increasing the new electronic devices concerned the micro and nano scales levels. The classic Navier-Stokes equations can be used for the usual macro scales; however the particle base methods such as LBM, MD or DSMC can be examined for the micro and nanochannels [1–6].\nTuckerman and Pease [7] presented the concept of microchannel heat sink by a single-phase fluid flow and heat transfer through the large scale of circuits. The experimental investigation of a microchannel flow and heat transfer of water, was reported by Peng and Peterson [8] in which the effects of physical configuration were studied at both views of laminar and turbulent flows. Consequently several empirical\ncorrelations were proposed for the hydrodynamic and thermal properties of system. The small lengths of microchannel heat sinks might lead to doubt about the turbulent flows existence inside them; so that Adams et al. [9] studied a turbulent flow inside a circular microchannel heat sink. They chose a configuration with 1.09 and 0.76mm diameters and presented a new correlation for turbulent flow Nusselt number. The investigation of heat sink problems are still considered as the favorite topic of researchers at recent years. Experimental flow boiling heat transfer & pressure drop in porous-wall microchannel heat sink were reported by Jia et al. [10]. In addition, Ghahremannezhad and Vafai [11] reported the thermal & hydraulic performance enhancement of the microchannel heat sinks utilizing porous substrates. Hajmohammadi et al. [12] numerically investigated the three dimensional microfluidic influences on the heat transfer enhancement and optimal design of microchannels heat sinks. They compared the optimal geometric\nhttps://doi.org/10.1016/j.icheatmasstransfer.2019.03.007\n⁎ Corresponding author. E-mail address: tranminhduc@tdtu.edu.vn (M.D. Tran).\nInternational Communications in Heat and Mass Transfer 104 (2019) 118–126\n0735-1933/ © 2019 Elsevier Ltd. All rights reserved.\nT\nparameters and the minimal thermal resistance at both states of existence the slip boundary condition or using the no-slip one. More works can be addressed in this way [13,14].\nNano-fluid expression is called to a mixture composed from metal or non-metal nanoparticles dispersed inside a base liquid. Nano-fluid is a homogeneous mixture with higher amount of thermal conductivity than that of the base fluid; moreover the Brownian motions of nanoparticles would invigorate the convection mechanism inside the mixture. As a result, larger amount of heat transfer rate can be achieved [15–17]. Determine the thermo-physical properties of the new types of nanofluids such as thermal conductivity, viscosity and electrical conductivity, were reported in several experimental articles. The influence of temperature and nanoparticles concentrations were investigated. Moreover a large number of correlations were provided to predict the mixture properties [18–29]. It should be mentioned that many numerical works can be referred which concerned the numerical investigation of using nano-fluids at different geometries and conditions even through the microchannels [30–44].\nThe numerical investigation of heat transfer enhancement applying different kinds of nano-fluids in the hexagonal microchannel heat sink, can be introduced as an article in which concerned both topics of nanofluid and microchannel heat sink [45]. The effects of nanoparticles diameters were also investigated in it. Zargartalebi and Azaiez [46] presented a comprehensive work of heat transfer analysis of nanofluid based microchannel heat sink. They studied the influences of nanoparticle properties on heat removal performance applying two-component model. It was observed that the nanoparticle distribution plays an important role in heat transfer. The new hybrid nano-fluid performance was investigated by Bahiraei et al. [47,48] through the minichannel heat exchangers. Moreover Shahsavar et al. [49] presented an irreversibility optimization of a mini heat exchanger using a new hybrid nanofluid with carbon nanotubes and magnetic nanoparticles. Eventually a biological water‑silver nano-fluid is chosen at present work to simulate the hydro-thermal and entropy generation of a wavy walled microchannel heat sink, for the first time (to the author's best knowledge)."
+    }, {
+      "heading" : "2. Properties of nano-fluid",
+      "text" : "In the present work, a biologically synthesized water-silver nanofluid is used. The synthesis method of this nano-fluid is presented in Ref. [33] in details. In this method, tea leaf extract is used to prepare silver nano-fluids and is therefore a green method. According to the data reported in Ref. [33], the nano-fluid prepared by this method has a uniform spherical shape with a diameter of 40 to 50 nm. Also, a study by Sun et al. [34] has shown that the nano-fluid prepared using this\ntechnique has a proper stability. The density (ρnf), viscosity (cp, nf), specific heat capacity (μnf), and thermal conductivity (knf) of water-silver nano-fluid are determined by employing the following equations [33]:\n= − +ρ φ ρ φρ(1 )nf bf p (1)\n= − + c φ ρ c φρ c ρ (1 ) p nf bf p bf p p p\nnf ,\n, ,\n(2)\n= +μ μ φ(1 2.5 )nf bf (3)\n= + × + ×°k k T C φ[0.981 0.00114 ( ) 30.661 ]nf bf (4)\nwhere φ is the nanoadditive volume fraction, T is the temperature, and the subscripts p, f, nf correspond to particle, fluid and nano-fluid, respectively."
+    }, {
+      "heading" : "3. Model description",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Geometry and boundary conditions",
+      "text" : "Fig. 1(a) shows the studied MCHS that includes 50 wavy channels and 50 ribs with rectangular cross section. Based on geometric symmetry, only one unit is modelled as the computational domain, which includes one channel and two vertical half-fins as shown in Fig. 1(b). The geometric parameters of this MCHS are the length (Lx), the width (Ly) and the thickness (Lz), which are often fixed for a specific application. The geometric parameters of the wavy channels are given as channel height (Hc), channel width (Wc), fin width (Wf), channel thickness (Wc) and channel height (Hc). Table 1 shows the corresponding dimensions of all the geometric parameters used in this study for the wavy MCHS. For cooling purpose, the heat sink is placed on the top of the CPU and therefore, the heat flux (q′′=50 W/cm2) is applied\nfrom the heat sink bottom surface. The wavy microchannel in the current investigation is generated by two parallel wavy vertical fins. The shape of the wavy fins profile is defined by:\n⎜ ⎟= ⎛ ⎝ ⎞ ⎠ s x a sin πx L ( ) 2w w (5)\nwhere aw is the wavy amplitude and Lw is the wavelength of the wavy wall.\nAt the inlet, the temperature of the nano-fluid is assumed to be 300 K. The velocity at the inlet is taken to be uniformly distributed and other flow boundary conditions include no-slip at the internal walls and atmospheric pressure at the flow outlet."
+    }, {
+      "heading" : "3.2. Governing equations",
+      "text" : "To study the hydrothermal characteristics of the water‑silver nanofluid in the proposed heat sink, the conservation of mass, momentum and energy should be solved for a Newtonian and incompressible nanofluid flow given as:\nContinuity equation:\n∇ → =ρ u. ( ) 0nf (6)\nMomentum equation:\n∇ →→ = −∇ + ∇ ∇→ρ u u p μ u. ( ) . ( )nf nf (7)\nEnergy equation for the fluid region:\n∇ → = ∇ ∇ρ u c T k T. ( ) . ( )nf p nf nf, (8)\nEnergy equation for the solid:\n∇ ∇ =k T. ( ) 0s s (9)\nwhere ρ is the density, →u is the velocity, cp is the specific heat capacity, p is the pressure, and the subscript s denotes to solid."
+    }, {
+      "heading" : "3.3. Entropy generation rates",
+      "text" : "Generally, the local entropy generation also known as the total entropy is made up of two entropy generation components. First, is the entropy generated due to the friction and the second is the entropy generated due to the heat transfer in the system. Mathematically;\n′ = ′ + ′′′ ′′ ′′S S Ṡ ̇ ̇t f h (10)\n⎜ ⎟ ⎜ ⎟\n⎜ ⎟\n′ = ⎧ ⎨⎩ ⎡ ⎣ ⎢⎛⎝ ∂ ∂ ⎞ ⎠ + ⎛ ⎝ ∂ ∂ ⎞ ⎠ + ⎛ ⎝ ∂ ∂ ⎞ ⎠ ⎤ ⎦ ⎥ + ⎛ ⎝ ∂ ∂ + ∂ ∂ ⎞ ⎠\n+ ⎛ ⎝ ∂ ∂ + ∂ ∂ ⎞ ⎠ + ⎛ ⎝ ∂ ∂ + ∂ ∂ ⎞ ⎠ ⎫ ⎬⎭\n′′S μ T\nu x\nu y\nu z\nu y\nu x\nu z\nu x\nu y\nu z\ṅ 2f nf x y z x y\nx z z y\n2 2 2 2\n2 2\n(11)\n⎜ ⎟′ = ⎡\n⎣ ⎢⎛⎝\n∂ ∂ ⎞ ⎠ + ⎛ ⎝ ∂ ∂ ⎞ ⎠ + ⎛ ⎝ ∂ ∂ ⎞ ⎠ ⎤ ⎦ ⎥ ′′S k T T x T y T zḣ\nnf 2 2 2\n(12)\nwhere ′′′Sṫ is the local total entropy generation rate, ′ ′′Sḟ is the local frictional entropy generation rate and ′′′Sḣ is the local thermal entropy generation rate. The global entropy generation within the system is the integration of the total entropy over the whole domain. Similarly, the global entropy generation by heat transfer and friction can be calculated as presented in Eq. (13);\n∫ ∫ ∫= ′ = ′ = ′′′ ′′ ′′S S dV S S dV S S dV̇ ̇ ; ̇ ̇ ; ̇ ̇t h h f f (13)"
+    }, {
+      "heading" : "3.4. Data reduction",
+      "text" : "A criterion for temperature uniformity is defined as the ratio of the difference between the maximum and minimum temperatures of the CPU surface to the applied heat flux:\n= − ′′ θ T T q CPU,max CPU,min\n(14)\nwhere TCPU, max and TCPU, min are maximum temperature and minimum temperature of the CPU surface, respectively.\nA lower θ shows a more uniformity of temperature distribution. However, one may not solely consider the temperature uniformity to analyze the merit of a heat sink. A small average temperature of the CPU surface can be evaluated in addition by the following parameter:\n= −\n′′ R T T q inCPU,mean\n(15)\nwhere TCPU, mean is the mean CPU temperature, Tinis the fluid inlet temperature and R is the thermal resistance. Note that a lower average surface temperature and therefore a lower thermal resistance shows a better heat transfer inside the heat sink.\nThe pumping power consumed by the heat sink is obtained as:\n= ∆W V ṗ ̇pump (16)\nwhere V ̇ denotes the volumetric flow rate of the fluid, and Δp is the pressure loss of the fluid flow in the heat sink.\nThe convective heat transfer coefficient for heat sink is calculated as:\n= ′\n−\n′ h q T TmCPU,mean (17)\nwhere = +Tm T T 2 in out where Tout is the fluid outlet temperature.\nIn order to analyze the overall performance a nano-fluid, the Performance Evaluation Criterion (PEC) is utilized, which shows the relative improvement in heat transfer to pressure drop given as:\n= ∆ ∆ h h p p PEC / / nf w\nnf w (18)\nwhere subscript w refers to the water as base fluid."
+    }, {
+      "heading" : "4. Numerical procedure",
+      "text" : "To solve the governing equations, ANSYS FLUENT software is utilized using the second order upwind method for the momentum and energy equations. For the pressure and velocity coupling, the SIMPLE algorithm is employed. For all parameters, the convergence criteria 10−6 is also used.\nThe grid independency analysis is performed using four different grids with smaller element size near the walls. Table 2 schematized the pressure drop and the maximum temperature difference from the inlet and outlet of the water-cooled heat sink. There is not any noticeable difference between the results for the mesh elements of 1,050,000 and 2,100,000. Therefore, the element number of 1,050,000 is selected.\nIn order to validate and ensure the accuracy of the numerical simulation, the difference between the maximum and the minimum\nThe element number of 1,050,000 is selected as the best grid.\nvalues of the CPU surface temperature (TCPU, max− TCPU, min), obtained in the present work is compared to the experimental results of Sui et al. [3] for the flow of water inside the wavy microchannel with rectangular cross section. This comparison is illustrated in Table 3, and it can be observed that there is an appropriate consistency between the results of the present work and the one existing in the literature."
+    }, {
+      "heading" : "5. Results and discussion",
+      "text" : "The aim of this numerical assessment is to evaluate the hydrothermal and entropy generation characteristics of the biological water‑silver nano-fluid flowing inside a wavy MCHS. The considered microchannel is situated on a CPU to cool it down. The simulations are carried out for different nanoadditive volume fractions (0, 0.1, 0.5 and 1%), Reynolds numbers (300, 500, 1000 and 1500), wavelengths (1, 3 and 5mm), and wave amplitudes (0, 138, 155 and 300mm). Initially, the effects of nanoadditive volume fraction and Reynolds number on the performance of MCHS from the first law perspective are investigated and later, the effects of these parameters on the MCHS performance are discussed from the second law viewpoint."
+    }, {
+      "heading" : "5.1. Hydrothermal aspects",
+      "text" : "The convective heat transfer coefficient variations with nanoadditive volume fraction at different Reynolds numbers are displayed in Fig. 2. As shown, increasing both the nanoadditive volume fraction and Reynolds number will improve the convective heat transfer coefficient of the flow. For example, at Re=1000, increase in the nanoadditive volume fraction from 0 to 1%, boosts the convective heat transfer coefficient for about 24.75%. Besides, at φ=1%, increasing the Reynolds number from 300 to 1500 leads to 150.59% growth in the convective heat transfer coefficient. The convective heat transfer coefficient is proportional to the ratio of the thermal conductivity to the thermal boundary layer thickness. On one hand, increasing the nanoadditive volume fraction, at a constant Reynolds number, leads to an increase in the thermal conductivity and consequently, increase in the\nconvective heat transfer coefficient. On the other hand, increasing the thermal conductivity leads to a reduction in the Prandtl number and a growth in the thermal boundary layer thickness (due to the constant hydrodynamic boundary layer thickness at a constant Reynolds number) which eventually reduces the convective heat transfer coefficient. The depicted results in Fig. 2 shows that the effect of increase in the thermal conductivity overweighs the effect of increase in the thermal boundary layer thickness and therefore, the convective heat transfer coefficient augments with increasing the nano-fluid volume fraction. Moreover, with increasing the Reynolds number, at a constant nanoadditives fraction, the thickness of the velocity boundary layer reduces rapidly, resulting in a reduced thickness of thermal boundary layer, which improves the heat transfer coefficient.\nThe effects of nanoadditive volume fraction on the average and maximum temperature of the CPU surface in different Reynolds numbers are respectively presented in Fig. 3(a) and (b). As shown, increasing the nanoadditive volume fraction and Reynolds number leads to decrease in both the average and maximum temperature of the CPU surface. As an example, at Re=1000, increase in nanoadditive volume fraction from 0 to 1% leads to 0.3% reduction in the average temperature of the CPU surface. In addition, at φ=1%, increase in Reynold number from 300 to 1500 leads to 2.67% reduction in the average temperature of the CPU surface. These observations can be linked to the improvement in the convective heat transfer coefficient with increase in both the nanoadditive volume fraction and Reynolds number.\nFig. 4 displays the contour plots of temperature of the nano-fluid at the mid-plane cross-section through heat sink (z=225 μm), and Fig. 5 displays the contour plot of the CPU surface temperature at various nanoadditives fraction and Reynolds numbers. For clear observation,\ndue to the slender ratio of the proposed geometry, the prepared contours are displayed at the distance of 3 to 6mm from the inlet (3 mm< x<6mm). As shown in Fig. 4, increasing the Reynolds number drops the nano-fluid temperature. This behavior can be attributed to the fact that increasing the Reynolds number equals to increasing the nano-fluid mass flow rate in the channel which for a constant CPU heat flux, leads to a less temperature increase in the nanofluid and more cooling of CPU surface temperature (see Fig. 5).\nTwo other crucial parameters in the investigation of heat sink performance are thermal resistance (R) and uniformity of temperature distribution (θ) which are respectively displayed in Figs. 6 and 7. The results show that by increasing the Reynolds number and the nanoparticle volume fraction, both R and θ reduce which are favorable effects. For example, at Re=1500, increase in nanoadditive volume fraction from 0 to 1% leads to 3.48 and 12.48% reduction in θ and R, respectively. In addition, at φ=1%, increase in the Reynolds number from 300 to 1500 results in 62.98 and 62.15% reduction in θ and R, respectively.\nThe designer must be careful that the improvement of heat transfer in a heat sink should not be at the expense of a high pumping power. Many studies have emphasized that nano-fluids, along with the increased heat transfer, also increase pressure drop and thus pumping power. Therefore, it is necessary to study the effect of nanoadditives fraction on the pumping power at different Reynolds numbers. The results are presented in Fig. 8. As displayed, the pumping power reduces with increase in the nanoadditive volume fractions which is an interesting finding. Increase in the nano-fluid volume fraction leads to\nan increase in both the nano-fluid density and viscosity and since increase in the density is more dominant than the increase in the viscosity, thus, for a constant Reynolds number the nano-fluid velocity reduces. Decrease in the nano-fluid velocity leads to a decrease in the volumetric flow rate and the pressure drop of the nano-fluid and hence a drop in the required pumping power. Furthermore, Fig. 8 demonstrates that increasing the Reynolds number leads to a remarkable increase in the pumping power of the system which is due to the increase\nin the nano-fluid velocity and consequently, increase in the pressure drop and the volumetric flow rate of the nano-fluid.\nThe presented results proved that utilizing the biological water‑silver nano-fluid has favorable effects from both heat transfer and pumping power perspectives. To determine the most favorable nanoadditive volume fraction and Reynolds number, the parameter PEC should be evaluated. The findings are displayed in Fig. 9. As revealed, all the investigated nano-fluids have a PEC value> 1 which shows the superioiriy of the water‑silver nano-fluid in comparison with the pure water. The results show that the PEC increases with an increase in the\nnanoadditive fraction, however increase in the Reynolds number initially leads to an increase and then results in a decrease in the PEC. The maximum PEC is 1.336 which takes place at Re=500 and φ=1%.\nAt the end of this section (discussion of results from the first law perspective), a complementary study is represented to see how the maximum PEC varies with the amplitude and wavelength of the channel. The effect of amplitude and wavelength variation on the PEC of the considered MCHS are respectively displayed in Figs. 10 and 11. As seen in Fig. 10, the maximum PEC takes places at aw=138 μm. Increasing the amplitude leads to augmentation in the vorticity formations and fluid mixing and consequently, increase in the heat transfer and the pressure drop. As seen in Fig. 11, up to 138 μm, the effect of heat transfer enhancement is dominant while beyond this amplitude the influence of pressure drop enhancement will be dominant. In addition, as displayed in Fig. 11, the increase of wavelength leads to a slight increase in the PEC. With an increase in wavelength from 1000 to 5000 μm, the parameter PEC increases by 2.11% and reach 1.353. Increase in the wavelength leads to a decrease in both the convective heat transfer coefficient and the pressure drop. However, the amount of reduction in the pressure drop is much more in comparison with the reduction in the convective heat transfer which ends in an increase in ratio of the heat transfer to the pressure drop and consequently, increase in the PEC with increase in the wavelength.\nIn conclusion, from the first law of thermodynamic perspective, the best performance of the biological water‑silver in the proposed heat sink takes place at Re=500, φ=1%, aw=138 μm, and Lw=5000 μm."
+    }, {
+      "heading" : "5.2. Entropy generation aspects",
+      "text" : "Another engineering criterion for performance evaluation of a system is entropy generation of the system (performance evaluation of a system from the 2nd law of thermodynamic perspective). Entropy generation is an indication of the system irreversibility along a process which is usually used to determine which sections of a physical modeling or a system has higher energy dissipation and exergy destruction. Therefore, the following of this study is dedicated to performance evaluation of the system from the second law of thermodynamic perspective.\nFig. 12 illustrates the effects of nanoadditive volume fraction and Reynolds number on the global thermal entropy generation rate of the biological water‑silver nano-fluid. It is observed that increase in both the nanoadditive volume fraction and the Reynolds number leads to a reduction in the generated thermal entropy. For example, at φ=1%, the increase in Reynolds number from 300 to 1500 leads to 52.35% reduction in the global thermal entropy generation rate. Besides, at Re=1500, increasing the nanoadditive volume fraction from 0 to 1%, results in 18.7% reduction in the global thermal entropy generation. Based on Eq. (12), the global thermal entropy generation rate is a function of the thermal conductivity, the average temperature and the temperature gradient of nano-fluid. Increase in the Reynolds number at a constant nanoadditive volume fraction leads to a reduction in the nano-fluid average temperature which on one hand, increases the global thermal entropy generation rate and on the other hand, results in a reduction in the thermal conductivity of the nano-fluid and consequently, reduction in the global thermal entropy generation rate. Additionally, increasing the Reynolds number causes an increase in the nano-fluid mixing and therefore, reduces the temperature gradient. Based on the presented results in Fig. 12, the effects of reduction in the thermal conductivity and the temperature gradient overcome the effects of reduction in the average temperature of the nano-fluid and thus, the global thermal entropy generation rate reduces with increase in the Reynolds number. Increase in the nano-fluid volume fraction leads to an increase in both the nano-fluid density and viscosity and the increase in the viscosity is dominant, thus, for keeping Reynolds number constant, the nano-fluid velocity should increase. This leads to decrease in the average temperature of the nano-fluid, the thermal conductivity coefficient and the temperature gradient which consequently, results in a reduction in the global thermal entropy generation rate.\nThe effects of nano-fluid volume fraction on the global frictional entropy generation rate at different Reynolds numbers are displayed in Fig. 13. As shown, the global frictional entropy generation rate decreases with either increase in the nano-fluid volume fraction or decrease in the Reynolds number. For example, at Re=1500, with increase of nanoadditive volume fraction from 0 to 1%, the global\nfrictional entropy generation rate drops by 10.25%. Besides, at φ=1%, with increase in the Reynolds from 300 to 1500, the global frictional entropy generation rate increases by 4193.27%. According to Eq. (11), the global frictional entropy generation rate is a function of the viscosity, the average temperature, and the velocity gradient of nano-fluid. As mentioned earlier, the average temperature of nano-fluid drops with increase in the Reynolds number which consequently, increases the global frictional entropy generation rate. In addition, increase in the Reynolds number leads to thinning of hydrodynamic boundary layer and an increase in the velocity gradient which also increases the global frictional entropy generation rate. Moreover, increase in the nano-fluid volume fraction at a constant Reynolds number leads to increase in the viscosity and decrease in the average nano-fluid temperature which both increase the global frictional entropy generation rate.\nThe effects of nano-fluid volume fraction and Reynolds number on the global total entropy generation rate are displayed in Fig. 14. As shown, increase in both of the nanoadditive volume fraction and the Reynolds number reduces the global total entropy generation rate. For example, at φ=1%, increase in the Reynolds number from 300 to 1500 leads to 31.86% reduction in the global total entropy generation rate. Besides, at Re=1500, increase in the nano-fluid volume fraction from 0 to 1%, results in 15.92% reduction in the global total entropy generation rate. Since both the global thermal and frictional entropy generation rates decrease with increasing the nano-additive volume fraction, reduction in the global total entropy generation rate is inevitable. However, increase in the Reynolds number respectively increases and decreases the frictional and the thermal entropy generation rate. Based\non Fig. 14, it is observed that the reduction effect of the global thermal frictional entropy generation rate is more dominant and therefore, the global total entropy generation rate reduces with increase in the Reynolds number.\nIn the rest of this section, the results of the complementary study on the effects of amplitude and wavelength of the wavy channel on the global total entropy generation rate are evaluated. The results are illustrated in Figs. 15 and 16, respectively. As displayed in Fig. 15, increasing the amplitude has a favorable effect and leads to the reduction of the global total entropy generation rate (about 69.06%) which is mainly attributed to reduction in the temperature gradient with increase in the amplitude. However, as shown in Fig. 16, increasing the wavelength has a negative effect on the global total entropy generation rate and increases this parameter (by about 44.09%) which is mainly attributed to increase in the temperature gradient due to the reduction in mixing by increase in the amplitude.\nIn conclusion, from the second law of thermodynamic perspective, the minimum global total entropy generation rate of the biological water‑silver nano-fluid in the proposed wavy MCHS takes place at Re=1500, φ=1%, aw=300 μm, and Lw=1000 μm."
+    }, {
+      "heading" : "6. Conclusion",
+      "text" : "In the present study, the performance of biologically synthesized water‑silver nano-fluid in a wavy MCHS are numerically investigated from the first and second law of thermodynamic viewpoints. In this study, the effects of nanoadditive volume fractions, Reynolds number, amplitude, and wavelength on the hydrothermal and entropy generation aspects of the proposed MCHS were considered. The main findings\nof this research are as follows:\n- The convective heat transfer coefficient of the nano-fluid increases with increase in both the nanoadditive volume fraction and the Reynolds number. - Increase in the nanoadditive volume fraction and the Reynolds number lead to improvement in the temperature uniformity of the CPU surface and consequently, the probability of hot stop occurrence reduces. - Pumping power decreases and increases respectively with increase in the nanoadditive volume fraction and the Reynolds number. - PEC investigation of water‑silver nano-fluid proves that the proposed nano-fluid has a better performance than the base fluid from the viewpoint of the first law of thermodynamics. - Increase in the nanoadditive volume fraction increases the PEC, however, increase in the Reynolds number initially increases and then decreases the PEC. - Increase in the amplitude of wavy channel up to 138 μm and beyond that respectively leads in increase and decrease in the PEC. - Increase in the wavelength of wavy channel results in an increase in the PEC. - Increase in both the nano-fluid volume fraction and the Reynolds number results in an increase in the global frictional entropy generation rate and decrease in both the global thermal and total entropy generation rates. - Increase in the amplitude and the wavelength of wavy channel, respectively leads to a decrease and increase in the global total entropy generation rate."
+    } ],
+    "references" : [ {
+      "title" : "Simulation of copper–water nanofluid in a microchannel in slip flow regime using the lattice Boltzmann method",
+      "author" : [ "A. Karimipour", "A.H. Nezhad", "A. D'Orazio", "M.H. Esfe", "M.R. Safaei", "E. Shirani" ],
+      "venue" : "Eur. J. Mech. B/Fluids 49 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Develop the lattice Boltzmann method to simulate the slip velocity and temperature domain of buoyancy forces of FMWCNT nano particles in water through a micro flow imposed to the specified heat flux",
+      "author" : [ "A. Karimipour", "A. D'Orazio", "M. Goodarzi" ],
+      "venue" : "Phys. A Statist. Mech. Appl. 509 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "An experimental study of flow friction and heat transfer in wavy microchannels with rectangular cross section",
+      "author" : [ "Y. Sui", "P.S. Lee", "C.J. Teo" ],
+      "venue" : "Int. J. Therm. Sci. 50 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Numerical investigation of heat transfer in a power-law non-Newtonian fluid in a C-shaped cavity with magnetic field effect using finite difference lattice Boltzmann method",
+      "author" : [ "S. Aghakhani", "A.H. Pordanjani", "A. Karimipour", "A. Abdollahi", "M. Afrand" ],
+      "venue" : "Comput. Fluids 176 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Comparison of the finite volume and lattice Boltzmann methods for solving natural convection heat transfer problems inside cavities and enclosures",
+      "author" : [ "M. Goodarzi", "M.R. Safaei", "A. Karimipour", "K. Hooman", "M. Dahari", "S.N. Kazi", "E. Sadeghinezhad" ],
+      "venue" : "Abstr. Appl. Anal. 2014 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "New correlation for Nusselt number of nanofluid with Ag/Al2O3/Cu nanoparticles in a microchannel considering slip velocity and temperature jump by using lattice Boltzmann method",
+      "author" : [ "A. Karimipour" ],
+      "venue" : "Int. J. Therm. Sci. 91 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "High-performance heat sinking for VLSI",
+      "author" : [ "D.B. Tuckerman", "R.F.W. Pease" ],
+      "venue" : "IEEE Electron Dev. Lett. EDL 2 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 1981
+    }, {
+      "title" : "Convective heat transfer and flow friction for water flow in microchannel structures",
+      "author" : [ "X.F. Peng", "G.P. Peterson" ],
+      "venue" : "Int. J. Heat Mass Transf. 39 (12) ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "An experimental investigation of single-phase forced convection in microchannels",
+      "author" : [ "T.M. Adams", "S.I. Abdel-Khalik", "S.M. Jeter", "Z.H. Qureshi" ],
+      "venue" : "Int. J. Heat Mass Transf. 41 (6–7) ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "A comparative study of experimental flow boiling heat transfer and pressure drop characteristics in porous-wall microchannel heat sink",
+      "author" : [ "Y.T. Jia", "G.D. Xia", "L.X. Zong", "D.D. Ma", "Y.X. Tang" ],
+      "venue" : "Int. J. Heat Mass Transf. 127 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Thermal and hydraulic performance enhancement of microchannel heat sinks utilizing porous substrates",
+      "author" : [ "A. Ghahremannezhad", "K. Vafai" ],
+      "venue" : "Int. J. Heat Mass Transf. 122 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Microfluidic effects on the heat transfer enhancement and optimal design of microchannels heat sinks",
+      "author" : [ "M.R. Hajmohammadi", "P. Alipour", "H. Parsa" ],
+      "venue" : "Int. J. Heat Mass Transf. 126 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Thermohydraulic performance of microchannel heat sinks with triangular ribs on sidewalls–part 1: local fluid flow and heat transfer characteristics",
+      "author" : [ "L. Chai", "L. Wang", "X. Bai" ],
+      "venue" : "Int. J. Heat Mass Transf. 127 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Thermohydraulic performance of microchannel heat sinks with triangular ribs on sidewalls–part 2: average fluid flow and heat transfer characteristics",
+      "author" : [ "L. Chai", "L. Wang", "X. Bai" ],
+      "venue" : "Int. J. Heat Mass Transf. 128 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Empirical correlation finding the role of temperature and particle size for nanofluid (Al2O3) thermal conductivity  Fig",
+      "author" : [ "C.H. Chon", "K.D. Kihm", "S.P. Lee", "S.U.S. Choi" ],
+      "venue" : "15. Effects of amplitude on the global total entropy generation rate for wavy MCHS with Re=1500 and φ=1%. Fig. 16. Effects of wavelength on the global total entropy generation rate for wavy MCHS with Re=1500 and φ=1%.  A.A.A.A. Al-Rashed, et al.  International Communications in Heat and Mass Transfer 104 (2019) 118–126 125  enhancement, Appl. Phys. Lett. 87 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Investigation on convective heat transfer and flow features of nanofluids",
+      "author" : [ "Y. Xuan", "Q. Li" ],
+      "venue" : "ASME J. Heat Transfer 125 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "The viscosity of concentrated suspensions and solutions",
+      "author" : [ "H.C. Brinkman" ],
+      "venue" : "J. Chem. Phys. 20 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 1952
+    }, {
+      "title" : "Effects of temperature and concentration on the viscosity of nanofluids made of single-wall carbon nanotubes in ethylene glycol",
+      "author" : [ "M. Baratpour", "A. Karimipour", "M. Afrand", "S. Wongwises" ],
+      "venue" : "Int. Commun. Heat Mass Transfer 74 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Developing a new correlation to estimate the thermal conductivity of MWCNT-CuO/water hybrid nanofluid via an experimental investigation",
+      "author" : [ "M. Zadkhast", "D. Toghraie", "A. Karimipour" ],
+      "venue" : "J. Therm. Anal. Calorim. 129 (2) ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "An experimental study on thermal conductivity of F-MWCNTs–Fe3O4/EG hybrid nanofluid: effects of temperature and concentration",
+      "author" : [ "S.S. Harandi", "A. Karimipour", "M. Afrand", "M. Akbari", "A. D'Orazio" ],
+      "venue" : "Int. Commun. Heat Mass Transfer 76 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An experimental study on rheological behavior of hybrid nanofluids made of iron and copper oxide in a binary mixture of water and ethylene glycol: non-Newtonian behavior",
+      "author" : [ "M. Bahrami", "M. Akbari", "A. Karimipour", "M. Afrand" ],
+      "venue" : "Exp. Thermal Fluid Sci. 79 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Synthesized CuFe2O4/SiO2 nanocomposites added to water/EG: evaluation of the thermophysical properties beside sensitivity analysis & EANN",
+      "author" : [ "A. Karimipour", "S.A. Bagherzadeh", "M. Goodarzi", "A.A. Alnaqi", "M. Bahiraei", "M.R. Safaei", "M.S. Shadloo" ],
+      "venue" : "Int. J. Heat Mass Transf. 127 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Electroand thermophysical properties of water-based nanofluids containing copper ferrite nanoparticles coated with silica: experimental data",
+      "author" : [ "A.A. Alrashed", "A. Karimipour", "S.A. Bagherzadeh", "M.R. Safaei", "M. Afrand" ],
+      "venue" : "modeling through enhanced ANN and curve fitting, Int. J. Heat Mass Transf. 127 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A new correlation for estimating the thermal conductivity and dynamic viscosity of CuO/liquid paraffin nanofluid using neural network method",
+      "author" : [ "A. Karimipour", "S. Ghasemi", "M.H.K. Darvanjooghi", "A. Abdollahi" ],
+      "venue" : "Int. Commun. Heat Mass Transfer 92 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Experimental investigation of the effects of temperature and mass fraction on the dynamic viscosity of CuO-paraffin nanofluid",
+      "author" : [ "S. Ghasemi", "A. Karimipour" ],
+      "venue" : "Appl. Therm. Eng. 128 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Experimental investigation for developing a new model for the thermal conductivity of silica/water-ethylene glycol (40%–60%) nanofluid at different temperatures and solid volume fractions",
+      "author" : [ "M.A. Esfahani", "D. Toghraie" ],
+      "venue" : "J. Mol. Liq. 232 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Experimental investigation toward obtaining the effect of interfacial solid-liquid interaction and basefluid type on the thermal conductivity of CuO-loaded nanofluids",
+      "author" : [ "B.A.F. Dehkordi", "A. Abdollahi" ],
+      "venue" : "Int. Commun. Heat Mass Transfer 97 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Synthesis of silica nanofluid and application to CO2 absorption",
+      "author" : [ "W.G. Kim", "H.U. Kang", "K.M. Jung", "S.H. Kim" ],
+      "venue" : "Sep. Sci. Technol. 43 (11−12) ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "An experimental study on viscosity of alumina-engine oil: effects of temperature and nanoparticles concentration",
+      "author" : [ "M.H. Esfe", "M. Afrand", "S. Gharehkhani", "H. Rostamian", "D. Toghraie", "M. Dahari" ],
+      "venue" : "Int. Commun. Heat Mass Transfer 76 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Mixed convection of copper–water nanofluid in a shallow inclined lid driven cavity using the lattice Boltzmann method",
+      "author" : [ "A. Karimipour", "M.H. Esfe", "M.R. Safaei", "D.T. Semiromi", "S. Jafari", "S.N. Kazi" ],
+      "venue" : "Phys. A Statist. Mech. Appl. 402 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Nano scale Lattice Boltzmann method to simulate the mixed convection heat transfer of air in a lid-driven cavity with an endothermic obstacle inside",
+      "author" : [ "A.A. Balootaki", "A. Karimipour", "D. Toghraei" ],
+      "venue" : "Phys. A Stat. Mech. Appl. 508 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Study of heat transfer due to laminar flow of copper–water nanofluid through two isothermally heated parallel plates",
+      "author" : [ "A.K. Santra", "S. Sen", "N. Chakraborty" ],
+      "venue" : "Int. J. Therm. Sci. 48 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Intensification of forced convection heat transfer using biological nano-fluid in a double-pipe heat exchanger",
+      "author" : [ "M.M. Sarafraz", "F. Hormozi" ],
+      "venue" : "Exp. Thermal Fluid Sci. 66  ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Green synthesis of silver nanoparticles using tea leaf extract and evaluation of their stability and antibacterial activity",
+      "author" : [ "Q. Sun", "X. Cai", "J. Li", "M. Zheng", "Z. Chen", "C.P. Yu" ],
+      "venue" : "Colloids Surf. A Physicochem. Eng. Asp. 444 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Forced convective heat transfer of water/functionalized multi walled carbon nanotube nanofluids in a microchannel with oscillating heat flux and slip boundary condition",
+      "author" : [ "Z. Nikkhah", "A. Karimipour", "M.R. Safaei", "P. Forghani-Tehrani", "M. Goodarzi", "M. Dahari", "S. Wongwises" ],
+      "venue" : "Int. Commun. Heat Mass Transfer 68 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Fluid flow and heat transfer of non- Newtonian nanofluid in a microtube considering slip velocity and temperature jump boundary conditions",
+      "author" : [ "S.A. Sajadifar", "A. Karimipour", "D. Toghraie" ],
+      "venue" : "Eur. J. Mech. B/Fluids 61 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "The investigation of thermal radiation and free convection heat transfer mechanisms of nanofluid inside a shallow cavity by lattice Boltzmann method",
+      "author" : [ "M.R. Safaei", "A. Karimipour", "A. Abdollahi", "T.K. Nguyen" ],
+      "venue" : "Phys. A Statist. Mech. Appl. 509 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "The effects of different nano particles of Al2O3 and Ag on the MHD nano fluid flow and heat transfer in a microchannel including slip velocity and temperature jump",
+      "author" : [ "A. Karimipour", "A. D'Orazio", "M.S. Shadloo" ],
+      "venue" : "Phys. E Low Dimensional Syst. Nanostruct. 86 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Prediction of rheological behavior of SiO 2- MWCNTs/10W40 hybrid nanolubricant by designing neural network",
+      "author" : [ "A.A. Nadooshan", "M.H. Esfe", "M. Afrand" ],
+      "venue" : "J. Therm. Anal. Calorim. 131 (3) ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Investigation of micro-and nanosized particle erosion in a 90 pipe bend using a two-phase discrete phase model",
+      "author" : [ "M.R. Safaei", "O. Mahian", "F. Garoosi", "K. Hooman", "A. Karimipour", "S.N. Kazi", "S. Gharehkhani" ],
+      "venue" : "Sci. World J. 2014 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Natural convection of Al2O3–water nanofluid in an inclined enclosure with the effects of slip velocity mechanisms: Brownian motion and thermophoresis phenomenon",
+      "author" : [ "M. Esfandiary", "B. Mehmandoust", "A. Karimipour", "H.A. Pakravan" ],
+      "venue" : "Int. J. Therm. Sci. 105 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Application of nanofluid to improve the thermal performance of horizontal spiral coil utilized in solar ponds: geometric study",
+      "author" : [ "E. Khodabandeh", "M.R. Safaei", "S. Akbari", "O.A. Akbari", "A.A. Alrashed" ],
+      "venue" : "Renew. Energy 122 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Develop the nano scale method of lattice Boltzmann to predict the fluid flow and heat transfer of air in the inclined lid driven cavity with a large heat source inside",
+      "author" : [ "M. Goodarzi", "A. D'Orazio", "A. Keshavarzi", "S. Mousavi", "A. Karimipour" ],
+      "venue" : "two case studies: pure natural convection & mixed convection, Phys. A Statist. Mech. Appl. 509 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Application of a novel conical strip insert to improve the efficacy of water–Ag nanofluid for utilization in thermal systems: a two-phase simulation",
+      "author" : [ "R. Mashayekhi", "E. Khodabandeh", "M. Bahiraei", "L. Bahrami", "D. Toghraie", "O.A. Akbari" ],
+      "venue" : "Energy Convers. Manag. 151 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Numerical investigation of heat transfer enhancement using various nanofluids in hexagonal microchannel heat sink",
+      "author" : [ "A.A. Alfaryjat", "H.A. Mohammed", "N.M. Adam", "D. Stanciu", "A. Dobrovicescu" ],
+      "venue" : "Therm. Sci. Eng. Progress 5 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Heat transfer analysis of nanofluid based microchannel heat sink",
+      "author" : [ "M. Zargartalebi", "J. Azaiez" ],
+      "venue" : "Int. J. Heat Mass Transf. 127 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Irreversibility analysis for flow of a non- Newtonian hybrid nanofluid containing coated CNT/Fe3O4 nanoparticles in a minichannel heat exchanger",
+      "author" : [ "M. Bahiraei", "M. Berahmand", "A. Shahsavar" ],
+      "venue" : "Appl. Therm. Eng. 125 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Thermal and hydraulic characteristics of a minichannel heat exchanger operated with a non-Newtonian hybrid nanofluid",
+      "author" : [ "M. Bahiraei", "A. Godini", "A. Shahsavar" ],
+      "venue" : "J. Taiwan Inst. Chem. Eng. 84 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Optimization of irreversibility and thermal characteristics of a mini heat exchanger operated with a new hybrid nanofluid containing carbon nanotubes decorated with magnetic nanoparticles",
+      "author" : [ "A. Shahsavar", "Z. Rahimi", "M. Bahiraei" ],
+      "venue" : "Energy Convers. Manag. 150 (2017) 37–47.  A.A.A.A. Al-Rashed, et al.  International Communications in Heat and Mass Transfer 104 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 6,
+      "context" : "Tuckerman and Pease [7] presented the concept of microchannel heat sink by a single-phase fluid flow and heat transfer through the large scale of circuits.",
+      "startOffset" : 20,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 7,
+      "context" : "The experimental investigation of a microchannel flow and heat transfer of water, was reported by Peng and Peterson [8] in which the effects of physical configuration were studied at both views of laminar and turbulent flows.",
+      "startOffset" : 116,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 8,
+      "context" : "[9] studied a turbulent flow inside a circular microchannel heat sink.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 10,
+      "context" : "In addition, Ghahremannezhad and Vafai [11] reported the thermal & hydraulic performance enhancement of the microchannel heat sinks utilizing porous substrates.",
+      "startOffset" : 39,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 11,
+      "context" : "[12] numerically investigated the three dimensional microfluidic influences on the heat transfer enhancement and optimal design of microchannels heat sinks.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 12,
+      "context" : "More works can be addressed in this way [13,14].",
+      "startOffset" : 40,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 13,
+      "context" : "More works can be addressed in this way [13,14].",
+      "startOffset" : 40,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 44,
+      "context" : "The numerical investigation of heat transfer enhancement applying different kinds of nano-fluids in the hexagonal microchannel heat sink, can be introduced as an article in which concerned both topics of nanofluid and microchannel heat sink [45].",
+      "startOffset" : 241,
+      "endOffset" : 245
+    }, {
+      "referenceID" : 45,
+      "context" : "Zargartalebi and Azaiez [46] presented a comprehensive work of heat transfer analysis of nanofluid based microchannel heat sink.",
+      "startOffset" : 24,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 46,
+      "context" : "[47,48] through the minichannel heat exchangers.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 47,
+      "context" : "[47,48] through the minichannel heat exchangers.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 48,
+      "context" : "[49] presented an irreversibility optimization of a mini heat exchanger using a new hybrid nanofluid with carbon nanotubes and magnetic nanoparticles.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 32,
+      "context" : "[33], the nano-fluid prepared by this method has a uniform spherical shape with a diameter of 40 to 50 nm.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 33,
+      "context" : "[34] has shown that the nano-fluid prepared using this technique has a proper stability.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 32,
+      "context" : "The density (ρnf), viscosity (cp, nf), specific heat capacity (μnf), and thermal conductivity (knf) of water-silver nano-fluid are determined by employing the following equations [33]:",
+      "startOffset" : 179,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 2,
+      "context" : "[3] for the flow of water inside the wavy microchannel with rectangular cross section.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    } ],
+    "year" : 2019,
+    "abstractText" : "The objective of this numerical assessment is to examine the hydrothermal and irreversibility behaviour of a biologically synthesized water-silver nano-fluid in a wavy microchannel heat sink (MCHS). The green tea leaf extract is utilized to prepare silver nanoadditives. The impacts of nanoadditives volume fraction, Reynolds number, amplitude and wavelength of the channel on the convective heat transfer coefficient, CPU surface temperature, pumping power, as well as the thermal, frictional, and total irreversibilities are investigated. The results show that enhancing the Reynolds number and nanoadditives fraction intensifies the performance of heat sink by boosting the convective heat transfer coefficient of the working fluid which favorably reduces the CPU surface temperature and the rate of thermal and total irreversibilities and importantly leads to the temperature uniformity of the CPU surface. However, increase in Reynolds number adversely affects both the pumping power and the frictional irreversibility in the system. In addition, it is found that the nano-fluid always has a better cooling performance in comparison with the pure water. Moreover, it is reported that augmenting the wavelength results in an increase in the hydrothermal performance of nano-fluid and decrease in the global total entropy generation rate.",
+    "creator" : "Elsevier"
+  }
+}

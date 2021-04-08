@@ -1,0 +1,925 @@
+{
+  "name" : "zero.sci-hub.se_6086_8e0aea38a7ca724bc1a5a9c5363bc5e9_besseling2016.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Fate of nano- and microplastic in freshwater systems: A modeling study",
+    "authors" : [ "Ellen Besseling", "Joris T.K. Quik", "Muzhi Sun", "Albert A. Koelmans" ],
+    "emails" : [ "ellen.besseling@wur.nl" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "lable at ScienceDirect\nContents lists avai\nEnvironmental Pollution\njournal homepage: www.elsevier .com/locate/envpol\nFate of nano- and microplastic in freshwater systems: A modeling study*\nEllen Besseling a, b, *, Joris T.K. Quik a, c, Muzhi Sun a, Albert A. Koelmans a, b\na Aquatic Ecology and Water Quality Management Group, Wageningen University & Research, P.O. Box 47, 6700 AA Wageningen, The Netherlands b Wageningen Marine Research, P.O. Box 68, 1970 AB IJmuiden, The Netherlands c National Institute for Public Health and the Environment (RIVM-DMG), P.O. Box 1, 3720 BA Bilthoven, The Netherlands\na r t i c l e i n f o\nArticle history: Received 15 July 2016 Received in revised form 22 September 2016 Accepted 3 October 2016 Available online xxx\nKeywords: Nanoplastic Microplastic Fate modeling Freshwater Particle transport Sedimentation\n* This paper has been recommended for acceptanc * Corresponding author. Aquatic Ecology and Water\nWageningen University & Research, P.O. Box 47, Netherlands.\nE-mail address: ellen.besseling@wur.nl (E. Besselin\nhttp://dx.doi.org/10.1016/j.envpol.2016.10.001 0269-7491/© 2016 Elsevier Ltd. All rights reserved.\nPlease cite this article in press as: Besseling, Pollution (2016), http://dx.doi.org/10.1016/j.\na b s t r a c t\nRiverine transport to the marine environment is an important pathway for microplastic. However, information on fate and transport of nano- and microplastic in freshwater systems is lacking. Here we present scenario studies on the fate and transport of nano-to millimetre sized spherical particles like microbeads (100 nme10 mm) with a state of the art spatiotemporally resolved hydrological model. The model accounts for advective transport, homo- and heteroaggregation, sedimentation-resuspension, polymer degradation, presence of biofilm and burial. Literature data were used to parameterize the model and additionally the attachment efficiency for heteroaggregation was determined experimentally. The attachment efficiency ranged from 0.004 to 0.2 for 70 nm and 1050 nm polystyrene particles aggregating with kaolin or bentonite clays in natural freshwater. Modeled effects of polymer density (1 e1.5 kg/L) and biofilm formation were not large, due to the fact that variations in polymer density are largely overwhelmed by excess mass of suspended solids that form heteroaggregates with microplastic. Particle size had a dramatic effect on the modeled fate and retention of microplastic and on the positioning of the accumulation hot spots in the sediment along the river. Remarkably, retention was lowest (18e25%) for intermediate sized particles of about 5 mm, which implies that the smaller submicron particles as well as larger micro- and millimetre sized plastic are preferentially retained. Our results suggest that river hydrodynamics affect microplastic size distributions with profound implications for emissions to marine systems.\n© 2016 Elsevier Ltd. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Land based sources are thought to make a large contribution to plastic debris in the oceans (European Environmental Agency, 2015; Jambeck et al., 2015). Plastic items come in a wide variety of sizes and types, with microplastic (<5 mm) being a size class of growing concern due to possible impacts on marine life. Indeed, microplastic can negatively affect organisms in freshwater and marine environments (Besseling et al., 2014b, 2013; Kühn et al., 2015; Lee et al., 2013; Wegner et al., 2012; Wright et al., 2013). Microplastic has been detected in the marine environment (Barnes et al., 2009; Browne et al., 2010; Claessens et al., 2011), and more\ne by B. Nowack. Quality Management Group, 6700 AA Wageningen, The\ng).\nE., et al., Fate of nano- and m envpol.2016.10.001\nrecently, also in freshwater (Dubaish and Liebezeit, 2013; EerkesMedrano et al., 2015; Eriksen et al., 2013; Faure et al., 2012; Klein et al., 2015; Lechner et al., 2014). One major route for the occurrence of small plastic particles in the environment is expected to be wastewater, containing plastic particles from cosmetics and fibres from washing synthetic clothes (Browne et al., 2011). The other route is thought to be degradation of larger plastic items, which has the potential to release large numbers of microplastic particles (Zbyszewski et al., 2014).\nTo date, techniques for detecting microplastic particles in natural samples are still in their infancy. Although important progress is being made in the development of detection methods (HidalgoRuz et al., 2012; Klein et al., 2015; L€oder et al., 2015), present methods still are insufficiently distinguishing for some particle sizes and completely lacking for others (Song et al., 2015). The occurrence of nanoplastic is very plausible (Lambert and Wagner, 2016), however, current techniques are not yet capable of demonstrating their presence in the environment (Gigault et al., 2016;\nicroplastic in freshwater systems: A modeling study, Environmental\nKoelmans et al., 2015). When microplastic from domestic sources passes wastewater treatment plants, or is formed by degradation of larger items, this leads to contamination of aquatic systems. It is generally hypothesized that once reaching surface water, plastic particles will be transported with the water, along rivers and into the sea. However, because of the limitations in standardized detection methods, the wide variability of plastic types and sizes, and insufficient knowledge on the mechanisms driving the fate of nanoplastic in rivers, support for this hypothesis is lacking. Therefore, there is a high need for the parallel development of tools that provide mechanism-based hypothesis on system behaviour that can be experimentally validated later on. This is similar to the development of nanoparticle models where first simple mass flow models evolved into validated spatiotemporal explicit models (Gottschalk et al., 2013). Fate models might also provide information on which particle sizes are retained in rivers, which in turn defines which size classes freshwater species are exposed to, and which size classes reach the marine environment. For instance, a relative lack of millimetre sized plastic was found in the plastic size distribution of the marine environment, which was hypothesized to be caused by size-selective oceanic sinks (C ozar et al., 2014). However, unexpected particle size distributions in marine ecosystems may be attributed to differential retention of plastic size categories in rivers.\nWe are not aware of earlier studies that use a fate model for plastic in rivers. Here, we simulate the transport of nano-, micro-, and millimetre sized spherical or near-spherical plastic particles in freshwater with a hydrodynamic model. The model simulates spatially and temporally explicit hydrodynamic particle behaviour, accounting for advective transport, particle aggregation, sedimentation, resuspension, polymer degradation and burial. We model polymer particles from 100 nm to 10 mm, and account for biofilm formation. For engineered nanomaterials, previous model studies showed that aggregation with suspended solids and subsequent sedimentation is the most likely removal process for these particles inwater (Praetorius et al., 2012; Quik et al., 2015; 2011). The rates of these processes are important for microplastic as well, as they will determine the extent to which transport or transformation occurs.\nThe aim of this study is to analyse the theoretical fate and retention of plastic in a river using modeling, and to analyse the dependence of these endpoints on upstream initial microplastic concentration, particle size, polymer density and presence of biofilm. Following earlier nanoparticle study approaches (Praetorius et al., 2012; Quik et al., 2015; 2011) our aim was to model plastic fate mechanistically within uncertainty limits, but even more so to launch a concept that can trigger further development of models. Prospective modeling based on first principles can provide guidance for monitoring network design and for identifying priorities for the mitigation of plastic contaminated sites. Parameters were taken from the literature. Heteroaggregation, the aggregation of nano- and microplastic with suspended solids, is highly affected by the efficiency of attachment between these particles, ahet, a parameter which however is unknown for nano- and microplastic. This uncertainty was accounted for by scenario studies that used different values for ahet. To assess which of these scenarios for ahet may be more likely, values for ahet in natural water were experimentally determined and used as input in the model. The scenario studies were performed using hydrodynamic data of the Dommel river, which represents a realistic case study showing the spatiotemporal distribution of microplastics of different size, and which allows for the detection of accumulation hot spots. To cover the variety of (spherical) plastic particles, different scenarios are studied with a range of particle sizes, attachment efficiencies, with and without biofilm formation, several polymer densities and varying upstream concentrations.\nPlease cite this article in press as: Besseling, E., et al., Fate of nano- and m Pollution (2016), http://dx.doi.org/10.1016/j.envpol.2016.10.001"
+    }, {
+      "heading" : "2. Materials and methods",
+      "text" : "2.1. Experimental determination of the attachment efficiency (ahet) between nanoplastic, microplastic and clays\nHeteroaggregation was studied in three experiments for two plastic particle sizes and two clay types representing suspended solids. These aggregation-sedimentation experiments of plastic with suspended solids were performed in 0.9 L glass columns (diameter 5 cm, height 43 cm) with natural lake water (Wageningen, Droevendaalsesteeg) filtered through 0.7 mm (Whatman, GF/F). The suspended solids kaolin clay (Fluka 60609) or bentonite clay (Sigma 285234) were dispersed at a concentration of 5 mg/L, which is a representative value for rivers with low discharge (Barton et al., 2014; Labille et al., 2015). Either 70 nm or 1050 nm polystyrene (Besseling et al., 2014b; Velzeboer et al., 2014) was mixed with the lake water at a concentration of 50 mg/L. These plastic concentrations were chosen to be higher than in the environment for accurate detection. This agrees to recent approaches to determine ahet for engineered nanomaterials (Labille et al., 2015; Quik et al., 2014b). Supernatants were sampled after settling times of 20 and 40 min, 1, 4 and 6 h and 1e3 days and directly measured by Dynamic Light Scattering (DLS), using a Cobolt Samba-300 DPSS laser at a wavelength of 532 nm, an ALV7002-USB as correlator and an ALV PM-15 as detector (Wegner et al., 2012), with linear calibration lines between 0 and 50 mg/L (R2 > 0.93). Representative subsamples of the same supernatants were stored for 1 day in the refrigerator and analysed by spectrophotometry (DU® 730 Life Science UV/Vis Spectrophotometer A23616) at a wavelength of 310, 470 and 600 nm, with linear calibration lines between 20 and 100 mg/L (R2 > 0.98). Values for ahet were calculated following the method of Barton et al. (2014) using the data obtained by both detection methods (calculation provided as Supporting Information)."
+    }, {
+      "heading" : "2.2. Modeling the fate of spherical nanoplastic and microplastic",
+      "text" : "The fate of microplastic was modeled with the NanoDUFLOW model (Quik et al., 2015), parameterized for the investigation of plastic particle behaviour in riverine systems, including for the first time nano, micro- and millimetre sized plastic particles. Using traditional particle model concepts that were, amongst others, used for suspended solids, colloids and algae (Atteia, 1998; Burd and Jackson, 2009; Farley and Morel, 1986) and more recently in (nano-)particle transport models (Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015; 2011; Sani-Kast et al., 2015), we described plastic particle behaviour as a function of the (plastic) particle related processes homo- and heteroaggregation, sedimentation based on Stokes settling theory, and degradation, dissolution, resuspension and burial. Homoaggregation, the mutual aggregation of particles, was included following a simplification as described by Quik et al. (2015). To be able to study the effect of microplastic particle size, scenarios were calculated for monodisperse plastic particles, so no mixture interactions between plastic particles of different sizes were included. Accordingly, heteroaggregation, the aggregation of plastic particles with suspended solids, was included by assuming five size classes of suspended solids interacting with one size class of plastic particles and four size classes of plastic homoaggregates. While theoretically more than one microplastic particle can attach to one suspended solid, it has been demonstrated for nanoparticles that the chance this happens is low (Labille et al., 2015; Praetorius et al., 2012; Quik et al., 2014a). This is caused by the excess number concentration of natural colloids and suspended solids in rivers, compared to that of nanoparticles, which also holds for micro- and nanoplastic\nicroplastic in freshwater systems: A modeling study, Environmental\n(Table S2, Eerkes-Medrano et al., 2015; Lenz et al., 2016). Therefore, only primary heteroaggregates, that is, aggregates of a natural colloid with one plastic particle or one homoaggregate, were considered. This approach might be less suitable for shapes like fibres, that may aggregate through knotting and/or may exhibit non-Stokes settling behaviour.\nHeteroaggregation rates were calculated as the product of (a) the collision frequency in which orthokinetic, perikinetic and differential settling were accounted for (Eq. S5), and (b) the attachment efficiency (Quik et al., 2015) (Eq. S4). The modeled river system was a 40 km stretch of the river Dommel, a Dutch lowland river, with a flow velocity averaging 0.199 m s 1 (Table S1). Water works present in the Dommel are a sediment settling area at 14.4 km flow distance and multiple weirs. A wastewater treatment plant (WWTP) in the city of Eindhoven discharges at the river Dommel (De Klein et al., 2016). A simulation time of 9 days was used. No storm, rain or other weather influences were investigated in this scenario study. The DUFLOW hydrological component for the Dommel has previously been validated (Langeveld et al., 2013). The NanoDUFLOW particle model has recently been validated for metal based submicron (<0.45 mm) particles (De Klein et al., 2016). A detailed description of the present implementation is provided as Supporting Information. R Studio software v0.98.976 (R Core Team, 2015) was used to control DUFLOW calculations and to process model output. Interpretation of NanoDUFLOW simulation results was assisted by modeling several particle specific sub-processes independent of the hydrological model, like modeling the collision rate and settling rates as a function of particle size according to Eqs. S5 and S8. NanoDUFLOW, including the equations, is described in detail in the Supporting Information."
+    }, {
+      "heading" : "2.3. Parameterization",
+      "text" : ""
+    }, {
+      "heading" : "2.3.1. Particle diameter",
+      "text" : "The modeled plastic particles were assumed to be spherical. The model was run for twenty-five microplastic diameters in the range from 100 nm to 10 mm. For all these particle diameter scenarios, the upstream microplastic input concentration was kept equal in mass, resulting in decreasing particle number concentrations with increasing diameter (Table S4C)."
+    }, {
+      "heading" : "2.3.2. Collision frequencies",
+      "text" : "The collision frequencies were calculated according to Quik et al. (2015) (Eq. S5), following traditional approaches for nonnanoparticles (Atteia, 1998; Farley and Morel, 1986).This required inputs of particle radius and density, which could be taken directly from the defined scenarios.\n2.3.3. Attachment efficiency For the attachment efficiencies, a, for both homo- and heteroaggregation in freshwater, a default value of 0.01 was used (Barton et al., 2014; Xiao and Wiesner, 2013). We used literature values for nanoparticles as a proxy to motivate our default values as they comprise a broad range of suspended solid types. Due to the relatively low concentration of the spherical plastic particles compared to suspended solids, homoaggregation plays a negligible role compared to heteroaggregation (Labille et al., 2015; Quik et al., 2015; Therezien et al., 2014), which renders the model output insensitive to uncertainty in the attachment efficiency for homoaggregation. The importance and the uncertainty of the attachment efficiency for heteroaggregation (ahet) may be higher (Atteia, 1998; Barkmann et al., 2010; Barton et al., 2014; Praetorius et al., 2012; Quik et al., 2014a; Simon et al., 2002). Therefore, following Praetorius et al. (2012) the model's sensitivity to the magnitude of ahet was investigated by a scenario approach in which ahet was\nPlease cite this article in press as: Besseling, E., et al., Fate of nano- and m Pollution (2016), http://dx.doi.org/10.1016/j.envpol.2016.10.001\nranged from no (ahet ¼ 0) to complete (ahet ¼ 1) attachment. Additionally, ahet for nano- and microplastic was estimated from aggregation-sedimentation experiments as described above.\n2.3.4. Biofilm While part of the particles may have no biofilm (because they are freshly emitted or deposited from the atmosphere (Dris et al., 2015a, 2015b)), another fraction of plastic particles entering aquatic systems like river Dommel can be assumed to be already colonized by biofilms (Kiørboe et al., 2003; Lobelle and Cunliffe, 2011; McCormick et al., 2014; Xiao and Wiesner, 2013; Ye and Andrady, 1991; Zardus et al., 2008) and it is likely that this affects the hydrodynamics of the particle behaviour. We therefore provide simulations without as well as with biofilm. Biofilm formation is likely to alter the fate of microplastic by affecting diameter, overall density and attachment efficiency. Biofilm formation was included by adding on the particles a 0.4 mm thick biofilm layer, representing average bacteria width (Pernthaler et al., 1996), with a density of 1250 kg/m3, representing the density of organic matter (Avnimelech et al., 2001). Bacterial cell density can be lower (e.g. Godin et al., 2007), which implies that the modeled effect of biofilm can be seen as a maximum boundary. Attachment efficiencies are heterogeneous in nature, but previous work has shown that on the system level, average values can be used (De Klein et al., 2016; Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015). Although being subject to uncertainty, biofilms have been found to increase the attachment efficiency of nanoparticles 2e3 times (Quik et al., 2011; Xiao and Wiesner, 2013). Therefore, we explored the effect of increased attachment efficiencies of 0.02 and 0.03 for the biofilm scenarios."
+    }, {
+      "heading" : "2.3.5. Polymer density",
+      "text" : "By default, microplastic was assigned a density of 1040 kg/m3, which is the average of polymer densities found in the marine environment (Andrady, 2011). Furthermore, polymer density was varied from 1000 to 1500 kg/m3, representing a wide range of polymer types and with 1000 kg/m3 also representing non-settling plastic. For the scenarios with different polymer densities, the upstream plastic input concentration was kept constant on a volume basis."
+    }, {
+      "heading" : "2.3.6. Upstream concentration",
+      "text" : "A default upstream plastic mass concentration of 1 ng/L was used. This concentration represents the average order of magnitude of published concentrations of microplastic in freshwater (Table S2) (Besseling et al., 2014a; Eriksen et al., 2013; Faure et al., 2012; Lechner et al., 2014). Besides this ‘realistic’ simulation, we performed simulations that studied the proportionality of predicted concentrations to the initial concentration, because initial concentration might as such affect the fate of particles (Quik et al., 2015). Hence, additional scenarios were analysed with upstream input concentrations varying by a factor of 106, i.e. a factor 102 lower and a factor 104 higher than the default upstream concentration."
+    }, {
+      "heading" : "2.3.7. Burial and degradation",
+      "text" : "Burial to lower sediment layers was included with a rate of 3.17 10 9 s 1 (Koelmans et al., 2009). Plastic degradation and abrasion in water and sediment were modeled as first order removal processes. The first order removal rate constant for biodegradation was set at 6.81 10 9 s 1 based on a maximum biodegradation of 1.75% per month observed by Harshvardhan and Jha (2013). Whereas degradation and abrasion processes may play a role at very long time scales, the estimated kinetic constants are too low to affect transport and retention given the present flowtimes\nicroplastic in freshwater systems: A modeling study, Environmental\nfor the river Dommel. This also renders the model output insensitive to uncertainty in the parameters for degradation. Further parameterization was as specified in the Supporting Information (Tables S1 and S5)."
+    }, {
+      "heading" : "3. Results and discussion",
+      "text" : "3.1. Attachment efficiencies (ahet) for heteroaggregation of nanoplastic and microplastic with suspended solids\nThere are several published methods to estimate ahet values from experimental aggregation data (Barton et al., 2014; Labille et al., 2015; Praetorius et al., 2014; Quik et al., 2014b), the discussion of which is beyond the scope of this hydrological modeling paper. Here, we pragmatically estimated ahet values for two near-spherical plastic particle sizes with two clay types in three combinations in natural freshwater following a procedure previously applied to nanoparticles (Barton et al., 2014). For 70 nm polystyrene with kaolin clay the average ahet for triplicates each measured by two detection methods (see below) was 0.04 (range 0.004e0.07) and with bentonite clay 0.1 (range 0.09e0.1). For 1050 nm polystyrene with bentonite clay ahet was on average 0.09 (range 0.06e0.2) (Table S6). As far as we know, these are the first aggregation data reported for nano- and microplastic in natural lake water. The type of suspended solids (i.e. kaolin vs. bentonite) slightly affected ahet, which confirms earlier findings that attachment efficiencies in the environment partly depend on the characteristics of suspended solids (Labille et al., 2015). The two detection methods DLS and spectrophotometry gave very comparable outcomes in particle numbers. The experimentally determined values ranged between 0.004 and 0.2 and thus are close to the values that were taken from the literature to motivate our default values (Barton et al., 2014; Xiao andWiesner, 2013) and therefore support using these values in the modeling, as discussed further in the next sections. At the same time, we emphasise that our experiments are the first that use nano- and microplastic particles for hetero-aggregation experiments and that they will not apply equally to plastic particles of all shapes, like for instance fibres. To fully understand the aggregation characteristics of the wide variety of nano- and microplastic particles in the aquatic environment, more research is recommended."
+    }, {
+      "heading" : "3.2. Modeling the fate of nano- and microplastic in water and sediment of the Dommel river",
+      "text" : ""
+    }, {
+      "heading" : "3.2.1. Simulated concentrations of nano- and microplastic",
+      "text" : "To study the effect of microplastic particle size on spatial distribution, transport in the river Dommel was modeled for 25 microplastic size classes separately. Within 5 days of simulation time, microplastic concentrations in the water reached steady state over the entire 40 km river stretch, thus confirming the sufficiency of a 9 days simulation period for all size classes (Fig. S5A). For the sediment, however, steady state is not reached within the 9 days simulation period (Figs. S5BeD). The locations of peak concentrations in sediment are mainly related to the emission scenario and spatial properties of the river Dommel. The height of these peak concentrations largely depended on particle size of either plastic (Pl) or natural (SS) particles (Fig. 1). Particles <5 mm reached their highest concentrations in the sedimentation area 14 km downstream, whereas bigger particles settled earlier upstream (Fig. 1D, F, H, Fig. 2). Within the 9 days simulation period, peak concentrations in sediment of (a) up to 13 mg/kg were reached within 1 km from the source (Fig. 1J, plastic particle diameter > 500 mm), (b) up to 0.1 mg/kg in the sedimentation area 14 km downstream (Fig. S1R, plastic particle diameter 50 mm) and (c) up to 0.01 mg/kg at the end\nPlease cite this article in press as: Besseling, E., et al., Fate of nano- and m Pollution (2016), http://dx.doi.org/10.1016/j.envpol.2016.10.001\nof the 40 km river stretch (Fig. S1 A, C, E, N, P, plastic particle diameter < 500 nm and 10e20 mm). The settling of plastic particles to the sediment phase resulted in a linear increase in sediment concentrations with a maximum rate of 1.5 mg kg 1 day 1 for the >500 mm particles within 1 km from the source, a maximum of 1.2 10 2 mg kg 1 day 1 for the ~50 mm sized particles in the sedimentation area and a maximum of 1.5 ng kg 1 day 1 for the nano and 10e20 mm sized particles at the end of the river system (Table S3, Fig. S5BeD). By combining these accumulation rates with the loss rates from the sediment by burial, steady state concentrations can be calculated (Koelmans et al., 2009; Quik et al., 2014a). The maximum steady state concentration in the river stretch was 5mg/kg, which was reached for >1mmparticles at < 1 km from the source (Fig. 2, Table S3). However, formost other sizes and locations the steady state concentrations were a factor 2 to 15 lower. The calculated steady state concentrations within 1 km from the source (Fig. 2) correspond with concentrations of microplastic found by Wagner et al. (2014) in sediment in Europe of 34e64 particles/kg, which, with a size of 102e103 mm based on their figures and a particle weight of 5 mg per particle (Van Cauwenberghe et al., 2013), would be around 0.25 mg/kg."
+    }, {
+      "heading" : "3.2.2. Spatial distribution of nano- and microplastic",
+      "text" : "The concentration profiles of nano- and microplastic in the water and sediment were clearly related to the spatial characteristics of the river section and the size of plastic particles (Fig. 1). Here, spatial characteristics relate to differences in river width, depth and flow rate (Table S1) resulting in net sedimentation and resuspension areas (Quik et al., 2015). The 100 nm singular nanoplastic particles (Pl1) show a gradual decrease in concentration in the water phase, coupled to an increase in concentration of heteroaggregates (Fig. 1A). There is no sharp decrease in 100 nm nanoplastic concentration at the sedimentation area after 14.4 km, which implies that their removal from the water column is by aggregation with suspended solids and barely by direct settling. With increasing size of the plastic particles (Fig. 1, Fig. S1), removal of singular particles from the water phase occurs earlier, i.e. within a shorter flow distance. This can be explained from the dependence of the various sub-processes with particle size. First, the rates of direct Stokes settling increase substantially with size (Fig. S6A, Table S4B). Whereas settling of smaller plastic particles is dependent on their aggregation with suspended solids (governed by ahet in Fig. 3A), larger plastic particles settle at a rate which is independent of the heteroaggregation rate. Second, the frequencies of the collisions between plastic particles and suspended solids depend on the relative sizes of plastic particles and suspended solids due to altered orthokinetic aggregation and differential settling resulting in formation of heteroaggregates (Fig. S6EeF, Table S4D). Heteroaggregation rates depend on particle number concentrations, which are highest for the smallest size class (Eq. S4, Fig. S6B, Table S4C). Initially, heteroaggregate concentrations in the water phase increased for all particle sizes and subsequently decreased due to settling of the heteroaggregates, which occurred predominantly within 1 km from the input source for particles 5 mm, and at the sedimentation area at 14 km for particles <5 mm (Fig. 1, Fig. S1). This corresponds well with peak concentrations in the sediment, as mentioned above. Homoaggregation played a minor role compared to heteroaggregation due to lower collision frequencies (Fig. S7, Table S4B) (Quik et al., 2015), causing that homoaggregate concentrations are not visible in Fig. 1."
+    }, {
+      "heading" : "3.2.3. Retention of microplastic with implications for transport to sea",
+      "text" : "Using the data from the default scenario presented in Fig. 1, the retention of microplastic in the 40 km river stretch was calculated\nicroplastic in freshwater systems: A modeling study, Environmental\nFig. 2. Steady state plastic concentrations in sediment at a distance within 1 km from the input source, at the main sedimentation area 14.4 km downstream and at the end of the 40 km river stretch. Steady state concentrations based on linear increase rates by aggregation and sedimentation, and loss due to burial (Table S3).\nas the percentage of the upstreammicroplastic input concentration that remained within the sediment of the 40 km river stretch. Remarkably, the relationship of retentionwith microplastic particle size was not monotonous but showed two maxima, up to 60% for plastic particles 1 mm and up to 100% for plastic particles 50 mm, with a clear minimum in betweenwhere retentionwas only 18% for particles of ~4 mm (Fig. 3A). This typical pattern in retention for particles with increasing diameter was caused by a trade-off between sedimentation of heteroaggregates (driven by the larger size and higher density of the suspended solids), and sedimentation of the plastic particles. For plastic particles between 100 nm and 2 mm, increasing the diameter resulted in a reduced sedimentation rate of the heteroaggregates and for bigger plastic particles a larger diameter resulted in an increased sedimentation rate of the heteroaggregates (Table S4B).\nIf we know the percentage of microplastic retained in the 40 km river stretch, we can calculate how many stretches i.e. what distance is needed to retain 99% of the microplastic in the sediment of a river (RD99). This assumes that on average, retention percentages will be roughly similar across river stretches of this length, an assumption the validity of which of course is highly dependent on river morphology. The rationale for extrapolating to such a percentage is that discharges further from sea than the RD99, can be assumed to mainly contribute to plastic pollution in freshwater, whereas discharges within the RD99 will contribute to plastic pollution in both the fresh and marine environment. The RD99 was calculated by linear interpolation where this distance lied within 40 km and by exponential extrapolation where this distance lied further away than 40 km. Highly depending on particle size, the RD99 was calculated to be around 200 km for nanoplastic and reaches up to >900 km for microplastic, whereas millimetre sized plastic retained within a few kilometres (Fig. 3B). These calculations thus imply that for river morphologies like that of the Dommel, the intermediate size class of microplastic is preferentially transported downstream.\n3.2.4. Effect of attachment efficiency, biofilm formation, polymer density and input concentration on retention\n3.2.4.1. Attachment efficiency. We used a default attachment efficiency for heteroaggregation ahet of 0.01, whereas we showed experimentally that the attachment efficiency is very similar within error limits, i.e. 0.004e0.2 (Table S6). To be able to evaluate the relevance of such variations, we calculated all spatial profiles for a range of lower and higher attachment efficiencies (Fig. 3A). Increasing the attachment efficiency above 0.01 affected the overall\nPlease cite this article in press as: Besseling, E., et al., Fate of nano- and m Pollution (2016), http://dx.doi.org/10.1016/j.envpol.2016.10.001\nretention by a factor 0.72e1.03. Of this change in overall retention, a decrease by a factor 0.72e0.99 is seen in the lower size range, whereas the retention is not affected by more than 1% for particles 4 mm (factor 1e1.03). Consequently, the range and variability observed between the default literature value of 0.01 and the experimentally determined average ahet values of about 0.04e0.1 (range 0.004e0.2, Table S6) also had negligible impact on the observed profiles and retention, which shows the robustness of the modeling results and the adequacy of the default value. However, reducing the attachment efficiencies to 0 (no aggregation at all) or 0.001 (very low aggregation) resulted in a reduction of retention for small particles down till 0%, whereas for the middle and bigger sized particles this enhanced retention by up to a factor 1.6 (4 mm\nicroplastic in freshwater systems: A modeling study, Environmental\nsized particles) (Fig. 3A). Given the literature values and experimentally determined values it is not likely that ahet was in fact smaller than 0.01.\n3.2.4.2. Biofilm formation. The previous simulations did not consider fouling or presence of biofilm, as explained above. Simulating the presence of a biofilm by changes in particle density and size did not change the overall qualitative trends and patterns in the behaviour of the particles, as can be seen by comparing Fig. 1 and Fig. S3. More quantitatively, this presence of biofilm on the plastic particles resulted in some size dependent changes in retention (Fig. 3). For particles 50 mm, which represent a major fraction of the microplastic particles in the environment, no effect of biofilm on retention was calculated. For particles 2 mm retention decreased from around 60-50% down to 50-40%, which was caused by a faster formation of heteroaggregates through reduced settling of these heteroaggregates. In the middle part of Fig. 3 increases in retention from around 40% up to 70% were calculated, due to an increase in the settling of heteroaggregates (Fig. 3B, Figs. S6e7). When also accounting for the effect of biofilm on the attachment efficiency (i.e. an increase of ahet by a factor 2 to 3), the retention of particles 2 mm is further reduced to about 50e30% (Fig. 3B).\n3.2.4.3. Polymer density. For plastic particles 200 mm retention in the 40 km river stretch was calculated to be high, approaching\nPlease cite this article in press as: Besseling, E., et al., Fate of nano- and m Pollution (2016), http://dx.doi.org/10.1016/j.envpol.2016.10.001\n100%. For particles 100 nme1 mm retention was low; about 50%, which was nearly independent of polymer density. However, for the size classes in-between (1e200 mm), retention is highly determined by the polymer type at hand, namely strongly increasing with increasing polymer density (Fig. 4A, Fig. S2). A special case exists for nano- andmicrometre sized polymers that have a density equal or slightly lower than that of water, like for instance polyethylene and polypropylene. It is often assumed that such polymer particles will float and show low retention in water systems. However, for such plastic particles, dispersion into the water column will still occur due to common mixing and shear or due to wind induced mixing of surface water (Kukulka et al., 2012), after which they will rapidly heteroaggregate with suspended solids. Alternatively, the low density polymers (<1000 kg/m3) are likely to aggregate with natural or anthropogenic non-polymer particles in the surface microlayer (SML), where particle concentrations are high (Song et al., 2014). For low density microplastic 1 mm, the density and numbers of suspended solids overwhelm that of the microplastic, such that the settling of heteroaggregates virtually is determined by that of the suspended solids, leading to a retention of about 50% (Fig. 4A). However, for low density microplastic particles larger than a few mm, retention of heteroaggregates is largely dependent on polymer density, leading to zero retention (Fig. 4A). Consequently, these low density microplastic particles, those remaining in singular form or those newly settling on the water surface, are expected to be transported further downstream and have longer RD99.\n3.2.4.4. Input concentration. In our default scenarios, the particle number concentration was highest for the smallest particles, as input concentrationwas kept constant for all particle sizes. Because in our environmentally realistic scenarios the particle number concentration of microplastic was relatively low compared to the suspended solids, homoaggregation played a negligible role compared to heteroaggregation. Although peak concentrations in water and sediment varied with input concentration, the overall retention (%) remained unaffected by input concentration at input concentrations < 1 ng/L (Fig. 4B)."
+    }, {
+      "heading" : "4. General discussion and implications",
+      "text" : "Rivers are often viewed simply as sources of plastic from terrestrial to marine ecosystems, but our modeling results indicate that part of the nano- and microplastic fraction can be efficiently retained in river systems. Therefore, emissions of microplastic to freshwater will not just result in ‘down the drain’ transport to coastal areas and the oceans. The strong dependence of retention on size in the 1e50 mm range (Fig. 3A) can be evaluated with respect to know sizes of microplastic being emitted to freshwater. Tyre dust, abrasion and shedding from polymer based textiles (Sundt et al., 2014), or personal care products (PCPs) (Gouin et al., 2015) are often mentioned with respect to emissions to sea. The size of tyre dust is reported to range 60e80 mm, which may imply substantial retention in freshwater, based on the present simulations. Concentrations of black carbon in freshwater sediments indeed have been shown to be high, i.e. median black carbon contents as a fraction of total organic carbon are 9% for sediments (Cornelissen et al., 2005). Microplastic particles in personal care products are reported to range between 1 and 800 mm (Sundt et al., 2014). Whereas the lower end of this range thus would be rather mobile in freshwater, particles at the higher end of this rangewould be retained efficiently in aquatic sediments, implying a potential risk to sediment dwelling organisms. We showed that especially nanoplastic and millimetre sized plastic are likely to be retained in rivers to a relatively high extent, which may define implications for\nicroplastic in freshwater systems: A modeling study, Environmental\nspecies with specific feeding traits and sensitivities to these size fractions. The other side of the coin is that it suggests that especially micrometre sized particles are transported by rivers, resulting in exposure of marine and coastal areas to micrometre sized particles. Furthermore, it can be speculated that the preferential river retention of millimetre sized plastics may contribute to the lack of millimetre sized plastic as observed recently in the marine environment (C ozar et al., 2014), compared to the expected particle size distribution.\nOur model shows that based on initial waste sources and downstream distance, exposure concentrations can be predicted. Recently, the occurrence of microplastic in freshwater sediments has been experimentally confirmed (Corcoran et al., 2015; Wagner et al., 2014). This calls for a thorough model validation and risk assessment for microplastic in freshwater systems. As mentioned, we did not aim to provide a fully validated model that can simulate all types of plastic particles with certainty. Still, the model is valid with respect to its conformance to known theory and parameter constraints, whereas its adequacy to simulate measured concentrations for other types of particles has been demonstrated recently (De Klein et al., 2016). The present implementation was designed for (near-)spherical particles, and effects of particle shape need to be assessed before the model can be applied to more diverging types of plastic particles such as single fibres or thin sheets. For fibres, knottingmay bemore important than attachment, leading to effectively higher attachment efficiencies. Aggregates of knotted fibres would eventually approach sphericity implying they could be accommodated by the model once size and density would be known, or otherwise by including shape correction factors for sedimentation. Furthermore, uncertainty with respect to fouling, aggregation and sedimentation would affect absolute concentrations, but probably not the general trends with respect to location of hot spots. After all, model analysis showed that biofilm formation would not have large effects on particle fate. In that sense, the model provides a generalised tool that can be implemented for other catchments as well, and that can help in the design of optimum sampling grids and frequencies, based on a priori prospective simulations."
+    }, {
+      "heading" : "Acknowledgments",
+      "text" : "We thank Edwin Foekema for his valuable comments on earlier versions of themanuscript and Sil Nieuwhof for his great support in the use of R. J.Q. and A.A.K. acknowledge financial support from NanoNextNL, a micro and nanotechnology consortium of the Government of the Netherlands and 130 partners."
+    }, {
+      "heading" : "Appendix A. Supplementary data",
+      "text" : "Supplementary data related to this article can be found at http:// dx.doi.org/10.1016/j.envpol.2016.10.001."
+    } ],
+    "references" : [ {
+      "title" : "Microplastics in the marine environment",
+      "author" : [ "A.L. Andrady" ],
+      "venue" : "Mar. Pollut. Bull",
+      "citeRegEx" : "Andrady,? \\Q2011\\E",
+      "shortCiteRegEx" : "Andrady",
+      "year" : 2011
+    }, {
+      "title" : "Evolution of size distributions of natural particles during aggregation: modelling versus field results. Colloids Surfaces A Physicochem",
+      "author" : [ "O. Atteia" ],
+      "venue" : "Eng. Asp. 139,",
+      "citeRegEx" : "Atteia,? \\Q1998\\E",
+      "shortCiteRegEx" : "Atteia",
+      "year" : 1998
+    }, {
+      "title" : "Water content, organic carbon and dry bulk density in flooded sediments",
+      "author" : [ "Y. Avnimelech", "G. Ritvo", "L.E. Meijer", "M. Kochba" ],
+      "venue" : "Aquac. Eng",
+      "citeRegEx" : "Avnimelech et al\\.,? \\Q2001\\E",
+      "shortCiteRegEx" : "Avnimelech et al\\.",
+      "year" : 2001
+    }, {
+      "title" : "Modelling aggregate formation and sedimentation of organic and mineral particles",
+      "author" : [ "C. afer-Neth", "W. Balzer" ],
+      "venue" : "J. Mar. Syst",
+      "citeRegEx" : "afer.Neth and Balzer,? \\Q2010\\E",
+      "shortCiteRegEx" : "afer.Neth and Balzer",
+      "year" : 2010
+    }, {
+      "title" : "Accumulation and fragmentation of plastic debris in global environments",
+      "author" : [ "D.K.A. Barnes", "F. Galgani", "R.C. Thompson", "M. Barlaz" ],
+      "venue" : "Philos. Trans. R. Soc. B",
+      "citeRegEx" : "Barnes et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Barnes et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Theory and methodology for determining nanoparticle affinity for heteroaggregation",
+      "author" : [ "L.E. Barton", "M. Therezien", "M. Auffan", "Bottero", "J.-Y", "M.R. Wiesner" ],
+      "venue" : null,
+      "citeRegEx" : "Barton et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Barton et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Preliminary Investigation of Microplastic in the Management Area of Water Board Rivierenland (In Dutch), Projectrapport",
+      "author" : [ "E. Besseling", "E.M. Foekema", "A.A. Koelmans" ],
+      "venue" : "Wageningen University,",
+      "citeRegEx" : "Besseling et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Besseling et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Nanoplastic affects growth of S. obliquus and reproduction of D. magna",
+      "author" : [ "E. Besseling", "B. Wang", "M. Lürling", "A.A. Koelmans" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Besseling et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Besseling et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Effects of microplastic on fitness and PCB bioaccumulation by the lugworm Arenicola marina (L.)",
+      "author" : [ "E. Besseling", "A. Wegner", "E.M. Foekema", "M.J. Van den Heuvel-Greve", "A.A. Koelmans" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Besseling et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Besseling et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Accumulation of microplastic on shorelines woldwide: sources and sinks",
+      "author" : [ "M.A. Browne", "P. Crump", "S.J. Niven", "E. Teuten", "A. Tonkin", "T. Galloway", "R. Thompson" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Browne et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Browne et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Spatial patterns of plastic debris along estuarine shorelines",
+      "author" : [ "M.A. Browne", "T.S. Galloway", "R.C. Thompson" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Browne et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Browne et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Occurrence and distribution of microplastics in marine sediments along the Belgian coast",
+      "author" : [ "M. Claessens", "S. De Meester", "L. Van Landuyt", "K. De Clerck", "C.R. Janssen" ],
+      "venue" : null,
+      "citeRegEx" : "Claessens et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Claessens et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Hidden plastics of Lake Ontario, Canada and their potential preservation in the sediment",
+      "author" : [ "P.L. Corcoran", "T. Norris", "T. Ceccanese", "M. Walzak", "P.A. Helm", "C.H. Marvin" ],
+      "venue" : "record. Environ. Pollut",
+      "citeRegEx" : "Corcoran et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Corcoran et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Extensive sorption of organic compounds to black carbon, coal, and kerogen in sediments and soils: mechanisms and consequences for distribution, bioaccumulation, and biodegradation",
+      "author" : [ "T.D. Bucheli", "T.O. Jonker", "A.A. Koelmans", "P.C.M. Van Noort" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "O. et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "O. et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "Plastic debris in the open ocean",
+      "author" : [ "M.L. andez-dePuelles", "C.M. Duarte" ],
+      "venue" : "PNAS 111,",
+      "citeRegEx" : "andez.dePuelles and Duarte,? \\Q2014\\E",
+      "shortCiteRegEx" : "andez.dePuelles and Duarte",
+      "year" : 2014
+    }, {
+      "title" : "Towards validation of the NanoDUFLOW nanoparticle fate model for the river Dommel, The Netherlands",
+      "author" : [ "J.J.M. De Klein", "J.T.K. Quik", "P. Bauerlein", "A.A. Koelmans" ],
+      "venue" : "Environ. Sci. Nano",
+      "citeRegEx" : "Klein et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Klein et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Microplastic contamination in an urban area: a case study in Greater Paris",
+      "author" : [ "R. Dris", "J. Gasperi", "V. Rocher", "M. Saad", "N. Renault", "B. Tassin" ],
+      "venue" : "Environ. Chem",
+      "citeRegEx" : "Dris et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Dris et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Synthetic fibers in atmospheric fallout: a source of microplastics in the environment",
+      "author" : [ "R. Dris", "J. Gasperi", "M. Saad", "C. Mirande", "B. Tassin" ],
+      "venue" : "Mar. Pollut",
+      "citeRegEx" : "Dris et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Dris et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Suspended microplastics and black carbon particles in the Jade system, Southern North Sea",
+      "author" : [ "F. Dubaish", "G. Liebezeit" ],
+      "venue" : "Water, Air, Soil Pollut",
+      "citeRegEx" : "Dubaish and Liebezeit,? \\Q2013\\E",
+      "shortCiteRegEx" : "Dubaish and Liebezeit",
+      "year" : 2013
+    }, {
+      "title" : "Microplastics in freshwater systems: a review of the emerging threats, identification of knowledge gaps and prioritisation of research needs",
+      "author" : [ "D. Eerkes-Medrano", "R.C. Thompson", "D.C. Aldridge" ],
+      "venue" : "Water Res",
+      "citeRegEx" : "Eerkes.Medrano et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Eerkes.Medrano et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Microplastic pollution in the surface waters of the Laurentian great lakes",
+      "author" : [ "M. Eriksen", "S. Mason", "S. Wilson", "C. Box", "A. Zellers", "W. Edwards", "H. Farley", "S. Amato" ],
+      "venue" : null,
+      "citeRegEx" : "Eriksen et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Eriksen et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Role of coagulation in the kinetics of sedimentation",
+      "author" : [ "K.J. Farley", "F.M. Morel" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Farley and Morel,? \\Q1986\\E",
+      "shortCiteRegEx" : "Farley and Morel",
+      "year" : 1986
+    }, {
+      "title" : "Pollution due to plastics and microplastics in lake Geneva and in the Mediterranean Sea",
+      "author" : [ "F. Faure", "M. Corbaz", "H. Baecher", "L. Felippe" ],
+      "venue" : "Arch. Des. Sci",
+      "citeRegEx" : "Faure et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Faure et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Marine plastic litter: the unanalyzed nano-fraction",
+      "author" : [ "J. Gigault", "B. Pedrono", "B. Maxit", "A. Ter Halle" ],
+      "venue" : "Environ. Sci. Nano",
+      "citeRegEx" : "Gigault et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Gigault et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Measuring the mass, density, and size of particles and cells using a suspended microchannel resonator",
+      "author" : [ "M. Godin", "A.K. Bryan", "T.P. Burg", "K. Babcock", "S.R. Manalis" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "Godin et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Godin et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "Environmental concentrations of engineered nanomaterials: review of modeling and analytical studies",
+      "author" : [ "F. Gottschalk", "T. Sun", "B. Nowack" ],
+      "venue" : "Environ. Pollut",
+      "citeRegEx" : "Gottschalk et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Gottschalk et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Use of micro-plastic beads in cosmetic products in Europe and their estimated emissions to the North Sea environment",
+      "author" : [ "T. Gouin", "J. Avalos", "I. Brunning", "K. Brzuska", "J. Graaf", "J. De Kaumanns", "T. Koning", "M. Meyberg", "K. Rettinger", "H. Schlatter", "J. Thomas", "R. Van Welie", "T. Wolf" ],
+      "venue" : "SOFW J. 141,",
+      "citeRegEx" : "Gouin et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Gouin et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Biodegradation of low-density polyethylene by marine bacteria from pelagic waters, Arabian Sea, India",
+      "author" : [ "K. Harshvardhan", "B. Jha" ],
+      "venue" : "Mar. Pollut. Bull",
+      "citeRegEx" : "Harshvardhan and Jha,? \\Q2013\\E",
+      "shortCiteRegEx" : "Harshvardhan and Jha",
+      "year" : 2013
+    }, {
+      "title" : "Microplastics in the marine environment: a review of the methods used for identification and quantification",
+      "author" : [ "V. Hidalgo-Ruz", "L. Gutow", "R.C. Thompson", "M. Thiel" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Hidalgo.Ruz et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Hidalgo.Ruz et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Plastic waste inputs from land into the ocean",
+      "author" : [ "J.R. Jambeck", "R. Geyer", "C. Wilcox", "T.R. Siegler", "M. Perryman", "A.L. Andrady", "R. Narayan", "K.L. Law" ],
+      "venue" : "Science 347,",
+      "citeRegEx" : "Jambeck et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Jambeck et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Dynamics of microbial communities on marine snow aggregates: colonization, growth, detachment, and grazing mortality of attached bacteria",
+      "author" : [ "T. Kiørboe", "K. Tang", "H. Grossart", "H. Ploug" ],
+      "venue" : "Appl. Environ. Microbiol",
+      "citeRegEx" : "Kiørboe et al\\.,? \\Q2003\\E",
+      "shortCiteRegEx" : "Kiørboe et al\\.",
+      "year" : 2003
+    }, {
+      "title" : "Occurrence and spatial distribution of microplastics in river shore sediments of the Rhine-Main area in Germany",
+      "author" : [ "S. Klein", "E. Worch", "T.P. Knepper" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Klein et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Klein et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Nanoplastics in the aquatic",
+      "author" : [ "A.A. Koelmans", "E. Besseling", "W.J. Shim" ],
+      "venue" : null,
+      "citeRegEx" : "Koelmans et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Koelmans et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Comparison of manufactured and black carbon nanoparticle concentrations in aquatic sediments",
+      "author" : [ "A.A. Koelmans", "B. Nowack", "M.R. Wiesner" ],
+      "venue" : "Environ. Pollut",
+      "citeRegEx" : "Koelmans et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Koelmans et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Deleterious effects of litter on marine life",
+      "author" : [ "S. Kühn", "E.L. Bravo Rebolledo", "J.A. Van Franeker" ],
+      "venue" : null,
+      "citeRegEx" : "Kühn et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Kühn et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "The effect of wind mixing on the vertical distribution of buoyant plastic debris",
+      "author" : [ "T. Kukulka", "G. Proskurowski", "S. Mor et-Ferguson", "D.W. Meyer", "K.L. Law" ],
+      "venue" : "Geophys. Res. Lett. 39,",
+      "citeRegEx" : "Kukulka et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Kukulka et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Heteroaggregation of titanium dioxide nanoparticles with natural clay colloids",
+      "author" : [ "J. Labille", "C. Harns", "Bottero", "J.-Y", "J. Brant" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Labille et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Labille et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Characterisation of nanoplastics during the degradation of polystyrene",
+      "author" : [ "S. Lambert", "M. Wagner" ],
+      "venue" : "Chemosphere 145,",
+      "citeRegEx" : "Lambert and Wagner,? \\Q2016\\E",
+      "shortCiteRegEx" : "Lambert and Wagner",
+      "year" : 2016
+    }, {
+      "title" : "On data requirements for calibration of integrated models for urban water systems",
+      "author" : [ "J. Langeveld", "I. Nopens", "R. Schilperoort", "L. Benedetti", "J. De Klein", "Y. Amerlinck", "S. Weijers" ],
+      "venue" : "Water Sci. Technol",
+      "citeRegEx" : "Langeveld et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Langeveld et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "The Danube so colourful: a potpourri of plastic litter outnumbers fish larvae in Europe's second largest river",
+      "author" : [ "A. Lechner", "H. Keckeis", "F. Lumesberger-Loisl", "B. Zens", "R. Krusch", "M. Tritthart", "M. Glas", "E. Schludermann" ],
+      "venue" : "Environ. Pollut. 188,",
+      "citeRegEx" : "Lechner et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Lechner et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Size-dependent effects of micro polystyrene particles in the marine copepod Tigriopus japonicus",
+      "author" : [ "K. Lee", "W.J. Shim", "O.Y. Kwon", "J. Kang" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Lee et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Lee et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Microplastic exposure studies should be environmentally realistic",
+      "author" : [ "R. Lenz", "K. Enders", "T. Gissel" ],
+      "venue" : "Proc. Natl. Acad. Sci. U. S. A",
+      "citeRegEx" : "Lenz et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Lenz et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Early microbial biofilm formation on marine plastic debris",
+      "author" : [ "D. Lobelle", "M. Cunliffe" ],
+      "venue" : "Mar. Pollut. Bull",
+      "citeRegEx" : "Lobelle and Cunliffe,? \\Q2011\\E",
+      "shortCiteRegEx" : "Lobelle and Cunliffe",
+      "year" : 2011
+    }, {
+      "title" : "Focal plane array detector-based micro-Fourier-transform infrared imaging for the analysis of microplastics in environmental samples",
+      "author" : [ "M.G.J. oder", "M. Kuczera", "S. Mintenig", "C. Lorenz", "G. Gunnar" ],
+      "venue" : "Environ. Chem",
+      "citeRegEx" : "oder et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "oder et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Microplastic is an abundant and distinct microbial habitat in an urban river, 48, 11863e11871",
+      "author" : [ "A. McCormick", "T.J. Hoellein", "S.A. Mason", "J. Schluep", "J.J. Kelly" ],
+      "venue" : null,
+      "citeRegEx" : "McCormick et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "McCormick et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Multimedia modeling of engineered nanoparticles with SimpleBox4nano: model definition and evaluation",
+      "author" : [ "J.A.J. Meesters", "A.A. Koelmans", "J.T.K. Quik", "A.J. Hendriks", "D. Van de Meent" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Meesters et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Meesters et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Topdown effects on the size-biomass distribution of a freshwater bacterioplankton community",
+      "author" : [ "J. Pernthaler", "B. Sattler", "K. Simek", "A. Schwarzenbacher", "R. Psenner" ],
+      "venue" : "Aquat. Microb. Ecol",
+      "citeRegEx" : "Pernthaler et al\\.,? \\Q1996\\E",
+      "shortCiteRegEx" : "Pernthaler et al\\.",
+      "year" : 1996
+    }, {
+      "title" : "Heteroaggregation of titanium dioxide nanoparticles with model natural colloids under environmentally relevant conditions",
+      "author" : [ "A. Praetorius", "J. Labille", "M. Scheringer", "A. Thill", "K. Hungerbu", "Bottero", "J.-Y" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Praetorius et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Praetorius et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Development of environmental fate models for engineered nanoparticles - a case study of TiO2 nanoparticles in the Rhine River",
+      "author" : [ "A. Praetorius", "M. Scheringer", "K. Hungerbühler" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Praetorius et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Praetorius et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Spatially explicit fate modelling of nanomaterials in natural waters",
+      "author" : [ "J.T.K. Quik", "J.J.M. Klein", "A.A. de Koelmans" ],
+      "venue" : "Water Res",
+      "citeRegEx" : "Quik et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Quik et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Simplifying modeling of nanoparticle aggregation-sedimentation behavior in environmental",
+      "author" : [ "J.T.K. Quik", "D. Van de Meent", "A.A. Koelmans" ],
+      "venue" : null,
+      "citeRegEx" : "Quik et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Quik et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Heteroaggregation and sedimentation rates for nanomaterials in natural waters",
+      "author" : [ "J.T.K. Quik", "I. Velzeboer", "M. Wouterse", "A.A. Koelmans", "D. Van de Meent" ],
+      "venue" : "Water Res",
+      "citeRegEx" : "Quik et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Quik et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "How to assess exposure of aquatic organisms to manufactured nanoparticles? Environ",
+      "author" : [ "J.T.K. Quik", "J.A. Vonk", "S.F. Hansen", "A. Baun", "D. Van de Meent" ],
+      "venue" : null,
+      "citeRegEx" : "Quik et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Quik et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Addressing the complexity of water chemistry in environmental fate modeling for engineered nanoparticles",
+      "author" : [ "N. Sani-Kast", "M. Scheringer", "D. Slomberg", "J. Labille", "A. Praetorius", "P. Ollivier", "K. Hungerbühler" ],
+      "venue" : "Sci. Total Environ",
+      "citeRegEx" : "Sani.Kast et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Sani.Kast et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Microbial ecology of organic aggregates in aquatic ecosystems",
+      "author" : [ "M. Simon", "H. Grossart", "B. Schweitzer", "H. Ploug" ],
+      "venue" : "Aquat. Microb. Ecol",
+      "citeRegEx" : "Simon et al\\.,? \\Q2002\\E",
+      "shortCiteRegEx" : "Simon et al\\.",
+      "year" : 2002
+    }, {
+      "title" : "A comparison of microscopic and spectroscopic identification methods for analysis of microplastics in environmental samples",
+      "author" : [ "Y.K. Song", "S.H. Hong", "M. Jang", "G.M. Han", "M. Rani", "J. Lee", "W.J. Shim" ],
+      "venue" : null,
+      "citeRegEx" : "Song et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Song et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Large accumulation of micro-sized synthetic polymer particles in the sea surface microlayer",
+      "author" : [ "Y.K. Song", "S.H. Hong", "M. Jang", "Kang", "J.-H", "O.Y. Kwon", "G.M. Han", "W.J. Shim" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Song et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Song et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Sources of microplastic-pollution to the marine environment",
+      "author" : [ "P. Sundt", "Schulze", "P.-E", "F. Syversen" ],
+      "venue" : "Nor. Environ. Agency 1e86",
+      "citeRegEx" : "Sundt et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Sundt et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Importance of heterogeneous aggregation for NP fate in natural and engineered systems",
+      "author" : [ "M. Therezien", "A. Thill", "M.R. Wiesner" ],
+      "venue" : "Sci. Total Environ. 485e486,",
+      "citeRegEx" : "Therezien et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Therezien et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Assessment of marine debris on the belgian continental shelf",
+      "author" : [ "L. Van Cauwenberghe", "M. Claessens", "M.B. Vandegehuchte", "J. Mees", "C.R. Janssen" ],
+      "venue" : "Mar. Pollut. Bull",
+      "citeRegEx" : "Cauwenberghe et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Cauwenberghe et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Strong sorption of PCBs to nanoplastics, microplastics, carbon nanotubes and fullerenes",
+      "author" : [ "I. Velzeboer", "C. Kwadijk", "A.A. Koelmans" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Velzeboer et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Velzeboer et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Microplastics in freshwater ecosystems: what we know and what we need to know",
+      "author" : [ "D. noz", "N. Brennholt", "X. Bourrain", "S. Buchinger", "E. Fries", "C. Grosbois", "J. Klasmeier", "T. Marti", "S. Rodriguez-Mozaz", "R. Urbatzka", "A.D. Vethaak", "M. Winther-Nielsen", "G. Reifferscheid" ],
+      "venue" : "Environ. Sci. Eur",
+      "citeRegEx" : "noz et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "noz et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Effects of nanopolystyrene on the feeding behavior of the blue mussel (Mytilus edulis L.)",
+      "author" : [ "A. Wegner", "E. Besseling", "E.M. Foekema", "P. Kamermans", "A.A. Koelmans" ],
+      "venue" : "Environ. Toxicol. Chem",
+      "citeRegEx" : "Wegner et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Wegner et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Microplastic ingestion decreases energy reserves in marine worms",
+      "author" : [ "S.L. Wright", "D. Rowe", "R.C. Thompson", "T.S. Galloway" ],
+      "venue" : "Curr. Biol",
+      "citeRegEx" : "Wright et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Wright et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Transport and retention of selected engineered nanoparticles by porous media in the presence of a biofilm",
+      "author" : [ "Y. Xiao", "M.R. Wiesner" ],
+      "venue" : "Environ. Toxicol. Chem",
+      "citeRegEx" : "Xiao and Wiesner,? \\Q2013\\E",
+      "shortCiteRegEx" : "Xiao and Wiesner",
+      "year" : 2013
+    }, {
+      "title" : "Fouling of floating plastic debris under Biscayne Bay exposure",
+      "author" : [ "S. Ye", "A.L. Andrady" ],
+      "venue" : "conditions. Mar. Pollut. Bull. 22,",
+      "citeRegEx" : "Ye and Andrady,? \\Q1991\\E",
+      "shortCiteRegEx" : "Ye and Andrady",
+      "year" : 1991
+    }, {
+      "title" : "Microbial biofilms facilitate adhesion in biofouling invertebrates",
+      "author" : [ "J.D. Zardus", "B.T. Nedved", "Y. Huang", "C. Tran", "M.G. Hadfield" ],
+      "venue" : null,
+      "citeRegEx" : "Zardus et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Zardus et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Comparison of the distribution and degradation of plastic debris along shorelines of the Great Lakes, North America",
+      "author" : [ "M. Zbyszewski", "P.L. Corcoran", "A. Hockin" ],
+      "venue" : "J. Gt. Lakes. Res",
+      "citeRegEx" : "Zbyszewski et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Zbyszewski et al\\.",
+      "year" : 2014
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 29,
+      "context" : "Land based sources are thought to make a large contribution to plastic debris in the oceans (European Environmental Agency, 2015; Jambeck et al., 2015).",
+      "startOffset" : 92,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 34,
+      "context" : "Indeed, microplastic can negatively affect organisms in freshwater and marine environments (Besseling et al., 2014b, 2013; Kühn et al., 2015; Lee et al., 2013; Wegner et al., 2012; Wright et al., 2013).",
+      "startOffset" : 91,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 40,
+      "context" : "Indeed, microplastic can negatively affect organisms in freshwater and marine environments (Besseling et al., 2014b, 2013; Kühn et al., 2015; Lee et al., 2013; Wegner et al., 2012; Wright et al., 2013).",
+      "startOffset" : 91,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 62,
+      "context" : "Indeed, microplastic can negatively affect organisms in freshwater and marine environments (Besseling et al., 2014b, 2013; Kühn et al., 2015; Lee et al., 2013; Wegner et al., 2012; Wright et al., 2013).",
+      "startOffset" : 91,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 63,
+      "context" : "Indeed, microplastic can negatively affect organisms in freshwater and marine environments (Besseling et al., 2014b, 2013; Kühn et al., 2015; Lee et al., 2013; Wegner et al., 2012; Wright et al., 2013).",
+      "startOffset" : 91,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 4,
+      "context" : "Microplastic has been detected in the marine environment (Barnes et al., 2009; Browne et al., 2010; Claessens et al., 2011), and more",
+      "startOffset" : 57,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 10,
+      "context" : "Microplastic has been detected in the marine environment (Barnes et al., 2009; Browne et al., 2010; Claessens et al., 2011), and more",
+      "startOffset" : 57,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 11,
+      "context" : "Microplastic has been detected in the marine environment (Barnes et al., 2009; Browne et al., 2010; Claessens et al., 2011), and more",
+      "startOffset" : 57,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 9,
+      "context" : "One major route for the occurrence of small plastic particles in the environment is expected to be wastewater, containing plastic particles from cosmetics and fibres from washing synthetic clothes (Browne et al., 2011).",
+      "startOffset" : 197,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 67,
+      "context" : "The other route is thought to be degradation of larger plastic items, which has the potential to release large numbers of microplastic particles (Zbyszewski et al., 2014).",
+      "startOffset" : 145,
+      "endOffset" : 170
+    }, {
+      "referenceID" : 31,
+      "context" : "Although important progress is being made in the development of detection methods (HidalgoRuz et al., 2012; Klein et al., 2015; L€ oder et al., 2015), present methods still are insufficiently distinguishing for some particle sizes and completely lacking for others (Song et al.",
+      "startOffset" : 82,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 55,
+      "context" : ", 2015), present methods still are insufficiently distinguishing for some particle sizes and completely lacking for others (Song et al., 2015).",
+      "startOffset" : 123,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 37,
+      "context" : "The occurrence of nanoplastic is very plausible (Lambert and Wagner, 2016), however, current techniques are not yet capable of demonstrating their presence in the environment (Gigault et al.",
+      "startOffset" : 48,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 25,
+      "context" : "This is similar to the development of nanoparticle models where first simple mass flow models evolved into validated spatiotemporal explicit models (Gottschalk et al., 2013).",
+      "startOffset" : 148,
+      "endOffset" : 173
+    }, {
+      "referenceID" : 48,
+      "context" : "For engineered nanomaterials, previous model studies showed that aggregation with suspended solids and subsequent sedimentation is the most likely removal process for these particles inwater (Praetorius et al., 2012; Quik et al., 2015; 2011).",
+      "startOffset" : 191,
+      "endOffset" : 241
+    }, {
+      "referenceID" : 49,
+      "context" : "For engineered nanomaterials, previous model studies showed that aggregation with suspended solids and subsequent sedimentation is the most likely removal process for these particles inwater (Praetorius et al., 2012; Quik et al., 2015; 2011).",
+      "startOffset" : 191,
+      "endOffset" : 241
+    }, {
+      "referenceID" : 48,
+      "context" : "Following earlier nanoparticle study approaches (Praetorius et al., 2012; Quik et al., 2015; 2011) our aim was to model plastic fate mechanistically within uncertainty limits, but even more so to launch a concept that can trigger further development of models.",
+      "startOffset" : 48,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 49,
+      "context" : "Following earlier nanoparticle study approaches (Praetorius et al., 2012; Quik et al., 2015; 2011) our aim was to model plastic fate mechanistically within uncertainty limits, but even more so to launch a concept that can trigger further development of models.",
+      "startOffset" : 48,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 5,
+      "context" : "The suspended solids kaolin clay (Fluka 60609) or bentonite clay (Sigma 285234) were dispersed at a concentration of 5 mg/L, which is a representative value for rivers with low discharge (Barton et al., 2014; Labille et al., 2015).",
+      "startOffset" : 187,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 36,
+      "context" : "The suspended solids kaolin clay (Fluka 60609) or bentonite clay (Sigma 285234) were dispersed at a concentration of 5 mg/L, which is a representative value for rivers with low discharge (Barton et al., 2014; Labille et al., 2015).",
+      "startOffset" : 187,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 60,
+      "context" : "Either 70 nm or 1050 nm polystyrene (Besseling et al., 2014b; Velzeboer et al., 2014) was mixed with the lake water at a concentration of 50 mg/L.",
+      "startOffset" : 36,
+      "endOffset" : 85
+    }, {
+      "referenceID" : 36,
+      "context" : "This agrees to recent approaches to determine ahet for engineered nanomaterials (Labille et al., 2015; Quik et al., 2014b).",
+      "startOffset" : 80,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 62,
+      "context" : "Supernatants were sampled after settling times of 20 and 40 min, 1, 4 and 6 h and 1e3 days and directly measured by Dynamic Light Scattering (DLS), using a Cobolt Samba-300 DPSS laser at a wavelength of 532 nm, an ALV7002-USB as correlator and an ALV PM-15 as detector (Wegner et al., 2012), with linear calibration lines between 0 and 50 mg/L (R2 > 0.",
+      "startOffset" : 269,
+      "endOffset" : 290
+    }, {
+      "referenceID" : 49,
+      "context" : "The fate of microplastic was modeled with the NanoDUFLOW model (Quik et al., 2015), parameterized for the investigation of plastic particle behaviour in riverine systems, including for the first time nano, micro- and millimetre sized plastic particles.",
+      "startOffset" : 63,
+      "endOffset" : 82
+    }, {
+      "referenceID" : 1,
+      "context" : "Using traditional particle model concepts that were, amongst others, used for suspended solids, colloids and algae (Atteia, 1998; Burd and Jackson, 2009; Farley and Morel, 1986) and more recently in (nano-)particle transport models (Meesters et al.",
+      "startOffset" : 115,
+      "endOffset" : 177
+    }, {
+      "referenceID" : 21,
+      "context" : "Using traditional particle model concepts that were, amongst others, used for suspended solids, colloids and algae (Atteia, 1998; Burd and Jackson, 2009; Farley and Morel, 1986) and more recently in (nano-)particle transport models (Meesters et al.",
+      "startOffset" : 115,
+      "endOffset" : 177
+    }, {
+      "referenceID" : 45,
+      "context" : "Using traditional particle model concepts that were, amongst others, used for suspended solids, colloids and algae (Atteia, 1998; Burd and Jackson, 2009; Farley and Morel, 1986) and more recently in (nano-)particle transport models (Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015; 2011; Sani-Kast et al., 2015), we described plastic particle behaviour as a function of the (plastic) particle related processes homo- and heteroaggregation, sedimentation based on Stokes settling theory, and degradation, dissolution, resuspension and burial.",
+      "startOffset" : 232,
+      "endOffset" : 329
+    }, {
+      "referenceID" : 48,
+      "context" : "Using traditional particle model concepts that were, amongst others, used for suspended solids, colloids and algae (Atteia, 1998; Burd and Jackson, 2009; Farley and Morel, 1986) and more recently in (nano-)particle transport models (Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015; 2011; Sani-Kast et al., 2015), we described plastic particle behaviour as a function of the (plastic) particle related processes homo- and heteroaggregation, sedimentation based on Stokes settling theory, and degradation, dissolution, resuspension and burial.",
+      "startOffset" : 232,
+      "endOffset" : 329
+    }, {
+      "referenceID" : 49,
+      "context" : "Using traditional particle model concepts that were, amongst others, used for suspended solids, colloids and algae (Atteia, 1998; Burd and Jackson, 2009; Farley and Morel, 1986) and more recently in (nano-)particle transport models (Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015; 2011; Sani-Kast et al., 2015), we described plastic particle behaviour as a function of the (plastic) particle related processes homo- and heteroaggregation, sedimentation based on Stokes settling theory, and degradation, dissolution, resuspension and burial.",
+      "startOffset" : 232,
+      "endOffset" : 329
+    }, {
+      "referenceID" : 53,
+      "context" : "Using traditional particle model concepts that were, amongst others, used for suspended solids, colloids and algae (Atteia, 1998; Burd and Jackson, 2009; Farley and Morel, 1986) and more recently in (nano-)particle transport models (Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015; 2011; Sani-Kast et al., 2015), we described plastic particle behaviour as a function of the (plastic) particle related processes homo- and heteroaggregation, sedimentation based on Stokes settling theory, and degradation, dissolution, resuspension and burial.",
+      "startOffset" : 232,
+      "endOffset" : 329
+    }, {
+      "referenceID" : 36,
+      "context" : "While theoretically more than one microplastic particle can attach to one suspended solid, it has been demonstrated for nanoparticles that the chance this happens is low (Labille et al., 2015; Praetorius et al., 2012; Quik et al., 2014a).",
+      "startOffset" : 170,
+      "endOffset" : 237
+    }, {
+      "referenceID" : 48,
+      "context" : "While theoretically more than one microplastic particle can attach to one suspended solid, it has been demonstrated for nanoparticles that the chance this happens is low (Labille et al., 2015; Praetorius et al., 2012; Quik et al., 2014a).",
+      "startOffset" : 170,
+      "endOffset" : 237
+    }, {
+      "referenceID" : 49,
+      "context" : "S5), and (b) the attachment efficiency (Quik et al., 2015) (Eq.",
+      "startOffset" : 39,
+      "endOffset" : 58
+    }, {
+      "referenceID" : 38,
+      "context" : "The DUFLOW hydrological component for the Dommel has previously been validated (Langeveld et al., 2013).",
+      "startOffset" : 79,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 1,
+      "context" : "S5), following traditional approaches for nonnanoparticles (Atteia, 1998; Farley and Morel, 1986).",
+      "startOffset" : 59,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 21,
+      "context" : "S5), following traditional approaches for nonnanoparticles (Atteia, 1998; Farley and Morel, 1986).",
+      "startOffset" : 59,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 36,
+      "context" : "Due to the relatively low concentration of the spherical plastic particles compared to suspended solids, homoaggregation plays a negligible role compared to heteroaggregation (Labille et al., 2015; Quik et al., 2015; Therezien et al., 2014), which renders the model output insensitive to uncertainty in the attachment efficiency for homoaggregation.",
+      "startOffset" : 175,
+      "endOffset" : 240
+    }, {
+      "referenceID" : 49,
+      "context" : "Due to the relatively low concentration of the spherical plastic particles compared to suspended solids, homoaggregation plays a negligible role compared to heteroaggregation (Labille et al., 2015; Quik et al., 2015; Therezien et al., 2014), which renders the model output insensitive to uncertainty in the attachment efficiency for homoaggregation.",
+      "startOffset" : 175,
+      "endOffset" : 240
+    }, {
+      "referenceID" : 58,
+      "context" : "Due to the relatively low concentration of the spherical plastic particles compared to suspended solids, homoaggregation plays a negligible role compared to heteroaggregation (Labille et al., 2015; Quik et al., 2015; Therezien et al., 2014), which renders the model output insensitive to uncertainty in the attachment efficiency for homoaggregation.",
+      "startOffset" : 175,
+      "endOffset" : 240
+    }, {
+      "referenceID" : 1,
+      "context" : "The importance and the uncertainty of the attachment efficiency for heteroaggregation (ahet) may be higher (Atteia, 1998; Barkmann et al., 2010; Barton et al., 2014; Praetorius et al., 2012; Quik et al., 2014a; Simon et al., 2002).",
+      "startOffset" : 107,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 5,
+      "context" : "The importance and the uncertainty of the attachment efficiency for heteroaggregation (ahet) may be higher (Atteia, 1998; Barkmann et al., 2010; Barton et al., 2014; Praetorius et al., 2012; Quik et al., 2014a; Simon et al., 2002).",
+      "startOffset" : 107,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 48,
+      "context" : "The importance and the uncertainty of the attachment efficiency for heteroaggregation (ahet) may be higher (Atteia, 1998; Barkmann et al., 2010; Barton et al., 2014; Praetorius et al., 2012; Quik et al., 2014a; Simon et al., 2002).",
+      "startOffset" : 107,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 54,
+      "context" : "The importance and the uncertainty of the attachment efficiency for heteroaggregation (ahet) may be higher (Atteia, 1998; Barkmann et al., 2010; Barton et al., 2014; Praetorius et al., 2012; Quik et al., 2014a; Simon et al., 2002).",
+      "startOffset" : 107,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 30,
+      "context" : ", 2015a, 2015b)), another fraction of plastic particles entering aquatic systems like river Dommel can be assumed to be already colonized by biofilms (Kiørboe et al., 2003; Lobelle and Cunliffe, 2011; McCormick et al., 2014; Xiao and Wiesner, 2013; Ye and Andrady, 1991; Zardus et al., 2008) and it is likely that this affects the hydrodynamics of the particle behaviour.",
+      "startOffset" : 150,
+      "endOffset" : 291
+    }, {
+      "referenceID" : 42,
+      "context" : ", 2015a, 2015b)), another fraction of plastic particles entering aquatic systems like river Dommel can be assumed to be already colonized by biofilms (Kiørboe et al., 2003; Lobelle and Cunliffe, 2011; McCormick et al., 2014; Xiao and Wiesner, 2013; Ye and Andrady, 1991; Zardus et al., 2008) and it is likely that this affects the hydrodynamics of the particle behaviour.",
+      "startOffset" : 150,
+      "endOffset" : 291
+    }, {
+      "referenceID" : 44,
+      "context" : ", 2015a, 2015b)), another fraction of plastic particles entering aquatic systems like river Dommel can be assumed to be already colonized by biofilms (Kiørboe et al., 2003; Lobelle and Cunliffe, 2011; McCormick et al., 2014; Xiao and Wiesner, 2013; Ye and Andrady, 1991; Zardus et al., 2008) and it is likely that this affects the hydrodynamics of the particle behaviour.",
+      "startOffset" : 150,
+      "endOffset" : 291
+    }, {
+      "referenceID" : 64,
+      "context" : ", 2015a, 2015b)), another fraction of plastic particles entering aquatic systems like river Dommel can be assumed to be already colonized by biofilms (Kiørboe et al., 2003; Lobelle and Cunliffe, 2011; McCormick et al., 2014; Xiao and Wiesner, 2013; Ye and Andrady, 1991; Zardus et al., 2008) and it is likely that this affects the hydrodynamics of the particle behaviour.",
+      "startOffset" : 150,
+      "endOffset" : 291
+    }, {
+      "referenceID" : 65,
+      "context" : ", 2015a, 2015b)), another fraction of plastic particles entering aquatic systems like river Dommel can be assumed to be already colonized by biofilms (Kiørboe et al., 2003; Lobelle and Cunliffe, 2011; McCormick et al., 2014; Xiao and Wiesner, 2013; Ye and Andrady, 1991; Zardus et al., 2008) and it is likely that this affects the hydrodynamics of the particle behaviour.",
+      "startOffset" : 150,
+      "endOffset" : 291
+    }, {
+      "referenceID" : 66,
+      "context" : ", 2015a, 2015b)), another fraction of plastic particles entering aquatic systems like river Dommel can be assumed to be already colonized by biofilms (Kiørboe et al., 2003; Lobelle and Cunliffe, 2011; McCormick et al., 2014; Xiao and Wiesner, 2013; Ye and Andrady, 1991; Zardus et al., 2008) and it is likely that this affects the hydrodynamics of the particle behaviour.",
+      "startOffset" : 150,
+      "endOffset" : 291
+    }, {
+      "referenceID" : 46,
+      "context" : "4 mm thick biofilm layer, representing average bacteria width (Pernthaler et al., 1996), with a density of 1250 kg/m3, representing the density of organic matter (Avnimelech et al.",
+      "startOffset" : 62,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 2,
+      "context" : ", 1996), with a density of 1250 kg/m3, representing the density of organic matter (Avnimelech et al., 2001).",
+      "startOffset" : 82,
+      "endOffset" : 107
+    }, {
+      "referenceID" : 45,
+      "context" : "Attachment efficiencies are heterogeneous in nature, but previous work has shown that on the system level, average values can be used (De Klein et al., 2016; Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015).",
+      "startOffset" : 134,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 48,
+      "context" : "Attachment efficiencies are heterogeneous in nature, but previous work has shown that on the system level, average values can be used (De Klein et al., 2016; Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015).",
+      "startOffset" : 134,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 49,
+      "context" : "Attachment efficiencies are heterogeneous in nature, but previous work has shown that on the system level, average values can be used (De Klein et al., 2016; Meesters et al., 2014; Praetorius et al., 2012; Quik et al., 2015).",
+      "startOffset" : 134,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 52,
+      "context" : "Although being subject to uncertainty, biofilms have been found to increase the attachment efficiency of nanoparticles 2e3 times (Quik et al., 2011; Xiao and Wiesner, 2013).",
+      "startOffset" : 129,
+      "endOffset" : 172
+    }, {
+      "referenceID" : 64,
+      "context" : "Although being subject to uncertainty, biofilms have been found to increase the attachment efficiency of nanoparticles 2e3 times (Quik et al., 2011; Xiao and Wiesner, 2013).",
+      "startOffset" : 129,
+      "endOffset" : 172
+    }, {
+      "referenceID" : 0,
+      "context" : "By default, microplastic was assigned a density of 1040 kg/m3, which is the average of polymer densities found in the marine environment (Andrady, 2011).",
+      "startOffset" : 137,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 20,
+      "context" : "This concentration represents the average order of magnitude of published concentrations of microplastic in freshwater (Table S2) (Besseling et al., 2014a; Eriksen et al., 2013; Faure et al., 2012; Lechner et al., 2014).",
+      "startOffset" : 130,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 22,
+      "context" : "This concentration represents the average order of magnitude of published concentrations of microplastic in freshwater (Table S2) (Besseling et al., 2014a; Eriksen et al., 2013; Faure et al., 2012; Lechner et al., 2014).",
+      "startOffset" : 130,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 39,
+      "context" : "This concentration represents the average order of magnitude of published concentrations of microplastic in freshwater (Table S2) (Besseling et al., 2014a; Eriksen et al., 2013; Faure et al., 2012; Lechner et al., 2014).",
+      "startOffset" : 130,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 49,
+      "context" : "Besides this ‘realistic’ simulation, we performed simulations that studied the proportionality of predicted concentrations to the initial concentration, because initial concentration might as such affect the fate of particles (Quik et al., 2015).",
+      "startOffset" : 226,
+      "endOffset" : 245
+    }, {
+      "referenceID" : 5,
+      "context" : "There are several published methods to estimate ahet values from experimental aggregation data (Barton et al., 2014; Labille et al., 2015; Praetorius et al., 2014; Quik et al., 2014b), the discussion of which is beyond the scope of this hydrological modeling paper.",
+      "startOffset" : 95,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 36,
+      "context" : "There are several published methods to estimate ahet values from experimental aggregation data (Barton et al., 2014; Labille et al., 2015; Praetorius et al., 2014; Quik et al., 2014b), the discussion of which is beyond the scope of this hydrological modeling paper.",
+      "startOffset" : 95,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 47,
+      "context" : "There are several published methods to estimate ahet values from experimental aggregation data (Barton et al., 2014; Labille et al., 2015; Praetorius et al., 2014; Quik et al., 2014b), the discussion of which is beyond the scope of this hydrological modeling paper.",
+      "startOffset" : 95,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 5,
+      "context" : "Here, we pragmatically estimated ahet values for two near-spherical plastic particle sizes with two clay types in three combinations in natural freshwater following a procedure previously applied to nanoparticles (Barton et al., 2014).",
+      "startOffset" : 213,
+      "endOffset" : 234
+    }, {
+      "referenceID" : 36,
+      "context" : "bentonite) slightly affected ahet, which confirms earlier findings that attachment efficiencies in the environment partly depend on the characteristics of suspended solids (Labille et al., 2015).",
+      "startOffset" : 172,
+      "endOffset" : 194
+    }, {
+      "referenceID" : 5,
+      "context" : "2 and thus are close to the values that were taken from the literature to motivate our default values (Barton et al., 2014; Xiao andWiesner, 2013) and therefore support using these values in the modeling, as discussed further in the next sections.",
+      "startOffset" : 102,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 33,
+      "context" : "By combining these accumulation rates with the loss rates from the sediment by burial, steady state concentrations can be calculated (Koelmans et al., 2009; Quik et al., 2014a).",
+      "startOffset" : 133,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 49,
+      "context" : "Here, spatial characteristics relate to differences in river width, depth and flow rate (Table S1) resulting in net sedimentation and resuspension areas (Quik et al., 2015).",
+      "startOffset" : 153,
+      "endOffset" : 172
+    }, {
+      "referenceID" : 49,
+      "context" : "S7, Table S4B) (Quik et al., 2015), causing that homoaggregate concentrations are not visible in Fig.",
+      "startOffset" : 15,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 35,
+      "context" : "However, for such plastic particles, dispersion into the water column will still occur due to common mixing and shear or due to wind induced mixing of surface water (Kukulka et al., 2012), after which they will rapidly heteroaggregate with suspended solids.",
+      "startOffset" : 165,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 56,
+      "context" : "Alternatively, the low density polymers (<1000 kg/m3) are likely to aggregate with natural or anthropogenic non-polymer particles in the surface microlayer (SML), where particle concentrations are high (Song et al., 2014).",
+      "startOffset" : 202,
+      "endOffset" : 221
+    }, {
+      "referenceID" : 57,
+      "context" : "Tyre dust, abrasion and shedding from polymer based textiles (Sundt et al., 2014), or personal care products (PCPs) (Gouin et al.",
+      "startOffset" : 61,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 26,
+      "context" : ", 2014), or personal care products (PCPs) (Gouin et al., 2015) are often mentioned with respect to emissions to sea.",
+      "startOffset" : 42,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 57,
+      "context" : "Microplastic particles in personal care products are reported to range between 1 and 800 mm (Sundt et al., 2014).",
+      "startOffset" : 92,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 12,
+      "context" : "Recently, the occurrence of microplastic in freshwater sediments has been experimentally confirmed (Corcoran et al., 2015; Wagner et al., 2014).",
+      "startOffset" : 99,
+      "endOffset" : 143
+    } ],
+    "year" : 2016,
+    "abstractText" : "Riverine transport to the marine environment is an important pathway for microplastic. However, information on fate and transport of nanoand microplastic in freshwater systems is lacking. Here we present scenario studies on the fate and transport of nano-to millimetre sized spherical particles like microbeads (100 nme10 mm) with a state of the art spatiotemporally resolved hydrological model. The model accounts for advective transport, homoand heteroaggregation, sedimentation-resuspension, polymer degradation, presence of biofilm and burial. Literature data were used to parameterize the model and additionally the attachment efficiency for heteroaggregation was determined experimentally. The attachment efficiency ranged from 0.004 to 0.2 for 70 nm and 1050 nm polystyrene particles aggregating with kaolin or bentonite clays in natural freshwater. Modeled effects of polymer density (1 e1.5 kg/L) and biofilm formation were not large, due to the fact that variations in polymer density are largely overwhelmed by excess mass of suspended solids that form heteroaggregates with microplastic. Particle size had a dramatic effect on the modeled fate and retention of microplastic and on the positioning of the accumulation hot spots in the sediment along the river. Remarkably, retention was lowest (18e25%) for intermediate sized particles of about 5 mm, which implies that the smaller submicron particles as well as larger microand millimetre sized plastic are preferentially retained. Our results suggest that river hydrodynamics affect microplastic size distributions with profound implications for emissions to marine systems. © 2016 Elsevier Ltd. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

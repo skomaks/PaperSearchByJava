@@ -1,0 +1,580 @@
+{
+  "name" : "_cyber.sci-hub.se_MTAuMTAxNi9qLnJlc3MuMjAxNi4wOC4wMjQ=_leiva2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "A methodology based on the Birnbaum-Saunders distribution for reliability analysis applied to nano-materials",
+    "authors" : [ "Víctor Leiva", "Fabrizio Ruggeri", "Helton Saulo", "Juan F. Vivanco", "Vı́ctor Leiva", "Adolfo Ibáñez" ],
+    "emails" : [ "victorleivasanchez@gmail.com." ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Keywords Bayesian analysis; Hardness data; Markov chain Monte Carlo method; R software.\n∗Corresponding author: Vı́ctor Leiva. Email: victorleivasanchez@gmail.com. URL: www.victorleiva.cl"
+    }, {
+      "heading" : "1 Introduction",
+      "text" : "Among the different existing life distributions, the Birnbaum-Saunders (BS) model has received significant attention; see Leiva (2016). The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials. This distribution is an ingenious probabilistic model that describes fatigue life. For this reason, it is also known as the fatigue-life distribution. Specifically, the BS distribution relates time until the failure of material specimens exposed to fatigue produced by cumulative damage generated from cyclical stress and tension; see Leiva and Saunders (2015). The BS distribution has been widely applied to reliability studies; see Birnbaum and Saunders (1969a), Rieck and Nedelman (1991), Sutherland and Soares (1997), Owen and Padgett (1999, 2000), Guiraud et al. (2009), Pan and Balakrishnan (2011), Villegas et al. (2011), Barros et al. (2014), Leiva et al. (2014) and Marchant et al. (2016a,b).\nThe BS distribution has several interesting properties. For example, it is positively skewed (asymmetry to the right) and has two parameters modifying its shape and scale, a failure rate with upsidedown bathtub shape, and a close relation with the normal distribution; see Johnson et al. (1995, pp. 651-663) and Leiva (2016). The asymmetrical shape of its probability density function (PDF) allows us to think about the median as a more suitable centrality measure than the mean. Another interesting property of the BS distribution is that its scale parameter is also its median. Therefore, the BS distribution can be seen as an analogue, but in an asymmetrical setting, to the normal distribution, which is symmetrical with one of its parameters being the mean of the distribution. This nice property of the BS distribution is not shared by other life distributions often used in reliability analysis, such as gamma, lognormal and Weibull distributions. Thus, the BS distribution seems more appropriate considering medians instead of means when comparing two treatments for response variables following asymmetrical distributions. As far as we know, hypothesis testing for the comparison of medians or means under BS distributions has not been studied in the literature so far.\nBayesian approaches for the BS distribution have been tackled by some authors. Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation. Cancho et al. (2010) developed a Bayesian approach for BS-Student-t log-linear models under rightcensored survival data. Farias and Lemonte (2011) derived BS non-linear regression models based on Bayesian inference. Recent works on Bayesian methods in BS models are due to Moala et al. (2015), Sun and Shi (2016) and Wang et al. (2016). To the best of our knowledge, no Bayesian hypothesis tests have been developed to compare medians/means in BS distributions.\nIn an effort to evaluate reliability of structures and devices, mechanical properties of different type of materials have been evaluated in the last decade. For example, Liu et al. (2008) investigated the fatigue reliability of railroad wheel by studying crack propagation in a multiaxial loading condition. Crookston et al. (2011) analyzed reliability behavior of wood plastic composites during extrusion fabrication processes by using parametric and non-parametric methods. In addition, structural and reliability analysis has been conducted in army related applications, where, for example, Cordes et al.\n(2009) estimated the probability of yielding and failure on mechanical properties of mortar projectiles. Similarly, Wu et al. (2016) proposed an indirect probability model to evaluate the reliability of multi-body mechanisms based on dynamic properties. More recently, it has been of great interest to evaluate the reliability on mechanical performance of nano-materials. Padmanabhan and Prabu (2009) pointed out that factors as creep, fatigue, fracture, and surface, along with interface, phase and thermal stabilities, are considered to increase the reliability of nano-structures. Regarding biomaterials modified with nano-particles, Slane et al. (2014) studied the influence of mesoporous silica on the reliability of bone cement mechanical properties by using the Weibull distribution.\nAcrylic bone cement is a brittle material commonly used in clinical practice. This cement has been used in a variety of applications; see Slane et al. (2014). Particularly, they are used for anchoring orthopedic implants to bone and often considered the ‘gold standard’ in terms of implant fixation; see Hailer et al. (2010). However, mechanical failure of the cement mantle around an implant can contribute to aseptic loosening, which is the primary cause of revision arthroplasty; see Sonntag et al. (2012) and Adelani et al. (2013). Stewart and O’Connor (2012) applied the principles of structural reliability theory to optimize the design and performance of biomedical implants. Enhancement of the static and dynamic mechanical properties of bone cement can be done through the incorporation of nano-particles and fiber inside the cement matrix. In this sense, the use of mesoporous silica nano-particles (MSNs) as a polymer reinforcement presents a high potential mainly due to their small particle size, large surface area, high pore volume and homogeneous structure; see Izquierdo-Barba et al. (2008) and Zhang et al. (2010). No comparison between differently treated materials has been conducted with non-classical statistical methods, which can lead to new results for the mentioned materials.\nThe main objective of this paper is to derive a methodology based on the BS distribution, which allows us to compare several treatments by using a Bayesian approach. Therefore, by applying the methodology presented in this research, we are able to assess the mechanical reliability of a commercially bone cement modified with MSNs. The application of this methodology is implemented in the R software; see www.R-project.org and R-Team (2015). This permits us to investigate the influence of different loadings of MSNs on mechanical properties through hardness of bone cement by using Bayesian inference. Experimental hardness data obtained from micro-indentation testing and collected by the authors are assumed to follow a BS distribution. This testing takes into account the indentation load applied in the material and the average diagonal of the indent; see Slane et al. (2014). Due to the genesis from which the BS distribution arises (see Leiva, 2016, pp. 1-11), it seems to be a good model to describe mechanical properties as hardness data of nano-materials.\nAfter this introduction, we have organized the paper as follows. Section 2 presents a brief background on the BS distribution and Bayesian methods. Some further properties of the BS distribution, as well as details of the formulas for reliability and Bayesian analyses used in this section, are presented in Appendixes A1 and A2. Then, the novel methodology is derived based on the BS distribution and a Bayesian approach to quantify the impact on hardness properties of the incorporation of MSNs inside the bone cement. As described at the end of this section, the methodology is useful for reliability analysis. Section 3 applies the derived methodology to hardness data sets under different treatments by using the R software. Finally, Section 4 provides some discussion, the conclusions of this work and future research on the topic."
+    }, {
+      "heading" : "2 The proposed methodology",
+      "text" : "In this section, we introduce the BS distribution. Then, we present a Bayesian approach, along with the estimation procedure and the reliability analysis, as well as the corresponding hypothesis testing."
+    }, {
+      "heading" : "2.1 The Birnbaum-Saunders distribution",
+      "text" : "If a random variable T follows a BS distribution with shape α > 0 and scale β > 0 parameters, the notation T ∼ BS(α, β) is used. Then, the cumulative distribution function (CDF) of T is given by\nFT (t;α, β) = Φ\n( 1\nα\n(√ t β − √ β t )) , t > 0, (1)\nwhere Φ is the CDF of the standard normal distribution, denoted by N(0, 1). From (1), the PDF of T is expressed as\nfT (t;α, β) = 1√ 2π exp ( − 1 2α2 ( t β + β t − 2 )) t−3/2(t+ β) 2α √ β , t > 0. (2)\nSome properties and features of the BS distribution are detailed in Appendixes A1."
+    }, {
+      "heading" : "2.2 A Bayesian approach",
+      "text" : "Bayesian methods allow for statistical inference on a parameter θ based on two different sources of information: experimental evidence (through the likelihood function) and experts’ knowledge (through the prior distribution). Here, θ is a parameter vector to be estimated whose dimension depends on each distribution.\nLet T = (T1, . . . , Tn) be a random sample from a PDF f(t; θ) and t = (t1, . . . , tn) be the observations of T . Then, the likelihood function is given by L(θ|t) =∏ni=1 f(ti; θ).\nThe expert’s opinion is expressed through a prior distribution π(θ). By using the Bayes theorem, π(θ) is updated after considering t such that the posterior distribution is given by\nπ(θ|t) = L(θ|t)π(θ)∫ L(ω|t)π(ω)dω , (3)\nwhere ω is an integration variable. Inference, forecasting and decisions can then be based on the posterior distribution given in (3).\nSuppose hardness is measured for a material and an observed sample t = (t1, . . . , tn) is drawn. Consider a BS distribution for modeling hardness with θ = (α, β) . In addition, consider the inverse gamma (IG) model with parameters a and b (denoted by IG(a, b)) as the prior distribution of α2, whereas the prior distribution of β has a PDF π(β). Note that, although we consider distributions about α2, we prefer to use α from now on because it is the parameter of the BS distribution. Of course, α is the square root of a value sampled from the distribution of α2. Then, from (2) and (3), the PDF π(α, β|t) of the corresponding posterior distribution is proportional to\nexp ( − 1 2α2 n∑ i=1 ( ti β + β ti − 2 )) ∏n i=1(ti + β) (α2)n/2βn/2 exp (−b/α2) (α2)a+1 π(β).\nAs a consequence, it follows that α|β, t ∼ IG ( a + n\n2 , b+\n1\n2 n∑ i=1 ( ti β + β ti − 2 )) ; (4)\nπ(β|α, t) ∝ exp ( − 1 2α2 n∑ i=1 ( ti β + β ti − 2 )) ∏n i=1(ti + β) βn/2 π(β).\nThe availability of the conditional distributions allows the application of a Gibbs sampling algorithm with a Metropolis-Hastings (MH) step. This is a particular MCMC method, which permits us to get a sample from the posterior distributions of α and β by recursive draws. At the (i + 1)th iteration, a new value α(i+1) is obtained from the IG distribution given in (4), depending on β(i). Then, β(i+1) is generated with the MH step, since the conditional distribution on β is known apart from a constant. Thus, a value β(i)∗ is drawn from a given proper distribution q (for example, a gamma distribution with mean equal to β(i) and variance fixed previously) and accepted as β(i+1) with probability\np = min { 1,\nπ(β(i)∗|α(i+1), t) π(β(i)|α(i+1), t) q(β(i)|β(i)∗) q(β(i)∗|β(i))\n} ;\notherwise, β(i+1) = β(i). Diagnostics are available to check if {α(i), β(i)}Ni=1 is a sample from the posterior distributions of α and β. For more details on the MCMC method, the interested reader is referred to, for example, Gamerman and Lopes (2006)."
+    }, {
+      "heading" : "2.3 Estimation",
+      "text" : "Posterior means are, in general, estimators of the quantities of interest. Its foundational justification (far beyond the objective of the current paper) arises from the minimization of the expected loss under a square loss function. From (10) and (11), mean and median of the BS distribution are estimated, respectively, by ∑N\ni=1 β (i) ( 1 + (α(i))2/2 ) N ,\n∑N i=1 β (i)\nN .\nIt is possible to construct credible intervals (CI) –the Bayesian counterpart of the frequentist confidence intervals– about posterior median and mean, as well as the quantities to be presented next. As an example, given the sample {α(i), β(i)}Ni=1 from the posterior distribution, then a sample {β(i)(1 + (α(i))2/2)}Ni=1 is obtained for the posterior mean. Hence, a 100(1−γ)% CI is obtained by considering the range spanned by the values sampled from the MCMC method, when removing the smallest and largest (γ/2)N (or the closest integers) values."
+    }, {
+      "heading" : "2.4 Reliability analysis",
+      "text" : "Different materials can be compared considering the reliability function (RF) of T given by\nP(T > t|t) ≈ 1 N N∑ i=1 Φ\n( 1\nα(i)\n(√ β(i) t − √ t β(i) )) . (5)\nFor details about the approximation given in (5), see expression (12) in Appendix A2. Consider two materials with hardness T1 ∼ BS(α1, β1) and T2 ∼ BS(α2, β2), respectively, and the corresponding observed samples t1 and t2. Let T1 and T2 be independent random variables. We denote the RF of T1 as R1(t|α1, β1), whereas f2(t|α2, β2) denotes the PDF of T2. The materials can be compared by\nP(T1 > T2|t1, t2) ≈ 1\nN1N2 N1∑ i=1 N2∑ j=1 ∫ R1(t|α(i)1 , β(i)1 )f2(t|α(j)2 , β(j)2 )dt, (6)\nwhere N1 and N2 are the sizes of the posterior samples for the first and second material, respectively. For details about the approximation given in (6), see expression (13) in Appendix A2. The proper Bayesian estimator of P(T1 > T2|t1, t2) is given by (6), which has the drawback of requiring N1N2 integrations to be performed. The Monte Carlo method can be used for carrying out this integration. An alternative estimator, and easier to compute, is provided by\nP̂(T1 > T2|t1, t2) ≈ ∫ R1(t|α̂1, β̂1)f2(t|α̂2, β̂2)dt, (7)\nwhere the parameter estimates are plugged in and so just one integral is computed. Although the error incurred when considering (7) instead of (6) cannot be quantified, one can consider only the former for practical reasons. This alternative estimator is also used in other situations, for example, in the estimation of the mean value function of a non-homogeneous Poisson process; see Pievatolo and Ruggeri (2010)."
+    }, {
+      "heading" : "2.5 Shift of the median",
+      "text" : "We consider the hardness of two different materials and model their medians (β in the BS distribution) with exp(μ) and exp(μ+ δ), respectively. Therefore, the effect of two treatments can be detected through δ. A negative (positive) value for δ implies a decrease (increase) of the median, denoting a smaller (larger) hardness. No significant difference between the two materials is detected when δ = 0. We suppose that the materials share the same α in the BS distribution; otherwise computations are modified accordingly. For a justification of the assumption of a common α, see application section.\nIn order to do the comparison of the hardness of two different materials, data are arranged as t = (t1, . . . , tm, tm+1, . . . , tn)\n, where the first m values refer to the material with median exp(μ) and the remaining n −m to the other material. A Gibbs sampling with MH steps is considered by using the PDFs of the posterior distribution of (α, μ, δ) and the corresponding conditional distributions given in (14), (15), (16) and (17), respectively; see Appendix A2."
+    }, {
+      "heading" : "2.6 Effect significance",
+      "text" : "We are interested in assessing if there is a positive effect when considering the second material. Thus, we could look at the posterior distribution of δ defined in (15), and, in particular, at a quantity like P(δ > 0|t). Given a sample {α(i), μ(i), δ(i)}Ni=1 from the posterior distribution, then it is possible to estimate P(δ > 0|t) simply counting the frequency of positive values of δ in the sample. Therefore, P(δ > 0|t) can be compared to P(δ ≤ 0|t) and then decide that a positive effect exists if P(δ > 0|t) >\nP(δ ≤ 0|t). The comparison corresponds to performing, in a Bayesian framework, the hypotheses test H0: δ > 0 versus H1: δ ≤ 0. (8) We could also be interested in the test\nH0: δ = 0 versus H1: δ = 0. (9)\nThen, we have two possibilities. A first approach considers a test as in (9). Then, it relies on a prior PDF π(δ) as a mixture of a continuous PDF π0(δ) and a Dirac measure ξ0 (a point mass) at zero, that is, π(δ) = (1− ε)π0(δ) + ε ξ0(δ), where ε denotes the prior probability P(δ = 0). The posterior PDF is given by π∗(δ) = (1 − ε∗)π∗0(δ) + ε∗ξ0(δ), where ε∗ is the posterior probability P(δ = 0|t). Here, H0: δ = 0 is accepted if P(δ = 0|t) > 0.5. The second approach modifies the test given in (9) into H0: |δ| ≤ η versus H1: |δ| > η, with η sufficiently close to zero. In this case, a continuous prior PDF π(δ) could be considered and the null hypothesis is accepted if P(|δ| ≤ η|t) > 0.5. Unilateral tests as given in (8) could be performed similarly. CIs can be obtained either in closed form, when possible, or from a sample from the MCMC method. CIs provide the probability for the parameter(s) to be in predetermined intervals, unlike the confidence intervals. This CI should contain the parameter with a predetermined frequency, upon repeated experiments."
+    }, {
+      "heading" : "3 Application",
+      "text" : "In this section, we summarize the proposed methodology by an algorithm. Then, we illustrate the methodology analyzing experimental data. These data are obtained from a micro-indentation test about hardness of a commercially available polymeric bone cement to evaluate the effect of using nano-particles at different loadings."
+    }, {
+      "heading" : "3.1 Summary of the proposed methodology",
+      "text" : "The proposed methodology is summarized by Algorithm 1."
+    }, {
+      "heading" : "3.2 Description of the problem",
+      "text" : "In clinical practice, bone cement is prepared in situ by a mixing process. It introduces defects on the material, such as inclusions, pores and voids. These material defects present a variation in strength and mechanical properties as hardness. In biomaterials, it is common to use two-parameter life statistical distributions to describe the strength or other mechanical properties of brittle materials. Hence, from an engineering perspective, bone cement behaves as a brittle material to be analyzed by some parameter of a life distribution. Such a parameter characterizes the tighter mechanical properties of the material and therefore its reliability. Thus, by comparing the values of statistical parameters associated with hardness properties in different bone cement materials, one can study the effect of nano-particles on their mechanical response reliability.\nAlgorithm 1 Methodology based on the BS distribution for reliability analysis. 1: Collect n data of the random variable of interest for different treatments in specimens of materials. 2: Carry out an exploratory data analysis to identify candidate distributions to be considered by\n2.1: Computing usual descriptive statistics; 2.2: Plotting histograms to identify the shape of the data distribution; 2.3: Sketching the Mahalanobis distance plot (MD-plot) and box-plots to detect atypical data;\n3: Check the adequacy of the candidate distributions in each treatment with goodness-of-fit methods by 3.1: Applying the Kolmogorov-Smirnov (KS) test and obtaining the corresponding p-value; 3.2: Drawing the probability versus probability plot (PP-plot) with acceptance KS bands; 3.3: Evaluating the coherence between the PP-plot with bands and the corresponding p-value; 4: Select the best distribution that describes the data in each treatment, according to Step 3. 5: Establish prior distributions for the parameters of the selected distribution in Step 4. 6: Estimate the treatment posterior means based on the established distributions in Step 5 by\n6.1: Using a Gibbs sampling; 6.2: Employing an MH step for a sample of size equal to 10,000.\n7: Compare the effects of two treatments for the random variable of interest by 7.1: Constructing 95% CI of δ; 7.2: Estimating P(δ > 0|t) and P(δ ≤ 0|t); 7.3: Determining the reliability P(T1 > T2|t1, t2)."
+    }, {
+      "heading" : "3.3 The data and treatments",
+      "text" : "The data correspond to hardness of a bone cement called Palacos R, treated with low-loadings of MSNs; see Slane et al. (2014). Three types of MSNs are used in loading ratios of 0.1 and 0.2 wt/wt related to the powder of the Palacos R bone cement. These three types are:\n(i) Plain unmodified (SiO2);\n(ii) Propylamine functionalized (NH2); and\n(iii) Propylcarboxylic acid functionalized (COOH).\nWe have the plain cement (Palacos) as a control and six treatments containing MSNs (three particle types and two loading ratios): 0.1% SiO2, 0.2% SiO2, 0.1% NH2, 0.2% NH2, 0.1% COOH and 0.2% COOH. For the control and each treatment, hardness is measured after micro-indentation testing in the material. Table 1 reports the data under a load of 200 gf. We want to verify whether an addition of MSNs increases hardness or not."
+    }, {
+      "heading" : "3.4 Exploratory data analysis and model checking",
+      "text" : "Table 2 provides the median, mean, standard deviation (SD), and coefficients of variation (CV), skewness or asymmetry (CS) and kurtosis (CK) for the data presented in Table 1. Note that the BS distribution can be reasonably assumed to model all of these data sets due to their asymmetric nature and kurtosis level; see also the histograms in Figure 1. Note that the BS distribution is continuous and positively skewed (asymmetry to the right). When its parameter alpha goes to zero, the BS tends to be symmetrical around the scale parameter beta (the median of the distribution). As the shape parameter\nTable 1: value of hardness (in MPa) for the indicated treatment in bone cement specimens. Palacos\n171.16 174.12 173.12 174.39 175.54 175.21 178.12 174.89 180.04 180.69 190.49 177.11 181.12 180.44 184.04 187.67 181.45 176.63 177.75 177.99 0.1% SiO2 184.79 177.69 184.17 183.65 181.07 180.90 179.22 176.93 178.99 178.14 187.55 181.77 182.46 178.43 180.17 181.15 180.18 183.07 179.02 180.71 0.2% SiO2 186.56 177.41 189.76 180.32 185.74 181.50 184.91 180.01 180.27 178.14 198.79 185.19 191.67 184.19 188.25 183.05 188.99 189.81 181.72 185.57 0.1% NH2 189.55 178.42 178.17 177.87 181.02 179.18 177.46 178.10 182.25 179.99 182.19 168.62 178.42 176.15 178.64 180.67 183.52 180.98 174.00 174.29 0.2% NH2 193.83 178.57 180.36 183.87 182.57 186.92 182.50 179.36 179.73 177.36 187.86 174.46 178.84 183.04 179.57 178.15 178.13 184.75 184.31 177.85 0.1% COOH 193.72 178.08 175.34 177.80 182.50 179.22 177.58 179.61 180.18 180.79 181.18 170.63 173.59 179.80 181.01 173.52 176.06 185.03 178.18 177.89 0.2% COOH 169.38 156.11 156.97 156.94 168.68 175.28 163.34 162.35 160.55 158.62 193.66 174.58 171.75 168.03 173.60 173.44 180.79 177.54 177.57 176.47\nalpha increases, the BS distribution has heavier tails. Thus, alpha modifies not only the shape but also the skewness and kurtosis of the distribution. With that said, the choice of the BS distribution for modeling the data under analysis is supported by the results of the descriptive statistics. Also, as mentioned in the introduction of the paper, the genesis from which the BS distribution arises, allows us to assume it to describe micro level hardness of nano-materials adequately.\nTable 2: descriptive statistics for the indicated data set.\nData set n Minimum Median Mean Maximum SD CV CS CK\nPalacos 20 171.15 177.87 178.59 190.49 4.82 2.70% 0.79 3.02 0.1% SiO2 20 176.92 180.80 181.00 187.55 2.67 1.48% 0.60 2.7 0.2% SiO2 20 177.40 185.05 185.09 198.79 5.18 2.80% 0.68 3.19 0.1% NH2 20 168.61 178.52 178.97 189.54 4.18 2.34% 0.01 4.20 0.2% NH2 20 174.45 180.04 181.60 193.83 4.48 2.46% 0.91 3.53 0.1% COOH 20 170.63 178.69 179.08 193.71 4.79 2.67% 1.07 5.15 0.2% COOH 20 156.10 170.56 169.78 193.66 9.64 5.68% 0.38 2.70\nFigure 1 provides the histogram, usual box-plot and adjusted box-plot (abox-plot). The abox-plot should be used for data following a skew distribution, as it occurs in our case; see Hubert and Vanderveeken (2008). In addition, Figure 1 displays the MD-plot and PP-plot with 95% acceptance bands for hardness data in the control and treatment groups under study. Acceptance bands are constructed by using the relation between the KS test and the PP-plot; see Castro-Kuriss et al. (2014). The PPplots allow us to graphically check whether such data follow the BS distribution or not. The box-plots and MD-plots (based on property P3 of Subsection 2.1) are used to detect atypical data. From Figure 1, note that the PP-plots, and the KS p-values, support the BS model. Based on the PP-plots with 95% acceptance bands, the BS model provides a much better fit, in all of the treatments and control, than the Weibull model (often used to describe this type of data). Even more, in some treatments, the Weibull model does not fit these data well. This can be corroborated by the p-values of the KS test\ncorresponding to 0.444, 0.565, 0.909, 0.180, 0.196, 0.110 and 0.791 under the BS distribution. In the case of the Weibull distribution, these p-values are 0.063, 0.083, 0.253, 0.151, 0.086, 0.003 and 0.307. Such KS p-values correspond to each data sets from the treatments: Palacos, 0.1% SiO2, 0.2% SiO2, 0.1% NH2, 0.2% NH2, 0.1% COOH, and 0.2% COOH, respectively. Also, since some data are slightly near the cutoff of the MD-plot, we do not detect a notable influence of them on the estimated model. Nevertheless, a glance at the box-plots indicates that potential outliers considered by the boxplot seem to be indeed outliers when we consider the abox-plot. However, a deeper influence study is needed, but it is beyond the scope of this paper.\n0 1\n2 3\n4 5\n6 7\n170 175 180 185 190 195 hardness\nP D\nF\n0\n0\n1 2\n3 4\n5\n5\n6\n10 15 20 index\nM D\n17 5 17 5\n18 0 18 0\n18 5 18 5\n19 0 19 0\nbox-plot abox-plot\nha rd\nne ss\nha rd\nne ss\nKS p−value = 0.4440.0 0.0\n0.2\n0.2\n0.4\n0.4\n0.6\n0.6\n0.8\n0.8\n1.0\n1.0\nem pi\nri ca\nlC D\nF\ntheoretical CDF\n0 1\n2 3\n4 5\n6 7\n176178180182184186188 hardness\nP D\nF\n0\n0\n1 2\n3 4\n5\n5\n6\n10 15 20 index\nM D\n17 8 17 8\n18 0 18 0\n18 2 18 2\n18 4 18 4\n18 6 18 6\nbox-plot abox-plot\nha rd\nne ss\nha rd\nne ss\nKS p−value = 0.5650.0 0.0\n0.2\n0.2\n0.4\n0.4\n0.6\n0.6\n0.8\n0.8\n1.0\n1.0\nem pi\nri ca\nlC D\nF\ntheoretical CDF\n0 2\n4 6\n8\n175 180 185 190 195 200 hardness\nP D\nF\n0\n0\n1 2\n3 4\n5\n5\n6 7\n10 15 20 index\nM D\n18 0 18 0\n18 5 18 5\n19 0 19 0\n19 5 19 5\nbox-plot abox-plot\nha rd\nne ss\nha rd\nne ss\nKS p−value = 0.90920.0 0.0\n0.2\n0.2\n0.4\n0.4\n0.6\n0.6\n0.8\n0.8\n1.0\n1.0\nem pi\nri ca\nlC D\nF\ntheoretical CDF\n0 2\n4 6\n8 10\n165 170 175 180 185 190 hardness\nP D\nF\n0\n0\n1 2\n3 4\n5\n5\n6 7\n10 15 20 index\nM D\n17 0 17 0\n17 5 17 5\n18 0 18 0\n18 5 18 5\n19 0 19 0\nbox-plot abox-plot\nha rd\nne ss\nha rd\nne ss\nKS p−value = 0.17970.0 0.0\n0.2\n0.2\n0.4\n0.4\n0.6\n0.6\n0.8\n0.8\n1.0\n1.0\nem pi\nri ca\nlC D\nF\ntheoretical CDF\n0 2\n4 6\n8\n170 175 180 185 190 195 hardness\nP D\nF\n0\n0\n2 4\n5\n6\n10 15 20 index\nM D\n17 5 17 5\n18 0 18 0\n18 5 18 5\n19 0 19 0\nbox-plot abox-plot\nha rd\nne ss\nha rd\nne ss\nKS p−value = 0.19620.0 0.0\n0.2\n0.2\n0.4\n0.4\n0.6\n0.6\n0.8\n0.8\n1.0\n1.0\nem pi\nri ca\nlC D\nF\ntheoretical CDF\n0 2\n4 6\n8 10\n170 175 180 185 190 195 hardness\nP D\nF\n0\n0\n2 4\n5\n6 8\n10 15 20 index\nM D\n17 0 17 0\n17 5 17 5\n18 0 18 0\n18 5 18 5\n19 0 19 0\nbox-plot abox-plot\nha rd\nne ss\nha rd\nne ss\nKS p−value = 0.10990.0 0.0\n0.2\n0.2\n0.4\n0.4\n0.6\n0.6\n0.8\n0.8\n1.0\n1.0\nem pi\nri ca\nlC D\nF\ntheoretical CDF\n0 1\n2 3\n4\n160 170 180 190 hardness\nP D\nF\n0\n0\n1 2\n3 4\n5\n5\n6\n10 15 20 index\nM D\n16 0 16 0\n17 0 17 0\n18 0 18 0\n19 0 19 0\nbox-plot abox-plot\nha rd\nne ss\nha rd\nne ss\nKS p−value = 0.79140.0 0.0\n0.2\n0.2\n0.4\n0.4\n0.6\n0.6\n0.8\n0.8\n1.0\n1.0\nem pi\nri ca\nlC D\nF\ntheoretical CDF\nFigure 1: histogram, MD-plot, box-plot and PP-plot with 95% acceptance bands for the Palacos (1st line), 0.1% SiO2 (2nd line), 0.2% SiO2 (3rd line), 0.1% NH2 (4th line), 0.2% NH2 (5th line), 0.1% COOH (6th line) and 0.2% COOH (7th line) data sets."
+    }, {
+      "heading" : "3.5 Estimation results",
+      "text" : "Table 3 lists posterior summaries of the model parameters for each treatment. We obtain these results by using a Gibbs sampling with an MH step for a sample of size equal to 10,000. We monitor the sample autocorrelation and no thinning is necessary. It is important to highlight that thinning a Markov chain may be wasteful as one can always get more precise posterior estimates when the whole Markov chain sample is considered; see MacEachern and Berliner (1994). Note that we must assess whether the Markov chain has reached its stationary distribution, namely, its desired posterior distribution. In fact, it is not possible to have conclusive test results that guarantee the convergence of the Markov chain to its stationary distribution. Nevertheless, we can use some visual and statistical tools to see if the chain converges. In this sense, we use trace plots of samples versus the simulation index. In addition, we employ convergence diagnostic tests, such as the Gelman-Rubin, Raftery-Lewis and Heidelberg-Welch stationarity tests; see Gamerman and Lopes (2006). The trace plots indicate that the chains converge to their stationary distributions. Moreover, these plots suggest that the chains are mixing well, that is, they are transversing their posterior spaces quickly, and jumping from a distant region to another in relatively few steps. We apply the previously mentioned convergence diagnostic tests to assess Markov chain convergence for each parameter α, μ and δ for standard Palacos versus 0.1% SiO2 comparison case. The results are as follows:\n(a) The Gelman-Rubin test results do not provide evidence of non-convergence, since the potential scale reduction factors and their 97.5% quantiles are all less than 1.20 (the values for α, μ and δ are all equal to one in both cases). The multivariate potential scale reduction factor has a value equal to one, which does not indicate non-convergence as well.\n(b) The Raftery-Lewis test results indicate that all dependence factor values (given by 0.99, 0.986 and 0.995, for α, μ and δ, respectively) are closer to one and much less than five, indicating very low correlated samples and marginal convergence.\n(c) The Heidelberg-Welch test indicates the null hypothesis representing the sampled values come from a stationary distribution cannot be rejected at the 5% level (the p-values for α, μ and δ are given by 0.173, 0.833 and 0.174, respectively). Overall, the trace plots and the convergence diagnostic tests show evidence of convergence for all samples analyzed in this study.\nRegarding sensitivity, note that, in general, the estimates are not changing notoriously when different values of the hyperparameters are used. For example, when the value of “a” (hyperparameter) varies from “a/5” to “5a”, the difference in the estimates of α in Table 4 (estimate of α at “a” − estimate of α at “a/5” [or “5a”] ) varies, in general, from 0.015 to −0.011, respectively\nWe compare the hardness of the six treatments related to standard Palacos and percentage of MSN loading ratio. Tables 3 and 4 provide the posterior summaries from which we conclude that:\n(i) The hardness of 0.2% SiO2 is clearly the largest, according to both the estimate of the median β provided by Table 3 and the estimate of δ in the “Palacos versus 0.2% SiO2” case of Table 4.\n(ii) The estimates are very accurate as shown by the small SDs and the corresponding very narrow CIs; see Tables 3 and 4.\n(iii) Related to standard Palacos, the probability P(δ > 0|t) shows that the addition of MSNs significantly increased the hardness with 0.1% SiO2, 0.2% SiO2, 0.1% NH2, 0.2% NH2 and 0.1%\nCOOH. A significant hardness decrease is verified with 0.2% COOH; see Table 4. However, note that only with 0.2% SiO2, the 95% CI does not include the value zero.\n(iv) The small values of the estimates of P(T1 > T2|t1, t2), for the 0.1% SiO2, 0.2% SiO2, 0.1% NH2, 0.2% NH2 and 0.1% COOH treatments, support the results above mentioned in item (iii); see Table 4. These estimates indicate that the hardness related to the mentioned treatments are much larger than the hardness associated with Palacos.\n(v) The probability P(δ > 0|t) suggests that increasing the MSN content from 0.1% to 0.2% significantly increased the hardness for SiO2 and NH2 treatments, but not for COOH; see Table 4. The estimates of P(T1 > T2|t1, t2) also support this result.\nTable 3: Bayesian estimates, SDs and 95% CIs of the indicated BS parameter and data set.\nα β Data set Mean SD 95% CI Mean SD 95% CI\nPalacos 0.101 0.034 (0.055,0.186) 178.536 0.497 (177.28,179.79) 0.1% SiO2 0.100 0.033 (0.054,0.182) 180.984 0.492 (179.71,182.22) 0.2% SiO2 0.101 0.034 (0.055,0.184) 185.029 0.492 (183.79,186.30) 0.1% NH2 0.101 0.034 (0.055,0.185) 178.924 0.495 (177.68,180.19) 0.2% NH2 0.100 0.033 (0.055,0.182) 181.554 0.490 (180.35,182.82) 0.1% COOH 0.101 0.033 (0.055,0.184) 179.027 0.492 (177.76,180.25) 0.2% COOH 0.103 0.034 (0.056,0.185) 169.521 0.497 (168.26,170.78)"
+    }, {
+      "heading" : "4 Conclusions",
+      "text" : "In this work, we have proposed a novel methodology for reliability analysis based on the BirnbaumSaunders distribution and Bayesian inference. The methodology was applied to experimental data of biomaterials modified with nano-particles collected by the authors. When acrylic bone cement is modified with nano-particles, defects as inclusions, pores and voids are added inside the cement matrix. These defects affect mechanical properties of the materials as fatigue, hardness and strength. Such properties must be well modeled by the Birnbaum-Saunders and Weibull distributions. By conducting a reliability analysis, one can study the effect of nano-particles on the mechanical response of the materials.\nThe data are generated from a micro-indentation test about hardness of a commercially available acrylic bone cement (Palacos R). Low-loadings of mesoporous silica nano-particles at two loading ratios (0.1% SiO2, 0.2% SiO2, 0.1% NH2, 0.2% NH2, 0.1 %COOH and 0.2% COOH) are considered. A plain variety and two modified types of nano-particles are tested to assess how this modification impacts the cement’s micro-hardness properties. The results of the application showed that, on the one hand, the Birnbaum-Saunders distribution describes these data much better than the Weibull distribution, often used to model this type of data. On the other hand, the obtained results with the proposed methodology indicated that the loading ratios of mesoporous silica nano-particles (except 0.2% COOH) significantly increased the hardness related to standard Palacos. One of the primary difficulties faced with polymer composites is to achieve a uniform dispersion of the nano-particles\nTable 4: Estimates, SDs, 95% CIs, P(δ > 0|t) and P(T1 > T2|t1, t2) for the indicated comparison. Parameter Mean SD 95% CI P(δ > 0|t) P(δ ≤ 0|t) P(T1 > T2|t1, t2)\nPalacos versus 0.1% SiO2 α 0.116 0.025 (0.077,0.175) μ 5.185 0.010 (5.160,5.210) δ 0.014 0.012 (−0.018,0.044) 0.932 0.068 0.186 Palacos versus 0.2% SiO2 α 0.117 0.026 (0.077,0.178) μ 5.185 0.010 (5.158,5.210) δ 0.036 0.012 (0.004,0.067) 0.982 0.018 0.206 Palacos versus 0.1% NH2 α 0.117 0.026 (0.076,0.176) μ 5.185 0.011 (5.157,5.210) δ 0.002 0.013 (−0.031,0.034) 0.888 0.112 0.221 Palacos versus 0.2% NH2 α 0.117 0.025 (0.076,0.175) μ 5.185 0.010 (5.159,5.211) δ 0.017 0.012 (−0.015,0.048) 0.939 0.061 0.198 Palacos versus 0.1% COOH α 0.117 0.026 (0.077,0.177) μ 5.185 0.010 (5.160,5.211) δ 0.003 0.013 (−0.029,0.034) 0.886 0.046 0.205 Palacos versus 0.2% COOH α 0.118 0.026 (0.077,0.180) μ 5.185 0.010 (5.159,5.210) δ −0.052 0.013 (−0.084,−0.020) 0.006 0.994 0.426 0.1% SiO2 versus 0.2% SiO2 α 0.117 0.026 (0.076,0.177) μ 5.198 0.010 (5.173,5.223) δ 0.022 0.013 (−0.010,0.053) 0.954 0.046 0.162 0.1% NH2 versus 0.2% NH2 α 0.117 0.026 (0.077,0.176) μ 5.187 0.011 (5.161,5.214) δ 0.015 0.012 (−0.014,0.046) 0.941 0.059 0.235 0.1% COOH versus 0.2% COOH α 0.118 0.026 (0.078,0.180) μ 5.188 0.010 (5.162,5.213) δ −0.055 0.013 (−0.087,−0.023) 0.005 0.995 0.433\nas reinforcement in the cement matrix. Thus, for the higher level of nano-particles inclusion (0.2% COOH), it is most likely to obtain agglomerations of particles during fabrication process. Hence, it might occur stress concentration sites inside this matrix leading to a decreasing of mechanical properties.\nFurther work is required to improve particle dispersion and interfacial adhesion on bone cement materials. Also, an additional study should be conducted to quantify the impact of higher mesoporous silica nano-particles loading ratios. The methodology used in this research can be implemented in reliability analysis of another structural based-engineering applications. For example, future research may be conducted in material highway designs and planning, specifically a reliability analysis to manage the time of pavement repairs. Moreover, in modern building material, such as concrete modified with nano-particles, reliability studies could be conducted to estimate the performance of the structures subject to different loading conditions. Similarly, in bioengineering applications, biomaterials\nused in bone tissue regeneration are subject to different body environmental conditions and different physiological loading conditions. Thus, a reliability analysis might be appropriate to estimate the variation of mechanical responses. A reliability study is also beneficial in the development of smart materials, when sensors in micro or nano scale are embedded to measure static or dynamic mechanical performance. Thus, reliability engineering can be part of the progress and development of a variety of material applications. Reliability analyses based on the Birnbaum-Saunders distribution can be of great interest, due to the encouraging results shown by this distribution in the present study."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "The authors thank the Editor-in-Chief, an Associate Editor, and three reviewers for their constructive comments on an earlier version of this manuscript which resulted in this improved version. This research work was partially supported by CNPq and CAPES grants from the Brazilian government and by FONDECYT 1160868 grant from the Chilean government. V. Leiva and H. Saulo thank the support from the Faculty of Management, Accounting and Economic Sciences of the Universidade Federal de Goiás, Goiânia, Brazil."
+    }, {
+      "heading" : "A1: Properties and some features of the BS distribution",
+      "text" : "The mean, variance, CV, CS and CK of T ∼ BS(α, β) are, respectively, given by\nE(T ) = β ( 1 + α2\n2\n) , Var(T ) = β2α2 ( 1 + 5α2\n4\n) , (10)\nCV(T ) = α (5α2 + 4)\n1/2\n(2 + α2) , CS(T ) =\n4α(11α2 + 6)\n(5α2 + 4)3/2 ,\nCK(T ) = 3 + 6α2(40 + 93α2)\n(4 + 5α2)2 .\nSome mathematical properties of the BS distribution are as follows. Let T ∼ BS(α, β). Then, (P1)\nT = β ⎛⎝αZ 2 + (( αZ 2 )2 + 1 )1/2⎞⎠2 , where Z ∼ N(0, 1).\n(P2) From the transformation in (P1) and its monotonicity, it follows\nZ = 1\nα ξ\n( T\nβ\n) ,\nwhere ξ(y) = y1/2 − y−1/2 = 2 sinh(log(y1/2)), for y > 0. (P3) From (P2), W = Z2 follows a chi-squared distribution with one degree of freedom.\n(P4) c T ∼ BS(α, c β), with c > 0. (P5) 1/T ∼ BS(α, 1/β). From (P4) and (P5), note that the BS distribution belongs to scale and closed under reciprocation families, respectively. These properties and (P3) are useful for different purposes. From (P1), note that a random variable with BS distribution is a transformation of another random variable with N(0, 1) distribution. This property allows us to easily obtain the quantile function (QF) of the BS distribution as\nt(q;α, β) = F−1(q;α, β) = β ⎛⎝α z(q) 2 + (( α z(q) 2 )2 + 1 )1/2⎞⎠2 , 0 < q < 1, (11) where z(q) is the N(0, 1) QF (or q× 100th quantile) and F−1 is the inverse function of F given in (1). From (11), note that t(0.5) = β, that is, β is also the median or 50th percentile of the BS distribution."
+    }, {
+      "heading" : "A2: Formulas for reliability and Bayesian analyses",
+      "text" : "Note that P(T > t|t) = ∫ P(T > t|α, β)π(α, β|t) dα dβ\n≈ ∑N\ni=1 P(T > t|α(i), β(i)) N =\n∑N i=1Φ\n( 1\nα(i)\n(√ β(i) t − √ t β(i) )) N . (12)\nIn addition, P(T1 > T2|t1, t2) = ∫ P(T1 > T2|α1, β1, α2, β2)π(α1, β1|t1)π(α2, β2|t2)dα1dβ1dα2dβ2\n= ∫ R1(t|α1, β1)f2(t|α2, β2)π(α1, β1|t1)π(α2, β2|t2)dα1dβ1dα2dβ2dt\n≈ ∑N1 i=1 ∑N2 j=1 ∫ R1(t|α(i)1 , β(i)1 )f2(t|α(j)2 , β(j)2 )dt\nN1N2 , (13)\nwhere P(T1 > T2|α1, β1, α2, β2) = ∫ R1(t|α1, β1)f2(t|α2, β2)dt. The PDF of the posterior distribution of (α, μ, δ) is given by\nπ(α, μ, δ|t) ∝ exp ( − 1 2α2 m∑ i=1 ( ti exp(μ) + exp(μ) ti − 2 )) ∏m i=1(ti + exp(μ)) αm(exp(μ))m/2\n× exp ( − 1 2α2 n∑ i=m+1 ( ti exp(μ+ δ) + exp(μ+ δ) ti − 2 ))\n× ∏n i=m+1(ti + exp(μ+ δ))\nαn−m(exp(μ+ δ))(n−m)/2 exp\n(− b α2 ) α2(a+1) π(μ)π(δ), (14)\nwhere α ∼ IG(a, b) and the PDFs of the other priors are π(μ) and π(δ). The corresponding conditional distributions are as follows. Note that α|μ, δ, t ∼ IG(a1, b1), where a1 = a+ n/2 and\nb1 = b+ 1\n2 m∑ i=1 ( ti exp(μ) + exp(μ) ti − 2 ) + 1 2 n∑ i=m+1 ( ti exp(μ+ δ) + exp(μ+ δ) ti − 2 ) . (15)\nMoreover, π(μ|α, δ, t) ∝ exp ( − 1 2α2 ( n∑\ni=1\n( ti\nexp(μ) +\nexp(μ) ti − 2 ) + n∑ i=m+1 ( ti exp(μ+ δ) + exp(μ+ δ) ti − 2 )))\n× ∏m i=1(ti + exp(μ)) ∏n i=m+1(ti + exp(μ+ δ))\n(exp(μ))n/2 π(μ), (16)\nπ(δ|α, μ, t) ∝ exp ( − 1 2α2 n∑ i=m+1 ( ti exp(μ+ δ) + exp(μ+ δ) ti − 2 ))\n× ∏n i=m+1(ti + exp(μ+ δ))\n(exp(μ+ δ))(n−m)/2 π(δ). (17)"
+    } ],
+    "references" : [ {
+      "title" : "Inferences for the Birnbaum-Saunders fatigue life model using Bayesian methods",
+      "author" : [ "J.A. Achcar" ],
+      "venue" : "Computational Statistics and Data Analysis, 15:367–380.",
+      "citeRegEx" : "Achcar,? 1993",
+      "shortCiteRegEx" : "Achcar",
+      "year" : 1993
+    }, {
+      "title" : "Has total hip arthroplasty in patients 30 years or younger improved? A systematic review",
+      "author" : [ "M. Adelani", "J. Keeney", "A. Palisch", "S. Fowler", "J. Clohisy" ],
+      "venue" : "Clinical Orthopaedics and Related Research, 471:2595–2601.",
+      "citeRegEx" : "Adelani et al\\.,? 2013",
+      "shortCiteRegEx" : "Adelani et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Goodness-of-fit tests for the BirnbaumSaunders distribution with censored reliability data",
+      "author" : [ "M. Barros", "V. Leiva", "R. Ospina", "A. Tsuyuguchi" ],
+      "venue" : "IEEE Transactions on Reliability, 63:543–554.",
+      "citeRegEx" : "Barros et al\\.,? 2014",
+      "shortCiteRegEx" : "Barros et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Estimation for a family of life distributions with applications to fatigue",
+      "author" : [ "Z.W. Birnbaum", "S.C. Saunders" ],
+      "venue" : "Journal of Applied Probability, 6:328–347.",
+      "citeRegEx" : "Birnbaum and Saunders,? 1969a",
+      "shortCiteRegEx" : "Birnbaum and Saunders",
+      "year" : 1969
+    }, {
+      "title" : "A new family of life distributions",
+      "author" : [ "Z.W. Birnbaum", "S.C. Saunders" ],
+      "venue" : "Journal of Applied Probability, 6:319–327.",
+      "citeRegEx" : "Birnbaum and Saunders,? 1969b",
+      "shortCiteRegEx" : "Birnbaum and Saunders",
+      "year" : 1969
+    }, {
+      "title" : "On estimation and influence diagnostics for log-Birnbaum-Saunders Student-t regression models: Full Bayesian analysis",
+      "author" : [ "V.G. Cancho", "E.M.M. Ortega", "G.A. Paula" ],
+      "venue" : "Journal of Statistical Planning and Inference, 140:2486–2496.",
+      "citeRegEx" : "Cancho et al\\.,? 2010",
+      "shortCiteRegEx" : "Cancho et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Graphical tools to assess goodness-of-fit in non-location-scale distributions",
+      "author" : [ "C. Castro-Kuriss", "V. Leiva", "E. Athayde" ],
+      "venue" : "Revista Colombiana de Estadı́stica, 37:341–365.",
+      "citeRegEx" : "Castro.Kuriss et al\\.,? 2014",
+      "shortCiteRegEx" : "Castro.Kuriss et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Reliability estimates for flawed mortar projectile bodies",
+      "author" : [ "J.A. Cordes", "J. Thomas", "R.S. Wong", "D. Carlucci" ],
+      "venue" : "Reliability Engineering and System Safety, 94:1887–1893.",
+      "citeRegEx" : "Cordes et al\\.,? 2009",
+      "shortCiteRegEx" : "Cordes et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Statistical reliability analyses of two wood plastic composite extrusion processes",
+      "author" : [ "K.A. Crookston", "T.M. Young", "D. Harper", "F.M. Guess" ],
+      "venue" : "Reliability Engineering and System Safety, 96:172–177.",
+      "citeRegEx" : "Crookston et al\\.,? 2011",
+      "shortCiteRegEx" : "Crookston et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Bayesian inference for the Birnbaum-Saunders non-linear regression model",
+      "author" : [ "R.B.A. Farias", "A.J. Lemonte" ],
+      "venue" : "Statistical Methods and Applications, 20:423–438.",
+      "citeRegEx" : "Farias and Lemonte,? 2011",
+      "shortCiteRegEx" : "Farias and Lemonte",
+      "year" : 2011
+    }, {
+      "title" : "Markov Chain Monte Carlo: Stochastic Simulation for Bayesian Inference",
+      "author" : [ "D. Gamerman", "H. Lopes" ],
+      "venue" : "Chapman and Hall, Boca Raton.",
+      "citeRegEx" : "Gamerman and Lopes,? 2006",
+      "shortCiteRegEx" : "Gamerman and Lopes",
+      "year" : 2006
+    }, {
+      "title" : "A non-central version of the Birnbaum-Saunders distribution for reliability analysis",
+      "author" : [ "P. Guiraud", "V. Leiva", "R. Fierro" ],
+      "venue" : "IEEE Transactions on Reliability, 58:152–160.",
+      "citeRegEx" : "Guiraud et al\\.,? 2009",
+      "shortCiteRegEx" : "Guiraud et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Uncemented and cemented primary total hip arthroplasty in the Swedish Hip Arthroplasty Register",
+      "author" : [ "N. Hailer", "G. Garellick", "J. Kärrholm" ],
+      "venue" : "Acta Orthopaedica, 81:34–41.",
+      "citeRegEx" : "Hailer et al\\.,? 2010",
+      "shortCiteRegEx" : "Hailer et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Outlier detection for skewed data",
+      "author" : [ "M. Hubert", "S. Vanderveeken" ],
+      "venue" : "Journal of Chemometrics, 22:235–246.",
+      "citeRegEx" : "Hubert and Vanderveeken,? 2008",
+      "shortCiteRegEx" : "Hubert and Vanderveeken",
+      "year" : 2008
+    }, {
+      "title" : "Nanostructured mesoporous silicas for bone tissue regeneration",
+      "author" : [ "I. Izquierdo-Barba", "M. Colilla", "M. Vallet-Regi" ],
+      "venue" : "Journal of Nanomaterials, page Article ID 106970.",
+      "citeRegEx" : "Izquierdo.Barba et al\\.,? 2008",
+      "shortCiteRegEx" : "Izquierdo.Barba et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Continuous Univariate Distributions, volume 2",
+      "author" : [ "N. Johnson", "S. Kotz", "N. Balakrishnan" ],
+      "venue" : "Wiley, New York, US.",
+      "citeRegEx" : "Johnson et al\\.,? 1995",
+      "shortCiteRegEx" : "Johnson et al\\.",
+      "year" : 1995
+    }, {
+      "title" : "The Birnbaum-Saunders Distribution",
+      "author" : [ "V. Leiva" ],
+      "venue" : "Academic Press, New York, US.",
+      "citeRegEx" : "Leiva,? 2016",
+      "shortCiteRegEx" : "Leiva",
+      "year" : 2016
+    }, {
+      "title" : "Diagnostics in Birnbaum-Saunders accelerated life models with an application to fatigue data",
+      "author" : [ "V. Leiva", "E. Rojas", "M. Galea", "A. Sanhueza" ],
+      "venue" : "Applied Stochastic Models in Business and Industry, 30:115–131.",
+      "citeRegEx" : "Leiva et al\\.,? 2014",
+      "shortCiteRegEx" : "Leiva et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Cumulative damage models",
+      "author" : [ "V. Leiva", "S.C. Saunders" ],
+      "venue" : "Wiley StatsRef: Statistics Reference Online (available at http://dx.doi.org/10.1002/9781118445112. stat02136.pub2), pages 1–10.",
+      "citeRegEx" : "Leiva and Saunders,? 2015",
+      "shortCiteRegEx" : "Leiva and Saunders",
+      "year" : 2015
+    }, {
+      "title" : "Approximate Bayesian methods",
+      "author" : [ "D.V. Lindley" ],
+      "venue" : "Trabajos de Estadı́stica y de Investigación Operativa, 31:223–237.",
+      "citeRegEx" : "Lindley,? 1980",
+      "shortCiteRegEx" : "Lindley",
+      "year" : 1980
+    }, {
+      "title" : "Multiaxial fatigue reliability analysis of railroad wheels",
+      "author" : [ "Y. Liu", "L. Liu", "B. Stratman", "S. Mahadevan" ],
+      "venue" : "Reliability Engineering and System Safety, 93:456–467.",
+      "citeRegEx" : "Liu et al\\.,? 2008",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Subsampling the Gibbs sampler",
+      "author" : [ "S.N. MacEachern", "L.M. Berliner" ],
+      "venue" : "The American Statistician, 48:188–190.",
+      "citeRegEx" : "MacEachern and Berliner,? 1994",
+      "shortCiteRegEx" : "MacEachern and Berliner",
+      "year" : 1994
+    }, {
+      "title" : "A multivariate log-linear model for BirnbaumSaunders distributions",
+      "author" : [ "C. Marchant", "V. Leiva", "F. Cysneiros" ],
+      "venue" : "IEEE Transactions on Reliability, 65:816–827.",
+      "citeRegEx" : "Marchant et al\\.,? 2016a",
+      "shortCiteRegEx" : "Marchant et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Diagnostics in multivariate generalized Birnbaum-Saunders regression models",
+      "author" : [ "C. Marchant", "V. Leiva", "F. Cysneiros", "J. Vivanco" ],
+      "venue" : "Journal of Applied Statistics, page in press available at http://dx.doi.org/10.1080/02664763.2016.1148671.",
+      "citeRegEx" : "Marchant et al\\.,? 2016b",
+      "shortCiteRegEx" : "Marchant et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Bayesian estimation for the Birnbaum-Saunders distribution in the presence of censored data",
+      "author" : [ "F.A. Moala", "J.A. Achcar", "R. Gimenez" ],
+      "venue" : "IEEE Latin America Transactions, 13:3187 – 3192.",
+      "citeRegEx" : "Moala et al\\.,? 2015",
+      "shortCiteRegEx" : "Moala et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Accelerated test models for system strength based on BirnbaumSaunders distribution",
+      "author" : [ "W. Owen", "W. Padgett" ],
+      "venue" : "Lifetime Data Analysis, 5:133–147.",
+      "citeRegEx" : "Owen and Padgett,? 1999",
+      "shortCiteRegEx" : "Owen and Padgett",
+      "year" : 1999
+    }, {
+      "title" : "A Birnbaum-Saunders accelerated life model",
+      "author" : [ "W. Owen", "W. Padgett" ],
+      "venue" : "IEEE Transactions on Reliability, 49:224–229.",
+      "citeRegEx" : "Owen and Padgett,? 2000",
+      "shortCiteRegEx" : "Owen and Padgett",
+      "year" : 2000
+    }, {
+      "title" : "Reliability of nanostructured materials",
+      "author" : [ "K. Padmanabhan", "S. Prabu" ],
+      "venue" : "Wilde, G., editor, Reliability of Nanostructured Materials, chapter 2, pages 51–126. Elsevier, Oxford, UK.",
+      "citeRegEx" : "Padmanabhan and Prabu,? 2009",
+      "shortCiteRegEx" : "Padmanabhan and Prabu",
+      "year" : 2009
+    }, {
+      "title" : "Reliability modeling of degradation of products with multiple performance characteristics based on gamma processes",
+      "author" : [ "Z. Pan", "N. Balakrishnan" ],
+      "venue" : "Reliability Engineering and System Safety, 96:949–957.",
+      "citeRegEx" : "Pan and Balakrishnan,? 2011",
+      "shortCiteRegEx" : "Pan and Balakrishnan",
+      "year" : 2011
+    }, {
+      "title" : "Bayesian modelling of train doors’ reliability",
+      "author" : [ "A. Pievatolo", "F. Ruggeri" ],
+      "venue" : "O’Hagan, A. and West, M., editors, Handbook of Applied Bayesian Analysis. Oxford University Press, Oxford.",
+      "citeRegEx" : "Pievatolo and Ruggeri,? 2010",
+      "shortCiteRegEx" : "Pievatolo and Ruggeri",
+      "year" : 2010
+    }, {
+      "title" : "R: A Language and Environment for Statistical Computing",
+      "author" : [ "R-Team" ],
+      "venue" : "R Foundation for Statistical Computing, Vienna, Austria.",
+      "citeRegEx" : "R.Team,? 2015",
+      "shortCiteRegEx" : "R.Team",
+      "year" : 2015
+    }, {
+      "title" : "A log-linear model for the Birnbaum-Saunders distribution",
+      "author" : [ "J. Rieck", "J. Nedelman" ],
+      "venue" : "Technometrics, 3:51–60.",
+      "citeRegEx" : "Rieck and Nedelman,? 1991",
+      "shortCiteRegEx" : "Rieck and Nedelman",
+      "year" : 1991
+    }, {
+      "title" : "Multiscale characterization of acrylic bone cement modified with functionalized mesoporous silica nanoparticles",
+      "author" : [ "J. Slane", "J. Vivanco", "D. Ebenstein", "M. Squire", "H. Ploeg" ],
+      "venue" : "Journal of the Mechanical Behavior of Biomedical Materials, 37:141–152.",
+      "citeRegEx" : "Slane et al\\.,? 2014",
+      "shortCiteRegEx" : "Slane et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "What’s next? Alternative materials for articulation in total joint replacement",
+      "author" : [ "R. Sonntag", "J. Reinders", "J. Kretzer" ],
+      "venue" : "Acta Biomaterialia, 8:2434–2441.",
+      "citeRegEx" : "Sonntag et al\\.,? 2012",
+      "shortCiteRegEx" : "Sonntag et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Probabilistic risk assessment and service life performance management of load bearing biomedical implants",
+      "author" : [ "M.G. Stewart", "A. O’Connor" ],
+      "venue" : "Reliability Engineering and System Safety,",
+      "citeRegEx" : "Stewart and O.Connor,? \\Q2012\\E",
+      "shortCiteRegEx" : "Stewart and O.Connor",
+      "year" : 2012
+    }, {
+      "title" : "Estimation for Birnbaum-Saunders distribution in simple step stressaccelerated life test with type-II censoring",
+      "author" : [ "T. Sun", "Y. Shi" ],
+      "venue" : "Communications in Statistics: Simulation and Computation, 45:880–901.",
+      "citeRegEx" : "Sun and Shi,? 2016",
+      "shortCiteRegEx" : "Sun and Shi",
+      "year" : 2016
+    }, {
+      "title" : "Review of probabilistic models of the strength of composite materials",
+      "author" : [ "L. Sutherland", "C. Soares" ],
+      "venue" : "Reliability Engineering and System Safety, 56:183–196.",
+      "citeRegEx" : "Sutherland and Soares,? 1997",
+      "shortCiteRegEx" : "Sutherland and Soares",
+      "year" : 1997
+    }, {
+      "title" : "Bayesian inference in Birnbaum-Saunders regression",
+      "author" : [ "E. Tsionas" ],
+      "venue" : "Communications in Statistics: Theory and Methods, 30:179–193.",
+      "citeRegEx" : "Tsionas,? 2001",
+      "shortCiteRegEx" : "Tsionas",
+      "year" : 2001
+    }, {
+      "title" : "Bayes analysis and comparison of accelerated Weibull and accelerated Birnbaum-Saunders models",
+      "author" : [ "S. Upadhyay", "B. Mukherjee" ],
+      "venue" : "Communications in Statistics: Theory and Methods, 39:195–213.",
+      "citeRegEx" : "Upadhyay and Mukherjee,? 2010",
+      "shortCiteRegEx" : "Upadhyay and Mukherjee",
+      "year" : 2010
+    }, {
+      "title" : "Birnbaum-Saunders mixed models for censored reliability data analysis",
+      "author" : [ "C. Villegas", "G. Paula", "V. Leiva" ],
+      "venue" : "IEEE Transactions on Reliability, 60:748–758.",
+      "citeRegEx" : "Villegas et al\\.,? 2011",
+      "shortCiteRegEx" : "Villegas et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Bayesian analysis of Birnbaum-Saunders distribution via the generalized ratio-of-uniforms method",
+      "author" : [ "M. Wang", "X. Sun", "C. Park" ],
+      "venue" : "Computational Statistics, 31:207–225.",
+      "citeRegEx" : "Wang et al\\.,? 2016",
+      "shortCiteRegEx" : "Wang et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Evaluating the reliability of multi-body mechanisms: A method considering the uncertainties of dynamic performance",
+      "author" : [ "J. Wu", "S. Yan", "M.J. Zuo" ],
+      "venue" : "Reliability Engineering and System Safety, 149:96–106.",
+      "citeRegEx" : "Wu et al\\.,? 2016",
+      "shortCiteRegEx" : "Wu et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Reference analysis for Birnbaum-Saunders distribution",
+      "author" : [ "A. Xu", "Y. Tang" ],
+      "venue" : "Computational Statistics and Data Analysis, 54:185–192.",
+      "citeRegEx" : "Xu and Tang,? 2010",
+      "shortCiteRegEx" : "Xu and Tang",
+      "year" : 2010
+    }, {
+      "title" : "Pmma/mesoporous silica nanocomposites: Effect of framework structure and pore size on thermomechanical properties",
+      "author" : [ "F.A. Zhang", "D.K. Lee", "T.J. Pinnavaia" ],
+      "venue" : "Polymer Chemistry, 1:107–113.",
+      "citeRegEx" : "Zhang et al\\.,? 2010",
+      "shortCiteRegEx" : "Zhang et al\\.",
+      "year" : 2010
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 6,
+      "context" : "Among the different existing life distributions, the Birnbaum-Saunders (BS) model has received significant attention; see Leiva (2016). The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials.",
+      "startOffset" : 122,
+      "endOffset" : 135
+    }, {
+      "referenceID" : 1,
+      "context" : "The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials.",
+      "startOffset" : 38,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 1,
+      "context" : "The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials. This distribution is an ingenious probabilistic model that describes fatigue life. For this reason, it is also known as the fatigue-life distribution. Specifically, the BS distribution relates time until the failure of material specimens exposed to fatigue produced by cumulative damage generated from cyclical stress and tension; see Leiva and Saunders (2015). The BS distribution has been widely applied to reliability studies; see Birnbaum and Saunders (1969a), Rieck and Nedelman (1991), Sutherland and Soares (1997), Owen and Padgett (1999, 2000), Guiraud et al.",
+      "startOffset" : 38,
+      "endOffset" : 542
+    }, {
+      "referenceID" : 1,
+      "context" : "The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials. This distribution is an ingenious probabilistic model that describes fatigue life. For this reason, it is also known as the fatigue-life distribution. Specifically, the BS distribution relates time until the failure of material specimens exposed to fatigue produced by cumulative damage generated from cyclical stress and tension; see Leiva and Saunders (2015). The BS distribution has been widely applied to reliability studies; see Birnbaum and Saunders (1969a), Rieck and Nedelman (1991), Sutherland and Soares (1997), Owen and Padgett (1999, 2000), Guiraud et al.",
+      "startOffset" : 38,
+      "endOffset" : 645
+    }, {
+      "referenceID" : 1,
+      "context" : "The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials. This distribution is an ingenious probabilistic model that describes fatigue life. For this reason, it is also known as the fatigue-life distribution. Specifically, the BS distribution relates time until the failure of material specimens exposed to fatigue produced by cumulative damage generated from cyclical stress and tension; see Leiva and Saunders (2015). The BS distribution has been widely applied to reliability studies; see Birnbaum and Saunders (1969a), Rieck and Nedelman (1991), Sutherland and Soares (1997), Owen and Padgett (1999, 2000), Guiraud et al.",
+      "startOffset" : 38,
+      "endOffset" : 672
+    }, {
+      "referenceID" : 1,
+      "context" : "The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials. This distribution is an ingenious probabilistic model that describes fatigue life. For this reason, it is also known as the fatigue-life distribution. Specifically, the BS distribution relates time until the failure of material specimens exposed to fatigue produced by cumulative damage generated from cyclical stress and tension; see Leiva and Saunders (2015). The BS distribution has been widely applied to reliability studies; see Birnbaum and Saunders (1969a), Rieck and Nedelman (1991), Sutherland and Soares (1997), Owen and Padgett (1999, 2000), Guiraud et al.",
+      "startOffset" : 38,
+      "endOffset" : 702
+    }, {
+      "referenceID" : 1,
+      "context" : "The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials. This distribution is an ingenious probabilistic model that describes fatigue life. For this reason, it is also known as the fatigue-life distribution. Specifically, the BS distribution relates time until the failure of material specimens exposed to fatigue produced by cumulative damage generated from cyclical stress and tension; see Leiva and Saunders (2015). The BS distribution has been widely applied to reliability studies; see Birnbaum and Saunders (1969a), Rieck and Nedelman (1991), Sutherland and Soares (1997), Owen and Padgett (1999, 2000), Guiraud et al. (2009), Pan and Balakrishnan (2011), Villegas et al.",
+      "startOffset" : 38,
+      "endOffset" : 756
+    }, {
+      "referenceID" : 1,
+      "context" : "The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials. This distribution is an ingenious probabilistic model that describes fatigue life. For this reason, it is also known as the fatigue-life distribution. Specifically, the BS distribution relates time until the failure of material specimens exposed to fatigue produced by cumulative damage generated from cyclical stress and tension; see Leiva and Saunders (2015). The BS distribution has been widely applied to reliability studies; see Birnbaum and Saunders (1969a), Rieck and Nedelman (1991), Sutherland and Soares (1997), Owen and Padgett (1999, 2000), Guiraud et al. (2009), Pan and Balakrishnan (2011), Villegas et al.",
+      "startOffset" : 38,
+      "endOffset" : 785
+    }, {
+      "referenceID" : 1,
+      "context" : "The BS distribution was introduced by Birnbaum and Saunders (1969b) and its genesis was motivated by problems of vibration in commercial aircrafts that caused fatigue in materials. This distribution is an ingenious probabilistic model that describes fatigue life. For this reason, it is also known as the fatigue-life distribution. Specifically, the BS distribution relates time until the failure of material specimens exposed to fatigue produced by cumulative damage generated from cyclical stress and tension; see Leiva and Saunders (2015). The BS distribution has been widely applied to reliability studies; see Birnbaum and Saunders (1969a), Rieck and Nedelman (1991), Sutherland and Soares (1997), Owen and Padgett (1999, 2000), Guiraud et al. (2009), Pan and Balakrishnan (2011), Villegas et al. (2011), Barros et al.",
+      "startOffset" : 38,
+      "endOffset" : 809
+    }, {
+      "referenceID" : 1,
+      "context" : "(2011), Barros et al. (2014), Leiva et al. (2014) and Marchant et al. (2016a,b). The BS distribution has several interesting properties. For example, it is positively skewed (asymmetry to the right) and has two parameters modifying its shape and scale, a failure rate with upsidedown bathtub shape, and a close relation with the normal distribution; see Johnson et al. (1995, pp. 651-663) and Leiva (2016). The asymmetrical shape of its probability density function (PDF) allows us to think about the median as a more suitable centrality measure than the mean.",
+      "startOffset" : 8,
+      "endOffset" : 406
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution.",
+      "startOffset" : 41,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions.",
+      "startOffset" : 41,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests.",
+      "startOffset" : 41,
+      "endOffset" : 359
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation.",
+      "startOffset" : 41,
+      "endOffset" : 510
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation.",
+      "startOffset" : 41,
+      "endOffset" : 622
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation. Cancho et al. (2010) developed a Bayesian approach for BS-Student-t log-linear models under rightcensored survival data.",
+      "startOffset" : 41,
+      "endOffset" : 707
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation. Cancho et al. (2010) developed a Bayesian approach for BS-Student-t log-linear models under rightcensored survival data. Farias and Lemonte (2011) derived BS non-linear regression models based on Bayesian inference.",
+      "startOffset" : 41,
+      "endOffset" : 833
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation. Cancho et al. (2010) developed a Bayesian approach for BS-Student-t log-linear models under rightcensored survival data. Farias and Lemonte (2011) derived BS non-linear regression models based on Bayesian inference. Recent works on Bayesian methods in BS models are due to Moala et al. (2015), Sun and Shi (2016) and Wang et al.",
+      "startOffset" : 41,
+      "endOffset" : 979
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation. Cancho et al. (2010) developed a Bayesian approach for BS-Student-t log-linear models under rightcensored survival data. Farias and Lemonte (2011) derived BS non-linear regression models based on Bayesian inference. Recent works on Bayesian methods in BS models are due to Moala et al. (2015), Sun and Shi (2016) and Wang et al.",
+      "startOffset" : 41,
+      "endOffset" : 999
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation. Cancho et al. (2010) developed a Bayesian approach for BS-Student-t log-linear models under rightcensored survival data. Farias and Lemonte (2011) derived BS non-linear regression models based on Bayesian inference. Recent works on Bayesian methods in BS models are due to Moala et al. (2015), Sun and Shi (2016) and Wang et al. (2016). To the best of our knowledge, no Bayesian hypothesis tests have been developed to compare medians/means in BS distributions.",
+      "startOffset" : 41,
+      "endOffset" : 1022
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation. Cancho et al. (2010) developed a Bayesian approach for BS-Student-t log-linear models under rightcensored survival data. Farias and Lemonte (2011) derived BS non-linear regression models based on Bayesian inference. Recent works on Bayesian methods in BS models are due to Moala et al. (2015), Sun and Shi (2016) and Wang et al. (2016). To the best of our knowledge, no Bayesian hypothesis tests have been developed to compare medians/means in BS distributions. In an effort to evaluate reliability of structures and devices, mechanical properties of different type of materials have been evaluated in the last decade. For example, Liu et al. (2008) investigated the fatigue reliability of railroad wheel by studying crack propagation in a multiaxial loading condition.",
+      "startOffset" : 41,
+      "endOffset" : 1336
+    }, {
+      "referenceID" : 0,
+      "context" : "Based on Jeffreys’ and reference priors, Achcar (1993) developed Bayesian inference for the BS distribution. Tsionas (2001) considered BS log-linear models, performed Bayesian inference for these models by considering the Markov chain Monte Carlo (MCMC) method and obtained posterior odds and posterior predictive distributions. Upadhyay and Mukherjee (2010) employed some Bayesian tools to compare BS and Weibull accelerated life models with fatigue life data subject to accelerated tests. Xu and Tang (2010) obtained Bayesian estimates of the BS distribution parameters under the reference prior and used Lindley (1980)’s method and Gibbs sampling to obtain the posterior estimation. Cancho et al. (2010) developed a Bayesian approach for BS-Student-t log-linear models under rightcensored survival data. Farias and Lemonte (2011) derived BS non-linear regression models based on Bayesian inference. Recent works on Bayesian methods in BS models are due to Moala et al. (2015), Sun and Shi (2016) and Wang et al. (2016). To the best of our knowledge, no Bayesian hypothesis tests have been developed to compare medians/means in BS distributions. In an effort to evaluate reliability of structures and devices, mechanical properties of different type of materials have been evaluated in the last decade. For example, Liu et al. (2008) investigated the fatigue reliability of railroad wheel by studying crack propagation in a multiaxial loading condition. Crookston et al. (2011) analyzed reliability behavior of wood plastic composites during extrusion fabrication processes by using parametric and non-parametric methods.",
+      "startOffset" : 41,
+      "endOffset" : 1480
+    }, {
+      "referenceID" : 32,
+      "context" : "Similarly, Wu et al. (2016) proposed an indirect probability model to evaluate the reliability of multi-body mechanisms based on dynamic properties.",
+      "startOffset" : 11,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 23,
+      "context" : "Padmanabhan and Prabu (2009) pointed out that factors as creep, fatigue, fracture, and surface, along with interface, phase and thermal stabilities, are considered to increase the reliability of nano-structures.",
+      "startOffset" : 0,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 23,
+      "context" : "Padmanabhan and Prabu (2009) pointed out that factors as creep, fatigue, fracture, and surface, along with interface, phase and thermal stabilities, are considered to increase the reliability of nano-structures. Regarding biomaterials modified with nano-particles, Slane et al. (2014) studied the influence of mesoporous silica on the reliability of bone cement mechanical properties by using the Weibull distribution.",
+      "startOffset" : 0,
+      "endOffset" : 285
+    }, {
+      "referenceID" : 23,
+      "context" : "Padmanabhan and Prabu (2009) pointed out that factors as creep, fatigue, fracture, and surface, along with interface, phase and thermal stabilities, are considered to increase the reliability of nano-structures. Regarding biomaterials modified with nano-particles, Slane et al. (2014) studied the influence of mesoporous silica on the reliability of bone cement mechanical properties by using the Weibull distribution. Acrylic bone cement is a brittle material commonly used in clinical practice. This cement has been used in a variety of applications; see Slane et al. (2014). Particularly, they are used for anchoring orthopedic implants to bone and often considered the ‘gold standard’ in terms of implant fixation; see Hailer et al.",
+      "startOffset" : 0,
+      "endOffset" : 577
+    }, {
+      "referenceID" : 11,
+      "context" : "Particularly, they are used for anchoring orthopedic implants to bone and often considered the ‘gold standard’ in terms of implant fixation; see Hailer et al. (2010). However, mechanical failure of the cement mantle around an implant can contribute to aseptic loosening, which is the primary cause of revision arthroplasty; see Sonntag et al.",
+      "startOffset" : 145,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 11,
+      "context" : "Particularly, they are used for anchoring orthopedic implants to bone and often considered the ‘gold standard’ in terms of implant fixation; see Hailer et al. (2010). However, mechanical failure of the cement mantle around an implant can contribute to aseptic loosening, which is the primary cause of revision arthroplasty; see Sonntag et al. (2012) and Adelani et al.",
+      "startOffset" : 145,
+      "endOffset" : 350
+    }, {
+      "referenceID" : 1,
+      "context" : "(2012) and Adelani et al. (2013). Stewart and O’Connor (2012) applied the principles of structural reliability theory to optimize the design and performance of biomedical implants.",
+      "startOffset" : 11,
+      "endOffset" : 33
+    }, {
+      "referenceID" : 1,
+      "context" : "(2012) and Adelani et al. (2013). Stewart and O’Connor (2012) applied the principles of structural reliability theory to optimize the design and performance of biomedical implants.",
+      "startOffset" : 11,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 1,
+      "context" : "(2012) and Adelani et al. (2013). Stewart and O’Connor (2012) applied the principles of structural reliability theory to optimize the design and performance of biomedical implants. Enhancement of the static and dynamic mechanical properties of bone cement can be done through the incorporation of nano-particles and fiber inside the cement matrix. In this sense, the use of mesoporous silica nano-particles (MSNs) as a polymer reinforcement presents a high potential mainly due to their small particle size, large surface area, high pore volume and homogeneous structure; see Izquierdo-Barba et al. (2008) and Zhang et al. (2010). No comparison between differently treated materials has been conducted with non-classical statistical methods, which can lead to new results for the mentioned materials.",
+      "startOffset" : 11,
+      "endOffset" : 630
+    }, {
+      "referenceID" : 1,
+      "context" : "(2012) and Adelani et al. (2013). Stewart and O’Connor (2012) applied the principles of structural reliability theory to optimize the design and performance of biomedical implants. Enhancement of the static and dynamic mechanical properties of bone cement can be done through the incorporation of nano-particles and fiber inside the cement matrix. In this sense, the use of mesoporous silica nano-particles (MSNs) as a polymer reinforcement presents a high potential mainly due to their small particle size, large surface area, high pore volume and homogeneous structure; see Izquierdo-Barba et al. (2008) and Zhang et al. (2010). No comparison between differently treated materials has been conducted with non-classical statistical methods, which can lead to new results for the mentioned materials. The main objective of this paper is to derive a methodology based on the BS distribution, which allows us to compare several treatments by using a Bayesian approach. Therefore, by applying the methodology presented in this research, we are able to assess the mechanical reliability of a commercially bone cement modified with MSNs. The application of this methodology is implemented in the R software; see www.R-project.org and R-Team (2015). This permits us to investigate the influence of different loadings of MSNs on mechanical properties through hardness of bone cement by using Bayesian inference.",
+      "startOffset" : 11,
+      "endOffset" : 1243
+    }, {
+      "referenceID" : 1,
+      "context" : "(2012) and Adelani et al. (2013). Stewart and O’Connor (2012) applied the principles of structural reliability theory to optimize the design and performance of biomedical implants. Enhancement of the static and dynamic mechanical properties of bone cement can be done through the incorporation of nano-particles and fiber inside the cement matrix. In this sense, the use of mesoporous silica nano-particles (MSNs) as a polymer reinforcement presents a high potential mainly due to their small particle size, large surface area, high pore volume and homogeneous structure; see Izquierdo-Barba et al. (2008) and Zhang et al. (2010). No comparison between differently treated materials has been conducted with non-classical statistical methods, which can lead to new results for the mentioned materials. The main objective of this paper is to derive a methodology based on the BS distribution, which allows us to compare several treatments by using a Bayesian approach. Therefore, by applying the methodology presented in this research, we are able to assess the mechanical reliability of a commercially bone cement modified with MSNs. The application of this methodology is implemented in the R software; see www.R-project.org and R-Team (2015). This permits us to investigate the influence of different loadings of MSNs on mechanical properties through hardness of bone cement by using Bayesian inference. Experimental hardness data obtained from micro-indentation testing and collected by the authors are assumed to follow a BS distribution. This testing takes into account the indentation load applied in the material and the average diagonal of the indent; see Slane et al. (2014). Due to the genesis from which the BS distribution arises (see Leiva, 2016, pp.",
+      "startOffset" : 11,
+      "endOffset" : 1683
+    }, {
+      "referenceID" : 10,
+      "context" : "For more details on the MCMC method, the interested reader is referred to, for example, Gamerman and Lopes (2006).",
+      "startOffset" : 88,
+      "endOffset" : 114
+    }, {
+      "referenceID" : 29,
+      "context" : "This alternative estimator is also used in other situations, for example, in the estimation of the mean value function of a non-homogeneous Poisson process; see Pievatolo and Ruggeri (2010).",
+      "startOffset" : 161,
+      "endOffset" : 190
+    }, {
+      "referenceID" : 32,
+      "context" : "3 The data and treatments The data correspond to hardness of a bone cement called Palacos R, treated with low-loadings of MSNs; see Slane et al. (2014). Three types of MSNs are used in loading ratios of 0.",
+      "startOffset" : 132,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 12,
+      "context" : "The abox-plot should be used for data following a skew distribution, as it occurs in our case; see Hubert and Vanderveeken (2008). In addition, Figure 1 displays the MD-plot and PP-plot with 95% acceptance bands for hardness data in the control and treatment groups under study.",
+      "startOffset" : 99,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 6,
+      "context" : "Acceptance bands are constructed by using the relation between the KS test and the PP-plot; see Castro-Kuriss et al. (2014). The PPplots allow us to graphically check whether such data follow the BS distribution or not.",
+      "startOffset" : 96,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 20,
+      "context" : "It is important to highlight that thinning a Markov chain may be wasteful as one can always get more precise posterior estimates when the whole Markov chain sample is considered; see MacEachern and Berliner (1994). Note that we must assess whether the Markov chain has reached its stationary distribution, namely, its desired posterior distribution.",
+      "startOffset" : 183,
+      "endOffset" : 214
+    }, {
+      "referenceID" : 10,
+      "context" : "In addition, we employ convergence diagnostic tests, such as the Gelman-Rubin, Raftery-Lewis and Heidelberg-Welch stationarity tests; see Gamerman and Lopes (2006). The trace plots indicate that the chains converge to their stationary distributions.",
+      "startOffset" : 138,
+      "endOffset" : 164
+    } ],
+    "year" : 2016,
+    "abstractText" : "The Birnbaum-Saunders distribution has been widely studied and applied to reliability studies. This paper proposes a novel use of the Birnbaum-Saunders model to analyze the effect on hardness, a material mechanical property, when incorporating nano-particles inside a polymeric bone cement. A plain variety and two modified types of mesoporous silica nano-particles are considered. In biomaterials, one can study the effect of nano-particles on mechanical response reliability. Experimental data collected by the authors from a micro-indentation test about hardness of a commercially available polymeric bone cement are analyzed. Hardness is modeled with the Birnbaum-Saunders distribution and Bayesian inference is performed to derive a methodology, which allows us to evaluate the effect of using nano-particles at different loadings by the R software.",
+    "creator" : "Elsevier"
+  }
+}

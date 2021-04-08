@@ -1,0 +1,462 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_e899e5fff0f66475867a53c4876f1ac9_10.1016@j.electacta.2016.02.031.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : null,
+    "authors" : [ "Enno Kätelhön", "Eden E.L. Tanner", "Christopher Batchelor-McAuley", "Richard G. Compton", "Eden E. L. Tanner", "Richard G. Comptona" ],
+    "emails" : [ "richard.compton@chem.ox.ac.uk" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Page 1 of 24\nAc ce\npt ed\nM an\nus cr\nThe fast-advancing method of nano-impacts is a powerful approach for the immediate detection and characterisation of nanoparticles. During the measurement particles stochastically impact on a biased electrode immersed in a colloidal solution, where they may enable an electrochemical reaction. In the case of a destructive impact, particles electrodissolve at the electrode surface, which can be seen as a spike in the electrode current. While these spikes are successfully used to measure particle concentrations and to determine size distributions via the overall charge transferred per spike, the spike shape is however usually not included in the analysis. In this work, we explore in which ways spike shapes can be exploited to gain additional information on the investigated particle system. To this end, the limiting cases of two reaction models are introduced and discussed in the context of the opportunities and limitations imposed by hardware filters. In particular, we demonstrate that Bessel-type filters conserve the overall charge transferred during an impact event, even if the bandwidth of the signal is far beyond the passband of the filter. Our findings are further compared to experimental data obtained from measurements in aqueous solutions and ionic liquids.\nKeywords: Nano-impacts, nanoparticle collisions, nanoelectrochemistry, room temperature ionic liquids, silver nanoparticles\n∗Corresponding author Email address: richard.compton@chem.ox.ac.uk (Richard G. Compton)\nPreprint submitted to Electrochimica Acta February 4, 2016\nPage 2 of 24\nAc ce\npt ed\nM an\nus cr\nip t"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "In the light of ongoing controversial discussions regarding the toxicity of nanoscale materials to humans, the fast-increasing amount of nanoparticles employed in industrial applications and consumer products has led to a strong interest in the development of fast and cost-efficient detection methods.\nWhile a number of different approaches towards single nanoparticle detection are being pursued [1], nano-impacts are a particularly promising approach for the immediate electrochemical detection of freely-diffusing particles in solution. In this method [2, 3, 4], a biased electrode is immersed into the solution under investigation, containing an analyte nanoparticle population. While the electrode material is chosen in a way that at the employed working electrode there is no electrochemical interaction between the electrode and the solution, nanoparticles may stochastically impact on the electrode surface and either catalyse a reaction between the solution and the electrode or directly react by virtue of their intrinsic electrochemical properties. If, in the latter case of a destructive impact, the oxidised or reduced particle dissolves, the charge transferred to the electrode scales linearly with the dissolved volume of the impacting particle via Faraday’s 1st Law. For a complete reaction of the impacting particle, the particle concentration and size distribution may hence be concluded from the frequency of detected spikes and their integration, respectively [5, 6]. In nano-impacts, the analysis of the detected spike shapes may reveal additional information on the investigated system. Analytical or empirical models have for instance been developed for partial dissolution processes [7], charge diffusion on the surface of impacting Alumina particles [8] and various geometries [9] as well as for impacting liposomes on mercury electrode [10, 11, 12].\nIn this work, we explore what information can be extracted from the shapes of individual current spikes beyond the particle concentration and the size distribution. To this end, we develop two theoretical models for the spike shape caused by a dissolving particle, focussing on the limiting cases of a kinetically- and a solubility-limited dissolution process. On this basis, we derive expressions for the temporal evolution of the electrode current as well as for the duration of the spike, and model the transfer function of a commonly-used filter type to demonstrate which spike features are conserved and which are masked by the filter. We show that the overall charge transferred during an impact is conserved by a fourth-order Bessel-type filter\n2\nPage 3 of 24\nAc ce\npt ed\nM an\nus cr\nip t\neven if the bandwidth of the signal is far beyond the passband of the filters used. Our findings are compared with experimental measurements of silver nanoparticles in an aqueous solution and in an ionic liquid."
+    }, {
+      "heading" : "2. Theory",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Filter design",
+      "text" : "In nano-impact measurements, the characteristics of the detected species may be altered by the electronic measurement equipment employed. Particular filter sets, which may be used in commercial potentiostats, may drastically transform the actual input signal before it is digitised by the analogue-digital converters. Herein, even signal components in the passband regime may change depending on the filter’s phase response: If, for instance, spikes of the length 10 ms are measured using a low-pass filter at a cutoff frequency of 1 kHz, the lower frequency components of a spike may experience different phase shifts that lead to a completely different spike shape. Furthermore, depending on the filter’s impulse response, the integral of the spike may be altered, which complicates the data analysis with respect to particle sizing. While such effects are irrelevant in most cyclic voltammetry measurements, where DC currents are of interest and signal noise generally not considered, the inclusion of the respective filter characteristics in the spike analysis is crucial in nano-impacts.\nIn the present study, we employ the below-specified low-pass filter that approximates a fourth-order Bessel filter. Bessel filters are commonly used in signal processing as they feature a linear phase response in the passband that leads to flat phase- and group-delays. The shape of the incoming signal is hence well preserved below the cutoff frequency, which is a feature that is desired in many applications including the nano-impact method. The transfer function HB(s) of a n th-order Bessel low-pass filter is given by:\nHB(s) = θn(0) θn(s/ω0) = L{y(t)} L{x(t)}\n(1)\nwhere s ∈ C, ω0 is the angular cutoff frequency, x(t) the time-continuous input signal, y(t) the time-continuous output signal, and L the Laplace transformation. θn represents reverse Bessel polynomials of the n th-order:\nθn(s) = n∑ k=0 aks k where ak = (2n− k)! 2n−kk!(n− k)! (2)\n3\nPage 4 of 24\nAc ce\npt ed\nM an\nus cr\nip t\nThe filter hence resembles a linear, time-invariant system (LTI) featuring an infinite impulse response (IIR).\nThe potentiostat [13] developed inhouse used in our experiments (as reported below and elsewhere) comprises a DC338 demonstration board featuring a LTC1563-3 filter (Linear Technology Coporation, Milpitas, California, USA). The filter is operated at a cutoff frequency of 256 Hz as specified by the manufacturer, which according to the manufacturer’s design software FilterCAD leads to an attenuation of -2.79 dB at the cutoff frequency. The software further specifies that the implemented pole positions are located at frequency f1 = 406.5452 Hz and a quality factor of Q1 = 0.53, and a frequency f2 = 455.948 and a quality factor Q2 = 0.7233. The transfer function of the filter can thus be constructed as:\nH(s) = K\n(s2 + 2πf1 Q1 + (2πf1)2)(s2 + 2πf2 Q2\n+ (2πf2)2) (3)\nwhere s = σ + jω and where K can be determined via the condition of a unity gain at ω = 0. In order to apply the ideal Bessel- as well as the transfer function of the hardware filter to time-discrete signals, we determine representations of both transfer functions in the z-image arising from the unilateral z-transform. Considering a time-discrete signal f sampled at the time steps kT , where T equals the inverse sampling frequency fs and k ∈ N0, the z-transform F (z) of f is calculated as:\nF (z) = Z{f(t)}\n= ∞∑ k=0 f(kT )e−kTs ∣∣∣ z=eTs\n= ∞∑ k=0 f(kT )z−k = ∞∑ k=0 f [k]z−k\n(4)\nwhere f [k] represents the kth element of f(t) and the second line emphasises the analogy to the Laplace transform, which we are going to use below [14]. Using this equation, a conformal mapping of the transfer function from the Laplace-image to the z-image can be achieved by the substitution:\nz = eTs ⇔ s = 1 T ln(z) (5)\n4\nPage 5 of 24\nAc ce\npt ed\nM an\nus cr\nip t\nExpansion of the logarithm into a Laurent series and truncation of the series to only one term results in the definition of the bilinear transformation, which is a commonly used method to design digital filters on the basis of an analogue transfer functions:\ns = 1\nT z − 1 z + 1\n(6)\nThe substitution of this expression in H(s) gives the desired transfer function H ′(s) in the z-image, which features polynomials in z in the denominator and the divisor:\nH ′(z) = H(s)← ( s = 1\nT z − 1 z + 1 ) = Z{y(t)} Z{x(t)}\n=\n∑n i=0 biz\n−i∑n i=0 aiz −i\n(7)\nwhere n is the order of the filter. The application of the inverse z-transformation to the above expression then gives the corresponding linear constant-coefficient difference equation (LCCD) that allows the calculation of the output signal y(t) for a given input signal x(t):\ny[n] = 1\na0 ( n∑ i=0 bix[n− i]− n∑ i=1 aiy[n− i] ) (8)\nThe gain response G(ω) of a transfer function in the Laplace-image can be calculated as |H(jω)|. Due to the substitution z = exp(Ts) that led to a conformal mapping of the transfer function into the z-image (see Equation (4)), the transformed function H ′(z) has to be calculated at the position H ′(exp(T ·jω) to determine the gain response of the time-discrete filter. The evaluation of this expression leads to a shifted angular cutoff frequency ω′c, which is usually referred to as ‘frequency warping’ in the literature:\nω′c = 2\nT tan−1\n( T\n2 ωc\n) (9)\n5\nPage 6 of 24\nAc ce\npt ed\nM\nan\nus cr\nip t\n101 102 103 104 Frequency / Hz\n100\n80\n60\n40\n20\n0\nAm pl\nitu de\n/ dB\nHardware filter, Laplace-image Hardware filter, z-image Hardware filter, manufacturer specification Bessel filter at cutoff 128.0 Hz, Laplace-image Bessel filter at cutoff 128.0 Hz, z-image\nFigure 1: Comparison between the time-continuous and the time-discrete implementations of the hardware filter and a four-pole Bessel filter operated at a cutoff frequency of 128 Hz. All filters are modelled using a sampling frequency of fs = 100 kHz.\nIf the angular sampling frequency ωs is however significantly greater than ωc, the inverse tangent can, in good approximation, be developed into a truncated Maclaurin series. The above expression then simplifies to:\nω′c ≈ 2\nT\n( T\n2 ωc\n) = ωc (10)\nConsequently, at high oversampling, the frequency warping is not required as the differences between the cutoff frequency in the Laplace-image and the z-image can be neglected. In the following, we utilise this approximation for the calculation of time-discrete transfer functions.\nFigure 1 compares the gain responses of the modelled hardware filter and an ideal four-pole Bessel filter operated at a cutoff frequency of 128 Hz, both in the Laplace- and the z-image. In addition to that, we compare the data with manufacturers specification to validate our calculations. In the plot it can be seen that the transfer function of the hardware filter closely resembles a fourth-order Bessel filter and we find a very good agreement between the filter models in the Laplace- and the z-image.\nThe filters impulse responses are presented in the Figures 2 and 3. Figure 2 depicts the dependency of the spike shape on the cutoff frequency of the filter: The observed spike height increases with the cutoff frequency, while the length of the spike decreases. Figure 3 further compares the impulse\n6\nPage 7 of 24\nAc ce\npt ed\nM\nan\nus cr\nip t\n0 1 2 3 4 5 Time / ms\n0\n500\n1000\n1500\n2000\n2500\n3000\nNo rm\nal is\ned c\nrr en\nt\nBessel filter at cutoff 100 Hz Bessel filter at cutoff 200 Hz Bessel filter at cutoff 300 Hz Bessel filter at cutoff 400 Hz Bessel filter at cutoff 500 Hz\nFigure 2: Impulse response of a time-discrete fourth-order Bessel low-pass filter to a rectangular pulse of the length 10 µs. The current is normalised in a way that the integral of the pulse equals unity. Filters are modelled at a sampling frequency of fs = 100 kHz.\nresponses resulting from the hardware- and an ideal four-pole Bessel filter, which exhibit close agreement. In addition to that, we find that all impulse responses show an overshoot to negative frequencies at the end of the spike. The integrals of the impulse responses of all filters modelled in the Figures 2 and 3 though equal unity within an error of less than 0.1%, while the integral of only the positive part of the spike excluding the subsequent negative overshoot equal unity within an error of less than 1%.\nThe chosen filter design hence conserves the overall charge transferred during an impact event, even if the bandwidth of the spike is beyond the the cutoff frequency of the filter. The discussed filters can therefore be well used to measure the size of a particle reacting in fast impact event that solely triggers an impulse response of the filter. Though individual spike features may be masked, the measurement provides an accurate size distribution of the investigated nanoparticle population. In the case of a partial oxidation of the impacting particle that may for instance occur during the reaction of Mo nanoparticles [15] the value of the overall transferred charge will be equally conserved independent of the spectral components of the respective spike."
+    }, {
+      "heading" : "2.2. Theoretical models for the shapes of current spikes",
+      "text" : "We focus on nano-impacts that lead to a complete electrodissolution of the impacting particle while the charge transferred at the electrode relates\n7\nPage 8 of 24\nAc ce\npt ed\nM\nan\nus cr\nip t\n0 1 2 3 4 5 Time / ms\n0\n200\n400\n600\n800\n1000\nNo rm\nal is\ned c\nur re\nnt\nHardware filter Bessel filter at cutoff 128 Hz Current = 0\nFigure 3: Comparison between the time-discrete implementation of the hardware filter and a fourth-order Bessel filter operated at 128 Hz. All parameters equal the parameters given in Figure 2.\nto the particle size via Faraday’s 1st Law. Such behaviour can be found in various experimental settings including the oxidation of silver nanoparticles to ionic silver (Ag+) [5], the reduction of indigo nanoparticles to molecular leuco-indigo [6], and the reductive dissolution of hematite nanoparticles to ionic ferrous iron (Fe2+) [16], which may be represented by the presented model.\nThe theoretical model for such destructive nano-impacts is developed on the basis of two assumptions: First, we consider an electrochemical reaction between the particle and the electrode that is initiated when the particle touches the electrode. The tunnelling distance, which is typically of the order of 1 nm or below [17] and thus significantly smaller than the initial diameter of the impacting nanoparticle, is neglected. Second, we describe an irreversible adsorption of the nanoparticle during the impact alongside a complete reaction once the particle touches the electrode surface. Though the underlying physical mechanisms leading to this effect are not yet fully understood, previous comparisons to transmission electron microscopy images revealed that the latter assumption matches well the experimental observations for silver nanoparticles [5].\nThe model is based on the established ‘sphere on a plate’ models, which have been used in various studies relating to nano-impacts [7, 18, 19] and anodic stripping voltammetry [20], it is however here tailored to investigation\n8\nPage 9 of 24\nAc ce\npt ed\nM an\nus cr\nip t of spike shapes. Our derivations are along the lines of Haddou et al. [7], who solved similar ordinary differential equations in a different context and on the basis of other assumptions: Haddou et al. model a partial particle dissolution and presume a finite average electrical contact time between the particle and the electrode, which is independent of the temporal evolution of the particle radius and the electrode potential. Considering the limiting cases of fullyreversible and fully-irreversible dissolution processes, the electrode potential leading to a half-dissolution of the particle is then determined. In contrast to that, we consider the two limiting cases of a “kinetically-limited” and a “solubility-limited” dissolution of a stationary particle and, in the following, derive expressions for the duration and the shape of the spike under these two conditions."
+    }, {
+      "heading" : "2.2.1. Kinetically-limited electrodissolution",
+      "text" : "In the case of a kinetically-limited electrodissolution of the particle, the limiting rate jlim,kin of species dissolving is directly proportional to the particle surface and can be expressed as:\njlim,kin = 4πr 2k (11)\nwhere r is the radius of the particle and k is the electrodissolution rate constant in units of [amount · length−2 · time−1], which is a function of the electrode potential. The number n of species in a spherical particle can further be calculated to:\nn = 4\n3 πρr3 (12)\nwhere ρ is the number density of species in the bulk particle in units of [length−3]. Using this expression, the rate of species jdis being released from the particle as a function of time can be written as:\njdis = − d dt n = −4 3 πρ d dt r3 = −4πρr2 d dt r (13)\nwhere jdis, n, and r are functions of time and all other parameters are constants. Equating the two expressions for the dissolution rate, (11) and (13), leads to an ordinary differential equation for the particle radius as a function of time:\nk ρ = d dt r (14)\n9\nPage 10 of 24\nAc ce\npt ed\nM an\nus cr\nip t\nwhich is solved by separation of variables in the interval r = [0, r0]:\nr = C − k ρ t with C ∈ R (15)\nThe integration constant C is determined via the condition that r equals the initial radius r0 of the impacting particle at the time t = 0:\nr(t = 0) = r0 =⇒ C = r0 (16) and the duration tmax,kin of the spike is calculated to:\nr(t = tmax,kin) = 0 =⇒ tmax = r0ρ\nk (17)\nSince a fixed amount of charge per released species is measured at the electrode, the kinetically-limited current Ikin can be calculated by substitution of the above result for r in Equation (11) or (13), and multiplication of the obtained rate jdis with the charge e0 transferred per released species:\nIkin(t) = 4πe0k ( r0 − k\nρ t\n)2 for t ∈ [0, tmax,kin] (18)"
+    }, {
+      "heading" : "2.2.2. Solubility-limited dissolution",
+      "text" : "In the case of a solubility-limited dissolution, the rate jlim,sol of the release of species from the nanoparticle is limited by the solubility of the released species in the solution adjacent to the nanoparticle and its mass-transport away from the surface rather than the reaction kinetics. While the surface concentration csurface at the particle will be determined by Nernst equation if the reaction is reversible and csurface is below the solubility concentration cmax, the surface concentration equals the solubility concentration at high over- or under-potentials. Herein, sufficiently high potentials are generally assumed. The surface concentration hence equals the saturation concentration at any time, leading to a temporal evolution of jlim,sol, which is exclusively determined by the diffusive mass transport of released ions away from the particle. Due to the small size of the particle and the fast mass transport facilitated by radial diffusion, the time that is required to reach the steady state will be of the order of hundreds of nanoseconds [21]. Transients between the kinetically-limited and the diffusion-limited case will hence be beyond the bandwidth of the potentiostat and can not be resolved experimentally.\n10\nPage 11 of 24\nAc ce\npt ed\nM an\nus cr\nip t In previous studies, the current of a spherical electrode mounted on an insulating surface was investigated for the case of fast electrode kinetics that result in an electrode current, which is solely limited by the mass transport of the analyte towards the electrode surface. This diffusion-limited current Ilim was analytically [22] and numerically [23] determined by solving the diffusion equation:\n∂tc = D∆c (19)\nsubject to the boundary conditions csurface = 0 and cbulk = c ∗. The currenttime dependency was found to be:\nIlim,diff = −4π ln(2) FDc∗r (20)\nwhere F and D have their usual significance. The limiting flux jlim,diff of molecules towards the surface can then be calculated by substituting the Avogadro constant NA for the Faraday constant:\njlim,diff = −4π ln(2) NADc∗r (21)\nSince diffusion Equation (19) is a linear homogeneous partial differential equation (i.e. it exclusively comprises linear combinations of c and its derivatives) both sides of the equation may be multiplied by a factor s ∈ R that can be included in the definition of c leading to the transformation:\nc(x, t)→ s · c(x, t) (22)\nwithout changing the structure of c. We may hence rescale the concentration values employed in the above solution (21) as well as in the boundary conditions by multiplication with a factor s ∈ R. Furthermore, since the diffusion equation solely comprises derivatives of c, all concentrations may be offset by a constant value c0 ∈ R:\nc(x, t)→ c(x, t) + c0 (23)\nThe subsequent transformations s = cmax/c ∗ and c0 = cmax hence transform Equation (21) into a solution of the here investigated diffusion problem featuring the boundary conditions csurface = cmax and cbulk = 0, where cmax is the saturation concentration of released species in the solvent surrounding the particle. The solubility-limited dissolution rate jlim,sol is hence given by:\n11\nPage 12 of 24\nAc ce\npt ed\nM an\nus cr\nip tjlim,sol = 4π ln(2) NADcmaxr (24)Since, in analogy to the kinetically-limited dissolution model, the rate of ions released by the particle, Equation (13), must equal the limiting flux of dissolving species, jlim,sol, we equate both expressions and find an ordinary differential equation for the particle radius as a function of time:\nln(2) NADcmax = −ρr d\ndt r (25)\nwhich is solved by separation of variables within the range r ∈ [0, r0]:\nr = √ C − 2 ln(2) NADcmax\nρ t (26)\nwhile the integration constant C ∈ R is determined via the initial radius r0 of the impacting particle:\nr(t = 0) = r0 =⇒ C = r20 (27)\nThe duration of the spike is then given by:\nr(t = tmax,sol) = 0 =⇒ tmax = ρr20\n2 ln(2) NADcmax (28)\nThe current at the electrode is calculated by the substitution of this result in Equation (24) and multiplication of the dissolution rate with the charge transferred per released species:\nIsol(t) = 4π ln(2) nFDc max 0 √ r20 −\n2 ln(2) NADcmax ρ t for t ∈ [0, tmax,sol]\n(29)"
+    }, {
+      "heading" : "3. Experimental",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Chemical reagents",
+      "text" : "Potassium chloride (Sigma Aldrich, >99%), tetrabutylammonium perchlorate (Sigma Aldrich, >99%), ferrocene (Sigma Aldrich, 98%), and poly\n12\nPage 13 of 24\nAc ce\npt ed\nM an\nus cr\nip t (ethylene glycol) methyl ether thiol (thiolated PEG, MW 6000, Sigma Aldrich) were used as received. 1-butyl-3-methylimidazolium tetrafluoroborate ([Bmim] [BF4]) and citrate-capped 20 nm diameter silver nanoparticles were prepared according to standard literature methods [24, 25]. Where water is mentioned, it refers to ultrapure water from Millipore with resistivity not less than 18.2 MΩcm at 25 ◦C. Argon (99.5%), for use with the Glovebox, was purchased from BOC, Surrey, UK."
+    }, {
+      "heading" : "3.2. Nanoparticle modification and sample preparation",
+      "text" : "A small amount of solid thiolated PEG (2.2 mg) was dissolved in 1 mL of water. 10 µL of the thiolated PEG stock solution was combined with 490 µL of the citrate capped Ag nanoparticles, shaken, and left undisturbed for 30 mins, during which time the solution turned from a light into an intense yellow colour. In the experiments undertake in water, 1 mL of the nanoparticles were diluted in 3 mL 20 mM KCl, to give a concentration of 2.0 x 10−7 mol m−3 Ag NPs. In the experiments undertaken in [Bmim][BF4], 2µL of the modified silver nanoparticle solution was combined with 30 µL of RTIL to produce an eventual concentration of 6.5 x 10−6 mol m−3 Ag NPs, and placed under a 0.2 mbar vacuum overnight to remove residual water."
+    }, {
+      "heading" : "3.3. Transfer into glovebox and experimental assembly for ionic liquid experiments",
+      "text" : "All ionic liquid experiments were carried out in an acrylic MBRAUN glovebox (GB-2202-P-VAC) under an inert Argon atmosphere. Before initial use, the glovebox was purged in totality a dozen times and items entering the glovebox after this initial period were transferred through the antechamber, which went through three purge and refill cycles prior to their introduction to the main chamber. Once all of the samples had been brought into the glovebox, a solution containing 10 µL of the NP in RTIL stock solution was placed in a plastic collar fixed on top of the working electrode, and a T-cell was used for structural stability, as described previously [26]."
+    }, {
+      "heading" : "3.4. Electrochemical apparatus",
+      "text" : "Electrochemical experiments (chronoamperometry) were conducted using a low noise potentiostat that was built in-house [13] and has been described fully previously [27]. All experiments were conducted inside a temperature controlled Faraday cage [28].\n13\nPage 14 of 24\nAc ce\npt ed\nM an\nus cr\nip t The working carbon microdisc electrode (IJ Cambria Scientific Ltd, UK), 10 µm nominal diameter, was polished prior to use using a water-alumina slurry (1, 0.3, 0.05 µm, five minutes on each grade) on soft lapping pads (Buehler, Illinois) [29]. The precise radius were determined through calibration of the electrode with a 2.0 mM solution of ferrocene in acetonitrile containing 0.1 M TBAP (silver wire as both a counter and quasi-reference electrode); chronoamperometry was recorded at 298 K, and assuming a diffusion coefficient of 2.3 x 10−9 m2 s−1 [26], the data was analysed with respect to the Shoup and Szabo equation [30]. This gave an electrode radius of 4.91 ± 0.05 µm. A 0.5 mm silver wire was used both as a counter and a quasireference electrode in all ionic liquid experiments, whilst a Standard Calomel Electrode and a Platinum mesh were used as reference and counter electrodes respectively in the experiments in aqueous solvents."
+    }, {
+      "heading" : "4. Results and discussion",
+      "text" : "In this section, we first discuss the spike shapes that result from the two models for kinetically- and solubility-limited dissolution processes. We then present experimental data of nano-impacts measured in aqueous solution and in an ionic liquid, before we compare our theoretical findings with the experimental measurements."
+    }, {
+      "heading" : "4.1. Theoretical models of spike shapes",
+      "text" : "Figure 4 presents the spike shapes obtained via the kinetically-limited electrodissolution model. Using a electrodissolution rate constant of 10−4 mol cm−2 s−1, which is ten times faster than the previously measured rate for the irreversible dissolution process of copper nanoparticles at the respective formal potential [7], we find spikes featuring lengths of up to 4 ms for particles featuring radii below or equal 40 nm. Since the duration of the spike is inversely proportional to k (see Equation (17)), values may however drastically change with the rate constant. For the considered k value, the spike length caused by a particle of radius 10 nm calculates to less than 1 ms. This corresponds to a bandwidth in the stopband regime of our filter, which features an attenuation of -2.79 dB at a frequency of 256 Hz, and hence results in an approximate impulse response of the filter. As demonstrated in Section 2.1, the value of the integrated spike is however conserved though information on other features of the spike will be masked. In order to resolve all features of a spike caused by an impacting nanoparticle, the\n14\nPage 15 of 24\nAc ce\npt ed\nM\nan\nus cr\nip t\n2 0 2 4 6 8 10 12 Time / ms\n0.0\n0.5\n1.0\n1.5\n2.0\nCu rr\nen t /\nn A\nInitial particle radius: 5 nm Initial particle radius: 10 nm Initial particle radius: 20 nm Initial particle radius: 30 nm Initial particle radius: 40 nm\nFigure 4: Spike shapes obtained from the kinetically-limited dissolution model. Data was calculated for various nanoparticle radii ranging from 5 to 40 nm. The density of bulk silver is set to ρ = 5.85 x 1028 m−3 [31] and the dissolution rate constant is set to k = 10−4 mol cm−2 s−1.\npotential-dependent electrodissolution rate constant of the respective system must hence be reduced in comparison to the system discussed here.\nSimilar findings are made for the solubility-limited dissolution model that is depicted in Figure 5. Observed spikes for particles sizes below 40 nm even exhibit durations below 5 µs, which is far beyond the bandwidth of the potentiostat. Though individual spike features will not be resolved, the overall charge transferred and hence the size of the particle can be measured exactly. Electrolytes featuring lower saturation concentrations of the respective released ions lead to longer spike durations and may provide a possible route for future studies."
+    }, {
+      "heading" : "4.2. Experimental results",
+      "text" : "A carbon microelectrode was immersed in a solution containing 20 mM KCl, and a chronoamperogram was performed by holding the potential at 1 V vs an SCE for 50 seconds. PEG capped silver nanoparticles, to a concentration of 2.0 x 10−7 mol m−3, were then added to the solution, and another chronoamperogram was recorded (Figure 6). Spikes in the current appeared with the addition of the nanoparticles. The investigated batch of nanoparticles have previously been sized electrochemically in water[25], which was achieved by converting the charge under the spike to a radius, using Faraday’s first law and assuming the particles are spherical.\n15\nPage 16 of 24\nAc\nce\npt ed\nM\nan\nus cr\nip t\n0 5 10 15 20 Time / s\n0.0\n0.2\n0.4\n0.6\n0.8\n1.0\nCu rr\nen t /\nA\nInitial particle radius: 5 nm Initial particle radius: 10 nm Initial particle radius: 20 nm Initial particle radius: 30 nm Initial particle radius: 40 nm\nFigure 5: Spike shapes resulting from the solubility-limited reaction model. The model uses the above specified density ρ, the diffusion coefficient of silver ions is assumed to be D = 1.6 m2 s−1, and the saturation concentration of ionic silver, Ag+, is set to the value of silver nitrate, cmax = 15.07 M.\n15 20 25 30 35 40 Time / s\n0\n5\n10\n15\n20\n25\n30\n35\n40\nC u rr\ne n t\n/ p A\nAqueous solution\nFigure 6: Chronoamperogram recorded at 1 V in 20 mM KCl and offset by 0.05 nA for clarity. The solution contains 2.0 x 10−7 mol m−3 silver nanoparticles.\nThe carbon microelectrode was then immersed in an aliquot of [Bmim][BF4], and a chronoamperogram was recorded by holding the electrode at 1 V vs a silver wire for 50 seconds. No features appeared on the chronoamperogram. An aliquot of ionic liquid containing silver nanoparticles was then mixed in, and another chronoamperogram was recorded at 1 V (Figure 7).\n16\nPage 17 of 24\nAc ce\npt ed\nM\nan\nus cr\nip t\n15 20 25 30 35 40 Time / s\n0\n5\n10\n15\n20\n25\n30\n35\n40\nC u rr\ne n t\n/ p A\nIonic liquid\nFigure 7: Chronoamperogram recorded at 1 V in [Bmim][BF4] and offset by 0.05 nA for clarity. The concentration of silver nanoparticles is 6.5 x 10−6 mol m−3.\nThe chronoamperogram showed a number of spikes in the current, which, when integrated, provided consistent sizing with Dynamic Light Scattering and transmission electron microscopy [27].\nWith the ability to gain information about the size of nanoparticles in two vastly different solvents from the charge of the spikes demonstrated, we now turn to analysis of the shape of the features."
+    }, {
+      "heading" : "4.3. Comparison between theory and experiments",
+      "text" : "The analysis of the current data depicted in the Figures 6 and 7 revealed a variety of different spikes shapes that can be observed for silver nanoparticle oxidation in aqueous solution as well as in an ionic liquid. Figure 8 and 9 present a selection of exemplary spike shapes, where plots on the left amplify a feature of the spikes shown on the right. The presented measurements in aqueous solution show slowly evolving current transients on a time scale of several ten milliseconds featuring amplitudes that exceed the peak to peak noise by a factor of about two to three and are either preceded or followed by a sharp current transient. The latter only feature lengths of about 4 ms and significantly higher amplitudes of about 12 and 4.5 pA compared to the slow transients. In contrast to that, the first spike in Figure 9, which was measured in ionic liquid solely exhibits a sharp transient that is similar to the transients observed in water, while the second spike comprises an ensemble three sharp transients.\n17\nPage 18 of 24\nAc ce\npt ed\nM an\nus cr\nip t The variety of different spikes observed suggests an interplay between various processes. While the second spike in ionic liquids is consistent with both limiting cases, the second may be caused by three partial oxidations or an impacting cluster of nanoparticles. The two spikes obtained in aqueous solution further indicate that additional processes are involved resulting in a partial dissolution at significantly lower dissolution rates. These processes will be the subject of future studies.\nIn the Figures 8 and 9, we further investigate the sharp current transients that are found in all four spikes and compare them to the impulse response of the filter. In all cases, these spike shapes almost ideally overlap with the impulse response, hence indicating fast electrodissolution processes. Since all spikes that exclusively comprise spectral components beyond the filter bandwidth lead to equal impulse responses, we can conclude that the spike features masked by the impulse response are faster than the cutoff frequency of the filter. Although different kinetic models cannot be distinguished on the basis of the experimental data, those findings however support the above defined two limiting cases that both predict such fast dissolution processes. Spikes that additionally comprise spectral components within the passband of the filter (see Figure 9, bottom left at 26 ms or bottom right at 16.25 s) exhibit shapes that deviate from the calculated impulse response. In these cases, the spike shape is determined by the dissolution process as well as by the filter characteristics."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "We theoretically demonstrate that, by the choice of an appropriate filter, the overall charge transferred in a nano-impact event can be conserved in the measurement, even if the bandwidth of the corresponding current spike is far beyond the cutoff frequency of the filter. Integration of the current hence provides an accurate measure for the amount of nanoparticle material that reacted in a Faradaic reaction, though the original shape of the spike may be masked. An exact particle sizing can therefore be achieved in the case of a complete reaction of the particle. Suitable filters include Bessel-type and many other low-pass LTI IIR filters that conserve the integral in an impulse response. We further discuss that Bessel type filters are particularly advantageous in nano-impact applications as they exhibit a linear phase response. This linear phase response leads to constant phase- and group-delay of the detected signal, which, in addition to the conservation of the measured charge,\n18\nPage 19 of 24\nAc ce\npt ed\nM an\nus cr\nip t\n10 5 0 5 10 15 20 25 30 Time / ms\n0.2\n0.0\n0.2\n0.4\n0.6\n0.8\n1.0\n1.2\nNo rm\nal is\ned c\nur re\nnt\nExperiment in aqueous solution Impulse response hardware filter\n32.8 33.0 33.2 33.4 33.6 Time / s\n4\n6\n8\n10\n12\n14\n16\n18\nCu rr\nen t /\np A\nInvestigated spike feature\nExperiment in aqueous solution\n10 5 0 5 10 15 20 25 30 Time / ms\n0.2\n0.0\n0.2\n0.4\n0.6\n0.8\n1.0\n1.2\nNo rm\nal is\ned c\nur re\nnt\nExperiment in aqueous solution Impulse response hardware filter\n18.0 18.2 18.4 18.6 18.8 Time / s\n5\n6\n7\n8\n9\n10\n11\n12\nCu rr\nen t /\np A Investigated\nspike feature\nExperiment in aqueous solution\nFigure 8: Comparison between experimental data recorded in aqueous solution and the impulse response model of the hardware filter. The plots on the left show individual features of the spike, while the spike height is normalised to unity and the temporal position of the was manually fitted. The plots on the right show the corresponding original data.\nconserves the spike shape while filtering unwanted noise components in the spectrum of the signal. In addition to that, we theoretically demonstrate that for the limiting cases of a kinetic- and a solubility-limited dissolution of the impacting particle, the expected spike length for most electrochemical systems is too short to be detected by standard potentiostats, typically featuring bandwidths of less than 1 kHz.\nThe comparison to experimental data shows that some measured spikes additionally contain slow spectral components suggesting an interplay between the here-discussed- and additional physiochemical effects. As some of these components are well below the cutoff frequency of the filter they can be resolved, while fast spike features are in line with our theory and lead to the expected filter impulse response. Herein, the theoretical model of the filter shows excellent agreement with the respective parts of the detected spikes.\n19\nPage 20 of 24\nAc ce\npt\ned\nM an\nus cr\nip t\n10 5 0 5 10 15 20 25 30 Time / ms\n0.2\n0.0\n0.2\n0.4\n0.6\n0.8\n1.0\n1.2\nNo rm\nal is\ned c\nur re\nnt\nExperiment in ionic liquid Impulse response hardware filter\n87.4 87.6 87.8 88.0 88.2 Time / s\n1\n0\n1\n2\n3\n4\n5\nCu rr\nen t /\np A\nInvestigated spike feature\nExperiment in ionic liquid\n10 5 0 5 10 15 20 25 30 Time / ms\n0.2\n0.0\n0.2\n0.4\n0.6\n0.8\n1.0\n1.2\nNo rm\nal is\ned c\nur re\nnt\nExperiment in ionic liquid Impulse response hardware filter\n16.2 16.4 16.6 16.8 17.0 Time / s\n10\n15\n20\n25\nCu rr\nen t /\np A Investigatedspike feature\nExperiment in ionic liquid\nFigure 9: Comparison between experimental data recorded in the ionic liquid and the impulse response model of the hardware filter. The data was processed as described in Figure 8"
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "The research leading to these results has received partial funding from the European Research Council under the European Union’s Seventh Framework Programme (FP/2007-2013) / ERC Grant Agreement n. [320403]. Eden E. L. Tanner thanks the Clarendon Fund and St John’s College for financial support. We thank Ms Jessica C. Lees for the preparation of the nanoparticles and Prof Chris Hardacre at Queen’s University Belfast for supplying the ionic liquid."
+    } ],
+    "references" : [ {
+      "title" : "Detection",
+      "author" : [ "W. Wang", "N. Tao" ],
+      "venue" : "counting, and imaging of single nanoparticles, Analytical Chemistry 86 (1) ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Electrochemical detection of nanoparticles 20  Page 21 of 24  Ac  ce  pt  ed  M  an  us  cr  ip  t  by ’nano-impact’ methods",
+      "author" : [ "W. Cheng", "R.G. Compton" ],
+      "venue" : "TrAC Trends in Analytical Chemistry 58 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Electrochemical insight from nanoparticle collisions with electrodes: A mini-review",
+      "author" : [ "N.V. Rees" ],
+      "venue" : "Electrochemistry Communications 43 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Impact electrochemistry: measuring individual nanoparticles",
+      "author" : [ "M. Pumera" ],
+      "venue" : "ACS Nano 8 (8) ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "The electrochemical detection and characterization of silver nanoparticles in aqueous solution",
+      "author" : [ "Y.-G. Zhou", "N.V. Rees", "R.G. Compton" ],
+      "venue" : "Angewandte Chemie International Edition 50 (18) ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Electrochemical sizing of organic nanoparticles",
+      "author" : [ "W. Cheng", "X.-F. Zhou", "R.G. Compton" ],
+      "venue" : "Angewandte Chemie 125 (49) ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Nanoparticle–electrode impacts: the oxidation of copper nanoparticles has slow kinetics",
+      "author" : [ "B. Haddou", "N.V. Rees", "R.G. Compton" ],
+      "venue" : "Physical Chemistry Chemical Physics 14 (39) ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Quantifying adsorption on single alumina particles via impact voltammetry an current transient analysis",
+      "author" : [ "Q. Lin", "R.G. Compton" ],
+      "venue" : "The Journal of Physical Chemistry C 119 (41) ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Charge diffusion on the surface of particles with simple geometries",
+      "author" : [ "S. Eloul", "R.G. Compton" ],
+      "venue" : "The Journal of Physical Chemistry C 119 (49) ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Kinetics of the adhesion of dmpc liposomes on a mercury electrode",
+      "author" : [ "V.A. Hernández", "F. Scholz" ],
+      "venue" : "effect of lamellarity, phase composition, size and curvature of liposomes, and presence of the pore forming peptide mastoparan x, Langmuir 22 (25) ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "The lipid composition determines the kinetics of adhesion and spreading of liposomes on mercury electrodes",
+      "author" : [ "V.A. Hernández", "F. Scholz" ],
+      "venue" : "Bioelectrochemistry 74 (1) ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "The electrochemistry of liposomes",
+      "author" : [ "V.A. Hernández", "F. Scholz" ],
+      "venue" : "Israel Journal of Chemistry 48 (3-4) ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "In situ nanoparticle sizing with zeptomole sensitivity",
+      "author" : [ "C. Batchelor-McAuley", "J. Ellison", "K. Tschulik", "P.L. Hurst", "R. Boldt", "R.G. Compton" ],
+      "venue" : "Analyst 140 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Taschenbuch der Mathematik",
+      "author" : [ "I. Bronstein", "K. Semendjajew", "G. Musiol", "H. Mühlig" ],
+      "venue" : "Verlag Harry Deutsch",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Impact electrochemistry of individual molybdenum nanoparticles",
+      "author" : [ "M. Giovanni", "A. Ambrosi", "Z. Sofer", "M. Pumera" ],
+      "venue" : "Electrochemistry Communications 56 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Understanding nano-impacts: Binary nature of charge transfer during mediated re ctions",
+      "author" : [ "E. Kätelhön", "R.G. Compton" ],
+      "venue" : "ChemElectroChem 2 (1) ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "The charge transfer kinetics of the oxidation of silver and nickel nanoparticles via particle– electrode impact electrochemistry",
+      "author" : [ "Y.-G. Zhou", "B. Haddou", "N.V. Rees", "R.G. Compton" ],
+      "venue" : "Physical Chemistry Chemical Physics 14 (41) ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Organic nanoparticles: mechanism of electron transfer to indigo nanoparticles",
+      "author" : [ "W. Cheng", "C. Batchelor-McAuley", "R.G. Compton" ],
+      "venue" : "ChemElectroChem 1 (4) ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "The anodic stripping voltammetry of nanoparticles: electrochemical evidence for the surface agglomeration of silver nanoparticles",
+      "author" : [ "H.S. Toh", "C. Batchelor-McAuley", "K. Tschulik", "M. Uhlemann", "A. Crossley", "R.G. Compton" ],
+      "venue" : "Nanoscale 5 (11) ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Equality of diffusion-limited chronoamperometric currents to equal area spherical and cubic nanoparticles on a supporting electrode surface",
+      "author" : [ "E. Kätelhön", "E.O. Barnes", "K.J. Krause", "B. Wolfrum", "R.G. Compton" ],
+      "venue" : "Chemical Physics Letters 595 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Diffusion to a slowly growing truncated sphere on a substrate",
+      "author" : [ "P. Bobbert", "M. Wind", "J. Vlieger" ],
+      "venue" : "Physica A: Statistical Mechanics and its Applications 141 (1) ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 1987
+    }, {
+      "title" : "Diffusion-limited currents to nanoparticles of various shapes supported on an electrode; spheres",
+      "author" : [ "I. Streeter", "R.G. Compton" ],
+      "venue" : "hemispheres, and distorted spheres and hemispheres, The Journal of Physical Chemistry C 111 (49) ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Hydrophobic",
+      "author" : [ "P. Bonhote", "A.P. Dias", "N. Papageorgiou", "K. Kalyanasundaram", "M. Gratzel" ],
+      "venue" : "highly conductive ambient-temperature molten salts, Inorg. Chem. 35 (5) ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "Nanoparticle impacts show highionic-strength citrate avoids aggregation of silver nanoparticles",
+      "author" : [ "J.C. Lees", "J. Ellison", "C. Batchelor-McAuley", "K. Tschulik", "C. Damm", "D. Omanović", "R.G. Compton" ],
+      "venue" : "ChemPhysChem 14 (17) ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Electrooxidation of the iodides [C4mim]I",
+      "author" : [ "E.I. Rogers", "D.S. Silvester", "L. Aldous", "C. Hardacre", "R.G. Compton" ],
+      "venue" : "LiI, NaI, KI, RbI, and CsI in the room temperature ionic liquid [C4mim][NTf2], J. Phys. Chem. B 112 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Electroreduction of oxygen in a series of room temperature ionic liquids composed of group 15-centered cations and anions",
+      "author" : [ "R.G. Evans", "O.V. Klymenko", "S. Saddoughi", "C. Hardacre", "R.G. Compton" ],
+      "venue" : "J. Phys. Chem. B 108 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Preparation of microelectrodes: Comparison of polishing procedures by statistical analysis of voltammetric data",
+      "author" : [ "T.J. Cardwell", "J. Mocak", "J.H. Santos", "A.M. Bond" ],
+      "venue" : "Analyst 121 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "Chronoamperometric current at finite disk electrodes",
+      "author" : [ "D. Shoup", "A. Szabo" ],
+      "venue" : "J. Electroanal. Chem. 140 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 1982
+    }, {
+      "title" : "Einführung in die Festkörperphysik",
+      "author" : [ "C. Kittel" ],
+      "venue" : "14. Auflage, Oldenbourg Verlag",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "While a number of different approaches towards single nanoparticle detection are being pursued [1], nano-impacts are a particularly promising approach for the immediate electrochemical detection of freely-diffusing particles in solution.",
+      "startOffset" : 95,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 1,
+      "context" : "In this method [2, 3, 4], a biased electrode is immersed into the solution under investigation, containing an analyte nanoparticle population.",
+      "startOffset" : 15,
+      "endOffset" : 24
+    }, {
+      "referenceID" : 2,
+      "context" : "In this method [2, 3, 4], a biased electrode is immersed into the solution under investigation, containing an analyte nanoparticle population.",
+      "startOffset" : 15,
+      "endOffset" : 24
+    }, {
+      "referenceID" : 3,
+      "context" : "In this method [2, 3, 4], a biased electrode is immersed into the solution under investigation, containing an analyte nanoparticle population.",
+      "startOffset" : 15,
+      "endOffset" : 24
+    }, {
+      "referenceID" : 4,
+      "context" : "For a complete reaction of the impacting particle, the particle concentration and size distribution may hence be concluded from the frequency of detected spikes and their integration, respectively [5, 6].",
+      "startOffset" : 197,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 5,
+      "context" : "For a complete reaction of the impacting particle, the particle concentration and size distribution may hence be concluded from the frequency of detected spikes and their integration, respectively [5, 6].",
+      "startOffset" : 197,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 6,
+      "context" : "Analytical or empirical models have for instance been developed for partial dissolution processes [7], charge diffusion on the surface of impacting Alumina particles [8] and various geometries [9] as well as for impacting liposomes on mercury electrode [10, 11, 12].",
+      "startOffset" : 98,
+      "endOffset" : 101
+    }, {
+      "referenceID" : 7,
+      "context" : "Analytical or empirical models have for instance been developed for partial dissolution processes [7], charge diffusion on the surface of impacting Alumina particles [8] and various geometries [9] as well as for impacting liposomes on mercury electrode [10, 11, 12].",
+      "startOffset" : 166,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 8,
+      "context" : "Analytical or empirical models have for instance been developed for partial dissolution processes [7], charge diffusion on the surface of impacting Alumina particles [8] and various geometries [9] as well as for impacting liposomes on mercury electrode [10, 11, 12].",
+      "startOffset" : 193,
+      "endOffset" : 196
+    }, {
+      "referenceID" : 9,
+      "context" : "Analytical or empirical models have for instance been developed for partial dissolution processes [7], charge diffusion on the surface of impacting Alumina particles [8] and various geometries [9] as well as for impacting liposomes on mercury electrode [10, 11, 12].",
+      "startOffset" : 253,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 10,
+      "context" : "Analytical or empirical models have for instance been developed for partial dissolution processes [7], charge diffusion on the surface of impacting Alumina particles [8] and various geometries [9] as well as for impacting liposomes on mercury electrode [10, 11, 12].",
+      "startOffset" : 253,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 11,
+      "context" : "Analytical or empirical models have for instance been developed for partial dissolution processes [7], charge diffusion on the surface of impacting Alumina particles [8] and various geometries [9] as well as for impacting liposomes on mercury electrode [10, 11, 12].",
+      "startOffset" : 253,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 12,
+      "context" : "The potentiostat [13] developed inhouse used in our experiments (as reported below and elsewhere) comprises a DC338 demonstration board featuring a LTC1563-3 filter (Linear Technology Coporation, Milpitas, California, USA).",
+      "startOffset" : 17,
+      "endOffset" : 21
+    }, {
+      "referenceID" : 13,
+      "context" : "where f [k] represents the k element of f(t) and the second line emphasises the analogy to the Laplace transform, which we are going to use below [14].",
+      "startOffset" : 146,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 14,
+      "context" : "In the case of a partial oxidation of the impacting particle that may for instance occur during the reaction of Mo nanoparticles [15] the value of the overall transferred charge will be equally conserved independent of the spectral components of the respective spike.",
+      "startOffset" : 129,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 4,
+      "context" : "Such behaviour can be found in various experimental settings including the oxidation of silver nanoparticles to ionic silver (Ag) [5], the reduction of indigo nanoparticles to molecular leuco-indigo [6], and the reductive dissolution of hematite nanoparticles to ionic ferrous iron (Fe) [16], which may be represented by the presented model.",
+      "startOffset" : 130,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 5,
+      "context" : "Such behaviour can be found in various experimental settings including the oxidation of silver nanoparticles to ionic silver (Ag) [5], the reduction of indigo nanoparticles to molecular leuco-indigo [6], and the reductive dissolution of hematite nanoparticles to ionic ferrous iron (Fe) [16], which may be represented by the presented model.",
+      "startOffset" : 199,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 15,
+      "context" : "The tunnelling distance, which is typically of the order of 1 nm or below [17] and thus significantly smaller than the initial diameter of the impacting nanoparticle, is neglected.",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 4,
+      "context" : "Though the underlying physical mechanisms leading to this effect are not yet fully understood, previous comparisons to transmission electron microscopy images revealed that the latter assumption matches well the experimental observations for silver nanoparticles [5].",
+      "startOffset" : 263,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 6,
+      "context" : "The model is based on the established ‘sphere on a plate’ models, which have been used in various studies relating to nano-impacts [7, 18, 19] and anodic stripping voltammetry [20], it is however here tailored to investigation",
+      "startOffset" : 131,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 16,
+      "context" : "The model is based on the established ‘sphere on a plate’ models, which have been used in various studies relating to nano-impacts [7, 18, 19] and anodic stripping voltammetry [20], it is however here tailored to investigation",
+      "startOffset" : 131,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 17,
+      "context" : "The model is based on the established ‘sphere on a plate’ models, which have been used in various studies relating to nano-impacts [7, 18, 19] and anodic stripping voltammetry [20], it is however here tailored to investigation",
+      "startOffset" : 131,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 18,
+      "context" : "The model is based on the established ‘sphere on a plate’ models, which have been used in various studies relating to nano-impacts [7, 18, 19] and anodic stripping voltammetry [20], it is however here tailored to investigation",
+      "startOffset" : 176,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 6,
+      "context" : "[7], who solved similar ordinary differential equations in a different context and on the basis of other assumptions: Haddou et al.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 19,
+      "context" : "Due to the small size of the particle and the fast mass transport facilitated by radial diffusion, the time that is required to reach the steady state will be of the order of hundreds of nanoseconds [21].",
+      "startOffset" : 199,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 20,
+      "context" : "This diffusion-limited current Ilim was analytically [22] and numerically [23] determined by solving the diffusion equation:",
+      "startOffset" : 53,
+      "endOffset" : 57
+    }, {
+      "referenceID" : 21,
+      "context" : "This diffusion-limited current Ilim was analytically [22] and numerically [23] determined by solving the diffusion equation:",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 22,
+      "context" : "1-butyl-3-methylimidazolium tetrafluoroborate ([Bmim] [BF4]) and citrate-capped 20 nm diameter silver nanoparticles were prepared according to standard literature methods [24, 25].",
+      "startOffset" : 171,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 23,
+      "context" : "1-butyl-3-methylimidazolium tetrafluoroborate ([Bmim] [BF4]) and citrate-capped 20 nm diameter silver nanoparticles were prepared according to standard literature methods [24, 25].",
+      "startOffset" : 171,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 24,
+      "context" : "Once all of the samples had been brought into the glovebox, a solution containing 10 μL of the NP in RTIL stock solution was placed in a plastic collar fixed on top of the working electrode, and a T-cell was used for structural stability, as described previously [26].",
+      "startOffset" : 263,
+      "endOffset" : 267
+    }, {
+      "referenceID" : 12,
+      "context" : "Electrochemical apparatus Electrochemical experiments (chronoamperometry) were conducted using a low noise potentiostat that was built in-house [13] and has been described fully previously [27].",
+      "startOffset" : 144,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 25,
+      "context" : "All experiments were conducted inside a temperature controlled Faraday cage [28].",
+      "startOffset" : 76,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 26,
+      "context" : "05 μm, five minutes on each grade) on soft lapping pads (Buehler, Illinois) [29].",
+      "startOffset" : 76,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 24,
+      "context" : "3 x 10−9 m(2) s−1 [26], the data was analysed with respect to the Shoup and Szabo equation [30].",
+      "startOffset" : 18,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 27,
+      "context" : "3 x 10−9 m(2) s−1 [26], the data was analysed with respect to the Shoup and Szabo equation [30].",
+      "startOffset" : 91,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 6,
+      "context" : "Using a electrodissolution rate constant of 10−4 mol cm−2 s−1, which is ten times faster than the previously measured rate for the irreversible dissolution process of copper nanoparticles at the respective formal potential [7], we find spikes featuring lengths of up to 4 ms for particles featuring radii below or equal 40 nm.",
+      "startOffset" : 223,
+      "endOffset" : 226
+    }, {
+      "referenceID" : 28,
+      "context" : "85 x 10(28) m−3 [31] and the dissolution rate constant is set to k = 10−4 mol cm−2 s−1.",
+      "startOffset" : 16,
+      "endOffset" : 20
+    }, {
+      "referenceID" : 23,
+      "context" : "The investigated batch of nanoparticles have previously been sized electrochemically in water[25], which was achieved by converting the charge under the spike to a radius, using Faraday’s first law and assuming the particles are spherical.",
+      "startOffset" : 93,
+      "endOffset" : 97
+    } ],
+    "year" : 2016,
+    "abstractText" : "The fast-advancing method of nano-impacts is a powerful approach for the immediate detection and characterisation of nanoparticles. During the measurement particles stochastically impact on a biased electrode immersed in a colloidal solution, where they may enable an electrochemical reaction. In the case of a destructive impact, particles electrodissolve at the electrode surface, which can be seen as a spike in the electrode current. While these spikes are successfully used to measure particle concentrations and to determine size distributions via the overall charge transferred per spike, the spike shape is however usually not included in the analysis. In this work, we explore in which ways spike shapes can be exploited to gain additional information on the investigated particle system. To this end, the limiting cases of two reaction models are introduced and discussed in the context of the opportunities and limitations imposed by hardware filters. In particular, we demonstrate that Bessel-type filters conserve the overall charge transferred during an impact event, even if the bandwidth of the signal is far beyond the passband of the filter. Our findings are further compared to experimental data obtained from measurements in aqueous solutions and ionic liquids.",
+    "creator" : "Elsevier"
+  }
+}

@@ -1,0 +1,678 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_016fd06ed542e004fbcf2f48c0875cc8_karri2018.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Optimization and modeling of methyl orange adsorption onto polyaniline nano-adsorbent through response surface methodology and differential evolution embedded neural network",
+    "authors" : [ "Rama Rao Karri", "Marjan Tanzifi", "Mohammad Tavakkoli Yaraki", "J.N. Sahu" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nJournal of Environmental Management\njournal homepage: www.elsevier.com/locate/jenvman\nResearch article\nOptimization and modeling of methyl orange adsorption onto polyaniline nano-adsorbent through response surface methodology and differential evolution embedded neural network\nRama Rao Karria,∗,1, Marjan Tanzifib,∗∗,1, Mohammad Tavakkoli Yarakic,d, J.N. Sahue\na Petroleum and Chemical Engineering, Universiti Teknologi Brunei, Brunei Darussalam bDepartment of Chemical Engineering, Faculty of Engineering, University of Ilam, Ilam, Iran c Department of Chemical Engineering, Amirkabir University of Technology (Tehran Polytechnic), Tehran, 15875-4413, Iran d Department of Chemical and Biomolecular Engineering, National University of Singapore, Engineering Drive 4, Singapore, 117585, Singapore eUniversity of Stuttgart, Institute of Chemical Technology, Faculty of Chemistry, D-70550, Stuttgart, Germany\nA R T I C L E I N F O\nKeywords: Response surface methodology Artificial neural network Differential evolution optimization Batch modeling Methyl orange adsorption Polyaniline nano-adsorbent\nA B S T R A C T\nPresence of pigments and dyes in water bodies are growing tremendously and pose as toxic materials and have severe health effects on human and aquatic creatures. Treatments methods for removal of these toxic dyes along with other pollutants are growing in different dimensions, among which adsorption was found a cheaper and efficient method. In this study, the performance of polyaniline-based nano-adsorbent for removal of methyl orange (MO) dye from wastewater in a batch adsorption process is studied. Along with this to minimize the number of experiments and obtain optimal conditions, a multivariate predictive model based on response surface methodology (RSM) is developed. This is compared with data-driven modeling using the artificial neural network (ANN) which is integrated with differential evolution optimization (DEO) for prediction of the adsorption of MO. The interactive effects on MO removal efficiency with respect to independent process variables were investigated. The fit of the predictive model was found to good enough with R2= 0.8635. The optimal ANN architecture with 5-12-1 topology resulted in higher R2 and lower RMSE of 0.9475 and 0.1294 respectively. Pearson's Chi-square measure which provides a good measurement scale for weighing the goodness of fit is found to be 0.005 and 0.038 for RSM and ANN-DEO respectively, and other statistical metrics evaluated in this study further confirms that the ANN-DEO is very superior over RSM for model predictions."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Water pollution is considered as one of the most important concerns of human society in recent years. Most process industries discharge their wastewater to the environment without treatment which could lead to a lot of environmental problems and health issues. Thus, the wastewater from these industries should be treated before discharging to the environment including the rivers and flowing water. Presently, many process industries including the paper, textile, plastic, and leather industries use pigments, and dyes for the colouring their products, and excess of these colours end up in the discharge which ultimately end-up as industrial effluents. The presence of dyes poses as toxic materials, resistant to a chemical reaction in wastewaters leads to cancer, mutagenesis, and other severe problems in human and aquatic creatures. The complicated chemical structures of dyes make these materials highly\nresistant to biodegradation (Fu et al., 2015; Mokhtari et al., 2016). One among the most commonly used dyes in process industries is methyl orange (MO), which belongs to a group of azo dyes, and poses higher toxic nature. These dyes are dangerous for aquatic creatures, due to the presence of an azo group (-N]N-) in their chemical structure and hence need to be removed from the aqueous environment (Agarwal et al., 2016; León et al., 2016).\nThis biggest concern has driven many researchers and scientists to develop technologies and remedial methods for its removal. A number of methods have already been in use to remove the coloured compounds from effluent water and wastewater. These methods include photocatalytic degradation (He et al., 2017), separation by membrane (Bouazizi et al., 2017), coagulation process (Li et al., 2016),electrolysis (Zou and Wang, 2017), liquid-liquid extraction (Bukman et al., 2017),and adsorption (El Essawy et al., 2017; Hu et al., 2016; Karri\nhttps://doi.org/10.1016/j.jenvman.2018.06.027 Received 19 March 2018; Received in revised form 7 June 2018; Accepted 9 June 2018\n∗ Corresponding author. ∗∗ Corresponding author. 1 These authors contributed equally to this work. E-mail addresses: kramarao.iitd@gmail.com (R.R. Karri), m.tanzifi@ilam.ac.ir (M. Tanzifi).\nJournal of Environmental Management 223 (2018) 517–529\nAvailable online 27 June 2018 0301-4797/ © 2018 Elsevier Ltd. All rights reserved.\nT\net al., 2017a, 2018; Karri and Sahu, 2018; Zhou et al., 2017). Among these technologies, the application of adsorption has found many applications owing to the fact that this method is easier, cheaper and highly efficient for dye removal (Kumari et al., 2017; Li et al., 2018; Wang et al., 2017; Zhang et al., 2016).\nRecently, researchers have discovered that few polymeric materials (as an adsorbent) can remove a variety of pollutants from effluent and wastewater (Agcaoili et al., 2017; Jeon et al., 2008; Karimi et al., 2016; Kono et al., 2016; Yang and Ni, 2012). Polyaniline is one of the conventional conductive polymers which can remove various pollutants such as organic materials from aqueous solutions due to the presence of amine and imine groups in its chemical structure. These groups in the polyaniline could bind with the functional groups of the pollutant material leading to the removal of pollutant from the aqueous solution. This conductive polymer can be an excellent adsorbent to remove the pollutants due to advantages such as cheaper aniline monomer, the simplicity of its synthesis and thermal stability of polyaniline against the ambient conditions (Liu et al., 2017; Sun et al., 2017; Tanzifi et al., 2017b, 2018; Yan et al., 2015). Investigating the performance of newly developed material as an adsorbent under different operating conditions was highly time-consuming and costly. Notably, each process variables have a different impact on the adsorption efficiency and these variables also have some interaction effects and overall adsorption efficiency. A systematic experimental procedure is needed to identify the influence of each parameter on the adsorption process and finding their optimal values to achieve maximum removal efficiency. Particularly to analyze and understand the system behaviour, a various number of experimental runs has to be carried out. This process can be tedious and highly time-consuming. In order to accomplish these tasks, the researcher has to properly plan and design the experimental model which uses limited resources. Design of experiments approach is adapted to design and plan optimal experimental runs, to get valuable insights of the process.\nThe primary objectives of this research study is to (i) find the performance of polyaniline-based nano-adsorbent for removal of MO from wastewater in a batch adsorption process, (ii) obtain a predictive multivariate model based on response surface methodology (RSM) and compare with data-driven modeling using artificial neural network (ANN) which is integrated with differential evolution optimization (DEO). Implementation of ANN has large applications; whereas implementation of ANN-DEO in the field of adsorption are very few (Karri et al., 2017b; Lingamdinne et al., 2018; Maheshwari and Gupta, 2016); however, as per the author's knowledge, there is no application in open literature so far for application of ANN-DEO for the removal of dyes from wastewater. Therefore, this is a novel approach investigating the performance of polyaniline-based nano-adsorbent for removal of MO from wastewater."
+    }, {
+      "heading" : "2. Material and methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Materials",
+      "text" : "The aniline monomer which was used in this study was purchased from Merck Company, Germany, and distilled before use. Ammonium peroxydisulfate (APS) as the oxidant, sodium dodecylbenzene sulfonate (DBSNa) as a stabilizer, methyl orange pigment, sodium hydroxide, and sulfuric acid were all purchased from Merck Company, Germany."
+    }, {
+      "heading" : "2.2. Synthesis of adsorbent",
+      "text" : "The method of preparing the polyaniline nano-adsorbent was explained in detail in our other article (Tanzifi et al., 2017a) and hence presented briefly here. To synthesize the polyaniline nano-adsorbent based on DBSNa, 0.4 g of DBSNa was first added to 25mL of water and placed on a magnetic stirrer (the first solution). In another container, 2.5 g of APS was added to 25mL of distilled water, and after stirring for\n15min, the first solution was slowly added and placed on the magnetic stirrer for another 15min. Finally, 50mL of 2M sulfuric acid was added to the above solution, let for 15min of stirring and 1mL of aniline monomer was injected resulting in the polymerization reaction observed by the change of solution colour to black. This polymerization reaction was let to go for 5 h, and the product was then filtered and rinsed with distilled water for several times to remove the impurities until the solution passing the filter became colourless. Then, the remaining product on the filter was dried in the oven at 40 °C for about 48 h till it is anhydrous. Finally, it was powdered and used as the adsorbent."
+    }, {
+      "heading" : "2.3. Characterization",
+      "text" : "The morphology and surface form of pure polyaniline and polyaniline nano-adsorbent before and after the process of MO dye adsorption were studied by SEM (model KYKY-EM3200). In order to study the synthesized nano-adsorbent structure, the FTIR (Broker, vertex 70) was used. Furthermore, the properties of pure polyaniline and polyaniline nano-adsorbent including the surface area, the total volume of pores, and average pore diameter were studied by BET and BJH analyses (Belsorp mini analyzer, Japan).\nThe morphology and form of pure polyaniline particles and polyaniline nanoparticles synthesized based on DBSNa with different magnifications are presented in Fig. 1. In the SEM image of pure polyaniline (Fig. 1a), a structure with large, non-uniform, and hulk particles was observed which can be converted into a uniform structure with round and fine particles with particles size about nano by using DBSNa (Fig. 1b). In fact, DBSNa acted as a stabilizer material, was bonded with polyaniline chain, and did not allow the polymer chain to grow more resulting in the small and uniform size of polyaniline particles. Moreover, Fig. 1c displays the SEM image of polyaniline nano-adsorbent after the adsorption with two different magnifications in which changing the surface form of adsorbent was observed towards before the MO dye adsorption process. After the adsorption process, the adsorbent particles were entirely stuck to each other and lost their uniformity and sphericity (Tanzifi et al., 2017a). The FTIR spectrum at 450-4000 cm−1 wavelength was used to study the chemical structure of polyaniline nano-adsorbent, and details regarding the FTIR spectrum is presented in extra supplementary material (ESM).\nThe physical properties of polyaniline nano-adsorbent surface such as BET surface area, the total volume of pores, and average pore diameter were studied by adsorption-desorption isotherms of nitrogen. Whereas, the conventional BJH method, was used for studying the distribution of nano-adsorbent pore size. In this method, the surface area in contact with nitrogen and the volume of adsorbed nitrogen into the adsorbent were obtained from the pores size based on the singlelayer and multi-layer adsorption theories, respectively. The distribution was obtained by determining the parameter of adsorbed nitrogen volume changes with respect to the pore size. The results indicate that the values of the total pore volume, average pore diameter and surface area for polyaniline nano-adsorbent based on DBSNa was enhanced about 30%, 20%, and 30%, respectively, compared with pure polyaniline. The surface area, average pore diameter, and the total pore volume of synthesized adsorbent was 10.441m2/g, 13.824 nm, and 2.3988m3/g, respectively (Tanzifi et al., 2017a)."
+    }, {
+      "heading" : "2.4. Batch adsorption experiments and experimental design",
+      "text" : "The experimental studies of MO dye adsorption onto polyaniline nano-adsorbent were conducted in a batch process, wherein the stirring speed and dye volume were maintained at 1200 rpm and 50mL respectively in all the experimental runs. As the adsorption efficiency depends on the process parameters (variables), in this study, the effect of five significant parameters namely solution pH, process temperature, initial concentration, the required time for adsorption process and\nnano-adsorbent dosage were studied systematically. The range of solution pH was considered from acidic pH medium (pH=2) to base pH medium (pH=10). Furthermore, the process temperature and nanoadsorbent dosage were in the range of 25–65 °C and 0.02–0.15 g respectively. Moreover, the time for dye adsorption was varied between 1 and 60min, and the initial concentration of the dye solution was varied in the range of 10–100mg/L. Table a given in ESM indicates different\nexperimental conditions with a wide range of all the five identified process variables and respective MO dye adsorption removal. The table included 48 experimental runs of MO dye adsorption, which are conducted under different conditions. After each run, the final solution was filtered to separate the adsorbent, and its concentration was calculated by measuring the absorbance at maximum wavelengths of 464 nm. The device was calibrated by some standard samples (concentration in the range of 0.25–10mg/L) before the use."
+    }, {
+      "heading" : "2.5. An experimental design using a statistical technique framework",
+      "text" : "Usually, multiple factors (parameters) affect the process and in-turn the overall removal percentage of any pollutant. The adsorption process can be susceptible to few factors and may be less insensitive to others. The sensitivity of the system can be studied by manually varying these factors one by one and analyze the outcomes. If the parameters are 2 or 3, it will be less troublesome to change each parameter (keeping other parameters at constant) and analyze the sensitivity of particular parameter on the outcome. Whereas, if the parameters are more than 3, the procedure of varying each parameter individually and analyzing its effect on the process can be very tedious and also this process can have more permutations and combinations. In this scenario, manually varying each parameter (keeping other parameters at constant) is not a good practice and hence a proper approach is needed to design the experiments. Generally, if we have multiple factors, keeping all other variables at constant values while only one is varied can result in optimal for that given process. But this approach doesn't embrace the interactive effects within the variables (parameters), and as a consequence, it's not possible to achieve the real optimal solution. Hence to overcome this issue, an optimization procedure is needed to design the number of experiments and verify the interactive effects. So, this present study involves the optimization of different process parameters affecting the adsorption of methyl orange contaminated aqueous solution using polyaniline nano-adsorbent via a six-step ladder approach as shown in Fig. 2.\nAs conducting experimental runs is very expensive due to the usage of large amounts of chemicals and time-consuming process, researchers continuously looking for approaches to minimize the number of experimental runs, thus reducing the operating costs and manpower (Cronje et al., 2011; Dutta et al., 2011). Response surface methodology (Dehghani et al., 2016; Hoseinzadeh Hesas et al., 2013; Sahu et al., 2011) is a technique found to be a useful statistical technique for optimizing the complex process. It produces an experimental design matrix, thus reducing the number of experiments which require evaluating multiple parameters and their interactions within. This approach is less tedious and less time-consuming than other approaches (Cronje et al., 2011; Shojaeimehr et al., 2014). It was observed that the efficiency of MO removal from aqueous solution using polyaniline nano-adsorbent depends on the factors like pH, adsorbent dosage, initial solution concentration, adsorption time and process temperature. A standard RSM with central composite design (CCD) was utilized in this study to classify the relationship between the response (% MO removal) and the independent process variables (pH, adsorbent dosage, initial solution concentration, adsorption time and process temperature). The experimental range and coded levels of the selected process variables along with their units are shown in Table 1. The response variable (% MO removal, ηZ) can be expressed as a function of the independent process variables (pH (x1), adsorption time (x2), initial solution concentration (x3), adsorbent dosage (x4), and process temperature (x5)), according to the following quadratic model:\n∑ ∑ ∑ ∑= + + + + =\n−\n= + η α α x α x α x x εz i\nk\ni i i\nk\nii i i\nk\nj i\nk\nij i j0 2\n1\n1\n1 0\n(1)\nwhere α0, αi, αii, and αij are the coefficients of constant, linear, squared and cross-product respectively; xi and xj are the independent variables and ε0 is the measurement error.\nFor practical reasons, the range of pH (2–10), adsorption time (1–60min), initial solution concentration (10–100mg/L), adsorbent dosage (0.02–0.15 g), and process temperature (25–65 °C) were chosen for the removal of MO from aqueous solution using polyaniline nanoadsorbent. The experimental range of each process variable (factor) along with its coded values for the implementation of CCD approach is given in Table 1. Based on the CCD methodology, 50 experimental runs (two runs are repeated as they fall at centre point) to be performed as given in Table a of extra supplementary material. The percentage removal of MO for each corresponding experimental run is also presented in the table. Each experiment was performed thrice, to minimize the measurement/experimental error and to check the variation in the outcomes. It was observed that the variability of these outcomes are less than 3% and hence average value was used for further analysis in this study. The experimental data matrix is determined using Stat-Ease design expert v7.0 software, and the statistical significance and adequacy of the developed model were tested using analysis of variance (ANOVA). The interactions between the independent process variables and their corresponding impact on the response variable were studied systematically through the response surface contour plots."
+    }, {
+      "heading" : "2.6. Architecture of ANN for developing a multivariate model",
+      "text" : "This methodology which is being inspired by a biological neural network of species has attracted many researchers to develop a datadriven model for process modeling (Bingöl et al., 2012; Marchitan et al., 2010; Shojaeimehr et al., 2014; Zafar et al., 2017). This approach has increased its applications in every field, and it's a powerful tool to predict the behaviour of the non-linear system. The framework of ANN architectures consists of an input layer, a number of hidden layers and an output layer. These layers are well inter-connected called as neurons, and they communicate by sending signals through the layers with weighted connections. Feedforward architecture in the model is considered along with backpropagation approach to build the predictive models, with data flowing from input layer to output layer. This feedforward approach also referred as multilayer perceptron approach is used. The weights are the adjustable parameters of the network, wherein the neurons in the input layer introduce the input data in the scaled form to the hidden layer via weights. Once the ANN architecture with the topology is identified, its input space is optimized using the differential evolution optimization."
+    }, {
+      "heading" : "2.7. Strategy for implementation of differential evolution approach",
+      "text" : "The efficiency of ANN architecture depends on the initialization of weights/biases attached to each process variables, which usually estimated by trial and error approach. This approach is very tedious and may not result in optimal values. These weights/biases can be optimized on the whole architecture to minimize the cost function and obtain global optimum. A hybrid evolutionary technique based differential evolution can be used to global search the space of the developed ANN model and find the optimal weights/bias values for the maximum removal of MO by batch adsorption process. Differential evolution optimization (DEO) technique which belongs to metaheuristics search algorithms which utilize the framework of the genetic algorithm, approach of evolutionary strategy has found many applications (Civicioglu and Besdok, 2013; Karri, 2011; Madhavi et al., 2017; Onwubolu and Babu, 2013; Rao et al., 2010; Wang and Xu, 2011). The hybridization structure in DEO approach makes it an efficient optimization technique for finding parameters that result in an optimal solution. The algorithm, approach of DEO implementation strategy is presented in section 2 of the ESM. The back-propagation based classical ANN training methods can be integrated with metaheuristics differential evolution search algorithm to refine the initial random set of weights to achieve a better estimate close to the global optimum of the architecture space."
+    }, {
+      "heading" : "3. Results and discussion",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Development of trained ANN architecture",
+      "text" : "In the present study, the inputs to the ANN model were the factors (initial solution concentration, pH, adsorbent dosage, adsorption time and process temperature) which are same as that are considered in RSM methodology. The % removal of MO was considered as a response\n(similar to RSM modeling) for ANN modeling as shown in Fig. 3. The input-output design matrix required for training were obtained from the adsorption experimentation scheduled as per the CCD design of experimental matrix. A tansig and purelin transfer function were applied at the hidden layer and output layer respectively. The back-propagation (Levenberg–Marquardt) algorithm was used for network training, and implementation of this modeling was conducted using neural network toolbox in MATLAB v8.3.0.532 (R2014a). The efficiency of ANN mode depends on the randomness of the data; hence the data is randomly segregated into training data set (70%), testing data set (15%) and validating data set (15%). Since the performance of ANN architecture need more data for training, testing and validated model; whereas experimental runs are limited due to various factors like cost of chemicals, chemical wastage, samples for evaluating concentration and manpower. To overcome this issue, more data is generated statistically from these experimental runs which follow the probability distribution function. Instead of discarding the actual measured values (of the percentage removal of MO) for each triplicated experimental runs, this data was also used to generate datasets. In this regard, a cubic spline curve fitting method is implemented, and 322 datasets were generated in which 226, 48 and 48 data samples were used as training, testing and validating sets respectively. As the efficacy of ANN architecture depends on the neurons in the hidden layer, the architecture is verified for different neurons varying from 1 to 20. For the output layer (removal percentage), only one neuron is considered. The range of each independent variable (factors) studied in this research study varies in terms of magnitude, for ex: values of temperature and time are much higher in magnitude compared to pH. So to reduce the influence of higher magnitude factors on the ANN architecture, all the inputs/outputs are normalized within 0.1–0.9 range using the expression\n= + ∗ − − y x x x x 0.1 0.8 ( ) ( )i i min\nmax min (2)\nwhere xmin and xmax are the minimum and maximum value of xi respectively, and yi is the normalized value of xi."
+    }, {
+      "heading" : "3.2. RSM quadratic model outcomes",
+      "text" : "As indicated in Table 1, five independent process variables (pH, residence time, initial solution concentration, adsorbent dosage, and process temperature) were segregated into five levels with a coded value (−2,-1, 0, +1, +2) with star points −2 (-α) and +2 (+α) were selected for each process variables based on the experimental range. These experimental runs were performed and percentage removal (response) for each combination of the process variable, is included in the RSM approach to identify the interaction of each variable on the response. The design matrix provides the combination of five process variables with their values either at axial/factorial/centre points. Increasing one variable, keeping all other variables constants may increase or decrease the % MO removal. These process variables have an interactive effect when used in combination, which ultimately changes the characteristics of the system. For example, keeping the process temperature at 25° C, if the initial concentration is increased from 10 to 100 mg/L, MO removal slightly decreases from 90.86 to 86.71% and again increases to 89.66%. Whereas, if the process temperature is fixed at 65° C and the initial concentration is increased from 10 to 100 mg/L, results in MO removal reduced from 84.52 to 79.86%, which is lower at a higher temperature as shown in Fig. 4 (a). In this scenario, other process variables like pH, adsorption time and initial solution concentration are kept constant at 6.0, 30min and 0.08 g respectively. Similar interaction effects were seen with all the five process variables, but not presented here due to page constraint. To understand the perturbation impact of each process variable on the response, each variable is perturbed around its reference point as shown in Fig. 4 (b). In this plot, each process variables are perturbed around its reference value of 6.0, 30.5 min, 55mg/L, 0.08 g and 45 °C for pH, process time, initial\nsolution concentration, adsorbent dosage and process temperature respectively. It is observed from this analysis that each process variable behaves differently on the overall MO removal. This variation can be due to the interactive effect of process variables and their effect on process characteristics. For example, if dosage (E) is reduced from the reference value of 0.08 g, results in drastic reduction in MO removal; whereas small increment above the reference point shows significant improvement. Similarly, any decrement in pH (C) below 6.0 will decrease the removal efficiency and increase above the reference value increases the removal efficiency. However, any perturbation in process temperature at its reference point of 45 °C will not have much impact on the MO removal (%). These interactive profiles signify the influence of each parameter on the percentage removal, around the optimum conditions.\nThe RSM approach along with an ANOVA will produce a linear/ quadratic/cubic model, with each term indicates the interaction of individual process variables on the response prediction. Based on the experimental runs and further analysis to predict the model, RSM approach provided a quadratic model which terms depicting the interaction of the process variables as given in Eq. (3)\n= − + + +\n+ + − − − − + − −\n− −"
+    }, {
+      "heading" : "MO removal η A B C D",
+      "text" : "E AD BC BE CD DE A B C\nD E\n( )% 84.15 1.47 21.23 14.78 4.03\n32.69 0.86 1.45 5.97 0.082 1.03 3.26 17.70 9.91\n1.18 23.89\nMO\n2 2 2\n2 2\n(3)\nThe coefficients estimated using ANOVA and the corresponding degree of freedom, the sum of squares, p and F values are provided in Table 2. The significance of each term in the quadratic model has to be determined using the F and p-value. A p-value<0.05 in this table shows the statistical significance of each term at 95% confidential index. The magnitude of p-value is smaller, thus indicating that the corresponding coefficient is more significant. The fit of the model is determined based on the coefficient of determination R2, which was found to be 0.8635 signifying that 86.35% of the variability in the response can be explained by the above quadratic model. The adjusted R2 value found to be 0.923 indicating that only 7.7% of the total variations cannot be explained by this model. This regression model is given in Eq. (7) can be used to predict removal of MO from aqueous solutions for both within and outside the experimental range of process variables.\nStudentized residuals counteract varying the leverages due to design point locations and calculating residuals externally increases the sensitivity for detecting outliers. The variation of normal percentage probability against internally studentized residuals is shown in Fig. 5 (a). This profile shows that all the internally studentized residuals against the normal percentage probability are linear signifying the\ngoodness of fit of the model predictions and confirmation of assumption that the error terms are normally distributed. The model predictions by the quadratic expression given in Eq. (3) is compared with the experimental results as shown in Fig. 5 (b), to validate the quadratic model performance. It can be observed that the model predictions are well scattered on either side of the X–Y line, indicated that variability of predictions is not more than 12%.\nThe three-dimensional response surfaces along with the contours for different independent process variables like pH, residence time, and initial concentration with respect to MO removal efficiency was shown in Fig. 6. These plots demonstrate the related fitted response surface for the optimal design of polyaniline nano-adsorbent for MO removal (%) and depict the surface plots of removal of MO across dominant variables. The curvature nature of these plots illustrates the intensity of interaction of process variables. The interaction effect of initial MO concentration in aqueous solution with residence time, pH, process temperature and adsorbent dosage are illustrated in Fig. 6(a and b, d, e) respectively. For a given initial concentration (IC), as the residence time was increased, the percentage removal was found to be increased. For a IC of 55.0 mg/L, increasing the residence time from 15 to 32min, the efficiency of MO removal has risen from 70 to 85%. On the other hand when the residence time is increased from 5 to 20min (IC of 32.5mg/ L), MO removal efficiency has increased from 53 to 78%. Subsequently, it was also noticed that increase of IC from 10 to 55mg/L (time=60min), has shown a steady decrement of MO removal from 92.4 to 87.4%. Surprisingly further increase of IC beyond 55mg/L has\nresulted in marginal increment from 87.4 to 89.5%. Thus this interaction trend signifies that at lower initial concentration and higher residence time resulted in greater MO removal. The variation of MO removal with respect to the combined interaction of initial concentration and pH is shown in (b). Results indicated that by as the pH increased from 2 to 8 resulted in higher MO removal from 61.35 to 88.47% at IC of 32.5 mg/L. Similarly, with an increase in pH from 2 to 8 resulted in MO removal from 59.6 to 88.53% for an IC of 55mg/L. But overall, As IC is increased, resulted in higher efficiency in MO removal and similar trend with respect to increment in pH. Similarly, the variation of MO removal with respect to the combined interaction of initial concentration and the process temperature is shown in (d). It was observed from this profile that at a process temperature of 65 °C, increments in IC haven't shown much variation in MO removal, whereas at a lower temperature of 25 °C, increase in IC from 10 to 100mg/L has resulted in adverse effect which reduced the MO removal from 84.5 to 79.86%. Combined interaction effect of IC with respect to the adsorbent dosage on MO removal in shown (e). As expected, at lower adsorbent dosage resulted in lower MO removal compared to higher adsorbent dosage. For any initial concentration, increase in adsorbent dosage from 0.02 to 0.15 g increased the MO removal from 32 to 97% (on average). Therefore, the interaction effect of IC - adsorbent dosage has a significant impact on MO removal.\nThe interaction of pH with other independent process variables\n(Fig. 6(b and c, f, i) displays a remarkable relation between MO ion removal (%) with pH. It can be observed that for any value of IC, as the pH is increased from 2 to 10, the MO removal has drastic increase from 64 to 94%. Similarly, for a constant residence time, with an increase in pH from 2 to 10 has increased MO removal efficiency from 19 to 51.5% and 64.5–91.1% with respect to process time of 10 and 60min respectively. It was also observed that as the process temperature is increased from 25 to 65 °C, for any value of pH, increased the MO removal efficiency significantly. At a process temperature of 25 °C increasing pH from 2 to 10, increased the MO removal from 54.2 to 83.9%. The very similar trend is observed with respect to adsorbent dosage. Higher the adsorbent dosage, at any value of pH tremendously increased the MO removal efficiency.\nFig. 6 (a, f-h) shows the interaction of adsorption time with respect to IC, pH, initial concentration, process temperature and adsorbent dosage respectively. As discussed earlier, for a fixed adsorption time, there is no significant change in MO removal with respect to changes in initial concentration. Whereas, a variation of pH has a considerable effect on the MO removal. It was observed that at for an adsorption time of 10min, by varying pH from 2 to 10, enhanced the MO removal from 28.2 to 60.5%. Correspondingly, as the adsorption time is increased to 60min, pH variation from 2 to 10 improved the MO removal from 64.4 to 91.1%. A similar trend is observed when the process temperature is increased from 25 to 65 °C, shown increase in MO removal for any adsorption time. However, adsorbent dosage has shown a significant effect on MO removal. Increase in adsorbent dosage from 0.02 to 0.15 g increased the MO removal from 21.5 to 88%.\nThe influence of process temperature and its interactive effects with other independent process variables was studied systematically, and response surface plots are shown in Fig. 6(c and d, g). As discussed earlier, a variation of pH has a significant effect on the MO removal for any process temperature. The increase in temperature from 25 to 65 °C, resulted in enhancement of MO removal from 54.2 to 83.9% and 62.4–91.8% for pH of 2 and 10 respectively. Similarly, the adsorbent dosage has a significant effect on the MO removal efficiency and it was found that increasing the adsorbent dosage from 0.02 to 0.15 g increased the MO removal from 31.4 to 94.8%. Overall these profiles indicate that there is a significant interaction effect of process variables in combination with the overall MO removal efficiency.\nFig. 7. Topology of the neural network architecture in ANNDEO.\nTable 3 Optimum weights and biases for ANN-DEO model for 5-12-1 topology.\nInput (5)-Hidden Layer (12) Hidden Layer (12)-Output (1)\nWeights bias Weights bias\n1.2946 −1.2265 0.7957 0.1894 1.2027 −2.3013 −0.6805 0.4254 −0.6631 0.8903 1.7825 0.9412 −0.0184 1.8828 −0.2367 −0.9714 −0.3226 −1.4801 0.4937 −1.3467 1.4644 0.0026 −0.3463 0.9418 1.5646 −0.4286 1.2873 1.0460 0.5413 0.9147 0.6564 0.7099 −1.4531 1.1886 −0.6276 0.8370 −1.2206 −0.1374 0.2920 −0.8675 1.7173 0.2092 −0.1255 0.4177 −0.7675 −1.5048 1.3984 −0.5588 0.2092 −0.1924 −0.6000 −1.3665 −0.9897 −1.4353 −0.1695 −0.6276 0.2073 0.9642 1.2692 −1.4199 0.2250 0.8297 1.0460 −0.5864 1.0258 −0.8632 −1.1977 0.5339 1.3338 1.4644 −0.9510 0.3939 −1.1339 1.3828 −0.7976 −1.1430 1.8828 0.6012 1.3706 −0.0018 −1.5433 −0.1119 1.0114 2.3013 0.8281"
+    }, {
+      "heading" : "3.3. Implementation and model outcomes of ANN-DEO approach",
+      "text" : "The metaheuristic differential evolution optimization strategy is embedded into the artificial neural network architecture which results in a hybrid of both the methods (termed as ANN-DEO) and the embedded architecture is shown in Fig. 3. DEO was used to search the space of the developed ANN model and find the optimum input values for the maximum removal of MO by batch adsorption process using polyaniline nano-adsorbent. In this study, several training algorithms such Levenberg-Marquardt backpropagation (LMBP), gradient descent and resilient backpropagation were verified to identify the optimum learning algorithm. According to the basic statistical observations and the optimum network 5-12-1 type of ANN with LMBP was found to be best optimal network architecture. As mentioned earlier, each experimental runs as indicated in the design of experiment matrix were repeated three times to increase the reliability, and the average values were taken, for further analysis in RSM. Instead of discarding the actual measured values (of the percentage removal of MO) for each triplicated experimental runs, this data was also used in training the model, due to more randomness. To generate more data for training the ANN-DEO model, data points were interpolated using a cubic spline curve fitting technique (CSCFT). The advantage of this approach is to increase the data points between the minimum and maximum removal efficiency. CSCFT approach is preferred over the least square curve fitting approach since in the latter approach it tends to build a distortion near the first and last samples and oriented towards the high distribution of\nsamples. Whereas, CSCFT avoids this phenomenon and produces interpolated values which are statistically well distributed in the input domain.\nThe input space of ANN model is optimized using the DEO optimization approach, with the prime objective of maximizing the coefficient of determination (R2) and minimizing the root mean square error (RMSE). The ANN-DEO architecture is implemented on both the training and testing datasets. The optimal ANN architecture as shown in Fig. 7 is 5-12-1 topology, and optimum weights and biases for this topology are shown in Table 3. The maximum number of iterations in the implementation of ANN-DEO is 500. The parameters of DEO algorithm that produced optimum simulation values were population size (P)= 60, mutation factor (F)= 0.4 and crossover rate (Cr)= 0.85. This optimized architecture also facilitates the framework to maximise the removal percentage of MO from the aqueous solution. The variation of R2 and RMSE with respect to a number of neurons in hidden layer in ANN-DEO architecture for optimal DEO parameters are shown in Table 4. This table indicates significant variation in the statistical measures in the predicted model results for a different number of neurons adopted in the hidden layer of the ANN-DEO framework. Since twelve number of neurons resulted in higher R2 and lower RMSE of 0.9475 and 0.1294 respectively, hence this 5-12-1 topology is chosen, and accordingly, the optimum weights and biases for ANN-DEO model are computed as shown in Table 3.\nThe variation of best fitness measured in terms of mean squared error with respect to some iterations. It was observed that for a higher\nnumber of iterations resulted in lower best fitness. Even though, for a maximum number of iterations of 1000 results in lower values of fitness, but due to high computation effort, the simulations are run up to 500. In fact, an increase of some iterations from 500 to 1000, marginally reduced the MSE. Hence this 5-12-1 topology with maximum iterations of 500 is used in the further analysis in this study. The\nefficacy of ANN-DEO architecture with the optimized DEO parameters are initially tested on the training dataset and later implemented for testing data, validating data and all the data set as shown in Fig. 8. From these subplots, it can be observed that the trained neural network well depicts the variability in experimental runs and capture the inherent characteristics of cross-factor effects of independent process variables. The network resulted from the best optimal ANN topology embedded with optimized DEO is used for checking its efficacy on the segregated 15% testing data (not used for training) and 15% validating data. It was observed that optimized trained neural network well depicts the testing data and validation data with R2 equal to 0.96418 and 0.97372 respectively. To analyze the cross factors of distribution of data into training, testing and validating datasets and ascertain that no misleading interpretation of dataset, the trained neural network is validated for the whole data set which is a combination of training, testing and validating datasets. Interestingly, the model predictions of ANNDEO architecture fits the whole data with R2 equal to 0.9659. These results further confirm that the robustness of the ANN-DEO architecture."
+    }, {
+      "heading" : "3.4. Comparison of RSM and ANN-DEO models",
+      "text" : "Since the adsorption process is strongly dependent on several independent process variables, it's good to study the cross-factor effects of these variables in combination to avoid any misleading interpretation of system behaviour. To minimize the misleading interpretations; design of experiments and process optimization should be done in a systematic and holistic way. Optimization provides the best optimal solutions for all the possible and feasible solutions. Design of experiments provides an efficient approach for planning and designing experimental runs. Combining both these features facilitates the information gained to determine the behaviour of this adsorption system by maximizing the removal efficiency and minimizing the deviations in model predictions.\nIn this regard, based on the design of experiments matrix, a multivariate model is derived using different approaches namely RSM and ANN-DEO, which were applied holistically for modeling and\noptimization of the removal of MO from aqueous solution by polyaniline nano-adsorbent from batch adsorption process. The performance of model predictions derived from RSM and ANN-DEO approaches are compared with the experimental runs as shown in Fig. 9. It can be observed that from this figure that the model predictions from ANNDEO architecture are very close to the experimental runs; hence most of the values lie on the X–Y line or close to it. Whereas, the model predictions from RSM are scattered on either side of the X–Y line, implying that the model predictions are either overpredicted or underpredicted. These results thus confirm that the ANN-DEO approach provides better model predictions over the RSM method.\nEven though from Fig. 9, it was observed that model predictions from ANN-DEO are better fits the experimental results over the traditional RSM approach, but visual trends may not be presenting the statistical significance and error distribution. Hence to further verify the efficacy of these approaches, their performances are statistically measured by the conventional and well approved statistical metrics as shown in Table 5. Usually, the goodness of prediction is measured by calculating the correlation coefficient, by fitting a straight line. This approach describes strength and direction of linear relationships between the experimental and model predictions but doesn't reflect nonlinear relationship and error distribution. The nonlinear statistic metrics shown in Table 5 provides the measure of error distribution and also to quantify the magnitude of errors. The significance of each statistical metric is given in ESM.\nFrom this table, it can be noted that the R2 values of between the experimental and model predictions by RSM and ANN-DEO are 0.9613 and 0.9837 respectively, thus indicating that the model predictions provided by ANN-DEO are very close to experimental values. These statistical metrics are in accordance with the plot shown in Fig. 9. The statistical metrics ARE for RSM and ANN-DEO was estimated to be 0.002 and 0.015; whereas the AAD was found to be 0.071 and 0.049 respectively. Since the error deviation is high, as a result, it is also reflected in high SSE for RSM model predictions. As this metric measures the sum of the square of errors, which increases many folds, if the deviation is high. The RMSE for was estimated to be 0.274 and 0.123 for RSM and ANN-DEO respectively, confirming the error deviation is significantly less using the predictions given by ANN-DEO. The other metrics HYBRID and MPSD are also found to very higher for RSM compared to ANN-DEO. Pearson's Chi-square measure which provides an excellent measurement scale for weighing the goodness of fit is found to be 0.005 and 0.038 for RSM and ANN-DEO respectively. These statistical values thus indicate that ANN-DEO is very superior over RSM for model predictions. Even though ANN-DEO is computationally intensive and requires more data than RSM, but it underlines the characteristics of the adsorption process and gives a better estimation of the efficiency of MO removal by batch adsorption using polyaniline nano-\nadsorbent."
+    }, {
+      "heading" : "3.5. Review of polymer-based adsorbents for MO removal from wastewater and aqueous solutions",
+      "text" : "The adsorption capacity of MO dye on polyaniline nano-adsorbent based on DBSNa was obtained by Langmuir isotherm in the previous study, and its value was reported in Table 6 (Tanzifi et al., 2017a). In addition, the dye adsorption capacity for other adsorbents and nanoadsorbents was reported in the table and compared to polyaniline nanoadsorbent in this study. As observed, most reported polymeric adsorbents such as alginate/poly aspartate hydrogels, poly acrylonitrilecoated kapok hollow microtubes and poly (AM co DADMAC)/silica had less adsorption capacity than polyaniline nano-adsorbent. In addition, the adsorption capacity of polyaniline nano-adsorbent was almost equal to hyper crosslinked polymer adsorption capacity. Compared to other nano-adsorbents, the poly-aniline nano-adsorbent presented a significant adsorption capacity. For example, the adsorption capacity of Fe2O3/SiO2/chitosan was 34.29mg/g which was about a half of adsorption capacity in polyaniline nano-adsorbent. As a result, the polyaniline nano-adsorbent has an appropriate potential for MO dye adsorption due to simple synthesis, the appropriate price of its monomer, and higher adsorption capacity than other adsorbents."
+    }, {
+      "heading" : "4. Conclusions",
+      "text" : "An agricultural waste based polyaniline nano-adsorbent is utilized as an adsorbent to remove MO which is toxic chemical from aqueous solution. Since the efficacy of adsorbent process depends on independent process variables, therefore the influence of process variables like pH, residence time, initial solution concentration, adsorbent dosage and process temperature on the removal of MO is studied systematically in a batch adsorption process. The differential evolution based meta-heuristic optimization algorithm is embedded in the ANN architecture to optimize the search space of neural network. The optimal ANN architecture was found to be a 5-12-1 topology, and the maximum number of iterations in the implementation of ANN-DEO is 500. With twelve neurons in the hidden layer provides higher R2 and lower MSE. The optimized trained neural network well depicts the testing data and validation data with R2 equal to 0.964 and 0.973 respectively. Pearson's Chi-square measure which provides an excellent measurement scale for weighing the goodness of fit was found to be 0.005 and 0.038 for RSM and ANN-DEO respectively. In overall, the statistical metrics indicates that the superiority of ANN-DEO based model predictions over the quadratic model predictions provided by RSM, as well as reaffirming the performance of polyaniline nano-adsorbent for removal of MO from aqueous solutions.\nConflict of interest\nThe authors declare that there no any conflict of interest between authors or any institute or funding agencies."
+    }, {
+      "heading" : "Appendix A. Supplementary data",
+      "text" : "Supplementary data related to this article can be found at http://dx. doi.org/10.1016/j.jenvman.2018.06.027."
+    } ],
+    "references" : [ {
+      "title" : "Kinetics and thermodynamics of methyl orange adsorption from aqueous solutions—artificial neural network-particle swarm optimization modeling",
+      "author" : [ "S. Agarwal", "I. Tyagi", "V.K. Gupta", "M. Ghaedi", "M. Masoomzade", "A. Ghaedi", "B. Mirtamizdoust" ],
+      "venue" : "J. Mol. Liq",
+      "citeRegEx" : "Agarwal et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Agarwal et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Fabrication of polyacrylonitrile-coated kapok hollow microtubes for adsorption of methyl orange and Cu (II) ions in aqueous solution",
+      "author" : [ "A.R. Agcaoili", "M.U. Herrera", "C.M. Futalan", "M.D.L. Balela" ],
+      "venue" : "J. Taiwan Inst. Chem. Eng",
+      "citeRegEx" : "Agcaoili et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Agcaoili et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Comparison of the results of response surface methodology and artificial neural network for the biosorption of lead using black cumin",
+      "author" : [ "D. Bingöl", "M. Hercan", "S. Elevli" ],
+      "venue" : "Bioresour. Technol",
+      "citeRegEx" : "Bingöl et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Bingöl et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Removal of dyes by a new nano-TiO2 ultrafiltration membrane deposited on low-cost support prepared from natural Moroccan bentonite",
+      "author" : [ "A. Bouazizi", "M. Breida", "B. Achiou", "M. Ouammou", "J. Ignacio Calvo", "A. Aaddane", "S. Alami Younssi" ],
+      "venue" : "Appl. Clay Sci",
+      "citeRegEx" : "Bouazizi et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Bouazizi et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Treatment of wastewater contaminated with ionic dyes: liquid-liquid extraction induced by reversed micelle followed by photodegradation",
+      "author" : [ "L. Bukman", "N.R. Fernandes-Machado", "W. Caetano", "A.L. Tessaro", "N. Hioka" ],
+      "venue" : "Separ. Purif. Technol",
+      "citeRegEx" : "Bukman et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Bukman et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "A conceptual comparison of the Cuckoo-search, particle swarm optimization, differential evolution and artificial bee colony algorithms",
+      "author" : [ "P. Civicioglu", "E. Besdok" ],
+      "venue" : "Artif. Intell. Rev",
+      "citeRegEx" : "Civicioglu and Besdok,? \\Q2013\\E",
+      "shortCiteRegEx" : "Civicioglu and Besdok",
+      "year" : 2013
+    }, {
+      "title" : "Optimization of chromium(VI) sorption potential using developed activated carbon from sugarcane bagasse with chemical activation by zinc chloride",
+      "author" : [ "K.J. Cronje", "K. Chetty", "M. Carsky", "J.N. Sahu", "B.C. Meikap" ],
+      "venue" : "Desalination",
+      "citeRegEx" : "Cronje et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Cronje et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "High-performance removal of toxic phenol by single-walled and multi-walled carbon nanotubes: kinetics, adsorption, mechanism and optimization studies",
+      "author" : [ "M.H. Dehghani", "M. Mostofi", "M. Alimohammadi", "G. McKay", "K. Yetilmezsoy", "A.B. Albadarin", "B. Heibati", "M. AlGhouti", "N.M. Mubarak", "J.N. Sahu" ],
+      "venue" : "J. Ind. Eng. Chem",
+      "citeRegEx" : "Dehghani et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Dehghani et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Application of Response Surface Methodology for preparation of low-cost adsorbent from citrus fruit peel and for removal",
+      "author" : [ "S. Dutta", "A. Bhattacharyya", "A. Ganguly", "S. Gupta", "S. Basu" ],
+      "venue" : "Methylene Blue. Desalination",
+      "citeRegEx" : "Dutta et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Dutta et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "2017. Green synthesis of graphene from recycled PET bottle wastes for use in the adsorption of dyes in aqueous solution",
+      "author" : [ "N.A. El Essawy", "S.M. Ali", "H.A. Farag", "A.H. Konsowa", "M. Elnouby", "H.A. Hamad" ],
+      "venue" : "Ecotoxicol. Environ",
+      "citeRegEx" : "Essawy et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Essawy et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Adsorption of methylene blue by a high-efficiency adsorbent (polydopamine microspheres): kinetics, isotherm, thermodynamics and mechanism analysis",
+      "author" : [ "J. Fu", "Z. Chen", "M. Wang", "S. Liu", "J. Zhang", "R. Han", "Q. Xu" ],
+      "venue" : "Chem. Eng. J. 259,",
+      "citeRegEx" : "Fu et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Fu et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Adsorption of methyl orange on magnetically separable mesoporous titania nanocomposite",
+      "author" : [ "L. Gao", "Q. Zhang", "J. Li", "R. Feng", "H. Xu", "C. Xue" ],
+      "venue" : "Chin. J. Chem. Eng",
+      "citeRegEx" : "Gao et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Gao et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Kinetics and isotherm studies of methyl orange adsorption by a highly recyclable immobilized polyaniline on a glass plate. Arab",
+      "author" : [ "K. Haitham", "S. Razak", "M. Nawi" ],
+      "venue" : "J. Chem. http://dx.doi.org/10.1016/j.arabjc.2014.10.010",
+      "citeRegEx" : "Haitham et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Haitham et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Synthesis of ternary gC 3 N 4/Ag/γFeOOH photocatalyst: an integrated heterogeneous fenton-like system for effectively degradation of azo dye methyl orange under visible light",
+      "author" : [ "D. He", "Y. Chen", "Y. Situ", "L. Zhong", "H. Huang" ],
+      "venue" : "Appl. Surf",
+      "citeRegEx" : "He et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "He et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Preparation of granular activated carbon from oil palm shell by microwave-induced chemical activation: optimisation using surface response methodology",
+      "author" : [ "R. Hoseinzadeh Hesas", "A. Arami-Niya", "W.M.A. Wan Daud", "J.N. Sahu" ],
+      "venue" : "Chem. Eng. Res. Des",
+      "citeRegEx" : "Hesas et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Hesas et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Fabrication of hyperbranched polyamine functionalized graphene for high-efficiency removal of Pb (II) and methylene",
+      "author" : [ "L. Hu", "Z. Yang", "L. Cui", "Y. Li", "H.H. Ngo", "Y. Wang", "Q. Wei", "H. Ma", "L. Yan", "B. Du" ],
+      "venue" : "blue. Chem. Eng. J",
+      "citeRegEx" : "Hu et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Hu et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Adsorption of Rhodamine B and methyl orange on a hypercrosslinked polymeric adsorbent in aqueous solution",
+      "author" : [ "Huang", "J.-H", "K.-L", "Liu", "S.-Q", "Wang", "A.-T", "C. Yan" ],
+      "venue" : "Colloid. Surface. Physicochem. Eng. Aspect",
+      "citeRegEx" : "Huang et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Huang et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Single and simultaneous adsorption of methyl orange and phenol onto magnetic iron oxide/carbon nanocomposites",
+      "author" : [ "R. Istratie", "M. Stoia", "C. Păcurariu", "C. Locovei" ],
+      "venue" : "Arab. J. Chem. http://dx.doi.org/10.1016/j.arabjc.2015.12.012",
+      "citeRegEx" : "Istratie et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Istratie et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Dye adsorption characteristics of alginate/polyaspartate hydrogels",
+      "author" : [ "Y.S. Jeon", "J. Lei", "Kim", "J.-H" ],
+      "venue" : "J. Ind. Eng. Chem",
+      "citeRegEx" : "Jeon et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Jeon et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Experimental investigation of bioethanol liquid phase dehydration using natural clinoptilolite",
+      "author" : [ "S. Karimi", "B. Ghobadian", "Omidkhah", "M.-R", "J. Towfighi", "M. Tavakkoli Yaraki" ],
+      "venue" : "J. Adv. Res",
+      "citeRegEx" : "Karimi et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Karimi et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Evaluating and estimating the complex dynamic phenomena in nonlinear chemical systems",
+      "author" : [ "R.R. Karri" ],
+      "venue" : "Int. J. Chem. React. Eng",
+      "citeRegEx" : "Karri,? \\Q2011\\E",
+      "shortCiteRegEx" : "Karri",
+      "year" : 2011
+    }, {
+      "title" : "Modelling of fluidised-bed reactor",
+      "author" : [ "R.R. Karri", "N.S. Jayakumar", "J.N. Sahu" ],
+      "venue" : null,
+      "citeRegEx" : "Karri et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Karri et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Modeling and optimization by particle swarm embedded neural network for adsorption of zinc (II) by palm kernel shell based activated carbon from aqueous environment",
+      "author" : [ "R.R. Karri", "J.N. Sahu" ],
+      "venue" : "J. Environ",
+      "citeRegEx" : "Karri and Sahu,? \\Q2018\\E",
+      "shortCiteRegEx" : "Karri and Sahu",
+      "year" : 2018
+    }, {
+      "title" : "Critical review of abatement of ammonia from wastewater",
+      "author" : [ "R.R. Karri", "J.N. Sahu", "V. Chimmiri" ],
+      "venue" : "J. Mol. Liq",
+      "citeRegEx" : "Karri et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Karri et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Optimal isotherm parameters for phenol adsorption from aqueous solutions onto coconut shell based activated carbon: error analysis of linear and non-linear methods",
+      "author" : [ "R.R. Karri", "J.N. Sahu", "N.S. Jayakumar" ],
+      "venue" : "J. Taiwan Inst. Chem. Eng",
+      "citeRegEx" : "Karri et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Karri et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Cationic cellulose hydrogels cross-linked by poly (ethylene glycol): preparation, molecular dynamics, and adsorption of anionic dyes",
+      "author" : [ "H. Kono", "K. Ogasawara", "R. Kusumoto", "K. Oshima", "H. Hashimoto", "Y. Shimizu" ],
+      "venue" : "Carbohydr. Polym",
+      "citeRegEx" : "Kono et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Kono et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "An efficient removal of crystal violet dye from waste water by adsorption onto TLAC/Chitosan composite: a novel low cost adsorbent",
+      "author" : [ "H.J. Kumari", "P. Krishnamoorthy", "T. Arumugam", "S. Radhakrishnan", "D. Vasudevan" ],
+      "venue" : "Int. J. Biol. Macromol",
+      "citeRegEx" : "Kumari et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Kumari et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Synthesis of hexagonal shaped nanoporous carbon for efficient adsorption of methyl orange dye",
+      "author" : [ "S. Kundu", "I.H. Chowdhury", "M.K. Naskar" ],
+      "venue" : "J. Mol. Liq",
+      "citeRegEx" : "Kundu et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Kundu et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Equilibrium, kinetic and thermodynamic studies of methyl orange removal by adsorption onto granular activated carbon",
+      "author" : [ "G. León", "F. García", "B. Miguel", "J. Bayo" ],
+      "venue" : "Desalination and Water Treat",
+      "citeRegEx" : "León et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "León et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Removal of reactive dyes from wastewater assisted with kaolin clay by magnesium hydroxide coagulation process",
+      "author" : [ "H. Li", "S. Liu", "J. Zhao", "N. Feng" ],
+      "venue" : "Colloid. Surface. Physicochem. Eng. Aspect",
+      "citeRegEx" : "Li et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Li et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Preparation and characterization of a novel polyethyleneimine cation-modified persimmon tannin bioadsorbent for anionic dye adsorption",
+      "author" : [ "X. Li", "Z. Wang", "J. Ning", "M. Gao", "W. Jiang", "Z. Zhou", "G. Li" ],
+      "venue" : "J. Environ",
+      "citeRegEx" : "Li et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Li et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Process optimization and adsorption modeling of Pb(II) on nickel ferrite-reduced graphene oxide nano-composite",
+      "author" : [ "L.P. Lingamdinne", "J.R. Koduru", "Chang", "Y.-Y", "R.R. Karri" ],
+      "venue" : "J. Mol. Liq",
+      "citeRegEx" : "Lingamdinne et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Lingamdinne et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Polyaniline (PANI) modified bentonite by plasma technique for U (VI) removal from aqueous solution",
+      "author" : [ "X. Liu", "C. Cheng", "C. Xiao", "D. Shao", "Z. Xu", "J. Wang", "S. Hu", "X. Li", "W. Wang" ],
+      "venue" : "Appl. Surf",
+      "citeRegEx" : "Liu et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Nature inspired techniques to solve complex engineering problems",
+      "author" : [ "R. Madhavi", "R.R. Karri", "D.S. Sankar", "P. Nagesh", "V. Lakshminarayana" ],
+      "venue" : "J. Ind. Pollut. Contr",
+      "citeRegEx" : "Madhavi et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Madhavi et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "A novel method to identify optimized parametric values for adsorption of heavy metals from waste water",
+      "author" : [ "U. Maheshwari", "S. Gupta" ],
+      "venue" : "J.Water Proc. Eng",
+      "citeRegEx" : "Maheshwari and Gupta,? \\Q2016\\E",
+      "shortCiteRegEx" : "Maheshwari and Gupta",
+      "year" : 2016
+    }, {
+      "title" : "Modeling and optimization of tartaric acid reactive extraction from aqueous solutions: a comparison between response surface methodology and artificial neural network. Separ",
+      "author" : [ "N. Marchitan", "C. Cojocaru", "A. Mereuta", "G. Duca", "I. Cretescu", "M. Gonta" ],
+      "venue" : "Purif. Technol",
+      "citeRegEx" : "Marchitan et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Marchitan et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Removal of methyl orange by copper sulfide nanoparticles loaded activated carbon: kinetic and isotherm investigation",
+      "author" : [ "P. Mokhtari", "M. Ghaedi", "K. Dashtian", "M. Rahimi", "M. Purkait" ],
+      "venue" : "J. Mol. Liq",
+      "citeRegEx" : "Mokhtari et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Mokhtari et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Methyl orange removal from aqueous solution using goethite, chitosan beads and goethite impregnated with chitosan beads",
+      "author" : [ "V.S. Munagapati", "V. Yarramuthi", "Kim", "D.-S" ],
+      "venue" : "J. Mol. Liq",
+      "citeRegEx" : "Munagapati et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Munagapati et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "New Optimization Techniques in Engineering",
+      "author" : [ "G.C. Onwubolu", "B. Babu" ],
+      "venue" : null,
+      "citeRegEx" : "Onwubolu and Babu,? \\Q2013\\E",
+      "shortCiteRegEx" : "Onwubolu and Babu",
+      "year" : 2013
+    }, {
+      "title" : "Mathematical and kinetic modeling of biofilm reactor based on ant colony optimization",
+      "author" : [ "K.R. Rao", "T. Srinivasan", "C. Venkateswarlu" ],
+      "venue" : "Process Biochem",
+      "citeRegEx" : "Rao et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Rao et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Optimization process parameters for insitu synthesis of ammonia by catalytic hydrolysis of urea with fly ash in a batch reactor for safe feedstock in power plants",
+      "author" : [ "J.N. Sahu", "P. Gangadharan", "B.C. Meikap" ],
+      "venue" : "Journal of environmental science and health. Part A, Toxic/hazardous substances & environmental engineering",
+      "citeRegEx" : "Sahu et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Sahu et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "A modeling study by response surface methodology (RSM) and artificial neural network (ANN) on Cu2+ adsorption optimization using light expended clay aggregate (LECA)",
+      "author" : [ "T. Shojaeimehr", "F. Rahimpour", "M.A. Khadivi", "M. Sadeghi" ],
+      "venue" : "J. Ind. Eng. Chem",
+      "citeRegEx" : "Shojaeimehr et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Shojaeimehr et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Color removal from wastewater using low-cost activated carbon derived from agricultural waste material",
+      "author" : [ "K.P. Singh", "D. Mohan", "S. Sinha", "G. Tondon", "D. Gosh" ],
+      "venue" : "Ind. Eng. Chem. Res",
+      "citeRegEx" : "Singh et al\\.,? \\Q2003\\E",
+      "shortCiteRegEx" : "Singh et al\\.",
+      "year" : 2003
+    }, {
+      "title" : "Adsorption removal of tannic acid from aqueous solution by polyaniline: analysis of operating parameters and mechanism",
+      "author" : [ "C. Sun", "B. Xiong", "Y. Pan", "H. Cui" ],
+      "venue" : "J. Colloid Inter",
+      "citeRegEx" : "Sun et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Sun et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "2017a. Artificial neural network optimization for methyl orange adsorption onto polyaniline nano-adsorbent: kinetic, isotherm and thermodynamic studies",
+      "author" : [ "M. Tanzifi", "S.H. Hosseini", "A.D. Kiadehi", "M. Olazar", "K. Karimipour", "R. Rezaiemehr", "I. Ali" ],
+      "venue" : "J. Mol. Liq",
+      "citeRegEx" : "Tanzifi et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Tanzifi et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Modelling of dye adsorption from aqueous solution on polyaniline/ carboxymethyl cellulose/TiO2 nanocomposites",
+      "author" : [ "M. Tanzifi", "M. Tavakkoli Yaraki", "M. Karami", "S. Karimi", "A.D. Kiadehi", "K. Karimipour", "S. Wang" ],
+      "venue" : "J. Colloid Inter",
+      "citeRegEx" : "Tanzifi et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Tanzifi et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Adsorption of Amido Black 10B from aqueous solution using polyaniline/SiO2 nanocomposite: experimental investigation and artificial neural network modeling",
+      "author" : [ "M. Tanzifi", "M. Tavakkoli Yaraki", "A.D. Kiadehi", "S.H. Hosseini", "M. Olazar", "A. Bharti", "S. Agarwal", "V.K. Gupta", "A. Kazemi" ],
+      "venue" : "J. Colloid Inter",
+      "citeRegEx" : "Tanzifi et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Tanzifi et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "An effective hybrid biogeography-based optimization algorithm for parameter estimation of chaotic systems",
+      "author" : [ "L. Wang", "Y. Xu" ],
+      "venue" : "Expert Syst. Appl",
+      "citeRegEx" : "Wang and Xu,? \\Q2011\\E",
+      "shortCiteRegEx" : "Wang and Xu",
+      "year" : 2011
+    }, {
+      "title" : "Synthesis of a hierarchical SnS2 nanostructure for efficient adsorption of Rhodamine B dye",
+      "author" : [ "S. Wang", "B. Yang", "Y. Liu" ],
+      "venue" : "J. Colloid Interface",
+      "citeRegEx" : "Wang et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Wang et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Fabrication of polyaniline hydrogel: synthesis, characterization and adsorption of methylene",
+      "author" : [ "B. Yan", "Z. Chen", "L. Cai", "J. Fu", "Q. Xu" ],
+      "venue" : "blue. Appl. Surf. Sci",
+      "citeRegEx" : "Yan et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Yan et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Synthesis of hybrid hydrogel of poly (AM co DADMAC)/silica sol and removal of methyl orange from aqueous solutions",
+      "author" : [ "X. Yang", "L. Ni" ],
+      "venue" : "Chem. Eng. J",
+      "citeRegEx" : "Yang and Ni,? \\Q2012\\E",
+      "shortCiteRegEx" : "Yang and Ni",
+      "year" : 2012
+    }, {
+      "title" : "Ethanol mediated As(III) adsorption onto Zn-loaded pinecone biochar: experimental investigation, modeling, and optimization using hybrid artificial neural network-genetic algorithm approach",
+      "author" : [ "M. Zafar", "N. Van Vinh", "S.K. Behera", "Park", "H.-S" ],
+      "venue" : "J. Environ",
+      "citeRegEx" : "Zafar et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Zafar et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Kinetic, isotherm, and thermodynamic studies of the adsorption of methyl orange from aqueous solution by chitosan/alumina composite",
+      "author" : [ "J. Zhang", "Q. Zhou", "L. Ou" ],
+      "venue" : "J. Chem. Eng. Data",
+      "citeRegEx" : "Zhang et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Zhang et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Evaluation of functional group content of N-methylimidazolium anion exchange resin on the adsorption of methyl orange and alizarin",
+      "author" : [ "Z. Zhang", "L. Zhu", "W. Lu", "X. Li", "X. Sun", "R. Lü", "H. Ding" ],
+      "venue" : "red. Chem. Eng. Res. Des",
+      "citeRegEx" : "Zhang et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Zhang et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Efficient removal of organic dyes from aqueous",
+      "author" : [ "J. Zhou", "Lu", "Q.-F", "Luo", "J.-J" ],
+      "venue" : null,
+      "citeRegEx" : "Zhou et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Zhou et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Preparation, characterization and dye adsorption properties of γ-Fe 2 O 3/SiO 2/chitosan",
+      "author" : [ "H. Zhu", "R. Jiang", "Fu", "Y.-Q", "Jiang", "J.-H", "L. Xiao", "Zeng", "G.-M" ],
+      "venue" : null,
+      "citeRegEx" : "Zhu et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Zhu et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Preparation, characterization, adsorption kinetics and thermodynamics of novel magnetic chitosan enwrapping nanosized γ-Fe",
+      "author" : [ "H. Zhu", "R. Jiang", "L. Xiao", "G. Zeng" ],
+      "venue" : null,
+      "citeRegEx" : "Zhu et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Zhu et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Azo dyes wastewater treatment and simultaneous electricity",
+      "author" : [ "H. Zou", "Y. Wang" ],
+      "venue" : null,
+      "citeRegEx" : "Zou and Wang,? \\Q2017\\E",
+      "shortCiteRegEx" : "Zou and Wang",
+      "year" : 2017
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 10,
+      "context" : "The complicated chemical structures of dyes make these materials highly resistant to biodegradation (Fu et al., 2015; Mokhtari et al., 2016).",
+      "startOffset" : 100,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 36,
+      "context" : "The complicated chemical structures of dyes make these materials highly resistant to biodegradation (Fu et al., 2015; Mokhtari et al., 2016).",
+      "startOffset" : 100,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 0,
+      "context" : "These dyes are dangerous for aquatic creatures, due to the presence of an azo group (-N]N-) in their chemical structure and hence need to be removed from the aqueous environment (Agarwal et al., 2016; León et al., 2016).",
+      "startOffset" : 178,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 28,
+      "context" : "These dyes are dangerous for aquatic creatures, due to the presence of an azo group (-N]N-) in their chemical structure and hence need to be removed from the aqueous environment (Agarwal et al., 2016; León et al., 2016).",
+      "startOffset" : 178,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 13,
+      "context" : "These methods include photocatalytic degradation (He et al., 2017), separation by membrane (Bouazizi et al.",
+      "startOffset" : 49,
+      "endOffset" : 66
+    }, {
+      "referenceID" : 3,
+      "context" : ", 2017), separation by membrane (Bouazizi et al., 2017), coagulation process (Li et al.",
+      "startOffset" : 32,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 29,
+      "context" : ", 2017), coagulation process (Li et al., 2016),electrolysis (Zou and Wang, 2017), liquid-liquid extraction (Bukman et al.",
+      "startOffset" : 29,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 57,
+      "context" : ", 2016),electrolysis (Zou and Wang, 2017), liquid-liquid extraction (Bukman et al.",
+      "startOffset" : 21,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 4,
+      "context" : ", 2016),electrolysis (Zou and Wang, 2017), liquid-liquid extraction (Bukman et al., 2017),and adsorption (El Essawy et al.",
+      "startOffset" : 68,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 26,
+      "context" : "Among these technologies, the application of adsorption has found many applications owing to the fact that this method is easier, cheaper and highly efficient for dye removal (Kumari et al., 2017; Li et al., 2018; Wang et al., 2017; Zhang et al., 2016).",
+      "startOffset" : 175,
+      "endOffset" : 252
+    }, {
+      "referenceID" : 30,
+      "context" : "Among these technologies, the application of adsorption has found many applications owing to the fact that this method is easier, cheaper and highly efficient for dye removal (Kumari et al., 2017; Li et al., 2018; Wang et al., 2017; Zhang et al., 2016).",
+      "startOffset" : 175,
+      "endOffset" : 252
+    }, {
+      "referenceID" : 48,
+      "context" : "Among these technologies, the application of adsorption has found many applications owing to the fact that this method is easier, cheaper and highly efficient for dye removal (Kumari et al., 2017; Li et al., 2018; Wang et al., 2017; Zhang et al., 2016).",
+      "startOffset" : 175,
+      "endOffset" : 252
+    }, {
+      "referenceID" : 53,
+      "context" : "Among these technologies, the application of adsorption has found many applications owing to the fact that this method is easier, cheaper and highly efficient for dye removal (Kumari et al., 2017; Li et al., 2018; Wang et al., 2017; Zhang et al., 2016).",
+      "startOffset" : 175,
+      "endOffset" : 252
+    }, {
+      "referenceID" : 1,
+      "context" : "Recently, researchers have discovered that few polymeric materials (as an adsorbent) can remove a variety of pollutants from effluent and wastewater (Agcaoili et al., 2017; Jeon et al., 2008; Karimi et al., 2016; Kono et al., 2016; Yang and Ni, 2012).",
+      "startOffset" : 149,
+      "endOffset" : 250
+    }, {
+      "referenceID" : 18,
+      "context" : "Recently, researchers have discovered that few polymeric materials (as an adsorbent) can remove a variety of pollutants from effluent and wastewater (Agcaoili et al., 2017; Jeon et al., 2008; Karimi et al., 2016; Kono et al., 2016; Yang and Ni, 2012).",
+      "startOffset" : 149,
+      "endOffset" : 250
+    }, {
+      "referenceID" : 19,
+      "context" : "Recently, researchers have discovered that few polymeric materials (as an adsorbent) can remove a variety of pollutants from effluent and wastewater (Agcaoili et al., 2017; Jeon et al., 2008; Karimi et al., 2016; Kono et al., 2016; Yang and Ni, 2012).",
+      "startOffset" : 149,
+      "endOffset" : 250
+    }, {
+      "referenceID" : 25,
+      "context" : "Recently, researchers have discovered that few polymeric materials (as an adsorbent) can remove a variety of pollutants from effluent and wastewater (Agcaoili et al., 2017; Jeon et al., 2008; Karimi et al., 2016; Kono et al., 2016; Yang and Ni, 2012).",
+      "startOffset" : 149,
+      "endOffset" : 250
+    }, {
+      "referenceID" : 50,
+      "context" : "Recently, researchers have discovered that few polymeric materials (as an adsorbent) can remove a variety of pollutants from effluent and wastewater (Agcaoili et al., 2017; Jeon et al., 2008; Karimi et al., 2016; Kono et al., 2016; Yang and Ni, 2012).",
+      "startOffset" : 149,
+      "endOffset" : 250
+    }, {
+      "referenceID" : 32,
+      "context" : "This conductive polymer can be an excellent adsorbent to remove the pollutants due to advantages such as cheaper aniline monomer, the simplicity of its synthesis and thermal stability of polyaniline against the ambient conditions (Liu et al., 2017; Sun et al., 2017; Tanzifi et al., 2017b, 2018; Yan et al., 2015).",
+      "startOffset" : 230,
+      "endOffset" : 313
+    }, {
+      "referenceID" : 43,
+      "context" : "This conductive polymer can be an excellent adsorbent to remove the pollutants due to advantages such as cheaper aniline monomer, the simplicity of its synthesis and thermal stability of polyaniline against the ambient conditions (Liu et al., 2017; Sun et al., 2017; Tanzifi et al., 2017b, 2018; Yan et al., 2015).",
+      "startOffset" : 230,
+      "endOffset" : 313
+    }, {
+      "referenceID" : 49,
+      "context" : "This conductive polymer can be an excellent adsorbent to remove the pollutants due to advantages such as cheaper aniline monomer, the simplicity of its synthesis and thermal stability of polyaniline against the ambient conditions (Liu et al., 2017; Sun et al., 2017; Tanzifi et al., 2017b, 2018; Yan et al., 2015).",
+      "startOffset" : 230,
+      "endOffset" : 313
+    }, {
+      "referenceID" : 31,
+      "context" : "Implementation of ANN has large applications; whereas implementation of ANN-DEO in the field of adsorption are very few (Karri et al., 2017b; Lingamdinne et al., 2018; Maheshwari and Gupta, 2016); however, as per the author's knowledge, there is no application in open literature so far for application of ANN-DEO for the removal of dyes from wastewater.",
+      "startOffset" : 120,
+      "endOffset" : 195
+    }, {
+      "referenceID" : 34,
+      "context" : "Implementation of ANN has large applications; whereas implementation of ANN-DEO in the field of adsorption are very few (Karri et al., 2017b; Lingamdinne et al., 2018; Maheshwari and Gupta, 2016); however, as per the author's knowledge, there is no application in open literature so far for application of ANN-DEO for the removal of dyes from wastewater.",
+      "startOffset" : 120,
+      "endOffset" : 195
+    }, {
+      "referenceID" : 6,
+      "context" : "As conducting experimental runs is very expensive due to the usage of large amounts of chemicals and time-consuming process, researchers continuously looking for approaches to minimize the number of experimental runs, thus reducing the operating costs and manpower (Cronje et al., 2011; Dutta et al., 2011).",
+      "startOffset" : 265,
+      "endOffset" : 306
+    }, {
+      "referenceID" : 8,
+      "context" : "As conducting experimental runs is very expensive due to the usage of large amounts of chemicals and time-consuming process, researchers continuously looking for approaches to minimize the number of experimental runs, thus reducing the operating costs and manpower (Cronje et al., 2011; Dutta et al., 2011).",
+      "startOffset" : 265,
+      "endOffset" : 306
+    }, {
+      "referenceID" : 7,
+      "context" : "Response surface methodology (Dehghani et al., 2016; Hoseinzadeh Hesas et al., 2013; Sahu et al., 2011) is a technique found to be a useful statistical technique for optimizing the complex process.",
+      "startOffset" : 29,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 40,
+      "context" : "Response surface methodology (Dehghani et al., 2016; Hoseinzadeh Hesas et al., 2013; Sahu et al., 2011) is a technique found to be a useful statistical technique for optimizing the complex process.",
+      "startOffset" : 29,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 6,
+      "context" : "This approach is less tedious and less time-consuming than other approaches (Cronje et al., 2011; Shojaeimehr et al., 2014).",
+      "startOffset" : 76,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 41,
+      "context" : "This approach is less tedious and less time-consuming than other approaches (Cronje et al., 2011; Shojaeimehr et al., 2014).",
+      "startOffset" : 76,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 2,
+      "context" : "This methodology which is being inspired by a biological neural network of species has attracted many researchers to develop a datadriven model for process modeling (Bingöl et al., 2012; Marchitan et al., 2010; Shojaeimehr et al., 2014; Zafar et al., 2017).",
+      "startOffset" : 165,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 35,
+      "context" : "This methodology which is being inspired by a biological neural network of species has attracted many researchers to develop a datadriven model for process modeling (Bingöl et al., 2012; Marchitan et al., 2010; Shojaeimehr et al., 2014; Zafar et al., 2017).",
+      "startOffset" : 165,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 41,
+      "context" : "This methodology which is being inspired by a biological neural network of species has attracted many researchers to develop a datadriven model for process modeling (Bingöl et al., 2012; Marchitan et al., 2010; Shojaeimehr et al., 2014; Zafar et al., 2017).",
+      "startOffset" : 165,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 51,
+      "context" : "This methodology which is being inspired by a biological neural network of species has attracted many researchers to develop a datadriven model for process modeling (Bingöl et al., 2012; Marchitan et al., 2010; Shojaeimehr et al., 2014; Zafar et al., 2017).",
+      "startOffset" : 165,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 5,
+      "context" : "Differential evolution optimization (DEO) technique which belongs to metaheuristics search algorithms which utilize the framework of the genetic algorithm, approach of evolutionary strategy has found many applications (Civicioglu and Besdok, 2013; Karri, 2011; Madhavi et al., 2017; Onwubolu and Babu, 2013; Rao et al., 2010; Wang and Xu, 2011).",
+      "startOffset" : 218,
+      "endOffset" : 344
+    }, {
+      "referenceID" : 20,
+      "context" : "Differential evolution optimization (DEO) technique which belongs to metaheuristics search algorithms which utilize the framework of the genetic algorithm, approach of evolutionary strategy has found many applications (Civicioglu and Besdok, 2013; Karri, 2011; Madhavi et al., 2017; Onwubolu and Babu, 2013; Rao et al., 2010; Wang and Xu, 2011).",
+      "startOffset" : 218,
+      "endOffset" : 344
+    }, {
+      "referenceID" : 33,
+      "context" : "Differential evolution optimization (DEO) technique which belongs to metaheuristics search algorithms which utilize the framework of the genetic algorithm, approach of evolutionary strategy has found many applications (Civicioglu and Besdok, 2013; Karri, 2011; Madhavi et al., 2017; Onwubolu and Babu, 2013; Rao et al., 2010; Wang and Xu, 2011).",
+      "startOffset" : 218,
+      "endOffset" : 344
+    }, {
+      "referenceID" : 38,
+      "context" : "Differential evolution optimization (DEO) technique which belongs to metaheuristics search algorithms which utilize the framework of the genetic algorithm, approach of evolutionary strategy has found many applications (Civicioglu and Besdok, 2013; Karri, 2011; Madhavi et al., 2017; Onwubolu and Babu, 2013; Rao et al., 2010; Wang and Xu, 2011).",
+      "startOffset" : 218,
+      "endOffset" : 344
+    }, {
+      "referenceID" : 39,
+      "context" : "Differential evolution optimization (DEO) technique which belongs to metaheuristics search algorithms which utilize the framework of the genetic algorithm, approach of evolutionary strategy has found many applications (Civicioglu and Besdok, 2013; Karri, 2011; Madhavi et al., 2017; Onwubolu and Babu, 2013; Rao et al., 2010; Wang and Xu, 2011).",
+      "startOffset" : 218,
+      "endOffset" : 344
+    }, {
+      "referenceID" : 47,
+      "context" : "Differential evolution optimization (DEO) technique which belongs to metaheuristics search algorithms which utilize the framework of the genetic algorithm, approach of evolutionary strategy has found many applications (Civicioglu and Besdok, 2013; Karri, 2011; Madhavi et al., 2017; Onwubolu and Babu, 2013; Rao et al., 2010; Wang and Xu, 2011).",
+      "startOffset" : 218,
+      "endOffset" : 344
+    }, {
+      "referenceID" : 37,
+      "context" : "goethite impregnated with chitosan beads (GCSB) 84 (Munagapati et al., 2017)",
+      "startOffset" : 51,
+      "endOffset" : 76
+    } ],
+    "year" : 2018,
+    "abstractText" : "Presence of pigments and dyes in water bodies are growing tremendously and pose as toxic materials and have severe health effects on human and aquatic creatures. Treatments methods for removal of these toxic dyes along with other pollutants are growing in different dimensions, among which adsorption was found a cheaper and efficient method. In this study, the performance of polyaniline-based nano-adsorbent for removal of methyl orange (MO) dye from wastewater in a batch adsorption process is studied. Along with this to minimize the number of experiments and obtain optimal conditions, a multivariate predictive model based on response surface methodology (RSM) is developed. This is compared with data-driven modeling using the artificial neural network (ANN) which is integrated with differential evolution optimization (DEO) for prediction of the adsorption of MO. The interactive effects on MO removal efficiency with respect to independent process variables were investigated. The fit of the predictive model was found to good enough with R= 0.8635. The optimal ANN architecture with 5-12-1 topology resulted in higher R and lower RMSE of 0.9475 and 0.1294 respectively. Pearson's Chi-square measure which provides a good measurement scale for weighing the goodness of fit is found to be 0.005 and 0.038 for RSM and ANN-DEO respectively, and other statistical metrics evaluated in this study further confirms that the ANN-DEO is very superior over RSM for model predictions.",
+    "creator" : "Elsevier"
+  }
+}

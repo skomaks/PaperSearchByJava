@@ -1,0 +1,586 @@
+{
+  "name" : "downloads_2020-01-09_fb_10.1007@s10973-019-09215-3.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Application of nano‐quantitative structure–property relationship paradigm to develop predictive models for thermal conductivity of metal oxide‐based ethylene glycol nanofluids",
+    "authors" : [ ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Vol.:(0123456789)\nm more than\n0.5 and ΔR2 m less than 0.2, and also the validation set showed the correlation coefficient (R2) in ranges 0.8611–0.6816 and cross-validated correlation coefficient (Q2) in ranges 0.8518–0.6668. The presented models accurately predicted the thermal conductivity of all considered nanofluids, and the technique is expected to provide a novel way for future theoretical projects.\nKeywords Nanofluids · Thermal conductivity · Nano-QSPR · CORAL · Quasi-SMILES · Molecular features"
+    }, {
+      "heading" : "Introduction",
+      "text" : "Heat transfer fluids have a significant effect in cooling and heating systems [1], heat exchange systems of power stations [2], and vehicles air conditioning systems [3]. The most upshot on the overall efficiency of the heat transfer mechanism is influenced by the thermophysical properties of heat carrier fluids. Therefore, scholars continuously made considerable efforts to enhance the performance and capability of heat transfer systems that, unfortunately, were constrained by the low thermal conductivity of ordinary fluids. With the progression in nanotechnology, nanofluids were introduced as alternative heat transfer fluids [4]. The term of nanofluid, coined by Choi [5], is used to describe\na suspension containing nanoparticles with an average size less than 100 nm in any regular base fluid such as water, ethylene glycol, and methanol. Suspending nanoparticles led to remarkable improvements in the thermophysical properties of classical liquids due to their nanosize and large specific surface area. Improved thermophysical properties were exhibitive so that the use of nanofluids in various fields, such as renewable energy, chemical industry, and medicine, increased [6, 7]. Today, many studies have been done on the methods of preparation, stability, and thermal behavior of nanofluids [8–10]. Li et al. [11] gave us an outlook on the preparation and characterization of nanofluids, a subject that plays a key role. Ahmadi et al. [12] presented several experimental and theoretical studies conducted on the thermal conductivity of nanofluids in their recent review paper. They remarked some new approaches to obtain nanofluids with more adequate thermal properties such as utilizing binary fluids and preparing hybrid nanofluids. Żyła et al. [13] experimentally investigated thermophysical properties such as thermal conductivity and rheological behavior of ethylene glycol-based nanofluids containing titanium nitride nanoparticles with different volume fractions and various nanoparticle sizes at a constant temperature. In another Electronic supplementary material The online version of this article (https ://doi.org/10.1007/s1097 3-019-09215 -3) contains supplementary material, which is available to authorized users. * Mohammad Hossein Fatemi mhfatemi@umz.ac.ir 1 Chemometrics Laboratory, Faculty of Chemistry, University of Mazandaran, Babolsar, Iran\n1 3\nwork, Żyła et al. [14] studied the differences between a mixture of graphite and nanodiamonds with various ash contents dispersed in EG. Their results demonstrated thermal conductivity of nanofluids increased linearly with nanoparticle volume content and variation in ash content had a strong effect on electrical conductivity.\nIn many studies in order to comprehend the impressment factors on thermophysical properties and reduce the number of required experimental analyses, which are time-consuming and costly, the evolution of a reliable predictive model connecting the molecular structure and the aim properties is substantial. Recent developments in modeling of nanofluid with a particular focus on the underlying physical aspects and three-dimensional studies were reviewed comprehensively by Mahian et al. [15]. Definition, fabrication, applications, and research trends of the nanofluids were described in detail; physical phenomena in nanofluid flows and the main models for nanofluid properties such as thermal conductivity, viscosity, and heat capacity were discussed too. In addition, the main physical models for prediction of flow and heat transfer characteristics of nanofluids, including singlephase and two-phase approaches, were presented. Ansari et al. [16] proposed a comprehensive model to predict the nanofluid relative viscosity by using the feed-forward backpropagation artificial neural network (ANN). They utilized various training algorithms and chose temperature, shear rate values, size, density, and concentration of nanoparticles as inputs of the developed network. The results indicated that the proposed network had the ability to predict and correlate the relative viscosity accurately. Moreover, the rheological behavior of nanofluids prepared by the combination of multi-walled carbon nanotubes and Al2O3 nanoparticles in 10W40 engine oil at different temperatures was examined by Rabiee et al. [17]. In recent studies, Aminian [18] and Longo et al. [19] developed artificial neural network models to predict the viscosity of nanofluids. Esfe et al. [20, 21] reported various researches on modeling of nanofluid thermal conductivity by using ANN method. Their studies elaborated the effects of temperature and solid volume fraction on the thermal conductivity of different nanoparticles such as alumina and Mg(OH)2 dispersed in EG.\nQuantitative structure–property/activity relationship (QSPR/QSAR) approach is a possible solution to correlate chemical structure to target property [22, 23] and is called nano-QSPR when applied to nanomaterials [24]. There are several comprehensive reviews about nano-QSPR, which indicate this potentially valuable paradigm can become a powerful predictive tool in nanotechnology [24–26]. The relevant literature indicates that many theoretical studies have been conducted on the thermal conductivity of the nanofluids by the ANN, while little research has been carried out by the nano-QSPR. For example, in 2015, Sizochenko\net al. [23] attempted to answer the question that “how “liquid drop” approach could be efficiently applied for QSPR modeling of nanofluids” by extracted dataset consisting of 23 various nanofluids. In another study, Sizochenko et al. [27] developed QSPR models for two target properties of nanofluids, thermal conductivity and viscosity, by gathering a new database consisting of more than 150 data points. Recently, Toropov et al. [28] collected a dataset of zeta potential of metal oxide nanoparticles dispersed in water (87 data points), which are used to develop some QSPR models. They created three mathematical models by applying the Monte Carlo method and evaluated their statistical quality. A prominent tip in their work was the molecular structure representation method so that it not only reflected the sizedependent behavior of zeta potentials but also included information about both chemical composition and size of nanoparticles.\nIn the present work, the thermal conductivity of nanofluids is modeled and predicted by considering features of nanoparticle chemical structure and using the modified version of the simplified molecular input-line entry system (SMILES) [29] which is so-called quasi-SMILES, for the representation of features of nanoparticles. One purpose of the current study is an attempt to build up a predictive model for target property (endpoint) using optimal descriptors based on quasi-SMILES for various nanofluids. Moreover, the effects of different key factors including temperature, particles size, and volume fraction percentage of nanoparticles on thermal conductivity of considered nanofluids are investigated. We hope the study opens a novel way to inclusions of new input variables of nanofluids in order to be able to uncover their effects on the thermal conductivity."
+    }, {
+      "heading" : "Methodology",
+      "text" : ""
+    }, {
+      "heading" : "Data collection",
+      "text" : "Toward developing a reliable nano-QSPR model, the importance of dataset must be highlighted. Lubinski et al. [30] presented some criteria for collecting a consistent dataset of the experimental reports used in QSPR studies. Their work, as a standardized recipe, is used to collect adequate, valid, and high-quality experimental data. The qualified diverse set of ten different metal oxide nanoparticles (including Al2O3, MgO, TiO2, ZnO, Co3O4, CeO2, CuO, Fe2O3, Fe3O4, and SnO2) dispersed in the same popular base fluid, ethylene glycol, was collected from relevant reports [20, 31–40]. The endpoint is selected the thermal conductivity ratio (TCR) which is defined as the ratio of nanofluids thermal conductivity to the thermal conductivity of the base fluid (ethylene glycol). The collected dataset with 360 data points of\n1 3\nvarious nanofluids in different temperatures (10–70 °C), sizes (5–60 nm), and volume fractions (0.2–7%) is the biggest and the most diverse in nano-QSPR models for thermal conductivity of nanofluids as far as one knows."
+    }, {
+      "heading" : "Nano‑QSPR approach",
+      "text" : "The leading aspiration of QSPR, as an encouraging theoretical approach to modeling, is achieving an accurate, reliable, and satisfied mathematical equation to relate the biological activity or physical and chemical properties to optimal descriptors which depict the compounds [41–43]. Nano-QSPR is utilized to build up a predictive model in nanoscale. Classical QSPR is planned with the well-known concept called molecular descriptors. Todeschini et al. [44] described: “molecular descriptors are numerical indices encoding some information related to the molecular structure.” In the case of nanomaterials, these conceptions are unavailable or poorly suitable for the QSPR analysis. Two main points, selection of a molecular representation of nanoparticles and employed descriptors, are the crucial steps in nano-QSPR modeling.\nSimplified molecular input-line entry system (SMILES) is a chemical line notation (a sequence of typographic codes) language designed to represent unique and accurate molecular structures that are accessible to chemists and processed by computers with relative ease and become widely used in nano-QSPR studies. It is a series of characters that describe a molecular structure in a linear string same as a natural language [29]. A modification was applied on SMILES led to introduce a new format of molecular representation which is more impressive than former, known as quasi-SMILES. Quasi-SMILES is constructed of two main parts, SMILES string and selected symbols, which are encoded specific information. This type of molecular representation is more flexible than former to design chemical structure with the extended representation of data [45]. Thus, by consideration of nanofluids properties/conditions, the last one is chosen as more capable format to represent available eclectic information [46]. The CORAL software (http://www.insil ico.eu/coral ) by providing a free workplace makes building up the models possible by using these conventional linear structures."
+    }, {
+      "heading" : "Monte Carlo modeling",
+      "text" : "The collected dataset was distributed into the training (~ 25%), invisible training (~ 25%), calibration (~ 25%), and validation set (~ 25%) at random manner. Each subset has a specific role in the modeling process [47, 48].\n1. Training set which is used for building up the model to determine the target property. 2. Calibration set is employed to optimize the parameters of model. 3. Invisible training set is utilized for aversion of overtraining during the generation of the model. 4. Validation set is used for the evaluation of the model to verify the predictability.\nIn this way, dataset was randomly divided into training and validation sets by considering two principles:\n1. Every attribute must be offered in the training set; 2. The ranges of the thermal conductivity values for train-\ning and validation sets must be similar as possible.\nAfterward, distributing the basic dataset to subsets, for building up a Monte Carlo model of nanofluids thermal conductivity ratio, the coming steps were followed. The optimal descriptors based on quasi-SMILES were calculated by utilizing the CORAL software as follows:\nIn the above equation, Ak is the kth molecular feature which is extracted from quasi-SMILES, NT is the total number of molecular features, CW (Ak) are correlation masses which are numerical coefficients associated with molecular features, and DCW are descriptors of correlation masses. Moreover, T is a parameter of Monte Carlo optimization which is named threshold, defining molecular features into two classes:\n1. Active, the optimal descriptors are calculated with their correlation masses. 2. Noise, they are not involved in building up the model and their correlation masses are fixed in zero.\nN, the other Monte Carlo parameter, is the number of epochs of the optimization that with increasing it, the correlation coefficient (between experimental and predicted values of a target property) for training and invisible sets is enhancing. In this state, the maximum value of correlation coefficient for calibration set can be achieved. Decrement of the correlation coefficient for the training and invisible sets, also, leads to the same consequence due to the increase in the threshold. Thus, defining an expedient value for T and N is imperative. In this connection, T* and N* are the best values of the Monte Carlo parameters; by using them, the finest statistical quality of the model for the calibration set is gained [41, 42].\n(1)DCW(T ,N) = NT ∑\nk=1\nCW ( Ak )\n1 3\nThe final predictive one-variable model based on the optimal descriptors for an endpoint is attained by the following equation:\nThereafter, computation Monte Carlo model, the statistical quality as a rational norm for the estimation of the robustness and predictability, is examined which is described by Toropov and Toropova in detail in the literature obviously [49].\nThe selection of quasi-SMILES into the domain of applicability is checked out by evaluated defect (Ak). Ideally, defect (Ak) is equal to zero since the probability of presence Ak in the training and calibration sets is the same, while the ideal is not typical. In real, the defect (Ak) value for the majority of molecular features is set bigger than zero. By regarding that defect(quasi-SMILES) is a summation of all defect (Ak), the sample falls into the applicability domain if:\nwhere Defect(quasi - SMILES) is the average of defect(quasi-SMILES) calculated for the training set. Hence, the defect(quasi-SMILES) as a criterion makes possible to distinguish outliers and domain of application.\n(2)Endpoint = C0 + C1 × DCW(T∗,N∗)\n(3) Defect(quasi - SMILES) = 2 × Defect(quasi - SMILES)"
+    }, {
+      "heading" : "Results and discussion",
+      "text" : "In order to create the quasi-SMILES representation of nanofluids, SMILES strings of nanoparticles placed beside\na Ak is the molecular feature (structural attribute), CW (Ak) is the correlation mass for Ak, and DCW is the optimal descriptor based on quasi-SMILES"
+    }, {
+      "heading" : "O − 0.0037 [ 0.1853",
+      "text" : "1 3\nselected signs which codify available physicochemical properties/conditions (i.e., temperature, size, and volume fraction of nanoparticles) and are shown in Table 1. In volume fraction case, the min–max normalization method was used to designate codes in identical-sized 23 subintervals. The selection of 23 subintervals was done by regarding two purposes: The lowest possible number of subintervals would be considered and the least amount of data loss would be attained.\nThe upcoming tables mark details of obtained results by applying the Monte Carlo method. Calculation of quasiSMILES-based optimal descriptor for O=[Zn]%22%33%61 (in split 1) is found in Table 2, for instance. Distributing dataset into subsets was explained in the previous section so will not repeat it here. In that connection, four random, non-identical splits were selected (Table 3). The expressed method based on quasi-SMILES gives the following models:\nIn the above table, n is the number of compounds in each subset. T* is the threshold, N* is the number of epochs. R2 is the correlation coefficient, CCC is the concordance correlation coefficient, which is an informative criterion to illustrate the quality of the developed model in the diagram “experimental versus calculated value” [51], Q2 is the leave-one-out cross-validated correlation coefficient, Y-rand is Y-randomization, and MAE is the mean absolute error which is a measure of the difference between experimental and calculated thermal conductivity values)\n# T* N* n R2 CCC Q2 MAE n R2 CCC Q2 MAE n R2 CCC Q2 MAE n R2 Q2 MAE Y-rand"
+    }, {
+      "heading" : "1 1 11 88 0.90 0.95 0.90 0.025 91 0.90 0.95 0.90 0.023 88 0.82 0.90 0.81 0.032 93 0.68 0.66 0.037 0.0123",
+      "text" : ""
+    }, {
+      "heading" : "2 3 25 90 0.81 0.89 0.80 0.025 89 0.84 0.89 0.84 0.027 90 0.83 0.88 0.82 0.037 91 0.79 0.78 0.034 0.0108",
+      "text" : ""
+    }, {
+      "heading" : "3 1 8 92 0.89 0.94 0.89 0.022 91 0.88 0.93 0.87 0.027 89 0.86 0.93 0.85 0.028 88 0.82 0.81 0.030 0.0124",
+      "text" : ""
+    }, {
+      "heading" : "4 3 21 95 0.88 0.93 0.87 0.025 94 0.81 0.88 0.80 0.032 85 0.77 0.87 0.75 0.033 86 0.86 0.85 0.028 0.0134",
+      "text" : "1.3\n1.2\n1.1\n1.0\nC al\ncu la\nte d\nva lu\ne\n0.9\n1.4\n1.5\n1.3\n1.2\n1.1\n1.0\nC al\ncu la\nte d\nva lu\ne\n0.9\n1 3\nIn order to evaluate the performance of obtained models, some statistics were calculated which are presented in Table 4. Roy et al. [50] entrenched that R2\nm is the most strin-\ngent metric and CCC is an acceptable value of an external validation metric though it is overoptimistic; by regarding the rules of QSPR/QSAR methodology, the model will\n(4)Split 1 ∶ TCR = 0.7674349(±0.0016570) + 0.0557179(±0.0002653) × DCW(1, 11)\n(5)Split 2 ∶ TCR = 1.0261924(±0.0005504) + 0.0285262(±0.0001456) × DCW(3, 25)\n(6)Split 3 ∶ TCR = 0.7868702(±0.0016432) + 0.0465287(±0.0002427) × DCW(1, 8)\n(7)Split 4 ∶ TCR = 0.8947702(±0.0009847) + 0.0454229(±0.0001899) × DCW(3, 21)\nhave predictive power satisfactorily if R2 m > 0.5 along with ΔR2\nm < 0.2 [51, 52]. One can see from the data presented in Table 4 that the statistical characteristics are satisfied for examined splits. The achieved models were quite stable to the inclusion–exclusion of data points that arise from Q2 values greater than 0.6, and the values of R2\nm and ΔR2 m are\nAk is the attribute extracted from quasi-SMILES; CW are the correlation masses in splits 1, 2, 3, and 4. Stable promoters are indicated in bold\nas follows: (split 1) R2 m = 0.7512 , ΔR2 m = 0.0758 ; (split 2) R2 m = 0.6438 , ΔR2 m = 0.1881 ; (split 3) R2 m = 0.8027 , ΔR2 m = 0.0281 , and (split 4) R2 m = 0.6758 , ΔR2 m = 0.1708 . Hence, the developed models had acceptable statistical qualities confirmed in every split. Figure 1 shows the plot of calculated thermal conductivity ratio of metal oxide-based EG nanofluids values derived for training and validation sets versus experimental of them by only considering split 4, as the best-acquired model.\nTable 5 contains some correlation masses (CW) for various features extracted of quasi-SMILES which are calculated by the Monte Carlo technique [42]. As a result of CW checking in all splits, quasi-SMILES features have a different role toward the endpoint that can be taken into consideration. Features with positive correlation masses in all examined splits led to an increasing endpoint. As shown in Table 5, most of the features have an enhancing effect on\nthermal conductivity of nanofluids. Among them, %47, %44, and %53 are more valuable, which indicates the up-volume fractions. Further, %19 and %17 have positive CW values so that the size of nanoparticles 31 and 20 nm has a more incremental effect on the endpoint. The other features with negative correlation masses are as reducer for the endpoint. %31, %32, and = are negative promoters which are demonstrated low volume fraction in range 0.2–0.75 and double bond, respectively. Features with mixed correlation masses have both positive and negative values of the correlation masses in several splits. The role of these components is not clear. At last, they are absent in building up the model and have zero CW in all splits which can lead to “overtraining.” In this case, %36 is blocked feature so that it is known as noise.\nTaking into account the concept of the defect(quasiSMILES), Eq. (3) and Table 6, in split 1 with 93 data point in validation set and Defect(quasi - SMILES) = 0.09808 ,\n1 3\nmodel contained five outliers; the model for split 2 with nvalidation = 91 and Defect(quasi - SMILES) = 0.01916 only 1 data point was out of applicability domain; the model for split 3 with nvalidation = 88 and Defect(quasi - SMILES) = 0.03904 contained five outliers; and the model for split 4 with nvalidation = 86 and Defect(quasi - SMILES) = 0.01043 contained four outliers. The outliers of the validation set for all split are found in Table 7. Thereby, firstly, the predictive potential of the utilized approach based on the quasiSMILES optimal descriptors was confirmed; secondly, the mechanistic interpretation and domain of applicability for built-up models were discussed; and lastly, the presented route gives models which are in accordance with OECD principles [53]. We deem that it could be successfully and accurately applied for more other kinds of nanofluids and endpoints.\nThe supplementary material section consists of the details of four splits studied here and calculated quasi-SMILESbased optimal descriptors; by means of mentioned descriptors, models could be employed practically (Tables S1–S2)."
+    }, {
+      "heading" : "Conclusions",
+      "text" : "Based on the experimental data and quasi-SMILESbased optimal descriptors, some simple but statistically significant nano-QSPR models are developed, using the Monte Carlo method to successfully foretell the thermal conductivity of ten different types of metal oxide nanoparticles suspended in EG. The outcomes of this project express that the distribution of dataset into the subsets of training and validation influences statistical quality of models; the best result was obtained by split 4 characterized by R2\nvalidation = 0.8611 , Q2 validation = 0.8518 and the\nworst one, split 1, characterized by R2 validation = 0.6816 , Q2\nvalidation = 0.6668 . The models reliably predict the thermal conductivity ratio of all considered nanofluids, and the methodology is expected to provide a trusty procedure for the future application of more thermophysical properties prediction.\nThis is our recommendation that by (I) improving quasi-SMILES codes via hierarchical cluster analysis (HCA) method; (II) considering more new eclectic data such as time of sonication and type of base fluid; (III) analyzing new endpoint, e.g., electrical conductivity; and (IV) coupling with the machine learning techniques, attempt for the evolution of building up nano-QSPR models. Although this project confirmed that quasi-SMILES-based optimal descriptors can be significantly adapted for modeling of metal oxide-based EG nanofluid thermal conductivity, by applying the suggestions will be made possible to achieve better modeling. We are not pretending this is the best approach to related target properties of nanofluids with their structure, but this technique could be really an encouraging beginning to acquire a model, especially if the experimental projects are doing with the same goal.\nCompliance with ethical standards\nConflict of interest The authors declare that they have no conflict of interest."
+    } ],
+    "references" : [ {
+      "title" : "Thermodynamic analysis of a trigeneration system proposed for residential application",
+      "author" : [ "Memon AG", "Memon RA" ],
+      "venue" : "Energy Convers Manag. 2017;145:182–203. https ://doi.org/10.1016/j. encon man.2017.04.081",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2017
+    }, {
+      "title" : "New text comparison between CO2 and other supercritical working fluids (ethane, Xe, CH4 and N2) in line-focusing solar power plants coupled to supercritical Brayton power cycles",
+      "author" : [ "L Coco-Enríquez", "J Munoz-Antón", "JM Martínez-Val", "J MuñozAntón", "JM. Martínez-Val" ],
+      "venue" : "Int J Hydrog Energy",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2017
+    }, {
+      "title" : "Parametric analysis of a vehicle power and cooling/heating cogeneration system. Energy",
+      "author" : [ "C Yue", "D Han", "W Pu", "W. He" ],
+      "venue" : null,
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2016
+    }, {
+      "title" : "Nanofluids: science and technology",
+      "author" : [ "SK Das", "SU Choi", "W Yu", "T. Pradeep" ],
+      "venue" : "Hoboken: Wiley;",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2007
+    }, {
+      "title" : "Experimental investigation on the thermal conductivity and shear viscosity of viscoelastic-fluid-based nanofluids. Int J Heat Mass  Table 7 The outlier data points of developed models in splits 1–4  # Split Outlier # Split Outlier 1 1 O=[Zn]%22%46%73 9 3 O=[Co].O=[Co]O[Co]=O%15%45%61 2 1 O=[Fe]O[Fe]=O%18%34%65 10 3 O=[Co].O=[Co]O[Co]=O%15%45%69 3 1 O=[Co].O=[Co]O[Co]=O%15%45%61 11 3 O=[Fe].O=[Fe]O[Fe]=O%14%43%69 4 1 O=[Fe].O=[Fe]O[Fe]=O%14%34%61",
+      "author" : [ "Yang J-CC", "Li F-CC", "Zhou W-WW", "He Y-RR", "Jiang B-CC" ],
+      "venue" : "Transf",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2012
+    }, {
+      "title" : "A review of the applications of nanofluids in solar energy",
+      "author" : [ "O Mahian", "A Kianifar", "SA Kalogirou", "I Pop", "S. Wongwises" ],
+      "venue" : "Int J Heat Mass Transf",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2013
+    }, {
+      "title" : "Small particles, big impacts: a review of the diverse applications of nanofluids",
+      "author" : [ "R Taylor", "S Coulombe", "T Otanicar", "P Phelan", "A Gunawan", "W Lv", "G Rosengarten", "R Prasher", "H. Tyagi" ],
+      "venue" : "J Appl Phys. 2013;113:1",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2013
+    }, {
+      "title" : "Stability of glycol nanofluids—the theory and experiment",
+      "author" : [ "S Witharana", "I Palabiyik", "Z Musina", "Y. Ding" ],
+      "venue" : "Powder Technol. 2013;239:72–7. https ://doi.org/10.1016/j.powte",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2013
+    }, {
+      "title" : "A review of nanofluid stability properties and characterization in stationary conditions",
+      "author" : [ "A Ghadimi", "R Saidur", "HSCC. Metselaar" ],
+      "venue" : "Int J Heat Mass Transf",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2011
+    }, {
+      "title" : "Experimental investigation of Al2O3 nanofluids thermal properties and rheology—effects of transient and steady-state heat exposure",
+      "author" : [ "Hachey M-AA", "Nguyen CT", "Galanis N", "Popa CV" ],
+      "venue" : "Int J Therm Sci",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2014
+    }, {
+      "title" : "A review on development of nanofluid preparation and characterization",
+      "author" : [ "Y Li", "J Zhou", "S Tung", "E Schneider", "S. Xi" ],
+      "venue" : "Powder Technol. 2009;196:89–101. https ://doi.org/10.1016/j.powte",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2009
+    }, {
+      "title" : "A review of thermal conductivity of various nanofluids",
+      "author" : [ "MH Ahmadi", "A Mirlohi", "MA Nazari", "R Ghasempour", "R. Ghasempour" ],
+      "venue" : "J Mol Liq. 2018;265:181–8",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2018
+    }, {
+      "title" : "The influence of ash content on thermophysical properties of ethylene glycol based graphite/diamonds mixture nanofluids",
+      "author" : [ "G Żyła", "J Fal", "P. Estellé" ],
+      "venue" : "Diam Relat Mater. 2017;74:81–9. https  ://doi",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2017
+    }, {
+      "title" : "Recent advances in modeling and simulation of nanofluid flows-Part I: fundamentals and theory",
+      "author" : [ "O Mahian", "L Kolsi", "M Amani", "P Estellé", "G Ahmadi", "C Kleinstreuer", "JS Marshall", "M Siavashi", "RA Taylor", "H Niazmand", "S Wongwises", "T Hayat", "A Kolanjiyil", "A Kasaeian", "I. Pop" ],
+      "venue" : "Phys Rep. 2019;790:1–48. https ://doi.org/10.1016/j. physr ep.2018.11.004",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2018
+    }, {
+      "title" : "A new comprehensive model for relative viscosity of various nanofluids using feed-forward back-propagation MLP neural networks",
+      "author" : [ "HR Ansari", "MJ Zarei", "S Sabbaghi", "P. Keshavarz" ],
+      "venue" : "Int Commun Heat Mass Transf",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2018
+    }, {
+      "title" : "Preparation and characterization of nitrofurantoin nanoemulsions to increase cisplatin sensitivity in ALDH overexpressed non-small lung carcinoma cells",
+      "author" : [ "F Rabiee", "V Akbari", "A. Taheri" ],
+      "venue" : null,
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2018
+    }, {
+      "title" : "Predicting the effective viscosity of nanofluids for the augmentation of heat transfer in the process industries",
+      "author" : [ "A. Aminian" ],
+      "venue" : "J Mol Liq",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2017
+    }, {
+      "title" : "Application of artificial neural network (ANN) for modeling oxide-based nanofluids dynamic viscosity",
+      "author" : [ "GA Longo", "C Zilio", "L Ortombina", "M. Zigliotto" ],
+      "venue" : "Int Commun Heat Mass Transf",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2017
+    }, {
+      "title" : "Using artificial neural network to predict thermal conductivity of ethylene glycol with alumina nanoparticle: effects of temperature and solid volume fraction",
+      "author" : [ "MH Esfe", "H Rostamian", "D Toghraie", "WM. Yan" ],
+      "venue" : "J Therm Anal Calorim. 2016;126:643–8. https  ://doi",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2016
+    }, {
+      "title" : "Applications of feedforward multilayer perceptron artificial neural networks and empirical correlation for prediction of thermal conductivity of Mg (OH)2–EG using experimental data",
+      "author" : [ "MH Esfe", "M Afrand", "S Wongwises", "A Naderi", "A Asadi", "S Rostami", "M Akbari", "M. Akbari" ],
+      "venue" : "Int Commun Heat Mass Transf",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2015
+    }, {
+      "title" : "Chemometrics tools in QSAR/QSPR studies: a historical perspective",
+      "author" : [ "S Yousefinejad", "B. Hemmateenejad" ],
+      "venue" : "Chemom Intell Lab Syst. 2015;149:177–204. https ://doi.org/10.1016/j.chemo",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2015
+    }, {
+      "title" : "How the “liquid drop” approach could be efficiently applied for quantitative structure–property relationship modeling of nanofluids",
+      "author" : [ "N Sizochenko", "K Jagiello", "J Leszczynski", "T. Puzyn" ],
+      "venue" : "J Phys Chem C. 2015;119:25542–7. https ://doi.org/10.1021/acs",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2015
+    }, {
+      "title" : "Toward the development of “nano-QSARs”: advances and challenges",
+      "author" : [ "T Puzyn", "D Leszczynska", "J. Leszczynski" ],
+      "venue" : "https",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2009
+    }, {
+      "title" : "A review of recent advances towards the development of (quantitative) structure-activity relationships for metallic nanomaterials",
+      "author" : [ "G Chen", "MG Vijver", "Y Xiao", "WJGM. Peijnenburg" ],
+      "venue" : null,
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2017
+    }, {
+      "title" : "Nano (Q) SAR: challenges, pitfalls and perspectives",
+      "author" : [ "R Tantra", "C Oksel", "T Puzyn", "J Wang", "KN Robinson", "XZ Wang", "CY Ma", "T. Wilkins" ],
+      "venue" : "Nanotoxicology. 2015;9:636–42. https ://doi",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2014
+    }, {
+      "title" : "Predicting physical properties of nanofluids by computational modeling",
+      "author" : [ "N Sizochenko", "M Syzochenko", "A Gajewicz", "J Leszczynski", "T. Puzyn" ],
+      "venue" : "J Phys Chem C. 2017;121:1910–7. https ://doi",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 1910
+    }, {
+      "title" : "Towards the development of global nano-quantitative structure–property relationship models: zeta potentials of metal oxide nanoparticles. Nanomaterials",
+      "author" : [ "A Toropov", "N Sizochenko", "A Toropova", "J. Leszczynski" ],
+      "venue" : null,
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2018
+    }, {
+      "title" : "SMILES, a chemical language and information system. 1. Introduction to methodology and encoding rules",
+      "author" : [ "D. Weininger" ],
+      "venue" : "J Chem Inf Comput Sci. 1988;28:31–6. https ://doi.org/10.1021/ci000",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 1988
+    }, {
+      "title" : "Evaluation criteria for the quality of published experimental data on nanomaterials and their usefulness for QSAR modelling",
+      "author" : [ "L Lubinski", "P Urbaszek", "A Gajewicz", "MTDD Cronin", "SJ Enoch", "JC Madden", "D Leszczynska", "J Leszczynski", "T. Puzyn" ],
+      "venue" : "SAR QSAR Environ Res. 2013;24:995–1008. https ://doi.org/10.1080/10629 36X.2013.84067",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2013
+    }, {
+      "title" : "Thermal conductivity modeling of MgO/EG nanofluids using experimental data and artificial neural network",
+      "author" : [ "MH Esfe", "S Saedodin", "M Bahiraei", "D Toghraie", "O Mahian", "S. Wongwises" ],
+      "venue" : "J Therm Anal Calorim",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2014
+    }, {
+      "title" : "New measurements of the apparent thermal conductivity of nanofluids and investigation of their heat transfer capabilities",
+      "author" : [ "GJ Tertsinidou", "CM Tsolakidou", "M Pantzali", "MJ Assael", "L Colla", "L Fedele", "S Bobbo", "WA. Wakeham" ],
+      "venue" : "J Chem Eng Data",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2016
+    }, {
+      "title" : "Modeling of thermal conductivity of ZnO-EG using experimental data and ANN methods",
+      "author" : [ "MH Esfe", "S Saedodin", "A Naderi", "A Alirezaie", "A Karimipour", "S Wongwises", "M Goodarzi", "M. bin Dahari" ],
+      "venue" : "Int Commun Heat Mass Transf",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2015
+    }, {
+      "title" : "An experimental study on the thermal conductivity of cerium oxide/ethylene glycol nanofluid: developing a new correlation",
+      "author" : [ "M Keyvani", "M Afrand", "D Toghraie", "M. Reiszadeh" ],
+      "venue" : "J Mol Liq",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2018
+    }, {
+      "title" : "Experimental investigations and theoretical determination of thermal conductivity and viscosity of TiO2–ethylene glycol nanofluid",
+      "author" : [ "RS Khedkar", "N Shrivastava", "SS Sonawane", "KL. Wasewar" ],
+      "venue" : "Int Commun Heat Mass Transf",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2016
+    }, {
+      "title" : "Thermal conductivity, rheological behaviour and density of non-Newtonian ethylene glycol-based SnO2 nanofluids",
+      "author" : [ "A Mariano", "MJ Pastoriza-Gallego", "L Lugo", "A Camacho", "S Canzonieri", "MM. Piñeiro" ],
+      "venue" : "Fluid Phase Equilib. 2013;337:119–24. https ://doi",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2012
+    }, {
+      "title" : "Co3O4 ethylene glycol-based nanofluids: thermal conductivity, viscosity and high pressure density",
+      "author" : [ "A Mariano", "MJ Pastoriza-Gallego", "L Lugo", "L Mussari", "MM. Piñeiro" ],
+      "venue" : "Int J Heat Mass Transf",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2015
+    }, {
+      "title" : "Thermophysical profile of ethylene glycol-based ZnO nanofluids",
+      "author" : [ "MJ Pastoriza-Gallego", "L Lugo", "D Cabaleiro", "JL Legido", "MM. Piñeiro" ],
+      "venue" : "J Chem Thermodyn. 2014;73:23–30. https ://doi",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2013
+    }, {
+      "title" : "Enhancement of thermal conductivity and volumetric behavior of FexOy nanofluids",
+      "author" : [ "MJ Pastoriza-Gallego", "L Lugo", "JL Legido", "MM. Piñeiro" ],
+      "venue" : "J Appl Phys. 2011;110:14309. https ://doi",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2011
+    }, {
+      "title" : "An experimental investigation into the thermal conductivity enhancement in oxide and metallic nanofluids",
+      "author" : [ "HE Patel", "T Sundararajan", "SK. Das" ],
+      "venue" : "J Nanoparticle Res. 2010;12:1015–31. https ://doi",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2010
+    }, {
+      "title" : "CORAL: QSPR model of water solubility based on local and global SMILES attributes. Chemosphere",
+      "author" : [ "AA Toropov", "AP Toropova", "E Benfenati", "G Gini", "D Leszczynska", "J. Leszczynski" ],
+      "venue" : null,
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2013
+    }, {
+      "title" : "Quasi-SMILES and nano-QFAR: united model for mutagenicity of fullerene and MWCNT under different conditions. Chemosphere. 2015;139:18–22",
+      "author" : [ "Toropov AA", "Toropova AP" ],
+      "venue" : "https ://doi. org/10.1016/j.chemo spher e.2015.05.042",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2015
+    }, {
+      "title" : "Quasi-SMILES for Nano-QSAR prediction of toxic effect of Al2O3 nanoparticles",
+      "author" : [ "AP Toropova", "PGR Achary", "AA. Toropov" ],
+      "venue" : "J Nanotoxicol Nanomed. 2016;1:17–28. https ://doi.org/10.4018/",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2016
+    }, {
+      "title" : "Selection, V. Reduction, V.S. Selection, C. Modeling, U.M. Algorithm, A. Domain, M.D. Interpretability, Chemometrics in QSAR",
+      "author" : [ "R. Todeschini", "V. Consonni", "P. Gramatica", "M. Descriptors", "H. Approach", "G.C. Methods", "C.S. Analysis", "R. Approach", "M.D.M.  Descriptors" ],
+      "venue" : "in: Comprehensive Chemometrics,",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2009
+    }, {
+      "title" : "QSAR as a random event: criteria of predictive potential for a chance model",
+      "author" : [ "Toropov AA", "Toropova AP" ],
+      "venue" : "Struct Chem. 2019. https ://doi.org/10.1007/s1122",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2019
+    }, {
+      "title" : "Quasi-SMILES: quantitative structure–activity relationships to predict anticancer activity",
+      "author" : [ "Toropova AP", "Toropov AA" ],
+      "venue" : "Mol Divers. 2018. https",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2018
+    }, {
+      "title" : "CORAL: predictive models for cytotoxicity of functionalized nanozeolites based on quasi-SMILES. Chemosphere",
+      "author" : [ "C Leone", "EE Bertuzzi", "AP Toropova", "AA Toropov", "E. Benfenati" ],
+      "venue" : null,
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2018
+    }, {
+      "title" : "QSPR and nano-QSPR: What is the difference",
+      "author" : [ "Toropova AP", "Toropov AA" ],
+      "venue" : "J Mol Struct. 2019;1182:141–9. https ://doi",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2019
+    }, {
+      "title" : "Quasi-QSAR for mutagenic potential of multi-walled carbon-nanotubes",
+      "author" : [ "Toropov AA", "Toropova AP" ],
+      "venue" : "Chemosphere",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2015
+    }, {
+      "title" : "Introduction of rm2 (rank) metric incorporating rank-order predictions as an additional tool for validation of QSAR/QSPR models",
+      "author" : [ "K Roy", "I Mitra", "PK Ojha", "S Kar", "RN Das", "H. Kabir" ],
+      "venue" : "Chemom Intell Lab Syst",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2012
+    }, {
+      "title" : "A concordance correlation coefficient to evaluate reproducibility",
+      "author" : [ "Lin LI" ],
+      "venue" : null,
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 1989
+    }, {
+      "title" : "Further exploring rm2 metrics for validation of QSPR models",
+      "author" : [ "PK Ojha", "I Mitra", "RN Das", "K. Roy" ],
+      "venue" : "Chemom Intell Lab Syst",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2011
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Heat transfer fluids have a significant effect in cooling and heating systems [1], heat exchange systems of power stations [2], and vehicles air conditioning systems [3].",
+      "startOffset" : 78,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 1,
+      "context" : "Heat transfer fluids have a significant effect in cooling and heating systems [1], heat exchange systems of power stations [2], and vehicles air conditioning systems [3].",
+      "startOffset" : 123,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 2,
+      "context" : "Heat transfer fluids have a significant effect in cooling and heating systems [1], heat exchange systems of power stations [2], and vehicles air conditioning systems [3].",
+      "startOffset" : 166,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 3,
+      "context" : "With the progression in nanotechnology, nanofluids were introduced as alternative heat transfer fluids [4].",
+      "startOffset" : 103,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 4,
+      "context" : "The term of nanofluid, coined by Choi [5], is used to describe a suspension containing nanoparticles with an average size less than 100 nm in any regular base fluid such as water, ethylene glycol, and methanol.",
+      "startOffset" : 38,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 5,
+      "context" : "Improved thermophysical properties were exhibitive so that the use of nanofluids in various fields, such as renewable energy, chemical industry, and medicine, increased [6, 7].",
+      "startOffset" : 169,
+      "endOffset" : 175
+    }, {
+      "referenceID" : 6,
+      "context" : "Improved thermophysical properties were exhibitive so that the use of nanofluids in various fields, such as renewable energy, chemical industry, and medicine, increased [6, 7].",
+      "startOffset" : 169,
+      "endOffset" : 175
+    }, {
+      "referenceID" : 10,
+      "context" : "[11] gave us an outlook on the preparation and characterization of nanofluids, a subject that plays a key role.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 11,
+      "context" : "[12] presented several experimental and theoretical studies conducted on the thermal conductivity of nanofluids in their recent review paper.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 12,
+      "context" : "[14] studied the differences between a mixture of graphite and nanodiamonds with various ash contents dispersed in EG.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 14,
+      "context" : "[16] proposed a comprehensive model to predict the nanofluid relative viscosity by using the feed-forward backpropagation artificial neural network (ANN).",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 16,
+      "context" : "In recent studies, Aminian [18] and Longo et al.",
+      "startOffset" : 27,
+      "endOffset" : 31
+    }, {
+      "referenceID" : 17,
+      "context" : "[19] developed artificial neural network models to predict the viscosity of nanofluids.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 18,
+      "context" : "[20, 21] reported various researches on modeling of nanofluid thermal conductivity by using ANN method.",
+      "startOffset" : 0,
+      "endOffset" : 8
+    }, {
+      "referenceID" : 19,
+      "context" : "[20, 21] reported various researches on modeling of nanofluid thermal conductivity by using ANN method.",
+      "startOffset" : 0,
+      "endOffset" : 8
+    }, {
+      "referenceID" : 20,
+      "context" : "Quantitative structure–property/activity relationship (QSPR/QSAR) approach is a possible solution to correlate chemical structure to target property [22, 23] and is called nano-QSPR when applied to nanomaterials [24].",
+      "startOffset" : 149,
+      "endOffset" : 157
+    }, {
+      "referenceID" : 21,
+      "context" : "Quantitative structure–property/activity relationship (QSPR/QSAR) approach is a possible solution to correlate chemical structure to target property [22, 23] and is called nano-QSPR when applied to nanomaterials [24].",
+      "startOffset" : 149,
+      "endOffset" : 157
+    }, {
+      "referenceID" : 22,
+      "context" : "Quantitative structure–property/activity relationship (QSPR/QSAR) approach is a possible solution to correlate chemical structure to target property [22, 23] and is called nano-QSPR when applied to nanomaterials [24].",
+      "startOffset" : 212,
+      "endOffset" : 216
+    }, {
+      "referenceID" : 21,
+      "context" : "[23] attempted to answer the question that “how “liquid drop” approach could be efficiently applied for QSPR modeling of nanofluids” by extracted dataset consisting of 23 various nanofluids.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 25,
+      "context" : "[27] developed QSPR models for two target properties of nanofluids, thermal conductivity and viscosity, by gathering a new database consisting of more than 150 data points.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 26,
+      "context" : "[28] collected a dataset of zeta potential of metal oxide nanoparticles dispersed in water (87 data points), which are used to develop some QSPR models.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 27,
+      "context" : "In the present work, the thermal conductivity of nanofluids is modeled and predicted by considering features of nanoparticle chemical structure and using the modified version of the simplified molecular input-line entry system (SMILES) [29] which is so-called quasi-SMILES, for the representation of features of nanoparticles.",
+      "startOffset" : 236,
+      "endOffset" : 240
+    }, {
+      "referenceID" : 28,
+      "context" : "[30] presented some criteria for collecting a consistent dataset of the experimental reports used in QSPR studies.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 42,
+      "context" : "[44] described: “molecular descriptors are numerical indices encoding some information related to the molecular structure.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 27,
+      "context" : "It is a series of characters that describe a molecular structure in a linear string same as a natural language [29].",
+      "startOffset" : 111,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 43,
+      "context" : "This type of molecular representation is more flexible than former to design chemical structure with the extended representation of data [45].",
+      "startOffset" : 137,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 44,
+      "context" : "Thus, by consideration of nanofluids properties/conditions, the last one is chosen as more capable format to represent available eclectic information [46].",
+      "startOffset" : 150,
+      "endOffset" : 154
+    }, {
+      "referenceID" : 45,
+      "context" : "Each subset has a specific role in the modeling process [47, 48].",
+      "startOffset" : 56,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 46,
+      "context" : "Each subset has a specific role in the modeling process [47, 48].",
+      "startOffset" : 56,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 39,
+      "context" : "In this connection, T* and N* are the best values of the Monte Carlo parameters; by using them, the finest statistical quality of the model for the calibration set is gained [41, 42].",
+      "startOffset" : 174,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 40,
+      "context" : "In this connection, T* and N* are the best values of the Monte Carlo parameters; by using them, the finest statistical quality of the model for the calibration set is gained [41, 42].",
+      "startOffset" : 174,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 47,
+      "context" : "Thereafter, computation Monte Carlo model, the statistical quality as a rational norm for the estimation of the robustness and predictability, is examined which is described by Toropov and Toropova in detail in the literature obviously [49].",
+      "startOffset" : 236,
+      "endOffset" : 240
+    }, {
+      "referenceID" : 49,
+      "context" : "R2 is the correlation coefficient, CCC is the concordance correlation coefficient, which is an informative criterion to illustrate the quality of the developed model in the diagram “experimental versus calculated value” [51], Q2 is the leave-one-out cross-validated correlation coefficient, Y-rand is Y-randomization, and MAE is the mean absolute error which is a measure of the difference between experimental and calculated thermal conductivity values) Training Validation",
+      "startOffset" : 220,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 48,
+      "context" : "[50] entrenched that R(2) m is the most stringent metric and CCC is an acceptable value of an external validation metric though it is overoptimistic; by regarding the rules of QSPR/QSAR methodology, the model will (4) Split 1 ∶ TCR = 0.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 40,
+      "context" : "Table 5 contains some correlation masses (CW) for various features extracted of quasi-SMILES which are calculated by the Monte Carlo technique [42].",
+      "startOffset" : 143,
+      "endOffset" : 147
+    } ],
+    "year" : 2020,
+    "abstractText" : "In this work, the relatively thermal conductivity of metal oxide-based ethylene glycol nanofluids is being predicted by using quantitative structure–property relationship methodology. The structural features of studied nanoparticles are represented by quasi-SMILES which is a coded linear structure. The gathered dataset includes ten types of nanoparticles (including Al2O3, MgO, TiO2, ZnO, Co3O4, CeO2, CuO, Fe2O3, Fe3O4, and SnO2) suspended in the same base fluid, ethylene glycol. The calculated optimal descriptors acquired by applying the Monte Carlo method in the free software available on the Web (named CORAL) and four random splits into the training, invisible, calibration, and validation sets were appraised. The statistical characteristics confirmed the predictive power and reliability of the developed models; all splits had R m more than 0.5 and ΔR m less than 0.2, and also the validation set showed the correlation coefficient (R2) in ranges 0.8611–0.6816 and cross-validated correlation coefficient (Q2) in ranges 0.8518–0.6668. The presented models accurately predicted the thermal conductivity of all considered nanofluids, and the technique is expected to provide a novel way for future theoretical projects.",
+    "creator" : "Springer"
+  }
+}

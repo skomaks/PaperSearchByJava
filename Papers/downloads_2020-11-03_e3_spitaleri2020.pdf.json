@@ -1,0 +1,495 @@
+{
+  "name" : "downloads_2020-11-03_e3_spitaleri2020.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Adaptive nanopores: A bioinspired label-free approach for protein sequencing and identification",
+    "authors" : [ "Andrea Spitaleri", "Denis Garoli", "Moritz Schütte", "Hans Lehrach", "Walter Rocchia" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "KEYWORDS nanopores, single molecule sequencing, protein sequencing, luorescence resonance energy transfer (FRET), amino-acids, fluorescence"
+    }, {
+      "heading" : "1 Introduction",
+      "text" : "The “sequence–structure–function” paradigm for proteins embodies one of the biggest scientific discoveries about the functioning of Life. The DNA sequence in each gene contains the information necessary to build proteins, via a mechanism where specific triplets of nucleic acids code for the different amino-acids. In addition to this golden rule for translation, proteins’ fundamental building blocks can be altered by alternative splicing or post-translational modifications. Mutations in specific positions can greatly impact on protein structure and function. Therefore, the identification of protein sequence can significantly impact our comprehension of Life and our ability to prevent, diagnose, and treat most of the human pathologies. At present, a limited number of methods are available for protein sequencing and the standard technology is still based on mass spectrometry [1, 2]. The major intrinsic drawbacks of these methods are the limit of detection and the dynamic range [3];\nin particular, with them it’s not possible to achieve singlemolecule resolution. The protein concentration in humans spans from picograms/mL up to milligrams/mL. Consequently, the large amount of molecules required to satisfy the detection limits of standard mass spectrometers make the analysis of low concentration proteins extremely challenging. To overcome these limitations and to pursue the final aim of single-cell analysis, during the last few years single-molecule protein sequencing methods started to emerge [4]. Current efforts for protein sequencing and identification are inspired from the outstanding results achieved in DNA sequencing [5]. Unfortunately, the complex nature of proteins makes single molecule sequencing not trivial at all. Difficulties arise from different sides. First, the sequence is constituted of 20 different building blocks, i.e. the amino-acids, against only 4 bases which compose DNA. Second, amino-acids do not have complementary bases as in the case of nucleotide and, consequently, there are no polymerase chain reaction-like amplification methods. These\nAddress correspondence to Walter Rocchia, walter.rocchia@iit.it; Francesco De Angelis, francesco.deangelis@iit.it\nNano Res.\n| www.editorialmanager.com/nare/default.asp\n2\nfacts make the detection of 20 distinguishable signals from the different amino-acids tremendously challenging, regardless of the read-out method of choice. Some exciting ideas have been recently reported and the reader can find a comprehensive review on approaches to single-molecule protein sequencing in Restrepo-Perez et al. [4]. The methods reported in the literature are based on single molecule techniques as nanopores [6–13], fluorescence [14] and tunneling currents across nanogaps [15, 16]. Every method has its own advantages and drawbacks. Regarding optical methods, which are based on “color discrimination”, it is likely impossible to distinguish about 20 different fluorescence spectra. Similarly, electrical readouts, which reflect charge flux through a pore partially occupied by the analyte, would hardly discriminate so many current levels spanning a narrow range of values. Only very recently, two reports demonstrated, by means of numerical simulations, that optimized solid-state [11] and biological nanopore [17] are able to distinguish among high numbers of amino-acids. Other recent works proposed to take advantage of comprehensive protein sequence databases which enable the identification of a protein by labelling and detecting a limited number of amino-acids [14, 18]. By knowing this limited subset of the whole sequence is then possible to select the corresponding protein within the available database. However, these approaches cannot identify specific post-translational modifications or point mutations, which is a fundamental need of proteomics and personalized medicine.\nHence, despite the outstanding results achieved for sequencing DNA and recent brilliant works on single molecule protein detection and sequencing [4, 7–10, 14, 17, 19–21], the translation of these approaches to whole sequencing of individual proteins, especially if available in a small amount, appears still a tremendous challenge. In parallel with the current efforts it is necessary to conceive radically new ways to approach the problem and to reconsider it from a different point of view. As it often happens, “Nature” can inspire us: actually, biomolecular recognition participates every biological process and one can say it is at the basis of life. Biomolecular recognition is mostly performed by proteins, which evolved to perform this fascinating ability. Recognition, and subsequent binding, are regulated by a delicate balance of opposing phenomena, such as the desolvation penalty occurring upon binding and the direct electrostatic interaction, which is stronger in absence of the screening aqueous medium [22]. Molecular interactions can be extremely specific thus enabling to accomplish highly selective recognition tasks.\nBy taking inspiration from these long-studied phenomena, here we propose and investigate the concept of an “adaptive biological nanopore” as the foundation for a novel class of devices able to discriminate the amino-acidic sequence of a translocating polypeptide. While this protein construct is not a conventional nanopore, we chose this term since the proposed scheme is analogue to that of other nanopores, such as α-hemolysin etc., in which DNA can flow through [23]. However, the sensing mechanism is radically different. We show, by means of molecular dynamics (MD) simulations, that a properly designed protein construct working as a pore can dynamically “re-shape” according to the specific amino-acidic sequence that is flowing through it. Then, by monitoring the spatial rearrangements of the construct one can infer the sequence of the translocating amino-acids. Based on this behavior, we named it “adaptomorphic pore” or simply “adaptive nanopore”. By taking advantage of MD simulations, we designed a prototypical adaptive pore and we investigated its interactions with simple poly-peptides. Machine learning analysis confirmed that the deformations occurring to the nanopore are specific\nfor each single amino-acid with a full precision (recall precision equal to 1). In the second part of the work, we propose a potential experimental method for tracking the spatial re-arrangement of the pore by means fluorescence resonance energy transfer (FRET) spectroscopy. Even though the precision obtained from classification decreases to an average value of 0.59 and 0.42 for more realistic four- and two-channel setups, respectively, the method still appears robust, feasible and with a lot of room for improvements."
+    }, {
+      "heading" : "2 Methods",
+      "text" : "The concept of an adaptive pore and its use in the present context can be better conveyed if one thinks that the question: “What is the shape of a molecule?” does not have an unambiguous answer as the concept of shape is intrinsically connected to that of interaction and there are several levels of interaction occurring at the molecular scale.\nProbably the most intuitive one is that of steric interaction, one can represent each atom as a hard sphere, with a radius that could be defined as the distance of closest approach for another atom. Based on this simple description and by using a similar representation also for the solvent probe, back in 1971 it was defined the “solvent excluded surface” (SES) of a molecule immersed in a solvent [24]. An example is shown in Fig. 1 (left panel) for a sequence of 9 different amino acids, namely: ARGinine, GLutamiNe, GLUtamic acid, GLYcine, HIStidine, IsoLEucine, SERine, TRiPtophan, and TYRosine.\nThe SES (left panel, semitransparent boundaries) encloses the space region where a solvent probe, represented as a hard sphere, cannot enter because it would otherwise overlap with some of the van der Waals (vdW) spheres representing a peptide, or a protein, atom. Both vdW and SES definitions rely on the intuitive and simple ideas of contact and impenetrability of two solid bodies. However, in addition to the contact, direct electrostatic forces, such as charge–charge and charge–dipole play a fundamental role in specific molecular interactions [25] and therefore also in the definition of “shape”. A graphical representation of the electrostatic potential iso-surface is given in Fig. 1 (right panel). These representations make clear that, according to the considered types of interaction, each amino acid has a different shape both with respect to the others and to itself in the other dimension. Interestingly, current simulative approaches, such as for instance molecular dynamics, can use intermolecular interactions to drive the time evolution of a possibly very complex molecular system and, especially, to sample different conformational states consistently with fundamental thermodynamic control variables such as temperature and pressure. In these simulations, the estimation of\nNano Res.\nwww.theNanoResearch.com∣www.Springer.com/journal/12274 | Nano Research\n3\nmacroscopic observables is done together with the analysis of mechanisms at the atomistic level [26]. Among the most relevant types of interaction for the present purposes, we would like to mention solvent-mediated ones, which play a central role in determining molecular behavior.\nTo substantiate the proposed concept of an adaptive biological pore, we chose a molecular construct originating from the modification of the 2-Cys Prx I protein from Schistosoma mansoni. SmPrxI is a member of the family of 2-Cys peroxiredoxins (PRXs), enzymes with redox and molecular chaperone activity [27]. Under physiological conditions, ten SmPrxI monomeric subunits assemble into ring-like complexes with thickness, internal and external diameters of 5, 6 and 13 nm, respectively (see Fig. 2). Importantly, SmPrxI shows features that are analogue to those of synthetic biological nanopores that are consolidated approaches for molecular translocations and analyses [23, 28, 29]. Among other aspects, its structure allows for the translocation of a polypeptide through its central channel and it can be easily arranged and bound to a solidstate substrate [30]. The SmPrxI-based construct was designed to fulfill the following main requirements: i) obtaining a set of structurally stable molecular probing “tips” pointing towards the center of the internal hole of the pore that could possibly act as sensors and anchor points for further functionalization; ii) allowing the expression of the biomolecular system via standard molecular biology means, avoiding ad hoc chemical modifications. As shown in Fig. 2, the N-terminal of each monomer was prolonged with a 16aa-long sequence inspired to the well-known three-dimensional Leucine zipper structural motif [21]. Details about how the elongation has been designed can be found in Section S2 in the Electronic Supplementary Material (ESM). We included in this added sequence, which has a strong propensity for the helical structure, two cysteine residues. One cysteine residue is located at the new N-terminal so that it can form a disulfide bridge with the corresponding residue of the closest adjacent monomer, stabilizing the leucine zipper structure. The second cysteine residue is located around the middle of the helix, and serves as a possible anchor point for chemical functionalization."
+    }, {
+      "heading" : "3 Results and discussion",
+      "text" : "To ascertain whether this kind of construct can act as a suitable adaptive nanopore, we investigated its interaction with short\npoly-peptides that are translocating along its axis, using MD simulations (details can be found in Section S1 in the ESM). Important to be noted, protein translocation velocity does not have typical values but strongly depends on the translocation strategy and on the protein itself. One of the most crucial difficulties in sequencing via a nanopore is controlling the translocation of the analyte, in our case the polypeptide. Recently, several studies on this topic have been reported. It has been demonstrated that in nanopore-based setups proteins can be unfolded, polypeptides can be stretched, and the translocation can be controlled to some extent by means of external driving forces. Significant examples where a protein, such as ClpX, is used as unfoldase can be found in Refs. [6, 14]. Another strategy makes use of positive and negative tails added at the two peptide ends to pull and stretch the peptide by means of an applied voltage [31]. Sodium dodecyl sulfate (SDS) has also been used to denaturate the protein and facilitate its electrophoretic translocation [7, 32]. A further denaturation and translocation strategy is reported in Ref. [33].\nAs a proof of concept, we considered the effect of 9 different endeca-peptides having the following composition, GGGGGXGGGGG, where G stands for the Glycine amino acid and X can be one of the amino acids listed in Table 1. Then, we built 10 simulation boxes, one for each peptide plus a reference with no peptide in it, where the forces between the modified SmPrxl and a peptide located in the middle of its pore were studied for 1s. In order to account for the different possible orientations of the side chain of the central amino acids with respect to the pore, on which one has no experimental control, we divided the 1 s simulation in 8 slots of 125 ns, each of them starting from a different orientation. The orientation is defined as the rotation angle of the Cα–Cβ bond around the axis of the pore. A residence time of 125 ns per residue is consistent with translocation velocities reported in Refs. [6, 7, 31, 33–39]."
+    }, {
+      "heading" : "3.1 Construct deformation analysis",
+      "text" : "As a measure of the deformation of the construct due to the presence of the endeca-peptide, the equilibrium position of the 5 tips pointing to the center of the pore was chosen. Their locations were represented by the center of the disulfide bridge between the cysteine residues located at the N-terminal of each monomer of the modified SmPrxl protein (see Fig. 2(a)). Equilibrium positions were estimated by averaging along the afore-mentioned eight simulation slots, each of them being 125ns long. While more elaborated, and possibly better performing, approaches could be envisioned, such as averaging only over the more stable configurations observed during each slot, we preferred for this proof of concept a simpler and less user-dependent criterion. The descriptors were analyzed via two machine-learning approaches, namely support-vector machine (SVM) and random forest (RF), to build classifiers that, by\nTable 1 List of the simulated translocating peptides\nEndeca-peptide [GLY]5-TRP-[GLY]5 [GLY]5-TYR-[GLY]5 [GLY]5-ARG-[GLY]5 [GLY]5-HIS-[GLY]5 [GLY]5-GLU-[GLY]5 [GLY]5-GLN-[GLY]5 [GLY]5-SER-[GLY]5 [GLY]5-ILE-[GLY]5 [GLY]5-GLY-[GLY]5\nNano Res.\n| www.editorialmanager.com/nare/default.asp\n4\nobserving the deformation of the modified SmPrxl protein, can identify which of the 9 endeca-peptides was located in the pore, and to evaluate the discriminative power of this inference process. For sake of brevity, details regarding the simulations and data analyses are reported in Section S3 in the ESM.\nThe main results of the data analysis are shown in Fig. 3. They clearly corroborate our hypothesis that a different aminoacidic composition induces a different deformation of the construct. The graphical representation (Fig. 3(a)) clearly suggests a robust discrimination power. Training of a support-vector machine confirmed this by resulting in perfect discrimination ability (precision and recall of 1) for all amino acids on the test set. Importantly, such scores are achieved simulating individual molecules thus making this method promising for reaching single-molecule sensitivity with no need of amplification."
+    }, {
+      "heading" : "3.2 Deformation transduction",
+      "text" : "As anticipated, one possible mean to track pore deformation and transduce it into a measurable signal is FRET spectroscopy. To this aim, a proper functionalization of the pore is necessary [30, 40]. Here, we suggest exploiting a second cysteine anchor, added on purpose to each monomer of the construct, and to attach to it a linker ending with a fluorescent dye. FRET signal intensity depends on the sixth power of the spatial separation and relative orientation between two molecular dyes, called donor and acceptor (D and A, respectively).\nIn fact, the dependence of FRET efficiency E on the D–A distance R follows this functional behavior: [1 + (R/R0)6]−1, where R0 is the Forster radius, which also depends on the specific dye pair and their relative orientation. This strong dependence makes FRET able to recognize spatial variations of the D–A positions with a sensitivity of few Angstroms in space and few s in time [41]. A suitable functionalization of the nanopore with a set of DA pairs enables to dynamically correlate FRET emission variations to the nature of the amino-acids located in the pore center, exploiting the deformation that follows the passage of the analyte.\nThe multimeric structure of the protein construct allows conceiving the functionalization of the construct with 5 FRET\ndyes (2 donors and 3 acceptors). While the individual measurements of all the possible interactions between these dyes are practically unfeasible, we investigated two intermediate cases as proofs of concept.\nIn the first, we consider two donor/acceptor dyes which can mutually interact via homo-FRET and can act as donor for the other 3 acceptor dyes, which are assumed to have distinguishable emission spectra. We will call this arrangement 4-channel system. The second differs from the first only for the fact that the emission spectra of the acceptors are not distinguishable. We call this arrangement 2-channel system and one can envision its realization by a prototype that consists of 2 adjacent ATTO 425 fluorescent dyes, which can act both as donors and acceptors, followed by 3 ATTO 647N acceptor dyes (see Fig. 4).\nNano Res.\nwww.theNanoResearch.com∣www.Springer.com/journal/12274 | Nano Research\n5\nIn this way the homo-FRET between the two ATTO 425 would coexist with the regular FRET between each 425-647N pair, providing a 2-channel emitting system. The choice of two rather rigid types of dye is instrumental to maximize their sensitivity to the deformation of the construct due to the passage of the polypeptide through the channel, therefore reducing background noise. The Forster radius of both FRET pairs, 3.6 and 4.3 nm, respectively, is suited for the diameter of the channel, around 6 nm. Details on dyes and linkers characterization and simulation are presented in Section S3 in the ESM.\nThe same MD simulations used to ascertain the adaptive response of the modified SmPrxI were also analyzed to estimate the discriminant capability of the signals emitted by these multi-channel systems. This task required the computational identification of the equilibrium positions of the dyes, as well as the corresponding low energy conformations of the linkers. This is known to be a significant challenge, due to the long relaxation times that characterize their dynamics, which hamper a sufficient exploration in a MD run [42]. We addressed this issue using specifically accelerated sampling approaches that proved effective in solving similar problems the field of Structure Based Drug Design. Related details, which led to the starting conformation for our simulations are described in Section 3 in the ESM, while the MD analysis is detailed in Section S4 in the ESM. The estimate of the per couple FRET efficiency based on the MD simulation was done via the md2fret analysis tool [43].\nThe overall performance of the 4-channel was obtained by considering the signals obtained by the homo-FRET couple and these emitted by the 3 acceptor dyes. This led to the discrimination shown in Fig. 4, with an average precision and recall of 0.59. In the 2-channel system, where the ATTO-425 homo-FRET and the combined efficiency of the superposed FRET signals emitted by the three 647N dyes are considered (see Section S6 in the ESM), precision and recall decrease to 0.42.\nIn both cases, GLU shows perfect discrimination, followed by ARG and ILE. Analysis of these results suggests that, as expected, the greatest sensitivity is provided by size and charge. It is interesting to note that in the simulated construct the sequence of the arms that have been added to the original SmPrxI protein has not yet been optimized for performance, leaving plenty of room for improvement."
+    }, {
+      "heading" : "4 Conclusions",
+      "text" : "In conclusion, by exploiting molecular dynamics simulations and machine learning, we showed that a properly designed protein construct can act as a nanopore able to recognize the “shape” of individual amino-acids composing a polypeptide that translocates through the pore. The experimental scheme is analogue to that used with other biological and solid-state nanopores, but the sensing method is radically different and exploits the specificity of the interactions which is at the basis of the recognition and functional binding in biomolecular systems. During the translocation process, the atomistic interactions between the polypeptide and the construct cause a reshaping of the nanopore. The latter will therefore assume transient spatial configurations that are specific to the amino acids flowing through. Hence, the information regarding the sequence is transferred, or indeed temporarily copied, from the peptide to the nanopore with an ideal accuracy approaching 100%. This information can be transduced into readable signals by conjugating, for instance, the pore with well-defined dyes acting as DA couples for FRET spectroscopy. Our\nanalyses of calculated FRET signals showed that the accuracy of identification decreases to an average of 0.6 among the considered amino-acids for the 4-channel system and 0.42 for the 2-channel system. In the present work a proof of concept is presented, where one among several different possible configurations is considered and some assumptions are made. In a practical implementation, many factors, that have only been sketched here, should be carefully evaluated. Among these factors there are the rigidity of the tips, the correct functionalization, and the effect of noise on the accuracy of the measurements. However, this also means that there is a lot of room for improvements with respect to the construct presented here, including the possibility to explore other schemes for transduction. For instance, being the experimental setup similar to that of most used biological nanopores (such as α-hemolysin, MspA, etc. [29]), the FRET recording could be combined with electrical read-outs thus potentially increasing the discrimination power. We want to emphasize that these numbers come from the MD and ML analyses of few/single translocation events. It does suggest that a real system has the capability of discriminating the sequence by carrying out experiments with few/single molecules. In other words, single molecule sensitivity can be reached. In light of the lack of amplification technologies, the latter is an essential feature for enabling single cell technologies and personalized medicine protocols. Importantly, the proposed method is label free.\nIn summary, in light of system optimization and further developments, the reported data clearly suggest that the approach may lead to protein sequencing platform with performance comparable to those of current methods for DNA sequencing still working in label free conditions and with few molecule sensitivity."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "The research leading to these results has received funding from the Horizon 2020 Program, FET-Open: PROSEQO, Grant Agreement no. [687089]. We acknowledge PRACE for awarding us access to Marconi at CINECA, Italy.\nFunding note: Open Access funding provided by Istituto Italiano di Tecnologia within the CRUICARE Agreement.\nElectronic Supplementary Material: Supplementary material (details on molecular dynamics simulation setup (Section S1); details on the protein construct design (Section S2); details on machine learning classification (Section S3); details on dye and linker characterization, parameterization and setup for MD (Section S4); details on analysis of MD simulations (Section S5); details on multi-dye system efficiency estimate for the 2- and 4-channel systems (Section S6)) is available in the online version of this article at https://doi.org/10.1007/ s12274-020-3095-z.\nOpen Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made.\nThe images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or\nNano Res.\n| www.editorialmanager.com/nare/default.asp\n6\nexceeds the permitted use, you will need to obtain permission directly from the copyright holder.\nTo view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/."
+    } ],
+    "references" : [ {
+      "title" : "The abc’s (and xyz’s) of peptide sequencing",
+      "author" : [ "H. Steen", "M. Mann" ],
+      "venue" : "Nat. Rev. Mol. Cell Biol. 2004,",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2004
+    }, {
+      "title" : "Sequencing of peptide mixtures by edman degradation and field-desorption mass spectrometry",
+      "author" : [ "Y. Shimonishi", "Y.M. Hong", "T. Kitagishi", "T. Matsuo", "H. Matsuda", "I. Katakuse" ],
+      "venue" : "Eur. J. Biochem",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 1980
+    }, {
+      "title" : "Options and considerations when selecting a quantitative proteomics strategy",
+      "author" : [ "B. Domon", "R. Aebersold" ],
+      "venue" : "Nat. Biotechnol. 2010,",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2010
+    }, {
+      "title" : "Paving the way to singlemolecule protein sequencing",
+      "author" : [ "L. Restrepo-Pérez", "C. Joo", "C. Dekker" ],
+      "venue" : "Nat. Nanotechnol. 2018,",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2018
+    }, {
+      "title" : "Single-molecule sequencing: Towards clinical applications",
+      "author" : [ "A. Ameur", "W.P. Kloosterman", "M.S. Hestand" ],
+      "venue" : "Trends Biotechnol. 2019,",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2019
+    }, {
+      "title" : "Unfoldase-mediated protein translocation through an α-hemolysin nanopore",
+      "author" : [ "J. Nivala", "D.B. Marks", "M. Akeson" ],
+      "venue" : "Nat. Biotechnol. 2013,",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2013
+    }, {
+      "title" : "Reading the primary structure of a protein with 0.07 nm3 resolution using a subnanometre-diameter pore",
+      "author" : [ "E. Kennedy", "Z.X. Dong", "C. Tennant", "G. Timp" ],
+      "venue" : "Nat. Nanotechnol. 2016,",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2016
+    }, {
+      "title" : "Single-molecule protein identification by sub-nanopore sensors",
+      "author" : [ "M. Kolmogorov", "E. Kennedy", "Z.X. Dong", "G. Timp", "P.A. Pevzner" ],
+      "venue" : "PLoS Comput. Biol. 2017,",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2017
+    }, {
+      "title" : "Graphene nanopores for protein sequencing",
+      "author" : [ "J. Wilson", "L. Sloman", "Z.R. He", "A. Aksimentiev" ],
+      "venue" : "Adv. Funct. Mater. 2016,",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2016
+    }, {
+      "title" : "Protein nanopore-based discrimination between selected neutral amino acids from polypeptides",
+      "author" : [ "A. Asandei", "A.E. Rossini", "M. Chinappi", "Y. Park", "T. Luchian" ],
+      "venue" : "Langmuir 2017,",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2017
+    }, {
+      "title" : "Identification of amino acids with sensitive nanoporous MoS2: Towards machine learningbased prediction. npj 2D Mater",
+      "author" : [ "A.B. Farimani", "M. Heiranian", "N.R. Aluru" ],
+      "venue" : "Appl. 2018,",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2018
+    }, {
+      "title" : "Simulation of single-protein nanopore sensing shows feasibility for whole-proteome identification",
+      "author" : [ "S. Ohayon", "A. Girsault", "M. Nasser", "S. Shen-Orr", "A. Meller" ],
+      "venue" : "PLoS Comput. Biol. 2019,",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2019
+    }, {
+      "title" : "Single-molecule site-specific detection of protein phosphorylation with a nanopore",
+      "author" : [ "C.B. Rosen", "D. Rodriguez-Larrea", "H. Bayley" ],
+      "venue" : "Nat. Biotechnol. 2014,",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2014
+    }, {
+      "title" : "Single-molecule peptide fingerprinting",
+      "author" : [ "J. Van Ginkel", "M. Filius", "M. Szczepaniak", "P. Tulinski", "A.S. Meyer", "C. Joo" ],
+      "venue" : "Proc. Natl. Acad. Sci. USA 2018,",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2018
+    }, {
+      "title" : "Single-molecule spectroscopy of amino acids and peptides by recognition tunnelling",
+      "author" : [ "Y.N. Zhao", "B. Ashcroft", "P.M. Zhang", "H. Liu", "S.M. Sen", "W.S. Song", "J. Im", "B. Gyarfas", "S. Manna", "S Biswas" ],
+      "venue" : "Nat. Nanotechnol. 2014,",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2014
+    }, {
+      "title" : "Detection of post-translational modifications in single peptides using electron tunnelling currents",
+      "author" : [ "T. Ohshiro", "M. Tsutsui", "K. Yokota", "M. Furuhashi", "M. Taniguchi", "T. Kawai" ],
+      "venue" : "Nat. Nanotechnol. 2014,",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2014
+    }, {
+      "title" : "Electrical recognition of the twenty proteinogenic amino acids using an aerolysin nanopore",
+      "author" : [ "H. Ouldali", "K. Sarthak", "T. Ensslen", "F. Piguet", "P. Manivet", "J. Pelta", "J.C. Behrends", "A. Aksimentiev", "A. Oukhaled" ],
+      "venue" : "Nat. Biotechnol",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2020
+    }, {
+      "title" : "A theoretical justification for single molecule peptide sequencing",
+      "author" : [ "J. Swaminathan", "A.A. Boulgakov", "E.M. Marcotte" ],
+      "venue" : "PLoS Comput. Biol",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2015
+    }, {
+      "title" : "Nanopore sensors for nucleic acid analysis",
+      "author" : [ "B.M. Venkatesan", "R. Bashir" ],
+      "venue" : "Nat. Nanotechnol. 2011,",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2011
+    }, {
+      "title" : "Four aspects about solid-state nanopores for protein sensing: Fabrication, sensitivity, selectivity, and durability",
+      "author" : [ "R. Hu", "X. Tong", "Q. Zhao" ],
+      "venue" : "Adv. Healthc Mater., in press,",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2020
+    }, {
+      "title" : "Multiplexed  discrimination of single amino acid residues in polypeptides in a single SERS hot spot",
+      "author" : [ "J.A. Huang", "M.Z. Mousavi", "G. Giovannini", "Y.Q. Zhao", "A. Hubarevich", "M.A. Soler", "W. Rocchia", "D. Garoli", "F. De Angelis" ],
+      "venue" : null,
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2020
+    }, {
+      "title" : "Electrostatic aspects of protein–protein interactions",
+      "author" : [ "F.B. Sheinerman", "R. Norel", "B. Honig" ],
+      "venue" : "Curr. Opin. Struct. Biol. 2000,",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2000
+    }, {
+      "title" : "Biological nanopores: Confined spaces for electrochemical single-molecule analysis",
+      "author" : [ "C. Cao", "Y.T. Long" ],
+      "venue" : "Acc. Chem. Res. 2018,",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2018
+    }, {
+      "title" : "The interpretation of protein structures: Estimation of static accessibility",
+      "author" : [ "B. Lee", "F.M. Richards" ],
+      "venue" : "J. Mol. Biol",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 1971
+    }, {
+      "title" : "Classical electrostatics in biology and chemistry",
+      "author" : [ "B. Honig", "A. Nicholls" ],
+      "venue" : "Science",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 1995
+    }, {
+      "title" : "Computer Simulation of Liquids",
+      "author" : [ "M.P. Allen", "D.J. Tildesley" ],
+      "venue" : null,
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2017
+    }, {
+      "title" : "Typical 2-Cys peroxiredoxins in human parasites: Several physiological roles for a potential chemotherapy",
+      "author" : [ "F. Angelucci", "A.E. Miele", "M. Ardini", "G. Boumis", "F. Saccoccia", "A. Bellelli" ],
+      "venue" : "target. Mol. Biochem. Parasitol",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2016
+    }, {
+      "title" : "Single-molecule DNA detection using a novel SP1 protein nanopore",
+      "author" : [ "H.Y. Wang", "Y. Li", "L.X. Qin", "A. Heyman", "O. Shoseyov", "I. Willner", "Y.T. Long", "H. Tian" ],
+      "venue" : "Chem. Commun",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2013
+    }, {
+      "title" : "Single molecule analysis by biological nanopore",
+      "author" : [ "Y.L. Ying", "C. Cao", "Y.T. Long" ],
+      "venue" : "sensors. Analyst 2014,",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2014
+    }, {
+      "title" : "Bioassisted tailored synthesis of plasmonic silver nanorings and siteselective deposition on graphene",
+      "author" : [ "G. Giovannini", "M. Ardini", "N. Maccaferri", "X. Zambrana-Puyalto", "G. Panella", "F. Angelucci", "R. Ippoliti", "D. Garoli", "F. De Angelis" ],
+      "venue" : "arrays. Adv. Opt. Mater. 2020,",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 1901
+    }, {
+      "title" : "Placement of oppositely charged aminoacids at a polypeptide termini determines the voltage-controlled braking of polymer transport through nanometer-scale pores",
+      "author" : [ "A. Asandei", "M. Chinappi", "J.K. Lee", "C.H. Seo", "L. Mereuta", "Y. Park", "T. Luchian" ],
+      "venue" : "Sci. Rep. 2015,",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2015
+    }, {
+      "title" : "SDS-assisted protein transport through solid-state nanopores",
+      "author" : [ "L. Restrepo-Pérez", "S. John", "A. Aksimentiev", "C. Joo", "C. Dekker" ],
+      "venue" : "Nanoscale 2017,",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2017
+    }, {
+      "title" : "Dynamics and energy contributions for transport of unfolded pertactin through a protein nanopore",
+      "author" : [ "B. Cressiot", "E. Braselmann", "A. Oukhaled", "A.H. Elcock", "J. Pelta", "P.L. Clark" ],
+      "venue" : "ACS Nano 2015,",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2015
+    }, {
+      "title" : "Nanopore tweezers: Voltagecontrolled trapping and releasing of analytes",
+      "author" : [ "M. Chinappi", "T. Luchian", "F. Cecconi" ],
+      "venue" : "Phys. Rev. E 2015,",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2015
+    }, {
+      "title" : "Evidence of unfolded protein translocation through a protein nanopore",
+      "author" : [ "M. Pastoriza-Gallego", "M.F. Breton", "F. Discala", "L. Auvray", "J.M. Betton", "J. Pelta" ],
+      "venue" : "ACS Nano 2014,",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2014
+    }, {
+      "title" : "Translocation of DNA and protein through a sequentially polymerized polyurea nanopore",
+      "author" : [ "H.J. Kim", "U.J. Choi", "H. Kim", "K. Lee", "K.B. Park", "H.M. Kim", "S.W. Chi", "J.S. Lee", "K.B. Kim" ],
+      "venue" : "Nanoscale 2019,",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2019
+    }, {
+      "title" : "Slowing down single-molecule trafficking through a protein nanopore reveals intermediates for peptide translocation",
+      "author" : [ "L. Mereuta", "M. Roy", "A. Asandei", "J.K. Lee", "Y. Park", "I. Andricioaei", "T. Luchian" ],
+      "venue" : "Sci. Rep. 2014,",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2014
+    }, {
+      "title" : "Fast translocation of proteins through solid state nanopores",
+      "author" : [ "C. Plesa", "S.W. Kowalczyk", "R. Zinsmeester", "A.Y. Grosberg", "Y. Rabin", "C. Dekker" ],
+      "venue" : "Nano Lett. 2013,",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2013
+    }, {
+      "title" : "Multistep protein unfolding during nanopore translocation",
+      "author" : [ "D. Rodriguez-Larrea", "H. Bayley" ],
+      "venue" : "Nat. Nanotechnol. 2013,",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2013
+    }, {
+      "title" : "Engineered transmembrane pores",
+      "author" : [ "M. Ayub", "H. Bayley" ],
+      "venue" : "Curr. Opin. Chem. Biol. 2016,",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2016
+    }, {
+      "title" : "A practical guide to single-molecule FRET",
+      "author" : [ "R. Roy", "S. Hohng", "T. Ha" ],
+      "venue" : "Nat. Methods 2008,",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2008
+    }, {
+      "title" : "Quantitative FRET studies and integrative modeling unravel the structure and dynamics of biomolecular systems",
+      "author" : [ "M. Dimura", "T.O. Peulen", "C.A. Hanke", "A. Prakash", "H. Gohlke", "C.A.M. Seidel" ],
+      "venue" : "Curr. Opin. Struct. Biol. 2016,",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2016
+    }, {
+      "title" : "In silico FRET from simulated dye dynamics",
+      "author" : [ "M. Hoefling", "H. Grubmüller" ],
+      "venue" : "Comput. Phys. Commun",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2013
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "At present, a limited number of methods are available for protein sequencing and the standard technology is still based on mass spectrometry [1, 2].",
+      "startOffset" : 141,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 1,
+      "context" : "At present, a limited number of methods are available for protein sequencing and the standard technology is still based on mass spectrometry [1, 2].",
+      "startOffset" : 141,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 2,
+      "context" : "The major intrinsic drawbacks of these methods are the limit of detection and the dynamic range [3]; in particular, with them it’s not possible to achieve singlemolecule resolution.",
+      "startOffset" : 96,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 3,
+      "context" : "To overcome these limitations and to pursue the final aim of single-cell analysis, during the last few years single-molecule protein sequencing methods started to emerge [4].",
+      "startOffset" : 170,
+      "endOffset" : 173
+    }, {
+      "referenceID" : 4,
+      "context" : "Current efforts for protein sequencing and identification are inspired from the outstanding results achieved in DNA sequencing [5].",
+      "startOffset" : 127,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 13,
+      "context" : "The methods reported in the literature are based on single molecule techniques as nanopores [6–13], fluorescence [14] and tunneling currents across nanogaps [15, 16].",
+      "startOffset" : 113,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 14,
+      "context" : "The methods reported in the literature are based on single molecule techniques as nanopores [6–13], fluorescence [14] and tunneling currents across nanogaps [15, 16].",
+      "startOffset" : 157,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 15,
+      "context" : "The methods reported in the literature are based on single molecule techniques as nanopores [6–13], fluorescence [14] and tunneling currents across nanogaps [15, 16].",
+      "startOffset" : 157,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 10,
+      "context" : "Only very recently, two reports demonstrated, by means of numerical simulations, that optimized solid-state [11] and biological nanopore [17] are able to distinguish among high numbers of amino-acids.",
+      "startOffset" : 108,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 16,
+      "context" : "Only very recently, two reports demonstrated, by means of numerical simulations, that optimized solid-state [11] and biological nanopore [17] are able to distinguish among high numbers of amino-acids.",
+      "startOffset" : 137,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 13,
+      "context" : "Other recent works proposed to take advantage of comprehensive protein sequence databases which enable the identification of a protein by labelling and detecting a limited number of amino-acids [14, 18].",
+      "startOffset" : 194,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 17,
+      "context" : "Other recent works proposed to take advantage of comprehensive protein sequence databases which enable the identification of a protein by labelling and detecting a limited number of amino-acids [14, 18].",
+      "startOffset" : 194,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 21,
+      "context" : "Recognition, and subsequent binding, are regulated by a delicate balance of opposing phenomena, such as the desolvation penalty occurring upon binding and the direct electrostatic interaction, which is stronger in absence of the screening aqueous medium [22].",
+      "startOffset" : 254,
+      "endOffset" : 258
+    }, {
+      "referenceID" : 23,
+      "context" : "Based on this simple description and by using a similar representation also for the solvent probe, back in 1971 it was defined the “solvent excluded surface” (SES) of a molecule immersed in a solvent [24].",
+      "startOffset" : 200,
+      "endOffset" : 204
+    }, {
+      "referenceID" : 24,
+      "context" : "However, in addition to the contact, direct electrostatic forces, such as charge–charge and charge–dipole play a fundamental role in specific molecular interactions [25] and therefore also in the definition of “shape”.",
+      "startOffset" : 165,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 25,
+      "context" : "macroscopic observables is done together with the analysis of mechanisms at the atomistic level [26].",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 26,
+      "context" : "SmPrxI is a member of the family of 2-Cys peroxiredoxins (PRXs), enzymes with redox and molecular chaperone activity [27].",
+      "startOffset" : 117,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 22,
+      "context" : "Importantly, SmPrxI shows features that are analogue to those of synthetic biological nanopores that are consolidated approaches for molecular translocations and analyses [23, 28, 29].",
+      "startOffset" : 171,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 27,
+      "context" : "Importantly, SmPrxI shows features that are analogue to those of synthetic biological nanopores that are consolidated approaches for molecular translocations and analyses [23, 28, 29].",
+      "startOffset" : 171,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 28,
+      "context" : "Importantly, SmPrxI shows features that are analogue to those of synthetic biological nanopores that are consolidated approaches for molecular translocations and analyses [23, 28, 29].",
+      "startOffset" : 171,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 29,
+      "context" : "Among other aspects, its structure allows for the translocation of a polypeptide through its central channel and it can be easily arranged and bound to a solidstate substrate [30].",
+      "startOffset" : 175,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 20,
+      "context" : "2, the N-terminal of each monomer was prolonged with a 16aa-long sequence inspired to the well-known three-dimensional Leucine zipper structural motif [21].",
+      "startOffset" : 151,
+      "endOffset" : 155
+    }, {
+      "referenceID" : 30,
+      "context" : "Another strategy makes use of positive and negative tails added at the two peptide ends to pull and stretch the peptide by means of an applied voltage [31].",
+      "startOffset" : 151,
+      "endOffset" : 155
+    }, {
+      "referenceID" : 6,
+      "context" : "Sodium dodecyl sulfate (SDS) has also been used to denaturate the protein and facilitate its electrophoretic translocation [7, 32].",
+      "startOffset" : 123,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 31,
+      "context" : "Sodium dodecyl sulfate (SDS) has also been used to denaturate the protein and facilitate its electrophoretic translocation [7, 32].",
+      "startOffset" : 123,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 29,
+      "context" : "To this aim, a proper functionalization of the pore is necessary [30, 40].",
+      "startOffset" : 65,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 39,
+      "context" : "To this aim, a proper functionalization of the pore is necessary [30, 40].",
+      "startOffset" : 65,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 40,
+      "context" : "This strong dependence makes FRET able to recognize spatial variations of the D–A positions with a sensitivity of few Angstroms in space and few s in time [41].",
+      "startOffset" : 156,
+      "endOffset" : 160
+    }, {
+      "referenceID" : 41,
+      "context" : "This is known to be a significant challenge, due to the long relaxation times that characterize their dynamics, which hamper a sufficient exploration in a MD run [42].",
+      "startOffset" : 162,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 42,
+      "context" : "The estimate of the per couple FRET efficiency based on the MD simulation was done via the md2fret analysis tool [43].",
+      "startOffset" : 113,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 28,
+      "context" : "[29]), the FRET recording could be combined with electrical read-outs thus potentially increasing the discrimination power.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    } ],
+    "year" : 2020,
+    "abstractText" : "Single molecule protein sequencing would tremendously impact in proteomics and human biology and it would promote the development of novel diagnostic and therapeutic approaches. However, its technological realization can only be envisioned, and huge challenges need to be overcome. Major difficulties are inherent to the structure of proteins, which are composed by several different amino-acids. Despite long standing efforts, only few complex techniques, such as Edman degradation, liquid chromatography and mass spectroscopy, make protein sequencing possible. Unfortunately, these techniques present significant limitations in terms of amount of sample required and dynamic range of measurement. It is known that proteins can distinguish closely similar molecules. Moreover, several proteins can work as biological nanopores in order to perform single molecule detection and sequencing. Unfortunately, while DNA sequencing by means of nanopores is demonstrated, very few examples of nanopores able to perform reliable protein-sequencing have been reported so far. Here, we investigate, by means of molecular dynamics simulations, how a re-engineered protein, acting as biological nanopore, can be used to recognize the sequence of a translocating peptide by sensing the “shape” of individual amino-acids. In our simulations we demonstrate that it is possible to discriminate with high fidelity, 9 different amino-acids in a short peptide translocating through the engineered construct. The method, here shown for fluorescence-based sequencing, does not require any labelling of the peptidic analyte. These results can pave the way for a new and highly sensitive method of sequencing.",
+    "creator" : "PScript5.dll Version 5.2.2"
+  }
+}

@@ -1,0 +1,872 @@
+{
+  "name" : "downloads_2020-01-02_c6_cassano2016.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Comparing the CORAL and Random Forest Approaches for Modelling the In Vitro Cytotoxicity of Silica Nanomaterials",
+    "authors" : [ "Antonio Cassano", "Richard L. Marchese" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : "Introduction",
+      "text" : "Nanotechnology, which may be defined as the technological application of engineered nanomaterials (1), is considered to be one of the most important technological developments of the 21st century (2, 3), so much so that the term ‘nano-revolution’ has been used to describe the growth of this industry (4). Nanotechnology is able to produce engineered nanomaterials having new or enhanced physicochemical properties compared to the bulk material. However, some of these properties, e.g. a high surface area to volume ratio, are potentially dangerous to humans (5–9).\nIn silico methods, for example [quantitative] structure–activity relationships ([Q]SARs), grouping and read-across, promote the safe-by-design approach for the development of new nanomaterials by studying the relationship between the nanomaterial ‘structures’ and their biological effects (10, 11). Since nanomaterials are complex (12), typically polydisperse, particulate materials, the concept of a ‘structure’ in this context should not be\nconfused with a single molecular structure. Rather, it represents a description of the nanomaterial in terms of its measurable physicochemical characteristics (9, 13), such as the composition of different components, aspect ratio, etc. In this regard, the development of nanomaterial QSARs (nano-QSARs) may offer an effective alternative to experimental testing, since they may permit the prediction of the (eco)toxicological effects of nanomaterials, based on a knowledge of their chemical composition and, where necessary, other physicochemical properties (14–16). QSAR models can be classified as linear or non-linear, depending on whether they were developed by using a linear method, such as a multiple linear regression (17, 18), or non-linear methods, such as support vector machines in combination with a non-linear kernel function (19–23) or Random Forest (24, 25).\nThe aim of this study was to evaluate different approaches to building nano-QSAR models for a data set comprising 19 cytotoxicity experimental data points for silica nanomaterials. The focus on silica nanomaterials was mainly because of the"
+    }, {
+      "heading" : "Comparing the CORAL and Random Forest Approaches for",
+      "text" : "Modelling the In Vitro Cytotoxicity of Silica Nanomaterials"
+    }, {
+      "heading" : "Antonio Cassano,1 Richard L. Marchese Robinson,1 Anna Palczewska,2 Tomasz Puzyn,3 Agnieszka Gajewicz,3 Lang Tran,4 Serena Manganelli5 and Mark T.D. Cronin1",
+      "text" : "1School of Pharmacy and Biomolecular Sciences, Liverpool John Moores University, Liverpool, UK; 2University of Leeds, School of Geography, Leeds, UK; 3Laboratory of Environmental Chemistry, University of Gdansk, Gdansk, Poland; 4Institute of Occupational Medicine, Edinburgh, Midlothian, UK; 5IRCSS-"
+    }, {
+      "heading" : "Istituto di Ricerche Farmacologiche Mario Negri, Milan, Italy",
+      "text" : "Summary — Nanotechnology is one of the most important technological developments of the 21st century. In silico methods to predict toxicity, such as quantitative structure–activity relationships (QSARs), promote the safe-by-design approach for the development of new materials, including nanomaterials. In this study, a set of cytotoxicity experimental data corresponding to 19 data points for silica nanomaterials were investigated, to compare the widely employed CORAL and Random Forest approaches in terms of their usefulness for developing so-called ‘nano-QSAR’ models. ‘External’ leave-one-out cross-validation (LOO) analysis was performed, to validate the two different approaches. An analysis of variable importance measures and signed feature contributions for both algorithms was undertaken, in order to interpret the models developed. CORAL showed a more pronounced difference between the average coefficient of determination (R2) for training and for LOO (0.83 and 0.65 for training and LOO, respectively), compared to Random Forest (0.87 and 0.78 without bootstrap sampling, 0.90 and 0.78 with bootstrap sampling), which may be due to overfitting. With regard to the physicochemical properties of the nanomaterials, the aspect ratio and zeta potential were found to be the two most important variables for Random Forest, and the average feature contributions calculated for the corresponding descriptors were consistent with the clear trends observed in the data set: less negative zeta potential values and lower aspect ratio values were associated with higher cytotoxicity. In contrast, CORAL failed to capture these trends.\nKey words: CORAL software, feature contribution, nano-QSAR, pseudo-SMILES, Random Forest, silica nanoparticle, variable importance.\nAddress for correspondence: Mark T.D. Cronin, School of Pharmacy and Biomolecular Sciences, Liverpool John Moores University, Byrom Street, Liverpool L3 3AF, England. E-mail: M.T.Cronin@ljmu.ac.uk\navailability of a novel experimental data set for nanomaterials with a silica core, and due to the widespread use of silica-based nanomaterials in consumer products (http://www.nanotechproject. org/cpi/browse/nanomaterials/silicon-dioxide/).\nPseudo-SMILES strings capture the physicochemical properties of the nanoparticle along with the experimental conditions, thus making them distinct from SMILES strings for small organic molecules. For instance, the pseudo-SMILES string ‘AGK’ represents five features: A = 24-hour time exposure; G = THP-1 cell line; K = aspect ratio > 1; (No Label) size ≤ 27.5; (No Label) zeta potential < –32.0. The pseudo-SMILE string ‘AGK’ therefore encodes various properties and experimental conditions of the assessment of the nanoparticle. These pseudoSMILES are converted algorithmically to pseudocoefficients which can be converted into descriptors encoding the properties of the molecules, thus making them suitable for QSPR analyses.\nIn this study, the information from the pseudoSMILES strings was analysed by using two methods. The CORelation And Logic (CORAL) approach uses a linear regression method (optimised via the use of a Monte Carlo search procedure [26]) to form relationships between the cytotoxicity data and pseudo-coefficient. It is roughly analogous to traditional QSAR modelling. The Random Forest approach (Breiman’s non-linear Random Forest algorithm [24, 25], implemented in the random Forest R package [27]) takes a different, more nonlinear approach whereby rules are created from the data allowing for splits into groups (e.g. different activities). This second approach has the advantage of being adaptable to non-linear data sets, but it is less transparent and interpretable than regression analysis.\nA comparison was made between these two commonly used approaches to develop QSAR and nano-QSAR models. Our motivation to focus on these two modelling approaches reflects the fact that they have been used to build QSARs/quantitative structure–property relationships (QSPRs) and nano-QSARs/QSPRs for a variety of different data sets, as illustrated in the number of publications summarised in the electronic Supplementary Information (SI) files available on the ATLA website (www.atla.org.uk) — for instance, 28 and 21 articles describing QSARs/QSPRs and nanoQSARs/QSPRs studies employing CORAL and Random Forest approaches, respectively, were published in 2015. (QSPRs are analogous to QSARs, but aim to predict non-biological properties.) However, to the best of our knowledge, these algorithms have never previously been compared. Indeed, Random Forest has only twice before been used to model nanomaterial effects (28, 29). Hence, this investigation serves as a timely comparison of two widely employed QSAR modelling approaches on a suitable data set. In addition to comparing\ntheir predictive performances, we performed a comparison in terms of model interpretability between a linear (CORAL) and a non-linear (Random Forest) approach. In other words, the ability of the two selected approaches to describe the toxicological trends of this data set was evaluated."
+    }, {
+      "heading" : "Materials and Methods",
+      "text" : ""
+    }, {
+      "heading" : "Experimental data",
+      "text" : "The experimental data used to develop the models (Table 1) correspond to a subset extracted from the data set generated during the MODENA COST Initiative (MODENA TD1204 COST ACTION data set; http://www.modena-cost.eu/Home.aspx). This data set is provided in the SI electronic files on the ATLA website (www.atla.org.uk). The data used consist of 19 in vitro WST-1 cytotoxicity experimental data points for uncoated silica nanomaterials. Briefly, WST-1 is a colorimetric assay for assessing cell metabolic activity, which is similar to the MTT assay, but offers certain experimental advantages (30, 31). The changes in metabolic activity measured by using the WST-1 assay are considered a proxy for changes in cell viability (32). The data used in this work consist of 19 values for the negative logarithm of the EC25 (i.e. the concentration level which induces 25% of maximum response above the baseline after a given treatment time). For modelling, nanomaterial concentrations (hence the corresponding EC25 values) were expressed as surface area of nanomaterial per millilitre (i.e. mm2/ml), in keeping with guidance from the Organisation for Economic Co-operation and Development (33). The cytotoxicity data range from –1.299 to 0.483, with no values between –0.822 and –0.394 (i.e. the data are clustered at low and high activities, as shown in Figure 1). Furthermore, we selected five variables from the original data set which, based on our expert judgement, were expected to explain the variability in cytotoxicity. These variables were: treatment time and cell type, which are related to the experimental conditions adopted in the assay protocol, whereas average size, aspect ratio and zeta potential are measurable physicochemical properties of silica nanomaterials. Specifically, since CORAL is only able to handle a maximum of five variables, less significant descriptors were discarded. The full list of descriptors can be found in the SI files.\nDetails of the CORAL software settings and optimisation\nAs reported in the CORAL software documentation (version: 17 December 2014 for Microsoft® Win -\ndows®; available at: http://www.insilico.eu/coral/), in order to use the software, specific text files must be prepared as input. The CORAL software requires that the data set used for model development is split into three subsets, each of which labelled with a different character in the input file, termed ‘sub-training’ (‘+’), ‘calibration’ (‘–’) and ‘test’ (‘#’) subsets. (Since the model hyperparameters can be optimised, based upon performance on this ‘test’ set, it can be considered to be an internal ‘test’ set.) Each of these subsets must contain a minimum number of three instances having a similar experimental range, in order for the software to work properly. The exact CORAL settings we used in this work are shown in Figure A4. We applied the ‘additive scheme’ for which the optimal descriptor DCW is calculated by summing the correlation weights (CWs) of each single attribute Sk, which is present in the input pseudo-SMILES (see main text). Moreover, we selected the ‘classic scheme’, which does not use the ‘calibration’ subset. The input files we used do contain instances with the ‘–’ label for the calibration subset, but this label was automatically converted by the software into the ‘+’ label for the sub-training subset (see input and output files in the SI).\nWe applied the recommended approach (34, 35) of optimising the CORAL hyperparameters (i.e. the\nthreshold and number of epochs, ‘T’ and ‘N’) on the internal test set, i.e. instances labelled with ‘#’ (see input files). According to the recommended approach, we prepared five splits of the same input data set by shuffling the instances between training and test subsets, with the rationale of having a similar experimental range among the subsets. Table A2 shows the five different splits we used in this work. For the LOO calculation, a Python script was written to create 19 input text files, each containing 18 instances for CORAL modelling (see SI). Each time that the CORAL software was used for modelling, the single item external test set was predicted by using the ‘Start of DCW and Endpoint Calculation for inserted SMILES’ option button, as shown in Figure A5.\nWe performed all the calculations, including those with Random Forest, on a 32-bit Windows 7 mach - ine with an Intel® Core™ i3-2120 CPU 3.30GHz processor and 4GB of installed memory (RAM)."
+    }, {
+      "heading" : "Evaluation approach",
+      "text" : "We adopted an ‘external’ leave-one-out (LOO) cross-validation technique to validate the considered modelling approaches. In brief, LOO is a spe-\ncial case of cross-validation (36–38), where the number of times it is applied equals the number of instances in the data set (19 instances in our case). In other words, the learning algorithm is applied once for each instance, using all the other instances as a training set, and using the selected instance as a single-item test set. In this respect, for the data set used in this work, which comprised 19 instances, both CORAL and Random Forest algorithms were applied 19 times over all the instances in the data set, each time considering 18 instances as the training set and the remaining one as a test set, in order to generate a given set of LOO results. For both methods, five sets of LOO results were obtained, as explained below. By ‘external’ LOO, we mean that all of the model development — including the selection of descriptors and algorithm parameters or ‘hyperparameters’ — was carried out exclusively by using each LOO training set in turn, i.e. the biological activity of the corresponding test instance was not considered, to remove this potential source of optimistic bias from the results (39–41). The coefficient of determination (R2) and the root mean square error (RMSE) were here used as statistics for comparing the two approaches, according to Equations 1 and\n2 (38), based on two n value vectors, y1...yn and f1...fn, which are associated with the experimental and predicted values, respectively.\nTwo points should be noted: a) As the data set comprised 19 instances, n = 18 for the training sets, whereas n = 19 for LOO; b) in Equations 1 and 2, and all subsequent equations in this manuscript, the ¯ character indicates the arithmetic mean (or ‘average’) value across all the elements of a vector.\n[Equation 1]\n[Equation 2]\nWe performed the LOO validation technique five times, since the CORAL and Random Forest algorithms employ random selections during the model building phase, in order to obtain a more robust estimate of the performance of these methods. We selected five different seeds for each repetition"
+    }, {
+      "heading" : "119 24 THP-1 20.0 1.4 –46.1 –1.299",
+      "text" : ""
+    }, {
+      "heading" : "104 24 16HBE 46.0 1.2 –40.0 –1.272",
+      "text" : ""
+    }, {
+      "heading" : "186 48 THP-1 18.0 1.6 –43.7 –1.165",
+      "text" : ""
+    }, {
+      "heading" : "105 48 16HBE 46.0 1.2 –40.0 –1.135",
+      "text" : ""
+    }, {
+      "heading" : "101 48 16HBE 27.5 1.2 –40.0 –1.105",
+      "text" : ""
+    }, {
+      "heading" : "100 24 16HBE 27.5 1.2 –40.0 –1.026",
+      "text" : ""
+    }, {
+      "heading" : "102 24 A549 27.5 1.2 –40.0 –0.920",
+      "text" : ""
+    }, {
+      "heading" : "103 48 A549 27.5 1.2 –40.0 –0.872",
+      "text" : ""
+    }, {
+      "heading" : "107 48 A549 46.0 1.2 –40.0 –0.844",
+      "text" : ""
+    }, {
+      "heading" : "106 24 A549 46.0 1.2 –40.0 –0.822",
+      "text" : ""
+    }, {
+      "heading" : "122 24 NRK-52E 17.0 1.0 –28.1 –0.070",
+      "text" : ""
+    }, {
+      "heading" : "130 24 NRK-52E 60.0 1.0 –30.6 0.059",
+      "text" : ""
+    }, {
+      "heading" : "123 24 THP-1 17.0 1.0 –28.1 0.365",
+      "text" : ""
+    }, {
+      "heading" : "131 24 THP-1 60.0 1.0 –30.6 0.483",
+      "text" : "Σni = 1 (yi – fi)2\nΣni = 1 (yi – y– )2 Coefficient of determination = R2 = 1 –\nΣni = 1 (yi – fi)2 nRoot mean square error = RMSE =\n⎯⎯⎯⎯⎯\n√\nwith the Random Forest algorithm. We further selected five different data set partitions for each repetition with CORAL. (Each time the CORAL software is run, it automatically generates a random seed that cannot be set by the end-user.) Each data set partition corresponds to the partitioning of a given LOO training set, following the removal of a single test set instance for ‘external’ LOO validation, to yield an internal ‘test set’ for hyperparameter selection. Repeating the modelling with CORAL five times in this fashion is broadly in keeping with the recommended procedure for CORAL model optimisation and robustness evaluation (34, 35, 42). Further discussion of the CORAL hyperparameters that were optimised is presented under CORAL modelling. The average (a–), standard deviation (SD) and standard error of the mean (SE) for the LOO R2 and RMSE statistics across the five different repetitions were calculated as shown in Equations 3, 4 and 5, considering the three general formulas based on a vector of m values i.e. a1, a2, …, am. N.B. Here, m = 19 for the training set results averaged for a single seed (or CORAL training set split), or 95 (19 × 5) for ‘global’ training set results, whereas m = 5 for LOO results.\n[Equation 3]\n[Equation 4]\n[Equation 5]"
+    }, {
+      "heading" : "Descriptor calculations",
+      "text" : "As is further explained in the section on CORAL modelling, continuous numeric properties, such as zeta potential, were converted into binary descriptors corresponding to labels applied to specific ranges: each descriptor took a value of 1 (or 0) if the corresponding property value for a given instance was inside (or outside) this range. In the case of the discrete qualitative variable ‘Cell Type’, each value was converted into a binary descriptor: the descriptor took the value 1 (or 0), if the ‘Cell Type’ for a given instance matched (or did not match) the value associated with that descriptor. This was necessary, since, as is explained under CORAL modelling, the CORAL algorithm can only work with binary descriptors. These binary descriptors were used for both CORAL and Random Forest modelling. For the CORAL software, these descriptors were represented implicitly, i.e. the presence of a corresponding label in a pseudo-SMILES (see CORAL modelling) denotes a descriptor value of 1. For the implementation of\nRandom Forest used in the current work (see Random Forest modelling), these binary descriptors were represented as an explicit bit string."
+    }, {
+      "heading" : "Correlated descriptors",
+      "text" : "We tested the influence of correlated descriptors on model results for both CORAL and Random Forest approaches, by generating two versions of the original data set, as shown in Table 2. In one case, after the binary splitting was applied to each continuous numeric variable, a label was assigned to each of the generated value ranges, which translates into two perfectly correlated descriptors for a given continuous numeric variable. For instance, by splitting the ‘Treatment Time’ variable into 24 and 48 hours, we generated two labels, namely, ‘A’ and ‘B’, which refer to the 24 and 48 hours’ exposure respectively, in the in vitro model. This results in the generation of two perfectly correlated descriptors, since they are mutually exclusive. Specifically, when the ‘A’ label is applicable (i.e. the ‘A’ descriptor value is 1), the ‘B’ label must not be applicable (i.e. the ‘B’ descriptor value is 0), and vice versa, according to the fact that, a single experimental result can only be associated with a single ‘Treatment Time’ value. In the second case, after the splitting of the continuous numeric variables, only one of the ranges was assigned a label, and thus a corresponding binary descriptor. As a result, perfectly correlated descriptors were removed. For the sake of brevity, even though the second approach does use correlated descriptors for the cell line variable, throughout this paper, results obtained ‘with correlated descriptors’ refer to the first approach (i.e. two labels for each continuous numeric variable), whereas results obtained ‘without correlated descriptors’ refer to the second approach. In the main text of this paper, only results obtained without correlated descriptors were presented, with results obtained with correlated descriptors presented in the Appendix for comparison."
+    }, {
+      "heading" : "CORAL modelling",
+      "text" : "In this work, the Monte Carlo algorithm implemented in the CORAL software (version: December 17, 2014 for Microsoft Windows; available at: http://www.insilico.eu/coral/) was used as a tool for developing linear nano-QSAR models, taking into account both the information derived from the physicochemical properties of the nanomaterials (e.g. zeta potential) and the experimental conditions (e.g. cell type). Specifically, after we downloaded the zipped file from the aforementioned website containing the binary executable files, we executed the CORAL.exe binary file\nΣmi = 1 ai 1 mAverage = a– =\nΣ(a – a–)2 (m – 1)Standard deviation = SD =\n⎯⎯⎯⎯\n√ ⎯⎯\n√ s m Standard error of the mean = SE =\nincluded in the folder ‘CORALSEA\\MyCORAL SEA\\REGRESSION’ to perform the modelling. In keeping with earlier work, we generated a ‘pseudoSMILES’ string for each instance, which represented both information related to the particular experimental conditions and the nanomaterial properties (34). In more detail, with this particular approach, all the eclectic information is used for modelling, with the endpoint of interest being a function of both the physicochemical properties of the nanomaterials and the experimental conditions. Pseudo-SMILES character strings were derived as shown in Table 2. When used to build linear models, as in the current work, the CORAL algorithm effectively treats each character (or label) in the pseudo-SMILES strings as a binary descriptor, which takes a value of 1 (or 0) if the character is present (or absent) for a given instance (34, 43). The manner in which predictions are obtained, based on the values of these descriptors for a given instance, is further explained below, when discussing Variable importance (see Equations 6 and 7). Table 2 shows the selected labelling approaches with and without correlated descriptors, but we reported in the main text only results obtained without correlated descriptors (LOO results obtained with correlated descriptors can be found in the Appendix).\nFor the current data set, after the removal of correlated descriptors, pseudo-SMILES labels were generated as follows. The information on the cell type was coded with the ‘C’, ‘D’, ‘E’, ‘F’ and ‘G’ characters for the 16HBE, A549, HaCaT, NRK-52E and\nTHP-1 cell types, respectively. For all numeric descriptors in the data set, a ‘binary split’ was performed, i.e. numeric values beyond a given threshold were assigned a label and values before that threshold were not, thus avoiding the incorporation of perfectly correlated descriptors. Specifically, for the treatment time descriptor, a label ‘A’ was assigned if the exposure time was 24 hours, whereas no label was assigned if the exposure time was 48 hours. For each of the three values related to the physicochemical properties of the nanomaterial — namely average size, aspect ratio and zeta potential — a binary split was applied, based on the median value for the data set, with the rationale of having a similar number of instances in a given range for each property. It should be noted that the odd number of instances (i.e. 19) in the data set meant that the number of instances in each range, for each binary split, could not be perfectly equal, and the ranges were expressed in terms of the values just beyond the median for aspect ratio and zeta potential. The thresholds used for the splits were 27.5 (no label for values below or equal to the threshold, ‘I’ for values above it), 1.0 (no label for values equal to the threshold, ‘K’ for values above it), and –32.0 (no label for values below the threshold, ‘L’ for values equal to or greater than it) for the average size, aspect ratio and zeta potential, respectively. In earlier work with CORAL (34, 35, 42), the authors developed five different splits of the same data set, in order to check whether the developed models were obtained by chance. According to the recom-"
+    }, {
+      "heading" : "Descriptor Experimental value Yes No",
+      "text" : "mended CORAL optimisation strategy, we selected the best hyperparameter values (i.e. N = number of epochs, T = threshold) via assessment of the model performance on a subset of the data set (which is called a ‘test set’ in the CORAL software documentation), and then we predicted the single item ‘external’ test set in a separate step after the model was built. For each LOO training set, modelling was repeated five times, via splitting the training set to yield an internal ‘test set’ for hyperparameter selection, five times. More details on the application of the CORAL software to this data set are given in the Materials and Methods, including full details of the five different LOO training set partitions used for hyperparameter selections (see section on Details of the CORAL software settings and optimisation and the SI files)."
+    }, {
+      "heading" : "Random Forest modelling",
+      "text" : "Random Forest is an ensemble learning method for both classification and regression. It operates by building a multitude of decision-trees, and provides, as output, the class that represents the majority prediction (for classification problems), or the average prediction (for regression problems), of the individual trees (24, 25). Each decision-tree is grown by using an independent random sample of the instances in the training set, with the descriptors considered for splitting each node being independently sampled from the total. In the current work, both bootstrap sampling of the training set, i.e. sampling of N from N with replacement, and sampling without replacement were considered. The results presented in the main text were obtained without bootstrap sampling; the results obtained with bootstrap sampling are reported in the Appendix. Whilst bootstrap sampling is typically used (25, 27), it is not currently possible to calculate feature contributions (see the Feature contribution analysis section) with the available software (44), if bootstrap sampling is used. The results in the Appendix show that, for this data set, the model performance and standard variable importance measures (see the Variable importance section) are very similar with both types of sampling. In this work, we used the Random Forest algorithm implemented in the randomForest R package (version 4.6-12; 27), with the default values for the algorithm ‘hyperparameters’, i.e. number of trees to grow (ntree), equal to 500, and the number of descriptors randomly sampled at each split (mtry) equal to the total number of descriptors in the data set divided by three (for regression problems), as explained in the randomForest R package documentation. The experimental data used for Random Forest modelling were the same as for the CORAL software. The binary descriptors implicitly encoded in the pseudo-SMILES strings\ncreated for the CORAL software were explicitly represented for modelling with the randomForest R package, i.e. a ‘1’ value was assigned each time a specific label was present, whereas a ‘0’ value was assigned each time the label was absent in the considered pseudo-SMILES. By using this procedure, an explicit bit string was built for each pseudoSMILES, as shown in Table 3. As per modelling with CORAL, with the Random Forest algorithm, 95 models were developed with a given sampling protocol, i.e. 19 models for each LOO training set, and all modelling on a given training set was repeated five times to take account of the random sampling inherent to building models with Random Forest or CORAL. This process was repeated twice with two different sampling protocols: a) with simple sampling, without replacement; or b) with bootstrap sampling, i.e. the replace argument of the randomForest R function was set to FALSE and TRUE, respectively. Hence, 190 Random Forest models were built in total, with or without correlated descriptors. It should be reiterated that only results ‘without correlated descriptors’ (meaning without perfectly correlated descriptors, without bootstrap sampling) are presented in the main text."
+    }, {
+      "heading" : "Variable importance",
+      "text" : ""
+    }, {
+      "heading" : "CORAL",
+      "text" : "In the current work, we selected the additive scheme of the CORAL software, which computes a so-called ‘optimal descriptor’ (DCW) as the sum of correlation weights associated with the labels present in the pseudo-SMILES strings (34, 43), according to Equation 6.\nDCW (Threshold, Nepoch)i = Σ 5 k = 1 Cwk × SAk,i\n[Equation 6]\nIn Equation 6, SAk,i takes the value 1 (or 0) if the corresponding pseudo-SMILES label is present (or absent) in an instance (i), i.e. the correlation weights (Cwk) are summed over all labels present in a given instance. In order to understand the relationship between the correlation weights and the final predicted value, it is important to note that the so-called ‘optimal descriptor’ is used to calculate the predicted value for the endpoint by using a one variable linear equation, as shown in Equation 7.\nPredictioni = C0 + C1 * DCW (Threshold, Nepoch)i [Equation 7]\nHence, it can be seen that the correlation weights are essentially scaled values of (i.e. are directly\nproportional to) the coefficients of the binary descriptors in the final linear model developed with CORAL. In order to make a comparison between CORAL and the standard Random Forest method for variable importance, we calculated the absolute values of the correlation weights for each descriptor. This is because the Random Forest standard variable importance measures do not take account of the sign of the contribution a given descriptor value makes toward the prediction."
+    }, {
+      "heading" : "Random Forest",
+      "text" : "The Random Forest algorithm implemented in the randomForest R package that was used in this work provided information on variable importance by using two approaches, after setting the ‘importance’ option of the randomForest function to"
+    }, {
+      "heading" : "TRUE.",
+      "text" : "The first method (25) calculates the percentage increase of the mean squared error (‘%IncMSE’) on the out-of-bag (OOB) subset — i.e. the subset of training set instances not used to build a given tree — after the permutation of descriptors’ values. In greater detail, for each tree in the forest, the prediction error on the OOB portion of the data, expressed by the mean square error (MSE) is recorded (for regression problems). The MSE value\nis then calculated again after permuting each predictor variable one at a time. The differences between the two calculated MSEs for the original and shuffled data sets are averaged over all trees, then normalised by the standard deviation of the differences.\nThe second method (‘IncNodePurity’) calculates the total decrease in node ‘impurities’ from splitting on a given descriptor, averaged over all the generated trees. For regression, ‘impurity’ is measured by the residual sum of squares (RSS) metric for a given node (27).\nSummarising variable importance values\nThe different variable importance approaches employed with Random Forest and CORAL are applicable for a single model, hence, in order to derive general conclusions, it was necessary to summarise these, for given combinations of modelling approach and variable importance approach, across all 95 models (i.e. 19 LOO training sets × 5 repetitions). Furthermore, it was necessary to take account of the fact that the different approaches could vary in scale, which would confound comparisons. Hence, the raw values (v), for a given combination of modelling approach and variable importance approach, were scaled (vscaled) between"
+    }, {
+      "heading" : "131 AGIL 1 0 0 0 0 1 1 0 1 0.483",
+      "text" : ""
+    }, {
+      "heading" : "123 AGL 1 0 0 0 0 1 0 0 1 0.365",
+      "text" : ""
+    }, {
+      "heading" : "130 AFIL 1 0 0 0 1 0 1 0 1 0.059",
+      "text" : ""
+    }, {
+      "heading" : "122 AFL 1 0 0 0 1 0 0 0 1 –0.070",
+      "text" : ""
+    }, {
+      "heading" : "128 ADIL 1 0 1 0 0 0 1 0 1 –0.147",
+      "text" : ""
+    }, {
+      "heading" : "129 AEIL 1 0 0 1 0 0 1 0 1 –0.197",
+      "text" : ""
+    }, {
+      "heading" : "120 ADL 1 0 1 0 0 0 0 0 1 –0.223",
+      "text" : ""
+    }, {
+      "heading" : "127 AGIL 1 0 0 0 0 1 1 0 1 –0.281",
+      "text" : ""
+    }, {
+      "heading" : "121 AEL 1 0 0 1 0 0 0 0 1 –0.394",
+      "text" : ""
+    }, {
+      "heading" : "106 ADIK 1 0 1 0 0 0 1 1 0 –0.822",
+      "text" : ""
+    }, {
+      "heading" : "107 DIK 0 0 1 0 0 0 1 1 0 –0.844",
+      "text" : ""
+    }, {
+      "heading" : "103 DK 0 0 1 0 0 0 0 1 0 –0.872",
+      "text" : ""
+    }, {
+      "heading" : "102 ADK 1 0 1 0 0 0 0 1 0 –0.920",
+      "text" : ""
+    }, {
+      "heading" : "100 ACK 1 1 0 0 0 0 0 1 0 –1.026",
+      "text" : ""
+    }, {
+      "heading" : "101 CK 0 1 0 0 0 0 0 1 0 –1.105",
+      "text" : ""
+    }, {
+      "heading" : "105 CIK 0 1 0 0 0 0 1 1 0 –1.135",
+      "text" : ""
+    }, {
+      "heading" : "186 GK 0 0 0 0 0 1 0 1 0 –1.165",
+      "text" : ""
+    }, {
+      "heading" : "104 ACIK 1 1 0 0 0 0 1 1 0 –1.272",
+      "text" : ""
+    }, {
+      "heading" : "119 AGK 1 0 0 0 0 1 0 1 0 –1.299",
+      "text" : "0 and 1, as per Equation 8, where the minimum (vmin) and maximum (vmax) values were obtained across all 95 models and all five descriptors. Subsequently, the values were summarised in terms of the arithmetic mean and the corresponding standard error of the mean.\n(v – vmin)Vscaled = (vmax – vmin) [Equation 8]"
+    }, {
+      "heading" : "Feature contribution analysis",
+      "text" : "By ‘feature contribution analysis’, we refer to estimates of both the sign and magnitude of the influence that a given descriptor has on the prediction made by a given model. This is in contrast to ‘variable importance’ measures, which only estimate the magnitude of the influence. As far as the CORAL software is concerned, we calculated feature contributions based on the signed values of the correlation weights. Indeed, as Equations 6 and 7 show (see the Variable importance section), for each single model that is obtained by selecting the additive method, the signed values of the correlation weights permit the understanding of whether a certain descriptor is contributing ‘positively’ (i.e. it contributes to increased toxicity), or ‘negatively’ (i.e. it contributes to decreased toxicity). For Random Forest, a feature contribution analysis was carried out by using the technique developed by Kuz’min and colleagues (45), and implemented in the rfFC R package (44), which is designed to work with the randomForest R implementation of Random Forest. Specifically, version 1.0 of rfFC, as obtained via the ‘install.packages (“rfFC”,repos= “http://R-Forge.R-project.org”)’ command, was used in the current work. This feature contribution method is a measure of the influence, in terms of the magnitude and sign, of each variable on the model prediction for a single instance. In principle, the feature contribution associated with the value of a given descriptor could vary between instances with the same value for that given descriptor, due to the fact that Random Forest models are non-linear. In contrast, the feature contribution associated with a single descriptor, as calculated for CORAL, is either equal to the value of the corresponding correlation weight (if the descriptor value is 1) or 0 (if the descriptor value is 0). Hence, to permit a comparison between the average influence of a given descriptor value being 1 for both CORAL and Random Forest, pseudo-coefficients were derived from the Random Forest feature contributions. These pseudo-coefficients were calculated by computing, for each descriptor, the difference between the arithmetic mean average values calculated over the feature contribution values for the pseudo-SMILES strings having a value of 1 for that specific descriptor, here\ncalled FC(1), and pseudo-SMILES strings having a value of 0 for the same descriptor, here called FC(0), according to Equation 9.\nPseudo-coefficient = FC(1) – FC(0)\n[Equation 9]"
+    }, {
+      "heading" : "Results",
+      "text" : ""
+    }, {
+      "heading" : "LOO results",
+      "text" : "LOO results, in terms of R2 and RMSE for both CORAL and Random Forest algorithms, are reported in Table 4. As far as the global results on the corresponding training sets are concerned, the average and standard error of the mean, across the 95 developed models, of the R2 and RMSE statistics, were calculated for both CORAL and Random Forest models. (Note that, in contrast to the results shown in Table 4, results with perfectly correlated descriptors [for both CORAL and Random Forest] and bootstrap sampling [for Random Forest] are presented in the Appendix.)\nConsidering the LOO results reported in Table 4, it is clear that CORAL’s LOO test set performance was substantially worse than its performance on the corresponding training sets. With respect to CORAL, the global average value of the R2 on training sets was 0.8285, whereas the average RMSE was 0.2347. Results from LOO (i.e. testing) for CORAL showed a decrease for the average R2 to 0.6486, whereas the average value of the RMSE increased to 0.3456. However, the corresponding results for Random Forest showed a smaller reduction in estimated model performance when comparing the training and LOO test global results. The average values of R2 were 0.8723 and 0.7807 for training and test set, respectively, and the average values for RMSE were 0.2011 and 0.2604 for training and test set, respectively.\nIf one considers only results from the LOO test sets in Table 4, it can be stated that Random Forest performed better that CORAL and the smaller reduction in average model performance upon going from the training to the test sets indicates that Random Forest did not overfit as much. As far as single run results are concerned, as shown in Table 4 for the CORAL software, the average R2 values on LOO training sets, for different splits of the same LOO training sets to yield internal ‘test sets’ for hyperparameter selection, ranged between 0.7876 and 0.8570. Here, it should be remembered that — for a given split of the data to yield internal ‘tests sets’ for each LOO training set — the results were averaged across all 19 LOO training sets. Corresponding LOO R2 test set values ranged between 0.6143 and 0.7082. Average RMSE values for different splits of the CORAL\ninput data set ranged from 0.2119 and 0.2675 on training sets, whereas RMSE values on test sets ranged between 0.3010 and 0.3712. The Random Forest approach showed less variability, in terms of both R2 and RMSE, among the five runs of the software with different seeds. Indeed, average training set R2 values ranged between 0.8711 and 0.8736, whereas LOO test set R2 values ranged between 0.7707 and 0.7899. Moreover, according to Table 4, Random Forest average RMSE values ranged between 0.1995 and 0.2022 on the training sets, whereas on LOO test sets RMSE values ranged between 0.2544 and 0.2665.\nIt is important to note that, among the five runs of LOO for the CORAL software, the largest difference in the R2 values between training and test sets was 0.2427 (split number 3), whereas, for Random Forest, the largest difference was 0.1004. Taking into account the reference value for the difference of R2 between training and test sets reported in the article of Eriksson and colleagues (46), the average results obtained with CORAL are closer than Random Forest to the 0.3 threshold for which a model could be considered to overfit.\nAdditional results obtained with CORAL and Random Forest under different scenarios are presented in Table A1 (in the Appendix). Firstly, it can be observed that no significant training/test set performance gap exists for Random Forest, when the training set is predicted by using only OOB\nsamples. Furthermore, comparison of the results obtained with and without correlated descriptors for the data set used in this work shows that Random Forest is, as expected (25), less affected than CORAL by the presence of correlated descriptors (see Table A1). Specifically, split number 2 of the CORAL input data set generated an outlier only when perfectly correlated descriptors were used. For Random Forest, a very small difference in terms of R2 and RMSE global average values was observed for results with and without bootstrap sampling."
+    }, {
+      "heading" : "Variable importance results",
+      "text" : "Figure 2 shows the average and standard error of the mean (as error bars) of the scaled variable importance values for each descriptor and each variable importance measure for CORAL and Random Forest. (Note that, in contrast to the results shown in Figure 2, results with perfectly correlated descriptors [for both CORAL and Random Forest] and bootstrap sampling [for Random Forest] are presented in Figures A1 and A2 in the Appendix).\nAs far as CORAL is concerned, the average values ranged between 0.0525 and 0.8941 for the K and L descriptors, which are related to the nanoparticle physicochemical properties of aspect"
+    }, {
+      "heading" : "Software Run Training set Test set Training set Test set",
+      "text" : "ratio (i.e. aspect ratio > 1) and zeta potential (i.e. zeta potential ≥ –32.0mV), respectively. Hence, according to the CORAL variable importance measure, the nanoparticle aspect ratio and zeta potential are, respectively, the least and most important variables related to cytotoxicity. With respect to the Random Forest %IncMSE method, the average values ranged between 0.0424 and 0.8393 for the G and L descriptors, which are related to the THP-1 cell line and zeta potential, respectively. On the other hand, the Random Forest IncNodePurity method average values ranged between 0.0124 and 0.8181 for the E and L descriptors, which refer to the HaCaT cell line and zeta potential, respectively.\nDespite small differences, which were dependent on the specific method used, the descriptors K and L (corresponding to aspect ratio and zeta potential) are, on average, by far the most important according to both the Random Forest variable importance measures. Conversely, even if CORAL also identified the descriptor corresponding to zeta potential as the most important, descriptors D and G corresponding to cell lines A549 and THP-1, respectively, are the second and third most important variables. Furthermore, Random Forest variable importance results with perfectly correlated descriptors also support the conclusion that aspect ratio and zeta potential are the most toxicologically relevant variables, confirming that the\nRandom Forest approach is not significantly affected by correlated descriptors (see Figure A2 in the Appendix). Similarly, Random Forest variable importance results obtained without bootstrap sampling are largely consistent with those obtained with bootstrap sampling, for both the %IncMSE and IncNodePurity methods (see Figures A1 and A2 in the Appendix). CORAL variable importance results with correlated descriptors showed that the two most important variables are the J and L descriptors, corresponding to the aspect ratio and zeta potential. However, it is important to note that, unlike for Random Forest, the other descriptors corresponding to aspect ratio and zeta potential are not similarly important. It is also important to note that, for CORAL, the variable importance values calculated with or without perfectly correlated descriptors are not as consistent as those obtained for Random Forest."
+    }, {
+      "heading" : "Feature contribution results",
+      "text" : "Figure 3 shows the average values, for both CORAL correlation weights and Random Forest feature contribution pseudo-coefficients, calculated across all the 95 models generated on the LOO training sets, without perfectly correlated descriptors and without bootstrap sampling for Random Forest. (Note that results with perfectly correlated descriptors are presented in Figure A3, in the Appendix).\nBroadly in keeping with what was observed for the variable importance analysis (Figure 2), for Random Forest, the nanoparticle physicochemical properties of aspect ratio and zeta potential were the two most important variables, whereas, for the CORAL approach, zeta potential and the variable related to the A549 cell line appeared to be the most important. Hence, as expected, feature contribution\nresults are consistent with those obtained for variable importance for both app roaches. It is important to note that, for the CORAL approach, feature contribution average values were all positive. Con - versely, Random Forest feature contribution results presented both positive and negative values. Specifically, for the CORAL approach, the correlation weight associated with the zeta potential feature had a magnitude more than twice the A549 cell line magnitude, whereas for Random Forest the two highest feature contribution values had a similar magnitude. In addition, in contrast to CORAL, for Random Forest there was a considerable difference between the average influence of the two most important descriptors (relating to aspect ratio and zeta potential) and that of the others. These observations, regarding the importance of different variables according to the feature contributions calculations (Figure 3), are broadly in keeping with those observed when perfectly correlated descriptors were not excluded (Figure A3).\nResults with correlated descriptors (see Figure A3, in the Appendix) showed that, once again, for the Random Forest approach, zeta potential and aspect ratio were the two most important properties. Specifically, considering the two correlated descriptors for aspect ratio and zeta potential, namely, the J and K labels for aspect ratio and the L and M labels for zeta potential, it is worth noting that, for Random Forest, the magnitudes of their average feature contribution values were not only very similar (roughly 0.23), but also much greater than the magnitudes for the other descriptors.\nConversely, for CORAL, we obtained average feature contributions of significantly different magnitude for the two correlated descriptors related to the same variable, both for aspect ratio and zeta potential properties. When the signed values are considered (in Figure 3 and Figure A3), it is worth noting that, for Random Forest, high values of zeta potential are associated with an increase in cytotoxicity, whereas high aspect ratio values are associated with a decrease in toxicity, since the average pseudo-coefficient value is negative for the corresponding descriptors. It is important to note that these findings are consistent with the preliminary analysis of the data set reported in Figure 1.\nConversely, the CORAL approach seems to only be able to partially recognise the trend in the data for the zeta potential. The descriptor associated with higher zeta potential values had a positive average feature contribution value, regardless of whether perfectly correlated descriptors were removed (Figure 3) or not (Figure A3). However, when perfectly correlated descriptors were not removed, the average feature contribution value for the descriptor corresponding to lower zeta potential values still remained positive, albeit less so (Figure A3). Whether perfectly correlated\ndescriptors were removed (Figure 3) or not (Figure A3), the average feature contribution value for both descriptors corresponding to aspect ratio was positive."
+    }, {
+      "heading" : "Discussion",
+      "text" : "Taking into account the results obtained in this comparison study, both in terms of their predictive performance estimated via ‘external’ LOO validation and their ability to be interpreted to reveal trends in the data, the non-linear Random Forest approach performed better than the linear CORAL approach for the specific data set used. With respect to Random Forest, the difference for both the R2 and RMSE average values between training and test sets was smaller, and better results were obtained on the test set, as compared to CORAL (Table 4). In addition, for Random Forest, both average R2 and RMSE values for the OOB and LOO predictions methods were very similar, regardless of whether modelling was performed with or without bootstrap sampling and with or without correlated descriptors (Table A1). This is interesting, since it suggests that, even for these small data sets, as is typical for nano-QSAR studies (47), there may be no need to cross-validate Random Forest models, as simply reporting their OOB performance will suffice. Of course, when making comparisons to other methods, cross-validation would still be required for a fair, like-forlike comparison. However, it must be noted that this finding may not hold in general — for example, Ballester and Mitchell (48) found that the OOB predictions only converged to the test set performance as the training set got larger.\nCurrently, there is an on-going discussion on the importance of the composition of nanoparticles and their so-called intrinsic and extrinsic properties, with regard to their use in toxicological studies (10, 13, 49). In our work, we incorporated various intrinsic (e.g. average primary particle size) and extrinsic (e.g. zeta potential) properties as descriptors for the modelled toxicity endpoint. We further sought to take account of variability in the endpoint values, due to the different experimental conditions, by treating the varied experimental conditions as additional descriptors, as per the socalled ‘eclectic’ approach previously proposed in the literature (35, 42, 50). The variable importance analysis performed in this work showed that the physicochemical properties of nanoparticle aspect ratio and zeta potential were the most important variables for the Random Forest approach under all the modelling scenarios, with or without perfectly correlated descriptors and with or without bootstrap sampling (Figures 2, A1 and A2); this was not found for CORAL.\nIn the case of CORAL, when modelling was carried out without perfectly correlated descriptors\n(Figure 2), the two most important descriptors related to zeta potential and the A549 cell line. For Random Forest, the most important descriptors — associated with aspect ratio and zeta potential — were comparably important. However, for CORAL, zeta potential was more important than the A549 cell line descriptor, which had comparable importance to that of the THP-1 cell line (Figure 2). However, it must be noted that descriptors related to the cell line appear relatively less important when perfectly correlated descriptors are not removed from CORAL modelling (Figure A2). With regard to the observations concerning the importance of descriptors related to cell lines, Kim and colleagues (51) recently reported that cell type, more than other factors like nanoparticle size and dose level, can influence cytotoxicity. In addition, the same authors also stated that identical nanoparticle preparations yield different outcomes, depending on the selected cell line, even if they are derived from the same cell type (51). Whilst our findings are not directly comparable, they still suggest that the cell line is at least as important an experimental variable as average nanoparticle size, with the exact significance varying, depending upon the specific cell line, the specific variable importance approach and the modelling scenario (Figures 2, A1 and A2).\nAs far as nanoparticle size is concerned, the work of Rong and colleagues (52) showed that size has a potentially important role in increasing the toxicity of silica particles toward endothelial cells. In another more relevant study, Tokgun and colleagues (53) reported that cytotoxicity toward the A549 cell line depended on the size of the silica nanoparticles used. We found that the average size of the silica nanoparticles was not typically one of the most important variables (Figures 2, A1 and A2), but it did appear more significant when CORAL modelling was carried out with the inclusion of perfectly correlated descriptors (Figure A2).\nA clear trend was observed in the data set, concerning the relationship between cytotoxicity and both zeta potential and aspect ratio (Figure 1). This was also reflected in the Random Forest variable importance (Figures 2, A1 and A2) and feature contributions calculations (Figures 3 and A3). The correspondence between both the average Random Forest variable importance and feature contributions, and the clear trends observed in the data set, makes it clear that our findings are not an artefact of the modelling process, but rather a consequence of the experimental data set used in this work. However, these trends observed in our data set appear to be at odds with the literature.\nVarious publications have previously considered the relationship between the nanoparticle physicochemical properties of aspect ratio and zeta pot - ential, and cytotoxicity. With regard to the toxicological significance of particle shape (as\nquantified via the aspect ratio), studies on carbon nanotubes and silica nanoparticles (as per the current work) either reported that aspect ratio had no relationship to toxicity, or that high aspect ratio particles were more toxic (54, 55). In contrast, if we look at the specific data set used in this work (as shown in Figure 1), high aspect ratio silica nanoparticles are clustered at the low-toxicity side of the graph. This finding is also reflected in the average Random Forest pseudo-coefficients presented in Figure 3. There could be several reasons for this discrepancy, such as differences in other characteristics of the nanomaterials, in the cytotoxicity protocol used, or in the cell line adopted, as well as in the concentrations selected for the test. In this respect, the review of Fruijtier-Pölloth and colleagues (56) has shown that it is difficult to compare studies that are based on different experimental conditions and nanomaterials, since they could yield contradictory results due to the diverse range of mechanisms involved in the toxic outcome.\nAs far as the relationship between zeta potential and toxicity is concerned, Cho et al. (57) found that, for a set of metal/metal oxide/silica nanoparticles, high positive zeta potential resulted in higher cytotoxicity. Karunakaran et al. (58) also suggested that the cytotoxicity of alumina and silica particles, both micro-sized and nanoparticles, increases as a result of positive zeta potential. In the current work, both the feature contribution analysis results (shown in Figure 3) and the preliminary analysis of the data (shown in Figure 1), revealed that less negative zeta potential values were associated with higher cytotoxicity. This trend was clearly captured by Random Forest and, to a lesser extent, CORAL (see Figures 3 and A3). Whilst this might be considered consistent with earlier indications that increasing zeta potential leads to higher cytotoxicity (57, 58), it must be stressed that these earlier studies indicated that it was specifically positive zeta potential values that led to higher cytotoxicity — all zeta potential values reported in the data set used for the current work were negative. One possible confounding factor here could be that zeta potential is highly dependent upon the composition of the medium in which it is measured (57), and the obtained data used for modelling in the current study featured zeta potential values that were measured in water, rather than in the exposure medium used for cytotoxicity testing. Hence, the actual zeta potential values of the nanoparticles when they were in contact with the cells could differ from those reported in our obtained data set. Arguably, better mechanistic insight would be obtained, if zeta potential values were measured under biologically-relevant conditions (49, 57).\nIt is envisaged that future studies might build upon our work by incorporating additional descrip-\ntors into the models. Firstly, the original data set from which the subset was derived (see SI files), included a range of other nanomaterial characteristics and experimental variables that were not considered as descriptors in the current work (e.g. serum concentration or dispersion protocol). Indeed, as the basis for our modelling analyses, we selected only five variables to model according to our expert judgement, since serum concentrations and dispersion protocol experimental values, for this data set, were the same for 17 out of 19 instances. (It was assumed that stirring and vortexing dispersion protocols were comparable, based on guidance from the MODENA COST team responsible for the data set.)\nSecondly, none of the parameters provided in the original data set could be considered to adequately capture the surface reactivity or dissolution state of the studied silica nanoparticles. One way of partially addressing this in future work, other than by obtaining additional experimental measurements (13), would be to perform additional quantummechanical calculations to obtain new different descriptors, i.e. independent variables reflecting structural and chemical properties of the nanoparticles (14, 59). Such variables could further enhance our understanding of the possible mechanism of toxicity of the studied nanoparticles."
+    }, {
+      "heading" : "Conclusions",
+      "text" : "This study aimed to assess the suitability of CORAL and Random Forest approaches, for use in the prediction of silica nanoparticle toxicity, based upon physicochemical characteristics and experimental conditions encoded into pseudo-SMILES strings.\nIt was demonstrated that the pseudo-SMILES encoding proposed for CORAL could be translated into descriptors that could be used with other modelling approaches, such as Random Forest. LOO was used to externally validate the results obtained from the modelling task. The predictive performance estimated from the LOO procedure was significantly higher with Random Forest, and substantially less overfitting was observed. Various approaches were employed to analyse the significance of different descriptors within both kinds of models, including the derivation of pseudo-coefficients for Random Forest models that, in contrast to standard variable importance measures, reflect the signed contribution of descriptors toward the modelled endpoint. Whilst differences were observed between the various approaches used to interpret the models, the Random Forest approach, more than the CORAL approach, better reflected the toxicological significance of zeta potential and aspect ratio, as determined by a preliminary analysis of the data set. Interestingly, whilst these properties have previ-\nously been reported as being significant in nanomaterial toxic effects, the relationships identified here were not in complete agreement with those obtained in some previous studies, and this could reflect different mechanisms of toxicity.\nIn summary, the results of this study suggest that the Random Forest modelling approach is readily applicable to modelling the cytotoxicity of nanoparticles. This approach can be used to develop models that offer reasonable predictive power, the findings from which can be readily interpreted in terms of physicochemical–toxicity relationships."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "Mark Cronin and Richard Robinson are grateful for funding from the EU Seventh Framework Programme (FP7/2007–2013), under grant agreement number 309837 (NanoPUZZLES project). Tomasz Puzyn and Agnieszka Gajewicz are grateful for funding from the Polish Ministry of Science and Higher Education under grant agreement DS 530-8637-D510-15. The MODENA COST Initiative (Grant Information — COST TD1204 ‘MODENA’) and its experimental partners are thanked for providing the experimental data used in this work. The authors also thank Dr Andrey A. Toropov and Dr Alla P. Toropova of the Mario Negri Institute for Pharmacological Research (Italy), for their support in the use of the CORAL software.\nReceived 30.06.16; received in final form 17.11.16; accepted for publication 21.11.16."
+    } ],
+    "references" : [ {
+      "title" : "JRC Reference Reports: Considerations on a Definition of Nanomaterial for Regulatory Purposes. EUR 24403 EN, 40pp. Ispra, Italy: European Commission, Joint Research Centre",
+      "author" : [ "G. Lövestam", "H. Rauscher", "G. Roebben", "B.S. Klüttgen", "N. Gibson", "Putaud", "J-P", "H. Stamm" ],
+      "venue" : null,
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2010
+    }, {
+      "title" : "Recent developments in nanotoxicology",
+      "author" : [ "H. Bolt", "R. Marchan", "J. Hengstler" ],
+      "venue" : "Archives of Tox  icology",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2013
+    }, {
+      "title" : "Genotoxic and carcinogenic potential of engineered nanoparticles: An update",
+      "author" : [ "A. Kumar", "A. Dhawan" ],
+      "venue" : "Archives of Toxicology",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2013
+    }, {
+      "title" : "Manufactured nanomaterials: Categorization and approaches to hazard assessment",
+      "author" : [ "T. Gebel", "H. Foth", "G. Damm", "A. Freyberger", "Kramer", "P-J", "W. Lilienblum", "C. Röhl", "T. Schupp", "C. Weiss", "Wollin", "K-M", "J.G. Hengstler" ],
+      "venue" : "Archives of Toxicology",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2014
+    }, {
+      "title" : "High-content screening for assessing nanomaterial toxicity",
+      "author" : [ "L. Huo", "R. Chen", "X. Shi", "R. Bai", "P. Wang", "Y. Chang", "C. Chen" ],
+      "venue" : "Journal of Nano science & Nanotechnology",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2015
+    }, {
+      "title" : "Analysis of dose-dependent effect of zinc oxide nanoparticles on the oxidative stress and antioxidant enzyme activity in adipocytes. Applied  CORAL and Random Forest approaches toward in vitro cytotoxicity modelling",
+      "author" : [ "P. Muthuraman", "K. Ramkumar", "D.H. Kim" ],
+      "venue" : "Biochemistry & Biotechnology",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2014
+    }, {
+      "title" : "Antibacterial and cytotoxic effect of biologically synthesized silver nanoparticles using aqueous root extract of Erythrina indica lam",
+      "author" : [ "P.R. Sre", "M. Reka", "R. Poovazhagi", "M.A. Kumar", "K. Murugesan" ],
+      "venue" : "Spectrochimica Acta Part A: Molecular & Biomolecular Spectroscopy",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2015
+    }, {
+      "title" : "Evaluation of hepatotoxic and genotoxic potential of silver nano  particles in albino rats",
+      "author" : [ "M.M. El Mahdy", "T.A.S. Eldin", "H.S. Aly", "F.F. Moham med", "M.I. Shaalan" ],
+      "venue" : "Experimental & Toxicologic Pathology",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2015
+    }, {
+      "title" : "Nanotoxicity: Challenging the myth of nano-specific toxicity",
+      "author" : [ "K. Donaldson", "C.A. Poland" ],
+      "venue" : "Current Opinion in Biotechnology",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2013
+    }, {
+      "title" : "A strategy for grouping of nanomaterials based on key physico-chemical descriptors as a basis for safer-bydesign NMs",
+      "author" : [ "I. Lynch", "C. Weiss", "E. Valsami-Jones" ],
+      "venue" : "Nano Today",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2014
+    }, {
+      "title" : "Nanoparticles as macromolecules",
+      "author" : [ "J.B. Miller", "E.K. Hobbie" ],
+      "venue" : "Journal of Polymer Science Part B: Polymer Physics",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2013
+    }, {
+      "title" : "Nanoscale reference materials for environmental, health and safety measurements: Needs, gaps and opportunities",
+      "author" : [ "A.B. Stefaniak", "V.A. Hackley", "G. Roebben", "K. Ehara", "S. Hankin", "M.T. Postek", "I. Lynch", "Fu", "W-E", "T.P.J. Linsinger", "A.F. Thünemann" ],
+      "venue" : "Nanotoxicology",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2013
+    }, {
+      "title" : "Using nano-QSAR to predict the cytotoxicity of metal oxide nanoparticles",
+      "author" : [ "T. Puzyn", "B. Rasulev", "A. Gajewicz", "X. Hu", "T.P. Dasari", "A. Michalkova", "Hwang", "H-M", "A.A. Toropov", "D. Leszczynska", "J. Leszczynski" ],
+      "venue" : "Nature Nanotechnology",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2011
+    }, {
+      "title" : "Metal oxide nanomaterial QNAR models: Available structural descriptors and understanding of toxicity mechanisms",
+      "author" : [ "J. Ying", "T. Zhang", "M. Tang" ],
+      "venue" : "Nanomaterials",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2015
+    }, {
+      "title" : "Recent advances, and unresolved issues, in the application of computational modelling to the prediction of the biological effects of nanomaterials",
+      "author" : [ "D.A. Winkler" ],
+      "venue" : "Toxicology & Applied Pharma",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2015
+    }, {
+      "title" : "QSARINS: A new software for the development, analysis, and validation of QSAR MLR models",
+      "author" : [ "P. Gramatica", "N. Chirico", "E. Papa", "S. Cassani", "S. Kovarich" ],
+      "venue" : "Journal of Computational Chemistry",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2013
+    }, {
+      "title" : "Using nano-QSAR to determine the most responsible factor(s) in gold nanoparticle exocytosis",
+      "author" : [ "A. Bigdeli", "M.R. Hormozi-Nezhad", "H. Parastar" ],
+      "venue" : "RSC Advances",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2015
+    }, {
+      "title" : "An introduction to kernelbased learning algorithms",
+      "author" : [ "Müller", "K-R", "S. Mika", "G. Rätsch", "K. Tsuda", "B. Schölkopf" ],
+      "venue" : "IEEE Transactions on Neural Networks",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2001
+    }, {
+      "title" : "A Prac tical Guide to Support Vector Classification, 16pp. Taipei, Taiwan: Department of Computer Science & Information Engineering, National Taiwan Uni  versity",
+      "author" : [ "Hsu", "C-W", "Chang", "C-C", "Lin", "C-J" ],
+      "venue" : null,
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2003
+    }, {
+      "title" : "Quantitative structure– toxicity relationships (QSTRs): A comparative study of various non linear methods. General  regression neural network, radial basis function neural network and support vector machine in predicting toxicity of nitro- and cyano-aromatics to Tetrahymena pyriformis",
+      "author" : [ "A. Panaye", "B. Fan", "J. Doucet", "X. Yao", "R. Zhang", "M. Liu", "Z. Hu" ],
+      "venue" : "SAR & QSAR in Environ  mental Research",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2006
+    }, {
+      "title" : "Nano-SAR development for bioactivity of nanoparticles with considerations of decision boundaries",
+      "author" : [ "R. Liu", "R. Rallo", "R. Weissleder", "C. Tassa", "S. Shaw", "Y. Cohen" ],
+      "venue" : null,
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2013
+    }, {
+      "title" : "Quantitative structure–activity relationships for cellular uptake of surface-modified nanoparticles",
+      "author" : [ "R. Liu", "R. Rallo", "M. Bilal", "Y. Cohen" ],
+      "venue" : "Combinatorial Chemistry & High Throughput Screening",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2015
+    }, {
+      "title" : "Random Forest: A classification and regression tool for compound classification and QSAR modeling",
+      "author" : [ "V. Svetnik", "A. Liaw", "C. Tong", "J.C. Culberson", "R.P. Sheridan", "B.P. Feuston" ],
+      "venue" : "Journal of Chemical Information & Computer Sciences",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2003
+    }, {
+      "title" : "Simplified molecular input line entry system (SMILES) as an alternative for constructing quantitative structure–property relationships (QSPR)",
+      "author" : [ "A.A. Toropov", "A.P. Toropova", "D.V. Mukhamedzhanova", "I. Gutman" ],
+      "venue" : "Indian Journal of Chemistry Section A",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2005
+    }, {
+      "title" : "Classification and regression by randomForest",
+      "author" : [ "A. Liaw", "M. Wiener" ],
+      "venue" : "R News",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2002
+    }, {
+      "title" : "How the ‘liquid drop’ approach could be efficiently applied for quantitative structure–property relationship modeling of nanofluids",
+      "author" : [ "N. Sizochenko", "K. Jagiello", "J. Leszczynski", "T. Puzyn" ],
+      "venue" : "Journal of Physical Chemistry C",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2015
+    }, {
+      "title" : "Prediction of nanoparticle transport behavior from physicochemical properties: Machine learning provides insights to guide the next generation of transport models",
+      "author" : [ "E. Goldberg", "M. Scheringer", "T.D. Bucheli", "K. Hungerbühler" ],
+      "venue" : "Environ  mental Science: Nano",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2015
+    }, {
+      "title" : "WST-1-based cell cytotoxicity assay as a substitute for MTT-based assay for rapid detection of toxigenic Bacillus species using CHO cell line",
+      "author" : [ "P. Ngamwongsatit", "P.P. Banada", "W. Panbangred", "A.K. Bhunia" ],
+      "venue" : "Journal of Microbiological Methods",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2008
+    }, {
+      "title" : "Rapid colorimetric assay for cellular growth and survival: Application to proliferation and cytotoxicity assays",
+      "author" : [ "T. Mosmann" ],
+      "venue" : "Journal of Imm  unological Methods",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 1983
+    }, {
+      "title" : "Probing the cytotoxicity of nanoparticles: Experimental pitfalls and artifacts",
+      "author" : [ "J. Domey", "L. Haslauer", "I. Grau", "C. Strobel", "M. Kettering", "I. Hilger" ],
+      "venue" : "In Measuring Biological Impacts of Nanomaterials (ed. J. Wegener),",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2013
+    }, {
+      "title" : "QSAR model for predicting cell viability of human embryonic kidney cells exposed to SiO2 nanoparticles",
+      "author" : [ "S. Manganelli", "C. Leone", "A.A. Manganelli", "A.P. Toropova", "E. Benfenati" ],
+      "venue" : "Chemo sphere",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2016
+    }, {
+      "title" : "Small sample statistics for classification error rates I: Error rate measurements",
+      "author" : [ "J.K. Martin", "D.S. Hirschberg" ],
+      "venue" : "Technical Report No. 96-21,",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 1996
+    }, {
+      "title" : "Assessing model fit by cross-validation",
+      "author" : [ "D.M. Hawkins", "S.C. Basak", "D. Mills" ],
+      "venue" : "Journal of Chemical Information & Computer Sciences",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2003
+    }, {
+      "title" : "Beware of R2: Simple, unambiguous assessment of the prediction accuracy of QSAR and QSPR models",
+      "author" : [ "D. Alexander", "A. Tropsha", "D.A. Winkler" ],
+      "venue" : "Journal of Chemical Information & Modeling",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2015
+    }, {
+      "title" : "The problem of overfitting",
+      "author" : [ "D.M. Hawkins" ],
+      "venue" : "Journal of Chemical Information & Computer Sciences",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2004
+    }, {
+      "title" : "Predicting drug-induced hepatotoxicity using QSAR and toxicogenomics approaches",
+      "author" : [ "Y. Low", "T. Uehara", "Y. Minowa", "H. Yamada", "Y. Ohno", "T. Urushidani", "A. Sedykh", "E. Muratov", "V. Kuz’min", "D. Fourches", "H. Zhu", "I. Rusyn", "A. Tropsha" ],
+      "venue" : "Chemical Research in Toxicology",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2011
+    }, {
+      "title" : "Development and comparison of hERG blocker classifiers: Assessment on different datasets yields markedly different results",
+      "author" : [ "R.L. Marchese Robinson", "R.C. Glen", "J.B.O. Mitchell" ],
+      "venue" : "Mol  ec ular Informatics",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2011
+    }, {
+      "title" : "The Monte Carlo method based on eclectic data as an efficient tool for predictions of endpoints for nanomaterials — two examples of application",
+      "author" : [ "A.A. Toropov", "A.P. Toropova", "A.M. Veselinovic", "J.B. Veselinovic", "K. Nesmerak", "J. Raska", "P.A. Duch owicz", "E.O. Castro", "V. Kudyshkin", "D. Leszc  zynska", "J. Leszczynski" ],
+      "venue" : "Combinatorial Chemistry & High Throughput Screening",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2015
+    }, {
+      "title" : "Novel application of the CORAL software to model cytotoxicity of metal oxide nanoparticles to bacteria",
+      "author" : [ "A.A. Toropov", "A.P. Toropova", "E. Benfenati", "G. Gini", "T. Puzyn", "D. Leszczynska", "J. Leszczynski" ],
+      "venue" : "Escherichia coli. Chemosphere",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2012
+    }, {
+      "title" : "Interpreting random forest classification models using a feature contribution method Integration of Reusable Systems",
+      "author" : [ "A. Palczewska", "J. Palczewski", "R.L. Marchese Robinson", "D. Neagu" ],
+      "venue" : "IEEE 14th International Conference on Information Reuse & Integration (IRI),",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2014
+    }, {
+      "title" : "Interpretation of QSAR models based on Random Forest methods",
+      "author" : [ "V.E. Kuz’min", "P.G. Polishchuk", "A.G. Artemenko", "S.A. Andronati" ],
+      "venue" : "Molec  ular Informatics",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2011
+    }, {
+      "title" : "Methods for reliability and uncertainty assessment and for applicability evaluations of classification and regression-based QSARs",
+      "author" : [ "L. Eriksson", "J. Jaworska", "A.P. Worth", "M.T. Cronin", "R.M. McDowell", "P. Gramatica" ],
+      "venue" : "Environmental Health Perspectives",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2003
+    }, {
+      "title" : "Current situation on the availability of nanostructure–biological activity data",
+      "author" : [ "C. Oksel", "C. Ma", "X. Wang" ],
+      "venue" : "SAR & QSAR in Environmental  Research",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2015
+    }, {
+      "title" : "A machine learning approach to predicting protein–ligand binding affinity with applications to molecular docking",
+      "author" : [ "P.J. Ballester", "J.B. Mitchell" ],
+      "venue" : "Bioinformatics",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2010
+    }, {
+      "title" : "How should the completeness and quality of curated nanomaterial data be evaluated? Nanoscale",
+      "author" : [ "R.L. Marchese Robinson", "I. Lynch", "W. Peijnenburg", "J. Rumble", "F. Klaessig", "C. Marquardt", "H. Rauscher", "T. Puzyn", "R. Purian", "C. Åberg", "S. Karcher", "H. Vriens", "P. Hoet", "M.D. Hoover", "C.O. Hendren", "S.L. Harper" ],
+      "venue" : null,
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2016
+    }, {
+      "title" : "Quasi-SMILES as a tool to utilize eclectic data for predicting the behavior of nanomaterials",
+      "author" : [ "A.P. Toropova", "A.A. Toropov", "S. Manganelli", "C. Leone", "D. Baderna", "E. Benfenati", "R. Fanelli" ],
+      "venue" : "NanoImpact",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2016
+    }, {
+      "title" : "Toxicity of silica nanoparticles depends on size, dose, and cell type. Nanomedicine: Nanotechnology",
+      "author" : [ "Kim", "I-Y", "E. Joachim", "H. Choi", "K. Kim" ],
+      "venue" : "Biology & Medicine",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2015
+    }, {
+      "title" : "Particle-size-dependent cytokine responses and cell damage induced by silica particles and macrophages-derived mediators in endothelial cell",
+      "author" : [ "Y. Rong", "T. Zhou", "W. Cheng", "J. Guo", "X. Cui", "Y. Liu", "W. Chen" ],
+      "venue" : "Environmental Toxicology & Pharmacology",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2013
+    }, {
+      "title" : "Silica nanoparticles can induce apoptosis via dead receptor and caspase 8 pathway on A549 cells",
+      "author" : [ "O. Tokgun", "A. Demiray", "B. Kaya", "E.R. Karagür", "E. Demir", "E. Burunkaya", "H. Akça" ],
+      "venue" : "Advances in Food Sciences",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2015
+    }, {
+      "title" : "Asbestos, carbon nanotubes and the pleural mesothelium: A review of the hypothesis regarding the role of long fibre retention in the parietal pleura, inflammation and mesothelioma",
+      "author" : [ "K. Donaldson", "F.A. Murphy", "R. Duffin", "C.A. Poland" ],
+      "venue" : "Part icle & Fibre Toxicology",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2010
+    }, {
+      "title" : "Impact of silica nanoparticle design on cellular toxicity and hemolytic activity",
+      "author" : [ "T. Yu", "A. Malugin", "H. Ghandehari" ],
+      "venue" : "ACS Nano",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2011
+    }, {
+      "title" : "The toxicological mode of action and the safety of synthetic amorphous silica — A nanostructured material",
+      "author" : [ "C. Fruijtier-Pölloth" ],
+      "venue" : "Toxicology",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2012
+    }, {
+      "title" : "Zeta potential and solubility to toxic ions as mechanisms of lung inflammation caused by metal/metal-oxide nanoparticles",
+      "author" : [ "Cho", "W-S", "R. Duffin", "F. Thielbeer", "M. Bradley", "I.L. Megson", "W. MacNee", "C.A. Poland", "L. Tran", "K. Donaldson" ],
+      "venue" : "Toxicol  ogical Sciences",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2012
+    }, {
+      "title" : "Effect of contact angle, zeta potential and particles size on the in vitro studies of Al2O3 and SiO2 nanoparticles",
+      "author" : [ "G. Karunakaran", "R. Suriyaprabha", "V. Rajendran", "N. Kannan" ],
+      "venue" : "IET Nanobiotech",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2015
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Nanotechnology, which may be defined as the technological application of engineered nanomaterials (1), is considered to be one of the most important technological developments of the 21st century (2, 3), so much so that the term ‘nano-revolution’ has been used to describe the growth of this industry (4).",
+      "startOffset" : 98,
+      "endOffset" : 101
+    }, {
+      "referenceID" : 1,
+      "context" : "Nanotechnology, which may be defined as the technological application of engineered nanomaterials (1), is considered to be one of the most important technological developments of the 21st century (2, 3), so much so that the term ‘nano-revolution’ has been used to describe the growth of this industry (4).",
+      "startOffset" : 196,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 2,
+      "context" : "Nanotechnology, which may be defined as the technological application of engineered nanomaterials (1), is considered to be one of the most important technological developments of the 21st century (2, 3), so much so that the term ‘nano-revolution’ has been used to describe the growth of this industry (4).",
+      "startOffset" : 196,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 3,
+      "context" : "Nanotechnology, which may be defined as the technological application of engineered nanomaterials (1), is considered to be one of the most important technological developments of the 21st century (2, 3), so much so that the term ‘nano-revolution’ has been used to describe the growth of this industry (4).",
+      "startOffset" : 301,
+      "endOffset" : 304
+    }, {
+      "referenceID" : 9,
+      "context" : "In silico methods, for example [quantitative] structure–activity relationships ([Q]SARs), grouping and read-across, promote the safe-by-design approach for the development of new nanomaterials by studying the relationship between the nanomaterial ‘structures’ and their biological effects (10, 11).",
+      "startOffset" : 289,
+      "endOffset" : 297
+    }, {
+      "referenceID" : 10,
+      "context" : "Since nanomaterials are complex (12), typically polydisperse, particulate materials, the concept of a ‘structure’ in this context should not be confused with a single molecular structure.",
+      "startOffset" : 32,
+      "endOffset" : 36
+    }, {
+      "referenceID" : 8,
+      "context" : "Rather, it represents a description of the nanomaterial in terms of its measurable physicochemical characteristics (9, 13), such as the composition of different components, aspect ratio, etc.",
+      "startOffset" : 115,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 11,
+      "context" : "Rather, it represents a description of the nanomaterial in terms of its measurable physicochemical characteristics (9, 13), such as the composition of different components, aspect ratio, etc.",
+      "startOffset" : 115,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 15,
+      "context" : "QSAR models can be classified as linear or non-linear, depending on whether they were developed by using a linear method, such as a multiple linear regression (17, 18), or non-linear methods, such as support vector machines in combination with a non-linear kernel function (19–23) or Random Forest (24, 25).",
+      "startOffset" : 159,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 16,
+      "context" : "QSAR models can be classified as linear or non-linear, depending on whether they were developed by using a linear method, such as a multiple linear regression (17, 18), or non-linear methods, such as support vector machines in combination with a non-linear kernel function (19–23) or Random Forest (24, 25).",
+      "startOffset" : 159,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 22,
+      "context" : "QSAR models can be classified as linear or non-linear, depending on whether they were developed by using a linear method, such as a multiple linear regression (17, 18), or non-linear methods, such as support vector machines in combination with a non-linear kernel function (19–23) or Random Forest (24, 25).",
+      "startOffset" : 298,
+      "endOffset" : 306
+    }, {
+      "referenceID" : 25,
+      "context" : "Indeed, Random Forest has only twice before been used to model nanomaterial effects (28, 29).",
+      "startOffset" : 84,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 26,
+      "context" : "Indeed, Random Forest has only twice before been used to model nanomaterial effects (28, 29).",
+      "startOffset" : 84,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 27,
+      "context" : "Briefly, WST-1 is a colorimetric assay for assessing cell metabolic activity, which is similar to the MTT assay, but offers certain experimental advantages (30, 31).",
+      "startOffset" : 156,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 28,
+      "context" : "Briefly, WST-1 is a colorimetric assay for assessing cell metabolic activity, which is similar to the MTT assay, but offers certain experimental advantages (30, 31).",
+      "startOffset" : 156,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 29,
+      "context" : "The changes in metabolic activity measured by using the WST-1 assay are considered a proxy for changes in cell viability (32).",
+      "startOffset" : 121,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 30,
+      "context" : "We applied the recommended approach (34, 35) of optimising the CORAL hyperparameters (i.",
+      "startOffset" : 36,
+      "endOffset" : 44
+    }, {
+      "referenceID" : 33,
+      "context" : "The coefficient of determination (R2) and the root mean square error (RMSE) were here used as statistics for comparing the two approaches, according to Equations 1 and 2 (38), based on two n value vectors, y1.",
+      "startOffset" : 170,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 30,
+      "context" : "Repeating the modelling with CORAL five times in this fashion is broadly in keeping with the recommended procedure for CORAL model optimisation and robustness evaluation (34, 35, 42).",
+      "startOffset" : 170,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 37,
+      "context" : "Repeating the modelling with CORAL five times in this fashion is broadly in keeping with the recommended procedure for CORAL model optimisation and robustness evaluation (34, 35, 42).",
+      "startOffset" : 170,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 30,
+      "context" : "In keeping with earlier work, we generated a ‘pseudoSMILES’ string for each instance, which represented both information related to the particular experimental conditions and the nanomaterial properties (34).",
+      "startOffset" : 203,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 30,
+      "context" : "When used to build linear models, as in the current work, the CORAL algorithm effectively treats each character (or label) in the pseudo-SMILES strings as a binary descriptor, which takes a value of 1 (or 0) if the character is present (or absent) for a given instance (34, 43).",
+      "startOffset" : 269,
+      "endOffset" : 277
+    }, {
+      "referenceID" : 38,
+      "context" : "When used to build linear models, as in the current work, the CORAL algorithm effectively treats each character (or label) in the pseudo-SMILES strings as a binary descriptor, which takes a value of 1 (or 0) if the character is present (or absent) for a given instance (34, 43).",
+      "startOffset" : 269,
+      "endOffset" : 277
+    }, {
+      "referenceID" : 30,
+      "context" : "In earlier work with CORAL (34, 35, 42), the authors developed five different splits of the same data set, in order to check whether the developed models were obtained by chance.",
+      "startOffset" : 27,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 37,
+      "context" : "In earlier work with CORAL (34, 35, 42), the authors developed five different splits of the same data set, in order to check whether the developed models were obtained by chance.",
+      "startOffset" : 27,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 22,
+      "context" : "It operates by building a multitude of decision-trees, and provides, as output, the class that represents the majority prediction (for classification problems), or the average prediction (for regression problems), of the individual trees (24, 25).",
+      "startOffset" : 238,
+      "endOffset" : 246
+    }, {
+      "referenceID" : 22,
+      "context" : "Whilst bootstrap sampling is typically used (25, 27), it is not currently possible to calculate feature contributions (see the Feature contribution analysis section) with the available software (44), if bootstrap sampling is used.",
+      "startOffset" : 44,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 24,
+      "context" : "Whilst bootstrap sampling is typically used (25, 27), it is not currently possible to calculate feature contributions (see the Feature contribution analysis section) with the available software (44), if bootstrap sampling is used.",
+      "startOffset" : 44,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 39,
+      "context" : "Whilst bootstrap sampling is typically used (25, 27), it is not currently possible to calculate feature contributions (see the Feature contribution analysis section) with the available software (44), if bootstrap sampling is used.",
+      "startOffset" : 194,
+      "endOffset" : 198
+    }, {
+      "referenceID" : 30,
+      "context" : "In the current work, we selected the additive scheme of the CORAL software, which computes a so-called ‘optimal descriptor’ (DCW) as the sum of correlation weights associated with the labels present in the pseudo-SMILES strings (34, 43), according to Equation 6.",
+      "startOffset" : 228,
+      "endOffset" : 236
+    }, {
+      "referenceID" : 38,
+      "context" : "In the current work, we selected the additive scheme of the CORAL software, which computes a so-called ‘optimal descriptor’ (DCW) as the sum of correlation weights associated with the labels present in the pseudo-SMILES strings (34, 43), according to Equation 6.",
+      "startOffset" : 228,
+      "endOffset" : 236
+    }, {
+      "referenceID" : 22,
+      "context" : "The first method (25) calculates the percentage",
+      "startOffset" : 17,
+      "endOffset" : 21
+    }, {
+      "referenceID" : 40,
+      "context" : "For Random Forest, a feature contribution analysis was carried out by using the technique developed by Kuz’min and colleagues (45), and implemented in the rfFC R package (44), which is designed to work with the randomForest R implementation of Random Forest.",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 39,
+      "context" : "For Random Forest, a feature contribution analysis was carried out by using the technique developed by Kuz’min and colleagues (45), and implemented in the rfFC R package (44), which is designed to work with the randomForest R implementation of Random Forest.",
+      "startOffset" : 170,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 0,
+      "context" : "These pseudo-coefficients were calculated by computing, for each descriptor, the difference between the arithmetic mean average values calculated over the feature contribution values for the pseudo-SMILES strings having a value of 1 for that specific descriptor, here called FC(1), and pseudo-SMILES strings having a value of 0 for the same descriptor, here called FC(0), according to Equation 9.",
+      "startOffset" : 277,
+      "endOffset" : 280
+    }, {
+      "referenceID" : 0,
+      "context" : "Pseudo-coefficient = FC(1) – FC(0) [Equation 9]",
+      "startOffset" : 23,
+      "endOffset" : 26
+    }, {
+      "referenceID" : 41,
+      "context" : "Taking into account the reference value for the difference of R2 between training and test sets reported in the article of Eriksson and colleagues (46), the average results obtained with CORAL are closer than Random Forest to the 0.",
+      "startOffset" : 147,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 22,
+      "context" : "Furthermore, comparison of the results obtained with and without correlated descriptors for the data set used in this work shows that Random Forest is, as expected (25), less affected than CORAL by the presence of correlated descriptors (see Table A1).",
+      "startOffset" : 164,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 42,
+      "context" : "This is interesting, since it suggests that, even for these small data sets, as is typical for nano-QSAR studies (47), there may be no need to cross-validate Random Forest models, as simply reporting their OOB performance will suffice.",
+      "startOffset" : 113,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 43,
+      "context" : "However, it must be noted that this finding may not hold in general — for example, Ballester and Mitchell (48) found that the OOB predictions only converged to the test set performance as the training set got larger.",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 9,
+      "context" : "Currently, there is an on-going discussion on the importance of the composition of nanoparticles and their so-called intrinsic and extrinsic properties, with regard to their use in toxicological studies (10, 13, 49).",
+      "startOffset" : 203,
+      "endOffset" : 215
+    }, {
+      "referenceID" : 11,
+      "context" : "Currently, there is an on-going discussion on the importance of the composition of nanoparticles and their so-called intrinsic and extrinsic properties, with regard to their use in toxicological studies (10, 13, 49).",
+      "startOffset" : 203,
+      "endOffset" : 215
+    }, {
+      "referenceID" : 44,
+      "context" : "Currently, there is an on-going discussion on the importance of the composition of nanoparticles and their so-called intrinsic and extrinsic properties, with regard to their use in toxicological studies (10, 13, 49).",
+      "startOffset" : 203,
+      "endOffset" : 215
+    }, {
+      "referenceID" : 37,
+      "context" : "We further sought to take account of variability in the endpoint values, due to the different experimental conditions, by treating the varied experimental conditions as additional descriptors, as per the socalled ‘eclectic’ approach previously proposed in the literature (35, 42, 50).",
+      "startOffset" : 271,
+      "endOffset" : 283
+    }, {
+      "referenceID" : 45,
+      "context" : "We further sought to take account of variability in the endpoint values, due to the different experimental conditions, by treating the varied experimental conditions as additional descriptors, as per the socalled ‘eclectic’ approach previously proposed in the literature (35, 42, 50).",
+      "startOffset" : 271,
+      "endOffset" : 283
+    }, {
+      "referenceID" : 46,
+      "context" : "With regard to the observations concerning the importance of descriptors related to cell lines, Kim and colleagues (51) recently reported that cell type, more than other factors like nanoparticle size and dose level, can influence cytotoxicity.",
+      "startOffset" : 115,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 46,
+      "context" : "In addition, the same authors also stated that identical nanoparticle preparations yield different outcomes, depending on the selected cell line, even if they are derived from the same cell type (51).",
+      "startOffset" : 195,
+      "endOffset" : 199
+    }, {
+      "referenceID" : 47,
+      "context" : "As far as nanoparticle size is concerned, the work of Rong and colleagues (52) showed that size has a potentially important role in increasing the toxicity of silica particles toward endothelial cells.",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 48,
+      "context" : "In another more relevant study, Tokgun and colleagues (53) reported that cytotoxicity toward the A549 cell line depended on the size of the silica nanoparticles used.",
+      "startOffset" : 54,
+      "endOffset" : 58
+    }, {
+      "referenceID" : 49,
+      "context" : "With regard to the toxicological significance of particle shape (as quantified via the aspect ratio), studies on carbon nanotubes and silica nanoparticles (as per the current work) either reported that aspect ratio had no relationship to toxicity, or that high aspect ratio particles were more toxic (54, 55).",
+      "startOffset" : 300,
+      "endOffset" : 308
+    }, {
+      "referenceID" : 50,
+      "context" : "With regard to the toxicological significance of particle shape (as quantified via the aspect ratio), studies on carbon nanotubes and silica nanoparticles (as per the current work) either reported that aspect ratio had no relationship to toxicity, or that high aspect ratio particles were more toxic (54, 55).",
+      "startOffset" : 300,
+      "endOffset" : 308
+    }, {
+      "referenceID" : 51,
+      "context" : "In this respect, the review of Fruijtier-Pölloth and colleagues (56) has shown that it is difficult to compare studies that are based on different experimental conditions and nanomaterials, since they could yield contradictory results due to the diverse range of mechanisms involved in the toxic outcome.",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 52,
+      "context" : "(57) found that, for a set of metal/metal oxide/silica nanoparticles, high positive zeta potential resulted in higher cytotoxicity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 53,
+      "context" : "(58) also suggested that the cytotoxicity of alumina and silica particles, both micro-sized and nanoparticles, increases as a result of positive zeta potential.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 52,
+      "context" : "Whilst this might be considered consistent with earlier indications that increasing zeta potential leads to higher cytotoxicity (57, 58), it must be stressed that these earlier studies indicated that it was specifically positive zeta potential values that led to higher cytotoxicity — all zeta potential values reported in the data set used for the current work were negative.",
+      "startOffset" : 128,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 53,
+      "context" : "Whilst this might be considered consistent with earlier indications that increasing zeta potential leads to higher cytotoxicity (57, 58), it must be stressed that these earlier studies indicated that it was specifically positive zeta potential values that led to higher cytotoxicity — all zeta potential values reported in the data set used for the current work were negative.",
+      "startOffset" : 128,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 52,
+      "context" : "that zeta potential is highly dependent upon the composition of the medium in which it is measured (57), and the obtained data used for modelling in the current study featured zeta potential values that were measured in water, rather than in the",
+      "startOffset" : 99,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 44,
+      "context" : "Arguably, better mechanistic insight would be obtained, if zeta potential values were measured under biologically-relevant conditions (49, 57).",
+      "startOffset" : 134,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 52,
+      "context" : "Arguably, better mechanistic insight would be obtained, if zeta potential values were measured under biologically-relevant conditions (49, 57).",
+      "startOffset" : 134,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 11,
+      "context" : "One way of partially addressing this in future work, other than by obtaining additional experimental measurements (13), would be to perform additional quantummechanical calculations to obtain new different descriptors, i.",
+      "startOffset" : 114,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 12,
+      "context" : "independent variables reflecting structural and chemical properties of the nanoparticles (14, 59).",
+      "startOffset" : 89,
+      "endOffset" : 97
+    } ],
+    "year" : 2017,
+    "abstractText" : "Nanotechnology, which may be defined as the technological application of engineered nanomaterials (1), is considered to be one of the most important technological developments of the 21st century (2, 3), so much so that the term ‘nano-revolution’ has been used to describe the growth of this industry (4). Nanotechnology is able to produce engineered nanomaterials having new or enhanced physicochemical properties compared to the bulk material. However, some of these properties, e.g. a high surface area to volume ratio, are potentially dangerous to humans (5–9). In silico methods, for example [quantitative] structure–activity relationships ([Q]SARs), grouping and read-across, promote the safe-by-design approach for the development of new nanomaterials by studying the relationship between the nanomaterial ‘structures’ and their biological effects (10, 11). Since nanomaterials are complex (12), typically polydisperse, particulate materials, the concept of a ‘structure’ in this context should not be confused with a single molecular structure. Rather, it represents a description of the nanomaterial in terms of its measurable physicochemical characteristics (9, 13), such as the composition of different components, aspect ratio, etc. In this regard, the development of nanomaterial QSARs (nano-QSARs) may offer an effective alternative to experimental testing, since they may permit the prediction of the (eco)toxicological effects of nanomaterials, based on a knowledge of their chemical composition and, where necessary, other physicochemical properties (14–16). QSAR models can be classified as linear or non-linear, depending on whether they were developed by using a linear method, such as a multiple linear regression (17, 18), or non-linear methods, such as support vector machines in combination with a non-linear kernel function (19–23) or Random Forest (24, 25). The aim of this study was to evaluate different approaches to building nano-QSAR models for a data set comprising 19 cytotoxicity experimental data points for silica nanomaterials. The focus on silica nanomaterials was mainly because of the Comparing the CORAL and Random Forest Approaches for Modelling the In Vitro Cytotoxicity of Silica Nanomaterials",
+    "creator" : "PScript5.dll Version 5.2.2"
+  }
+}

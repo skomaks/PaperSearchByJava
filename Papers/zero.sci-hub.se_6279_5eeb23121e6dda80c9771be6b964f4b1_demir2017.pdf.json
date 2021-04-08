@@ -1,0 +1,842 @@
+{
+  "name" : "zero.sci-hub.se_6279_5eeb23121e6dda80c9771be6b964f4b1_demir2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "A new Nonlocal FEM via Hermitian cubic shape functions for thermal vibration of nano beams surrounded by an elastic matrix",
+    "authors" : [ "Çiğdem Demir", "Ömer Civalek" ],
+    "emails" : [ "civalek@yahoo.com" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "In this study, vibration formulation is presented for nano-scaled beam embedded in an\nelastic matrix under the effect of thermal environments. The effect of length scale is investigated using Eringen’s nonlocal elasticity theory. The governing equations are obtained by using Hamilton’s principle and variational approach. Finite element formulation has been achieved based on the nonlocal Euler–Bernoulli beam theory for nano-scaled beam. Galerkin method of weighted residuals is considered for development the global stiffness and mass matrices via Hermitian cubic shape functions. The residue is minimized over the elements, after that the shape function is applied to the obtained equation. The influences of the Pasternak foundation parameter, small scale parameter, mechanical properties of material and thermal effect on vibrational frequency are investigated. As a special case, some results have also been given for silicon carbide nanowires.\nKeywords Nonlocal elasticity, Thermal effect, Nano beam, Euler Bernoulli beam theory, Finite Element Formulation.\n1 Corresponding author: Tel: +90-242-3106319; Fax: +90-242-3106306 E-mail address: civalek@yahoo.com"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Due to their outstanding features like Young’s modulus, yield strength, flexibility and\nconductivity, nanostructures are widely applied to nanoelectronic, nanodevices, nanosensors and nanocomposites. Therefore greatest attention is required in experimental and theoretical researches of micro/nano structures. However, micro/nano structures can be modeled as a beam, shell or plate with classical continuum but the results will not be accurate enough due to their small size (micro/nano). Classical continuum theory is not affected by the distance between atoms; it becomes important when the model size decreases. Therefore classical continuum mechanics have been developed to take into account the size effect by many researchers. These developments have been called the non-classical (higher-order) elasticity theories. The most widely used non-classical theory is the nonlocal theory of Eringen [1]. Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].\nVibration theory is one of the main subjects of designing in terms of engineering.\nAlthough it is often necessary that many problems about the temperature change are ignored. Nano mechanical devices may have to work in different temperatures. Rocket systems, nanoelectromechanical systems (NEMS) of satellites, high-tech computers, phones processor etc. are some devices which are subjected to very high and very low temperatures. Some articles in the literature have shown that even a small temperature change leads to big changes in the vibration properties of clamped beam [36-42]. In addition, thermal vibration can be used for calculating the Young's modulus of nanostructures.\nOn the basis of the above evidences the vibration with the effect of temperature has\nattracted the attention of many researchers on small scale materials [43-46]. Among them, the\nwork of Benzair et al. [47] concerned with the Eringen’s non-local elasticity theory for the natural frequency of nonlocal Timoshenko beam with the effect of temperature. Hsu et al. [48] have worked on the resonant frequency to analyze of the chiral single-walled carbon nanotubes subjected to temperature. In their paper, Timoshenko beam model which includes the effect of rotary inertia and shear deformation is used.\nThere are several methods for modeling the elastic medium. Elastic medium in\nWinkler’s idealization is represented by a linear elastic spring system which consists closely spaced independent linear springs. According to this idealization, the deformation will happen only in the region the load is applied. On the other hand, Pasternak model is another elastic medium model. In this model, existence of shear interaction among the spring elements is assumed by connecting the ends of the springs to a beam or plate that only undergoes transverse shear deformation. Some of the other types of modeling elastic medium are Borodicha Filonenko model, Heteny model, and Kerr model. In the literature, studies investigating the vibration behavior of beams which are surrounded by an elastic medium are available. Yang et al. [49] worked the free vibration of an axially moving elastic beam on simple supports embedded in elastic medium. The most existing studies in the literature examine the vibrational behavior of nanostructures surrounded by an elastic medium and include thermal effect.\nThe influences of elastic foundation and the importance of thermal effect on the\nnatural frequencies of single-walled carbon nanotubes resting on Winkler foundation are studied by Murmu and Pradhan [50]. Differential quadrature method is being utilized for thermal-vibration response. In order to appraise the effects of shear deformation and rotatory inertia on the natural frequencies of single-walled carbon nanotubes, the transverse vibrations\nof Timoshenko beams on Pasternak foundation were investigated by Amirian et al. [51]. Chang [52] has analyzed the thermal vibration and buckling instability of single-walled carbon nanotubes (SWCNT) conveying fluid and resting on elastic beam based on thermal elasticity mechanics. Chang [52] has replaced the elastic media by a constant Winkler type foundation and used Euler-Bernoulli beam model. The finite element method is adopted to obtain the numerical solutions of the model.\nOne of the most important materials in nanomaterial is carbon nanotubes. But, carbon\nnanotubes have a limited using area due to their performance under very-high temperature. Classical carbon nanotubes can stay stable until 600 0C [53]. Because of this limitation, carbon nanotubes are not suitable to be used in particular areas like high-tech processor, takeoff mechanism of spacecraft etc. In order to use nanotubes in these particular areas which are subjected to very-high and very-low temperatures, scientists have developed carbon nanotubes by composing Carbon atoms with Silica atoms in the structure of nanotube. The new structure has been called Silicon Carbide nanotube (SiCNT). Silicon carbide nanotubes are capable to resist and stay stable until 1000 0C (in air). Silicon carbide was produced in nanorod form by applying high-temperature to silicon carbide powder.\nSilicon carbide (SiC) has been researched since 30-40 years in order to use nanotubes\nunder high temperatures in semiconductor devices. Silica-Carbon compound have very high chemical resistance, high hardness, superior refractory and ceramic properties. The perfect combination of these superior thermal, mechanical, electronic properties and high physicalchemical stability makes SiC an excellent structure for electronic, optical applications. SiC structures can also be used for strengthening phases in metal-, ceramic-, and polymer-matrix composites [54, 55].\nIn the past 20 years, SiC has been modeled as one-dimensional nanostructures, such as\nnanorods, nanowires which contained new features. Theoretical and experimental studies have shown that elasticity modulus and strength of SiC which is in the form of a onedimensional structure is greater than that of the bulk form [55].\nIn the present article, we have developed thermo-vibrational model for nano simply\nsupported and clamped beam models on an elastic matrix. Finite element formulation for nonlocal elasticity theory of Euler-Bernoulli beam theory has been used via Hermitian cubic shape functions. The temperature is considered to be constant along the length of a homogeneous beam. The equations are obtained in the dimensionless form and results are presented. Also, some parametric results have been obtained and given for silicon carbide nanowire."
+    }, {
+      "heading" : "2. Nonlocal Euler-Bernoulli Beam Model",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Governing equations of beam based on nonlocal elasticity",
+      "text" : "The nonlocal constitutive formulation is\nijklij Cσae =∇− ])(1[ 22 0 (1)\nIn Eq. (1), ij σ is the nonlocal stress tensor, )(xC ijkl ′ is the classical (Cauchy) or local stress\ntensor at any x′ point in the body. a is a value which depends on internal (granular distance, lattice parameter, distance between C-C bonds as molecular diameters) and external\ncharacteristic lengths (crack length or wave length), and 0e is a constant which is being\nselected in a different range for each material in order to adjust the calculating results more accurate and closer to experiments or some other theories results. The displacement fields based on the classical Euler-Bernoulli beam theory can be written as\nx\nw zu\n∂\n∂ −= , 0=v ),( txww = (2)\nwhere ‘ w ‘ is the transverse displacement of the beam. The strain-displacement equations according to Euler-Bernoulli beam theory can be written as\n),( 2\n2\ntx x\nw z\nx\nu εxx\n∂\n∂ −=\n∂\n∂ = 0=====\nyzxzxyzzyy εεεεε (3)\nwhere xxε is the axial strain. The relationship between stress-strain for Euler-Bernoulli beam is\n),( 2\n2\ntx x\nw Ezxx\n∂\n∂ −=σ 0=====\nyzxzxyzzyy τττσσ\n(4)\nAccording to Eq. (1), the nonlocal stress-strain equations for beam can be written as [12]\nxx xx\nxx Eε x\nσ aeσ =\n∂\n∂ −\n2\n2 2\n0 )( , 0=yyσ , 0=zzσ (5)\n0)( 2\n2 2\n0 = ∂\n∂ −\nx ae\nxy\nxy\nτ τ , 0=\nyx τ 0== zxxz ττ , 0== zyyz ττ (6)\nThe generalized Hamilton’s principle is as it shown below\n[ ] 0)( 0\n=−−∫ dtWUTδ t\n(7)\nwhere T, U, and W are the kinetic energy, strain energy, and work done by external loads, respectively. The strain and kinetic energies of the classical Euler-Bernoulli beam can be stated as\n∫= V xxxx dVU εσ 2\n1 (8)\n∫   \n\n          ∂ ∂ = V dV t w T\n2\n2\n1 ρ (9)\nThe work can be calculated with the aid of the equation given below\n( ) ( )∫   \n\n  \n −\n     ∂ ∂ −=\nL\nwg dxwk x\nw kPW\n0\n2 2\n2\n1 (10)\nIn Eq. (10), P is the axial compressive force, wk is the linear spring constant and gk is the\nshear modulus of shear layer of Pasternak foundation model. When the thermal strains are fully restrained without external loads, thermal strain result from\nmechanicalthermaltotal εεε += (11)\nHeating induces thermal expansion strains can be written as\nT thermal ∆= αε (12)\nWhen linear temperature effect increases in a beam which is not fixed from ends and without any axial load, the length of the beam will extend. Therefore, the total strain will be equal the thermal strain. As there is no mechanical strain at the ends of the beam, any stress will not occur. But, in fact, the beams are not free to extend in the axial direction. Therefore uniform temperature rise is held with axially restrains. Thermal expansion will be equal to restraining force but in negative direction\nTEAEAEAP thermalmechanic ∆−=−== αεε (13)\nTherefore, in Eq. (10), the axial force can be expressed as [56]\nTEAP ∆= α (14)\nwhere α is the linear thermal expansion coefficient, T∆ is the temperature change. Substitution of Eqs. (8-10) into Eq. (7) leads to\n( ) 0 0 2\n2\n0\n=   \n\n          − ∂ ∂ ∂ ∂ −∆+              ∂ ∂ −− ∂ ∂ ∂ ∂ ∫ ∫ dtdxwwkx w x w kTEAdx x w Mdx t w t w A t wg L δδαδδρ\n(15)\nWhen Eq. (15) is equal to zero under double integral, differential equation of motion becomes\n( ) wk x\nw kTEA\nt\nw A\nx\nM wg +\n∂\n∂ −∆+\n∂\n∂ =\n∂\n∂ 2\n2\n2\n2\n2\n2\nαρ (16)\nThe nonlocal moment resultants for a beam can be obtained via Eq. (5) as\n2\n2\n2\n2 2\n0 )( x\nw EI\nx\nM aeM\n∂\n∂ −=\n∂\n∂ − (17)\nSubstitution of Eq. (16) into Eq. (17) leads to\n( ) 2\n2\n2\n2\n2\n2 2\n0 )( dx\nwd EIwk\nx\nw kTEA\nt\nw AaeM wg −\n     + ∂ ∂ −∆+ ∂ ∂ = αρ (18)\nFinally, by substituting Eq. (18) into Eq. (15), we obtain the governing equation for nonlocal Euler-Bernoulli beam [50, 57-60]\n( )       ∂ ∂ −      + ∂ ∂ −∆+ ∂ ∂ ∂ ∂ − ∂ ∂ 2\n2\n2\n2\n2\n2 2\n02\n2\n2\n2\n)( x\nw EIwk\nx\nw kTEA\nt\nw Aae\nxt\nw A wgαρρ\n( ) 0 2\n2\n=+ ∂\n∂ ∆−− wk\nx\nw TEAk wg α (19)"
+    }, {
+      "heading" : "2.2. Galerkin finite element formulation using the Hermitian cubic functions",
+      "text" : "As it can be seen from Fig.1 in order to use finite element method, the beam is discretized longitudinally. The Euler-Bernoulli beam element is a beam with four degrees of freedom (DOF) and has two end nodes: 1 and 2. The node displacement vector is given as\n[ ]2211 θθ www e = (20)\nBy multiplying shape function (φ ) and discretized displacements at nodes ( [ ]netw )( ) of an\nelement, we obtain the displacement of element ( etxw ),( ) as follow\n[ ][ ]nee twtxw )(),( φ= [ ][ ]nee twtxw )(),( φ= (21)\nTo solve the equations, the ‘Hermitian cubic shape functions’ are used. Dimensionless natural coordinate can be stated as below\n1 2\n−= L\nx ξ (22)\nwhere L is the element length. Coordinate ξ has a range of ξ = −1 at node 1 (x = 0) to ξ = +1 at node 2 (x = L) and dξ/dx = 2/L. The shape functions in terms of ξ are\n( )\n( )\n( ) ( )    \n\n    \n\n    \n    \n\n−+−\n−+\n+−\n+−\n=\n  \n  \n\n  \n  \n\n=\n)1(1 8\n1\n)2(1 4\n1\n)1(1 8\n1\n)2(1 4\n1\n2\n2\n2\n2\n4\n3\n2\n1\nξξ\nξξ\nξξ\nξξ\nφ\nφ\nφ\nφ\nφ\nL\nL\n(23)\nIn order to obtain the weak form of Eq. (19) the residue is given by\n( )             ∂ ∂ − ∂ ∂ ∆−+ ∂∂ ∂ −+ ∂ ∂ = 2\n2\n4\n4\n22\n4 2\n02\n2\n)( x\nw k\nx\nw TEAk\ntx\nw Aae\nt\nw AI wg αρρ\n( )       + ∂ ∂ ∆−− ∂ ∂ + wk x w TEAk x w EI wg 2\n2\n4\n4\nα\n(24)\nBy minimizing Eq. (24) over the element, we obtain\n∫ = L\nIdx 0 0φ\n(25)\nwhere, φ is the weight function. This weight function is used as shape function. By\nsubstituting Eq. (24) into Eq. (25)\n( )\n( ) 0 )(\n)()(\n0\n2\n2\n4\n4\n2\n2 2\n0\n4\n4 2\n022\n4 2\n02\n2\n=     \n\n    \n\n+ ∂\n∂ ∆−−+\n∂\n∂ −\n∂\n∂ ∆−+\n∂∂\n∂ −\n∂\n∂\n∫ dx wk\nx\nw TEAk\ndx\nwd EI\nx\nw kae\nx\nw TEAkae\ntx\nw Aae\nt\nw AL\nwgw\ng\nφφαφφ\nφαρφφρ\n(26)\nBy using partial integration, Eq. (26) leads to\n( )\n( )\n( ) ( )\n( ) 0)(\n)()()(\n)()()(\n00\n2\n2\n0\n3\n3\n0\n2 0\n0\n2\n2 2\n0\n0\n3\n3 2\n0\n0\n2\n3 2\n0\n0 2\n2\n2 02\n2 2\n02\n3 2\n02\n2\n= ∂\n∂ ∆−−\n∂\n∂ ′−\n∂\n∂ +\n∂\n∂ −\n∂\n∂ ′∆−−\n∂\n∂ ∆−+\n∂∂\n∂ −\n    \n\n    \n\n+ ∂\n∂ ′∆−+\n∂\n∂ ′′+\n∂\n∂ ′+\n∂\n∂ ′′∆−+\n∂∂\n∂ ′+\n∂\n∂\n∫\nL\np\nLLL\nw\nL\ng\nL\ng\nL\nL\nwg\nwg\nx\nw TEAk\nx\nw EI\nx\nw EI\nx\nw kae\nx\nw TEAkae\nx\nw TEAkae\ntx\nw Aae\ndx\nwk x\nw TEAk\nx\nw EI\nx\nw kae\nx\nw TEAkae\ntx\nw Aae\nt\nw A\nφαφφφ\nφαφαφρ\nφφαφ\nφφαφρφρ\n(27)\nThe general form of Eq. (27) for all nodes from a single element\n{ }[ ] ( ){ }[ ] ( ){ }[ ] { }[ ] { }[ ][ ]\n{ }[ ] { }[ ][ ] 0)(\n)()(\n0\n2 0\n0\n2 0 2 0\n=′′++\n′′++′′∆−+′′′′∆−+′′′′\n∫\n∫\ndxwAaewA\ndxkaekTEAkTEAkaeEI L\nL\nwwgg\nφφρφφρ\nφφφφφφαφφαφφ\n(28)\nBy using the shape functions in Eq. 23 and the dimensionless natural coordinates in Eq. 22, the bending stiffness matrix becomes\n[ ] ξφφφφ\nφ\nφ\nφ\nφ\nξ ξ\nφ\nξ\nφ d\nL\nEIL\nL EIK\nT\nb ∫∫ −−\n′′′′′′′′\n  \n  \n\n  \n  \n\n′′\n′′\n′′\n′′\n=      ∂ ∂ ∂ ∂ ∂ =\n1\n1\n4321\n4\n3\n2\n1\n3\n1 1 2 2 2 2 4\n8\n2\n16\nξ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nd L EI ∫ −    \n\n\n    \n\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n= 1\n1\n4342414\n3332313\n2322212\n1312111\n3\n8\n    \n\n    \n\n−\n−−−\n−\n−\n=\n22\n22\n3\n4626\n612612\n2646\n612612\nLLLL\nLL\nLLLL\nLL\nL\nEI Kb\n(29)\nSimilarly, Winkler foundation stiffness matrix can be written as\n∫ ∫ − −\n      ∂ ∂ ∂ ∂ ∂ +    ∂=\n1\n1\n1 1 2 2 01\n2\n4 )(\n2 ξ ξ\nφ\nξ\nφ ξφφ L k\nL ae\nL kK\nT\nw\nT\nwf\nξ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nξ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\n∂     \n\n    \n\n′′′′′′′′\n′′′′′′′′\n′′′′′′′′\n′′′′′′′′\n+∂     \n\n    \n\n= ∫∫ −−\n1\n1\n44342414\n43332313\n42322212\n41312111\n2 0 1 1\n44342414\n43332313\n42322212\n41312111\n)(2\n2 L\nkaeLk ww\n    \n\n    \n\n−−\n−−−\n−−\n−\n+      \n\n     \n\n−−−\n−\n−\n−\n=\n22\n222 0\n3232\n22\n3232\n22\n1\n433\n336336\n343\n336336\n30\n)(\n422313\n221561354\n313422\n135422156\n420\nLLLL\nLL\nLLLL\nLL\nL\nkae\nLLLL\nLLLL\nLLLL\nLLLL\nk K wwf\n(30)\nOn the other hand, the shear foundation stiffness matrix can be obtained as\n∫∫ −−\n      ∂ ∂ ∂ ∂ ∂ +      ∂ ∂ ∂ ∂ ∂ =\n1\n1 2\n2\n2\n2 2\n04\n1\n1 22 2\n)( 16\n2\n4 ξ\nξ\nφ\nξ\nφ ξ\nξ\nφ\nξ\nφ L kae\nL\nL k\nL K\nT\ng\nT\ngf\nξ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nξ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\n∂     \n\n    \n\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n+∂     \n\n    \n\n′′′′′′′′\n′′′′′′′′\n′′′′′′′′\n′′′′′′′′\n= ∫∫ −−\n1\n1\n44342414\n43332313\n42322212\n41312111\n3\n2 0 1 1\n44342414\n43332313\n42322212\n41312111\n)(82\nL\nkae\nL\nk gg\n    \n\n    \n\n−\n−−−\n−\n−\n+     \n\n    \n\n−−\n−−−\n−−\n−\n=\n22\n22\n3\n2 0\n22\n22\n2\n4626\n612612\n2646\n612612\n)(\n433\n336336\n343\n336336\n30\nLLLL\nLL\nLLLL\nLL\nL\nk ae\nLLLL\nLL\nLLLL\nLL\nL\nk K gg\nf\n(31)\nand the thermal geometric stiffness matrix can be expressed as\n( ) ( )∫∫ −−\n      ∂ ∂ ∂ ∂ ∂ ∆+      ∂ ∂ ∂ ∂ ∂ ∆=\n1\n1 2\n2\n2\n2 2\n04\n1\n1 2 2\n)( 16\n2\n4 ξ\nξ\nφ\nξ\nφ αξ\nξ\nφ\nξ\nφ α\nL TEAae\nL\nL\nL TEAK\nTT\nt\n( ) ( ) ξ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nα ξ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nα ∂    \n\n\n    \n\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n′′′′′′′′′′′′′′′′\n∆ +∂     \n\n    \n\n′′′′′′′′\n′′′′′′′′\n′′′′′′′′\n′′′′′′′′\n∆ = ∫∫\n−−\n1\n1\n4342414\n3332313\n2322212\n1312111\n3\n2 0 1 1\n44342414\n43332313\n42322212\n41312111\n)(82\nL\nTEAae\nL\nTEA\n( )\n     \n\n     \n\n    \n\n    \n\n−\n−−−\n−\n−\n+     \n\n    \n\n−−\n−−−\n−−\n−\n∆=\n22\n22\n3\n2 0\n22\n22\n4626\n612612\n2646\n612612\n)(\n433\n336336\n343\n336336\n30\n1\nLLLL\nLL\nLLLL\nLL\nL\nae\nLLLL\nLL\nLLLL\nLL\nL TEAK t α\n(32)\nSimilarly, the mass matrix can be given as\n∫∫ −−\n      ∂ ∂ ∂ ∂ ∂ +    ∂=\n1\n1 2\n2 0\n1\n1 2\n4 )(\n2 ξ ξ\nφ\nξ\nφ ρξφφρ L A\nL ae\nL AM\nT T\n∫∫ −−\n    \n\n    \n\n′′′′′′′′\n′′′′′′′′\n′′′′′′′′\n′′′′′′′′\n+∂     \n\n    \n\n= 1\n1\n44342414\n43332313\n42322212\n41312111\n2 0 1 1\n44342414\n43332313\n42322212\n41312111\n)(2\n2\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nρ ξ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nφφφφφφφφ\nρ\nL\nAaeAL\n    \n\n    \n\n−−\n−−−\n−−\n−\n+      \n\n     \n\n−−−\n−\n−\n−\n=\n22\n222 0\n3232\n22\n3232\n22\n433\n336336\n343\n336336\n30\n)(\n422313\n221561354\n313422\n135422156\n420\nLLLL\nLL\nLLLL\nLL\nL\nAae\nLLLL\nLLLL\nLLLL\nLLLL\nA M\nρρ\n(33)\nAfter the usual assembly procedures the governing matrix equation of equilibrium is given by\n[ ]{ } [ ]{ } [ ]{ } [ ]{ } [ ]{ } 0221 =−−++ δωδδδδ MKKKK tffb (34)\nThe vibration results are obtained by using above eigenvalue equation."
+    }, {
+      "heading" : "3. Numerical results",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Vibration Results for Non-dimensional Form",
+      "text" : "Depending on the equations obtained above, the thermal vibration of nano materials which is modeled as Euler-Bernoulli beam resting on elastic foundation is discussed in this study. The following dimensionless quantities are used:\nEI\nTLEA Ptemp 2∆ = α ,\nEI\nmL 24\n4 ω=Ω , EI Lk K ww\n4\n= , EI\nLk K g\ng\n2\n= (35)\nThe non-dimensional small scale parameters are taken as e0a/L= 0.0, 0.1, and 0.2,\nrespectively. Computer code has been developed depending on the finite element method. The number of element was found to be sufficiently accurate results when it is taken equal to 11. We take these values for more precise results as 20.\nIn the literature, it is difficult to find comparative results for the nonlocal-thermal\nvibration of beam which is resting on two-parameter elastic foundation. So first, the effect of thermal coefficient and small scale parameter is neglected. In Table 1, the non-dimensional first five frequencies of simply-supported beams for different Pasternak foundation parameter are compared with those of Togun and Bağdatlı [61], Mustapha and Zhong [62] and Yokoyama [63]. It is obvious from Table 1 that there is a good agreement between the four results. In addition, the study of Togun and Bağdatlı [61] includes the non-linear vibration of the nonlocal Euler-Bernoulli beam resting on Pasternak elastic foundation.\nComparison of first three dimensionless natural frequencies with various nonlocal\nparameters for embedded clamped-clamped nanobeam is tabulated in Table 2. As it can be seen from Table 2, results have provided a nice harmony with present results.\nThe optimum element number for simply supported and clamped boundary conditions\naccording to various nonlocal parameters is presented in Table 3. As it can be seen, good agreements are obtained for different nonlocal parameters when at least n = 10 for first mode for C-C boundary case while n=7 is enough for simply supported case.\nOn the other hand in case of obtaining accurate results for higher mode numbers,\nelement number must be chosen higher than 10 (for mode number three, n=20 is required). Similar to the classical results, the accuracy of the results is increased by the increase of the element number. The nonlocal parameter, elastic foundation parameter and thermal parameter do not significantly affect the accurate element number.\nThe relationships between non-dimensional natural frequencies, non-dimensional\ntemperature change for variable values of the non-dimensional small scale parameters are given in Table 4. Table 4 shows the dimensionless fundamental frequencies for simply supported and clamped-clamped boundary conditions. It can be clearly seen from Table 3 that for both boundary conditions of simply supported and clamped-clamped the non-dimensional natural frequencies increase for the negative temperature change while the frequencies decrease for positive temperature change. It is concluded for carbon nanotubes for the case of low or room temperature and high temperature mentioned by Wang et al. [64] and Murmu and Pradhan [50]. In the study of Hsu et al. [48] the frequency decreases with increasing temperature. Hsu et al. [48] have used positive thermal coefficient values in their study. When small scale parameter increases, the frequencies obtained for nonlocal Euler-Bernoulli beam become smaller than those evaluated by classical beam model for all cases. It is also notable that the frequencies of clamped-clamped beams are always greater than the frequencies of simply supported beams.\nTable 5, Fig. 2 and Fig. 3 show the effect of elastic foundation parameters and\ntemperature change on the natural frequency for variable nonlocal parameter. Figs. 3(a) and 4(a) show the increase in positive temperature change. It is obvious that by increasing the positive temperature change, the natural frequencies decrease. Figs. 3(b) and 4(b) describe the\nexact opposite of this situation for negative temperature change. However, it is revealed that with an increase in elastic foundation parameters, the natural frequencies also increase for all case. In addition, it can be emphasized from these figures and table that with the increase in shear modulus of shear layer, the non-dimensional frequencies increase significantly.\nIt can be noted that the axial force occurred by the temperature effect can be positive\nor negative. For the positive situation, two cases are possible such as either both the temperature change ( T∆ ) and the thermal expansion coefficient (α) are positive or negative. For the negative situation, two cases are similarly possible like the temperature change is negative and the thermal expansion coefficient is positive or vice versa."
+    }, {
+      "heading" : "3.2. Vibration Results for Silicon Carbide Nanowire",
+      "text" : "The parameters used in calculations for the silicon carbide nanowire are given as\nfollows: the Young's modulus, E=504.8 GPa, diameter, d=0.89 nm and mass density, ρ=3.10 g/cm3 [65]. Porter et al. [66] mentioned that thermal expansion coefficient should be smaller than 6 µ/K for silicon carbide. So thermal expansion coefficient, α=4 x 10-6 K-1 [67]. The small scale parameters are taken as e0a = 0.0, 1.0 nm, and 2.0 nm, respectively.\nIn view of these non-dimensional studies, new results for the fundamental frequency\nof isolated silicon carbide nanowires without foundation effects are evaluated with simply supported (S-S) and clamped-clamped (C-C) boundary conditions by using nonlocal EulerBernoulli beam theory for variable aspect ratios (L/d) and different nonlocal parameters in Fig. 4. It is found from the figure that the fundamental frequencies tend to decrease when the length-to-diameter ratio increase. Also, it can be interpreted that the frequencies evaluated for simply supported nanowire are smaller than those obtained for fixed-fixed nanowire.\nMoreover, it is observed that an increment in the nonlocal parameter leads to a decrement in the natural frequencies.\nIn Figs. 5 and 6, first three frequencies of simply supported and clamped-clamped\nsilicon carbide nanowires with a variable aspect ratio for different nonlocal parameters are depicted, respectively. As seen from the figures, frequencies decrease with increasing aspect ratio and nonlocal parameter for two different boundary conditions. It may be noted that the frequencies for clamped-clamped boundary condition are comparatively greater than those for simply supported boundary conditions. As can be expected, when the mode number increases, frequencies increase prominently. Additionally, it can be concluded that the effect of the nonlocal parameter is more evident in the smaller values of L/d.\nFigs. 7 and 8 shows the effects of two parameter elastic foundation parameters\nrespectively on the lowest three frequencies of Euler-Bernoulli silicon carbide nanowire subjected to different edge supports for variable aspect ratios (L/d=10 and L/d=50 respectively) and nonlocal parameters (e0a=0 and e0a=2 nm respectively). It is obvious that by increasing the spring constant parameter and shear modulus of shear layer respectively, the frequencies also increase. However, it is clearly seen from the figures that an increase in aspect ratio and nonlocal parameter gives rise to a decrease in the values of frequencies.\nIn Fig. 9 and Fig. 10, the change of the lowest three frequencies of simply supported\nand clamped-clamped silicon carbide nanowire with the change of temperature for variable nonlocal parameter with L/d=20 are plotted, respectively. It can be seen from these figures that the frequency of silicon carbide nanowire decreases with increment of the temperature. At the same time the frequency decreases with the increase of the nonlocal parameter and this becomes more pronounced in the higher modes.\nIn order to look the size-dependency, thermal and elastic foundation effects from a\ngeneral perspective, Fig. 11 is plotted. As it can be seen in this figure three different graphs for three different temperatures (T=400K, 200K, 0) in yellow, red and blue colors are plotted respectively. In Fig 11, it is clearly seen that the frequency ratio (ωnonlocal / ωlocal) is always less than one in the simply supported boundary condition. But in the clamped-clamped boundary condition, the ratio starts to become more than one for the greater values of the spring constant and shear modulus (Kw = 100 and Kg = 20)."
+    }, {
+      "heading" : "4. Conclusions",
+      "text" : "On the basis of the nonlocal Euler-Bernoulli beam theory, the general equation for thermomechanical vibrations of embedded nano beams and silicon carbide nanowires surrounded by a two-parameter elastic foundation is formulated. The governing equations in motion are derived by implementing Hamilton’s principle in conjunction with Eringen’s nonlocal theory. Finite element method with Hermitian cubic shape functions is employed to solve the resulting dynamic equation. In order to demonstrate the accuracy and validity of the present analysis, some comparative results are presented with the previous works available in the literature. It is observed that the difference between the frequencies of classical beam model and those of the nonlocal beam model increases as the mode number and nonlocal parameter increase. Also, it can be interpreted that the frequencies decrease by considering the thermal effect while the frequencies increase with inclusion of the elastic foundation effects."
+    } ],
+    "references" : [ {
+      "title" : "On differential equations of nonlocal elasticity and solutions of screw dislocation and surface waves",
+      "author" : [ "Eringen AC" ],
+      "venue" : "Journal of applied physics 1983;54:4703-10",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 1983
+    }, {
+      "title" : "Bending analysis of FG microbeams resting on Winkler elastic foundation via strain gradient elasticity",
+      "author" : [ "B Akgöz", "Ö. Civalek" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2015
+    }, {
+      "title" : "A general nonlocal beam theory: its application to nanobeam bending, buckling and vibration",
+      "author" : [ "M. Aydogdu" ],
+      "venue" : "Physica E: Low-dimensional Systems and Nanostructures",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2009
+    }, {
+      "title" : "An Eringen-like model for Timoshenko nanobeams",
+      "author" : [ "R Barretta", "L Feo", "R Luciano", "FM. de Sciarra" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2016
+    }, {
+      "title" : "Application of an enhanced version of the Eringen differential model to nanotechnology",
+      "author" : [ "R Barretta", "L Feo", "R Luciano", "FM. de Sciarra" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2016
+    }, {
+      "title" : "Static analysis of single walled carbon nanotubes (SWCNT) based on Eringen’s nonlocal elasticity theory",
+      "author" : [ "Ö Civalek", "Ç Demir", "B. Akgöz" ],
+      "venue" : "International Journal of Engineering and Applied Sciences",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2009
+    }, {
+      "title" : "Buckling and bending analyses of cantilever carbon nanotubes using the euler-bernoulli beam theory based on non-local continuum model",
+      "author" : [ "Ö Civalek", "C. Demir" ],
+      "venue" : "Asian Journal of Civil Engineering",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2011
+    }, {
+      "title" : "Bending analysis of microtubules using nonlocal Euler–Bernoulli beam theory. Applied Mathematical Modelling 2011;35:2053-67",
+      "author" : [ "Ö Civalek", "Ç. Demir" ],
+      "venue" : null,
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2053
+    }, {
+      "title" : "A new nonlocal bending model for Euler–Bernoulli nanobeams",
+      "author" : [ "FM de Sciarra", "R. Barretta" ],
+      "venue" : "Mechanics Research Communications",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2014
+    }, {
+      "title" : "Bending of Euler–Bernoulli beams using Eringen’s integral formulation: a paradox resolved",
+      "author" : [ "J Fernández-Sáez", "R Zaera", "J Loya", "J. Reddy" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2016
+    }, {
+      "title" : "Application of nonlocal continuum models to nanotechnology",
+      "author" : [ "J Peddieson", "GR Buchanan", "RP. McNitt" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2003
+    }, {
+      "title" : "Nonlocal theories for bending, buckling and vibration of beams",
+      "author" : [ "J. Reddy" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2007
+    }, {
+      "title" : "Application of nonlocal continuum mechanics to static analysis of micro-and nano-structures",
+      "author" : [ "Q Wang", "K. Liew" ],
+      "venue" : "Physics Letters A 2007;363:236-42",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2007
+    }, {
+      "title" : "Size-dependent electromechanical bending, buckling, and free vibration analysis of functionally graded piezoelectric nanobeams",
+      "author" : [ "Y. Tadi Beni" ],
+      "venue" : "Journal of Intelligent Material Systems and Structures",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2016
+    }, {
+      "title" : "A gradient Eringen model for functionally graded nanorods",
+      "author" : [ "R Barretta", "L Feo", "R Luciano", "FM. de Sciarra" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2015
+    }, {
+      "title" : "A microstructure-dependent sinusoidal plate model based on the strain gradient elasticity theory",
+      "author" : [ "B Akgöz", "Ö. Civalek" ],
+      "venue" : "Acta Mechanica",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2015
+    }, {
+      "title" : "Nonlocal beam theory for nonlinear vibrations of embedded multiwalled carbon nanotubes in thermal environment. Nonlinear Dynamics 2012;67:2241-54",
+      "author" : [ "R Ansari", "H Ramezannezhad", "R. Gholami" ],
+      "venue" : null,
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2012
+    }, {
+      "title" : "Refined 2D and exact 3D shell models for the free vibration analysis of single-and double-walled carbon nanotubes. Technologies 2015;3:259-84",
+      "author" : [ "S Brischetto", "F Tornabene", "N Fantuzzi", "M. Bacciocchi" ],
+      "venue" : null,
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2015
+    }, {
+      "title" : "Vibration analysis of micro-scaled sector shaped graphene surrounded by an elastic matrix",
+      "author" : [ "Ö Civalek", "B. Akgöz" ],
+      "venue" : "Computational Materials Science",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2013
+    }, {
+      "title" : "Torsional and longitudinal frequency and wave response of microtubules based on the nonlocal continuum and nonlocal discrete models. Applied Mathematical Modelling 2013;37:9355-67",
+      "author" : [ "Ç Demir", "Ö. Civalek" ],
+      "venue" : null,
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2013
+    }, {
+      "title" : "Finite element formulation for the free vibration analysis of embedded double-walled carbon nanotubes based on nonlocal Timoshenko beam theory. Journal of theoretical and applied physics 2013;7:6",
+      "author" : [ "M Hemmatnezhad", "R. Ansari" ],
+      "venue" : null,
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2013
+    }, {
+      "title" : "Vibration of nonlocal Kelvin–Voigt viscoelastic damped Timoshenko beams",
+      "author" : [ "Y Lei", "S Adhikari", "M. Friswell" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2013
+    }, {
+      "title" : "A nonlocal beam theory for bending, buckling, and vibration of nanobeams",
+      "author" : [ "Thai H-T" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2012
+    }, {
+      "title" : "Wave propagation in graphene sheets with nonlocal elastic theory via finite element formulation",
+      "author" : [ "B Arash", "Q Wang", "KM. Liew" ],
+      "venue" : "Computer Methods in Applied Mechanics and Engineering",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2012
+    }, {
+      "title" : "Effect of agglomeration on the natural frequencies of functionally graded carbon nanotube-reinforced laminated composite doublycurved shells. Composites Part B: Engineering 2016;89:187-218",
+      "author" : [ "F Tornabene", "N Fantuzzi", "M Bacciocchi", "E. Viola" ],
+      "venue" : null,
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2016
+    }, {
+      "title" : "Free vibration analysis of conical shells reinforced with agglomerated carbon nanotubes",
+      "author" : [ "S Kamarian", "M Salim", "R Dimitri", "F. Tornabene" ],
+      "venue" : "International Journal of Mechanical Sciences",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2016
+    }, {
+      "title" : "Nonlocal continuum theories of beams for the analysis of carbon nanotubes",
+      "author" : [ "J Reddy", "S. Pang" ],
+      "venue" : "Journal of applied physics 2008;103:023511",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2008
+    }, {
+      "title" : "Nonlocal finite element formulation for vibration",
+      "author" : [ "Ç Demir", "Ö. Civalek" ],
+      "venue" : "International Journal of Engineering and Applied Sciences",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2016
+    }, {
+      "title" : "Strain gradient elasticity and modified couple stress models for buckling analysis of axially loaded micro-scaled beams",
+      "author" : [ "B Akgöz", "Ö. Civalek" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2011
+    }, {
+      "title" : "A simple mathematical model of microtubules surrounded by an elastic matrix by nonlocal finite element method",
+      "author" : [ "Ö Civalek", "C. Demir" ],
+      "venue" : "Applied Mathematics and Computation",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2016
+    }, {
+      "title" : "Small scale effect on the thermal buckling of orthotropic arbitrary straight-sided quadrilateral nanoplates embedded in an elastic medium. Composite Structures 2011;93:2083-9",
+      "author" : [ "P Malekzadeh", "A Setoodeh", "AA. Beni" ],
+      "venue" : null,
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2083
+    }, {
+      "title" : "DSC method for buckling analysis of boron nitride nanotube (BNNT) surrounded by an elastic matrix. Composite Structures 2016;143:300-9",
+      "author" : [ "K Mercan", "Ö. Civalek" ],
+      "venue" : null,
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2016
+    }, {
+      "title" : "A nonlocal sinusoidal shear deformation beam theory with application to bending, buckling, and vibration of nanobeams",
+      "author" : [ "Thai H-T", "Vo TP" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2012
+    }, {
+      "title" : "Buckling analysis of graphene sheets embedded in an elastic medium based on the kp-Ritz method and non-local elasticity theory. Engineering Analysis with Boundary Elements 2016;70:31-9",
+      "author" : [ "Y Zhang", "L Zhang", "K Liew", "J. Yu" ],
+      "venue" : null,
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2016
+    }, {
+      "title" : "Vibrational analysis of temperature-dependent materials for clamped isotropic beam under thermal effects2006",
+      "author" : [ "J Avsec", "M. Oblak" ],
+      "venue" : null,
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2006
+    }, {
+      "title" : "Thermal vibrational analysis for simply supported beam and clamped beam",
+      "author" : [ "J Avsec", "M. Oblak" ],
+      "venue" : "Journal of Sound and Vibration",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2007
+    }, {
+      "title" : "Theory of thermal stresses",
+      "author" : [ "Boley BA", "Weiner JH" ],
+      "venue" : "Courier Corporation,",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2012
+    }, {
+      "title" : "Assesment of adaptive techniques for the control of structures subject to temperature variations",
+      "author" : [ "R Marques", "DJ Inman", "DA. Rade" ],
+      "venue" : "12th ICSV Conference,",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2005
+    }, {
+      "title" : "An analytical model for a clamped isotropic beam under thermal effects",
+      "author" : [ "Marques RF", "Inman DJ" ],
+      "venue" : "ASME 2002 International Mechanical Engineering Congress and Exposition: American Society of Mechanical Engineers;",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2002
+    }, {
+      "title" : "Size-dependent electromechanical buckling of functionally graded electrostatic nano-bridges. Sensors and Actuators A: Physical 2015;232:49-62",
+      "author" : [ "Shojaeian M", "Beni YT" ],
+      "venue" : null,
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2015
+    }, {
+      "title" : "Vibration problems in engineering",
+      "author" : [ "S Timoshenko", "D Young", "W. Weaver" ],
+      "venue" : null,
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 1974
+    }, {
+      "title" : "Thermo-mechanical vibration analysis of nonlocal temperaturedependent FG nanobeams with various boundary conditions. Composites Part B: Engineering 2015;78:272-90",
+      "author" : [ "F Ebrahimi", "E. Salari" ],
+      "venue" : null,
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2015
+    }, {
+      "title" : "Thermo-mechanical vibration analysis of a single-walled carbon nanotube embedded in an elastic medium based on higher-order shear deformation beam theory",
+      "author" : [ "F Ebrahimi", "E. Salari" ],
+      "venue" : "Journal of Mechanical Science and Technology",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2015
+    }, {
+      "title" : "Effect of various thermal loadings on buckling and vibrational characteristics of nonlocal temperature-dependent functionally graded nanobeams. Mechanics of Advanced Materials and Structures 2016;23:1379-97",
+      "author" : [ "F Ebrahimi", "E. Salari" ],
+      "venue" : null,
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2016
+    }, {
+      "title" : "Thermal effect on free vibration and buckling of sizedependent microbeams",
+      "author" : [ "Ke L-L", "Wang Y-S", "Wang Z-D" ],
+      "venue" : "Physica E: Low-dimensional Systems and Nanostructures",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2011
+    }, {
+      "title" : "The thermal effect on vibration of single-walled carbon nanotubes using nonlocal Timoshenko beam theory",
+      "author" : [ "A Benzair", "A Tounsi", "A Besseghier", "H Heireche", "N Moulay", "L. Boumia" ],
+      "venue" : "Journal of Physics D: Applied Physics 2008;41:225404",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2008
+    }, {
+      "title" : "Resonance frequency of chiral single-walled carbon nanotubes using Timoshenko beam theory",
+      "author" : [ "Hsu J-C", "Chang R-P", "Chang W-J" ],
+      "venue" : "Physics Letters A 2008;372:2757-9",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2008
+    }, {
+      "title" : "Vibration and stability of an axially moving beam on elastic foundation",
+      "author" : [ "Yang X-D", "Lim CW", "Liew KM" ],
+      "venue" : "Advances in Structural Engineering",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2010
+    }, {
+      "title" : "Thermo-mechanical vibration of a single-walled carbon nanotube embedded in an elastic medium based on nonlocal elasticity theory",
+      "author" : [ "T Murmu", "S. Pradhan" ],
+      "venue" : "Computational Materials Science",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2009
+    }, {
+      "title" : "Thermal vibration analysis of carbon nanotubes embedded in two-parameter elastic foundation based on nonlocal Timoshenko's beam theory. Archives of Mechanics 2013;64:581-602",
+      "author" : [ "B Amirian", "R Hosseini-Ara", "H. Moosavi" ],
+      "venue" : null,
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2013
+    }, {
+      "title" : "Thermal–mechanical vibration and instability of a fluid-conveying singlewalled carbon nanotube embedded in an elastic medium based on nonlocal elasticity theory",
+      "author" : [ "Chang T-P" ],
+      "venue" : "Applied Mathematical Modelling",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 1964
+    }, {
+      "title" : "Nanotube Superfiber Materials",
+      "author" : [ "M Schulz", "V Shanov", "Z. Yin" ],
+      "venue" : "Changing Engineering Design: William Andrew,",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2013
+    }, {
+      "title" : "Nanorods of silicon carbide from silicon carbide powder by high temperature heat treatment",
+      "author" : [ "B Nayak", "D Behera", "B. Mishra" ],
+      "venue" : "Journal of materials science 2011;46:3052-9",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2011
+    }, {
+      "title" : "Laser ablation synthesis and optical characterization of silicon carbide nanowires",
+      "author" : [ "W Shi", "Y Zheng", "H Peng", "N Wang", "CS Lee", "ST. Lee" ],
+      "venue" : "Journal of the American Ceramic Society",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2000
+    }, {
+      "title" : "Fundamental principles of structural behaviour under thermal effects",
+      "author" : [ "A Usmani", "J Rotter", "S Lamont", "A Sanad", "M. Gillie" ],
+      "venue" : "Fire Safety Journal 2001;36:721-44",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2001
+    }, {
+      "title" : "Variational formulation and finite element analysis for nonlocal elastic nanobeams and nanoplates. Computational materials science 2010;49:492-9",
+      "author" : [ "J Phadikar", "S. Pradhan" ],
+      "venue" : null,
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2010
+    }, {
+      "title" : "Nonlocal finite element analysis and small scale effects of CNTs with Timoshenko beam theory. Finite Elements in Analysis and Design 2012;50:8-20",
+      "author" : [ "S. Pradhan" ],
+      "venue" : null,
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2012
+    }, {
+      "title" : "Finite element analysis of CNTs based on nonlocal elasticity and Timoshenko beam theory including thermal effect",
+      "author" : [ "S Pradhan", "U. Mandal" ],
+      "venue" : "Physica E: Low-dimensional Systems and Nanostructures",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2013
+    }, {
+      "title" : "Buckling analysis of single walled carbon nanotube on Winkler foundation using nonlocal elasticity theory and DTM. Computational materials science 2011;50:1052-6",
+      "author" : [ "S Pradhan", "G. Reddy" ],
+      "venue" : null,
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2011
+    }, {
+      "title" : "Nonlinear Vibration of a Nanobeam on a Pasternak Elastic Foundation Based on Non-Local Euler-Bernoulli Beam Theory. Mathematical and Computational Applications 2016;21:3",
+      "author" : [ "Togun N", "Bağdatlı SM" ],
+      "venue" : null,
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2016
+    }, {
+      "title" : "Free transverse vibration of an axially loaded non-prismatic single-walled carbon nanotube embedded in a two-parameter elastic medium. Computational materials science 2010;50:742-51",
+      "author" : [ "K Mustapha", "Z. Zhong" ],
+      "venue" : null,
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2010
+    }, {
+      "title" : "Vibrations and transient responses of Timoshenko beams resting on elastic foundations",
+      "author" : [ "T. Yokoyama" ],
+      "venue" : "Ingenieur-Archiv",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 1987
+    }, {
+      "title" : "The thermal effect on vibration and instability of carbon nanotubes conveying fluid",
+      "author" : [ "L Wang", "Q Ni", "M Li", "Q. Qian" ],
+      "venue" : "Physica E: Low-dimensional Systems and Nanostructures",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2008
+    }, {
+      "title" : "Silicon carbide nanowires under external loads: An atomistic simulation study",
+      "author" : [ "MA Makeev", "D Srivastava", "M. Menon" ],
+      "venue" : "Physical Review B",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2006
+    }, {
+      "title" : "Atomistic modeling of finite-temperature properties of β-SiC. I. Lattice vibrations, heat capacity, and thermal expansion",
+      "author" : [ "LJ Porter", "J Li", "S. Yip" ],
+      "venue" : "Journal of nuclear materials 1997;246:53-9",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 1997
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "The most widely used non-classical theory is the nonlocal theory of Eringen [1].",
+      "startOffset" : 76,
+      "endOffset" : 79
+    }, {
+      "referenceID" : 1,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 2,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 3,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 4,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 5,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 6,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 7,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 8,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 9,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 10,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 11,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 12,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 13,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 14,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 104,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 15,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 16,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 17,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 18,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 19,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 20,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 21,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 22,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 23,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 24,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 25,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 26,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 27,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 28,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 140,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 29,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 140,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 30,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 140,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 31,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 140,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 32,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 140,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 33,
+      "context" : "Many investigations have been made on the mechanical properties of nanomaterials such as static bending [2-15], vibration [16-29], buckling [30-35].",
+      "startOffset" : 140,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 34,
+      "context" : "Some articles in the literature have shown that even a small temperature change leads to big changes in the vibration properties of clamped beam [36-42].",
+      "startOffset" : 145,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 35,
+      "context" : "Some articles in the literature have shown that even a small temperature change leads to big changes in the vibration properties of clamped beam [36-42].",
+      "startOffset" : 145,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 36,
+      "context" : "Some articles in the literature have shown that even a small temperature change leads to big changes in the vibration properties of clamped beam [36-42].",
+      "startOffset" : 145,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 37,
+      "context" : "Some articles in the literature have shown that even a small temperature change leads to big changes in the vibration properties of clamped beam [36-42].",
+      "startOffset" : 145,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 38,
+      "context" : "Some articles in the literature have shown that even a small temperature change leads to big changes in the vibration properties of clamped beam [36-42].",
+      "startOffset" : 145,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 39,
+      "context" : "Some articles in the literature have shown that even a small temperature change leads to big changes in the vibration properties of clamped beam [36-42].",
+      "startOffset" : 145,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 40,
+      "context" : "Some articles in the literature have shown that even a small temperature change leads to big changes in the vibration properties of clamped beam [36-42].",
+      "startOffset" : 145,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 41,
+      "context" : "On the basis of the above evidences the vibration with the effect of temperature has attracted the attention of many researchers on small scale materials [43-46].",
+      "startOffset" : 154,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 42,
+      "context" : "On the basis of the above evidences the vibration with the effect of temperature has attracted the attention of many researchers on small scale materials [43-46].",
+      "startOffset" : 154,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 43,
+      "context" : "On the basis of the above evidences the vibration with the effect of temperature has attracted the attention of many researchers on small scale materials [43-46].",
+      "startOffset" : 154,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 44,
+      "context" : "On the basis of the above evidences the vibration with the effect of temperature has attracted the attention of many researchers on small scale materials [43-46].",
+      "startOffset" : 154,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 45,
+      "context" : "[47] concerned with the Eringen’s non-local elasticity theory for the natural frequency of nonlocal Timoshenko beam with the effect of temperature.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 46,
+      "context" : "[48] have worked on the resonant frequency to analyze of the chiral single-walled carbon nanotubes subjected to temperature.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 47,
+      "context" : "[49] worked the free vibration of an axially moving elastic beam on simple supports embedded in elastic medium.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 48,
+      "context" : "The influences of elastic foundation and the importance of thermal effect on the natural frequencies of single-walled carbon nanotubes resting on Winkler foundation are studied by Murmu and Pradhan [50].",
+      "startOffset" : 198,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 50,
+      "context" : "Chang [52] has analyzed the thermal vibration and buckling instability of single-walled carbon nanotubes (SWCNT) conveying fluid and resting on elastic beam based on thermal elasticity mechanics.",
+      "startOffset" : 6,
+      "endOffset" : 10
+    }, {
+      "referenceID" : 50,
+      "context" : "Chang [52] has replaced the elastic media by a constant Winkler type foundation and used Euler-Bernoulli beam model.",
+      "startOffset" : 6,
+      "endOffset" : 10
+    }, {
+      "referenceID" : 51,
+      "context" : "Classical carbon nanotubes can stay stable until 600 C [53].",
+      "startOffset" : 55,
+      "endOffset" : 59
+    }, {
+      "referenceID" : 52,
+      "context" : "SiC structures can also be used for strengthening phases in metal-, ceramic-, and polymer-matrix composites [54, 55].",
+      "startOffset" : 108,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 53,
+      "context" : "SiC structures can also be used for strengthening phases in metal-, ceramic-, and polymer-matrix composites [54, 55].",
+      "startOffset" : 108,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 53,
+      "context" : "Theoretical and experimental studies have shown that elasticity modulus and strength of SiC which is in the form of a onedimensional structure is greater than that of the bulk form [55].",
+      "startOffset" : 181,
+      "endOffset" : 185
+    }, {
+      "referenceID" : 11,
+      "context" : "(1), the nonlocal stress-strain equations for beam can be written as [12]",
+      "startOffset" : 69,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 54,
+      "context" : "(10), the axial force can be expressed as [56]",
+      "startOffset" : 42,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 48,
+      "context" : "(15), we obtain the governing equation for nonlocal Euler-Bernoulli beam [50, 57-60]",
+      "startOffset" : 73,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 55,
+      "context" : "(15), we obtain the governing equation for nonlocal Euler-Bernoulli beam [50, 57-60]",
+      "startOffset" : 73,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 56,
+      "context" : "(15), we obtain the governing equation for nonlocal Euler-Bernoulli beam [50, 57-60]",
+      "startOffset" : 73,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 57,
+      "context" : "(15), we obtain the governing equation for nonlocal Euler-Bernoulli beam [50, 57-60]",
+      "startOffset" : 73,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 58,
+      "context" : "(15), we obtain the governing equation for nonlocal Euler-Bernoulli beam [50, 57-60]",
+      "startOffset" : 73,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 59,
+      "context" : "In Table 1, the non-dimensional first five frequencies of simply-supported beams for different Pasternak foundation parameter are compared with those of Togun and Bağdatlı [61], Mustapha and Zhong [62] and Yokoyama [63].",
+      "startOffset" : 172,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 60,
+      "context" : "In Table 1, the non-dimensional first five frequencies of simply-supported beams for different Pasternak foundation parameter are compared with those of Togun and Bağdatlı [61], Mustapha and Zhong [62] and Yokoyama [63].",
+      "startOffset" : 197,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 61,
+      "context" : "In Table 1, the non-dimensional first five frequencies of simply-supported beams for different Pasternak foundation parameter are compared with those of Togun and Bağdatlı [61], Mustapha and Zhong [62] and Yokoyama [63].",
+      "startOffset" : 215,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 59,
+      "context" : "In addition, the study of Togun and Bağdatlı [61] includes the non-linear vibration of the nonlocal Euler-Bernoulli beam resting on Pasternak elastic foundation.",
+      "startOffset" : 45,
+      "endOffset" : 49
+    }, {
+      "referenceID" : 46,
+      "context" : "[48] the frequency decreases with increasing temperature.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 46,
+      "context" : "[48] have used positive thermal coefficient values in their study.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 64,
+      "context" : "[66] mentioned that thermal expansion coefficient should be smaller than 6 μ/K for silicon carbide.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    } ],
+    "year" : 2017,
+    "abstractText" : "In this study, vibration formulation is presented for nano-scaled beam embedded in an elastic matrix under the effect of thermal environments. The effect of length scale is investigated using Eringen’s nonlocal elasticity theory. The governing equations are obtained by using Hamilton’s principle and variational approach. Finite element formulation has been achieved based on the nonlocal Euler–Bernoulli beam theory for nano-scaled beam. Galerkin method of weighted residuals is considered for development the global stiffness and mass matrices via Hermitian cubic shape functions. The residue is minimized over the elements, after that the shape function is applied to the obtained equation. The influences of the Pasternak foundation parameter, small scale parameter, mechanical properties of material and thermal effect on vibrational frequency are investigated. As a special case, some results have also been given for silicon carbide nanowires.",
+    "creator" : "Elsevier"
+  }
+}

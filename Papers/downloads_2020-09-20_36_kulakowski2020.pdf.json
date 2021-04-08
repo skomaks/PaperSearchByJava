@@ -1,0 +1,1256 @@
+{
+  "name" : "downloads_2020-09-20_36_kulakowski2020.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "From Nano-Communications to Body Area Networks: A Perspective on Truly Personal Communications",
+    "authors" : [ "PAWEL KULAKOWSKI", "KENAN TURBIC", "LUIS M. CORREIA" ],
+    "emails" : [ "(kulakowski@kt.agh.edu.pl)" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "INDEX TERMS Body area networks, communication interfaces, nano-networks, molecular communications, personal communications.\nI. INTRODUCTION The several successive generations of mobile cellular and wireless communications have been aiming at a single goal: to provide connectivity to people at their own pleasure. It started with the famous ‘‘anytime, anywhere’’ motto in the 1st Generation of voice-only mobile cellular communications, and since then it has evolved to the provision of data and multimedia everywhere and with a decreasing delay. In addition to satisfying the anticipated data rate requirements, the incoming 5th Generation aims at two other key goals: to reduce transmission latency and to substantially increase network capacity. These two goals are not improving the direct user’s experience, but rather enabling machine-based applications and services. So, somehow, the further evolution of mobile and wireless communications has to eventually address the truly personal dimension of communications, i.e.,\nThe associate editor coordinating the review of this manuscript and\napproving it for publication was Emrecan Demirors .\nthe exchange of information within, around, and outside the body.\nBody area networks (BANs), accommodating such communication scenarios, have been gaining considerable attention recently. However, for truly personal communication systems, one needs to encompass nano-networks [1], to allow for the exchange of information among devices inside the human body, by exploiting mechanisms at the cellular and molecular levels. At the nano-scale, communications are performed by using molecules or molecular structures with specific properties, such as photo-active fluorophores or channelrhodopsins, antibodies (proteins), moving bacteria or waves of ions at different scales, as shown in Fig. 1. Of course, this ultrawide range of communication mechanisms introduces a number of challenges, including those related to power supply, propagation delay, and throughput, among many others. These challenges need to be addressed from the technical aspect, for example, design of antennas, electronics, interfaces, materials, software, etc.,\nVOLUME 8, 2020 This work is licensed under a Creative Commons Attribution 4.0 License. For more information, see https://creativecommons.org/licenses/by/4.0/ 159839\nbut also from the socio-psychological one, as the deployment of these systems will highly depend on acceptance by society.\nOn the other hand, since these systems will be an integral part of the body, they may truly change people’s lives. Imagine if one’s thoughts could be picked up and sent to another person, without the need for a verbal explanation, or if one’s body could detect cancerous tissues, heart and brain function anomalies, and warn physicians well in advance of a heart attack, seizure, or other complications. While these examples stretch one’s imagination, the potential of these personal systems is extraordinary.\nThis article addresses these truly personal communication systems, with the focus on the aspects of integration of nano-communication systems into a large-scale communication network. A brief overview of nano- and BANcommunication technologies is provided, and the potential mechanisms that can be used to establish interfaces in between the two are discussed. The latter is the main contribution of this article, as interfaces are addressed by taking a perspective different from the typical one, by underlining their crucial role in making these systemswork. Thus, beyond the reviewing of techniques in nano-networks and BANs, the paper brings together insights into physics, biotechnology and optogenetics, explaining new mechanisms that can be exploited for creating interfaces between the networks at the different scales.\nThe rest of this article is organized as follows. Potential applications are discussed in Section II, and the components of the foreseen personal network are addressed in the following sections, in an increasing scale. Nano- and micro-scale communications inside the body are discussed by reviewing the most promising mechanisms in Section III, followed by an overview of the main communication scenarios and enabling technologies in current BANs in Section IV. The potential interfaces between networks of different scales are\ndiscussed in Section V, finishing with the main conclusions in Section VI.\nII. APPLICATIONS Establishing communications between nano-, micro- and macro-networks, when possible, opens a vast area of new applications, stretching beyond the ones envisioned for nano-networks alone. The pivotal change is the fact that nano-networks may be contacted and controlled from the macro-scale world during the whole time of their operation.\nThe largest group of potential applications is related to medical diagnostics and surgery. One may imagine a diagnostic system composed of nano-particles deployed in the human tissue or the vascular system [2], [3]. Data gathered by the system can be transmitted outside the body to a medical doctor, through BAN connections, for real time analysis. Similarly, nano-machines could be used to perform remote surgery, with the surgeons having access to the collected data and steering their actions. One can easily envisage other applications in healthcare, encompassing patient monitoring, localized drug delivery, aging care, etc.\nData storage is another area that can greatly benefit from nano- and molecular-networks, considering the exponentially increasing amount of data mankind is producing. Deoxyribonucleic and ribonucleic acid (DNA and RNA) strands, which keep the human genome in nucleotide chains, are extremely effective in data storage. In theory, each nucleotide can keep 2 bits of information, as there are 4 different nucleotides both in DNA and RNA strands. It was recently shown that information can be artificially stored and retrieved in DNA very efficiently, keeping on average 1.57 bits per nucleotide, which corresponds to an impressive density of 215 petabytes per gram of DNA [4].\nThese systems could also comprise smart uniforms for fire fighters, police, and soldiers in battlefields, with the\n159840 VOLUME 8, 2020\nembedded sensors capable of measuring the body’s vital signals or detect bullet wounds, hence, being essential for the safety of their users. Nano-sensors operating inside one’s body could allow for quick diagnostics, localization and precise classification of the tissue damage in case of injury, allowing for a quick reaction of a medical team, e.g., rescuing a soldier from the battlegrounds, and ultimately making the difference between life and death.\nMany applications can be envisaged in sports as well, especially for training of high-performance athletes and monitoring of the fitness-related activities, including the measurement of different physiological parameters, e.g., heart rate, energy consumption, fat percentage, body water content, etc. Themeasurement and display of real-time information and/or the control of follow-up reports may lead sports to a new level of professional well-being and safety.\nBacked by the power of business and commerce, the entertainment industry is one of the potential technology drivers. On the one hand, requirements may not be as strict as in the previous areas (a person’s life is not at stake), but on the other hand, the required scale may represent a great challenge.\nSome more futuristic applications include people ‘‘thinking’’ directly to a network.While some direct brain-computer interaction has already been achieved previously [5], [6], nano-communications could be the key factor for a real breakthrough progress. Assuming that human nerve cells can be connected via a nano-network to an external BAN, and then to other networks, a person could send thoughts and emotions directly through the network, without the need to type or vocalize them. This would represent a real integration of a person with a network, and a merge of the Internet of Things with the Internet of Nano-Things [7], which could represent the embodiment of truly personal communications, and the direction for the development of future wireless networks.\nFinally, the enhancement of advanced human-computer interfaces will enable people to have access to a wide range of truly personal information. These systems will revolutionize healthcare as one knows it today, by advancing diagnostics and disease prevention far beyond today’s possibilities, but also fundamentally change many other areas.\nIII. NANO-COMMUNICATION MECHANISMS There are a few distinct approaches to communications at the nano-scale, the main ones being:\n1. FRET-based, where communications occur at distances of nanometers. 2. Molecular, which is a group of distinct phenomena at the scale of nano- to micrometers. 3. Electromagnetic (EM), where devices can communicate at the millimeter scale. 4. Ultrasonic photoacoustic, over distances of the order of a hundred micrometers. The estimated parameters for the communication mechanisms discussed in this section are summarized in Table 1.\nThe first approach is based on the Förster resonance energy transfer (FRET) phenomenon, which allows for energy to pass between molecules in a non-radiative manner. The unconventional nano-transmitter and receiver are in this case two neighboring molecules, rather than artificial devices. The transmitting molecule, excited to a high energy state by an external radiation or a chemical reaction, passes its energy to the receiving one. This transfer happens quite fast, i.e., within nanoseconds, and at nanometer distances, i.e., between molecules at most 20 nm apart. In terms of communication, FRET can be used for a binary ‘‘on-off’’ modulation, where bit ‘1’ is realized by a FRET transfer, while ‘0’ corresponds to no transfer [8]. One should note that FRET occurs only between spectrally matched molecules, i.e., when the nano-transmitter’s emission spectrum overlaps the nano-receiver’s absorption one. However, if needed, the spectral gap between the molecules can be filled in by using phonon-assisted energy transfer [9].\nIn addition to a very limited range, FRET is not particularly reliable. Instead of sending a signal to the receiver, the transmitting molecule may lose its energy by emitting a photon. This problem can be overcome by employing multipleinput multiple-output FRET, with multiple molecules at both communication sides, Fig. 2, thereby improving communication reliability by diversity, similarly to conventional radio communications [10]. One should also mention that signal routing in FRET-based networks is feasible, if molecules with specific properties are used, such as photo-switched fluorophores, quenchers or proteins of changeable shape [11].\nThe second approach exploits biological mechanisms, operating at scales ranging from nano- to micrometers [12]. Communications in cells of living organisms occur in various ways, with information carriers again not being EM waves, but groups of molecules, hence, the name molecular\nVOLUME 8, 2020 159841\ncommunications [13], [14], the great advantage being their bio-compatibility, as these mechanisms naturally occur in biological organisms.\nOne of the most widely considered communication mechanisms is molecular diffusion. The commonly analyzed information carrier is by waves of propagating calcium ions [15], [16], information being coded as the concentration of calcium ions emitted by a cell. The ions themselves are small particles, i.e., 100 to 200 pm in size, that can propagate over distances up to 300µm, assuming a favorable alignment of living cells for diffusion [17], [18]. Some larger particles, as polymers, can be broadcasted by diffusion as well, carrying information coded in their modified structure. For example, bits ‘0’ and ‘1’ can be coded by modifying polymers with either hydrogen or fluorine atoms [19]. Since the diffusion process is slow, with the average velocity of calcium ions not exceeding 30µm/s, some diffusion acceleration methods, such as flow assisted propagation [20], are also considered.\nOther molecular communication approaches include those based on molecular motors, which are about 100 nm long structures, such as kinesins or dyneins, carrying information on an RNA strand or a sequence of peptides in a vesicle [21]. These motors ensemble wired-like communications, as they move along protein tracks called micro-tubules, thus, being much slower (about 1 µm/s of propagation speed), but far more reliable than the other approaches of its class.\nThe size of the largest molecular carriers is of the order of a micrometer, and active transportation techniques may be used (in contrast with passive diffusion). Bits can be encoded in a DNA strand of a plasmid located inside a bacterium or attached to a catalytic nano-motor. The bacterium, such as Escherichia coli, then travels using the force of its flagella. The catalytic nano-motors, i.e., usually gold and platinum nano-rods, can exploit chemical energy from the environment by participating in chemical reactions, e.g., catalyzing the formation of oxygen [22].\nAs a communication medium for nano- and micro-scale, neurons, i.e., nerve cells, should be mentioned. The size of these cells varies strongly from micrometers to even 1 or 2 m (the longest ones, e.g., from a toe to the brain). The anatomy of neurons is a well-studied topic. They receive signals when molecules called neurotransmitters reach specific receptors located on a neuron membrane, which triggers the opening of ion channels on the membrane and causes some ions flow in and out of the neuron changing its inner electrical potential. The resulting electrical impulse (called action potential) travels inside the neuron till its end (called synapse), where it initiates releasing small vesicles with neurotransmitters that, via diffusion, can reach and activate another neuron or a motor cell.\nImpulses in neurons travel very fast, comparing with other molecular mechanisms, reaching 120m/s if the neuron is covered with myelin, which is a specific insulating material [23]. This makes neurons the fastest propagation medium among the considered molecular mechanisms, however, as in the case of molecular motors, signals propagate in one direction only. The achievable throughput is limited by the refractory period, which is the time after the action potential propagation when the neuron does not respond to any stimulation. The refractory period is at least 1 ms, which means that the upper bound for throughput in a single neuron is about 1 kbit/s, assuming a temporal coding of 1 bit per neural impulse (1: an impulse, 0: no impulse [24]).\nThe third approach is based on the idea of miniaturization of the existing EM communication techniques. The attainable scale of devices is about 10 µm, which is larger than the one in molecular networks. Therefore, the tiny size of micro-scale device restricts the communication frequency to the THz band. The use of lower and more favorable frequencies in between 0.1 and 10 THz is enabled by graphene-based antennas capable of efficiently radiating EM waves in this band [25]–[27], with the resonant frequencies being two\n159842 VOLUME 8, 2020\norders of magnitude lower than those for the metallic antennas of the same size. On the surface of these materials, EM waves propagate as surface plasmon polaritons [28], and under specific conditions, their velocity can be even 100 times lower than in vacuum. In such circumstances, the wavelengths of THz waves are in order of 1 µm. Communications at the THz band are associatedwithmany challenges, the high propagation losses inside body tissues limiting the range to only a few millimeters. In addition to a high path loss, due to the spreading wave front, the rich water content of the blood and body tissues yields extremely high frequency-selective molecule absorption losses [29], resulting in path loss exceeding 120 dB for distances of a few millimeters [30]. The resonance of molecules excited by THz waves results in the conversion of EM energy into kinetic one, being absorbed by the molecule and lost from the communication perspective. On the other hand, the imposed variations of molecules result in EM radiation in the same frequency band, manifesting itself as non-white noise with power magnitude depending on the communication distance and on the number of molecules in between transmitting and receiving antennas [29]. Moreover, as molecular absorption is conditioned by the presence of a signal in the medium, the corresponding noise results in pulse spreading, and sufficient separation between successive pulses has to be ensured to prevent interference, Time Spread On-Off Keying (TS-OOK) having been proposed as a suitable coding scheme [31].\nBy exploiting the same mechanisms, the emerging plasmonic antennas also enable optical transmission in infra-red and visible light spectrum [32], [33], where plasmonic nanolasers [34] and single-photon detectors [35] can serve as transmitter and receiver, respectively. As the EM waves in the THz band, optical nano-communications inside the human body are faced with challenges, but have the advantage of the molecular absorption losses in water (i.e., the majority of blood content) being minimal within the optical window. In blood vessels, the optical EMwaves propagate through lossy homogeneous blood plasma and interact with different cells, particularly with the red blood cells (erythrocytes), being the most abundant ones [36]. Propagation is dominated by refraction through the cells in between transmitter and receiver, and by reflection from the surrounding ones [37], resulting in the multipath effect. However, red blood cells are reported to focusing the light propagating through them [37], [38], thus reducing the exponential path loss in favor of communications. The observed dependence of the focusing properties on the shape and orientation of cells can be potentially used to detect diseases and the presence of pathogens, by identifying the changes in channel impulse responses [37].\nFinally, the fourth approach considers ultrasound waves as information carriers [39], where their more favorable propagation in body tissues with high water content shows a potential for enabling communications over distances from several µm to a few cm. Considering the small size of micro-scale nodes, imposing limitations on the employment of standard\nultrasound transducers based on the piezoelectric effect and mechanical vibrations, the photoacoustic effect presents itself as a viable option for the excitation of ultrasounds by nanonetwork devices [40]. The acoustic waves are generated by the thermoelastic mechanism, where light incident on a material surface is absorbed, the rapid heating causing a rapid expansion which in turn generates ultrasonic waves within the material. Therefore, the available nano-lasers can be employed for optoacoustic transmission, while optical resonators can be used for detection at the receiver side [41].\nTo ensure power supply to both electromagnetic and ultrasound devices, nano-wires made of zinc oxide are proposed for energy harvesting, as they are able to generate electric voltage when bent, e.g., due to a fluid flow in their vicinity. For illustration, about a few thousands of such nano-wires are needed to supply a single nano-machine, each wire being 2 µm long and having 100 nm of diameter [42]. Another proposed approach is powering these machines with remotely generated ultrasounds, which can be converted by them into electrical energy by using piezoelectric nano-elements [43].\nWhile EM nano-communications receive a lot of attention these days, one should note that the required dimensions of the energy sources make this approach suitable for a micro-scale rather than for a nano- one. These systems can be quite easily integrated in networks at the macro-scale, as they share the same communication medium. Consequently, they can act as gateways between macro- and nanodevices. Both EM-based and molecular nano-communication mechanisms are addressed in the IEEE P 1906.1 standard, which has been released in 2015 [44]. The standard defines nano-scale communications, provides a model for ad-hoc nano-communications, and suitable terminology focusing on the nano-communication channel and some higher-layer components, like packets, addressing, routing, localization, and reliability.\nAs this short survey shows, there is a great variety of available nano- and micro-communication methods, differing in scale, applicable range, and associated delay. While FRET can provide communications between nano-devices in a really short (nano) time scale, its range is limited to about a dozen of nanometers. On the other hand, graphene-based devices working in the THz band are compatible with classical wireless communications, but struggle to operate below the micrometer scale. In between the two, a large number of molecular mechanisms can be exploited. However, these mechanisms are quite distinct from each other, as they use different information carriers, thereby being incompatible with each other, and with FRET and EM-based communication mechanisms. Therefore, the design of appropriate interfaces between nano-, micro- and macro-networks is a critical challenge, and will be a turning point in the further development of nano-communications.\nIV. BODY AREA NETWORKS Being on the larger and better explored side of the scale, BANs have received considerably more attention over the\nVOLUME 8, 2020 159843\nyears than their nano-scale counterpart. Being capable of monitoring their hosts and the surrounding environment, BANs have found their application in a vast range of fields [45], including healthcare, military, sports, and entertainment, among others.\nThese networks accommodate different types of communications, where the commonly distinguished scenarios include, Fig. 3: among devices inside the human body (in-body), in between devices inside the body and wearable devices on the body (into-body), among wearable devices (on-body), between wearable devices and external access points (off-body), and among wearable devices in different BANs (body-to-body).BANs can use different communication technologies, including wired ones, smart textiles, inductive coupling (ICC), body coupling (BCC), and radio. While some of these technologies are universal and used for all types of BANs, others are limited to certain scenarios or just more convenient, and their employment greatly depends on the application.\nWhile wired communications have certain advantages concerning security and reliability aspects, wires limit user’s movement and are prone to material failure, due to constant twisting when the user is dynamic. Therefore, these systems are suitable only for applications with users wearing special suits and involved in low-dynamic activities, e.g., military pilots and Formula 1 drivers [46]. The common drawbacks associated with wires can be overcame by using smart textiles [47], [48], which allow for the integration of power sources, communications, and sensing circuitry within washable clothes [49].\nThe transmission channel in ICC [50] is established between two magnetic-coupled coils. Since the voltage induced in the receiving coil is inversely proportional to the cube of distance, the coupling exists only for very short distances, i.e., in the order of centimeters. The established channel quality highly depends on the coils’ alignment, while being independent of the surrounding tissue. Therefore, ICC is suitable for into-body communications between external devices and near-surface implants, or between nearby implants. An additional advantage of ICC stems from the\npossibility to use inductive power transfer, where the same coils can provide both the communication link and the power supply for the coupled pair. Since the two impose conflicting requirements on the coil design, the system designer has either to optimize the trade-off in a single-coil design or to use two separately optimized coils [51].\nIn BCC, the transmitter and receiver couple with the user’s body and use it as a transmission medium [52], where one can distinguish between capacitive and galvanic BCC. In the former, the transmitter and receiver couple to the body through capacitive links, created by the electrodes in contact with the skin, while the additional floating electrodes at each side couple with the environment, to provide a return path and close the communication circuit [53]. On the other hand, galvanic BCC exploits ionic properties of the body fluids for signal transmission, with both transmitter/receiver electrodes being in contact with the body [54], [55]. Unlike capacitive BCC, which is limited to on-body communications, galvanic BCC can be used for in- and into-body communications as well. One should note that the field induced by either capacitive or galvanic body coupled transmitters at frequencies above 50 MHz is not quasi-static, and guided wave propagation occurs [56]. The devices are in this case designed to excite strong surface waves traveling along the body [57].\nUltrasonic communications use sound waves at frequencies above 20 kHz to transmit information, and their employment in BANs has been proposed only recently [58]. The ultrasounds exhibit a much lower attenuation in body tissues than their EM counterparts [59], making them a more favorable information carrier for in- and into-body communications. Another attractive aspect of this mode of communication is safety, since ultrasounds have been used for medical imaging for a long time, without reported side effects on the human body [58]. Moreover, ultrasound technology has matured, with transceivers being commercially available. One should note that for ultrasound communications, the devicesmust be in contact with the body, due to poor propagation of ultrasounds trough gasses, therefore, this type of communication is mainly suitable for in- and into-body communications. As in the case of BCC communications, on the one hand, this can be seen as a limitation as contactless off-body communication cannot be accommodated, but on the other hand, it is an advantage in terms of privacy and co-existence, as information is confined to the user’s body.\nWhile ultrasound communications provide data rates only up to 100 kbit/s, the employment of higher order modulation schemes, such as 64 QAM [60], or spatial-multiplexing MIMO [61], has been proposed to achieve data rates higher than 10 Mbit/s. However, the transceiver structure complexity and energy consumption associated with these schemes could be beyond the reach for implanted devices, due to their small-size and constrained energy source.\nIn addition to sound, light can be also used as an information carrier in BANs. Besides ton-body communications [62], optical wireless transmission can be also employed to establish links between implants and on-body nodes [63], where\n159844 VOLUME 8, 2020\ndata rates of up to 50 Mbit/s have been demonstrated through 4 mm thick tissues [64]. However, transdermal optical communications can be established with devices implanted several centimeters into the body tissue [65], by using wavelengths within the spectral window between 700 and 950 nm, characterized by low absorption [66]. With the power constraints of implanted devices being a critical point, the extension of the longevity of implants can be achieved by exploring retroreflective transdermal communication for the transmission of data from an implant to an outside device [66]. In this case, the light source is provided by a less constrained on-body device and the implant modulates the reflected light by a micro-electrical mechanical system (MEMS) device, i.e., a miniature modulating retroreflector (MMR). In addition to this unique feature of transdermal optical communications, the immunity to EM interference and inherent security due to limited propagation range are some of the advantages of this technology.\nAlthough the aforementioned communication systems are associated with certain advantages, radio is by far the most considered option for BANs, due to the convenience of wireless transmission and the availability of a number of mature technologies, namely, Bluetooth [67], Bluetooth Low Energy (LE) [68], ZigBee [69], and ultra-wideband (UWB) [70]. These technologies are also adopted by the physical layer specifications in the existing standard for BANs, i.e., IEEE 802.15.6 [71]. Table 2 gives a summary of the communication technologies, indicating the associated frequency bands, ranges, and throughputs. Bluetooth was initially designed for the exchange of audio and data between personal devices, but its range and available data rates make it suitable for off-body transmission of aggregated BAN data. Bluetooth LEwas later developed as its energy efficient, low latency, and low-cost alternative, being compatible with Bluetooth devices and suitable for communications with sensor devices. ZigBee offers another low-energy and low-cost solution for BAN communications, at the expense of a lower available data rate.\nTABLE 2. Summary of main communication technologies for BANs.\nBy allowing for multi-hop transmission to circumvent propagation path obstructions, ZigBee can extend nodes’ coverage and improve the communication reliability.\nHowever, UWB is probably the most popular radio technology for BANs, due to its advantages associated with the large bandwidth and low power density (below - 41.3 dBm/MHz). The latter makes UWB suitable for operation in environments sensitive to electromagnetic radiation, and in the close vicinity of the human body, as it yields low exposure levels. Moreover, the large corresponding penetration depths make UWB a popular choice for in- and into-body communications.\nOne should also note that millimeter-waves BAN communications have been considered recently, due to the high capacity and low inter-BAN interference [72]. The propagation characteristics ofmillimeter waves are both attractive and challenging for BANs. On the one hand, the high propagation losses are favorable for BAN coexistence, secrecy and security reasons, as signals remain confined within the area of the user’s close proximity. On the other hand, these losses pose a great challenge on preserving the information-bearing signal above the level required for satisfying communication quality. Millimeter waves BANs are still a niche research area, but the enabling technologies, such as 60 GHz WLAN (WiGig) [73], already exist.\nWhile BANs show a great potential, these systems are faced with a number of challenges, including energy efficiency, reliability, user safety, data security, simple use and comfort. These matters have to be addressed at all design levels, i.e., from physical transmission, medium access, and routing protocols, to top-level software design. Some of the most important challenges are associated with the communication channel, and the peculiarities of body-centric radio propagation, where body-shadowing and users’ motion have a significant influence on channel quality [74], [75]. Moreover, the human body strongly affects the radiation characteristics of antennas operating in its close vicinity, which imposes great challenges on antenna design, especially in the case of in- and into-body communications, where antennas are immersed in highly dispersive human tissues [76], [77].\nDespite the challenges, BANs have already demonstrated great potential for personal systems. The ability to seamlessly monitor the host and communicate with the surroundings has already made BANs a part of medical treatments in modern hospitals, and a helping hand in state-of-the-art training for athletes. However, their true potential extends far beyond the current systems, and could be achieved through a collaboration between nano-networks and BANs, allowing for information to be carried from a tissue inside the human body to the outside world. In such a scenario, a nano-network will transfer information to an implant, where a BAN would carry it to an off-body access point, from where a large-scale network would be in charge of delivering it to a remote location. The implications are truly mind-boggling, when one considers applications in healthcare or bio-metrics, as well as those that are beyond one’s imagination today. The key\nVOLUME 8, 2020 159845\nenablers of such truly personal communications are the interfaces between devices and mechanisms at different scales. An overview of some mechanisms that can be exploited for this purpose is given in the next section.\nV. NANO-MICRO-MACRO INTERFACES While numerous communication mechanisms in both nanoand micro-scales have been proposed and thoroughly investigated, they are still quite disconnected from each other. It is mainly because they use different information carriers, e.g., FRET/photons, THz waves, diffusing molecules, and DNA strands. Consequently, it is challenging to transfer data from one nano-network type to another, or from nano- and microscales to the macro-world of conventional wireless devices. Still, some interfaces can be established by exploiting the physical properties of specific molecules or materials, which are presented in the following subsections and summarized in Table 3. In Fig. 4, a visual understanding of mechanisms mentioned in subsections A-D is also given, while in Fig. 5 two cases of micro-macro EM communications are illustrated, as discussed in subsection E.\nA. LIGHT-STIMULATED CHANNELRHODOPSINS Channelrhodopsins are small protein molecules, with a size of about 5 nm, naturally occurring in some green algae organisms, able to open light-induced channels for ions. Recently, they became highly investigated [78], [79], inspiring quite a new discipline called optogenetics, which is about controlling living tissues with light. Channelrhodopsins, when treated with light, have an ability of opening a pore (channel) where positive ions, e.g., present in blood, can flow through. Such a channel remains open by at least 10 ms, which is enough for the flowing ions to change the electrical potential at the other side of the ion channel. Furthermore, channelrhodopsins can be activated by FRET as well [80]. From the nano-communications viewpoint, channelrhodopsins can be then understood as light-to-voltage converters. As the\n159846 VOLUME 8, 2020\nvoltage can be later measured by an EM-based micro-device or a BAN, channelrhodopsins constitute an interface between these networks, being able to transfer FRET signals to electrical ones. The full cycle of a channelrhodopsin, from closed to open and then closed and able to accept stimuli, is as long as 5 s [81], thus, the throughput of data transferred via a single channelrhodopsin remains far below 1 bit/s. A solution can be a large layer of channelrhodopsin molecules working in parallel [80], which has been shown to have a throughput of about 50 bit/s, achieved with a bit error ratio kept below 10−3. Channelrhodopsins can be also embedded into neurons, replacing receptors at the neuron membrane, which has already been proved experimentally [82], [83]. Like neuron receptors are able to receive stimuli from tens of thousands of other neurons via neurotransmitters, similarly channelrhodopsins signals can be received from many sources. Such a neuron is then stimulated by light or FRET. It has been shown that channelrhodopsin-controlled neurons are able to produce up to 200 impulses per second [84], which means about 200 bit/s for the respective channel throughput.\nB. LUMINESCENCE BY BRET BRET stands for bioluminescence resonance energy transfer and is a process similar to FRET, as explained in Section III, although the donor energy does not come from external excitation, but from a chemical reaction. In this reaction, a luciferase molecule, like Vluc, Rluc, Fluc or NanoLuc, is oxidized in the presence of a specific substrate molecule, a luciferin. The reaction produces energy that is emitted as a photon or can be caught by a donor molecule, if situated nearby. From the communication viewpoint, BRET can initiate a single or multi-hop FRET transmission without any external source of donor excitation. As the mentioned reaction is strictly dependent on the suitable amount of luciferin substrates, it can be controlled by molecular diffusion, for example. Thus, BRET has two crucial advantages: (a) local origin via chemical reaction, and (b) control with a molecular communication mechanism, i.e., diffusion. Consequently, BRET can intermediate between molecular communication mechanisms and FRET transmissions.\nBRET has its limitations related to the physical properties of luciferases and to the chemical reaction characteristics. First, the reaction turnover rate is quite low: for NanoLuc luciferases it is 0.5 s, while for RLuc it is even 5 s [85]. For comparison, a FRET donor molecule is ready for energy absorption just after a previous emission, which usually occurs in a few nanoseconds. In effect, a single luciferase can pass only around 1 bit/s, comparing with over 10 Mbit/s for a typical FRET transfer. Second, similarly to FRET, communication distances for BRET are below 10 nm [80].\nC. THE ROLE OF ATP ATP (adenosine triphosphate) is the most common energy currency for living cells. It is extremely ubiquitous: despite that a single ATP is about 1 nm in size, each human body produces more of these molecules during the day than the\nwhole-body weight. An ATP molecule consists of an adenosine and three highly energetic phosphate groups. Living organisms usually spend ATP energy via its hydrolysis, removing one phosphate group and thus creating an ADP (adenosine diphosphate) molecule; in this process 30.6 kJ is released per mole of ATP.\nWhile being so common energy carriers, ATP molecules are also proved to be information carriers between living cells. ATP can act similarly like neurotransmitters, which, in biology, is called purinergic signaling [86], [87]. Specific receptors on neural cells are already known, namely P2X and P2Y, matching strictly ATP molecules. The former opens an ion channel on a cell membrane, like a typical neuron receptor, while the latter triggers releasing calcium stores inside the cell. Thus, ATP molecules can carry information from a cell to cell via diffusion, like neurotransmitters.\nATP can initiate communication not only to nerve cells, but also to BRET/FRET networks. ATP is required for chemical reactions starting BRET with, e.g., Fluc (firefly luciferase) molecules, so it can be used to control these reactions [88]. Also, ATP is the energy source for the movement of kinesins and dyneins. These molecular motors advance 8 nm for each ATP molecule spent [89], [90], so this way of transporting information can be clearly controlled via careful ATP delivery.\nAs ATP is so important for nano-communications, its production should be controlled, which, fortunately, is feasible. ATP can be released by neural cells, like neurotransmitters, but, as previously mentioned, ATP is also produced from ADP by all living organisms. In plants and some bacteria, it is done during the light part of the photosynthesis, with a reaction called photophosphorylation, using the energy of light. In non-photosynthetic organisms, e.g., humans and animals, ATP is produced in catabolic processes of so-called cellular respiration via oxidation of carbon-containing structures, like fatty acids or carbohydrates, e.g., from a single glucose C6H12O6 molecule, living cells produce up to 38ATP molecules [91].\nSumming up, ATP molecules can intermediate between different types of communications. ATP molecules can be provided directly, or their production can be stimulated with light (light-induced) in photosynthetic structures or by delivering carbon-containing compounds to non-photosynthetic cells. ATP initiates BRET communications, gives fuel for movement of molecular motors or fires actions of cells having P2X/P2Y receptors, neuronal actions in particular.\nD. PHOTODETECTORS AND SPR Recently, an innovative system has been presented, where genetically modified Escherichia coli bacteria integrated with a wireless endoscopy capsule acquired information regarding internal bleeding inside gastrointestinal tract [92]. The bacteria signaled the information via luminescence to the photodetectors designed for this purpose [93]. The system has been successfully tested with in vivo experiments and is an\nVOLUME 8, 2020 159847\nexample of an efficient communication interface, via light, between a molecular system and macro-scale devices.\nThe bacteria mentioned above send a very simple information, just a confirmation that a bleeding is located, without any bit transmission. Photodetectors technology has progressed very rapidly in the last twenty years, and currently these devices, commercially available, are able to intercept/collect much more subtle signals; in particular, the so called single-photon detectors (SPDs) look very promising, as they are able to count and time-stamp incoming photons. These devices are therefore able to receive bit transmissions from FRET-based nano-networks, as FRET-receivers emit received signals as photons.\nAmong many families of SPDs, not all of them are suitable for creating networking interfaces. Real photodetectors are characterized by intrinsic limitations, resulting from the specific physical mechanism of photodetection. Popular solutions, such as superconducting nano-wire SPDs or transition-edge sensors, are working in cryogenic temperatures only, in order to reduce background noise. On the other hand, much more suitable are single-photon avalanche diodes (SPADs), able to perform at room temperatures. SPAD photodetectors are commonly used to measure FRET efficiency in biophotonic applications [94]. The size of the active area of a SPAD is usually a few dozens of micrometers, but if larger dimensions are required, then SPAD arrays are commonly created. In a SPAD, an absorbed photon creates an electron-hole pair that is, in turn, multiplied in the avalanche process. This process must be further stopped in order to make the SPAD sensitive for the next photons, which usually takes 10 to 100 ns [94], which means that photons can be accepted with a rate of the order of 10 Mbit/s. While the evolution of SPAD technology is progressing well, themain challenge is their photodetection efficiency, which rarely exceeds 50% and is not stable in the whole visible and infrared spectrum [94]. In consequence, probably, at least a few absorbed photons are required per each bit of data (repetition coding), which slows down the communication throughput of this technology. Recently, a single-photon detector based on cadmium sulfide nano-wire, but operating in room temperatures, has been also presented [95] and can be treated as an alternative for SPADs. Summing up, single-photon detectors, especially SPADs, are a developing technology that can be seriously considered as a solution for interfacing FRET-based and larger-scale networks.\nWhen discussing optical interfacing solutions, Surface Plasmon Resonance (SPR) should be also mentioned. The SPR phenomenon occurs when an optical/infrared/THz wave hits a metallic or graphene surface. If specific conditions regarding the incidence angle and the wave frequency are met, a rapid oscillation of electron density is created, which propagates along the surface of the metal/graphene. This oscillation is called a plasmon and it can travel about 10 µm [28] in graphene or up to 60 µm in silver/gold [96]. Classical prism-based SPR sensors are quite large, but solutions based on optical fibers are much more compact with\nsizes of about 20 µm [97]. As the conditions for plasmon creation depend also on the environment’s parameters, SPR sensors are commonly used to study biological structures. Yet, the SPR phenomenon can be considered as a method for converting optical or infrared signals into plasmons that in turn can be detected by micro-scale graphene devices. SPR sensors can achieve very good response times of about 1µs [98], thus the throughput of such an interface might be in the order of 1Mbit/s. However, a limiting factor is the specific incidence angle of the wave hitting the graphene surface: it requires a precise geometric configuration of the whole interface system, which probably limits its application to the case of a macro-BAN node transmitting to a static graphene micro-device.\nE. MICRO-MACRO EM COMMUNICATIONS Communications between micro-scale nodes and an external BAN can be also established by employing EMwaves at THz or optical bands as information carriers. The extremely high path loss in the presence of multiple tissues in between transmitter and receiver make a direct communication between a nano-node in the blood stream and an external BAN device particularly challenging [99]. However, communication with external BAN devices could be achieved by introducing mediator devices, assisting the information delivery from micro-scale devices circulating through the blood stream to an on-body macro-scale device placed on the skin.\nThese devices could be micro-scale nodes implanted in between blood vessels and the skin, employing THz, optical or ultrasound waves to communicate with both sides [100], [101]. Both the micro-scale devices carrying information and the implanted one can be powered by energy delivered by ultrasound waves emitted by the on-body BAN node [101]. The information exchange can then take place while the circulating nano-node is within the portion of the blood vessel in which it can harvest the ultrasound waves’ energy.\nHowever, the location of these mediating devices must be chosen carefully, so that favorable propagation conditions and a high chance of establishing contact with nano-nodes circulating through the body are ensured. The former requirement means that the body parts with thin tissue layers between blood vessels and the skin are preferable, while the latter suggests that a micro-scale gateway should be placed next to veins and arteries that see most of the blood volume passing through within a short period of time. Moreover, except possibly for critical applications with users in hospital beds, the mediator node location is also constrained by aesthetics and the practicality of on-body device placement, considering daily life activities.\nFor example, the internal jugular veins in the neck provide a high level of interaction with nano-nodes circulating through the body, as they host 14% of the total blood-flow in the body [102], but the attachment of an external node on the neck is inconvenient for regular daily activities. On the other hand, the veins in the wrist are attractive for their proximity\n159848 VOLUME 8, 2020\nto the surface, i.e., thin tissue and superior accessibility, since the external collector device could be integrated within a watch or a bracelet, but only 1% of the total blood flows towards the heart through these veins [103].\nAlternatively, themediating devices could be in-body BAN nodes that can use light, THz waves or ultrasound to communicatewithmicro-scale devices, andmicrowaveswith devices on the body surface, or even with nearby off-body devices. Since these devices are larger and more capable than their micro-scale counterparts, their position is less constrained by the distance from the on-body node and can be better optimized in terms of proximity to blood vessels with a high probability of interaction with circulating nano-nodes. Propagation through body tissues at microwaves is much less restricted than in the THz band, but the high dispersion losses due to conductivity still limit communication to distances of the order of 1 cm of body tissue [104]. However, at microwaves, communications can be used to deliver information from implants directly to a device in the user’s proximity, such as a medical instrument next to the hospital bed [105], [106]. UWB communications seem to be the most attractive option for into-body communications, due to the high tissue penetration depths [76], [77], but other technologies discussed in Section IV could be employed.\nInstead of microwaves, ultrasonic communications can be also used for into-body communications with BAN implants in this scenario [58], or even directly with micro-scale devices. Ultrasounds are characterized by lower absorption losses, and their proved safety through the long usage in medical imaging is another attractive property [59]. Similarly, transdermal optical communications can be used to establish links with in-body BAN or micro-scale devices, however, with more strict limitations than with ultrasound carriers. The direct optical link between micro-scale and on-body devices is particularly challenging, and unlikely to be establishedwith optical EM communications in the outward direction.\nF. SUMMARY AND RESEARCH CHALLENGES Summing up the solutions discussed above, one can say that two trends are dominating. First, traditionally in communications, wireless solutions are extensively popular, as the wireless medium is now ubiquitous, having in mind all tiny sensors and IoT devices. The second group of solutions is based on light, which, on the one hand, is still an EM wave, but, on the other hand, an energy carrier commonly used in biological systems. Except for the cases already described, i.e., channelrhodopsins, luminescence and photodetectors, optical signals, e.g., emitted by BAN-controlled diodes, can easily intermediate between macro- and nano-networks. Due to the scale difference, the signals coming from macrodevices are of a broadcast nature for nano-networks, but can be filtered by properly designed nano-devices. For example, one can consider using an optical source, such as a laser, to transfer signals into FRET-based nano-networks, where the nano-transceivers can be fluorophores, such as Alexa, DyLight or Atto selective dyes, i.e., commercially available\nbio-engineered molecules. There is a wide variety of these dyes, characterized by different absorption spectra in the visible light range. from close to ultraviolet (380 to 400 nm), up to nearly infrared (700 to 750 nm).\nThey can be used for the frequency-selective reception of optical signals, similarly as in standard wavelength division multiplexing (WDM) receivers. Optical signals can be also received by molecular communication systems, where the properties of bacteria, such as Escherichia coli, can export protons (H+) and change the pH value of its environment in response to optical stimulation [107].\nThe approaches presented in the above subsections prove that despite nano-, micro- and macro-communication mechanisms are quite distinct from each other, some lessons from physics, optogenetics, biotechnology, and wireless communications can be learned and then interfacing techniques are at one’s fingertips. However, one should be aware of the low level of their maturity: the physical solutions and biological components are ready, but still, there is much engineering work to be done to have the whole inter-scale communications systems operational. Except for the research challenges specific for the chosen interfacing techniques, there are at least three general challenges pivotally important for the whole subject:\na) Interdisciplinary cooperation - Understanding the mechanisms and phenomena that are the basis for inter-scale communications requires knowledge from many scientific areas. While information and communication technologies are in the center of this research, physics, biotechnology, medicine, and optogenetics are crucial for making progress on interfacing solutions. Cooperation among these disciplines is strenuous, as different research communities describe phenomena with a distinct language and are used to focus their work on different goals. However, such a cooperation, much needed, will result in a substantial progress and a holistic expertise on this whole subject. b) Experimental effort - Most of the current research in nano-communications is performed via a theoretical approach or computer simulations, sometimes not using realistic assumptions. This subject requires more experimental work in many areas, e.g., biological samples or physical nano-devices. While in BANs there are relatively more experimental studies, they do not concern interfaces with nano- and micro-scale networks. c) Control over device positions and mobility - Many of the discussed interfacing techniques require a precise control over the relative positions of the communicating nodes, e.g., FRET networks must be exactly positioned so that their signals are received by channelrhodopsins or ATPmolecules should be carefully delivered to initiate BRET. Such bio- or nano-engineering control over molecules and nodes in their environment is one of the most important barriers on the way to the development of interfacing solutions.\nVOLUME 8, 2020 159849\nIn general, communications systems and networks are described by a number of parameters and entities, which depend on the nature of the communication and sometimes even on the specific application. The description of transmitters and receivers, and the characterization of the channel in between them are basic requirements for any system, while architectures, routing algorithms and protocols form some of the bases for networks, and this article provides some information in this direction. While interfaces have been addressed, as well as basic transmission and reception, together with some coverage ranges and data rate capacity, other matters are still open for research, such as models for channels, interference, connections capacity, routing, addressing, reliability, and efficiency, among many others.\nVI. CONCLUSION Nano-communications between groups of molecules, cells, or EM-based micro-devices, are one of the hottest research areas in communications in recent years. The progress in this discipline is strenuous, since it requires cooperation between IT and medical experts, but the potential applications are countless, extending from healthcare, such as remote diagnostics, surgery and localized drug delivery, to sports, entertainment and military, while encompassing Human-Internet integration. The latter is a vision of truly personal communications, where the far edges of the communication network are deeply inside people’s bodies, allowing for delivering the signals directly from human nerve cells to the outside network.\nThis article presents a brief survey of important nanocommunication mechanisms, including molecular mechanisms, Förster resonance energy transfer phenomenon and EM micro-devices. It also provides an overview of the BAN communication technologies, including smart-textiles, inductive- and body-coupling mechanisms, and a number of available suitable radio technologies (e.g., UWB, Bluetooth, ZigBee, and WiFi). However, the main contribution of this article is in the summary of potential interfacing mechanisms between nano-networks and BANs, which will serve as mediators to the outside world. These interfaces are the critical aspect of the envisioned truly personal communication systems and require dedicated research efforts to fully realize their potentials.\nREFERENCES [1] F. Dressler and S. Fischer, ‘‘Connecting in-body nano communication\nwith body area networks: Challenges and opportunities of the Internet of nano things,’’ Nano Commun. Netw., vol. 6, no. 2, pp. 29–38, Jun. 2015. [2] B. Atakan, O. Akan, and S. Balasubramaniam, ‘‘Body area nanonetworks with molecular communications in nanomedicine,’’ IEEE Commun. Mag., vol. 50, no. 1, pp. 28–34, Jan. 2012. [3] B. Fadeel, ‘‘Nanosafety: Towards safer design of nanomedicines,’’ J. Internal Med., vol. 274, no. 6, pp. 578–580, Dec. 2013. [4] Y. Erlich and D. Zielinski, ‘‘DNA fountain enables a robust and efficient storage architecture,’’ Science, vol. 355, no. 6328, pp. 950–954, Mar. 2017.\n[5] A. Regalado, ‘‘A brain-computer interface that works wirelessly,’’ MIT Technol. Rev., Jan. 2015. Accessed: Jul. 2020. [Online]. Available: https://www.technologyreview.com/s/534206/a-brain-computerinterface-that-works-wirelessly [6] M.Veletic and I. Balasingham, ‘‘Synaptic communication engineering for future cognitive brain–machine interfaces,’’ Proc. IEEE, vol. 107, no. 7, pp. 1425–1441, Jul. 2019. [7] I. Akyildiz, M. Pierobon, S. Balasubramaniam, and Y. Koucheryavy, ‘‘The Internet of bio-nano things,’’ IEEE Commun. Mag., vol. 53, no. 3, pp. 32–40, Mar. 2015. [8] M. Kuscu, A. Kiraz, and O. B. Akan, ‘‘Fluorescent molecules as transceiver nanoantennas: The first practical and high-rate information transfer over a nanoscale communication channel based on FRET,’’ Sci. Rep., vol. 5, no. 1, Jan. 2015, Art. no. 7831. [9] V. Loscrí, B. D. Unluturk, and A. M. Vegni, ‘‘A molecular optical channel model based on phonon-assisted energy transfer phenomenon,’’ IEEE Trans. Commun., vol. 66, no. 12, pp. 6247–6259, Dec. 2018. [10] K. Wojcik, K. Solarczyk, and P. Kulakowski, ‘‘Measurements on MIMOFRET nano-networks based on alexa fluor dyes,’’ IEEE Trans. Nanotechnol., vol. 14, no. 3, pp. 531–539, May 2015. [11] P. Kulakowski, K. Solarczyk, and K. Wojcik, ‘‘Routing in FRET-based nanonetworks,’’ IEEE Commun. Mag., vol. 55, no. 9, pp. 218–224, Sep. 2017. [12] N. Farsad, H. B. Yilmaz, A. Eckford, C.-B. Chae, and W. Guo, ‘‘A comprehensive survey of recent advancements in molecular communication,’’ IEEE Commun. Surveys Tuts., vol. 18, no. 3, pp. 1887–1919, 3rd Quart., 2016. [13] T. Suda, M. Moore, T. Nakano, R. Egashira, and A. Enomoto, ‘‘Exploratory research on molecular communication between nanomachines,’’ in Proc. Genetic Evol. Comput. Conf. (GECCO), Washington, DC, USA, Jun. 2005. [14] I. F. Akyildiz, M. Pierobon, and S. Balasubramaniam, ‘‘An information theoretic framework to analyze molecular communication systems based on statistical mechanics,’’ Proc. IEEE, vol. 107, no. 7, pp. 1230–1255, Jul. 2019. [15] T. Nakano, T. Suda, M. Moore, and R. Egashira, ‘‘Molecular communication for nanomachines using intercellular calcium signalling,’’ in Proc. NSTI NanoTech Conf., Nagoya, Japan, Jul. 2005, pp. 478–481. [16] V. Jamali, A. Ahmadzadeh,W.Wicke, A. Noel, and R. Schober, ‘‘Channel modeling for diffusive molecular Communication—A tutorial review,’’ Proc. IEEE, vol. 107, no. 7, pp. 1256–1301, Jul. 2019. [17] E. Scemes and C. Giaume, ‘‘Astrocyte calcium waves: What they are and what they do,’’ Glia, vol. 54, no. 7, pp. 716–725, Nov. 2006. [18] S. Schuster, M. Marhl, and T. Höfer, ‘‘Modelling of simple and complex calcium oscillations,’’ Eur. J. Biochemistry, vol. 269, no. 5, pp. 1333–1355, Mar. 2002. [19] B. Unluturk, E. Pehlivanoglu, and O. Akan, ‘‘Molecular channel model with multiple bit carrying molecules,’’ in Proc. BlackSeaCom Conf., Batumi, Georgia, Jul. 2013, pp. 79–83. [20] S. Kadloor, R. S. Adve, and A. W. Eckford, ‘‘Molecular communication using Brownian motion with drift,’’ IEEE Trans. Nanobiosci., vol. 11, no. 2, pp. 89–99, Jun. 2012. [21] A. Enomoto, M. J. Moore, T. Suda, and K. Oiwa, ‘‘Design of selforganizing microtubule networks for molecular communication,’’ Nano Commun. Netw., vol. 2, no. 1, pp. 16–24, Mar. 2011. [22] M. Gregori and I. Akyildiz, ‘‘A new nanonetwork architecture using flagellated bacteria and catalytic nanomotors,’’ IEEE J. Sel. Areas Commun., vol. 28, no. 4, pp. 612–619, May 2010. [23] S.D. Meriney and E. Fanselow, Synaptic Transmission. San Diego, CA, USA: Academic, 2019. [24] P. Dayan and L. F. Abbot, Theoretical Neuroscience: Computational and Mathematical Modeling of Neural Systems. Cambridge, MA, USA: MIT Press, 2001. [25] J. M. Jornet, ‘‘Fundamentals of electromagnetic nanonetworks in the terahertz band,’’ Ph.D. dissertation, Georgia Inst. Technol., Atlanta, GA, USA, Dec. 2013. [26] J. M. Jornet and I. F. Akyildiz, ‘‘Graphene-based plasmonic nano-antenna for terahertz band communication in nanonetworks,’’ IEEE J. Sel. Areas Commun., vol. 31, no. 12, pp. 685–694, Dec. 2013. [27] M. Tamagnone, J. S. Gómez-Díaz, J. R.Mosig, and J. Perruisseau-Carrier, ‘‘Reconfigurable terahertz plasmonic antenna concept using a graphene stack,’’ Appl. Phys. Lett., vol. 101, no. 21, Nov. 2012, Art. no. 214102. [28] M. S. Ukhtary and R. Saito, ‘‘Surface plasmon in graphene and carbon nanotubes,’’ Carbon, vol. 167, pp. 455–474, Oct. 2020.\n159850 VOLUME 8, 2020\n[29] J. M. Jornet and I. F. Akyildiz, ‘‘Channel modeling and capacity analysis for electromagnetic wireless nanonetworks in the terahertz band,’’ IEEE Trans. Wireless Commun., vol. 10, no. 10, pp. 3211–3221, Oct. 2011. [30] K. Yang, A. Pellegrini, M. O.Munoz, A. Brizzi, A. Alomainy, and Y. Hao, ‘‘Numerical analysis and characterization of THz propagation channel for body-centric nano-communications,’’ IEEE Trans. THz Sci. Technol., vol. 5, no. 3, pp. 419–426, May 2015. [31] J.M. Jornet, I.F. Akyildiz, ‘‘Femtosecond-long pulse-based modulation for terahertz band communication in nanonetworks,’’ IEEE Trans. Commun., vol. 62, no. 5, pp. 1742–1754, Apr. 2014. [32] A. Alù and N. Engheta, ‘‘Wireless at the nanoscale: Optical interconnects using matched nanoantennas,’’ Phys. Rev. Lett., vol. 104, no. 21, pp. 213902-1–213902-4, May 2010. [33] M. Nafari and J. M. Jornet, ‘‘Modeling and performance analysis of metallic plasmonic nano-antennas for wireless optical communication in nanonetworks,’’ IEEE Access, vol. 5, pp. 6389–6398, Apr. 2017. [34] M. Khajavikhan, A. Simic, M. Katz, J. H. Lee, B. Slutsky, A. Mizrahi, V. Lomakin, and Y. Fainman, ‘‘Thresholdless nanoscale coaxial lasers,’’ Nature, vol. 482, no. 7384, pp. 204–207, Feb. 2012. [35] L. Tang, S. E. Kocabas, S. Latif, A. K. Okyay, D.-S. Ly-Gagnon, K. C. Saraswat, and D. A. B. Miller, ‘‘Nanometre-scale germanium photodetector enhanced by a near-infrared dipole antenna,’’ Nature Photon., vol. 2, no. 4, pp. 226–229, Mar. 2008. [36] R. M. Pope and E. S. Fry, ‘‘Absorption spectrum (380–700 nm) of pure water. II. Integrating cavity measurements,’’ Appl. Opt., vol. 36, no. 33, pp. 8710–8723, Nov. 1997. [37] P. Johari and J. M. Jornet, ‘‘Nanoscale optical wireless channel model for intra-body communications: Geometrical, time, and frequency domain analyses,’’ IEEE Trans. Commun., vol. 66, no. 4, pp. 1579–1593, Apr. 2018. [38] L.Miccio, P.Memmolo, F.Merola, P. A. Netti, and P. Ferraro, ‘‘Red blood cell as an adaptive optofluidic microlens,’’Nature Commun., vol. 6, no. 1, Mar. 2015, Art. no. 6502. [39] T. Hogg and R. A. Freitas, Jr., ‘‘Acoustic communication for medical nanorobots,’’ Nano Commun. Netw., vol. 3, no. 2, pp. 83–102, Jun. 2012. [40] G. E. Santagati and T. Melodia, ‘‘Opto-ultrasonic communications for wireless intra-body nanonetworks,’’ Nano Commun. Netw., vol. 5, nos. 1–2, pp. 3–14, Mar. 2014. [41] J. D. Hamilton, T. Buma, M. Spisar, and M. O’Donnell, ‘‘High frequency optoacoustic arrays using etalon detection,’’ IEEE Trans. Ultrason., Ferroelectr., Freq. Control, vol. 47, no. 1, pp. 160–169, Jan. 2000. [42] S. Canovas-Carrasco, A.-J. Garcia-Sanchez, F. Garcia-Sanchez, and J. Garcia-Haro, ‘‘Conceptual design of a nano-networking device,’’ Sensors, vol. 16, no. 12, p. 2104, Dec. 2016. [43] M. Donohoe, S. Balasubramaniam, B. Jennings, and J. M. Jornet, ‘‘Powering in-body nanosensors with ultrasounds,’’ IEEE Trans. Nanotechnol., vol. 15, no. 2, pp. 151–154, Mar. 2016. [44] IEEE Recommended Practice for Nanoscale and Molecular Communication Framework, IEEE Standard 1906.1-2015, 2015. [45] P.S. Hall and Y. Hao, Antennas and Propagation for Body-Centric Wireless Communications, 2nd ed. Norwood, MA, USA: Artech House, 2012. [46] C. W. Mundt, K. N. Montgomery, U. E. Udoh, V. N. Barker, G. C. Thonier, A. M. Tellier, R. D. Ricks, R. B. Darling, Y. D. Cagle, N. A. Cabrol, S. J. Ruoss, J. L. Swain, J. W. Hines, and G. T. A. Kovacs, ‘‘A multiparameter wearable physiologic monitoring system for space and terrestrial applications,’’ IEEE Trans. Inf. Technol. Biomed., vol. 9, no. 3, pp. 382–391, Sep. 2005. [47] S. Lemey, S. Agneessens, and H. Rogier, ‘‘Wearable smart objects: Microwaves propelling smart textiles: A review of holistic designs for wireless textile nodes,’’ IEEE Microw. Mag., vol. 19, no. 6, pp. 83–100, Sep. 2018. [48] J. Cheng, P. Lukowicz, N. Henze, A. Schmidt, O. Amft, G. A. Salvatore, andG. Tröster, ‘‘Smart textiles: From niche tomainstream,’’ IEEEPervas. Comput., vol. 12, no. 3, pp. 81–84, Jul. 2013. [49] E. Post and M. Orth, ‘‘Smart fabric, or ‘wearable clothing,’’’ in Proc. Int. Symp. Wearable Comput. (ISWC), Cambridge, MA, USA, Oct. 1997, pp. 167–168. [50] J. Walk, J. Weber, C. Soell, R. Weigel, G. Fischer, and T. Ussmueller, ‘‘Remote powered medical implants for telemonitoring,’’ Proc. IEEE, vol. 102, no. 11, pp. 1811–1832, Nov. 2014. [51] M. Ghovanloo and S. Atluri, ‘‘A wide-band power-efficient inductive wireless link for implantable microelectronic devices using multiple carriers,’’ IEEE Trans. Circuits Syst. I, Reg. Papers, vol. 54, no. 10, pp. 2211–2221, Oct. 2007.\n[52] M. Seyedi, B. Kibret, D. T. H. Lai, and M. Faulkner, ‘‘A survey on intrabody communications for body area network applications,’’ IEEE Trans. Biomed. Eng., vol. 60, no. 8, pp. 2067–2079, Aug. 2013. [53] T. G. Zimmerman, ‘‘Personal area networks: Near-field intrabody communication,’’ IBM Syst. J., vol. 35, nos. 3–4, pp. 609–617, 1996. [54] M. S. Wegmueller, M. Oberle, N. Felber, N. Kuster, and W. Fichtner, ‘‘Signal transmission by galvanic coupling through the human body,’’ IEEE Trans. Instrum. Meas., vol. 59, no. 4, pp. 963–969, Apr. 2010. [55] D. Lindsey, E. McKee, M. Hull, and S. Howell, ‘‘A new technique for transmission of signals from implantable transducers,’’ IEEE Trans. Biomed. Eng., vol. 45, no. 5, pp. 614–619, May 1998. [56] J. Bae, H. Cho, K. Song, H. Lee, and H.-J. Yoo, ‘‘The signal transmission mechanism on the surface of human body for body channel communication,’’ IEEE Trans. Microw. Theory Techn., vol. 60, no. 3, pp. 582–593, Mar. 2012. [57] N. Haga, K. Saito, M. Takahashi, and K. Ito, ‘‘Equivalent circuit of intrabody communication channels inducing conduction currents inside the human body,’’ IEEE Trans. Antennas Propag., vol. 61, no. 5, pp. 2807–2816, May 2013. [58] Y. Davilis, A. Kalis, and A. Ifantis, ‘‘On the use of ultrasonic waves as a communications medium in biosensor networks,’’ IEEE Trans. Inf. Technol. Biomed., vol. 14, no. 3, pp. 650–656, May 2010. [59] G. E. Santagati, T. Melodia, L. Galluccio, and S. Palazzo, ‘‘Ultrasonic networking for E-health applications,’’ IEEE Wireless Commun., vol. 20, no. 4, pp. 74–81, Aug. 2013. [60] A. Singer, M. Oelze, and A. Podkowa, ‘‘Mbps experimental acoustic through-tissue communications: MEAT-COMMS,’’ in Proc. IEEE SPAWC Workshops, Edinburgh, U.K., Jul. 2016, pp. 1–4. [61] M. L. Wang and A. Arbabian, ‘‘Exploiting spatial degrees of freedom for high data rate ultrasound communication with implantable devices,’’ Appl. Phys. Lett., vol. 111, no. 13, Sep. 2017, Art. no. 133503. [62] O. Haddad,M.-A. Khalighi, S. Zvanovec, andM. Adel, ‘‘Channel characterization and modeling for optical wireless body-area networks,’’ IEEE Open J. Commun. Soc., vol. 1, pp. 760–776, Jun. 2020. [63] M. Faria, L. N. Alves, and P. S. de Brito Andre, ‘‘Transdermal optical communications,’’ Visible Light Communications: Theory and Applications, Z. Ghassemlooy, L. N. Alves, S. Zvanovec, M.-A. Khalighi, Eds. Boca Raton, FL, USA: CRC Press, 2017. [64] T. Liu, U. Bihr, S. M. Anis, and M. Ortmanns, ‘‘Optical transcutaneous link for low power, high data rate telemetry,’’ in Proc. 34th Annu. Int. Conf. IEEE Eng. Med. Biol. Soc. (EMBS), San Diego, CA, USA, Aug. 2012, pp. 3535–3538. [65] J. L. Abita and W. Schneider, ‘‘Transdermal optical communications,’’ Johns Hopkins APL Tech. Dig., vol. 25, no. 3, pp. 261–268, Jul. 2004. [66] Y. Gil, N. Rotter, and S. Arnon, ‘‘Feasibility of retroreflective transdermal optical wireless communication,’’ Appl Opt., vol. 51, no. 18, pp. 4232–4239, Jun. 2012. [67] IEEE Standard for Information Technology—Telecommunications and Information Exchange Between Systems—Local and Metropolitan Area Networks—Specific Requirements.—Part 15.1: Wireless Medium Access Control (MAC) and Physical Layer (PHY) Specifications for Wireless Personal Area Networks (WPANs), IEEE Standard 802.15.1-2005, Jun. 2005. [68] M. Honkanen, A. Lappetelainen, and K. Kivekas, ‘‘Low end extension for Bluetooth,’’ in Proc. RAWCON, Atlanta, GA, USA, 2004. [69] IEEE Standard for Local and Metropolitan Area Networks—Part 15.4: Low-Rate Wireless Personal Area Networks (LR-WPANs), IEEE Standard 802.15.4-2011, 2011. [70] IEEE Standard for Information Technology—Telecommunications and Information Exchange Between Systems—Local and Metropolitan Area Networks—Specific Requirement Part 15.4: Wireless Medium Access Control (MAC) and Physical Layer (PHY) Specifications for Low-Rate Wireless Personal Area Networks (WPANs), IEEE Standard 802.15.4a2007, 2007. [71] IEEE Standard for Local and Metropolitan Area Networks—Part 15.6: Wireless Body Area Networks, IEEE Standard 802.15.6-2012, Feb. 2012. [72] A. Pellegrini, A. Brizzi, L. Zhang, K. Ali, Y. Hao, X.Wu, C. C. Constantinou, Y. Nechayev, P. S. Hall, N. Chahat, M. Zhadobov, and R. Sauleau, ‘‘Antennas and propagation for body-centric wireless communications at millimeter-wave frequencies: A review,’’ IEEE Antennas Propag. Mag., vol. 55, no. 4, pp. 262–287, Aug. 2013.\nVOLUME 8, 2020 159851\n[73] IEEE Standard for Information Technology—Telecommunications and Information Exchange Between Systems—Local and Metropolitan Area Networks—Specific Requirements—Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications Amendment 3: Enhancements for Very High Throughput in the 60 GHz Band, IEEE Standard 802.11ad-2012, Dec. 2012, pp. 1–598. [74] S. J. Ambroziak, L. M. Correia, R. J. Katulski, M. Mackowiak, C. Oliveira, J. Sadowski, and K. Turbic, ‘‘An off-body channel model for body area networks in indoor environments,’’ IEEE Trans. Antennas Propag., vol. 64, no. 9, pp. 4022–4035, Sep. 2016. [75] K. Turbic, L. M. Correia, and M. Beko, ‘‘A channel model for polarized off-body communications with dynamic users,’’ IEEE Trans. Antennas Propag., vol. 67, no. 11, pp. 7001–7013, Nov. 2019. [76] S. Perez-Simbor, C. Andreu, C. Garcia-Pardo, M. Frasson, and N. Cardona, ‘‘UWBpath lossmodels for ingestible devices,’’ IEEE Trans. Antennas Propag., vol. 67, no. 8, pp. 5025–5034, Aug. 2019. [77] C. Andreu, C. Garcia-Pardo, S. Castelló-Palacios, A. Vallés-Lluch, and N. Cardona, ‘‘Frequency dependence of UWB in-body radio channel characteristics,’’ IEEE Microw. Wireless Compon. Lett., vol. 28, no. 4, pp. 359–361, Apr. 2018. [78] G. Nagel, D. Ollig, M. Fuhrmann, S. Kateriya, A. M. Musti, and P. Hegemann, ‘‘Channelrhodopsin-1: A light-gated proton channel in green algae,’’ Science, vol. 296, no. 5577, pp. 2395–2398, Jun. 2002. [79] K. Deisseroth and P. Hegemann, ‘‘The form and function of channelrhodopsin,’’ Science, vol. 357, no. 6356, pp. 1–9, Sep. 2017. [80] J. Kmiecik, K. Wojcik, P. Kulakowski, and A. Jajszczyk, ‘‘Signal generation and storage in FRET-based nanocommunications,’’ Nano Commun. Netw., vol. 21, Sep. 2019, Art. no. 100254. [81] C. Bamann, T. Kirsch, G. Nagel, and E. Bamberg, ‘‘Spectral characteristics of the photocycle of Channelrhodopsin-2 and its implication for channel function,’’ J. Mol. Biol., vol. 375, no. 3, pp. 686–694, Jan. 2008. [82] G. Nagel, M. Brauner, J. F. Liewald, N. Adeishvili, E. Bamberg, and A. Gottschalk, ‘‘Light activation of Channelrhodopsin-2 in excitable cells of caenorhabditis elegans triggers rapid behavioral responses,’’ Current Biol., vol. 15, no. 24, pp. 2279–2284, Dec. 2005. [83] A. Bergs, C. Schultheis, E. Fischer, S. P. Tsunoda, K. Erbguth, S. J. Husson, E. Govorunova, J. L. Spudich, G. Nagel, A. Gottschalk, and J. F. Liewald, ‘‘Rhodopsin optogenetic toolbox v2.0 for light-sensitive excitation and inhibition in Caenorhabditis elegans,’’ PLoS ONE, vol. 13, no. 2, pp. 1–24, Feb. 2018. [84] L. A. Gunaydin, O. Yizhar, A. Berndt, V. S. Sohal, K. Deisseroth, and P. Hegemann, ‘‘Ultrafast optogenetic control,’’ Nature Neurosci., vol. 13, no. 3, pp. 387–392, Mar. 2010. [85] K. Suzuki, T. Kimura, H. Shinoda, G. Bai, M. J. Daniels, Y. Arai, M. Nakano, and T. Nagai, ‘‘Five colour variants of bright luminescent protein for real-time multicolour bioimaging,’’ Nature Commun., vol. 7, no. 1, Dec. 2016. [86] B. S. Khakh and G. Burnstock, ‘‘The double life of ATP,’’ Sci. Amer., vol. 301, no. 6, pp. 84–92, Dec. 2009. [87] G. Burnstock and A. Verkhratsky, ‘‘Purinergic signalling,’’Wires Membr. Transp. Signal, vol. 1, no. 2, pp. 116–125, Mar. 2012. [88] H. Fraga, ‘‘Firefly luminescence: A historical perspective and recent developments,’’ Photochem. Photobiol. Sci., vol. 7, no. 2, pp. 146–158, Jan. 2008. [89] M. J. Schnitzer and S. M. Block, ‘‘Kinesin hydrolyses one ATP per 8-nm step,’’ Nature, vol. 388, no. 6640, pp. 386–390, Jul. 1997. [90] A. Gennerich and R. D. Vale, ‘‘Walking the walk: How Kinesin and Dynein coordinate their steps,’’ Current Opinion Cell Biol., vol. 21, no. 1, pp. 59–67, Feb. 2009. [91] J. G. Scandalios, ‘‘Oxygen stress and superoxide dismutases,’’ Plant Physiol., vol. 101, no. 1, pp. 7–12, Jan. 1993. [92] M. Mimee, P. Nadeau, A. Hayward, S. Carim, S. Flanagan, L. Jerger, J. Collins, S. McDonnell, R. Swartwout, R. J. Citorik, V. Bulović, R. Langer, G. Traverso, A. P. Chandrakasan, and T. K. Lu, ‘‘An ingestible bacterial-electronic system to monitor gastrointestinal health,’’ Science, vol. 360, no. 6391, pp. 915–918, May 2018. [93] P. Nadeau, M. Mimee, S. Carim, T. K. Lu, and A. P. Chandrakasan, ‘‘21.1 Nanowatt circuit interface to whole-cell bacterial sensors,’’ in IEEE Int. Solid-State Circuits Conf. (ISSCC) Dig. Tech. Papers, San Francisco, CA, USA, Feb. 2017, pp. 352–353. [94] C. Bruschini, H. Homulle, I. M. Antolovic, S. Burri, and E. Charbon, ‘‘Single-photon avalanche diode imagers in biophotonics: Review and outlook,’’ Light Sci. Appl., vol. 8, no. 1, p. 87, Sep. 2019.\n[95] W. Luo, Q.Weng,M. Long, P.Wang, F. Gong, H. Fang,M. Luo,W.Wang, Z. Wang, D. Zheng, W. Hu, X. Chen, and W. Lu, ‘‘Room-temperature single-photon detector based on single nanowire,’’ Nano Lett., vol. 18, no. 9, pp. 5439–5445, Aug. 2018. [96] J. Homola, S. S. Yee, and G. Gauglitz, ‘‘Surface plasmon resonance sensors: Review,’’ Sens. Actuators B, Chem., vol. 54, nos. 1–2, pp. 3–15, Jan. 1999. [97] C. Liu, L. Yang, X. Lu, Q. Liu, F. Wang, J. Lv, T. Sun, H. Mu, and P. Chu, ‘‘Mid-infrared surface plasmon resonance sensor based on photonic crystal fibers,’’ Opt. Express, vol. 25, no. 13, pp. 14227–14237, Jun. 2017. [98] N. J. Tao, S. Boussaad, W. L. Huang, R. A. Arechabaleta, and J. D’Agnese, ‘‘High resolution surface plasmon resonance spectroscopy,’’ Rev. Sci. Instrum., vol. 70, no. 12, pp. 4656–4660, Dec. 1999. [99] G. Piro, P. Bia, G. Boggia, D. Caratelli, L. A. Grieco, and L.Mescia, ‘‘Terahertz electromagnetic field propagation in human tissues: A study on communication capabilities,’’ Nano Commun. Netw., vol. 10, pp. 51–59, Dec. 2016. [100] H. Elayan, R. M. Shubair, J. M. Jornet, and P. Johari, ‘‘Terahertz channel model and link budget analysis for intrabody nanoscale communication,’’ IEEE Trans. Nanobiosci., vol. 16, no. 6, pp. 491–503, Sep. 2017. [101] S. Canovas-Carrasco, A.-J. Garcia-Sanchez, and J. Garcia-Haro, ‘‘A nanoscale communication network scheme and energy model for a human hand scenario,’’ Nano Commun. Netw., vol. 15, pp. 17–27, Mar. 2018. [102] V. A. Kalion, I. V. Kazachkov, and Y. I. Shmakov, ‘‘Rheology of complex fluids and blood flow,’’ Ph.D. dissertation, Division Heat Power Technol., Dept. Energy Technol., Roy. Inst. Technol., Stockholm, Sweden, Jan. 2004, doi: 10.13140/RG.2.1.4654.3447. [103] S. Y. Kim, J. S. Lee, W. O. Kim, J. M. Sun, M. K. Kwon, and H. K. Kil, ‘‘Evaluation of radial and ulnar blood flow after radial artery cannulation with 20- and 22-gauge cannulae using duplex Doppler ultrasound,’’ Anaesthesia, vol. 67, no. 10, pp. 1138–1145, Oct. 2012. [104] D. Kurup, W. Joseph, G. Vermeeren, and L. Martens, ‘‘In-body path loss model for homogeneous human tissues,’’ IEEE Trans. Electromagn. Compat., vol. 54, no. 3, pp. 556–564, Jun. 2012. [105] D. Kurup, G. Vermeeren, E. Tanghe, W. Joseph, and L. Martens, ‘‘In-to-out body antenna-independent path loss model for multilayered tissues and heterogeneous medium,’’ Sensors, vol. 15, no. 1, pp. 408–421, Dec. 2014. [106] K. Lopez-Linares Roman, G. Vermeeren, A. Thielens, W. Joseph, and L. Martens, ‘‘Characterization of path loss and absorption for a wireless radio frequency link between an in-body endoscopy capsule and a receiver outside the body,’’ EURASIP J. Wireless Commun. Netw., vol. 2014, no. 1, p. 21, Feb. 2014. [107] L. Grebenstein, J. Kirchner, R. S. Peixoto, W. Zimmermann, F. Irnstorfer, W. Wicke, A. Ahmadzadeh, V. Jamali, G. Fischer, R. Weigel, A. Burkovski, and R. Schober, ‘‘Biological optical-to-chemical signal conversion interface: A small-scale modulator for molecular communications,’’ IEEE Trans. Nanobiosci., vol. 18, no. 1, pp. 31–42, Jan. 2019.\nPAWEL KULAKOWSKI received the Ph.D. degree in telecommunications from the AGH University of Science and Technology, Krakow, Poland, in 2007. He is currently an Assistant Professor with the AGH University of Science and Technology. He has spent about two years in total as a Postdoctoral Researcher or a Visiting Professor with the Technical University of Cartagena, University of Girona, University of Castilla-La Mancha, and University of Seville. He was involved in research\nprojects, especially European COST Actions: COST2100, IC1004, and CA15104 IRACON, focusing on topics of wireless sensor networks, indoor localization, and wireless communications in general. His current research interests include molecular communications and nano-networks. He was recognized with several scientific distinctions, including three awards for his conference papers and a governmental scholarship for young outstanding researchers.\n159852 VOLUME 8, 2020\nKENAN TURBIC (Member, IEEE) received the M.Sc. degree from the University of Sarajevo, in 2011 and the Ph.D. degree (Hons.) in electrical and computer engineering from the IST, University of Lisbon, in 2019. He is currently a Postdoctoral Researcher with the INESC-ID Research Institute, Lisbon, Portugal. His main research interest includes wireless channel modeling, with a particular interest in body area networks. He is actively participating in the COST\nAction CA15104 (IRACON), to which he has contributed with several technical documents and is serving as one of the section editors for the final report book.\nLUIS M. CORREIA (Senior Member, IEEE) was born in Portugal, in 1958. He received the Ph.D. degree in electrical and computer engineering from the IST, University of Lisbon, in 1991. He is currently a Professor of telecommunications with the University of Lisbon. His research interests include wireless and mobile communications in the areas of propagation, channel characterisation, radio networks, traffic, and applications, with the research activities developed in the INESC-ID\nInstitute. He has acted as a Consultant for the Portuguese telecommunications operators and regulator, besides other public and private entities. He has been in the Board of Directors of a telecommunications company. Besides being responsible for research projects at the national level, he has participated in 32 projects within European frameworks, having coordinated six and taken leadership responsibilities at various levels in many others. He has supervised more than 200 M.Sc./Ph.D. students, having edited six books, contribute to European strategic documents, and authored more than 500 papers in international and national journals and conferences, for which served also as a reviewer, an editor and a board member. Internationally, he was part of 36 Ph.D. juries, and 66 research projects and institutions evaluation committees for funding agencies in 12 countries, and the European COST and Commission. He has been the Chairman of Conference, the Technical Program Committee, and of the Steering Committee of various major conferences, besides other several duties. He was a National Delegate to the COST Domain Committee on ICT. He was active in the European Net!Works platform, by being an elected member of its Expert Advisory Group and of its Steering Board and the Chairman of its Working Group on Applications. He was also elected to the European 5G PPP Association. He has launched and served as the Chairman of the IEEE Communications Society Portugal Chapter.\nVOLUME 8, 2020 159853"
+    } ],
+    "references" : [ {
+      "title" : "Connecting in-body nano communication with body area networks: Challenges and opportunities of the Internet of nano things",
+      "author" : [ "F. Dressler", "S. Fischer" ],
+      "venue" : "Nano Commun. Netw., vol. 6, no. 2, pp. 29–38, Jun. 2015.",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Body area nanonetworks with molecular communications in nanomedicine",
+      "author" : [ "B. Atakan", "O. Akan", "S. Balasubramaniam" ],
+      "venue" : "IEEE Commun. Mag., vol. 50, no. 1, pp. 28–34, Jan. 2012.",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Nanosafety: Towards safer design of nanomedicines",
+      "author" : [ "B. Fadeel" ],
+      "venue" : "J. Internal Med., vol. 274, no. 6, pp. 578–580, Dec. 2013.",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "DNA fountain enables a robust and efficient storage architecture",
+      "author" : [ "Y. Erlich", "D. Zielinski" ],
+      "venue" : "Science, vol. 355, no. 6328, pp. 950–954, Mar. 2017.",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "A brain-computer interface that works wirelessly",
+      "author" : [ "A. Regalado" ],
+      "venue" : "MIT Technol. Rev., Jan. 2015. Accessed: Jul. 2020. [Online]. Available: https://www.technologyreview.com/s/534206/a-brain-computerinterface-that-works-wirelessly",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Synaptic communication engineering for future cognitive brain–machine interfaces",
+      "author" : [ "M.Veletic", "I. Balasingham" ],
+      "venue" : "Proc. IEEE, vol. 107, no. 7, pp. 1425–1441, Jul. 2019.",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "The Internet of bio-nano things",
+      "author" : [ "I. Akyildiz", "M. Pierobon", "S. Balasubramaniam", "Y. Koucheryavy" ],
+      "venue" : "IEEE Commun. Mag., vol. 53, no. 3, pp. 32–40, Mar. 2015.",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Fluorescent molecules as transceiver nanoantennas: The first practical and high-rate information transfer over a nanoscale communication channel based on FRET",
+      "author" : [ "M. Kuscu", "A. Kiraz", "O.B. Akan" ],
+      "venue" : "Sci. Rep., vol. 5, no. 1, Jan. 2015, Art. no. 7831.",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A molecular optical channel model based on phonon-assisted energy transfer phenomenon",
+      "author" : [ "V. Loscrí", "B.D. Unluturk", "A.M. Vegni" ],
+      "venue" : "IEEE Trans. Commun., vol. 66, no. 12, pp. 6247–6259, Dec. 2018.",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Measurements on MIMO- FRET nano-networks based on alexa fluor dyes",
+      "author" : [ "K. Wojcik", "K. Solarczyk", "P. Kulakowski" ],
+      "venue" : "IEEE Trans. Nanotechnol., vol. 14, no. 3, pp. 531–539, May 2015.",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Routing in FRET-based nanonetworks",
+      "author" : [ "P. Kulakowski", "K. Solarczyk", "K. Wojcik" ],
+      "venue" : "IEEE Commun. Mag., vol. 55, no. 9, pp. 218–224, Sep. 2017.",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "A comprehensive survey of recent advancements in molecular communication",
+      "author" : [ "N. Farsad", "H.B. Yilmaz", "A. Eckford", "C.-B. Chae", "W. Guo" ],
+      "venue" : "IEEE Commun. Surveys Tuts., vol. 18, no. 3, pp. 1887–1919, 3rd Quart., 2016.",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 1887
+    }, {
+      "title" : "Exploratory research on molecular communication between nanomachines",
+      "author" : [ "T. Suda", "M. Moore", "T. Nakano", "R. Egashira", "A. Enomoto" ],
+      "venue" : "Proc. Genetic Evol. Comput. Conf. (GECCO), Washington, DC, USA, Jun. 2005.",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "An information theoretic framework to analyze molecular communication systems based on statistical mechanics",
+      "author" : [ "I.F. Akyildiz", "M. Pierobon", "S. Balasubramaniam" ],
+      "venue" : "Proc. IEEE, vol. 107, no. 7, pp. 1230–1255, Jul. 2019.",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Molecular communication for nanomachines using intercellular calcium signalling",
+      "author" : [ "T. Nakano", "T. Suda", "M. Moore", "R. Egashira" ],
+      "venue" : "Proc. NSTI NanoTech Conf., Nagoya, Japan, Jul. 2005, pp. 478–481.",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Channel modeling for diffusive molecular Communication—A tutorial review",
+      "author" : [ "V. Jamali", "A. Ahmadzadeh", "W.Wicke", "A. Noel", "R. Schober" ],
+      "venue" : "Proc. IEEE, vol. 107, no. 7, pp. 1256–1301, Jul. 2019.",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Astrocyte calcium waves: What they are and what they do",
+      "author" : [ "E. Scemes", "C. Giaume" ],
+      "venue" : "Glia, vol. 54, no. 7, pp. 716–725, Nov. 2006.",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Modelling of simple and complex calcium oscillations",
+      "author" : [ "S. Schuster", "M. Marhl", "T. Höfer" ],
+      "venue" : "Eur. J. Biochemistry, vol. 269, no. 5, pp. 1333–1355, Mar. 2002.",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2002
+    }, {
+      "title" : "Molecular channel model with multiple bit carrying molecules",
+      "author" : [ "B. Unluturk", "E. Pehlivanoglu", "O. Akan" ],
+      "venue" : "Proc. BlackSeaCom Conf., Batumi, Georgia, Jul. 2013, pp. 79–83.",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Molecular communication using Brownian motion with drift",
+      "author" : [ "S. Kadloor", "R.S. Adve", "A.W. Eckford" ],
+      "venue" : "IEEE Trans. Nanobiosci., vol. 11, no. 2, pp. 89–99, Jun. 2012.",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Design of selforganizing microtubule networks for molecular communication",
+      "author" : [ "A. Enomoto", "M.J. Moore", "T. Suda", "K. Oiwa" ],
+      "venue" : "Nano Commun. Netw., vol. 2, no. 1, pp. 16–24, Mar. 2011.",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "A new nanonetwork architecture using flagellated bacteria and catalytic nanomotors",
+      "author" : [ "M. Gregori", "I. Akyildiz" ],
+      "venue" : "IEEE J. Sel. Areas Commun., vol. 28, no. 4, pp. 612–619, May 2010.",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Theoretical Neuroscience: Computational and Mathematical Modeling of Neural Systems",
+      "author" : [ "P. Dayan", "L.F. Abbot" ],
+      "venue" : null,
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2001
+    }, {
+      "title" : "Fundamentals of electromagnetic nanonetworks in the terahertz band",
+      "author" : [ "J.M. Jornet" ],
+      "venue" : "Ph.D. dissertation, Georgia Inst. Technol., Atlanta, GA, USA, Dec. 2013.",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Graphene-based plasmonic nano-antenna for terahertz band communication in nanonetworks",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "IEEE J. Sel. Areas Commun., vol. 31, no. 12, pp. 685–694, Dec. 2013.",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Reconfigurable terahertz plasmonic antenna concept using a graphene stack",
+      "author" : [ "M. Tamagnone", "J.S. Gómez-Díaz", "J.R.Mosig", "J. Perruisseau-Carrier" ],
+      "venue" : "Appl. Phys. Lett., vol. 101, no. 21, Nov. 2012, Art. no. 214102.",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Surface plasmon in graphene and carbon nanotubes",
+      "author" : [ "M.S. Ukhtary", "R. Saito" ],
+      "venue" : "Carbon, vol. 167, pp. 455–474, Oct. 2020. 159850  VOLUME 8, 2020  P. Kulakowski et al.: From Nano-Communications to BANs: A Perspective on Truly Personal Communications",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Channel modeling and capacity analysis for electromagnetic wireless nanonetworks in the terahertz band",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "IEEE Trans. Wireless Commun., vol. 10, no. 10, pp. 3211–3221, Oct. 2011.",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Numerical analysis and characterization of THz propagation channel for body-centric nano-communications",
+      "author" : [ "K. Yang", "A. Pellegrini", "M.O.Munoz", "A. Brizzi", "A. Alomainy", "Y. Hao" ],
+      "venue" : "IEEE Trans. THz Sci. Technol., vol. 5, no. 3, pp. 419–426, May 2015.",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Femtosecond-long pulse-based modulation for terahertz band communication in nanonetworks",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "IEEE Trans. Commun., vol. 62, no. 5, pp. 1742–1754, Apr. 2014.",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Wireless at the nanoscale: Optical interconnects using matched nanoantennas",
+      "author" : [ "A. Alù", "N. Engheta" ],
+      "venue" : "Phys. Rev. Lett., vol. 104, no. 21, pp. 213902-1–213902-4, May 2010.",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Modeling and performance analysis of metallic plasmonic nano-antennas for wireless optical communication in nanonetworks",
+      "author" : [ "M. Nafari", "J.M. Jornet" ],
+      "venue" : "IEEE Access, vol. 5, pp. 6389–6398, Apr. 2017.",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Thresholdless nanoscale coaxial lasers",
+      "author" : [ "M. Khajavikhan", "A. Simic", "M. Katz", "J.H. Lee", "B. Slutsky", "A. Mizrahi", "V. Lomakin", "Y. Fainman" ],
+      "venue" : "Nature, vol. 482, no. 7384, pp. 204–207, Feb. 2012.",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Nanometre-scale germanium photodetector enhanced by a near-infrared dipole antenna",
+      "author" : [ "L. Tang", "S.E. Kocabas", "S. Latif", "A.K. Okyay", "D.-S. Ly-Gagnon", "K.C. Saraswat", "D.A.B. Miller" ],
+      "venue" : "Nature Photon., vol. 2, no. 4, pp. 226–229, Mar. 2008.",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Absorption spectrum (380–700 nm) of pure water. II. Integrating cavity measurements",
+      "author" : [ "R.M. Pope", "E.S. Fry" ],
+      "venue" : "Appl. Opt., vol. 36, no. 33, pp. 8710–8723, Nov. 1997.",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Nanoscale optical wireless channel model for intra-body communications: Geometrical, time, and frequency domain analyses",
+      "author" : [ "P. Johari", "J.M. Jornet" ],
+      "venue" : "IEEE Trans. Commun., vol. 66, no. 4, pp. 1579–1593, Apr. 2018.",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Red blood cell as an adaptive optofluidic microlens,’’Nature",
+      "author" : [ "L.Miccio", "P.Memmolo", "F.Merola", "P.A. Netti", "P. Ferraro" ],
+      "venue" : "Commun., vol. 6,",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2015
+    }, {
+      "title" : "Acoustic communication for medical nanorobots",
+      "author" : [ "T. Hogg", "R.A. Freitas", "Jr." ],
+      "venue" : "Nano Commun. Netw., vol. 3, no. 2, pp. 83–102, Jun. 2012.",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Opto-ultrasonic communications for wireless intra-body nanonetworks",
+      "author" : [ "G.E. Santagati", "T. Melodia" ],
+      "venue" : "Nano Commun. Netw., vol. 5, nos. 1–2, pp. 3–14, Mar. 2014.",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "High frequency optoacoustic arrays using etalon detection",
+      "author" : [ "J.D. Hamilton", "T. Buma", "M. Spisar", "M. O’Donnell" ],
+      "venue" : "IEEE Trans. Ultrason., Ferroelectr., Freq. Control, vol. 47, no. 1, pp. 160–169, Jan. 2000.",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2000
+    }, {
+      "title" : "Conceptual design of a nano-networking device",
+      "author" : [ "S. Canovas-Carrasco", "A.-J. Garcia-Sanchez", "F. Garcia-Sanchez", "J. Garcia-Haro" ],
+      "venue" : "Sensors, vol. 16, no. 12, p. 2104, Dec. 2016.",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Powering in-body nanosensors with ultrasounds",
+      "author" : [ "M. Donohoe", "S. Balasubramaniam", "B. Jennings", "J.M. Jornet" ],
+      "venue" : "IEEE Trans. Nanotechnol., vol. 15, no. 2, pp. 151–154, Mar. 2016.",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Antennas and Propagation for Body-Centric Wireless Communications, 2nd ed",
+      "author" : [ "P.S. Hall", "Y. Hao" ],
+      "venue" : null,
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2012
+    }, {
+      "title" : "A multiparameter wearable physiologic monitoring system for space and terrestrial applications",
+      "author" : [ "C.W. Mundt", "K.N. Montgomery", "U.E. Udoh", "V.N. Barker", "G.C. Thonier", "A.M. Tellier", "R.D. Ricks", "R.B. Darling", "Y.D. Cagle", "N.A. Cabrol", "S.J. Ruoss", "J.L. Swain", "J.W. Hines", "G.T.A. Kovacs" ],
+      "venue" : "IEEE Trans. Inf. Technol. Biomed., vol. 9, no. 3, pp. 382–391, Sep. 2005.",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Wearable smart objects: Microwaves propelling smart textiles: A review of holistic designs for wireless textile nodes",
+      "author" : [ "S. Lemey", "S. Agneessens", "H. Rogier" ],
+      "venue" : "IEEE Microw. Mag., vol. 19, no. 6, pp. 83–100, Sep. 2018.",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Smart textiles: From niche tomainstream",
+      "author" : [ "J. Cheng", "P. Lukowicz", "N. Henze", "A. Schmidt", "O. Amft", "G.A. Salvatore", "andG. Tröster" ],
+      "venue" : "IEEEPervas. Comput., vol. 12, no. 3, pp. 81–84, Jul. 2013.",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Smart fabric, or ‘wearable clothing",
+      "author" : [ "E. Post", "M. Orth" ],
+      "venue" : "Proc. Int. Symp. Wearable Comput. (ISWC), Cambridge, MA, USA, Oct. 1997, pp. 167–168.",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Remote powered medical implants for telemonitoring",
+      "author" : [ "J. Walk", "J. Weber", "C. Soell", "R. Weigel", "G. Fischer", "T. Ussmueller" ],
+      "venue" : "Proc. IEEE, vol. 102, no. 11, pp. 1811–1832, Nov. 2014.",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 1811
+    }, {
+      "title" : "A wide-band power-efficient inductive wireless link for implantable microelectronic devices using multiple carriers",
+      "author" : [ "M. Ghovanloo", "S. Atluri" ],
+      "venue" : "IEEE Trans. Circuits Syst. I, Reg. Papers, vol. 54, no. 10, pp. 2211–2221, Oct. 2007.",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "A survey on intrabody communications for body area network applications",
+      "author" : [ "M. Seyedi", "B. Kibret", "D.T.H. Lai", "M. Faulkner" ],
+      "venue" : "IEEE Trans. Biomed. Eng., vol. 60, no. 8, pp. 2067–2079, Aug. 2013.",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Personal area networks: Near-field intrabody communication",
+      "author" : [ "T.G. Zimmerman" ],
+      "venue" : "IBM Syst. J., vol. 35, nos. 3–4, pp. 609–617, 1996.",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "Signal transmission by galvanic coupling through the human body",
+      "author" : [ "M.S. Wegmueller", "M. Oberle", "N. Felber", "N. Kuster", "W. Fichtner" ],
+      "venue" : "IEEE Trans. Instrum. Meas., vol. 59, no. 4, pp. 963–969, Apr. 2010.",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "A new technique for transmission of signals from implantable transducers",
+      "author" : [ "D. Lindsey", "E. McKee", "M. Hull", "S. Howell" ],
+      "venue" : "IEEE Trans. Biomed. Eng., vol. 45, no. 5, pp. 614–619, May 1998.",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "The signal transmission mechanism on the surface of human body for body channel communication",
+      "author" : [ "J. Bae", "H. Cho", "K. Song", "H. Lee", "H.-J. Yoo" ],
+      "venue" : "IEEE Trans. Microw. Theory Techn., vol. 60, no. 3, pp. 582–593, Mar. 2012.",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Equivalent circuit of intrabody communication channels inducing conduction currents inside the human body",
+      "author" : [ "N. Haga", "K. Saito", "M. Takahashi", "K. Ito" ],
+      "venue" : "IEEE Trans. Antennas Propag., vol. 61, no. 5, pp. 2807–2816, May 2013.",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "On the use of ultrasonic waves as a communications medium in biosensor networks",
+      "author" : [ "Y. Davilis", "A. Kalis", "A. Ifantis" ],
+      "venue" : "IEEE Trans. Inf. Technol. Biomed., vol. 14, no. 3, pp. 650–656, May 2010.",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Ultrasonic networking for E-health applications",
+      "author" : [ "G.E. Santagati", "T. Melodia", "L. Galluccio", "S. Palazzo" ],
+      "venue" : "IEEE Wireless Commun., vol. 20, no. 4, pp. 74–81, Aug. 2013.",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Mbps experimental acoustic through-tissue communications: MEAT-COMMS",
+      "author" : [ "A. Singer", "M. Oelze", "A. Podkowa" ],
+      "venue" : "Proc. IEEE SPAWC Workshops, Edinburgh, U.K., Jul. 2016, pp. 1–4.",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Exploiting spatial degrees of freedom for high data rate ultrasound communication with implantable devices",
+      "author" : [ "M.L. Wang", "A. Arbabian" ],
+      "venue" : "Appl. Phys. Lett., vol. 111, no. 13, Sep. 2017, Art. no. 133503.",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Channel characterization and modeling for optical wireless body-area networks",
+      "author" : [ "O. Haddad", "M.-A. Khalighi", "S. Zvanovec", "andM. Adel" ],
+      "venue" : "IEEE Open J. Commun. Soc., vol. 1, pp. 760–776, Jun. 2020.",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Transdermal optical communications",
+      "author" : [ "M. Faria", "L.N. Alves", "P.S. de Brito Andre" ],
+      "venue" : "Visible Light Communications: Theory and Applications, Z. Ghassemlooy, L. N. Alves, S. Zvanovec, M.-A. Khalighi, Eds. Boca Raton, FL, USA: CRC Press, 2017.",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Optical transcutaneous link for low power, high data rate telemetry",
+      "author" : [ "T. Liu", "U. Bihr", "S.M. Anis", "M. Ortmanns" ],
+      "venue" : "Proc. 34th Annu. Int. Conf. IEEE Eng. Med. Biol. Soc. (EMBS), San Diego, CA, USA, Aug. 2012, pp. 3535–3538.",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Transdermal optical communications",
+      "author" : [ "J.L. Abita", "W. Schneider" ],
+      "venue" : "Johns Hopkins APL Tech. Dig., vol. 25, no. 3, pp. 261–268, Jul. 2004.",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Feasibility of retroreflective transdermal optical wireless communication",
+      "author" : [ "Y. Gil", "N. Rotter", "S. Arnon" ],
+      "venue" : "Appl Opt., vol. 51, no. 18, pp. 4232–4239, Jun. 2012.",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Low end extension for Bluetooth",
+      "author" : [ "M. Honkanen", "A. Lappetelainen", "K. Kivekas" ],
+      "venue" : "Proc. RAWCON, Atlanta, GA, USA, 2004.",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Antennas and propagation for body-centric wireless communications at millimeter-wave frequencies: A review",
+      "author" : [ "A. Pellegrini", "A. Brizzi", "L. Zhang", "K. Ali", "Y. Hao", "X.Wu", "C.C. Constantinou", "Y. Nechayev", "P.S. Hall", "N. Chahat", "M. Zhadobov", "R. Sauleau" ],
+      "venue" : "IEEE Antennas Propag. Mag., vol. 55, no. 4, pp. 262–287, Aug. 2013. VOLUME 8, 2020  159851  P. Kulakowski et al.: From Nano-Communications to BANs: A Perspective on Truly Personal Communications",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "An off-body channel model for body area networks in indoor environments",
+      "author" : [ "S.J. Ambroziak", "L.M. Correia", "R.J. Katulski", "M. Mackowiak", "C. Oliveira", "J. Sadowski", "K. Turbic" ],
+      "venue" : "IEEE Trans. Antennas Propag., vol. 64, no. 9, pp. 4022–4035, Sep. 2016.",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A channel model for polarized off-body communications with dynamic users",
+      "author" : [ "K. Turbic", "L.M. Correia", "M. Beko" ],
+      "venue" : "IEEE Trans. Antennas Propag., vol. 67, no. 11, pp. 7001–7013, Nov. 2019.",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "UWBpath lossmodels for ingestible devices",
+      "author" : [ "S. Perez-Simbor", "C. Andreu", "C. Garcia-Pardo", "M. Frasson", "N. Cardona" ],
+      "venue" : "IEEE Trans. Antennas Propag., vol. 67, no. 8, pp. 5025–5034, Aug. 2019.",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Frequency dependence of UWB in-body radio channel characteristics",
+      "author" : [ "C. Andreu", "C. Garcia-Pardo", "S. Castelló-Palacios", "A. Vallés-Lluch", "N. Cardona" ],
+      "venue" : "IEEE Microw. Wireless Compon. Lett., vol. 28, no. 4, pp. 359–361, Apr. 2018.",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Channelrhodopsin-1: A light-gated proton channel in green algae",
+      "author" : [ "G. Nagel", "D. Ollig", "M. Fuhrmann", "S. Kateriya", "A.M. Musti", "P. Hegemann" ],
+      "venue" : "Science, vol. 296, no. 5577, pp. 2395–2398, Jun. 2002.",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : null,
+      "year" : 2002
+    }, {
+      "title" : "The form and function of channelrhodopsin",
+      "author" : [ "K. Deisseroth", "P. Hegemann" ],
+      "venue" : "Science, vol. 357, no. 6356, pp. 1–9, Sep. 2017.",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Signal generation and storage in FRET-based nanocommunications",
+      "author" : [ "J. Kmiecik", "K. Wojcik", "P. Kulakowski", "A. Jajszczyk" ],
+      "venue" : "Nano Commun. Netw., vol. 21, Sep. 2019, Art. no. 100254.",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Spectral characteristics of the photocycle of Channelrhodopsin-2 and its implication for channel function",
+      "author" : [ "C. Bamann", "T. Kirsch", "G. Nagel", "E. Bamberg" ],
+      "venue" : "J. Mol. Biol., vol. 375, no. 3, pp. 686–694, Jan. 2008.",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Light activation of Channelrhodopsin-2 in excitable cells of caenorhabditis elegans triggers rapid behavioral responses",
+      "author" : [ "G. Nagel", "M. Brauner", "J.F. Liewald", "N. Adeishvili", "E. Bamberg", "A. Gottschalk" ],
+      "venue" : "Current Biol., vol. 15, no. 24, pp. 2279–2284, Dec. 2005.",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Rhodopsin optogenetic toolbox v2.0 for light-sensitive excitation and inhibition in Caenorhabditis elegans",
+      "author" : [ "A. Bergs", "C. Schultheis", "E. Fischer", "S.P. Tsunoda", "K. Erbguth", "S.J. Husson", "E. Govorunova", "J.L. Spudich", "G. Nagel", "A. Gottschalk", "J.F. Liewald" ],
+      "venue" : "PLoS ONE, vol. 13, no. 2, pp. 1–24, Feb. 2018.",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Ultrafast optogenetic control",
+      "author" : [ "L.A. Gunaydin", "O. Yizhar", "A. Berndt", "V.S. Sohal", "K. Deisseroth", "P. Hegemann" ],
+      "venue" : "Nature Neurosci., vol. 13, no. 3, pp. 387–392, Mar. 2010.",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Five colour variants of bright luminescent protein for real-time multicolour bioimaging",
+      "author" : [ "K. Suzuki", "T. Kimura", "H. Shinoda", "G. Bai", "M.J. Daniels", "Y. Arai", "M. Nakano", "T. Nagai" ],
+      "venue" : "Nature Commun., vol. 7, no. 1, Dec. 2016.",
+      "citeRegEx" : "85",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "The double life of ATP",
+      "author" : [ "B.S. Khakh", "G. Burnstock" ],
+      "venue" : "Sci. Amer., vol. 301, no. 6, pp. 84–92, Dec. 2009.",
+      "citeRegEx" : "86",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Purinergic signalling,’’Wires Membr",
+      "author" : [ "G. Burnstock", "A. Verkhratsky" ],
+      "venue" : "Transp. Signal,",
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : "87",
+      "year" : 2012
+    }, {
+      "title" : "Firefly luminescence: A historical perspective and recent developments",
+      "author" : [ "H. Fraga" ],
+      "venue" : "Photochem. Photobiol. Sci., vol. 7, no. 2, pp. 146–158, Jan. 2008.",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Kinesin hydrolyses one ATP per 8-nm step",
+      "author" : [ "M.J. Schnitzer", "S.M. Block" ],
+      "venue" : "Nature, vol. 388, no. 6640, pp. 386–390, Jul. 1997.",
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Walking the walk: How Kinesin and Dynein coordinate their steps",
+      "author" : [ "A. Gennerich", "R.D. Vale" ],
+      "venue" : "Current Opinion Cell Biol., vol. 21, no. 1, pp. 59–67, Feb. 2009.",
+      "citeRegEx" : "90",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Oxygen stress and superoxide dismutases",
+      "author" : [ "J.G. Scandalios" ],
+      "venue" : "Plant Physiol., vol. 101, no. 1, pp. 7–12, Jan. 1993.",
+      "citeRegEx" : "91",
+      "shortCiteRegEx" : null,
+      "year" : 1993
+    }, {
+      "title" : "An ingestible bacterial-electronic system to monitor gastrointestinal health",
+      "author" : [ "M. Mimee", "P. Nadeau", "A. Hayward", "S. Carim", "S. Flanagan", "L. Jerger", "J. Collins", "S. McDonnell", "R. Swartwout", "R.J. Citorik", "V. Bulović", "R. Langer", "G. Traverso", "A.P. Chandrakasan", "T.K. Lu" ],
+      "venue" : "Science, vol. 360, no. 6391, pp. 915–918, May 2018.",
+      "citeRegEx" : "92",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "21.1 Nanowatt circuit interface to whole-cell bacterial sensors",
+      "author" : [ "P. Nadeau", "M. Mimee", "S. Carim", "T.K. Lu", "A.P. Chandrakasan" ],
+      "venue" : "IEEE Int. Solid-State Circuits Conf. (ISSCC) Dig. Tech. Papers, San Francisco, CA, USA, Feb. 2017, pp. 352–353.",
+      "citeRegEx" : "93",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Single-photon avalanche diode imagers in biophotonics: Review and outlook",
+      "author" : [ "C. Bruschini", "H. Homulle", "I.M. Antolovic", "S. Burri", "E. Charbon" ],
+      "venue" : "Light Sci. Appl., vol. 8, no. 1, p. 87, Sep. 2019.",
+      "citeRegEx" : "94",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Room-temperature single-photon detector based on single nanowire",
+      "author" : [ "W. Luo", "Q.Weng", "M. Long", "P.Wang", "F. Gong", "H. Fang", "M. Luo", "W.Wang", "Z. Wang", "D. Zheng", "W. Hu", "X. Chen", "W. Lu" ],
+      "venue" : "Nano Lett., vol. 18, no. 9, pp. 5439–5445, Aug. 2018.",
+      "citeRegEx" : "95",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Surface plasmon resonance sensors: Review",
+      "author" : [ "J. Homola", "S.S. Yee", "G. Gauglitz" ],
+      "venue" : "Sens. Actuators B, Chem., vol. 54, nos. 1–2, pp. 3–15, Jan. 1999.",
+      "citeRegEx" : "96",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Mid-infrared surface plasmon resonance sensor based on photonic crystal fibers",
+      "author" : [ "C. Liu", "L. Yang", "X. Lu", "Q. Liu", "F. Wang", "J. Lv", "T. Sun", "H. Mu", "P. Chu" ],
+      "venue" : "Opt. Express, vol. 25, no. 13, pp. 14227–14237, Jun. 2017.",
+      "citeRegEx" : "97",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "High resolution surface plasmon resonance spectroscopy",
+      "author" : [ "N.J. Tao", "S. Boussaad", "W.L. Huang", "R.A. Arechabaleta", "J. D’Agnese" ],
+      "venue" : "Rev. Sci. Instrum., vol. 70, no. 12, pp. 4656–4660, Dec. 1999.",
+      "citeRegEx" : "98",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Terahertz electromagnetic field propagation in human tissues: A study on communication capabilities",
+      "author" : [ "G. Piro", "P. Bia", "G. Boggia", "D. Caratelli", "L.A. Grieco", "L.Mescia" ],
+      "venue" : "Nano Commun. Netw., vol. 10, pp. 51–59, Dec. 2016.",
+      "citeRegEx" : "99",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Terahertz channel model and link budget analysis for intrabody nanoscale communication",
+      "author" : [ "H. Elayan", "R.M. Shubair", "J.M. Jornet", "P. Johari" ],
+      "venue" : "IEEE Trans. Nanobiosci., vol. 16, no. 6, pp. 491–503, Sep. 2017.",
+      "citeRegEx" : "100",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "A nanoscale communication network scheme and energy model for a human hand scenario",
+      "author" : [ "S. Canovas-Carrasco", "A.-J. Garcia-Sanchez", "J. Garcia-Haro" ],
+      "venue" : "Nano Commun. Netw., vol. 15, pp. 17–27, Mar. 2018.",
+      "citeRegEx" : "101",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Rheology of complex fluids and blood flow",
+      "author" : [ "V.A. Kalion", "I.V. Kazachkov", "Y.I. Shmakov" ],
+      "venue" : "Ph.D. dissertation, Division Heat Power Technol., Dept. Energy Technol., Roy. Inst. Technol., Stockholm, Sweden, Jan. 2004, doi: 10.13140/RG.2.1.4654.3447.",
+      "citeRegEx" : "102",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Evaluation of radial and ulnar blood flow after radial artery cannulation with 20- and 22-gauge cannulae using duplex Doppler ultrasound",
+      "author" : [ "S.Y. Kim", "J.S. Lee", "W.O. Kim", "J.M. Sun", "M.K. Kwon", "H.K. Kil" ],
+      "venue" : "Anaesthesia, vol. 67, no. 10, pp. 1138–1145, Oct. 2012.",
+      "citeRegEx" : "103",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "In-body path loss model for homogeneous human tissues",
+      "author" : [ "D. Kurup", "W. Joseph", "G. Vermeeren", "L. Martens" ],
+      "venue" : "IEEE Trans. Electromagn. Compat., vol. 54, no. 3, pp. 556–564, Jun. 2012.",
+      "citeRegEx" : "104",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "In-to-out body antenna-independent path loss model for multilayered tissues and heterogeneous medium",
+      "author" : [ "D. Kurup", "G. Vermeeren", "E. Tanghe", "W. Joseph", "L. Martens" ],
+      "venue" : "Sensors, vol. 15, no. 1, pp. 408–421, Dec. 2014.",
+      "citeRegEx" : "105",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Characterization of path loss and absorption for a wireless radio frequency link between an in-body endoscopy capsule and a receiver outside the body",
+      "author" : [ "K. Lopez-Linares Roman", "G. Vermeeren", "A. Thielens", "W. Joseph", "L. Martens" ],
+      "venue" : "EURASIP J. Wireless Commun. Netw., vol. 2014, no. 1, p. 21, Feb. 2014.",
+      "citeRegEx" : "106",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "However, for truly personal communication systems, one needs to encompass nano-networks [1],",
+      "startOffset" : 88,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 1,
+      "context" : "One may imagine a diagnostic system composed of nano-particles deployed in the human tissue or the vascular system [2], [3].",
+      "startOffset" : 115,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 2,
+      "context" : "One may imagine a diagnostic system composed of nano-particles deployed in the human tissue or the vascular system [2], [3].",
+      "startOffset" : 120,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 4,
+      "context" : "While some direct brain-computer interaction has already been achieved previously [5], [6], nano-communications could be the key factor for a real breakthrough progress.",
+      "startOffset" : 82,
+      "endOffset" : 85
+    }, {
+      "referenceID" : 5,
+      "context" : "While some direct brain-computer interaction has already been achieved previously [5], [6], nano-communications could be the key factor for a real breakthrough progress.",
+      "startOffset" : 87,
+      "endOffset" : 90
+    }, {
+      "referenceID" : 6,
+      "context" : "This would represent a real integration of a person with a network, and a merge of the Internet of Things with the Internet of Nano-Things [7], which could represent",
+      "startOffset" : 139,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 7,
+      "context" : "In terms of communication, FRET can be used for a binary ‘‘on-off’’ modulation, where bit ‘1’ is realized by a FRET transfer, while ‘0’ corresponds to no transfer [8].",
+      "startOffset" : 163,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 8,
+      "context" : "However, if needed, the spectral gap between the molecules can be filled in by using phonon-assisted energy transfer [9].",
+      "startOffset" : 117,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 10,
+      "context" : "One should also mention that signal routing in FRET-based networks is feasible, if molecules with specific properties are used, such as photo-switched fluorophores, quenchers or proteins of changeable shape [11].",
+      "startOffset" : 207,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 11,
+      "context" : "The second approach exploits biological mechanisms, operating at scales ranging from nano- to micrometers [12].",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 12,
+      "context" : "communications [13], [14], the great advantage being their bio-compatibility, as these mechanisms naturally occur in",
+      "startOffset" : 15,
+      "endOffset" : 19
+    }, {
+      "referenceID" : 13,
+      "context" : "communications [13], [14], the great advantage being their bio-compatibility, as these mechanisms naturally occur in",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 14,
+      "context" : "The commonly analyzed information carrier is by waves of propagating calcium ions [15], [16], information being coded as the concentration of calcium ions emitted by a cell.",
+      "startOffset" : 82,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 15,
+      "context" : "The commonly analyzed information carrier is by waves of propagating calcium ions [15], [16], information being coded as the concentration of calcium ions emitted by a cell.",
+      "startOffset" : 88,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 16,
+      "context" : ", 100 to 200 pm in size, that can propagate over distances up to 300μm, assuming a favorable alignment of living cells for diffusion [17], [18].",
+      "startOffset" : 133,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 17,
+      "context" : ", 100 to 200 pm in size, that can propagate over distances up to 300μm, assuming a favorable alignment of living cells for diffusion [17], [18].",
+      "startOffset" : 139,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 18,
+      "context" : "bits ‘0’ and ‘1’ can be coded by modifying polymers with either hydrogen or fluorine atoms [19].",
+      "startOffset" : 91,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 19,
+      "context" : "Since the diffusion process is slow, with the average velocity of calcium ions not exceeding 30μm/s, some diffusion acceleration methods, such as flow assisted propagation [20], are also considered.",
+      "startOffset" : 172,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 20,
+      "context" : "based on molecular motors, which are about 100 nm long structures, such as kinesins or dyneins, carrying information on an RNA strand or a sequence of peptides in a vesicle [21].",
+      "startOffset" : 173,
+      "endOffset" : 177
+    }, {
+      "referenceID" : 21,
+      "context" : ", catalyzing the formation of oxygen [22].",
+      "startOffset" : 37,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 22,
+      "context" : "bound for throughput in a single neuron is about 1 kbit/s, assuming a temporal coding of 1 bit per neural impulse (1: an impulse, 0: no impulse [24]).",
+      "startOffset" : 144,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 23,
+      "context" : "band [25]–[27], with the resonant frequencies being two",
+      "startOffset" : 5,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 25,
+      "context" : "band [25]–[27], with the resonant frequencies being two",
+      "startOffset" : 10,
+      "endOffset" : 14
+    }, {
+      "referenceID" : 26,
+      "context" : "EM waves propagate as surface plasmon polaritons [28], and under specific conditions, their velocity can be even 100 times lower than in vacuum.",
+      "startOffset" : 49,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 27,
+      "context" : "In addition to a high path loss, due to the spreading wave front, the rich water content of the blood and body tissues yields extremely high frequency-selective molecule absorption losses [29], resulting in path loss exceeding 120 dB for distances of a",
+      "startOffset" : 188,
+      "endOffset" : 192
+    }, {
+      "referenceID" : 27,
+      "context" : "power magnitude depending on the communication distance and on the number of molecules in between transmitting and receiving antennas [29].",
+      "startOffset" : 134,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 29,
+      "context" : "prevent interference, Time Spread On-Off Keying (TS-OOK) having been proposed as a suitable coding scheme [31].",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 30,
+      "context" : "By exploiting the same mechanisms, the emerging plasmonic antennas also enable optical transmission in infra-red and visible light spectrum [32], [33], where plasmonic nanolasers [34] and single-photon detectors [35] can serve as",
+      "startOffset" : 140,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 31,
+      "context" : "By exploiting the same mechanisms, the emerging plasmonic antennas also enable optical transmission in infra-red and visible light spectrum [32], [33], where plasmonic nanolasers [34] and single-photon detectors [35] can serve as",
+      "startOffset" : 146,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 32,
+      "context" : "By exploiting the same mechanisms, the emerging plasmonic antennas also enable optical transmission in infra-red and visible light spectrum [32], [33], where plasmonic nanolasers [34] and single-photon detectors [35] can serve as",
+      "startOffset" : 179,
+      "endOffset" : 183
+    }, {
+      "referenceID" : 33,
+      "context" : "By exploiting the same mechanisms, the emerging plasmonic antennas also enable optical transmission in infra-red and visible light spectrum [32], [33], where plasmonic nanolasers [34] and single-photon detectors [35] can serve as",
+      "startOffset" : 212,
+      "endOffset" : 216
+    }, {
+      "referenceID" : 34,
+      "context" : "In blood vessels, the optical EMwaves propagate through lossy homogeneous blood plasma and interact with different cells, particularly with the red blood cells (erythrocytes), being the most abundant ones [36].",
+      "startOffset" : 205,
+      "endOffset" : 209
+    }, {
+      "referenceID" : 35,
+      "context" : "ones [37], resulting in the multipath effect.",
+      "startOffset" : 5,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 35,
+      "context" : "However, red blood cells are reported to focusing the light propagating through them [37], [38], thus reducing the exponential path loss in favor of communications.",
+      "startOffset" : 85,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 36,
+      "context" : "However, red blood cells are reported to focusing the light propagating through them [37], [38], thus reducing the exponential path loss in favor of communications.",
+      "startOffset" : 91,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 35,
+      "context" : "of pathogens, by identifying the changes in channel impulse responses [37].",
+      "startOffset" : 70,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 37,
+      "context" : "Finally, the fourth approach considers ultrasound waves as information carriers [39], where their more favorable propagation in body tissues with high water content shows a potential for enabling communications over distances from several",
+      "startOffset" : 80,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 38,
+      "context" : "Considering the small size of micro-scale nodes, imposing limitations on the employment of standard ultrasound transducers based on the piezoelectric effect and mechanical vibrations, the photoacoustic effect presents itself as a viable option for the excitation of ultrasounds by nanonetwork devices [40].",
+      "startOffset" : 301,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 39,
+      "context" : "Therefore, the available nano-lasers can be employed for optoacoustic transmission, while optical resonators can be used for detection at the receiver side [41].",
+      "startOffset" : 156,
+      "endOffset" : 160
+    }, {
+      "referenceID" : 40,
+      "context" : "For illustration, about a few thousands of such nano-wires are needed to supply a single nano-machine, each wire being 2 μm long and having 100 nm of diameter [42].",
+      "startOffset" : 159,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 41,
+      "context" : "proposed approach is powering these machines with remotely generated ultrasounds, which can be converted by them into electrical energy by using piezoelectric nano-elements [43].",
+      "startOffset" : 173,
+      "endOffset" : 177
+    }, {
+      "referenceID" : 42,
+      "context" : "BANs have found their application in a vast range of fields [45], including healthcare, military, sports, and entertainment, among others.",
+      "startOffset" : 60,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 43,
+      "context" : ", military pilots and Formula 1 drivers [46].",
+      "startOffset" : 40,
+      "endOffset" : 44
+    }, {
+      "referenceID" : 44,
+      "context" : "smart textiles [47], [48], which allow for the integration of power sources, communications, and sensing circuitry within washable clothes [49].",
+      "startOffset" : 15,
+      "endOffset" : 19
+    }, {
+      "referenceID" : 45,
+      "context" : "smart textiles [47], [48], which allow for the integration of power sources, communications, and sensing circuitry within washable clothes [49].",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 46,
+      "context" : "smart textiles [47], [48], which allow for the integration of power sources, communications, and sensing circuitry within washable clothes [49].",
+      "startOffset" : 139,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 47,
+      "context" : "The transmission channel in ICC [50] is established between two magnetic-coupled coils.",
+      "startOffset" : 32,
+      "endOffset" : 36
+    }, {
+      "referenceID" : 48,
+      "context" : "Since the two impose conflicting requirements on the coil design, the system designer has either to optimize the trade-off in a single-coil design or to use two separately optimized coils [51].",
+      "startOffset" : 188,
+      "endOffset" : 192
+    }, {
+      "referenceID" : 49,
+      "context" : "body and use it as a transmission medium [52], where one can distinguish between capacitive and galvanic BCC.",
+      "startOffset" : 41,
+      "endOffset" : 45
+    }, {
+      "referenceID" : 51,
+      "context" : "On the other hand, galvanic BCC exploits ionic properties of the body fluids for signal transmission, with both transmitter/receiver electrodes being in contact with the body [54], [55].",
+      "startOffset" : 175,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 52,
+      "context" : "On the other hand, galvanic BCC exploits ionic properties of the body fluids for signal transmission, with both transmitter/receiver electrodes being in contact with the body [54], [55].",
+      "startOffset" : 181,
+      "endOffset" : 185
+    }, {
+      "referenceID" : 53,
+      "context" : "One should note that the field induced by either capacitive or galvanic body coupled transmitters at frequencies above 50 MHz is not quasi-static, and guided wave propagation occurs [56].",
+      "startOffset" : 182,
+      "endOffset" : 186
+    }, {
+      "referenceID" : 54,
+      "context" : "The devices are in this case designed to excite strong surface waves traveling along the body [57].",
+      "startOffset" : 94,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 55,
+      "context" : "Ultrasonic communications use sound waves at frequencies above 20 kHz to transmit information, and their employment in BANs has been proposed only recently [58].",
+      "startOffset" : 156,
+      "endOffset" : 160
+    }, {
+      "referenceID" : 56,
+      "context" : "The ultrasounds exhibit a much lower attenuation in body tissues than their EM counterparts [59], making them a more favorable information carrier for in- and into-body",
+      "startOffset" : 92,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 55,
+      "context" : "Another attractive aspect of this mode of communication is safety, since ultrasounds have been used for medical imaging for a long time, without reported side effects on the human body [58].",
+      "startOffset" : 185,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 57,
+      "context" : "While ultrasound communications provide data rates only up to 100 kbit/s, the employment of higher order modulation schemes, such as 64 QAM [60], or spatial-multiplexing",
+      "startOffset" : 140,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 58,
+      "context" : "MIMO [61], has been proposed to achieve data rates higher than 10 Mbit/s.",
+      "startOffset" : 5,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 59,
+      "context" : "Besides ton-body communications [62], optical wireless transmission can be also employed to establish links between implants and on-body nodes [63], where",
+      "startOffset" : 32,
+      "endOffset" : 36
+    }, {
+      "referenceID" : 60,
+      "context" : "Besides ton-body communications [62], optical wireless transmission can be also employed to establish links between implants and on-body nodes [63], where",
+      "startOffset" : 143,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 61,
+      "context" : "data rates of up to 50 Mbit/s have been demonstrated through 4 mm thick tissues [64].",
+      "startOffset" : 80,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 62,
+      "context" : "communications can be established with devices implanted several centimeters into the body tissue [65], by using wavelengths within the spectral window between 700 and 950 nm, characterized by low absorption [66].",
+      "startOffset" : 98,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 63,
+      "context" : "communications can be established with devices implanted several centimeters into the body tissue [65], by using wavelengths within the spectral window between 700 and 950 nm, characterized by low absorption [66].",
+      "startOffset" : 208,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 63,
+      "context" : "retroreflective transdermal communication for the transmission of data from an implant to an outside device [66].",
+      "startOffset" : 108,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 64,
+      "context" : "associated with certain advantages, radio is by far the most considered option for BANs, due to the convenience of wireless transmission and the availability of a number of mature technologies, namely, Bluetooth [67], Bluetooth Low Energy (LE) [68], ZigBee [69], and ultra-wideband (UWB) [70].",
+      "startOffset" : 244,
+      "endOffset" : 248
+    }, {
+      "referenceID" : 65,
+      "context" : "munications have been considered recently, due to the high capacity and low inter-BAN interference [72].",
+      "startOffset" : 99,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 66,
+      "context" : "most important challenges are associated with the communication channel, and the peculiarities of body-centric radio propagation, where body-shadowing and users’ motion have a significant influence on channel quality [74], [75].",
+      "startOffset" : 217,
+      "endOffset" : 221
+    }, {
+      "referenceID" : 67,
+      "context" : "most important challenges are associated with the communication channel, and the peculiarities of body-centric radio propagation, where body-shadowing and users’ motion have a significant influence on channel quality [74], [75].",
+      "startOffset" : 223,
+      "endOffset" : 227
+    }, {
+      "referenceID" : 68,
+      "context" : "teristics of antennas operating in its close vicinity, which imposes great challenges on antenna design, especially in the case of in- and into-body communications, where antennas are immersed in highly dispersive human tissues [76], [77].",
+      "startOffset" : 228,
+      "endOffset" : 232
+    }, {
+      "referenceID" : 69,
+      "context" : "teristics of antennas operating in its close vicinity, which imposes great challenges on antenna design, especially in the case of in- and into-body communications, where antennas are immersed in highly dispersive human tissues [76], [77].",
+      "startOffset" : 234,
+      "endOffset" : 238
+    }, {
+      "referenceID" : 70,
+      "context" : "Recently, they became highly investigated [78], [79], inspiring quite a new discipline called optogenetics, which is about controlling living tissues with light.",
+      "startOffset" : 42,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 71,
+      "context" : "Recently, they became highly investigated [78], [79], inspiring quite a new discipline called optogenetics, which is about controlling living tissues with light.",
+      "startOffset" : 48,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 72,
+      "context" : "Furthermore, channelrhodopsins can be activated by FRET as well [80].",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 73,
+      "context" : "The full cycle of a channelrhodopsin, from closed to open and then closed and able to accept stimuli, is as long as 5 s [81], thus, the throughput of data transferred via a single channelrhodopsin remains far below 1 bit/s.",
+      "startOffset" : 120,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 72,
+      "context" : "parallel [80], which has been shown to have a throughput of about 50 bit/s, achieved with a bit error ratio kept below 10−3.",
+      "startOffset" : 9,
+      "endOffset" : 13
+    }, {
+      "referenceID" : 74,
+      "context" : "Channelrhodopsins can be also embedded into neurons, replacing receptors at the neuron membrane, which has already been proved experimentally [82], [83].",
+      "startOffset" : 142,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 75,
+      "context" : "Channelrhodopsins can be also embedded into neurons, replacing receptors at the neuron membrane, which has already been proved experimentally [82], [83].",
+      "startOffset" : 148,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 76,
+      "context" : "It has been shown that channelrhodopsin-controlled neurons are able to produce up to 200 impulses per second [84], which means",
+      "startOffset" : 109,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 77,
+      "context" : "5 s, while for RLuc it is even 5 s [85].",
+      "startOffset" : 35,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 72,
+      "context" : "Second, similarly to FRET, communication distances for BRET are below 10 nm [80].",
+      "startOffset" : 76,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 78,
+      "context" : "ATP can act similarly like neurotransmitters, which, in biology, is called purinergic signaling [86], [87].",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 79,
+      "context" : "ATP can act similarly like neurotransmitters, which, in biology, is called purinergic signaling [86], [87].",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 80,
+      "context" : ", Fluc (firefly luciferase) molecules, so it can be used to control these reactions [88].",
+      "startOffset" : 84,
+      "endOffset" : 88
+    }, {
+      "referenceID" : 81,
+      "context" : "These molecular motors advance 8 nm for each ATP molecule spent [89], [90], so this way of trans-",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 82,
+      "context" : "These molecular motors advance 8 nm for each ATP molecule spent [89], [90], so this way of trans-",
+      "startOffset" : 70,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 83,
+      "context" : ", from a single glucose C6H12O6 molecule, living cells produce up to 38ATP molecules [91].",
+      "startOffset" : 85,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 84,
+      "context" : "ing internal bleeding inside gastrointestinal tract [92].",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 85,
+      "context" : "The bacteria signaled the information via luminescence to the photodetectors designed for this purpose [93].",
+      "startOffset" : 103,
+      "endOffset" : 107
+    }, {
+      "referenceID" : 86,
+      "context" : "SPAD photodetectors are commonly used to measure FRET efficiency in biophotonic applications [94].",
+      "startOffset" : 93,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 86,
+      "context" : "This process must be further stopped in order to make the SPAD sensitive for the next photons, which usually takes 10 to 100 ns [94], which means that photons can be",
+      "startOffset" : 128,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 86,
+      "context" : "While the evolution of SPAD technology is progressing well, themain challenge is their photodetection efficiency, which rarely exceeds 50% and is not stable in the whole visible and infrared spectrum [94].",
+      "startOffset" : 200,
+      "endOffset" : 204
+    }, {
+      "referenceID" : 87,
+      "context" : "Recently, a single-photon detector based on cadmium sulfide nano-wire, but operating in room temperatures, has been also presented [95] and can be treated as an alternative for SPADs.",
+      "startOffset" : 131,
+      "endOffset" : 135
+    }, {
+      "referenceID" : 26,
+      "context" : "This oscillation is called a plasmon and it can travel about 10 μm [28] in graphene or up to 60 μm in silver/gold [96].",
+      "startOffset" : 67,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 88,
+      "context" : "This oscillation is called a plasmon and it can travel about 10 μm [28] in graphene or up to 60 μm in silver/gold [96].",
+      "startOffset" : 114,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 89,
+      "context" : "Classical prism-based SPR sensors are quite large, but solutions based on optical fibers are much more compact with sizes of about 20 μm [97].",
+      "startOffset" : 137,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 90,
+      "context" : "SPR sensors can achieve very good response times of about 1μs [98], thus the throughput of such an interface might be in the order of 1Mbit/s.",
+      "startOffset" : 62,
+      "endOffset" : 66
+    }, {
+      "referenceID" : 91,
+      "context" : "The extremely high path loss in the presence of multiple tissues in between transmitter and receiver make a direct communication between a nano-node in the blood stream and an external BAN device particularly challenging [99].",
+      "startOffset" : 221,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 92,
+      "context" : "optical or ultrasound waves to communicate with both sides [100], [101].",
+      "startOffset" : 59,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 93,
+      "context" : "optical or ultrasound waves to communicate with both sides [100], [101].",
+      "startOffset" : 66,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 93,
+      "context" : "Both the micro-scale devices carrying information and the implanted one can be powered by energy delivered by ultrasound waves emitted by the on-body BAN node [101].",
+      "startOffset" : 159,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 94,
+      "context" : "through the body, as they host 14% of the total blood-flow in the body [102], but the attachment of an external node on the neck is inconvenient for regular daily activities.",
+      "startOffset" : 71,
+      "endOffset" : 76
+    }, {
+      "referenceID" : 95,
+      "context" : "watch or a bracelet, but only 1% of the total blood flows towards the heart through these veins [103].",
+      "startOffset" : 96,
+      "endOffset" : 101
+    }, {
+      "referenceID" : 96,
+      "context" : "Propagation through body tissues at microwaves is much less restricted than in the THz band, but the high dispersion losses due to conductivity still limit communication to distances of the order of 1 cm of body tissue [104].",
+      "startOffset" : 219,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 97,
+      "context" : "proximity, such as a medical instrument next to the hospital bed [105], [106].",
+      "startOffset" : 65,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 98,
+      "context" : "proximity, such as a medical instrument next to the hospital bed [105], [106].",
+      "startOffset" : 72,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 68,
+      "context" : "UWB communications seem to be the most attractive option for into-body communications, due to the high tissue penetration depths [76], [77], but other technologies discussed in Section IV could be employed.",
+      "startOffset" : 129,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 69,
+      "context" : "UWB communications seem to be the most attractive option for into-body communications, due to the high tissue penetration depths [76], [77], but other technologies discussed in Section IV could be employed.",
+      "startOffset" : 135,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 55,
+      "context" : "also used for into-body communications with BAN implants in this scenario [58], or even directly with micro-scale devices.",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 56,
+      "context" : "Ultrasounds are characterized by lower absorption losses, and their proved safety through the long usage in medical imaging is another attractive property [59].",
+      "startOffset" : 155,
+      "endOffset" : 159
+    } ],
+    "year" : 2020,
+    "abstractText" : "This article presents an overview of future truly personal communications, ranging from networking inside the human body to the exchange of data with external wireless devices in the surrounding environment. At the nanoand micro-scales, communications can be realized with the aid of molecular mechanisms, Förster resonance energy transfer phenomenon, electromagnetic or ultrasound waves. At a larger scale, in the domain of Body Area Networks, a wide range of communication mechanisms is available, including smart-textiles, inductiveand body-couplings, ultrasounds, optical and wireless radio transmissions, a number of mature technologies existing already. The main goal of this article is to identify the potential mechanisms that can be exploited to provide interfaces in between nanoand micro-scale systems and Body Area Networks. These interfaces have to bridge the existing gap between the two worlds, in order to allow for truly personal communication systems to become a reality. The extraordinary applications of such systems are also discussed, as they are strong drivers of the research in this area. INDEX TERMS Body area networks, communication interfaces, nano-networks, molecular communications, personal communications.",
+    "creator" : "LaTeX with hyperref package"
+  }
+}

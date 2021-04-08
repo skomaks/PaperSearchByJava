@@ -1,0 +1,874 @@
+{
+  "name" : "twin.sci-hub.se_6101_e77ddedcbbc13c1dbff71721fa2c6ba3_kufer2016.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Photo-FETs: phototransistors enabled by 2D and 0D nanomaterials",
+    "authors" : [ "Dominik Kufer", "Gerasimos Konstantatos" ],
+    "emails" : [ "(Gerasimos.konstantatos@icfo.es)" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "1\nThe large diversity of applications in our daily lives that rely on photodetection\ntechnology requires photodetectors with distinct properties. The choice of an adequate\nphotodetecting system depends on its application, where aspects such as spectral\nselectivity, speed and sensitivity play a critical role. High sensitivity photodetection\ncovering a large spectral range from the UV to IR is dominated by photodiodes. To\novercome existing limitations in sensitivity and cost of state-of-the-art systems, new\ndevice architectures and material systems are needed with low-cost fabrication and high\nperformance. Low dimensional nanomaterials (0D, 1D, 2D) are promising candidates\nwith many unique electrical and optical properties and additional functionalities such as\nflexibility and transparency. In this perspective, the physical mechanism of photo-FETs\n(Field Effect Transistors) is described and recent advances in the field of low-\ndimensional photo-FETs and hybrids thereof are discussed. Several requirements for\nthe channel material are addressed in view of the photon absorption and carrier\ntransport process, and a fundamental trade-off between them is pointed out for single-\nACS Paragon Plus Environment\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n2\nmaterial based devices. We further clarify how hybrid devices, consisting of an\nultrathin channel sensitized with strongly absorbing semiconductors can circumvent\nthese limitations and lead to a new generation of highly sensitive photodetectors. Recent\nadvances in the development of sensitized low-dimensional photo-FETs are discussed\nand several promising future directions for their application in high sensitivity\nphotodetection are proposed.\nPhotodetectors are one of the key components in many optoelectronic devices which\ntransduce optical into electrical information. Today, photodetectors have reached a mature\ntechnology level and address a huge application spectrum including imaging, remote sensing,\nfibre-optic communication and spectroscopy among many others. However, to tackle\nchallenges and to surpass existing limitations in sensitivity of state-of-the-art photodetector\nsystems, new device architectures and material systems are needed which offer low-cost\nfabrication and high performance over a wide spectral range. The active research field on\nphotodetection grows and many novel nanostructured material systems1 have been employed\nfor light sensing including Quantum dots2,3, Perovskites4,5, organic molecules and\npolymers6,7, Carbon Nanotubes8,9, Graphene10,11 and the large field of semiconducting 2D\nmaterials such as the transition metal dichalcogenides (TMDCs) and black phosphorus12,13.\nPhotodetector performance is governed by both the optical and electronic properties of the\nemployed semiconductor. The former determines the spectral coverage and quantum\nefficiency of the detector whereas the latter determines, through the carrier transport and\ncarrier density, the amount of dark current flowing through the device, as well as the\nefficiency of charge separation and collection upon illumination. The key parameters for a\nstrong signal response are a high photon to electron conversion rate (quantum efficiency) and\nPage 2 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n3\nideally an inherent gain mechanism, which yields multiple carriers per absorbed photon. The\nresponse signal is then weighed against the noise portion of the ratio, which has to be\nminimized for maximum sensitivity. There are several device-external noise sources, such as\nthe photon noise due to the statistical arrival of photons on the device or the read-out noise in\nphotodetector arrays that originates in preamplifier electronics. Here, we will put emphasis on\nthe device (photodetector pixel) inherent noise, which stems partially from thermally\ngenerated charge carriers and also from the intrinsic carrier density that contribute to the dark\ncurrent of the device (shot noise limit) as well as flicker noise (1/f). It is however important to\nnote that the sensitivity of a detector with inherent noise lower than the noise floor of\ncommercially used CMOS read-out circuits, typically met in photodiodes, is limited by the\nlatter, thus a photodetector technology with an inherent gain mechanism is desired to alleviate\nthis effect.\nThe relevant performance metrics and terminology used throughout this article are described\nin Box 1.\nBox 1 – Performance metrics for photodetection\nResponsivity\n[A/W]\n=\n= ℎ\n1\n1 + (2 )\nPhotocurrent Incident light power Quantum efficiency Electron charge Incident wavelength Planck’s constant Speed of light Modulation frequency Time constant Photoconductive Gain\nIPh Pin QE q λ h c f τ\nG The fundamental process behind photodetection is absorption of light. Responsivity R, a measure of output current per incoming optical power in units of A/W, describes how a detector system responds to illumination. Responsivity depends on the incident wavelength,\nPage 3 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n4\nlight modulation frequency and applied bias voltage. The response of a detector to light is primarily determined by the conversion efficiency of photon flux into electron flux, known as the quantum efficiency (QE). The quantum efficiency typically takes into account all kind of external losses such as reflection and scattering and is often called external quantum efficiency (EQE). It is defined as the ratio of extracted electrons to incident photons, with a value between 0 and 100 %, unless carrier multiplication effects are present. In photodiodes the gain is equal to unity (G = 1) and charge extraction happens on extremely short time scales. The responsivity according to the equation above is then solely determined by the quantum efficiency. For instance, in the ideal case of 100 % conversion efficiency at a wavelength of 630 nm, the responsivity is 0.5 A/W.\nGain\n= ! \" =\n# $ %&'\nCarrier lifetime Carrier transit time Channel length Mobility Drain-source voltage τ lifetime τ transit L µ VDS\nIn photoconducting systems a photoconductive gain mechanism can be present. In the most common case, one carrier type is trapped and the other is free to traverse the channel. If the trapping time, also referred to as lifetime, is longer than the transit time of free carriers, photoconductive gain is generated. This can lead to a large responsivity in orders of magnitude higher than for photodiodes. A similar effect is achieved in the case of imbalanced transport of electrons and holes (i.e. the mobility of one type of carriers differs than that of the other type). Photoconductors with large gain usually show rather slow response times as described by the so called gain-bandwidth trade-off. Since the response time constant and the photoconductive gain are dominated by the lifetime of trapped carriers, increasing gain decreases the operation bandwidth. This trade-off must be considered when designing detectors for specific applications.\nDetectivity\n[cm Hz 1/2 W -1 = Jones]\n(∗ = √+ , - = √+ ∗ ,\n./\nArea Bandwidth Noise equivalent power Responsivity Noise current A B NEP R iN\nThe ultimate figure of merit to describe sensitivity of photodetectors includes both the response to light and the noise floor. The higher the signal-to-noise (SNR) ratio, the easier it is to detect the light signal. The lowest detectable power, when SNR = 1, defines the sensitivity limit of the detector and is called noise-equivalent power NEP. The noise equivalent power depends on many parameters that have to be taken into account and specified, such as detector area A, electrical bandwidth B and modulation frequency f. To facilitate the direct comparison between different detector architectures independent of area\nPage 4 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n5\nand bandwidth, a figure of merit named specific detectivity D* has been introduced. The detectivity still depends on certain measurement conditions such as bias voltage, wavelength, temperature and modulation frequency, which have to be specified for comparison with other systems. State-of-the-art detectors such as silicon or InGaAs diodes demonstrate detectivities on the order of 1012 - 1013 Jones at room temperature. Note: The noise current iN comprises all noise sources present in a detector. The magnitude of noise at its operation frequency can be extracted from the spectral density of noise. Lowdimensional photo-FETs have been demonstrated to possess large flicker noise (1/f) components in the frequency range < 1kHz, at which they are usually operated. However, the detectivity is often stated in the shot-noise limit in which only the shot-noise current ISN = (2qIdark) 1/2 is considered. The detectivity in the shot-noise limit can therefore overestimate the measured real detectivity by orders of magnitude in the discussed systems and careful attention is needed in the interpretation of the data. In addition to this, it should also be noted that once low dark current has been achieved and once the 1/f noise challenge has been addressed in these sytems, the Johnson noise will eventually take over determining the ultimate sensitivity of the device and thus should not be neglected in otherwise optimized detectors."
+    }, {
+      "heading" : "Photodiodes and photoconductors.",
+      "text" : "The two most common photodetector types are photodiodes and photoconductors.\nPhotodiodes typically form a p-n-junction between oppositely doped semiconductors, a\nSchottky-junction between a doped semiconductor and one of the metal electrodes or one or\nmore blocking contacts between intrinsic semiconductors or intrinsic semiconductors and\nmetals (as in the case of polymer or perovskite based photodiodes) . The junction leads to\ncharge carrier separation after the excitation process and electrons and holes drift in different\ndirections towards the electrodes driven by the built-in electric field at the interface or by\ndiffusion to selective contacts. The response time of diodes is determined by the transit time\nof carriers to their corresponding electrodes, leading to high-bandwidth operation in high\ncarrier mobility semiconductors. The signal strength detected in diodes is dictated by the\nquantum efficiency. As charge carriers are separated by a built-in field at the junction, the\ndevice can at its best produce one electron-hole pair per absorbed photon, corresponding to a\nquantum efficiency of 100%. The potential barrier at the junction prohibits charge carrier\nrecirculation and limits the response signal of photodiodes to unity gain. However, the SNR\nPage 5 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n6\nof photodiodes also benefits from the junction barrier as only few thermally generated\ncarriers can cross the junction and extremely low dark currents are achieved. The final\nlimitation of sensitivity in this device configuration is likely to be given by external readout\nnoise from preamplifiers. A particular class of photodiodes, the avalanche photodiodes\n(APDs) which are essentially photodiodes operated near the break down regime offer the\npossibility of extracting multiple carriers per single photon, similar to the concept of gain.\nYet it has to be emphasized that this carrier multiplication effect present in APDs is\nqualitatively distinct than that of the gain in photoconductors. The carrier multiplication\neffect is due to quantum efficiency exceeding unity as the multiplication process takes place\nwithin the primary photocarrier generation. As a results APDs have the potential to reach\nsimultaneously high responsivities at very bandwidth. The value of gain in APDs is typically\non the order of 10-100 electrons per photon and requires the application of very high bias,\ntypically exceeding 50-100 V. As a result the use of APDs is limited to metrology equipment\nwhere very high sensitivity and short time response is needed and the use of high bias and\nbulky electronics can be tolerated.\nPhotoconductors, on the other hand, can be operated at dark currents with noise levels beyond\nthe read-out noise floor and have the potential to reach higher sensitivity than photodiodes. A\nphotoconductor, in its most basic configuration, consists of a homogenous semiconductor\nslab with two ohmic metal contacts (drain D and source S). Photo-excited charge carriers are\nseparated by an applied voltage VDS and induce a change of carrier density which increases\nthe devices` conductivity. In photoconductors the photoconductive gain can be present and is\ngenerated as soon as one photo-excited electron (hole) traverses the electrode spacing more\nthan one time before recombination with a hole (electron). The most common reason for gain\nis trap-states (sensitizing centers) within the bandgap of the semiconductors, which capture\nPage 6 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n7\nand localize one charge carrier type and effectively prolong its carrier lifetime τ Lifetime. The\nopposite carrier freely moves between source and drain driven by the applied electric field.\nThe photoconductive gain G is then defined as the ratio of lifetime and transit time (see Box\n1). Photoconductors with large gain usually show orders of magnitude slower response times\nthan diodes, because both the time constant and the gain are given by the lifetime of the\ntrapped carriers. However, they have the potential for extremely high sensitivity due to the\ngain mechanism. Ideal conditions for gain are met in high mobility semiconductors with high\nquality ohmic contacts, since Schottky-barriers at the contacts can strongly impede efficient\ncharge replenishment and reduce photoconductive gain. Ohmic contacts, however, also imply\nlarge dark currents and therefore large photoconductive gain does not necessarily lead to\nhigher SNR, as it is often assumed. While the SNR of a detector pixel with gain is maintained\nrather constant due to simultaneous amplification of signal and noise, the real benefit of gain\nis to raise the signal above the noise floor of the readout system to avoid performance\nlimitations by the signal processing electronics. An optimized point of gain-operation has to\nbe found, since the high dark currents of devices with extremely large gain lead to other\nfundamental drawbacks such as high power consumption. Additionally it adds on the\ncomplexity of the signal read-out process as large dark currents saturate read-out electronics6,\ncalling for design of complex read-out schemes.\nAnother class of photodiodes has been introduced recently which can be considered as a\nhybrid photodiode-photoconductor systems [ Jinsong Huang]. In that case photogenerated\ncarrier trapping at an interface (typically a Schottky junction) transforms, upon illumination,\na rectifying contact into an ohmic contact, henceforth transforming the detector from a\nphotodiode in dark into a photoconductor under illumination.\nPhoto-FETs.\nPage 7 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n8\nA promising device architecture that can concomitantly achieve low dark current and high\ngain is the photo field-effect transistor (photo-FETs). As illustrated in Figure 1, the device\nconfiguration is similar to lateral photoconductors with metal-semiconductor-metal\narchitecture forming the source and drain electrodes. Yet a third contact, the gate electrode\nwhich is electrically isolated from the semiconductor channel by a thin dielectric film can be\nexploited to modulate the conductivity of the channel. An applied gate voltage VGS can be\nused to control electronically the carrier density by field-effect modulation and favourably\nswitch off the dark current by operating the device in the depletion regime. The incident light\nactivates the channel conductance of the device, through carrier photogeneration, which then\nideally profits from a photoconductive gain mechanism as in photoconductors. For high\nperformance photo-FETs, the channel material should ideally possess high carrier mobility\nfor high gain-bandwidth products, a moderately large and direct bandgap for efficient field-\neffect modulation and optical absorption, and a thin profile for full depletion and operation at\nultralow dark currents. Moreover the channel material should exhibit very low trap state\ndensity to yield low sub-threshold swings.\nEspecially the group of 2D layered materials fulfil most of these requirements. The discovery\nof graphene led initially to extensive studies on its own use for photodetection14–20, due to\nexcellent charge carrier mobilities, broadband absorption, and mechanical flexibility.\nHowever, the lack of bandgap in graphene and its corresponding large dark currents remain\none of the main challenges if operated in photo-FET configuration and demand special read-\nout schemes in order to exploit the full potential of this material platform.\nResearchers soon expanded into other 2D materials21, which share similar properties like the\natomic thickness and flexibility, but also complement graphene with further functionalities22.\nThe group of semiconducting transition metal dichalcogenides (TMDCs) emerged as a\nPage 8 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n9\npromising candidate for both conventional semiconductor technology and flexible technology\nin view of its ultimate scalability down to the atomic level and the presence of bandgap. With\ndecreasing layer thicknesses, quantum confinement effects come into play, leading to a\nsizeable optical absorption edge between 1-2eV that is highly interesting for photodetection.\nPhoto-FETs based on plain MoS2 23–33, WSe2 34, MoSe2 35–37 and WS2 38–40 consisting of single-\nand multilayer nanosheets have been demonstrated. While sensitivity is limited to the visible\nfor monolayers due to the direct bandgap, the bandgap turns indirect and shrinks with\nincreasing layer number extending thereby detector sensitivity into the NIR region. Apart\nfrom the TMDCs many more layered material systems have been explored in photo-FET\ndevice configuration with similar performance, including other chalcogen-based materials\nsuch as GaS, GaSe, GaTe, SnS2, InSe, In2Se3 41–48 and the recently discovered black\nphosphorus41,49,50. Few-layer black phosphorus emerged as highly promising candidate with\nhighest mobility reported of 1000 cm2/Vs and a thickness dependent bandgap from 0.3-2.0\neV51, an attractive spectral range that cannot be fully reached by TMDCs, yet its\nenvironmental stability remains a concern for robust devices.\nMolybdenum disulfide is one of the most studied semiconducting layered materials of all the\naforementioned, due to the natural occurrence of MoS2 single crystals and its high\nperformance on commonly used Si/SiO2 substrates contacted with standard contact metals.\nMonolayer MoS2 photodetectors are especially promising for flexible and semitransparent\ndevice concepts due to its mechanical flexibility and strength52–55. One of the most intriguing\nproperties of monolayer MoS2 is its large direct bandgap of 1.8eV, which leads to high\nabsorption efficiency56,57 and large electrical on/off ratios. Experimentally on/off ratios of 108\nhave been reported58,59, with theoretical predictions60 even reaching 1010. The gate-tunable\nconductivity allows to fully deplete the MoS2 channel and due to the atomically thin profile\nof monolayer MoS2 extremely low off-current densities of 25fA/µm have been achieved to\nPage 9 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n10\ndate59. This means that MoS2 photo-FETs with dimensions of 1um x 1um can already reach\ndark currents of only 1 order of magnitude higher than commercial, uncooled InGaAs\nphotodiodes with the same dimensions.\nThe optoelectronic response to light of monolayer and few-layer 2D semiconductors has\nshown an enormous variety in performance parameters, reporting responsivity from 10-3-103\nA/W and temporal response times in the range of 10-5-10s.12,13 A prominent reason for that\nwas found to be the large surface-to-volume ratio of 2D materials. Diverse substrate\ntreatments prior to MoS2 deposition have shown to strongly impact responsivity and response\ntime by introducing trap states in the bandgap, which capture holes and increase their\nlifetimes leading to responsivity of 880A/W and decay times of 9s and longer23. Furchi et al.\nhave shown that the photoresponse of MoS2 is based on two distinct mechanisms, the\nphotogating and photoconducting effect30. The photogating mechanism originates from long-\nlived charge-trapping processes at surface-bound water molecules or other surface adsorbates\nand is responsible for the extremely slow response dynamics and high responsivity values.\nThe photoconducting mechanism has been demonstrated by applying two light sources,\nwhere a continuous light source fills adsorbate-related traps and a rapidly modulated light\nsource probes the material-related photoconductivity. Under these conditions much lower\noptical gain and fast response times are observed. An important step to successfully employ\n2D materials as ultra-thin photodetectors is therefore to control the impact of substrate and\nsurrounding atmospheric adsorbates, to achieve high sensitivity together with fast response\ntimes. A robust passivation scheme has recently been proposed by encapsulating MoS2\nphoto-FETs with atomic layer deposited (ALD) oxides58 such as HfO2 and Al2O3. The\nisolation from ambient air enhanced electronic properties and led to experimentally measured\nsensitivity of 1011 - 1012 Jones with decay times of 10 ms. The responsivity and temporal\nresponse could be tuned by field effect modulation by orders of magnitude with R = 10 – 104\nPage 10 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n11\nA/W and corresponding time response of t = 10ms to 10s. The large responsivity of 104 A/W\ndue to strong signal amplification was obtained in the accumulation regime of the photo-FET,\nin which also highest dark currents are reached and the sensitivity of the detector dropped to\nits minimum. The large variety of reported performance parameters can be attributed to\ndifferent environmental measurement conditions, different substrate treatments and\noptoelectronic characterisation under different backgate field strength."
+    }, {
+      "heading" : "Trade-offs in low-dimensional photo-FETs.",
+      "text" : "In photo-FETs based on single semiconductor channels such as plain TMDCs a trade-off is\nfound, because both the absorption and the amplification process appear within the same\nchannel. This dilemma is described in Figure 2. The two left columns depict the example of\nan extremely thin channel with thickness tch in the few-nanometer range compared to a rather\nbulky channel with tch in the range of a few hundred nanometer. Both show modulation\ncurves as typically found for n-type semiconductors. While the thin channel reaches large\non/off ratio and can be electrically operated in full depletion, the bulky channel suffers from\nlargely reduced on/off ratio as the channel cannot be switched off entirely. The field-effect\ncapacitive coupling mostly affects the lower part of the thick semiconductor and a significant\namount of leakage current can still traverse trough the upper part of the channel increasing\nthe dark current. The absolute optical absorption on the other hand is more efficient for\nthicker channel due to the longer optical absorption path of photons through the material slab.\nAnother trade-off, which is inherent to many 2D layered semiconductors, is the thickness\ndependent spectral coverage. The thinnest channel possess the largest bandgap for these\nmaterial family and are in favour for high electrical on/off ratios and operation at low dark\ncurrents. However, the large bandgap limits its absorption properties in the UV-visible part of\nspectrum.\nPage 11 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n12\nApart from the low absolute absorption in ultra-thin channels, there are other mechanisms\ninherent to 2D materials like MoS2 that lead to recombination losses. Due to spatial\nconfinement in the z-direction and low electrostatic screening62, electron-hole pairs are\nstrongly bound to each other, with reported exciton binding energies of 300-900 meV 63–66,\nfar beyond the room temperature thermal energy of 25meV. Impractically high electric fields\nare needed to efficiently separate photogenerated excitons which easily recombine. Strong\ncoulomb interactions in 2D materials have been shown to favour Auger scattering processes,\nwhich lead to capture of electrons and holes at defect sites and eventually high recombination\nrates resulting in poor quantum efficiencies of MoS2 optoelectronic devices 67.\nThe quantum efficiency of reported monolayer MoS2 photo-FETs can roughly be calculated\nfrom the measured responsivity and from an estimation of the photoconductive gain (Box 1).\nWhile the measured exponential decay time corresponds to the lifetime of photo-excited\ncarriers, the transit time can be determined knowing the channel length, applied bias, and\nmobility. This simple estimation leads to rather poor quantum efficiencies of 0.0002 -\n0.02%23,26,58,67 and indicates a significant amount of recombination losses before the charge\ncarriers can be extracted into the electronic circuit. It is noteworthy that a high density of\nshallow trap states within the bandgap can cause longer observed decay times than the actual\nlifetime of free carriers68. In that case, the above estimated quantum efficiency is\nunderestimated and states a lower limit.\nThis trade-off is a common issue for low-dimensional photodetectors and needs a new\nperspective for enhanced light-matter interaction. Next to plasmonics62 and optical cavities69\nfor enhanced absorption, another very encouraging method is to sensitize a thin channel\nmaterial with strongly absorbing semiconductors (sensitizers) of opposite doping polarity to\ncreate a vertical heterojunction (Figure 2, right column). The decoupling of the absorption\nPage 12 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n13\nprocess (in the sensitizer) from the charge transport (in the channel), allows operation of the\nthin channel in full depletion while the sensitizer provides high absorption, ideally without\ninterfering the electrical modulation. The thickness of the decorating sensitizer can be in\ndimensions similar to the discussed bulk case of a thick plain channel and thereby transport\nand absorption properties are similarly optimized. The built-in field at the junction plays a\ncritical role in this novel device concept for efficient exciton separation and charge injection\ninto the channel, as will be explained in more detail later. Its formation can be recognized by\na vertical shift of the modulation curve IDS – VG under dark conditions due to the charge flow\nuntil the alignment of Fermi levels to equilibrium (see Figure 2 – right column).\nThe device schematic in Figure 3 displays the working principle of a sensitized photo-FET,\nusing the example of a 2D material channel decorated with colloidal QDs. After the\nabsorption process, a fast recombination of photogenerated carriers is prevented due to spatial\nseparation of carriers in the heterojunction. The p-n-junction between the oppositely doped\nsemiconductors leads to a vertical photodoping effect and the injected electrons (holes) are\ntransported laterally through the channel. As long as the holes (electrons) maintain trapped\nwithin the sensitizer, the electrons (holes) can recirculate the channel and generate gain.\nDespite the missing bandgap, graphene is an interesting candidate to form hybrid sensitized\nphototransistors, mainly due to its unprecedented high mobility and sensitivity to electrostatic\nperturbation by photo-excited charge carriers in its vicinity10. The high carrier mobility is\npromising for device concepts with large carrier multiplication and extremely high gain-\nbandwidth products. Several sensitizers have been implemented including QDs70,71,\nPerovskites72, CNTs73 and even other 2D materials such as MoS2 74–76. The most sensitive\ngraphene-based hybrid detector has been reported for a graphene/PbS QD combination. The\nPage 13 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n14\nultrahigh gain of 107 electrons per photon has led to a detectivity beyond 1013 Jones, despite\nthe large dark currents present in graphene70.\nThe growing amount of discovered semiconducting layered materials with large bandgaps\nand high in-plane mobility may even lead to higher performance in terms of sensitivity.\nSensitive photo-FETs have been demonstrated by applying a similar approach employing a\nMoS2 channel decorated with PbS QDs 61. The spectral response of plain MoS2, covering\nsolely the visible spectral range, was thereby increased to NIR/SWIR due to the tunable\nabsorption spectra of colloidal quantum dots. The responsivity improved by several orders of\nmagnitude over its single counterparts and reached values of 105-106A/W due to large carrier\nmultiplication. However, the tremendous improvement in responsivity came with the loss of\nits initially high gate-tunable on/off ratios, the major strength of TMDCs to reach low off-\ncurrents. A high density of interface traps was found to be the reason for the loss of gate-\ncontrol, which could be prevented by selective interface engineering of the MoS2/PbS\ninterface77. A passivating TiO2 buffer layer has been implemented to preserve control of\nfield-effect modulated dark current and to strongly reduce noise. The device sensitivity and\nresponse time were thereby enhanced by more than an order of magnitude to an\nexperimentally determined D* of 5*1012 Jones and 12 ms, respectively. In the shot-noise\nlimit these devices can reach detectivities beyond 1014 Jones showcasing the immense\npotential of this device concept with further reduction of noise (mainly 1/f noise). An\nestimation of quantum efficiency based on the ratio of decay and transit time leads to\nconsiderable improvement over plain MoS2 photo-FETs with values up to 28%. Compared to\nthe aforementioned graphene phototransistors, the MoS2/TiO2/PbS hybrid could be operated\nat dark currents of more than 5 orders of magnitude lower than typically reached in graphene\ndevices.\nPage 14 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n15\nThe concept of sensitized high mobility materials does not only apply to 2D layered\nmaterials. A hybrid photo-FET based on PbS QD/indium gallium zinc oxide (IGZO) has been\ndeveloped78. The amorphous metal oxide semiconductor IGZO is a novel material with\npromise for low-cost and large-area thin film transistor technology79. Its application as a\nphoto-FET channel material enabled a highly sensitive hybrid photodetector with excellent\nphotoresponsivity of 106A/W and detectivity of 1013 Jones in the NIR. Next to graphene also\nother carbon-based nanomaterials such as carbon nanotubes (CNTs) have been extensively\nstudied for photodetection8,9. CNTs possess similarly large mobility from 102-104 cm2/Vs\ndepending on fabrication method and the additional benefit of a bandgap for gate modulation\nwith on/off ratios ranging from 103-106.80–82 Although its electrical properties are excellent\nfor charge transport, the inefficient absorption within the one-dimensional body calls for a\nsensitizing approach. Light induced charge transfer, increased photosensitivity, and reported\nresponsivities up to 102 – 104A/W have been achieved by combining CNTs with quantum\ndots83–85, perovskites86, polymers and molecules87–90, and fullerene (C60) 91. In some of these\ndevice concepts the sensitizer is used for enhanced absorption and carrier injection of\nphotoexcited charge carriers into the CNTs which serves as the transport medium. In others,\nthe sensitizer is simply applied as a carrier acceptor to enhance the exciton dissociation in\nCNTs and to overcome the obstacle of fast recombination events due to the large exciton\nbinding energies.\nBackgate dependent performance metrics.\nA major advantage of the sensitizing technique over single material photo-FETs is that the\nsize of the channel bandgap can be arbitrary and it can be either direct or indirect as the\nabsorption process is now outsourced to the sensitizer. It is consequently profitable to employ\nlarge bandgap materials for the transport channel to achieve large on/off ratios and low dark\nPage 15 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n16\ncurrent in the depletion regime. Moreover, the channel material should provide high carrier\nmobility to obtain short transit times and to produce moderate photoconductive gain together\nwith fast response times.\nIn Figure 3, two transfer curves of sensitized photo-FETs with a n-type semiconductor\nchannel and a p-type sensitizer are compared in the real and the theoretically ideal case. Both\ndevices are considered to be fabricated on the same substrate with equally thick dielectric\noxide. Upon light illumination, the curves shift to the left indicating a n-type doping effect by\nelectron injection from the sensitizer into the channel. If operated in its depletion regime (VG\n< VTh), the hybrid device shows lowest dark currents but also smallest photocurrents IPh. If\noperated in the accumulation regime (VG > VTh), the device exhibits extremely large dark\ncurrents but also higher photocurrents due to higher current amplification (gain). The ideal\npoint of operation, named as most sensitive point VMSP, is located somewhere in between,\nclose to the current onset of the characteristic transfer curve where the photo-FET operates at\nhighest SNR. Comparing the real with the ideal case, it is obvious that significant\nimprovement of device performance in terms of gain can be achieved for FET devices with\nfaster switching from off- to on-states, leading to higher current amplification. Apart from\nhigh carrier mobility, which increases the slope of the transfer curve and thereby the\nphotoconductive gain, ideal off-state conditions, i.e. a low inverse sub-threshold slope S =\nd(VGS)/ d(log(IDS)), can largely improve photo-FET performance. Several studies on transport\nmechanisms of FETs based on CNTs92–94, ultrathin Si MOSFETs 95, MoS2 96 and black\nphosphorus97 have demonstrated that the appearance of significant Schottky barriers (SB) at\nthe metal semiconductor interface in these systems lead to decreased switching speed with\nsubthreshold slopes far beyond the ideal 60meV/dec at room temperature. Unlike\nconventional Si MOSFETs, the gate voltage also modulates the SB at the contact and apart\nPage 16 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n17\nfrom thermionic emission a considerable tunnelling component is responsible for the current\nflow through the channel. To improve characteristic FET properties it is desirable to\nminimize the SB height and width to maximize the tunnelling probability. The detrimental\nimpact of large Schottky barriers is one of the major remaining obstacles for FETs based on\nlow-dimensional materials such as TMDCs. For better photo-FET performance it will\ntherefore be a critical step to achieve high contact quality, as it will not only improve gain but\nalso impacts on noise operation 98.\nFor few-layer TMDC FETs an improvement of contact resistance, subthreshold swing, and\nefficient charge injection has been demonstrated in different ways; (i) the choice of an\nappropriate metal contact which forms the lowest SB despite the occurring fermi level\npinning effects. Encouraging results were reported for low work function metals96,99 and gate\ntunable graphene edge contacts100. (ii) A high degree of doping in the contact region of the\nchannel to promote strong band bending at the metal-semiconductor interface and to make\nthe SB thinner and therefore more transparent 101–103. (iii) The decrease of defect and trap\ndensity, caused by sulphur vacancies or the semiconductor/dielectric interface, improves the\nsubthreshold swing due to a faster transition from the insulating regime, where EF lies within\nthe bandgap, to the conducting transport regime, where EF lies inside the conduction band.\nThe large amount of localized states next to the conduction band edge leads to a gradual\ntransition from the one to the other. The conduction process in the region of localized states is\nbased on variable range hopping (VRH)104–106 and thermally activated transport, whereas\nband-like transport dominates at higher carrier densities107. It was shown for MoS2 that a\ndecrease in defect density can lead to shorter subthreshold swings63,108 and therefore a faster\ntransition from off- to on-state. (iv) By operating the device at lower temperatures far\nsuperior mobility compared to room temperature operation have been demonstrated due to\ndecrease of phonon-scattering and effective screening of charged impurities100,104,109.\nPage 17 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n18\nAll the aforementioned options are promising to further enhance effective transport of\nphotogenerated carriers through the channel in sensitized hybrid photo-FETs. It is noteworthy\nthat the use of thinner high k-dielectrics between gate electrode and channel can strongly\ndecrease the subthreshold swing of SB-FETs92, but will not improve the optical\nphotoresponse of the device. It instead results in stronger capacitive coupling between gate\nand source-SB and allows electrically similar IDS switching by tuning through a smaller\ninterval of backgate voltage. An improvement of photo-FET performance can however be\nexpected for faster switching devices if the same dielectric film thickness is considered.\nApart from dark current and gain, also the quantum efficiency of hybrid photo-FETs is\ndependent on the field-effect modulation via backgate. The coloured boxes on the right of\nFigure 3 depict the band alignment of three different regimes of operation. Exciton\nseparation and charge injection into the channel is determined by the band alignment of the\ntwo semiconductors in contact, which in turn is strongly dependent on the gate-tunable Fermi\nlevel EF. Ideally the sensitizer is electrically isolated from source-drain contacts to be\nunaffected by the gating (constant position of EF in the p-type sensitizer) and to not attribute\nto leakage current when the channel is in off-state operation. The best condition is then given\nin the accumulation regime, where EF approaches the conduction band. In this case, the high\nelectron density of the channel induces the largest depletion region within the hole-doped\nsensitizer. The least favorable condition is given in the depletion regime, where the channel\nturns rather intrinsic and the band bending at the interface reaches its minimum. The\noptimized point of the overall photo-FET operation will again be somewhere in between, here\nnamed as “operational” regime, where the best performance between dark current, gain and\nquantum efficiency has to be identified.\nPage 18 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n19\nIdeal sensitizer characteristics.\nIn principle any absorbing material can serve as a sensitizer for the device concept of hybrid\nphoto-FETs: semiconductors can serve as strong absorber in which the bandgap curtails\nspectral selectivity, semimetals such as graphene can be used as constant broadband absorber\nover a large spectral range, and even metallic nanostructures can be employed as resonant\nplasmonic absorber. The latter, however, have to rely on a different mechanism of\nsensitization so as not to compete with the very fast recombination present in metal and\nsemimetals. This can be achieved by employing bolometric detection by altering the local\ntemperature and therefore the conductance of the channel or by photothermionic injection of\nhot carriers generated in plasmonic metallic or graphene nanostructures atop a\nsemiconducting layered channel. However, for an optimized performance, the sensitizer\nshould fulfil certain requirements: (1) The doping polarity of a doped absorbing material is\nopposite to the channel material to achieve large built-in fields for efficient charge carrier\nseparation and vertical injection into the channel. Alternatively the sensitizing material can\nalso be intrinsic (i.e. have very low intrinsic carrier density) provided it forms a type-II\nhterojunction with the 2D channel and possess long carrier diffusion lengths to facilitate\ncharge collection in the 2D channel in the absence of a built-in electric field. (2) The\nsensitizer has a low exciton binding energy and long lifetimes, which is reflected in long\ncarrier diffusion length of several hundred nanometers. This allows to increase the thickness\nof the absorber to achieve strong absorption in absolute terms, but also to maintain high\ninjection rates into the underlying channel. Here, one has to differentiate between two\nextreme cases, the fully depleted thickness tdepleted and the saturated thickness tsaturated, between\nwhich the optimized thickness of the sensitizing film has to be found. The thickness tdepleted\nrefers to a fully depleted, thin absorbing layer for which charge carrier injection is dominated\nby drift induced through the built-in field. In the case of tsaturated the film reached a thickness\nPage 19 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n20\nbeyond the diffusion length of the photogenerated excitons and recombination losses start to\ndecrease the photoresponse of the hybrid. In the case of materials with high exciton binding\nenergies such as in the case of polymers, the employment of a bulk heterojunction is required,\nsimilar to photovoltaic architecures, in order to dissociate excitons within the bulk of the\nabsorber into free charges that will subsequently diffuse to the 2D channel provided a\nthermodynamically favoured band alignment (type II) (3) The absorbing film has to be\nreadily integrated with the FET channel and is ideally compatible with standard CMOS\ntechnology or even mechanically flexible device concepts. Solution-processed materials hold\ntherefore a general advantage for they can easily be spin- or spray-coated on top of any\nsubstrate and FET-device without requirements such as lattice mismatch. (4) A high\nabsorption coefficient with large spectral coverage and tunability over a wide wavelength\nrange adds a major advantage to sensitized photo-FETs over simple single channel devices.\nThe absorption is now taking place in the decorating film and adds therefore another degree\nof freedom to device design and application.\nColloidal quantum dots have well matched properties to fulfil most of the requirements. In\nthe case of widely used PbS, the most intriguing characteristic for photodetection is the\ntunable bandgap due to the quantum confinement effect110. By simply changing the size of\nQDs during synthesis, the exciton peak can be shifted through a large spectral range from 500\n– 2100nm111–113. The low exciton binding energy114 and the diffusion length of 150-250nm115\nsuggest an electrically ideal sensitizer to reach high optical absorption and high quantum\nefficiency. A wide range of doping strategies have shown both doping polarities in PbS\nQDs116, making it a versatile sensitizing system to combine with any channel material.\nSolution-processed CQD optoelectronic devices have already demonstrated compatibility\nwith CMOS technology117,118 and flexible device concepts119,120.\nPage 20 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n21\nAnother emerging solution-processed material with promise for optoelectronic applications\nsuch as solar cells is the family of inorganic-organic perovskites121. Rapid advances in this\nyoung research field has led to spectral tunability from 400-800nm122 and extremely large\nexciton diffusion length of around 1µm for polycrystalline thin films123. Organolead trihalide\nperovskite single crystals have been reported by implementing a novel antisolvent vapour-\nassisted growth technique. The single crystalline structure exhibits trap state densities as low\nas 109 per cubic centimetre and reached remarkable diffusion length of more than 10 µm 124.\nSeveral types of photodetectors based on photoconductors, photodiodes and phototransistors\nwith broadband absorption125–129 and tunable narrowband absorption5, 130 in the visible have\nbeen demonstrated, both being interesting features for sensitized photo-FETs.\nFuture outlook on sensitized photo-FETs\nTo date, many prototype devices have shown promising outcome, however there is still\nplenty of space for further improvement on all performance parameters. Several aspects such\nas the huge variety of materials for channel and sensitizer or the additional implementation of\nother compounds at the bottom (substrate treatment), the interface or on top of the device,\nopen new opportunities to develop novel photo-FET architectures with sensitivity superior to\nexisting photodetection technology. In the following, we summarize a few ideas and device\nconcepts which give the direction to a new generation of photo-FETs.\nThe major strength of 2D material phototransistors is the high in-plane charge carrier\nmobility and potentially low dark current given by its thin channel body and efficient\ncapacitive control over carrier density by means of the electric field effect. The choice of\nchannel material will therefore play a critical role for further development. Reported\nmobilities for commonly investigated 2D materials are widespread and, so far, a trade-off is\nmet between reported mobility and bandgap131,132, which in turn determines the on/off ratio.\nPage 21 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n22\nTwo popular examples are graphene, with average mobilities of 104 cm2/Vs and on/off ratios\nof 10, and MoS2, with mobilities of 1-80 cm 2/Vs and on/off ratios of 108.133 An interesting\ncandidate between these two extreme cases is black phosphorus. The combination of on/off\nratios of 104-105 and mobility up to 1000cm2/Vs51,134is intriguing for its application in hybrid\nphototransistors to achieve high gain-bandwidth products and sufficiently low off currents for\nhigh sensitivity detection.\nMost of the prototype devices have been demonstrated with channel area far beyond 1um2.\nFor high pixel integration in photodetector arrays, the successful development of well\nperforming hybrid photo-FETs with a footprint below 1um2 is highly interesting. A benefit of\ndecrease in channel length would be the shortening of carrier transit times. Consequently,\ncareful trap state engineering in the sensitizer could be employed to introduce rather shallow\ntrap states and likewise decrease the lifetime of photogenerated carriers. While the\nphotoconductive gain would thereby largely be unaffected, the rather slow response times\nreported to date in the range of 10ms to 1s could be further improved. Despite the favourable\nprediction of device shrinking for gain, the impact of electrode contacts on noise remains an\ninteresting open question. The smaller the channel length the more dominating the impact of\ncontact noise will be. At the same time though real-world applications would require the\nfabrication of millions of small pixels into large arrays ideally employing wafer scale\nprocessing. Thus apart from addressing the miniaturization challenge of the single pixels an\neven greater challenge emerges in growing large area high quality and high uniformity 2D\nmaterials using high throughput manufacturing processes and with electronic properties at\nleast on par with those attained on exfoliated 2D flakes.\nAn important device parameter to optimize is the quantum efficiency of hybrid photo-FETs.\nA key role can there be attributed to the interface of channel and sensitizer, as the\nphotocarrier separation and charge injection into the channel take place in this region. The\nPage 22 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n23\nintegration of a buffer layer at the interface of a MoS2/PbS photodetector has shown to\nstrongly impact on electrical tunability due to controlled doping and defect passivation77.\nApart from ALD-deposited thin films employed in this study, the exploitation of molecular\nself-assembled monolayers at the interface may also lead to efficient crosslinking between\nQDs and TMDCs and simultaneously passivate electronic defect states at the TMDC surface\nas demonstrated for other materials in solar cell devices135–137.\nTowards the goal of even higher quantum efficiency of QD-sensitized channels, knowledge\nfrom advances made in intensively studied solar cell junctions can be helpful. For instance,\nthe usage of different capping ligands for several QD layers can engineer the band alignment\nin a way to extend the depletion width within the QD film138. A cascade-like alignment of the\nconduction band would thereby improve the electron transfer towards the channel-QD\njunction and increase the charge collection efficiency, allowing thicker QD films with higher\nabsorption.\nA different approach with better control of charge carrier injection from the sensitizer into the\nchannel is the incorporation of a transparent electrode on top of the sensitizing film, as shown\nfor graphene/PbS hybrid detectors139. With the top electrode acting as a cathode and the\ngraphene channel as acceptor contact, charge carriers can be efficiently directed towards the\nchannel relying on bias controllable carrier drift rather than diffusion processes. An\nimprovement of quantum efficiency to a value of approximately 80% along with significant\nimprovement in device speed and dynamic range has been demonstrated. This was achieved\nby essentially transforming the sensitizing quantum dot layer into an active photodiode. This\nnot only led to record quantum efficiency but acts as a paradigm shift in photo-FETs. The\ngain in this architecture is determined by the ratio of the transit time of minority carriers in\nthe QD film over the transit time of majority carriers in the channel. This thus opens the way\nPage 23 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n24\ntowards high gain and high bandwidth detectors tailored by the carrier mobilities of the\nchannel and the sensitizing layer.\nThe versatile incorporation of any solution-processed material is one of the strongest features\nof this hybrid detector design. Hybrid systems using QDs have already shown sensitivity on\npar with detector technology based on silicon and InGaAs for the vis-SWIR range and have\nthe potential to clearly outperform their sensitivity. In the MIR wavelength regime, for\ninstance, conventional technology is made of epitaxial InSb and HgCdTe, which are\nextremely expensive and require cooling for high performance140. The synergy of 2D\nmaterials with MIR-sensitive QDs, such as HgTe, therefore constitutes a compelling\nalternative to epitaxially grown state-of-the-art detectors and deserves investigation also\ntowards the discovery of MIR-sensitizers comprising environmentally friendly elements and\noffering significant robustness to oxygen and moisture.\nIn general, the sensitizing material does not necessarily have to be solution-processed. The\nuse of thicker slabs of layered 2D materials as sensitizer on top of ultrathin 2D material\nchannels for transport may form interesting photo-FET hybrids. A large bandgap material\nlike monolayer MoS2 for charge transport decorated with an electrically isolated, narrow\nbandgap material like multilayer black phosphorus could strongly profit from a clean\ninterface structure with efficient charge injection and low noise operation. The progress in\nCVD based large-scale film growth and the direct growth of heterostructures can play a key\nrole for the development of novel photo-FETs based on all-layered materials.\nThe development of photo-FETs with strongly reduced dark currents and moderate gain does\nnot exclusively rely on the decoupling of absorption and transport in two different\nsemiconducting media. Adinolfi et al. have demonstrated a junction field effect transistor\n(JFET), in which photon absorption and charge transport occur within a PbS QD film141. By\nadding electrically isolated molybdenum trioxide (MoO3) on top of the film, the formed\nPage 24 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n25\nrectifying junction between deep work function MoO3 and PbS provided full depletion and\nstrongly reduced currents under dark conditions. The photo JFET operated with moderate\ngain of 10 at considerably high modulation frequencies of up to 100 kHz. Ma et al. reported\nsimilarly on WS2/CH3NH3PbI3 heterostructures where the TMDC layer led to suppression of\ndark currents compared to plain perovskite control devices142. Here, both components are\nelectrically active and transport carriers between drain and source contacts. A favourable\nband alignment enhanced the photocarrier separation at the TMDC/perovskite interface and\nimproved the overall signal-to-noise ratio with reported specific detectivity of 1012 Jones."
+    }, {
+      "heading" : "Conclusions.",
+      "text" : "In optoelectronic technology, photodetectors are of paramount importance, and the growing\ndiversity of applications demands new material systems and device designs. In this review,\nwe have shown that photo-FETs based on low-dimensional materials are a highly promising\nnovel device concept for high sensitivity photodetection. The gate controllable low dark\ncurrent and photoconductive gain provide with excellent signal-to-noise ratios, specifically\nimportant for low light detection. We have discussed an inherent trade-off in plain low-\ndimensional photo FETs between transport and absorption processes, and proposed a solution\nby decoupling the absorption from transport with a sensitizing approach. For many different\ntypes of low dimensional materials (0D, 1D and 2D), the sensitizing to hybrid photo-FETs\nhas proven to outperform their single counterparts in terms of sensitivity and indicates the\nabundance of nanomaterial combinations within this device concept. At this point, we have\nonly seen some reports on proof-of-principle devices, but there is no doubt that the concept of\nhybrid photo-FETs has a lot to offer to the photodetection community and future technology.\nAcknowledgments:\nPage 25 of 41\nACS Paragon Plus Environment\nACS Photonics\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60\n26\nWe acknowledge funding from Fundació Privada Cellex, and European Commission's Seventh Framework Programme under Graphene Flagship (contract no. CNECT-ICT-604391). We also acknowledge financial support from the Spanish Ministry of Economy and Competitiveness (MINECO) and the “Fondo Europeo de Desarrollo Regional” (FEDER) through grant MAT2014-56210-R. This work was also supported by AGAUR under the SGR grant (2014SGR1548). G.K. acknowledges financial support from the Spanish Ministry of Economy and Competitiveness, through the “Severo Ochoa” Programme for Centres of Excellence in R&D (SEV-2015-0522). D.K. is supported by an FI fellowship."
+    } ],
+    "references" : [ {
+      "title" : "Nanostructured Photodetectors: From Ultraviolet to Terahertz",
+      "author" : [ "H. Chen", "H. Liu", "Z. Zhang", "K. Hu", "X. Fang" ],
+      "venue" : "Adv. Mater. 2016,",
+      "citeRegEx" : "Chen et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Chen et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Lead sulphide nanocrystal photodetector technologies",
+      "author" : [ "R. Saran", "R.J. Curry" ],
+      "venue" : "Nat. Photonics 2016,",
+      "citeRegEx" : "Saran and Curry,? \\Q2016\\E",
+      "shortCiteRegEx" : "Saran and Curry",
+      "year" : 2016
+    }, {
+      "title" : "Solution-Processed Quantum Dot Photodetectors",
+      "author" : [ "G. Konstantatos", "E.H. Sargent" ],
+      "venue" : "Proc. IEEE 2009,",
+      "citeRegEx" : "Konstantatos and Sargent,? \\Q2009\\E",
+      "shortCiteRegEx" : "Konstantatos and Sargent",
+      "year" : 2009
+    }, {
+      "title" : "A Long-Term View on Perovskite Optoelectronics",
+      "author" : [ "P. Docampo", "T. Bein" ],
+      "venue" : "Acc. Chem. Res. 2016,",
+      "citeRegEx" : "Docampo and Bein,? \\Q2016\\E",
+      "shortCiteRegEx" : "Docampo and Bein",
+      "year" : 2016
+    }, {
+      "title" : "Filterless narrowband visible photodetectors",
+      "author" : [ "Q. Lin", "A. Armin", "P.L. Burn", "P. Meredith" ],
+      "venue" : "Nat. Photonics 2015,",
+      "citeRegEx" : "Lin et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Lin et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Organic Light Detectors: Photodiodes and Phototransistors",
+      "author" : [ "K.-J. Baeg", "M. Binda", "D. Natali", "M. Caironi", "Y.-Y. Noh" ],
+      "venue" : "Adv. Mater. 2013,",
+      "citeRegEx" : "Baeg et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Baeg et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Organic Photodiodes: The Future of Full Color Detection and Image Sensing",
+      "author" : [ "R.D. Jansen-van Vuuren", "A. Armin", "A.K. Pandey", "P.L. Burn", "P. Meredith" ],
+      "venue" : "Adv. Mater. 2016,",
+      "citeRegEx" : "Vuuren et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Vuuren et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Perebeinos, V. Carbon-nanotube photonics and optoelectronics",
+      "author" : [ "P. Avouris", "M. Freitag" ],
+      "venue" : "Nat. Photonics 2008,",
+      "citeRegEx" : "Avouris and Freitag,? \\Q2008\\E",
+      "shortCiteRegEx" : "Avouris and Freitag",
+      "year" : 2008
+    }, {
+      "title" : "Uncooled Carbon Nanotube Photodetectors",
+      "author" : [ "X. He", "F. Léonard", "J. Kono" ],
+      "venue" : "Adv. Opt. Mater. 2015,",
+      "citeRegEx" : "He et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "He et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Photodetectors based on graphene, other two-dimensional materials and hybrid systems",
+      "author" : [ "F.H.L. Koppens", "T. Mueller", "P. Avouris", "A.C. Ferrari", "M.S. Vitiello", "M. Polini" ],
+      "venue" : "Nat. Nanotechnol. 2014,",
+      "citeRegEx" : "Koppens et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Koppens et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Graphene and Graphene-like Two-Dimensional Materials in Photodetection: Mechanisms and Methodology",
+      "author" : [ "Z. Sun", "H. Chang" ],
+      "venue" : "ACS Nano 2014,",
+      "citeRegEx" : "Sun and Chang,? \\Q2014\\E",
+      "shortCiteRegEx" : "Sun and Chang",
+      "year" : 2014
+    }, {
+      "title" : "Photocurrent generation with two-dimensional van der Waals semiconductor",
+      "author" : [ "M. Buscema", "J.O. Island", "D.J. Groenendijk", "S.I. Blanter", "G.A. Steele", "H.S.J. van der Zant", "A. Castellanos-Gomez" ],
+      "venue" : "Chem. Soc. Rev. 2015,",
+      "citeRegEx" : "Buscema et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Buscema et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Optoelectronic Devices Based on Atomically Thin Transition Metal Dichalcogenides",
+      "author" : [ "A. Pospischil", "T. Mueller" ],
+      "venue" : "Appl. Sci. 2016,",
+      "citeRegEx" : "Pospischil and Mueller,? \\Q2016\\E",
+      "shortCiteRegEx" : "Pospischil and Mueller",
+      "year" : 2016
+    }, {
+      "title" : "Imaging of Photocurrent Generation and Collection in Single-Layer Graphene",
+      "author" : [ "J. Park", "Y.H. Ahn", "C. Ruiz-Vargas" ],
+      "venue" : "Nano Lett. 2009,",
+      "citeRegEx" : "Park et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Park et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Contact and edge effects in graphene",
+      "author" : [ "E.J.H. Lee", "K. Balasubramanian", "R.T. Weitz", "M. Burghard", "K. Kern" ],
+      "venue" : "device. Nat. Nanotechnol",
+      "citeRegEx" : "Lee et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Lee et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Photocurrent Imaging and Efficient Photon Detection in a Graphene Transistor",
+      "author" : [ "F. Xia", "T. Mueller", "R. Golizadeh-Mojarad", "M. Freitag", "Y. Lin", "J. Tsang", "V. Perebeinos", "P. Avouris" ],
+      "venue" : "Nano Lett. 2009,",
+      "citeRegEx" : "Xia et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Xia et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Graphene photodetectors for high-speed optical communications",
+      "author" : [ "T. Mueller", "F. Xia", "P. Avouris" ],
+      "venue" : "Nat. Photonics 2010,",
+      "citeRegEx" : "Mueller et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Mueller et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "CMOS-compatible graphene photodetector covering all optical communication bands",
+      "author" : [ "A. Pospischil", "M. Humer", "M.M. Furchi", "D. Bachmann", "R. Guider", "T. Fromherz", "T. Mueller" ],
+      "venue" : "Nat. Photonics 2013,",
+      "citeRegEx" : "Pospischil et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Pospischil et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Ultrafast graphene photodetector",
+      "author" : [ "F. Xia", "T. Mueller", "Y.-M. Lin", "A. Valdes-Garcia", "P. Avouris" ],
+      "venue" : "Nat. Nanotechnol. 2009,",
+      "citeRegEx" : "Xia et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Xia et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Chip-integrated ultrafast graphene photodetector with high responsivity",
+      "author" : [ "X. Gan", "R.-J. Shiue", "Y. Gao", "I. Meric", "T.F. Heinz", "K. Shepard", "J. Hone", "S. Assefa", "D. Englund" ],
+      "venue" : "Nat. Photonics 2013,",
+      "citeRegEx" : "Gan et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Gan et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Two-dimensional atomic crystals",
+      "author" : [ "K.S. Novoselov", "D. Jiang", "F. Schedin", "T.J. Booth", "V. V Khotkevich", "S. V Morozov", "A.K. Geim" ],
+      "venue" : "Proc. Natl. Acad. Sci. U. S. A",
+      "citeRegEx" : "Novoselov et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Novoselov et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "Ultrasensitive photodetectors based on monolayer MoS2",
+      "author" : [ "O. Lopez-Sanchez", "D. Lembke", "M. Kayci", "A. Radenovic", "A. Kis" ],
+      "venue" : "Nat. Nanotechnol. 2013,",
+      "citeRegEx" : "Lopez.Sanchez et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Lopez.Sanchez et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Few-Layer MoS2 with High Broadband Photogain and Fast Optical Switching for Use in Harsh Environments",
+      "author" : [ "D.-S. Tsai", "K.-K. Liu", "D.-H. Lien", "M.-L. Tsai", "C.-F. Kang", "C.-A. Lin", "L.-J. Li", "J.-H. He" ],
+      "venue" : "ACS Nano 2013,",
+      "citeRegEx" : "Tsai et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Tsai et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "HighGain Phototransistors Based on a CVD MoS2 Monolayer",
+      "author" : [ "W. Zhang", "J.-K. Huang", "C.-H. Chen", "Y.-H. Chang", "Y.-J. Cheng", "L.-J. Li" ],
+      "venue" : "Adv. Mater. 2013,",
+      "citeRegEx" : "Zhang et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Zhang et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Single-Layer MoS2 Phototransistors",
+      "author" : [ "Z. Yin", "H. Li", "L. Jiang", "Y. Shi", "Y. Sun", "G. Lu", "Q. Zhang", "X. Chen", "H. Zhang" ],
+      "venue" : "ACS Nano 2012,",
+      "citeRegEx" : "Yin et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Yin et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Giant Photoamplification in Indirect-Bandgap Multilayer MoS2 Phototransistors with Local Bottom-Gate Structures",
+      "author" : [ "J. Kwon", "Y.K. Hong", "G. Han", "I. Omkaram", "W. Choi", "S. Kim", "Y. Yoon" ],
+      "venue" : "Adv. Mater. 2015,",
+      "citeRegEx" : "Kwon et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Kwon et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Elucidating the Photoresponse of Ultrathin MoS2 Field-Effect Transistors by Scanning Photocurrent Microscopy",
+      "author" : [ "C.-C. Wu", "D. Jariwala", "V.K. Sangwan", "T.J. Marks", "M.C. Hersam", "L.J.J. Lauhon" ],
+      "venue" : "Phys. Chem. Lett. 2013,",
+      "citeRegEx" : "Wu et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Wu et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Mechanisms of Photoconductivity in Atomically Thin MoS2",
+      "author" : [ "M.M. Furchi", "D.K. Polyushkin", "A. Pospischil", "T. Mueller" ],
+      "venue" : "Nano Lett. 2014,",
+      "citeRegEx" : "Furchi et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Furchi et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "MoS2 Nanosheet Phototransistors with Thickness-Modulated Optical Energy Gap",
+      "author" : [ "H.S. Lee", "S.-W. Min", "Y.-G. Chang", "M.K. Park", "T. Nam", "H. Kim", "J.H. Kim", "S. Ryu", "S. Im" ],
+      "venue" : "Nano Lett. 2012,",
+      "citeRegEx" : "Lee et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Lee et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "High-Detectivity Multilayer MoS2 Phototransistors with Spectral Response from Ultraviolet to Infrared",
+      "author" : [ "W. Choi", "M.Y. Cho", "A. Konar", "J.H. Lee", "G.-B. Cha", "S.C. Hong", "S. Kim", "J. Kim", "D. Jena", "J. Joo" ],
+      "venue" : "Adv. Mater. 2012,",
+      "citeRegEx" : "Choi et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Choi et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Large and Tunable Photothermoelectric Effect in Single-Layer MoS2",
+      "author" : [ "M. Buscema", "M. Barkelid", "V. Zwiller", "H.S.J. van der Zant", "G.A. Steele", "A. Castellanos-Gomez" ],
+      "venue" : "Nano Lett. 2013,",
+      "citeRegEx" : "Buscema et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Buscema et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Role of Metal Contacts in High-Performance Phototransistors Based on WSe2 Monolayers",
+      "author" : [ "W. Zhang", "M.-H. Chiu", "C.-H. Chen", "W. Chen", "L.-J. Li", "A.T.S. Wee" ],
+      "venue" : "ACS Nano 2014,",
+      "citeRegEx" : "Zhang et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Zhang et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "High photosensitivity few-layered MoSe2 back-gated field-effect phototransistors",
+      "author" : [ "A. Abderrahmane", "P.J. Ko", "T. V Thu", "S. Ishizawa", "T. Takamura", "A. Sandhu" ],
+      "venue" : "Nanotechnology 2014,",
+      "citeRegEx" : "Abderrahmane et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Abderrahmane et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Monolayer MoSe2 Grown by Chemical Vapor Deposition for Fast Photodetection",
+      "author" : [ "Y.-H. Chang", "W. Zhang", "Y. Zhu", "Y. Han", "J. Pu", "J.-K. Chang", "W.-T. Hsu", "J.-K. Huang", "C.-L. Hsu", "M.-H. Chiu", "T. Takenobu", "H. Li", "C.-I. Wu", "W.-H. Chang", "A.T.S. Wee", "L.-J. Li" ],
+      "venue" : "ACS Nano 2014,",
+      "citeRegEx" : "Chang et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Chang et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "CVD synthesis of large-area, highly crystalline MoSe2 atomic layers on diverse substrates and application to photodetectors",
+      "author" : [ "J. Xia", "X. Huang", "L.-Z. Liu", "M. Wang", "L. Wang", "B. Huang", "D.-D. Zhu", "J.-J. Li", "C.-Z. Gu", "X.-M. Meng" ],
+      "venue" : "Nanoscale 2014,",
+      "citeRegEx" : "Xia et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Xia et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Photoresponsive and Gas Sensing Field-Effect Transistors based on Multilayer WS2 Nanoflakes",
+      "author" : [ "N. Huo", "S. Yang", "Z. Wei", "S.-S. Li", "J.-B. Xia", "J. Li" ],
+      "venue" : "Sci. Rep. 2014,",
+      "citeRegEx" : "Huo et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Huo et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Highperformance photocurrent generation from two-dimensional WS2 field-effect transistors",
+      "author" : [ "S. Hwan Lee", "D. Lee", "W. Sik Hwang", "E. Hwang", "D. Jena", "W. Jong Yoo" ],
+      "venue" : "Appl. Phys. Lett. 2014,",
+      "citeRegEx" : "Lee et al\\.,? \\Q1931\\E",
+      "shortCiteRegEx" : "Lee et al\\.",
+      "year" : 1931
+    }, {
+      "title" : "Photosensor Device Based on Few-Layered WS2 Films",
+      "author" : [ "N. Perea-López", "A.L. Elías", "A. Berkdemir", "A. Castro-Beltran", "H.R. Gutiérrez", "S. Feng", "R. Lv", "T. Hayashi", "F. López-Urías", "S. Ghosh", "B. Muchharla", "S. Talapatra", "H. Terrones", "M. Terrones" ],
+      "venue" : "Adv. Funct. Mater. 2013,",
+      "citeRegEx" : "Perea.López et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Perea.López et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Fast and Broadband Photoresponse of Few-Layer Black Phosphorus Field-Effect Transistors",
+      "author" : [ "M. Buscema", "D.J. Groenendijk", "S.I. Blanter", "G.A. Steele", "H.S.J. van der Zant", "A. Castellanos-Gomez" ],
+      "venue" : "Nano Lett. 2014,",
+      "citeRegEx" : "Buscema et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Buscema et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Highly Responsive Ultrathin GaS Nanosheet Photodetectors on Rigid and Flexible Substrates",
+      "author" : [ "P. Hu", "L. Wang", "M. Yoon", "J. Zhang", "W. Feng", "X. Wang", "Z. Wen", "J.C. Idrobo", "Y. Miyamoto", "D.B. Geohegan", "K. Xiao" ],
+      "venue" : "Nano Lett. 2013,",
+      "citeRegEx" : "Hu et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Hu et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Synthesis of Few-Layer GaSe Nanosheets for High Performance Photodetectors",
+      "author" : [ "P. Hu", "Z. Wen", "L. Wang", "P. Tan", "K. Xiao" ],
+      "venue" : "ACS Nano 2012,",
+      "citeRegEx" : "Hu et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Hu et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Evolution of the Electronic Band Structure and Efficient Photo-Detection in Atomic Layers of InSe",
+      "author" : [ "S. Lei", "L. Ge", "S. Najmaei", "A. George", "R. Kappera", "J. Lou", "M. Chhowalla", "H. Yamaguchi", "G. Gupta", "R. Vajtai", "A.D. Mohite", "P.M. Ajayan" ],
+      "venue" : "ACS Nano 2014,",
+      "citeRegEx" : "Lei et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Lei et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "High-Sensitivity Photodetectors Based on Multilayer GaTe Flakes",
+      "author" : [ "F. Liu", "H. Shimotani", "H. Shang", "T. Kanagasekaran", "V. Zólyomi", "N. Drummond", "V.I. Fal’ko", "K. Tanigaki" ],
+      "venue" : "ACS Nano 2014,",
+      "citeRegEx" : "Liu et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Chemical Vapor Deposition of Thin Crystals of Layered Semiconductor SnS2 for Fast Photodetection Application",
+      "author" : [ "G. Su", "V.G. Hadjiev", "P.E. Loya", "J. Zhang", "S. Lei", "S. Maharjan", "P. Dong", "P. M Ajayan", "J. Lou", "H. Peng" ],
+      "venue" : "Nano Lett. 2015,",
+      "citeRegEx" : "Su et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Su et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "High Performance and Bendable Few-Layered InSe Photodetectors with Broad Spectral Response",
+      "author" : [ "S.R. Tamalampudi", "Y.-Y. Lu", "R. Kumar U", "R. Sankar", "C.-D. Liao", "K. Moorthy B", "C.-H. Cheng", "F.C. Chou", "Y.-T. Chen" ],
+      "venue" : "Nano Lett. 2014,",
+      "citeRegEx" : "Tamalampudi et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Tamalampudi et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Extraordinary Photoresponse in Two-Dimensional In2Se3 Nanosheets",
+      "author" : [ "R.B. Jacobs-Gedrim", "M. Shanmugam", "N. Jain", "C.A. Durcan", "M.T. Murphy", "T.M. Murray", "R.J. Matyi", "R.L. Moore", "B. Yu" ],
+      "venue" : "ACS Nano 2014,",
+      "citeRegEx" : "Jacobs.Gedrim et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Jacobs.Gedrim et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Waveguide-integrated black phosphorus photodetector with high responsivity and low dark current",
+      "author" : [ "N. Youngblood", "C. Chen", "S.J. Koester", "M. Li" ],
+      "venue" : "Nat. Photonics 2015,",
+      "citeRegEx" : "Youngblood et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Youngblood et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Colossal Ultraviolet Photoresponsivity of Few-Layer Black Phosphorus",
+      "author" : [ "J. Wu", "G.K.W. Koon", "D. Xiang", "C. Han", "C.T. Toh", "E.S. Kulkarni", "I. Verzhbitskiy", "A. Carvalho", "A.S. Rodin", "S.P. Koenig", "G. Eda", "W. Chen", "A.H.C. Neto", "B. Özyilmaz" ],
+      "venue" : "ACS Nano 2015,",
+      "citeRegEx" : "Wu et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Wu et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Flexible Electronics: The Next Ubiquitous Platform",
+      "author" : [ "A. Nathan", "A. Ahnood", "M.T. Cole", "Y. Suzuki", "P. Hiralal", "F. Bonaccorso", "T. Hasan", "L. Garcia-Gancedo", "A. Dyadyusha", "S. Haque", "P. Andrew", "S. Hofmann", "J. Moultrie", "A.J. Flewitt", "A.C. Ferrari", "M.J. Kelly", "J. Robertson", "G.A.J. Amaratunga", "W.I. Milne" ],
+      "venue" : null,
+      "citeRegEx" : "Nathan et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Nathan et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Two-dimensional flexible nanoelectronics",
+      "author" : [ "D. Akinwande", "N. Petrone", "J. Hone" ],
+      "venue" : "Nat. Commun. 2014,",
+      "citeRegEx" : "Akinwande et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Akinwande et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "High-Performance, Highly Bendable MoS2 Transistors with High-K Dielectrics for Flexible Low-Power Systems",
+      "author" : [ "H.-Y. Chang", "S. Yang", "J. Lee", "L. Tao", "W.-S. Hwang", "D. Jena", "N. Lu", "D. Akinwande" ],
+      "venue" : "ACS Nano 2013,",
+      "citeRegEx" : "Chang et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Chang et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Flexible and Transparent MoS2 Field-Effect Transistors on Hexagonal Boron Nitride-Graphene Heterostructures",
+      "author" : [ "G.-H. Lee", "Y.-J. Yu", "X. Cui", "N. Petrone", "C.-H. Lee", "M.S. Choi", "D.-Y. Lee", "C. Lee", "W.J. Yoo", "K. Watanabe", "T. Taniguchi", "C. Nuckolls", "P. Kim", "J. Hone" ],
+      "venue" : "ACS Nano 2013,",
+      "citeRegEx" : "Lee et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Lee et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Atomically Thin MoS2: A New Direct-Gap Semiconductor",
+      "author" : [ "K.F. Mak", "C. Lee", "J. Hone", "J. Shan", "T.F. Heinz" ],
+      "venue" : "Phys. Rev. Lett. 2010,",
+      "citeRegEx" : "Mak et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Mak et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Extraordinary Sunlight Absorption and One Nanometer Thick Photovoltaics Using Two-Dimensional Monolayer Materials",
+      "author" : [ "M. Bernardi", "M. Palummo", "J.C. Grossman" ],
+      "venue" : "Nano Lett. 2013,",
+      "citeRegEx" : "Bernardi et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Bernardi et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Highly Sensitive, Encapsulated MoS2 Photodetector with Gate Controllable Gain and Speed",
+      "author" : [ "D. Kufer", "G. Konstantatos" ],
+      "venue" : "Nano Lett. 2015,",
+      "citeRegEx" : "Kufer and Konstantatos,? \\Q2015\\E",
+      "shortCiteRegEx" : "Kufer and Konstantatos",
+      "year" : 2015
+    }, {
+      "title" : "Single-layer MoS2 transistors",
+      "author" : [ "B. Radisavljevic", "A. Radenovic", "J. Brivio", "V. Giacometti", "A. Kis" ],
+      "venue" : "Nat. Nanotechnol. 2011,",
+      "citeRegEx" : "Radisavljevic et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Radisavljevic et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "How Good Can Monolayer MoS2 Transistors Be",
+      "author" : [ "Y. Yoon", "K. Ganapathi", "S. Salahuddin" ],
+      "venue" : "Nano Lett. 2011,",
+      "citeRegEx" : "Yoon et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Yoon et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Hybrid 2D–0D MoS2–PbS Quantum Dot Photodetectors",
+      "author" : [ "D. Kufer", "I. Nikitskiy", "T. Lasanta", "G. Navickaite", "F.H.L. Koppens", "G. Konstantatos" ],
+      "venue" : "Adv. Mater. 2015,",
+      "citeRegEx" : "Kufer et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Kufer et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Two-Dimensional Crystals: Managing Light for Optoelectronics",
+      "author" : [ "G. Eda", "S.A. Maier" ],
+      "venue" : "ACS Nano 2013,",
+      "citeRegEx" : "Eda and Maier,? \\Q2013\\E",
+      "shortCiteRegEx" : "Eda and Maier",
+      "year" : 2013
+    }, {
+      "title" : "Near-unity photoluminescence quantum yield in MoS2",
+      "author" : [ "M. Amani", "D.-H. Lien", "D. Kiriya", "J. Xiao", "A. Azcatl", "J. Noh", "S.R. Madhvapathy", "R. Addou", "S. KC", "M. Dubey", "K. Cho", "R.M. Wallace", "S.-C. Lee", "J.-H. He", "J.W. Ager", "X. Zhang", "E. Yablonovitch", "A. Javey" ],
+      "venue" : null,
+      "citeRegEx" : "Amani et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Amani et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Quasiparticle band structure calculation of monolayer, bilayer, and bulk MoS2",
+      "author" : [ "T. Cheiwchanchamnangij", "W.R.L. Lambrecht" ],
+      "venue" : "Phys. Rev. B 2012,",
+      "citeRegEx" : "Cheiwchanchamnangij and Lambrecht,? \\Q2053\\E",
+      "shortCiteRegEx" : "Cheiwchanchamnangij and Lambrecht",
+      "year" : 2053
+    }, {
+      "title" : "Large excitonic effects in monolayers of molybdenum and tungsten dichalcogenides",
+      "author" : [ "A. Ramasubramaniam" ],
+      "venue" : "Phys. Rev. B 2012,",
+      "citeRegEx" : "Ramasubramaniam,? \\Q2012\\E",
+      "shortCiteRegEx" : "Ramasubramaniam",
+      "year" : 2012
+    }, {
+      "title" : "Photonics and optoelectronics of 2D semiconductor transition metal dichalcogenides",
+      "author" : [ "K.F. Mak", "J. Shan" ],
+      "venue" : "Nat. Photonics 2016,",
+      "citeRegEx" : "Mak and Shan,? \\Q2016\\E",
+      "shortCiteRegEx" : "Mak and Shan",
+      "year" : 2016
+    }, {
+      "title" : "Ultrafast Dynamics of Defect-Assisted Electron–Hole Recombination in Monolayer MoS2",
+      "author" : [ "H. Wang", "C. Zhang", "F. Rana" ],
+      "venue" : "Nano Lett. 2015,",
+      "citeRegEx" : "Wang et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Wang et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Recombination Processes in Insulators and Semiconductors",
+      "author" : [ "A. Rose" ],
+      "venue" : "Phys. Rev. 1955,",
+      "citeRegEx" : "Rose,? \\Q1955\\E",
+      "shortCiteRegEx" : "Rose",
+      "year" : 1955
+    }, {
+      "title" : "Strong light–matter coupling in two-dimensional atomic crystals",
+      "author" : [ "X. Liu", "T. Galfsky", "Z. Sun", "F. Xia", "E. Lin", "Y.-H. Lee", "S. Kéna-Cohen", "V.M. Menon" ],
+      "venue" : "Nat. Photonics 2014,",
+      "citeRegEx" : "Liu et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Hybrid graphene–quantum dot phototransistors with ultrahigh gain",
+      "author" : [ "G. Konstantatos", "M. Badioli", "L. Gaudreau", "J. Osmond", "M. Bernechea", "F.P. Garcia de Arquer", "F. Gatti", "F.H.L. Koppens" ],
+      "venue" : "Nat. Nanotechnol",
+      "citeRegEx" : "Konstantatos et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Konstantatos et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Infrared Photodetectors Based on CVD-Grown Graphene and PbS Quantum Dots with Ultrahigh Responsivity",
+      "author" : [ "Z. Sun", "Z. Liu", "J. Li", "G.-A. Tai", "S.-P. Lau", "F. Yan" ],
+      "venue" : "Adv. Mater. 2012,",
+      "citeRegEx" : "Sun et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Sun et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "High-Performance Perovskite–Graphene Hybrid Photodetector",
+      "author" : [ "Y. Lee", "J. Kwon", "E. Hwang", "C.-H. Ra", "W.J. Yoo", "J.-H. Ahn", "J.H. Park", "J.H. Cho" ],
+      "venue" : "Adv. Mater. 2015,",
+      "citeRegEx" : "Lee et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Lee et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Planar carbon nanotube–graphene hybrid films for highperformance broadband photodetectors",
+      "author" : [ "Y. Liu", "F. Wang", "X. Wang", "E. Flahaut", "X. Liu", "Y. Li", "Y. Xu", "Y. Shi", "R. Zhang" ],
+      "venue" : "Nat. Commun. 2015,",
+      "citeRegEx" : "Liu et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Ultrahigh-Gain Photodetectors Based on Atomically Thin Graphene-MoS2 Heterostructures",
+      "author" : [ "W. Zhang", "C.-P. Chuu", "J.-K. Huang", "C.-H. Chen", "M.-L. Tsai", "Y.-H. Chang", "C.-T. Liang", "Y.-Z. Chen", "Y.-L. Chueh", "J.-H. He", "M.-Y. Chou", "L.-J. Li" ],
+      "venue" : "Sci. Rep. 2014,",
+      "citeRegEx" : "Zhang et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Zhang et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "High Responsivity and Gate Tunable Graphene-MoS2 Hybrid Phototransistor",
+      "author" : [ "H. Xu", "J. Wu", "Q. Feng", "N. Mao", "C. Wang", "J. Zhang" ],
+      "venue" : "Small 2014,",
+      "citeRegEx" : "Xu et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Xu et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Graphene–MoS2 hybrid structures for multifunctional photoresponsive memory devices",
+      "author" : [ "K. Roy", "M. Padmanabhan", "S. Goswami", "T.P. Sai", "G. Ramalingam", "S. Raghavan", "A. Ghosh" ],
+      "venue" : "Nat. Nanotechnol. 2013,",
+      "citeRegEx" : "Roy et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Roy et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Interface Engineering in hybrid Quantum Dot – 2D phototransistors",
+      "author" : [ "D. Kufer", "T. Lasanta", "M. Bernechea", "F. Koppens", "G. Konstantatos" ],
+      "venue" : "ACS Photonics 2016,",
+      "citeRegEx" : "Kufer et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Kufer et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Ultrasensitive PbS quantum-dot-sensitized InGaZnO hybrid photoinverter for near-infrared detection and imaging with high photogain",
+      "author" : [ "D.K. Hwang", "Y.T. Lee", "H.S. Lee", "Y.J. Lee", "S.H. Shokouh", "J. Kyhm", "J. Lee", "H.H. Kim", "T.-H. Yoo", "S.H. Nam", "D.I. Son", "B.-K. Ju", "M.-C. Park", "J.D. Song", "W.K. Choi", "S. Im" ],
+      "venue" : "NPG Asia Mater. 2016,",
+      "citeRegEx" : "Hwang et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Hwang et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Roomtemperature fabrication of transparent flexible thin-film transistors using amorphous oxide semiconductors",
+      "author" : [ "K. Nomura", "H. Ohta", "A. Takagi", "T. Kamiya", "M. Hirano", "H. Hosono" ],
+      "venue" : "Nature",
+      "citeRegEx" : "Nomura et al\\.,? \\Q2004\\E",
+      "shortCiteRegEx" : "Nomura et al\\.",
+      "year" : 2004
+    }, {
+      "title" : "ShortChannel Transistors Constructed with Solution-Processed Carbon Nanotubes",
+      "author" : [ "S.-J. Choi", "P. Bennett", "K. Takei", "C. Wang", "C.C. Lo", "A. Javey", "J. Bokor" ],
+      "venue" : "ACS Nano 2013,",
+      "citeRegEx" : "Choi et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Choi et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Extraordinary Mobility in Semiconducting Carbon Nanotubes",
+      "author" : [ "T. Dürkop", "S.A. Getty", "E. Cobas", "M.S. Fuhrer" ],
+      "venue" : "Nano Lett. 2004,",
+      "citeRegEx" : "Dürkop et al\\.,? \\Q2004\\E",
+      "shortCiteRegEx" : "Dürkop et al\\.",
+      "year" : 2004
+    }, {
+      "title" : "Ballistic carbon nanotube fieldeffect transistors",
+      "author" : [ "A. Javey", "J. Guo", "Q. Wang", "M. Lundstrom", "H. Dai" ],
+      "venue" : "Nature",
+      "citeRegEx" : "Javey et al\\.,? \\Q2003\\E",
+      "shortCiteRegEx" : "Javey et al\\.",
+      "year" : 2003
+    }, {
+      "title" : "Mirror-image photoswitching of individual single-walled carbon nanotube transistors coated with titanium dioxide",
+      "author" : [ "S. Liu", "J. Li", "Q. Shen", "Y. Cao", "X. Guo", "G. Zhang", "C. Feng", "J. Zhang", "Z. Liu", "M.L. Steigerwald", "D. Xu", "C. Nuckolls" ],
+      "venue" : "Angew. Chem. Int. Ed. Engl. 2009,",
+      "citeRegEx" : "Liu et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Light-Induced Charge Transfer in Pyrene/CdSe-SWNT Hybrids",
+      "author" : [ "L. Hu", "Y.-L. Zhao", "K. Ryu", "C. Zhou", "J.F. Stoddart", "G. Grüner" ],
+      "venue" : "Adv. Mater. 2008,",
+      "citeRegEx" : "Hu et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Hu et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Extraordinary Photocurrent Harvesting at Type-II Heterojunction Interfaces: Toward High Detectivity Carbon Nanotube Infrared Detectors",
+      "author" : [ "R. Lu", "C. Christianson", "A. Kirkeminde", "S. Ren", "J. Wu" ],
+      "venue" : "Nano Lett. 2012,",
+      "citeRegEx" : "Lu et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Lu et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Carbon Nanotube−Polymer Nanocomposite Infrared Sensor",
+      "author" : [ "B. Pradhan", "K. Setyowati", "H. Liu", "D.H. Waldeck", "J. Chen" ],
+      "venue" : "Nano Lett. 2008,",
+      "citeRegEx" : "Pradhan et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Pradhan et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Color Detection Using Chromophore-Nanotube Hybrid Devices",
+      "author" : [ "X. Zhou", "T. Zifer", "B.M. Wong", "K.L. Krafcik", "F. Léonard", "A.L. Vance" ],
+      "venue" : "Nano Lett. 2009,",
+      "citeRegEx" : "Zhou et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Zhou et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Optically Modulated Conduction in Chromophore-Functionalized Single-Wall Carbon Nanotubes",
+      "author" : [ "J.M. Simmons", "I. In", "V.E. Campbell", "T.J. Mark", "F. Léonard", "P. Gopalan", "M.A. Eriksson" ],
+      "venue" : "Phys. Rev. Lett. 2007,",
+      "citeRegEx" : "Simmons et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Simmons et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "Significant Enhancement of Infrared Photodetector Sensitivity Using a Semiconducting SingleWalled Carbon Nanotube/C60 Phototransistor",
+      "author" : [ "S. Park", "S.J. Kim", "J.H. Nam", "G. Pitner", "T.H. Lee", "A.L. Ayzner", "H. Wang", "S.W. Fong", "M. Vosgueritchian", "Y.J. Park", "M.L. Brongersma", "Z. Bao" ],
+      "venue" : "Adv. Mater. 2015,",
+      "citeRegEx" : "Park et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Park et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Tunneling Versus Thermionic Emission in One-Dimensional Semiconductors",
+      "author" : [ "J. Appenzeller", "M. Radosavljević", "J. Knoch", "P. Avouris" ],
+      "venue" : "Phys. Rev. Lett. 2004,",
+      "citeRegEx" : "Appenzeller et al\\.,? \\Q2004\\E",
+      "shortCiteRegEx" : "Appenzeller et al\\.",
+      "year" : 2004
+    }, {
+      "title" : "Physics of ultrathin-body silicon-oninsulator Schottky-barrier field-effect transistors",
+      "author" : [ "J. Knoch", "M. Zhang", "J. Appenzeller", "S. Mantl" ],
+      "venue" : "Appl. Phys. A 2007,",
+      "citeRegEx" : "Knoch et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Knoch et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "High Performance Multilayer MoS2 Transistors with Scandium Contacts",
+      "author" : [ "S. Das", "H.-Y. Chen", "A.V. Penumatcha", "J. Appenzeller" ],
+      "venue" : "Nano Lett. 2013,",
+      "citeRegEx" : "Das et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Das et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Analysing black phosphorus transistors using an analytic Schottky barrier MOSFET model",
+      "author" : [ "A. V Penumatcha", "R.B. Salazar", "J. Appenzeller" ],
+      "venue" : "Nat. Commun. 2015,",
+      "citeRegEx" : "Penumatcha et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Penumatcha et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Microscopic origin of low frequency noise in MoS2 field-effect transistors",
+      "author" : [ "S. Ghatak", "S. Mukherjee", "M. Jain", "D.D. Sarma", "A. Ghosh" ],
+      "venue" : "APL Mater. 2014,",
+      "citeRegEx" : "Ghatak et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Ghatak et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Role of Metal Contacts in Designing High-Performance Monolayer n-Type WSe2 Field Effect Transistors",
+      "author" : [ "W. Liu", "J. Kang", "D. Sarkar", "Y. Khatami", "D. Jena", "K. Banerjee" ],
+      "venue" : "Nano Lett. 2013,",
+      "citeRegEx" : "Liu et al\\.,? \\Q1990\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 1990
+    }, {
+      "title" : "Multi-terminal transport measurements of MoS2 using a van der Waals heterostructure device",
+      "author" : [ "X. Cui", "G.-H. Lee", "Y.D. Kim", "G. Arefe", "P.Y. Huang", "C.-H. Lee", "D.A. Chenet", "X. Zhang", "L. Wang", "F. Ye", "F. Pizzocchero", "B.S. Jessen", "K. Watanabe", "T. Taniguchi", "D.A. Muller", "T. Low", "P. Kim", "J. Hone" ],
+      "venue" : "platform. Nat. Nanotechnol",
+      "citeRegEx" : "Cui et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Cui et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Chloride Molecular Doping Technique on 2D Materials: WS2 and MoS2",
+      "author" : [ "L. Yang", "K. Majumdar", "H. Liu", "Y. Du", "H. Wu", "M. Hatzistergos", "P.Y. Hung", "R. Tieckelmann", "W. Tsai", "C. Hobbs", "P.D. Ye" ],
+      "venue" : "Nano Lett. 2014,",
+      "citeRegEx" : "Yang et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Yang et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Phase-engineered low-resistance contacts for ultrathin MoS2 transistors",
+      "author" : [ "R. Kappera", "D. Voiry", "S.E. Yalcin", "B. Branch", "G. Gupta", "A.D. Mohite", "M. Chhowalla" ],
+      "venue" : "Nat. Mater. 2014,",
+      "citeRegEx" : "Kappera et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Kappera et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Low-Resistance 2D/2D Ohmic Contacts: A Universal Approach to High-Performance WSe2, MoS2, and MoSe2 Transistors",
+      "author" : [ "H.-J. Chuang", "B. Chamlagain", "M. Koehler", "M.M. Perera", "J. Yan", "D. Mandrus", "D. Tománek", "Z. Zhou" ],
+      "venue" : "Nano Lett. 2016,",
+      "citeRegEx" : "Chuang et al\\.,? \\Q1902\\E",
+      "shortCiteRegEx" : "Chuang et al\\.",
+      "year" : 1902
+    }, {
+      "title" : "Band-like transport in high mobility unencapsulated single-layer MoS2 transistors",
+      "author" : [ "D. Jariwala", "V.K. Sangwan", "D.J. Late", "J.E. Johns", "V.P. Dravid", "T.J. Marks", "L.J. Lauhon", "M.C. Hersam" ],
+      "venue" : null,
+      "citeRegEx" : "Jariwala et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Jariwala et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Large Thermoelectricity via Variable Range Hopping in Chemical Vapor Deposition Grown Single-Layer MoS2",
+      "author" : [ "J. Wu", "H. Schmidt", "K.K. Amara", "X. Xu", "G. Eda", "B. Özyilmaz" ],
+      "venue" : "Nano Lett. 2014,",
+      "citeRegEx" : "Wu et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Wu et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Mobility engineering and a metal–insulator transition",
+      "author" : [ "B. Radisavljevic", "A. Kis" ],
+      "venue" : null,
+      "citeRegEx" : "Radisavljevic and Kis,? \\Q2015\\E",
+      "shortCiteRegEx" : "Radisavljevic and Kis",
+      "year" : 2015
+    }, {
+      "title" : "Colloidal PbS Nanocrystals with Size-Tunable Near",
+      "author" : [ "M.A. Hines", "G.D. Scholes" ],
+      "venue" : null,
+      "citeRegEx" : "Hines and Scholes,? \\Q2013\\E",
+      "shortCiteRegEx" : "Hines and Scholes",
+      "year" : 2013
+    }, {
+      "title" : "Strategies for the Controlled Electronic Doping",
+      "author" : [ "A. Stavrinadis", "G. Konstantatos" ],
+      "venue" : "mobility-invariant regime. Nat. Commun. 2014,",
+      "citeRegEx" : "Stavrinadis and Konstantatos,? \\Q2014\\E",
+      "shortCiteRegEx" : "Stavrinadis and Konstantatos",
+      "year" : 2014
+    }, {
+      "title" : "Colloidal Quantum Dot Solids",
+      "author" : [ "Bawendi", "M. G" ],
+      "venue" : "Chemphyschem",
+      "citeRegEx" : "J. and G.,? \\Q2016\\E",
+      "shortCiteRegEx" : "J. and G.",
+      "year" : 2016
+    }, {
+      "title" : "Fullcolour quantum dot displays fabricated by transfer printing",
+      "author" : [ "J.-Y", "G. Amaratunga", "S.Y. Lee", "B.L. Choi", "Y. Kuk", "J.M. Kim", "K. Kim" ],
+      "venue" : "Nat. Photonics 2011,",
+      "citeRegEx" : "J..Y. et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "J..Y. et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Wearable red–green–blue quantum dot light-emitting diode array using high-resolution intaglio transfer printing",
+      "author" : [ "M.K. Choi", "J. Yang", "K. Kang", "D.C. Kim", "C. Choi", "C. Park", "S.J. Kim", "S.I. Chae", "T.-H. Kim", "J.H. Kim", "T. Hyeon", "D.-H. Kim" ],
+      "venue" : "Nat. Commun. 2015,",
+      "citeRegEx" : "Choi et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Choi et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Physically Flexible, Rapid-Response Gas Sensor Based on Colloidal Quantum Dot Solids",
+      "author" : [ "H. Liu", "M. Li", "O. Voznyy", "L. Hu", "Q. Fu", "D. Zhou", "Z. Xia", "E.H. Sargent", "J. Tang" ],
+      "venue" : "Adv. Mater",
+      "citeRegEx" : "Liu et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Perovskites: The Emergence of a New Era for Low-Cost, High-Efficiency Solar Cells",
+      "author" : [ "H.J. Snaith" ],
+      "venue" : "J. Phys. Chem. Lett. 2013,",
+      "citeRegEx" : "Snaith,? \\Q2013\\E",
+      "shortCiteRegEx" : "Snaith",
+      "year" : 2013
+    }, {
+      "title" : "Low-temperature solution-processed wavelength-tunable perovskites for lasing",
+      "author" : [ "G. Xing", "N. Mathews", "S.S. Lim", "N. Yantara", "X. Liu", "D. Sabba", "M. Grätzel", "S. Mhaisalkar", "T.C. Sum" ],
+      "venue" : "Nat. Mater. 2014,",
+      "citeRegEx" : "Xing et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Xing et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Electron-Hole Diffusion Lengths Exceeding 1 Micrometer in an Organometal Trihalide Perovskite Absorber",
+      "author" : [ "S.D. Stranks", "G.E. Eperon", "G. Grancini", "C. Menelaou", "M.J.P. Alcocer", "T. Leijtens", "L.M. Herz", "A. Petrozza", "H.J. Snaith" ],
+      "venue" : "Science",
+      "citeRegEx" : "Stranks et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Stranks et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Low trap-state density and long carrier diffusion in organolead trihalide perovskite single crystals",
+      "author" : [ "D. Shi", "V. Adinolfi", "R. Comin", "M. Yuan", "E. Alarousu", "A. Buin", "Y. Chen", "S. Hoogland", "A. Rothenberger", "K. Katsiev", "Y. Losovyj", "X. Zhang", "P.A. Dowben", "O.F. Mohammed", "E.H. Sargent", "O.M. Bakr" ],
+      "venue" : null,
+      "citeRegEx" : "Shi et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Shi et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Air-Stable and Solution-Processable Perovskite Photodetectors for Solar-Blind UV and Visible Light",
+      "author" : [ "Y. Guo", "C. Liu", "H. Tanaka", "E. Nakamura" ],
+      "venue" : "J. Phys. Chem. Lett. 2015,",
+      "citeRegEx" : "Guo et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Guo et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Planar-integrated singlecrystalline perovskite photodetectors",
+      "author" : [ "M.I. Saidaminov", "V. Adinolfi", "R. Comin", "A.L. Abdelhady", "W. Peng", "I. Dursun", "M. Yuan", "S. Hoogland", "E.H. Sargent", "O.M. Bakr" ],
+      "venue" : "Nat. Commun. 2015,",
+      "citeRegEx" : "Saidaminov et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Saidaminov et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Solutionprocessed hybrid perovskite photodetectors with high detectivity",
+      "author" : [ "L. Dou", "Y.M. Yang", "J. You", "Z. Hong", "W.-H. Chang", "G. Li", "Y. Yang" ],
+      "venue" : "Nat. Commun. 2014,",
+      "citeRegEx" : "Dou et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Dou et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Ambipolar solutionprocessed hybrid perovskite phototransistors",
+      "author" : [ "F. Li", "C. Ma", "H. Wang", "W. Hu", "W. Yu", "A.D. Sheikh", "T. Wu" ],
+      "venue" : "Nat. Commun. 2015,",
+      "citeRegEx" : "Li et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Li et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Highly narrowband perovskite single-crystal photodetectors enabled by surface-charge recombination",
+      "author" : [ "Y. Fang", "Q. Dong", "Y. Shao", "Y. Yuan", "J. Huang" ],
+      "venue" : "Nat. Photonics 2015,",
+      "citeRegEx" : "Fang et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Fang et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Single-Layer MoS2 Electronics",
+      "author" : [ "D. Lembke", "S. Bertolazzi", "A. Kis" ],
+      "venue" : "Acc. Chem. Res. 2015,",
+      "citeRegEx" : "Lembke et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Lembke et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Tailoring organic heterojunction interfaces in bilayer polymer photovoltaic devices",
+      "author" : [ "A. Tada", "Y. Geng", "Q. Wei", "K. Hashimoto", "K. Tajima" ],
+      "venue" : "Nat. Mater. 2011,",
+      "citeRegEx" : "Tada et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Tada et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Simultaneous Enhancement of Open-Circuit Voltage, Short-Circuit Current Density, and Fill Factor in Polymer Solar Cells",
+      "author" : [ "Z. He", "C. Zhong", "X. Huang", "W.-Y. Wong", "H. Wu", "L. Chen", "S. Su", "Y. Cao" ],
+      "venue" : "Adv. Mater. 2011,",
+      "citeRegEx" : "He et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "He et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Enhancing the Tunability of the Open-Circuit Voltage of Hybrid Photovoltaics with Mixed Molecular Monolayers",
+      "author" : [ "L. Barnea-Nehoshtan", "P.K. Nayak", "A. Shu", "T. Bendikov", "A. Kahn", "D. Cahen" ],
+      "venue" : "ACS Appl. Mater. Interfaces 2014,",
+      "citeRegEx" : "Barnea.Nehoshtan et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Barnea.Nehoshtan et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Improved performance and stability in quantum dot solar cells through band alignment engineering",
+      "author" : [ "C.-H.M. Chuang", "P.R. Brown", "V. Bulović", "M.G. Bawendi" ],
+      "venue" : "Nat. Mater. 2014,",
+      "citeRegEx" : "Chuang et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Chuang et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Integrating an electrically active colloidal quantum dot photodiode with a graphene phototransistor",
+      "author" : [ "I. Nikitskiy", "S. Goossens", "D. Kufer", "T. Lasanta", "G. Navickaite", "F.K.G. Koppens" ],
+      "venue" : "Nat. Commun. 2016,",
+      "citeRegEx" : "Nikitskiy et al\\.,? \\Q1954\\E",
+      "shortCiteRegEx" : "Nikitskiy et al\\.",
+      "year" : 1954
+    }, {
+      "title" : "Mid-infrared HgTe colloidal quantum dot photodetectors",
+      "author" : [ "S. Keuleyan", "E. Lhuillier", "V. Brajuskovic", "P. Guyot-Sionnest" ],
+      "venue" : "Nat. Photonics 2011,",
+      "citeRegEx" : "Keuleyan et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Keuleyan et al\\.",
+      "year" : 2011
+    } ],
+    "referenceMentions" : [ ],
+    "year" : 2016,
+    "abstractText" : "The large diversity of applications in our daily lives that rely on photodetection technology requires photodetectors with distinct properties. The choice of an adequate photodetecting system depends on its application, where aspects such as spectral selectivity, speed and sensitivity play a critical role. High sensitivity photodetection covering a large spectral range from the UV to IR is dominated by photodiodes. To overcome existing limitations in sensitivity and cost of state-of-the-art systems, new device architectures and material systems are needed with low-cost fabrication and high performance. Low dimensional nanomaterials (0D, 1D, 2D) are promising candidates with many unique electrical and optical properties and additional functionalities such as flexibility and transparency. In this perspective, the physical mechanism of photo-FETs (Field Effect Transistors) is described and recent advances in the field of lowdimensional photo-FETs and hybrids thereof are discussed. Several requirements for the channel material are addressed in view of the photon absorption and carrier transport process, and a fundamental trade-off between them is pointed out for singlePage 1 of 41 ACS Paragon Plus Environment ACS Photonics 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 2 material based devices. We further clarify how hybrid devices, consisting of an ultrathin channel sensitized with strongly absorbing semiconductors can circumvent these limitations and lead to a new generation of highly sensitive photodetectors. Recent advances in the development of sensitized low-dimensional photo-FETs are discussed and several promising future directions for their application in high sensitivity photodetection are proposed. Photodetectors are one of the key components in many optoelectronic devices which transduce optical into electrical information. Today, photodetectors have reached a mature technology level and address a huge application spectrum including imaging, remote sensing, fibre-optic communication and spectroscopy among many others. However, to tackle challenges and to surpass existing limitations in sensitivity of state-of-the-art photodetector systems, new device architectures and material systems are needed which offer low-cost fabrication and high performance over a wide spectral range. The active research field on photodetection grows and many novel nanostructured material systems have been employed for light sensing including Quantum dots, Perovskites, organic molecules and polymers, Carbon Nanotubes, Graphene and the large field of semiconducting 2D materials such as the transition metal dichalcogenides (TMDCs) and black phosphorus. Photodetector performance is governed by both the optical and electronic properties of the employed semiconductor. The former determines the spectral coverage and quantum efficiency of the detector whereas the latter determines, through the carrier transport and carrier density, the amount of dark current flowing through the device, as well as the efficiency of charge separation and collection upon illumination. The key parameters for a strong signal response are a high photon to electron conversion rate (quantum efficiency) and Page 2 of 41 ACS Paragon Plus Environment ACS Photonics 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 3 ideally an inherent gain mechanism, which yields multiple carriers per absorbed photon. The response signal is then weighed against the noise portion of the ratio, which has to be minimized for maximum sensitivity. There are several device-external noise sources, such as the photon noise due to the statistical arrival of photons on the device or the read-out noise in photodetector arrays that originates in preamplifier electronics. Here, we will put emphasis on the device (photodetector pixel) inherent noise, which stems partially from thermally generated charge carriers and also from the intrinsic carrier density that contribute to the dark current of the device (shot noise limit) as well as flicker noise (1/f). It is however important to note that the sensitivity of a detector with inherent noise lower than the noise floor of commercially used CMOS read-out circuits, typically met in photodiodes, is limited by the latter, thus a photodetector technology with an inherent gain mechanism is desired to alleviate",
+    "creator" : null
+  }
+}

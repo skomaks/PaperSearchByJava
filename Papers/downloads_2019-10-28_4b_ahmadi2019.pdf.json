@@ -1,0 +1,271 @@
+{
+  "name" : "downloads_2019-10-28_4b_ahmadi2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Mathematical modeling of cytotoxicity of metal oxide nanoparticles using the index of ideality correlation criteria",
+    "authors" : [ "Shahin Ahmadi" ],
+    "emails" : [ "ahmadi.chemometrics@gmail.com" ],
+    "sections" : [ {
+      "heading" : "Journal Pre-proof",
+      "text" : "Mathematical modeling of cytotoxicity of metal oxide nanoparticles using the index of ideality correlation criteria"
+    }, {
+      "heading" : "Shahin Ahmadi",
+      "text" : "PII: S0045-6535(19)32432-4 DOI: https://doi.org/10.1016/j.chemosphere.2019.125192 Reference: CHEM 125192\nTo appear in: ECSN"
+    }, {
+      "heading" : "Received Date: 5 September 2019",
+      "text" : ""
+    }, {
+      "heading" : "Revised Date: 17 October 2019",
+      "text" : ""
+    }, {
+      "heading" : "Accepted Date: 21 October 2019",
+      "text" : "Please cite this article as: Ahmadi, S., Mathematical modeling of cytotoxicity of metal oxide nanoparticles using the index of ideality correlation criteria, Chemosphere (2019), doi: https:// doi.org/10.1016/j.chemosphere.2019.125192.\nThis is a PDF file of an article that has undergone enhancements after acceptance, such as the addition of a cover page and metadata, and formatting for readability, but it is not yet the definitive version of record. This version will undergo additional copyediting, typesetting and review before it is published in its final form, but we are providing this version to give early visibility of the article. Please note that, during the production process, errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. © 2019 Published by Elsevier Ltd.\n-10\n10\n30\n50\n70\n90\n110\n-10 10 30 50 70 90 110\nP re\ndi ct\ned c\nel l v\nia bi\nlit y\n(% )\nExperimental cell viability (%)\nTraining set Invisible training set Calibration set Validation set\n1\nMathematical modeling of cytotoxicity of metal oxide nanoparticles using the index of ideality 1\ncorrelation criteria 2 Shahin Ahmadi* 3\nDepartment of Chemistry, Kermanshah Branch, Islamic Azad University, Kermanshah, Iran 4\nAbstract: 5\nSeveral types of metal oxide nanoparticles (MO-NPs) are often utilized as one of the novel class 6\nof materials in the pharmaceutical industry and human health. The wide use of MO-NPs 7\nforces an enhanced understanding of their potential impact on human health and the 8\nenvironment. The research aims to investigate and develop a nano-QFAR (nano- quantitative 9\nfeature activity relationship) model applying the quasi-SMILES such as cell line, assay, time 10\nexposition, concentration, nanoparticles size and metal oxide type for prediction of cell viability 11\n(%) of MO-NPs. The total set of 83 quasi-SMILES of MO-NPs divided into training, validation 12\nand test sets randomly three times. The statistical model results based on the balance of 13\ncorrelation target function (TF1) and index of ideality correlation target function (TF2) and the 14\nMonte Carlo optimization were compared. The comparison of two target function results 15\nindicated that TF2 improves the predictability of models. The significance of various eclectic 16\nfeatures of both increase and decrease of cell viability (%) is provided. Mechanistic 17\ninterpretation of significant factors for the model are proposed as well. The sufficient statistical 18\nquality of three nano-QFAR models based on TF2 reveals that the developed models can be 19\nefficiency for predictions of the cell viability (%) of MO-NPs. 20\n* Corresponding author email: ahmadi.chemometrics@gmail.com\n2\nKeywords: Nano-QFAR, Metal oxide nanoparticles, Cell viability, Quasi-SMILES, Index of 21\nideality correlation 22\n23"
+    }, {
+      "heading" : "1. Introduction 24",
+      "text" : "Nanotechnology denotes the knowledge from the field of physics, chemistry, medicine, biology, 25\nand technology of nano devices, which has been receiving considerable attention because of its 26\ncapability to create nanoparticles (NPs) or nanodevices with dimensions between 1-100 nm size 27\nrange (Olawoyin 2018). The larger specific surface area of NPs compared with their bulk 28\ncounterparts induce unique properties (Karlsson, Gustafsson et al. 2009). Metal oxide 29\nnanoparticles (MO-NPs) has drawn significant attention for their different applications ranging 30\nfrom medical healthcare (Hu, Culloty et al. 2014, Shetti, Bukkitgar et al. 2019), drug delivery 31\n(Panda, Satapathy et al. 2019), sensors (Najafi, Zolghadr et al. 2019), and optoelectronics (Cano-32\nFranco and Álvarez-Láinez 2019) to environmental remediation (Wu, Li et al. 2015). 33\nQuantitative feature-activity/toxicity relationships (QFAR/QFTR) for reliable prediction of 34\nbiochemical activity and toxicity of nanomaterials is useful knowledge for synthesis and 35\ndevelopment of new nanomaterials and nanotechnologies (Toropov, Toropova et al. 2012, 36\nToropova and Toropov 2013, Manganelli, Leone et al. 2016, Pan, Li et al. 2016, Toropova and 37\nToropov 2017, Leone, Bertuzzi et al. 2018, Hataminia, Noroozi et al. 2019). Nowadays, research 38\non biomedical and health-care applications of MO-NPs is increasing rapidly (Mu, Zhao et al. 39\n2017, Bogusz, Tehei et al. 2018, Sruthi, Ashtami et al. 2018, Nallendran, Selvan et al. 2019, 40\nQiao, Xiao et al. 2019). The different MO-NPs have also shown the potential to be utilized in the 41\ntreatment of highly radioresistant cancer cells (Hosseini, Mirrahimi et al. 2018, Rękorajska, 42\nCichowicz et al. 2019). Moreover, in the most effective chemotherapy of cancer, cell viability is 43\n3\none of the fundamental factors for predicting radiosensitivity in the treatment of cancer (Rödel, 44\nHoffmann et al. 2005). 45\nDue to increased growth of literature on nanomaterials and in vitro cytotoxicity tests, there is an 46\nurgent need to a comprehensive knowledge of how the nanomaterials interact with biological 47\nsystems to design safe and practical nanomaterials. However, cytotoxicity tests are time- 48\nand resource-consuming, which is why researchers are developing computational models to 49\npredict the behavior of nanomaterials in biological systems. Such predictor models would allow 50\nresearchers to design experiments, streamline and prioritize tests on real nanomaterials. 51\nThe CORAL software is a very user friend and free software for the building of QSAR and nano-52\nQFAR models (Gobbi, Beeg et al. 2016, Ahmadi and Akbari 2018, Ahmadi, Mardinia et al. 53\n2019, Ahmadi, Mehrabi et al. 2019, Choi, Trinh et al. 2019). This package use quasi-SMILES 54\ndescribing both the physicochemical features and experimental conditions (not only information 55\nregarding the molecular structure) and Monte Carlo optimization to develop the predictive nano-56\nQFAR models for activity and cytotoxicity of nanomaterials (Manganelli, Leone et al. 2016, 57\nManganelli and Benfenati 2017). 58\nThis study was designed to explore and build a mathematical model using the combination of 59\nsome quasi-SMILES such as cell line, assay, time exposition, concentration and metal oxide size 60\nand type as eclectic information in the construction of QFAR model for prediction of cell 61\nviability (%) of MO-NPs. The statistical results of QFAR models based on two different target 62\nfunctions of CORAL software that called the balance of correlation target function (TF1) and 63\nindex of ideality correlation target function (TF2) using the Monte Carlo optimization were 64\ncompared. 65\n66\n4"
+    }, {
+      "heading" : "2. Material and methods 67",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Data set collecting 68",
+      "text" : "The required data of cell viability (%) for human breast cancer cell line MCF-7, human 69\nfibrosarcoma cell line HT-1080, human liver carcinoma cell line HepG2, 70\nhuman colon carcinoma cells HT-29 and rat adrenal pheochromocytoma cell line PC-12 were 71\ngathered from in vitro data published in new peer-reviewed papers (Liu, Xu et al. 2010, Ahmad, 72\nAhamed et al. 2012, Ahamed, Ali et al. 2013, Wahab, Siddiqui et al. 2014, Ahamed, Akhtar et al. 73\n2018, Miri and Sarani 2018, Ahamed, Akhtar et al. 2019, Alhadlaq, Akhtar et al. 2019, 74\nIbraheem, Aziz et al. 2019). The cell viability (%) of metal oxide nanoparticles SnO2, MnO2, 75\nZnO, Bi2O3, NiO, CeO2, SiO2 and TiO2 in different experimental condition was used as a 76 dependent variable. Table 1 indicates the codes utilized for different cell lines, methods, time 77\nexposition, concentration and type and size of the metal oxide of the invitro data, their quasi-SMILES 78\nand the value of cell viability (%). For developing and validating of the QFAR models, the total 79\nset is divided into four categories of the training set (≈35%), invisible training set (≈35 %), 80\ncalibration set (≈15 %) and validation set (≈15 %), randomly. For checkup the proposed 81\napproach, three different splits are investigated. 82\nThe CORAL utilizes from the training data to develop the QFAR model. The invisible training 83\nset is used to prevent the overtraining of the model during the construction of it, while the 84\ncalibration set is employed for optimization of T and N parameters. The validation set as the 85\ncompounds that did not have any role in creating the model is utilized for verification of the 86\npredictability of the constructed model. 87\n88\n2.2. Quasi-SMILES definition 89\nQuasi-SMILES is a string of codes that describes the physicochemical properties and/or 90\nexperimental conditions as an expansion of the traditional SMILES. Quasi-SMILES utilized here 91 are cell line, toxic assay method, time exposition (h), NPs concentration (µg mL-1), NPs size 92\n(nm) and metal oxide type. An alphabet or number was employed to create the quasi-SMILES. 93\n6\nLatin alphabet from ‘H’ to ‘L’ is utilized to specify the cell line; alphabet ‘M’ and ‘N’ were used 97\nfor 3-(4,5-dimethylthiazol-2-yl)-2,5-diphenyltetrazolium bromide (MTT) and the neutral red 98\nuptake (NRU) assay, respectively; alphabet ‘X’, ‘Y’ and ‘Z’ was employed for time exposition 99 of 24, 48 and 72 h; alphabet from ‘A’ to ‘F’ was used to define the NPs concentration (µg mL-1); 100\nalphabet from ‘P’ to ‘T’ was utilized to determine normalized NPs size, and number 1 to 8 was 101\nused for metal oxide type. Table 1 provides the physicochemical features and biochemical 102\nconditions for MO-NPs. the following normalization equation is implemented to generate codes 103\nof the normalized NPs size (the particle size of MO-NPs varied from 13 to 97 nm), which was 104\nfirst defined in previously published studies (Toropova, Toropov et al. 2014, Choi, Trinh et al. 105\n2019). 106\nNorm (size ) = ( )\n( ) !\" ( ) 107\n(1) 108\nThe examples of quasi-SMILES and the relevant cell viability (%) indicated in Table 2. 109\n110\nTable 2. Examples of quasi-SMILES and the relevant cell viability (%) 111 Cell line Method Time exposition\n(h)\nConcentration\n(µg mL-1)\nNormalized NPs Size Metal oxide\ntype\nQuasiSMILES\nCell viability (%)\nMCF-7 a MTT 1 5 0.2 < Norm (size) ≤ 0.3 SnO2 HMXAP1 97.0 MCF-7 MTT 1 25 0.2 < Norm (size) ≤ 0.3 MnO2 HMXAP2 81.0 HT-1080 b NRU 1 10 0.9 < Norm (size) ≤ 1.0 MnO2 INXBP2 94.0 MCF-7 MTT 2 100 0.2 < Norm (size) ≤ 0.3 ZnO HMYEP3 4.1 HepG2 c MTT 3 200 0.2 < Norm (size) ≤ 0.3 SiO2 JMZFP7 57.0 HepG2 NRU 3 5 0.2 < Norm (size) ≤ 0.3 SiO2 JNZAP7 95.7 PC12 d MTT 2 50 0.3 < Norm (size) ≤ 0.4 TiO2 LMYDR8 59.0 HepG2 MTT 1 5 0.5 < Norm (size) ≤ 0.6 NiO JMXAS5 99.5 HT-29 e MTT 1 50 0.3 < Norm (size) ≤ 0.4 CeO2 KMXDQ6 91.0 MCF-7 MTT 1 200 0.9 < Norm (size) ≤ 1.0 Bi2O3 HMXFT4 51.7\na Human breast cancer cell line 112 b Human fibrosarcoma cell line 113 c Human liver carcinoma cell line 114 d Rat adrenal pheochromocytoma cell line 115 e Human colon carcinoma cell line 116 117\n2.3. Nano-QFAR modeling 118\n7\nThe reliable models in this research were constructed using quasi-SMILES for prediction of the 119\neffect of several types of MO-NPs on cell viability of different cell types according to the 120\nfollowing equations (Choi, Trinh et al. 2019): 121 Cell viability (%) = C+ + C- × DCW(1∗, 4∗) 122 (2) 123\nwhere C0 and C1 are the constant value and DCW(T, N) is the summation of the correlation 124\nweight for all attribute Ak in each Quasi-SMILES and was calculated according to the following 125\nequation: 126\nDCW(T, N) = ∑ CW(A ) 8- (3) 127 where Ak is kth attribute of a MO-NPs (Table 1); the CW(Ak) denotes the correlation weight of 128\nthe kth descriptor. The correlation weights for different features were obtained by the Monte 129\nCarlo method optimization and the correlation weights for the optimum T and Nis utilized for 130\nprediction of cell viability (%). 131\nThere are two target functions for the building of QSAR model in CORAL software: target 132\nfunction based on the balance of correlation (TF1) and target function based on the index of 133\nideality (TF2) (Toropov and Toropova 2017). 134 TF- = R;<= + R ;<= − |R;<= − R ;<=| × c (4) 135 where R;<= and R ;<= are correlation coefficients between experimental and predicted values of 136 cell viability (%) for the training and invisible training sets, respectively and c denotes an 137\nempirical constant. In this study, TF2 has been used (Toropov and Toropova 2017): 138 TFA = TF- + IIC (5) 139 where IIC (index of the ideality of correlation) criteria is obtained by the equation (6): 140\nIIC = rCDE × ( FDGHIJ\nK , FDGHIJ L ) !\" ( FDGHIJK , FDGHIJ L ) (6) 141\n8\nthe rCDE is correlation coefficient of observed and predicted values of cell viability (%) for the 142 calibration set. 143\nMAE is the abbreviation of mean absolute error which is calculated according to the equations 144\n(7) and (8): 145\nMAECDE O = − -\n= ∑ P∆RP P∆RP < 0, N\nO is the number of ∆R< 0 W K X8- 146\n(7) 147\nMAECDE = + -\n= ∑ P∆RP P∆RP < 0, N\nis the number of ∆R≥ 0 W L X8- 148\n(8) 149\n∆R= ObsR − CalcR 150\n(9) 151\nwhere ObsR is experimental cell viability (%) and CalcR is calculated cell viability (%). 152\nHere, we defined the values of T and N from 1 to 5 and 1-15 respectively. 153\nAfter searching of the response surface of TF2 for the validation set, T* and N* with the 154\nmaximum value of TF2 for cell viability and DCW(T*,N*) is obtained. 155\n156\n2.4. The applicability domain of the model 157\nOne of the OECD concepts for model validation needs demonstrating the applicability domain 158\n(AD) for the QSAR models (Toropova and Toropov 2017, Gómez-Jiménez, Gonzalez-Ponce et 159\nal. 2018), which is a theoretical region in chemical space where the model can be employed and 160\nis constructed using the “Defect[\\! O]F^EG]” as in equation (10) (Toropova and Toropov 2017, 161\nToropov and Toropova 2019): 162\nDefectD_ = |`abc(D_)O`HIJ(D_)|\n=abc(D_) =HIJ(D_) If (Ad) > 0 (10) 163\n9\nDefectD_ = 1 If (Ad) = 0 164 P;<=(Ad) means the chance of the presence of the feature gh in the quasi-SMILES of training 165 data set, as shown in the following equation: 166\nP;<=(Ad) = =abc(D_)\n=abc 167 (11) 168\nPCDE(Ad) denotes the chance of the presence of the feature gh in quasi-SMILES of calibration 169 set, as represented in the following equation: 170\nPCDE(Ad) = =HIJ(D_)\n=HIJ 171 (12) 172\nNTRN(Ak) shows the frequency of quasi-SMILES including Ak in the training set; NTRN denotes the 173\ntotal frequency of quasi-SMILES in the training set; NCAL(Ak) is the frequency of quasi-SMILES 174\nincluding Ak in the calibration set and NCAL indicates the total number of quasi-SMILES in the 175\ncalibration set. 176\nEquation (10) is utilized to demonstrate the domain of applicability and distinguish the outliers. 177\nThus, at the ideal condition Defect[\\! O]F^EG] is zero, i.e. when the chance of Ak in quasi-178\nSMILES of the training set and the calibration set is equal. Generally, it does not happen and in 179\nthe optimization process of the QFAR model the statistical features improve when equation (14) 180\nis fulfilled (Toropova and Toropov 2017): 181 Defect[\\! O]F^EG] = ∑ DefectD_ D_ 8- (13) 182 By quasi-SMILES the substance codified is embedded in the domain of the applicability if: 183 Defect[\\! O]F^EG] < 2 × Defectiiiiiiii[\\! O]F^EG] (14) 184\n10\nwhere Defectiiiiiiii[\\! O]F^EG] denotes the average of the Defect[\\! O]F^EG] values for the training 185\nset. 186\n187\n3. Results and discussion 188\n3.1. QFAR models 189\nThe QFAR models were created for the prediction of the cell viability (%) of different cell types 190\nwhich exposed to several types of MO-NPs. Three splits of 83 quasi-SMILES are developed 191\nbased on the Monte Carlo optimization and two different target function (TF1 and TF2) and 192\nindicated in Eqs. 15 to 20: 193\nConstructed models based on TF1: 194\nSplit 1 195\nCell viability (%) = 14.9257 (±0.4058) + 19.4082 (±0.1739) × DCW(1, 2) 196\n(15) 197\nSplit 2 198\nCell viability (%) = 40.8750 (±0.3970) + 14.8555 (±0.1523) × DCW(1,7) 199\n(16) 200\nSplit 3 201\nCell viability (%) = 36.3887 (±0.4322) + 20.0730 (±0.2239) × DCW(1, 3) 202\n(17) 203\nConstructed models based on TF2: 204\nSplit 1 205\nCell viability (%) = 47.94889 (±0.3884) + 21.1778(±0.2219) × DCW(1, 3) 206\n(18) 207\n11\nSplit 2 208\nCell viability (%) = 35.1584 (±0.4403) + 34.4495 (±0.3327) × DCW(2, 5) 209\n(19) 210\nSplit 3 211\nCell viability (%) = 28.0288 (±0.5825) + 16.1180 (±0.1965) × DCW(1, 4) 212\n(20) 213\nThe reliable above statistical equations are utilized for prediction of cell viability (%) of different 214\ncell types exposed to MO-NPs. Table 3 reports the important characteristics of QFAR models 215 achieved from Eqs. 15 to 20. The statistical parameters such as R2, Q2, MAE, RMSEP, CCC, IIC 216\nand F were calculated to investigate the predictability and robustness of the QFAR models. The 217\nmathematical equations for calculating of the statistical parameters indicated in Table S1 ((see 218\nSupplementary material). The satisfactory statistical results of models for different sets of these 219\nmodels and are indicated in Table 3. 220\nTable 3. The statistical features of models for cell viability (%) prediction by various splits into 221 training (TRN), invisible training (iTRN), calibration (CLB) and validation (VLD) sets 222\nSplit Target\nfunction Set n R2 Q2 MAE RMSE CCC IIC F\n1 TF1 TRN 29 0.9399 0.9313 6.0 7.7 0.9690 0.9048 422 iTRN 29 0.9311 0.9211 6.4 7.6 0.9645 0.9265 365 CAL 12 0.8008 0.6947 10.5 15.3 0.8734 0.3173 40 VLD 13 0.9272 0.9037 6.1 9.3 0.9528 0.5369 140\nTF2 TRN 29 0.9172 0.9056 7.1 9.0 0.9568 0.8939 299 iTRN 29 0.9125 0.8946 6.7 8.5 0.9542 0.6254 281 CAL 12 0.9207 0.8753 7.0 9.4 0.9385 0.9583 116 VLD 13 0.9416 0.9222 7.1 8.7 0.9546 0.6914 177\n2 TF1 TRN 30 0.9608 0.9523 4.3 6.1 0.9800 0.9802 686\niTRN 28 0.9511 0.9435 5.4 6.9 0.9730 0.8099 506 CAL 13 0.8937 0.8283 7.2 10.1 0.9283 0.6694 93 VLD 12 0.8881 0.8411 10.2 12.0 0.9384 0.7726 79\nTF2 TRN 30 0.9335 0.9238 5.9 7.9 0.9656 0.6441 393 iTRN 28 0.9212 0.9097 7.1 9.0 0.9558 0.4887 304 CAL 13 0.9353 0.9012 5.4 7.2 0.9668 0.9468 159\n12\nVLD 12 0.9343 0.8971 6.8 8.6 0.9660 0.8768 142 3 TF1 TRN 30 0.9572 0.9476 4.8 5.9 0.9781 0.9784 626\niTRN 28 0.9513 0.9432 6.5 7.9 0.9702 0.7346 508 CAL 13 0.9256 0.8938 6.9 8.8 0.9510 0.9414 137 VLD 12 0.7889 0.6394 10.6 13.1 0.8542 0.5052 37\nTF2 TRN 30 0.9266 0.9135 5.6 7.8 0.9619 0.7361 353 iTRN 28 0.9244 0.9112 7.8 9.4 0.9588 0.6421 318 CAL 13 0.9347 0.9017 6.9 9.2 0.9430 0.9523 157 VLD 12 0.8708 0.786 9.0 10.6 0.9067 0.6952 67\n223 The comparison between models based on TF1 and TF2 confirm that QFAR models constructed 224\nbased on TF2 significantly better than models developed with TF1. As indicated the statistical 225\ncharacteristics of QFAR models in Table 3, the models calculated according to the Eqs. 15 to 17 226\nis very good for training set as well as invisible training set while is not good for calibration and 227\nvalidation set. The QFAR models constructed based on Eqs. 18 to 20 described by acceptable 228\nstatistical criteria for the training and invisible training set, but the QFAR model is very good for 229\nthe calibration and validation sets. 230\nTable 4. The calculation results of DCW(1, 6) of attributes for HMXAP1, DCW= 4.1245, split 3 231 and TF2 232\nAK DCW(AK) NTRN NiTRN NCAL H........... 0.2640 15 15 8 M........... 0.7279 20 22 22 X........... -0.2202 27 17 19 A........... 2.0781 9 2 6 P........... 0.0898 22 24 18 1........... 1.1850 1 5 2 233 Table 4 provides the instance for calculation of DCW(1, 4) for quasi-SMILES of HMXAP1 234\nfrom split 3 according to TF2. After calculation of DCWs, one can predict the cell viability (%) 235\nof the MO-NPs based on equation 20. Also, the robustness of QFAR modeling based on TF2 236\nchecked by Y-randomization tests and correlation coefficient for different sets after several Y-237\nrandomization tests were indicated in Table 5 (Ahmadi and Akbari 2018). 238\n13\nTable S2 shows Quasi-SMILES of MO-NPs, the position of each data, their experimental and 239\npredicted cell viability (%) of three QFAR models based on TF2 (see Supplementary material). 240 cell viability (%) graphically, for three splits based on TF2. Tables S3 represent, quasi-SMILES, 241 DCW(T∗, N∗), the observed and predicted cell viability (%), the relevant Defect[\\! O]F^EG] and 242\nthe situation in the domain of applicability for each data in the validation set utilized in the 243\ndifferent splits based on TF2 (see Supplementary material). 244\nTable 5. Correlation coefficient for training set (R;<= A ), invisible training set (R ;<=\nA ) and 245\ncalibration set (RCDE\nA ) after several Y-randomization test for models based on TF2 246 Probe Y-randomization R;<= A R ;<= A RCDE\nA Split 1 1 0.0011 0.0012 0.0092 2 0.1569 0.1174 0.1619 3 0.0030 0.0000 0.3522 4 0.0839 0.0018 0.0406 5 0.0601 0.0894 0.1556 6 0.0849 0.0039 0.0330 7 0.0534 0.0343 0.0065 8 0.0409 0.0890 0.0002 9 0.0207 0.0427 0.0071 10 0.0118 0.0186 0.1905 Average 0.0517 0.0398 0.0957 Split 2 1 0.0098 0.0272 0.2378 2 0.0535 0.0040 0.0649 3 0.1034 0.0557 0.0055 4 0.0325 0.0000 0.0040 5 0.0134 0.1332 0.0119 6 0.0167 0.0234 0.0189 7 0.0646 0.0001 0.0025 8 0.0541 0.0078 0.0023 9 0.1425 0.0018 0.1526 10 0.0016 0.0157 0.0296 Average 0.0492 0.0269 0.0530 Split3 1 0.0550 0.0063 0.0932 2 0.0111 0.0401 0.0047 3 0.0651 0.327 0.0006 4 0.1217 0.0663 0.0019 5 0.0474 0.0033 0.0200 6 0.0006 0.0036 0.0732\n14\n7 0.0094 0.0128 0.0031 8 0.0006 0.0568 0.0678 9 0.0977 0.0085 0.0012 10 0.0147 0.0183 0.2234 Average 0.0423 0.0543 0.0489 247 248 249 250\n251\n-10\n10\n30\n50\n70\n90\n110\n-10 10 30 50 70 90 110\nP re\ndi ct\ned c\nel l v\nia bi\nlit y\n(% )\nExperimental cell viability (%)\nSplit 1 Training set Invisible training set Calibration set Validation set\n15\nof cell viability (%) graphically, for three splits. 257\n3.2. Mechanistic interpretation 258\nWe can obtain a group of features by calculating the correlation weights of each feature under 259\nseveral attempts, which are distinguished promoters of increasing or decreasing the cell viability 260\n(%) in all three splits. Table 6 indicates promoters of increasing or decreasing the cell viability. 261\nAs the results of Table 6, the cytotoxicity of MO-NPs on breast cancer cell lines (MCF-7) is the 262\nleast among the other studied cell lines. More ever, the cell viability increased by low 263\n16\nconcentration (5, 10 and 25 µg mL-1) and decrease by high concentration (200 µg mL-1). The 264\nshorter exposure time (24 h) increase cell viability. In general, these computational results reveal 265\nthat the proposed model is operating appropriately. Based on the increase/decrease promoter 266\nresults, the SnO2, MnO2, and SiO2 NPs are the least toxic MO-NPs among all the eight MO-NPs 267\nbut ZnO is the most toxic MO-NPs with the lowest cell viability, this result is also in the same 268\ndirection with the experimental results in other literature that indicate the metal oxide 269\nIncrease H........... Cell line MCF-7 X........... Time exposition (h) 24 1........... Metal oxide type SnO2 2........... Metal oxide type MnO2 7........... Metal oxide type SiO2 A........... Concentration (µg mL-1) 5 B........... Concentration (µg mL-1) 10 C........... Concentration (µg mL-1) 25\n17\nDecrease F........... Concentration (µg mL-1) 200 3........... Metal oxide type ZnO\n280 4. Conclusion 281\nIn the current research, quasi-QFAR modeling was utilized to predict the cell viability (%) of 282 MCF-7, HT1080, HepG2, HT-29 and PC12 cells exposed to 8 metal oxide nanoparticles. All 283 quasi-QFAR models constructed based on Monte Carlo optimization by two target function 284 named balance of correlation (TF1) and index of ideality correlation (TF2) and the model results 285 were compared. These results confirmed that TF2 improve the predictability of models and 286 consequently, the simple and predictive models can be applied for prediction of cytotoxicity of 287 metal oxide nanoparticles on different cell lines. As a result of QFAR model, the most important 288 features increasing and decreasing cell viability (%) introduced that they agree with the 289 experimental results in peer-reviewed literature. Due to increased growth of publications on in 290 vitro cytotoxicity of metal oxides, this model can be extended and revised for other cell lines and 291 different metal oxide nanoparticles in future. 292 293 Acknowledgements 294 The author would like to thank Dr Andrey A. Toropov and Dr Alla P. Toropova for their expert 295 advice and providing CORAL software. 296 297\n298\n299\n300\n301\n302\n303\nReferences 304\n18\nAhamed, M., M. J. Akhtar, M. M. Khan and H. A. Alhadlaq (2018). \"Oxidative stress mediated cytotoxicity 305 of tin (IV) oxide (SnO2) nanoparticles in human breast cancer (MCF-7) cells.\" Colloids and Surfaces B: 306 Biointerfaces 172: 152-160. 307 Ahamed, M., M. J. Akhtar, M. M. Khan, S. A. Alrokayan and H. A. Alhadlaq (2019). \"Oxidative stress 308 mediated cytotoxicity and apoptosis response of bismuth oxide (Bi2O3) nanoparticles in human breast 309 cancer (MCF-7) cells.\" Chemosphere 216: 823-831. 310 Ahamed, M., D. Ali, H. A. Alhadlaq and M. J. Akhtar (2013). \"Nickel oxide nanoparticles exert cytotoxicity 311 via oxidative stress and induce apoptotic response in human liver cells (HepG2).\" Chemosphere 93(10): 312 2514-2522. 313 Ahmad, J., M. Ahamed, M. J. Akhtar, S. A. Alrokayan, M. A. Siddiqui, J. Musarrat and A. A. Al-Khedhairy 314 (2012). \"Apoptosis induction by silica nanoparticles mediated through reactive oxygen species in human 315 liver cell line HepG2.\" Toxicology and applied pharmacology 259(2): 160-168. 316 Ahmadi, S. and A. Akbari (2018). \"Prediction of the adsorption coefficients of some aromatic compounds 317 on multi-wall carbon nanotubes by the Monte Carlo method.\" SAR and QSAR in Environmental Research 318 29(11): 895-909. 319 Ahmadi, S., F. Mardinia, N. Azimi, M. Qomi and E. Balali (2019). \"Prediction of chalcone derivative 320 cytotoxicity activity against MCF-7 human breast cancer cell by Monte Carlo method.\" Journal of 321 Molecular Structure 1181: 305-311. 322 Ahmadi, S., M. Mehrabi, S. Rezaei and N. Mardafkan (2019). \"Structure-activity relationship of the 323 radical scavenging activities of some natural antioxidants based on the graph of atomic orbitals.\" Journal 324 of Molecular Structure 1191: 165-174. 325 Alhadlaq, H. A., M. J. Akhtar and M. Ahamed (2019). \"Different cytotoxic and apoptotic responses of 326 MCF-7 and HT1080 cells to MnO2 nanoparticles are based on similar mode of action.\" Toxicology 411: 327 71-80. 328 Bogusz, K., M. Tehei, D. Cardillo, M. Lerch, A. Rosenfeld, S. X. Dou, H.-K. Liu and K. Konstantinov (2018). 329 \"High toxicity of Bi (OH) 3 and α-Bi2O3 nanoparticles towards malignant 9L and MCF-7 cells.\" Materials 330 Science and Engineering: C 93: 958-967. 331 Cano-Franco, J. C. and M. Álvarez-Láinez (2019). \"Effect of CeO2 content in morphology and 332 optoelectronic properties of TiO2-CeO2 nanoparticles in visible light organic degradation.\" Materials 333 Science in Semiconductor Processing 90: 190-197. 334 Choi, J.-S., T. X. Trinh, T.-H. Yoon, J. Kim and H.-G. Byun (2019). \"Quasi-QSAR for predicting the cell 335 viability of human lung and skin cells exposed to different metal oxide nanomaterials.\" Chemosphere 336 217: 243-249. 337 Gobbi, M., M. Beeg, M. A. Toropova, A. A. Toropov and M. Salmona (2016). \"Monte Carlo method for 338 predicting of cardiac toxicity: hERG blocker compounds.\" Toxicology letters 250: 42-46. 339 Gómez-Jiménez, G., K. Gonzalez-Ponce, D. J. Castillo-Pazos, A. Madariaga-Mazon, J. Barroso-Flores, F. 340 Cortes-Guzman and K. Martinez-Mayorga (2018). The OECD Principles for (Q) SAR Models in the Context 341 of Knowledge Discovery in Databases (KDD). Advances in protein chemistry and structural biology, 342 Elsevier. 113: 85-117. 343 Hataminia, F., Z. Noroozi and H. M. Eslam (2019). \"Investigation of iron oxide nanoparticle cytotoxicity in 344 relation to kidney cells: A mathematical modeling of data mining.\" Toxicology in Vitro. 59: 197-203. 345 Hosseini, V., M. Mirrahimi, A. Shakeri-Zadeh, F. Koosha, B. Ghalandari, S. Maleki, A. Komeili and S. K. 346 Kamrava (2018). \"Multimodal cancer cell therapy using Au@ Fe2O3 core–shell nanoparticles in 347 combination with photo-thermo-radiotherapy.\" Photodiagnosis and photodynamic therapy 24: 129-135. 348\n19\nHu, W., S. Culloty, G. Darmody, S. Lynch, J. Davenport, S. Ramirez-Garcia, K. A. Dawson, I. Lynch, J. Blasco 349 and D. Sheehan (2014). \"Toxicity of copper oxide nanoparticles in the blue mussel, Mytilus edulis: a 350 redox proteomic investigation.\" Chemosphere 108: 289-299. 351 Hu, X., S. Cook, P. Wang and H.-m. Hwang (2009). \"In vitro evaluation of cytotoxicity of engineered metal 352 oxide nanoparticles.\" Science of the Total Environment 407(8): 3070-3072. 353 Ibraheem, F., M. H. Aziz, M. Fatima, F. Shaheen, S. M. Ali and Q. Huang (2019). \"In vitro Cytotoxicity, 354 MMP and ROS activity of green synthesized nickel oxide nanoparticles using extract of Terminalia 355 chebula against MCF-7 cells.\" Materials Letters 234: 129-133. 356 Karlsson, H. L., J. Gustafsson, P. Cronholm and L. Möller (2009). \"Size-dependent toxicity of metal oxide 357 particles—a comparison between nano-and micrometer size.\" Toxicology letters 188(2): 112-118. 358 Leone, C., E. E. Bertuzzi, A. P. Toropova, A. A. Toropov and E. Benfenati (2018). \"CORAL: Predictive 359 models for cytotoxicity of functionalized nanozeolites based on quasi-SMILES.\" Chemosphere 210: 52-360 56. 361 Liu, S., L. Xu, T. Zhang, G. Ren and Z. Yang (2010). \"Oxidative stress and apoptosis induced by nanosized 362 titanium dioxide in PC12 cells.\" Toxicology 267(1-3): 172-177. 363 Manganelli, S. and E. Benfenati (2017). \"Nano-QSAR Model for Predicting Cell Viability of Human 364 Embryonic Kidney Cells.\" Cell Viability Assays: Methods and Protocols: 275-290. 365 Manganelli, S., C. Leone, A. A. Toropov, A. P. Toropova and E. Benfenati (2016). \"QSAR model for 366 cytotoxicity of silica nanoparticles on human embryonic kidney cells.\" Materials Today: Proceedings 3(3): 367 847-854. 368 Miri, A. and M. Sarani (2018). \"Biosynthesis, characterization and cytotoxic activity of CeO2 369 nanoparticles.\" Ceramics International 44(11): 12642-12647. 370 Mu, J., X. Zhao, J. Li, E.-C. Yang and X.-J. Zhao (2017). \"Coral-like CeO2/NiO nanocomposites with 371 efficient enzyme-mimetic activity for biosensing application.\" Materials Science and Engineering: C 74: 372 434-442. 373 Najafi, V., S. Zolghadr and S. Kimiagar (2019). \"Remarkable reproducibility and significant sensitivity of 374 ZnO nanoparticles covered by Chromium (III) oxide as a hydrogen sulfide gas sensor.\" Optik 182: 249-375 256. 376 Nallendran, R., G. Selvan and A. Balu (2019). \"NiO coupled CdO nanoparticles with enhanced magnetic 377 and antifungal properties.\" Surfaces and Interfaces 15: 11-18. 378 Olawoyin, R. (2018). \"Nanotechnology: The future of fire safety.\" Safety science 110: 214-221. 379 Pan, Y., T. Li, J. Cheng, D. Telesca, J. I. Zink and J. Jiang (2016). \"Nano-QSAR modeling for predicting the 380 cytotoxicity of metal oxide nanoparticles using novel descriptors.\" RSC Advances 6(31): 25766-25775. 381 Panda, J., B. S. Satapathy, S. Majumder, R. Sarkar, B. Mukherjee and B. Tudu (2019). \"Engineered 382 polymeric iron oxide nanoparticles as potential drug carrier for targeted delivery of docetaxel to breast 383 cancer cells.\" Journal of Magnetism and Magnetic Materials 485: 165-173. 384 Qiao, H., H. Xiao, Y. Huang, C. Yuan, X. Zhang, X. Bu, Z. Wang, S. Han, L. Zhang and Z. Su (2019). \"SiO2 385 loading into polydopamine-functionalized TiO2 nanotubes for biomedical applications.\" Surface and 386 Coatings Technology 364: 170-179. 387 Reddy, K. M., K. Feris, J. Bell, D. G. Wingett, C. Hanley and A. Punnoose (2007). \"Selective toxicity of zinc 388 oxide nanoparticles to prokaryotic and eukaryotic systems.\" Applied physics letters 90(21): 213902. 389 Rękorajska, A., G. Cichowicz, M. K. Cyranski, M. Pękała and P. Krysinski (2019). \"Synthesis and 390 characterization of Gd3+-and Tb3+-doped iron oxide nanoparticles for possible endoradiotherapy and 391 hyperthermia.\" Journal of Magnetism and Magnetic Materials 479: 50-58. 392 Rödel, F., J. Hoffmann, L. Distel, M. Herrmann, T. Noisternig, T. Papadopoulos, R. Sauer and C. Rödel 393 (2005). \"Survivin as a radioresistance factor, and prognostic and therapeutic target for radiotherapy in 394 rectal cancer.\" Cancer research 65(11): 4881-4887. 395\n20\nShetti, N. P., S. D. Bukkitgar, K. R. Reddy, C. V. Reddy and T. M. Aminabhavi (2019). \"Nanostructured 396 titanium oxide hybrids-based electrochemical biosensors for healthcare applications.\" Colloids and 397 Surfaces B: Biointerfaces 178: 385-394. 398 Sruthi, S., J. Ashtami and P. Mohanan (2018). \"Biomedical application and hidden toxicity of Zinc oxide 399 nanoparticles.\" Materials today chemistry 10: 175-186. 400 Teske, S. and C. Detweiler (2015). \"The biomechanisms of metal and metal-oxide nanoparticles’ 401 interactions with cells.\" International journal of environmental research and public health 12(2): 1112-402 1134. 403 Toropov, A. A. and A. P. Toropova (2017). \"The index of ideality of correlation: A criterion of predictive 404 potential of QSPR/QSAR models?\" Mutation Research/Genetic Toxicology and Environmental 405 Mutagenesis 819: 31-37. 406 Toropov, A. A. and A. P. Toropova (2019). \"The Correlation Contradictions Index (CCI): Building up 407 reliable models of mutagenic potential of silver nanoparticles under different conditions using quasi-408 SMILES.\" Science of The Total Environment 681: 102-109. 409 Toropov, A. A., A. P. Toropova, E. Benfenati, G. Gini, T. Puzyn, D. Leszczynska and J. Leszczynski (2012). 410 \"Novel application of the CORAL software to model cytotoxicity of metal oxide nanoparticles to bacteria 411 Escherichia coli.\" Chemosphere 89(9): 1098-1102. 412 Toropova, A. P. and A. A. Toropov (2013). \"Optimal descriptor as a translator of eclectic information into 413 the prediction of membrane damage by means of various TiO2 nanoparticles.\" Chemosphere 93(10): 414 2650-2655. 415 Toropova, A. P. and A. A. Toropov (2017). \"Hybrid optimal descriptors as a tool to predict skin 416 sensitization in accordance to OECD principles.\" Toxicology letters 275: 57-66. 417 Toropova, A. P. and A. A. Toropov (2017). \"Nano-QSAR in cell biology: Model of cell viability as a 418 mathematical function of available eclectic data.\" Journal of theoretical biology 416: 113-118. 419 Toropova, A. P., A. A. Toropov, E. Benfenati, T. Puzyn, D. Leszczynska and J. Leszczynski (2014). \"Optimal 420 descriptor as a translator of eclectic information into the prediction of membrane damage: The case of a 421 group of ZnO and TiO2 nanoparticles.\" Ecotoxicology and environmental safety 108: 203-209. 422 Wahab, R., M. A. Siddiqui, Q. Saquib, S. Dwivedi, J. Ahmad, J. Musarrat, A. A. Al-Khedhairy and H.-S. Shin 423 (2014). \"ZnO nanoparticles induced oxidative stress and apoptosis in HepG2 and MCF-7 cancer cells and 424 their antibacterial activity.\" Colloids and surfaces B: Biointerfaces 117: 267-276. 425 Wu, L., F. Li, Y. Xu, J. W. Zhang, D. Zhang, G. Li and H. Li (2015). \"Plasmon-induced photoelectrocatalytic 426 activity of Au nanoparticles enhanced TiO2 nanotube arrays electrodes for environmental remediation.\" 427 Applied catalysis B: environmental 164: 217-224. 428\nHighlights\n• The predictive model for the cell viability of metal oxide nanoparticles is developed.\n• The Quasi-SMILES and IIC criteria are utilized for model building.\n• The Quasi-SMILES describing physicochemical features and experimental conditions.\n• The predictive quality of models for metal oxide nanoparticles is satisfied.\nDeclaration of interests\n☒ The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.\n☐The authors declare the following financial interests/personal relationships which may be considered as potential competing interests:"
+    } ],
+    "references" : [ {
+      "title" : "Oxidative stress mediated cytotoxicity",
+      "author" : [ "M. Ahamed", "M.J. Akhtar", "M.M. Khan", "H.A. Alhadlaq" ],
+      "venue" : null,
+      "citeRegEx" : "Ahamed et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Ahamed et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Nickel oxide nanoparticles exert cytotoxicity",
+      "author" : [ "M. Ahamed", "D. Ali", "H.A. Alhadlaq", "M.J. Akhtar" ],
+      "venue" : null,
+      "citeRegEx" : "Ahamed et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Ahamed et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Prediction of the adsorption coefficients of some aromatic compounds",
+      "author" : [ "S. Ahmadi", "A. Akbari" ],
+      "venue" : null,
+      "citeRegEx" : "Ahmadi and Akbari,? \\Q2018\\E",
+      "shortCiteRegEx" : "Ahmadi and Akbari",
+      "year" : 2018
+    }, {
+      "title" : "Prediction of chalcone derivative",
+      "author" : [ "S. Ahmadi", "F. Mardinia", "N. Azimi", "M. Qomi", "E. Balali" ],
+      "venue" : null,
+      "citeRegEx" : "Ahmadi et al\\.,? \\Q2019\\E",
+      "shortCiteRegEx" : "Ahmadi et al\\.",
+      "year" : 2019
+    }, {
+      "title" : "Different cytotoxic and apoptotic responses",
+      "author" : [ "H.A. Alhadlaq", "M.J. Akhtar", "M. Ahamed" ],
+      "venue" : null,
+      "citeRegEx" : "Alhadlaq et al\\.,? \\Q2019\\E",
+      "shortCiteRegEx" : "Alhadlaq et al\\.",
+      "year" : 2019
+    }, {
+      "title" : "Effect of CeO2 content in morphology",
+      "author" : [ "J.C. Cano-Franco" ],
+      "venue" : "Álvarez-Láinez",
+      "citeRegEx" : "Cano.Franco and M.,? \\Q2019\\E",
+      "shortCiteRegEx" : "Cano.Franco and M.",
+      "year" : 2019
+    }, {
+      "title" : "Quasi-QSAR for predicting the cell",
+      "author" : [ "Choi", "J.-S", "T.X. Trinh", "T.-H. Yoon", "J. Kim", "H.-G. Byun" ],
+      "venue" : null,
+      "citeRegEx" : "Choi et al\\.,? \\Q2019\\E",
+      "shortCiteRegEx" : "Choi et al\\.",
+      "year" : 2019
+    }, {
+      "title" : "Monte Carlo method",
+      "author" : [ "M. 337 Gobbi", "M. Beeg", "M.A. Toropova", "A.A. Toropov", "M. Salmona" ],
+      "venue" : null,
+      "citeRegEx" : "Gobbi et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Gobbi et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "The OECD Principles for (Q) SAR Models in the Context",
+      "author" : [ "K. Cortes-Guzman" ],
+      "venue" : "Martinez-Mayorga",
+      "citeRegEx" : "Cortes.Guzman,? \\Q2018\\E",
+      "shortCiteRegEx" : "Cortes.Guzman",
+      "year" : 2018
+    }, {
+      "title" : "Investigation of iron oxide nanoparticle cytotoxicity",
+      "author" : [ "F. Hataminia", "Z. Noroozi", "H.M. Eslam" ],
+      "venue" : null,
+      "citeRegEx" : "Hataminia et al\\.,? \\Q2019\\E",
+      "shortCiteRegEx" : "Hataminia et al\\.",
+      "year" : 2019
+    }, {
+      "title" : "In vitro evaluation of cytotoxicity of engineered metal",
+      "author" : [ "X. Hu", "S. Cook", "P. Wang", "H.-m. Hwang" ],
+      "venue" : null,
+      "citeRegEx" : "Hu et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Hu et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "In vitro Cytotoxicity",
+      "author" : [ "F. 353 Ibraheem", "M.H. Aziz", "M. Fatima", "F. Shaheen", "S.M. Ali", "Q. Huang" ],
+      "venue" : null,
+      "citeRegEx" : "Ibraheem et al\\.,? \\Q2019\\E",
+      "shortCiteRegEx" : "Ibraheem et al\\.",
+      "year" : 2019
+    }, {
+      "title" : "Size-dependent toxicity of metal oxide",
+      "author" : [ "H.L. Karlsson", "J. Gustafsson", "P. Cronholm", "L. Möller" ],
+      "venue" : null,
+      "citeRegEx" : "Karlsson et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Karlsson et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Oxidative stress and apoptosis induced by nanosized",
+      "author" : [ "S. Liu", "L. Xu", "T. Zhang", "G. Ren", "Z. Yang" ],
+      "venue" : null,
+      "citeRegEx" : "Liu et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Liu et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Nano-QSAR Model for Predicting Cell Viability of Human",
+      "author" : [ "S. Manganelli", "E. Benfenati" ],
+      "venue" : null,
+      "citeRegEx" : "Manganelli and Benfenati,? \\Q2017\\E",
+      "shortCiteRegEx" : "Manganelli and Benfenati",
+      "year" : 2017
+    }, {
+      "title" : "QSAR model for",
+      "author" : [ "S. Manganelli", "C. Leone", "A.A. Toropov", "A.P. Toropova", "E. Benfenati" ],
+      "venue" : null,
+      "citeRegEx" : "Manganelli et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Manganelli et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Biosynthesis, characterization and cytotoxic activity of CeO2",
+      "author" : [ "A. Miri", "M. Sarani" ],
+      "venue" : null,
+      "citeRegEx" : "Miri and Sarani,? \\Q2018\\E",
+      "shortCiteRegEx" : "Miri and Sarani",
+      "year" : 2018
+    }, {
+      "title" : "Coral-like CeO2/NiO nanocomposites",
+      "author" : [ "J. Mu", "X. Zhao", "J. Li", "E.-C. Yang", "X.-J. Zhao" ],
+      "venue" : null,
+      "citeRegEx" : "Mu et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Mu et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Remarkable reproducibility and significant sensitivity",
+      "author" : [ "V. 373 Najafi", "S.S. Zolghadr" ],
+      "venue" : "Kimiagar",
+      "citeRegEx" : "Najafi and Zolghadr,? \\Q2019\\E",
+      "shortCiteRegEx" : "Najafi and Zolghadr",
+      "year" : 2019
+    }, {
+      "title" : "NiO coupled CdO nanoparticles with enhanced magnetic",
+      "author" : [ "R. 376 Nallendran", "G. Selvan", "A. Balu" ],
+      "venue" : null,
+      "citeRegEx" : "Nallendran et al\\.,? \\Q2019\\E",
+      "shortCiteRegEx" : "Nallendran et al\\.",
+      "year" : 2019
+    }, {
+      "title" : "Nanotechnology: The future of fire safety.",
+      "author" : [ "R. Olawoyin" ],
+      "venue" : "Safety science",
+      "citeRegEx" : "Olawoyin,? \\Q2018\\E",
+      "shortCiteRegEx" : "Olawoyin",
+      "year" : 2018
+    }, {
+      "title" : "Nano-QSAR modeling for predicting",
+      "author" : [ "Y. 379 Pan", "T. Li", "J. Cheng", "D. Telesca", "J.I. Zink", "J. Jiang" ],
+      "venue" : null,
+      "citeRegEx" : "Pan et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Pan et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Selective toxicity of zinc",
+      "author" : [ "K.M. Reddy", "K. Feris", "J. Bell", "D.G. Wingett", "C. Hanley", "A. Punnoose" ],
+      "venue" : null,
+      "citeRegEx" : "Reddy et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Reddy et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "Biomedical application and hidden toxicity of Zinc oxide",
+      "author" : [ "S. Sruthi", "J. Ashtami", "P. Mohanan" ],
+      "venue" : null,
+      "citeRegEx" : "Sruthi et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Sruthi et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "The biomechanisms of metal and metal-oxide nanoparticles",
+      "author" : [ "S. 400 Teske", "C. Detweiler" ],
+      "venue" : null,
+      "citeRegEx" : "Teske and Detweiler,? \\Q2015\\E",
+      "shortCiteRegEx" : "Teske and Detweiler",
+      "year" : 2015
+    }, {
+      "title" : "The index of ideality of correlation: A criterion of predictive",
+      "author" : [ "A.A. 403 Toropov", "A.P. Toropova" ],
+      "venue" : null,
+      "citeRegEx" : "Toropov and Toropova,? \\Q2017\\E",
+      "shortCiteRegEx" : "Toropov and Toropova",
+      "year" : 2017
+    }, {
+      "title" : "The Correlation Contradictions Index (CCI): Building up",
+      "author" : [ "A.A. Toropov", "A.P. Toropova" ],
+      "venue" : null,
+      "citeRegEx" : "Toropov and Toropova,? \\Q2019\\E",
+      "shortCiteRegEx" : "Toropov and Toropova",
+      "year" : 2019
+    }, {
+      "title" : "Optimal descriptor as a translator of eclectic information",
+      "author" : [ "A.P. Toropova", "A.A. Toropov" ],
+      "venue" : null,
+      "citeRegEx" : "Toropova and Toropov,? \\Q2013\\E",
+      "shortCiteRegEx" : "Toropova and Toropov",
+      "year" : 2013
+    }, {
+      "title" : "Hybrid optimal descriptors as a tool to predict skin",
+      "author" : [ "A.P. Toropova", "A.A. Toropov" ],
+      "venue" : null,
+      "citeRegEx" : "Toropova and Toropov,? \\Q2017\\E",
+      "shortCiteRegEx" : "Toropova and Toropov",
+      "year" : 2017
+    }, {
+      "title" : "Nano-QSAR in cell biology: Model of cell viability",
+      "author" : [ "A.P. 417 Toropova", "A.A. Toropov" ],
+      "venue" : null,
+      "citeRegEx" : "Toropova and Toropov,? \\Q2017\\E",
+      "shortCiteRegEx" : "Toropova and Toropov",
+      "year" : 2017
+    }, {
+      "title" : "Plasmon-induced photoelectrocatalytic",
+      "author" : [ "L. Wu", "F. Li", "Y. Xu", "J.W. Zhang", "D. Zhang", "G. Li", "H. Li" ],
+      "venue" : null,
+      "citeRegEx" : "Wu et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Wu et al\\.",
+      "year" : 2015
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 25,
+      "context" : "In this study, TF2 has been used (Toropov and Toropova 2017): 138 TFA = TF- + IIC (5) 139",
+      "startOffset" : 33,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 28,
+      "context" : "Generally, it does not happen and in 179 the optimization process of the QFAR model the statistical features improve when equation (14) 180 is fulfilled (Toropova and Toropov 2017): 181",
+      "startOffset" : 153,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 2,
+      "context" : "Also, the robustness of QFAR modeling based on TF2 236 checked by Y-randomization tests and correlation coefficient for different sets after several Y237 randomization tests were indicated in Table 5 (Ahmadi and Akbari 2018).",
+      "startOffset" : 200,
+      "endOffset" : 224
+    } ],
+    "year" : 2019,
+    "abstractText" : "5 Several types of metal oxide nanoparticles (MO-NPs) are often utilized as one of the novel class 6 of materials in the pharmaceutical industry and human health. The wide use of MO-NPs 7 forces an enhanced understanding of their potential impact on human health and the 8 environment. The research aims to investigate and develop a nano-QFAR (nanoquantitative 9 feature activity relationship) model applying the quasi-SMILES such as cell line, assay, time 10 exposition, concentration, nanoparticles size and metal oxide type for prediction of cell viability 11 (%) of MO-NPs. The total set of 83 quasi-SMILES of MO-NPs divided into training, validation 12 and test sets randomly three times. The statistical model results based on the balance of 13 correlation target function (TF1) and index of ideality correlation target function (TF2) and the 14 Monte Carlo optimization were compared. The comparison of two target function results 15 indicated that TF2 improves the predictability of models. The significance of various eclectic 16 features of both increase and decrease of cell viability (%) is provided. Mechanistic 17 interpretation of significant factors for the model are proposed as well. The sufficient statistical 18 quality of three nano-QFAR models based on TF2 reveals that the developed models can be 19 efficiency for predictions of the cell viability (%) of MO-NPs. 20 * Corresponding author email: ahmadi.chemometrics@gmail.com",
+    "creator" : "Elsevier"
+  }
+}

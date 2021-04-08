@@ -1,0 +1,376 @@
+{
+  "name" : "downloads_2019-10-24_d2_lu2019.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Multi-nodal nano-actuator pacemaker for energy-efficient stimulation of cardiomyocytes",
+    "authors" : [ "Pengfei Lu", "Mladen Veletić", "Martin Laasmaa", "Marko Vendelin", "William E. Louch", "Per Steinar Halvorsen", "Jacob Bergsland", "Ilangko Balasingham" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nNano Communication Networks\njournal homepage: www.elsevier.com/locate/nanocomnet\nMulti-nodal nano-actuator pacemaker for energy-efficient stimulation of cardiomyocytes Pengfei Lu a,b,∗, Mladen Veletić a,c, Martin Laasmaa d, Marko Vendelin d, William E. Louch e,f, Per Steinar Halvorsen a, Jacob Bergsland a, Ilangko Balasingham a,g a Intervention Centre, Oslo University Hospital (OUS), 0372 Oslo, Norway b Institute of Clinical Medicine, University of Oslo (UIO), 0372 Oslo, Norway c Faculty of Electrical Engineering, University of Banja Luka (UNIBL), 78000 Banja Luka, Bosnia and Herzegovina d Laboratory of Systems Biology, Department of Cybernetics, School of Science, Tallinn University of Technology, 12618 Tallinn, Estonia e Institute for Experimental Medical Research, Oslo University Hospital and University of Oslo, 0450 Oslo, Norway f K.G. Jebsen Cardiac Research Center and Center for Heart Failure Research, University of Oslo, 0450 Oslo, Norway g Department of Electronics and Telecommunications, Norwegian University of Science and Technology (NTNU), 7491 Trondheim, Norway\na r t i c l e i n f o\nArticle history: Received 21 June 2019 Received in revised form13 September 2019 Accepted 14 October 2019 Available online 19 October 2019\nKeywords: Nano-actuator Action potential Cardiomyocyte Energy efficiency Pacemaker Stimulation\na b s t r a c t\nThere is continuous interest in maximizing the longevity of implantable pacemakers, which are effective in remedying and managing patients with arrhythmic heart disease. This paper accordingly first proposes miniature actuating nanomachines that inter-connect with individual cardiomyocytes and then deeply explores their energy expenditure when performing basic cardiomyocyte stimulation tasks. Since evoked electrical impulses from a number of actuated cardiomyocytes could coordinate contraction throughout the remaining heart muscle and lead to a heart beat, the miniature actuating nanomachines acting synchronously form a conceptual multi-nodal nano-actuator pacemaker network. Rectangular-, sine-, half-sine-, and sawtooth stimulation pulses with varying configurations are considered for actuation of a single isolated in-silico cardiomyocyte by each of the nanomachines. Computer optimization methods with energy consumption as a cost function are utilized to configure preferable stimulation signals in terms of numbers of stimulation sessions/pulses, pulse amplitudes, and duration. In addition, the simulation data are compared with experimental data obtained using invitro mouse cardiomyocytes. Among the considered waveforms, half-sine pulses that lead to actuation of a single cardiomyocyte consume minimum energy. None of the used sequences with multiple stimulation pulses reduces the overall energy expenditure of cell stimulation when compared to a single pulse stimulation.\n© 2019 Published by Elsevier B.V."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Cardiovascular diseases continue to be a leading cause of morbidity and mortality worldwide [1]. In heart disease affecting the conduction system of the heart, advanced technological solutions have been applied to restore normal heart function [2]. Indeed, pacemaker-therapy is currently an important modality for the management of arrhythmia and certain forms of congestive heart failure. Since the initial success of implantable pacemakers in the 1960s, extensive technological improvements have emerged, making it possible for physicians to restore rhythm disturbances more physiologically. However, existing pacemakers\n∗ Corresponding author at: Intervention Centre, Oslo University Hospital (OUS), 0372 Oslo, Norway.\nE-mail address: pengfei.lu@studmed.uio.no (P. Lu).\ncritically suffer from limited battery life. Surgeries needed to replace expired battery cells may impose additional complications for patients.\nCurrent methods to decrease the pacemaker battery consumption focus on designing new techniques and using body energy production. A sensing approach has been designed where information from the implanted stimulation electrode is analyzed and processed to comply with the requirements of particular pacemaker adjustments and optimize energy pacing pulse with an adequate safety margin [3]. In addition, new devices, such as bio-inspired ultra-energy-efficient analog-to-digital converters, micro-scale energy harvesting systems, and solar-powered cardiac pacemakers, have been developed [4–7]. Furthermore, bio-inspired technology has been designed to use the body energy production, such as heart contraction, blood flow and body movement and temperature (heat) [8].\nhttps://doi.org/10.1016/j.nancom.2019.100270 1878-7789/© 2019 Published by Elsevier B.V.\nAs decreasing the electrode interface potentially decreases the threshold voltage required for the cardiomyocyte stimulation [9– 11], this imposes the question whether nanotechnology may lead to novel pacing strategies with reduced energy consumption relative to the state-of-the-art pacemakers and long battery lifetime. Of note, the current pacemaker electrodes are large compared with cardiac cells. The smallest diameter of the pacemaker electrode is about 6 mm — about 60 times the length of a typical cardiomyocyte (approx. 100 µm) [12,13].\nNanotechnology enables the design and fabrication of nanoscale electrodes and miniature electronic devices, referred to as nanomachines that can perform basic sensing, actuation and computing functionalities [14–16]. If inter-connected, nanomachines form the concept of nanonetworks with significantly expanded possibilities [17–19]. In this study, we introduce the concept of multiple actuating nanomachines that inter-connect with individual cardiomyocytes, perform basic stimulation tasks by injecting current to the cytosol, and act synchronously in a form of a multi-nodal nano-actuator pacemaker network illustrated in Fig. 1. Unlike the conventional pacemakers that stimulate multiple cardiomyocytes at the tissue level, the nano-actuator pacemaker network stimulates individual cardiomyocytes at the cellular level. The rationale behind this approach is that evoked electrical impulses/action potentials from a number of actuated cardiomyocytes could coordinate contraction throughout the remaining heart muscle owing to conductive gap junctions and, ultimately, lead to a heart beat.\nThere are many challenges in the design and fabrication of the nano-actuator pacemaker network. In light of the aforementioned limitations of pacemaker battery lifetime, we presently examine how the performance of individual nanomachines can be optimized to minimize energy expenditure. This will significantly define the total energy consumption of the proposed nano-actuator pacemaker network; a calculation that additionally includes:\n• the energy required for sensing, • the number of (synchronously) actuated cells which is re-\nquired to generate a heartbeat, and • the energy used by the gateway/hub.\nHence, we consider electrical properties of an isolated insilico cardiomyocyte to analyze different stimulation pulse characteristics and develop optimized energy actuation strategies.\nFirst, we apply rectangular-, sine-, half-sine- and sawtooth pulses with varying configurations in terms of numbers of stimulation sessions, amplitudes, and duration. The optimal strategy for each configuration is determined utilizing computer optimization methods with energy consumption as a cost function. We were particularly interested in the effects of varying the number of stimulation sessions, since this has been previously shown to decrease action potential threshold in neural axons [21]. Indeed, there are complex and non-linear changes of cardiac membrane potentials in the sub-threshold region (between the resting potential and the action potential threshold), indicating changed sensitivity (as illustrated later in Fig. 3(b)). Based on the simulations, we ultimately compare the data with the experimental data obtained when one–, two–, and three rectangular-pulse stimuli with fixed duration and inter-pulse intervals were applied to an isolated in-vitro cardiomyocyte.\nThe remainder of the paper is organized as follows. Section 2.1 briefly presents the computational model that we adopt to analyze the effects of in-silico cell stimulation with signals closely described in Sections 2.2; 2.3 and 2.4 define energy consumption of the considered signals and the optimization method, respectively, whereas Section 2.5 describes the acquisition of experimental\ndata via in-vitro cell stimulation. Section 3 presents the results. Ultimately, Section 4 concludes the study."
+    }, {
+      "heading" : "2. Methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Cardiomyocyte model",
+      "text" : "A cardiomyocyte consists of the lipid bilayer membrane punctuated by ion channels, which produce transmembrane ionic currents, as shown in Fig. 2. Ionic fluxes triggered by electrical stimulation of the cell membrane alter the membrane potential. When the electrical stimulation is below a certain threshold so that the membrane potential is not sufficiently depolarized, the cell restores its membrane potential to a resting level (for cardiomyocytes ≈ −80 mV). However, when the depolarization exceeds the threshold potential, the cell undergoes an action potential, which comprises a cascade of openings of various ion channels, transporters, exchangers, and pumps. Fig. 3(a) shows the action potential of a ventricular cardiomyocyte, which is typically subdivided into five phases: phase 4, phase 0, phase 1, phase 2, and phase 3.\nVarious models exist in the literature describing action potential generation within a single cardiomyocyte [22–24,12,25, 26], or the propagation of action potentials through a single or multiple cardiomyocytes [27–30]. Solving these existing models requires numerical methods [31]. Important differences between these models include varying descriptions of ionic currents, in particular, the sodium current which plays an important role in cell excitation. Unlike most of the available single cardiac cell models, the Luo–Rudy model (LRd) includes comprehensive analysis of sodium channel function. Therefore, we focus on action potential generating mechanisms in an isolated cell based on the LRd model and the Hodgkin–Huxley-type formalism of the mammalian action potential as [20,32]: dVm(t)\ndt = − 1 Cm [Iion (Vm, t) − Istim(t)] , (1)\nwhere Vm(t) is the membrane potential, Cm is the membrane capacitance, Iion(Vm, t) is the current produced by the flux of ions, and Istim(t) is the current injected by the nano-actuator. The current Iion(Vm, t) is defined as:\nIion(Vm, t) = INa(Vm, t) + Isi(Vm, t) + IK(Vm, t) + IK1(Vm) + IKp(Vm) + Ib(Vm), (2)\nwhere INa is the fast sodium current, Isi is the slow inward current of calcium ions, IK is the time-dependent potassium current, IK1\nis the time-independent potassium current, IKp is the plateau potassium current, and Ib is the background current (refer to [20] for more details).\nThe change in membrane potential during an applied stimulus is nonlinear. As illustrated in Fig. 3(b), in the sub-threshold region, the membrane potential first exhibits logarithmic growth before the intersection point with the linear function, and thereafter exponential growth following after the intersection point with the linearly growing action potential initiation. This has interesting implications. For example, at steeply rising parts of this curve, the cardiomyocyte is expected to be particularly susceptible to action potential initiation. This further motivates us to include consideration of stimulus protocols with multiple pulses, which may take advantage of the non-linear nature of membrane voltage sensitivity."
+    }, {
+      "heading" : "2.2. In-silico cell stimulation",
+      "text" : "A nano-actuator within the pacemaker nano-network (Fig. 1) stimulates a cell by injecting current directly to the cytosol. We use the same stimulation strategy, which is depicted in Fig. 4(a), for in-silico cell stimulation by injecting Istim to the cytosol. This approach contrasts with that employed by present-day pacemakers, which stimulate a cardiac tissue by applying electrical field without cell puncturing. We use the same, electric field-based stimulation strategy for in-vitro cell experiments (Fig. 4(b)), with electrodes placed near the cell in the base solution (see further description in Section 2.5).\nTo test how different pulses affect the energy consumption of the nano-actuator, we compare the excitatory effects of rectangular-, sine-, half-sine-, and sawtooth pulses and their influence to the excitation of cardiomyocyte(s) in terms of the energy used [33,34]. Fig. 5 shows four different three-pulse stimuli with equal peak amplitudes, duration, and inter-pulse periods. By varying the number of pulses in the stimulation train (n), pulse amplitude (A), pulse duration (td), and inter-session intervals/delays (τ ), our aim is to optimize the stimulation protocol to successfully trigger action potentials with minimal energy consumption. Note that better more complex signals possibly exist, e.g., the action-potential like pulses that we have initially considered in preliminary analyses. Since, depending on the configuration, the action-potential like pulses can be considered as similar to half-sine pulses and ramp-like pulses, we exclude them in the presented analysis. We refer to (1) difficulties in manipulation with configuration of action-potential like pulses; apart from the amplitude, duration, and inter-pulse interval that we\nvary in the presented scenarios, the actual waveform/shape can\nbe also considered as an additional variable in action-potential\nlike pulses. Thus, we cannot properly compare it with the simpler\npulses. We also refer to (2) the low-pass filter nature of the\ncellular membrane preventing all action-potential like pulses to\npass the system and show at the output [20].\nThe rectangular pulse is commonly used for electrophysiologi-\ncal experiments in excitable cells. Either bi-phase or mono-phase\nrectangular pulses are employed, analytically defined as: Isq(t) = { A, (N − 1) T ≤ t < (N − 1) T + td, 0, elsewhere,\n(3)\nwhere T = td + τ , td is the stimulus duration, τ is the delay time\nbetween two pulse stimuli, A is the stimulation amplitude, and N\nis the order of the pulse.\nThe sine pulse is also used in electrophysiology [35,36]. Sine pulses are defined as:\nIs(t) = { A sin(ω1t), (N − 1) T ≤ t < (N − 1) T + td, 0, elsewhere,\n(4)\nwhere ω1 denotes angular velocity equal to 2π/td. The (positive) half-sine pulse only charges the cell, unlike the sine pulses which, in addition, discharge the cell. Half-sine pulses are defined as:\nIhs(t) = { |A sin(ω2t)|, (N − 1) T ≤ t < (N − 1) T + td, 0, elsewhere,\n(5)\nwhere ω2 = π/td. Ultimately, the sawtooth pulse ramps upward and then sharply drops. Sawtooth pulses are defined as:\nIsaw(t) = ⎧⎨⎩ − A π arctan(cot(ω3t)) + A2 , (N − 1) T ≤ t,\n< (N − 1) T + td 0, elsewhere,\n(6)\nwhere ω3 = π/td."
+    }, {
+      "heading" : "2.3. Computation of energy consumption",
+      "text" : "When actuating a single cardiomyocyte, the energy used for excitation is given by:\nE(ts) = ∫ ts 0 Istim(t)2Rdt, (7)\nwhere Istim(t) is the injected current of each pulse from the nanoactuator, defined in (3)–(6), R is the total resistance between the anode and cathode of the nano-actuator electrode, ts is the total stimulation time, and t is the actual time. Thus, decreasing the current injection can reduce the energy of the nano-actuator and extend the pacemaker longevity.\nSimulated excitation of a cell is dependent on the amplitude, duration, and period of the stimulus, and whether the stimuli are applied as a train of pulses. To successfully generate an action potential, the amplitude of a single-pulse stimulus needs to be sufficient to initiate the sodium influx. We additionally test the usage of multiple-pulse signals with different (lower) amplitudes to exploit ion channel dynamics (explained in Section 2.1). Given that the square pulse signal is defined with (3), we calculate the energy of the multiple-pulse square signal as:\nEsq(ts) = ∫ ts 0 Isq(t)2Rdt (8)\nwhere ts = ntd + (n − 1)τ is the total stimulation time, and n is the number of stimulation sessions. Similarly, by combining (4)– (6) with (7), we calculate the energy of the multiple-pulse sine-, half-sine-, and sawtooth signals, respectively, as:\nEs(ts) = ∫ ts 0 Is(t)2Rdt, (9)\nEhs(ts) = ∫ ts 0 Ihs(t)2Rdt, (10)\nEsaw(ts) = ∫ ts 0 Isaw(t)2Rdt, (11)\nwhere ts = ntd + (n − 1)τ is the total stimulation time."
+    }, {
+      "heading" : "2.4. Computer optimization",
+      "text" : "According to (7), the energy consumption is square proportional to the stimulation amplitude and linearly proportional to the number of stimulation pulses and stimulation duration. We\nare however unable to derive an analytical solution for the optimized characterization of the stimulation due to the complexity of the underlying LRd model. We therefore resort to computer optimization methods to find the optimized combination of the pulse number (n), amplitude (A), duration (td), and inter-session intervals (τ ) which minimizes energy usage.\nMatlab 2018b provides the powerful global optimization toolbox with a variety of optimization methods to solve global optimization problems. Table 1 compares seven optimization methods. First, we eliminate all methods/solvers that require setting initial values (Global Search, MultiStart, Pattern search). In addition, particle swarm and genetic algorithms both consume significant computer resources, whereas simulated annealing finds a global value but often offers non-optimal results. The surrogate algorithm from the global optimization toolbox, however, approximates an objective function and balances the optimization process between two goals: exploration and speed. Furthermore, the surrogate algorithm can find a global minimum of an objective function using few objective function evaluations and the boundary condition of the parameter. Therefore, we choose the surrogate algorithm in this study to find the optimal configurations of stimulation pulses for cardiomyocytes in terms of the energy they use.\nThe general form of the algorithm is [x, f val] = surrogateopt (fun, lb, ub, options), where x is the optimized parameter, f val is the optimal value of the objective function, fun is the objective function, lb is the lower bound of the parameters being optimized, ub is the upper bound of the parameters, and option is the modifier of the search procedure. For option, we set MaxFunctionEvalulations = 360 and MinSampleDistance = 10−6. In the cost function, we use ode45 function to solve ordinary differential equations with variable input (different stimulation). The time step of solving the ordinary differential equation function is 0.001 ms, and its tolerance is 10−3."
+    }, {
+      "heading" : "2.5. In-vitro cell stimulation",
+      "text" : "For the experiments, we used isolated mouse ventricular cardiomyocytes that were loaded with 1 µM calcium-sensitive dye (Fluo-4AM, Invitrogen). Cells were placed under a microscope (Eclipse Ti-U, Nikon) in an imaging chamber (RC-49FS, Warner), containing an extracellular solution with a composition of 150 mM NaCl, 5.4 mM KCl, 0.33 mM NaH2PO4, 1 mM MgCl2, 1.13 mM CaCl2, 10 mM glucose, and 10 mM HEPES (ph adjusted to 7.4 with NaOH). The conductance of the extracellular solution was ≈ 20 µS/cm.\nThe two patch pipettes were placed on either side of a single cardiomyocyte, as illustrated in Fig. 4(b), and connected to an analog output of a data acquisition board (NI PCIe-6353 National Instruments) for cell stimulation. The cardiomyocyte was stimulated by passing current between the pipettes in accordance with the applied voltage at 1 Hz using 1, 2 or 3 consecutive rectangular pulses with the duration and the interpulse interval fixed to 5 ms. The pulse amplitude was varied during the experiment from 1– 10 V in 1 V increments. To determine the voltage threshold for cell activation, the fluorescence of the calcium-sensitive dye was recorded.\nThe current injected is anticipated to flow both through and around the cell, similar to a pacemaker immersed in the myocardium. However, we expected that the part of the current inducing activation was proportionally changed in accordance with the applied voltage."
+    }, {
+      "heading" : "3. Results",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Simulation results",
+      "text" : "We first adopted three protocols shown in Table 2 by varying only the amplitudes and number of pulses to characterize the square-, sine-, half-sine-, and sawtooth pulses used to stimulate an isolated in-silico cardiomyocyte. Visualized cellular responses in Fig. 6 illustrate that, depending on the pulse characteristics, multiple-pulse stimuli can lead to successful initiation of action potentials.\nWe then applied the surrogate algorithm ranging the relevant signal characterization parameters as follows: n ∈ {1, 2, 3, 4, 5}, A = (0, 60] µA/cm2, td = [0.10, 30] ms, and τ = [0.10, 10] ms, and assumed the normalized cell resistance, R = 1 Ωcm2. The optimization method was easily stuck in the local minimum since the objection function was nonlinear. The simulation was run a hundred times for each protocol. For each optimization, we set the MaxFunctionEvalulations = 360 and MinSampleDistance = 10−6. The optimized parameters of one-, two- and three-pulse stimuli are shown in Table 3, and the optimized energy consumption in Fig. 8 as a function of the number of the stimulation pulses.\nFrom the obtained output of the optimization method, we infer that the single-pulse stimulation configurations perform better in terms of the energy relative to the multiple-pulse stimulation. This improved performance occurs despite the non-linearity of membrane voltage changes during the stimulation period, which suggested that multiple-pulse stimulation might have been a better candidate (as explained in Section 2.1). We also infer that a half-sine one-pulse stimulation outperforms other waveforms. Fig. 7 shows the membrane potentials as responses to the stimulation characterized according to Table 3. Specific scenarios are depicted in Figs. 7(e) and 7(f) where the cell is over-stimulated by repetitive sine pulses. This was expected as negative half-periods of the sine pulse repolarized the cellular membrane after being depolarized by positive half-periods.\nThe preference for the half-sine- and rectangular pulses presumably originates from the low-pass filter nature of the cellular membrane [20], as well as apparent differences in magnitudes of the Fourier transforms of the signals, as shown in Fig. 9. In addition, the sine pulses expectantly cost the maximal energy compared with other stimulation configurations. The sine wave is a bi-phase stimulation with both positive and negative stimulation periods. As the cell membrane is regarded as the capacitor in the underlying computational model, the stimulation charges the capacitor during positive periods and discharges during negative periods, which negatively reflects the energy required to induce the excitation leading to action potentials."
+    }, {
+      "heading" : "3.2. Comparison between In-silico and In-vitro data",
+      "text" : "A full experimental dataset is published in [37]. For appropriate comparison between the corresponding theoretical dataset and a subset of the experimental dataset, both the simulation and\nexperiment employed fixed pulse duration pulses (td = 5 ms) and, in the case of stimulus trains, fixed inter-pulse intervals (τ = 5 ms). In the simulation, current amplitudes were varied in order to find optimal values by using the surrogate optimization algorithm. In the experiment, the threshold voltage, assumed to be linearly related to the current, was determined by following calcium activation of the cardiomyocytes after application of a stimulus train.\nWe compare normalized simulation and experimental data in terms of the stimulation amplitudes in Fig. 10(a). The two data sets exhibit the same trend, as reducing the amplitude of the stimulation and increasing the number of pulses effectively depolarizes the cell membrane. However, we observe lower amplitude values for the simulation data compared with the experimental data, indicating imperfection of the employed LRd model (developed for a guinea pig ventricular cell) to quantitatively predict outcomes in mouse cardiomyocytes. We also compare energy consumption in the simulations and cell experiments in Fig. 10(b). Again, the data sets exhibit similar trends, as reducing\nthe amplitude of the stimulation and increasing the number of pulses progressively increases energy consumption.\nOf note, it is not instructive to directly compare the results from Figs. 8 and 10(b) since we optimized multiple parameters in Fig. 8 and only the stimulation amplitude in Fig. 10(b), to ensure a fair comparison between simulation and experimental data."
+    }, {
+      "heading" : "4. Concluding remarks",
+      "text" : "In this study, we determined that the minimal energy required to elicit a cardiomyocyte action potential is approximately 0.166 pJ/cm2 for a unit membrane resistance. This value was obtained using a single-pulse half-sine current injection with a peak amplitude of 4.17 µA/cm2 and duration of 19.11 ms provided by the nano-actuator. Note, however, that the load imposed by the neighboring cardiomyocytes could affect optimal pulse configuration and the computed energy levels when considering non-isolated cell stimulation as part of cardiac tissue. As a reference, the energy consumed for a 2 V stimulus with 0.3 ms duration applied via 6 mm in diameter electrode, typically encountered in conventional pacemakers, is 1/π × 1010 pJ/cm2 per unit resistance, ten orders of magnitude higher than the energy used to actuate a cardiomyocyte.\nTo be biologically relevant, the results presented in this study critically depend on:\n• The performance of the LRd computational model, which was developed for a guinea pig ventricular cardiomyocyte. As presently demonstrated, the model does not fully reproduce the experimental quantitative outcome obtained from a mouse ventricular cardiomyocyte. These differences are particularly notable when sub-threshold stimuli are applied, since the resistance of the cellular membrane does not linearly change with stimulation time, implying alterations in sensitivity. The LRd model insufficiently accounts for these changes, limiting its ability to compare multiple-pulse and single-pulse stimuli. • The resistance of the cell membrane, which is assumed constant, although the ionic channels dynamically open and close potentially changing the membrane resistance which would impact the obtained results.\nThereby, more precise computational models are required, in particular ones which properly address: (1) the sub-threshold cell dynamics, (2) the membrane resistance dynamics, and (3) the electrical load imposed by neighboring cardiomyocytes. In\nterms of the experimental verification, in-vitro experiments that fully replicate in-silico experiments are required. In this work, although the direct current injection applied in the in-silico experiments and the applied electrical field applied in the in-vitro experiments both demonstrated a similar trend regarding energy consumption, their energy-efficiencies are different. The direct current injection strategy is more energy-efficient than the applied electric field strategy which dissipates a large portion of energy in the bath solution. Ultimately, the energy expenditure of the overall nano-actuator will be additionally depending on the energy used for sensing and communications; values which are yet to be determined."
+    }, {
+      "heading" : "Acknowledgments",
+      "text" : "This work was supported by the EU, Norway under grant #675353 (EU-H2020:MSCA:ITN WiBEC — Wireless In-body Environment Communications), the Research Council of Norway under grant #270957 (RCN:WINNOW — Wireless In-body Sensor and Actuator Networks), and, in part, by the Estonian Research Council under grant #IUT33-7.\nDeclaration of competing interest\nThe authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper."
+    } ],
+    "references" : [ {
+      "title" : "Cardiac resynchronization therapy: the state of the art",
+      "author" : [ "C. Madias", "R.G. Trohman" ],
+      "venue" : "Expert Rev. Cardiovasc. Ther. 12 (5) ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Electrical stimulation of the heart in man",
+      "author" : [ "J.A. McWilliam" ],
+      "venue" : "Br. Med. J. 1 (1468) ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 1889
+    }, {
+      "title" : "Energy saving cardiac pacemaker",
+      "author" : [ "M.E. Heinz", "H.P. Theres" ],
+      "venue" : "Google Patents, US Patent 4,979,507",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 1990
+    }, {
+      "title" : "A bio-inspired ultra-energy-efficient analog-todigital converter for biomedical applications",
+      "author" : [ "H.Y. Yang", "R. Sarpeshkar" ],
+      "venue" : "IEEE Trans. Circuits Syst. I. Regul. Pap. 53 (11) ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Efficient design of micro-scale energy harvesting systems",
+      "author" : [ "C. Lu", "V. Raghunathan", "K. Roy" ],
+      "venue" : "IEEE J. Emerg. Sel. Top. Circuits Syst. 1 (3) ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "The first batteryless",
+      "author" : [ "A. Haeberlin", "A. Zurbuchen", "S. Walpen", "J. Schaerer", "T. Niederhauser", "C. Huber", "H. Tanner", "H. Servatius", "J. Seiler", "H. Haeberlin", "J. Fuhrer", "R. Vogel" ],
+      "venue" : "solar-powered cardiac pacemaker, Heart Rhythm 12 (6) (2015) 1317–1323.  10  P. Lu, M. Veletić, M. Laasmaa et al. / Nano Communication Networks 22 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Successful pacing using a batteryless sunlight-powered pacemaker",
+      "author" : [ "A. Haeberlin", "A. Zurbuchen", "J. Schaerer", "J. Wagner", "S. Walpen", "C. Huber", "H. Haeberlin", "J. Fuhrer", "R. Vogel" ],
+      "venue" : "EP Eur. 16 (10) ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Pacemakers charging using body energy",
+      "author" : [ "D. Bhatia", "S. Bairagi", "S. Goel", "M. Jangra" ],
+      "venue" : "J. Pharm. Bioallied Sci. 2 (1) ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Artificial pacemaker for treatment of adams-stokes syndrome and slow heart rate",
+      "author" : [ "R. Elmgvist", "J. Landegren", "S.O. Pettersson", "Å. Senning", "G. William-Olsson" ],
+      "venue" : "Am. Heart J. 65 (6) ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 1963
+    }, {
+      "title" : "Electronic pacemakers of the heart",
+      "author" : [ "C. Anagnostopoulos", "W.W. Glenn" ],
+      "venue" : "gastrointestinal tract, phrenic nerve, bladder, and carotid sinus: current status, Surgery 60 (2) ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 1966
+    }, {
+      "title" : "Cardiac pacemakers: Principles and practices",
+      "author" : [ "J.P. Judson", "W.W. Glenn", "W.G. Holcomb" ],
+      "venue" : "J. Surg. Res. 7 (11) ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 1967
+    }, {
+      "title" : "A dynamic model of the cardiac ventricular action potential",
+      "author" : [ "C.H. Luo", "Y. Rudy" ],
+      "venue" : "i. simulations of ionic currents and concentration changes, Circ. Res. 74 (6) ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "Leadless pacemakers: State of the art and future perspectives",
+      "author" : [ "D.G. Della Rocca", "C. Gianni", "L. Di Biase", "A. Natale", "A. Al-Ahmad" ],
+      "venue" : "Card. Electrophysiol. Clin. 10 (1) ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Fabrication and evaluation of nanoelectrode ensembles",
+      "author" : [ "V.P. Menon", "C.R. Martin" ],
+      "venue" : "Anal. Chem. 67 (13) ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "Nanoelectrodes",
+      "author" : [ "D.W. Arrigan" ],
+      "venue" : "nanoelectrode arrays and their applications, Analyst 129 (12) ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "The once and future nanomachine",
+      "author" : [ "G.M. Whitesides" ],
+      "venue" : "Sci. Am. 285 (3) ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Nanonetworks: A new communication paradigm",
+      "author" : [ "I.F. Akyildiz", "F. Brunetti", "C. Blázquez" ],
+      "venue" : "Comput. Netw. 52 (12) ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Nanonetworks: A new frontier in communications",
+      "author" : [ "I.F. Akyildiz" ],
+      "venue" : "in: Proceedings of the 18th Annual International Conference on Mobile Computing and Networking, ACM",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Nano-networks communication architecture: Modeling and functions",
+      "author" : [ "A. Galal", "X. Hesselbach" ],
+      "venue" : "Nano Commun. Netw. 17 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A model of the ventricular cardiac action potential",
+      "author" : [ "C.H. Luo", "Y. Rudy" ],
+      "venue" : "depolarization, repolarization, and their interaction, Circ. Res. 68 (6) ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 1991
+    }, {
+      "title" : "Electrical models for neural excitation studies",
+      "author" : [ "J. Reilly" ],
+      "venue" : "Johns Hopkins APL Tech. Dig. 9 (1) ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 1988
+    }, {
+      "title" : "Cardiac action and pacemaker potentials based on the Hodgkin-Huxley equations",
+      "author" : [ "D. Noble" ],
+      "venue" : "Nature 188 (4749) ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 1960
+    }, {
+      "title" : "Reconstruction of the action potential of ventricular myocardial fibres",
+      "author" : [ "G.W. Beeler", "H. Reuter" ],
+      "venue" : "J. Physiol. 268 (1) ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 1977
+    }, {
+      "title" : "Action potential and membrane currents of single pacemaker cells of the rabbit heart",
+      "author" : [ "T. Nakayama", "Y. Kurachi", "A. Noma", "H. Irisawa" ],
+      "venue" : "Pflugers Arch. 402 (3) ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 1984
+    }, {
+      "title" : "A model for human ventricular tissue",
+      "author" : [ "K. Ten Tusscher", "D. Noble", "P.-J. Noble", "A.V. Panfilov" ],
+      "venue" : "Am. J. Physiol.-Heart Circ. Physiol. 286 (4) ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Models of cardiac cell",
+      "author" : [ "F.H. Fenton", "E.M. Cherry" ],
+      "venue" : "Scholarpedia 3 (8) ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Simulated propagation of cardiac action potentials",
+      "author" : [ "G. Sharp", "R. Joyner" ],
+      "venue" : "Biophys. J. 31 (3) ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 1980
+    }, {
+      "title" : "Action potential propagation in a thick strand of cardiac muscle",
+      "author" : [ "B.J. Roth" ],
+      "venue" : "Circ. Res. 68 (1) ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 1991
+    }, {
+      "title" : "An information theoretical analysis of nanoscale molecular gap junction communication channel between cardiomyocytes",
+      "author" : [ "D. Kilinc", "O.B. Akan" ],
+      "venue" : "IEEE Trans. Nanotechnol. 12 (2) ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Modelling the heart as a communication system",
+      "author" : [ "H. Ashikaga", "J. Aguilar-Rodríguez", "S. Gorsky", "E. Lusczek", "F.M.D. Marquitti", "B. Thompson", "D. Wu", "J. Garland" ],
+      "venue" : "J. R. Soc. Interface 12 (105) ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A numerical method to model excitable cells",
+      "author" : [ "R.W. Joyner", "M. Westerfield", "J.W. Moore", "N. Stockbridge" ],
+      "venue" : "Biophys. J. 22 (2) ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 1978
+    }, {
+      "title" : "A quantitative description of membrane current and its application to conduction and excitation in nerve",
+      "author" : [ "A.L. Hodgkin", "A.F. Huxley" ],
+      "venue" : "J. Physiol. 117 (4) ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 1952
+    }, {
+      "title" : "An optimally energized cardiac pacemaker",
+      "author" : [ "R.D. Klafter" ],
+      "venue" : "IEEE Trans. Biomed. Eng. (5) ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 1973
+    }, {
+      "title" : "An in vivo study of cardiac pacemaker optimization by pulse shape modification",
+      "author" : [ "R.D. Klafter", "L. Hrebien" ],
+      "venue" : "IEEE Trans. Biomed. Eng. (3) ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 1976
+    }, {
+      "title" : "A surgical approach to the management of heart-block using an inductive coupled artificial cardiac pacemaker",
+      "author" : [ "L. Abrams", "W. Hudson", "R. Lightwood" ],
+      "venue" : "Lancet 275 (7139) ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 1960
+    }, {
+      "title" : "Surgical treatment of adams-stokes syndrome using long-term inductive coupled coil pacemaking: Experience with 30 patients",
+      "author" : [ "J.C. Norman", "R. Lightwood", "L.D. Abrams" ],
+      "venue" : "Ann. Surg. 159 (3) ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 1964
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Cardiovascular diseases continue to be a leading cause of morbidity and mortality worldwide [1].",
+      "startOffset" : 92,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 1,
+      "context" : "In heart disease affecting the conduction system of the heart, advanced technological solutions have been applied to restore normal heart function [2].",
+      "startOffset" : 147,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 19,
+      "context" : "A simple schematic of six current flows across the cardiomyocyte membrane: the fast sodium current INa , the slow inward current Isi consisting primarily of calcium ions, the time-dependent potassium current IK , the timeindependent potassium current IK1 , the plateau potassium current IKp , and the background current Ib [20].",
+      "startOffset" : 323,
+      "endOffset" : 327
+    }, {
+      "referenceID" : 20,
+      "context" : "We were particularly interested in the effects of varying the number of stimulation sessions, since this has been previously shown to decrease action potential threshold in neural axons [21].",
+      "startOffset" : 186,
+      "endOffset" : 190
+    }, {
+      "referenceID" : 30,
+      "context" : "Solving these existing models requires numerical methods [31].",
+      "startOffset" : 57,
+      "endOffset" : 61
+    }, {
+      "referenceID" : 19,
+      "context" : "Therefore, we focus on action potential generating mechanisms in an isolated cell based on the LRd model and the Hodgkin–Huxley-type formalism of the mammalian action potential as [20,32]:",
+      "startOffset" : 180,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 31,
+      "context" : "Therefore, we focus on action potential generating mechanisms in an isolated cell based on the LRd model and the Hodgkin–Huxley-type formalism of the mammalian action potential as [20,32]:",
+      "startOffset" : 180,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 19,
+      "context" : "where INa is the fast sodium current, Isi is the slow inward current of calcium ions, IK is the time-dependent potassium current, IK1 is the time-independent potassium current, IKp is the plateau potassium current, and Ib is the background current (refer to [20] for more details).",
+      "startOffset" : 258,
+      "endOffset" : 262
+    }, {
+      "referenceID" : 32,
+      "context" : "To test how different pulses affect the energy consumption of the nano-actuator, we compare the excitatory effects of rectangular-, sine-, half-sine-, and sawtooth pulses and their influence to the excitation of cardiomyocyte(s) in terms of the energy used [33,34].",
+      "startOffset" : 257,
+      "endOffset" : 264
+    }, {
+      "referenceID" : 33,
+      "context" : "To test how different pulses affect the energy consumption of the nano-actuator, we compare the excitatory effects of rectangular-, sine-, half-sine-, and sawtooth pulses and their influence to the excitation of cardiomyocyte(s) in terms of the energy used [33,34].",
+      "startOffset" : 257,
+      "endOffset" : 264
+    }, {
+      "referenceID" : 19,
+      "context" : "pass the system and show at the output [20].",
+      "startOffset" : 39,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 34,
+      "context" : "The sine pulse is also used in electrophysiology [35,36].",
+      "startOffset" : 49,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 35,
+      "context" : "The sine pulse is also used in electrophysiology [35,36].",
+      "startOffset" : 49,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 19,
+      "context" : "The preference for the half-sine- and rectangular pulses presumably originates from the low-pass filter nature of the cellular membrane [20], as well as apparent differences in magnitudes of the Fourier transforms of the signals, as shown in Fig.",
+      "startOffset" : 136,
+      "endOffset" : 140
+    } ],
+    "year" : 2019,
+    "abstractText" : "There is continuous interest in maximizing the longevity of implantable pacemakers, which are effective in remedying and managing patients with arrhythmic heart disease. This paper accordingly first proposes miniature actuating nanomachines that inter-connect with individual cardiomyocytes and then deeply explores their energy expenditure when performing basic cardiomyocyte stimulation tasks. Since evoked electrical impulses from a number of actuated cardiomyocytes could coordinate contraction throughout the remaining heart muscle and lead to a heart beat, the miniature actuating nanomachines acting synchronously form a conceptual multi-nodal nano-actuator pacemaker network. Rectangular-, sine-, half-sine-, and sawtooth stimulation pulses with varying configurations are considered for actuation of a single isolated in-silico cardiomyocyte by each of the nanomachines. Computer optimization methods with energy consumption as a cost function are utilized to configure preferable stimulation signals in terms of numbers of stimulation sessions/pulses, pulse amplitudes, and duration. In addition, the simulation data are compared with experimental data obtained using invitro mouse cardiomyocytes. Among the considered waveforms, half-sine pulses that lead to actuation of a single cardiomyocyte consume minimum energy. None of the used sequences with multiple stimulation pulses reduces the overall energy expenditure of cell stimulation when compared to a single pulse stimulation. © 2019 Published by Elsevier B.V.",
+    "creator" : "Elsevier"
+  }
+}

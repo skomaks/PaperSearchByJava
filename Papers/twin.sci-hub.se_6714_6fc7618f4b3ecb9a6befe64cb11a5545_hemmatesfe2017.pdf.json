@@ -1,0 +1,510 @@
+{
+  "name" : "twin.sci-hub.se_6714_6fc7618f4b3ecb9a6befe64cb11a5545_hemmatesfe2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Rheological behavior characteristics of TiO2-MWCNT/10w40 hybrid nano-oil affected by temperature, concentration and shear rate_ An experimental study and a neural network simulating",
+    "authors" : [ "Mohammad Hemmat Esfea", "Hossein Rostamian", "Mohammad Reza Sarlak", "Mousa Rejvani", "Ali Alirezaie" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nPhysica E\njournal homepage: www.elsevier.com/locate/physe\nRheological behavior characteristics of TiO2-MWCNT/10w40 hybrid nano-oil affected by temperature, concentration and shear rate: An experimental study and a neural network simulating\nMohammad Hemmat Esfea,⁎, Hossein Rostamianb, Mohammad Reza Sarlaka, Mousa Rejvanic, Ali Alirezaiec\na Department of Mechanical Engineering, Imam Hossein University, Tehran, Iran b Faculty of Chemical Engineering, Semnan University, Semnan, Iran c Faculty of Mechanical Engineering, Semnan University, Semnan, Iran\nA R T I C L E I N F O\nKeywords: Nano-oil, rheological behavior Dynamic viscosity Neural network Non-Newtonian fluids\nA B S T R A C T\nIn this article, rheological behavior of TiO2-MWCNT (45–55%)/10w40 hybrid nano-oil was studied experimentally. The nano- oils were tested at temperature ranges of 5–55 °C and in shear rates up to 11,997 s−1. With respect to viscosity, shear stress and shear rate variations it was cleared that either of the base oil and nano-oil were non-Newtonian fluids. New equations which were based on thickness of the fluid were presented for different temperature values, R-squared values were between 0.9221 and 0.9998 (the precise of correlation changes depend on temperature). Also to predict the nano-oil behavior, neural network method was utilized. an artificial neural network (MLP type) were used to predict the viscosity in terms of temperature, solid volume fraction and shear stress. to compare the prediction precise of neural network and correlation the results of these two were compared with together. ANN showed more accurate results in comparison with correlation results. R2 and (MSE) were 0.9979 and 0.000016 respectively for the ANN."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Oils play an important role in most of heat transfer and engineering systems such as blood flow in the veins, so the act of improving the characteristics of oils can modify these systems to have higher performances [1]. The most important mechanical characteristics which should be improved in order to modify systems performance are viscosity, rheological properties and heat transfer characteristics. To do so adding nanoparticles into the base oil is one of the most appropriate solutions which is also relatively cost effective. Although using nanofluids is useful when the favorable effect on thermal conductivity is greater than unfavorable effect on dynamic viscosity [2– 11]. many experiments have done to introduce a more efficient nanofluid [12–21].\nViscosity of water based TiO2 nanofluids has decrement with temperature [22]. Some experimental models and correlation for prediction of viscosity variation [23–29] thermal conductivity [30– 34] and rheological properties [35–41] were developed. Lately, some studies were conducted on modeling of thermal conductivity and dynamic viscosity of nanofluids [42–51]. For this purpose, artificial\nneural network was applied. Based on the results of all the studies, ANN has good precision to predict thermos-physical properties of nanofluid and is a strong method for modeling. It has observed in TiO2–MWCNT/water based nanofluid that viscosity has enhancement with TiO2 nanoparticle increasing. The decoration of Multiwall Carbon Nanotube determine the dilatant behavior [51]. MWCNT- Waterethylene glycol 0.9 wt% has the most enhancement in thermal conductivity. The specific heat of nanofluids has decrement with volume fraction [52]. The rheological analysis showed that the transition region from shear thinning to Newtonian extended to the higher shear stress range compared to that of base fluids [53,54]. The thermal conductivity and dynamic viscosity of diamond &MWCNT/oil base fluid has enhancement with particle dispersed in nanofluid [55]. In Table 1 summarized of some experimental studies for the viscosity of nanofluids containing TiO2, MWCNT, oil with different base fluid.\nSurveying in about rheological behavior studies of nanofluids revealed that TiO2-MWCNT (45–55%)/10w40 hybrid nano-lubricant has not been investigated up to now. In this study, the rheological behavior of the hybrid nano-lubricant was evaluated at various temperatures, solid volume fractions and shear rates. A new correlation\nhttp://dx.doi.org/10.1016/j.physe.2017.07.012 Received 27 June 2017; Received in revised form 11 July 2017; Accepted 20 July 2017\n⁎ Corresponding author. E-mail address: m.hemmatesfe@gmail.com (M. Hemmat Esfe).\nPhysica E 94 (2017) 231–240\nAvailable online 22 July 2017 1386-9477/ © 2017 Elsevier B.V. All rights reserved.\nMARK\nwas proposed to predict dynamic viscosity of nano-lubricant, also the rheological behavior was predicted by using neural network."
+    }, {
+      "heading" : "2. Experimentation",
+      "text" : "TiO2-MWCNT/10W40 hybrid nano-oil was made out of combination of 10W40 engine oil with a nanoparticles compound which consisted of 45% TiO2 of 30 nm diameter and 55% of multi-walled carbon nanotubes (MWCNT) with inner diameter of 2–6 nm and outer diameter of 5–20 nm. Nanoparticles sizes are extracted by X-ray diffraction diagram of Fig. 1.\nPhysicochemical properties of TiO2 nanoparticles and MWCNTs are listed in Tables 2 and 3. In this study the nanoparticles were dispersed in 10W40 engine oil, the specifications of which are shown in Table 4. All used nanoparticles are manufactured in US Research\nNanomaterials Inc., the advanced nanomaterial company. In order to make the hybrid nano-oil, firstly the various portions of\nnanoparticles were calculated using Eq. (1).\n⎛ ⎝⎜ ⎞ ⎠⎟\n⎛ ⎝⎜ ⎞ ⎠⎟\n⎛ ⎝⎜ ⎞ ⎠⎟\n⎛ ⎝⎜ ⎞ ⎠⎟\n⎛ ⎝⎜ ⎞ ⎠⎟\nφ% = +\n+ +\nw ρ\nMWCNT\nw ρ\nTiO\nw ρ\nMWCNT\nw ρ\nTiO\nw ρ\nW10 40\n2\n2 (1)\nThen they were added to a predetermined volume of the base oil and the solutions were mixed for 2 hours. An ultrasonic blender made by (Ultrasonic Homogenizer, Development of Ultrasonic Technology, Iran)was utilized for 5-7 hours in order to remove agglomerations of nanoparticles. Fig. 2 illustrates some samples of TiO2, MWCNT, 10W40 oil and the obtained nano-oil.\nNomenclature\nT temperature (°C) w weight (gr) τ shear stress (dyne/cm2) φ nanoparticle volume fraction\nGreeks symbols\nγ̇ shear rate (s−1)\nµ dynamic viscosity (poise) ρ density (kg/m3)\nSubscripts\nnf nanofluid bf base fluid"
+    }, {
+      "heading" : "2.1. Viscosity measurement",
+      "text" : "Fig. 3 illustrates the apparatus which was used for measuring viscosity values of the samples. CAP 2000+ viscometer made by (Brookfield Engineering Laboratories, Inc.) with ± 2.0% accuracy and repeatability of ± 0.5% was used for measuring viscosity. This appara-\nProperty Value\nKinematic viscosity @ 100 °C 14.81 cSt Viscosity Index (VI) 160 Minimum flash point 232 °C Minimum pour point −24 °C Density @ 15 °C 873 (kg/m3)\ntus is specifically designed for measuring viscosity of fluids with moderate and high shear rates. The measurements were carried out for shear rate ranges of 666.65 up to 11,999.7 and for volume fractions of .05%, 0.1%, 0.25%, 0.5%, 0.75% and 1% at temperatures between 5 and 55 °C."
+    }, {
+      "heading" : "3. Result and discussion",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Rheological behavior surveying",
+      "text" : "In Fig. 4 rheological behavior of the nano-oil with 1% volume fraction of nanoparticles is compared with neat 10W40 oil at various temperatures. With respect to these diagrams, regardless of temperature when shear rate is increased, shear stress value does not vary linearly. This signifies that both of the base oil and the nano-oil are non-Newtonian fluids.\nShear stress is calculated by the use of Eq. (2) for non-Newtonian fluids which are also called power-law fluids:\nτ mγ= ṅ (2)\nThe governing equation for apparent viscosity in non-Newtonian fluids is presented below:\nμ mγ= ˙app n−1 (3)\nwhere, τ is the shear stress, γ ̇ is the shear rate, m is consistency index, n is the power law index (n < 1) and µ is the apparent viscosity. For a further precise study on TiO2-MWCNT (45–55%) /10w40 hybrid nanooil characteristics, power law and consistency indexes are respectively listed in Tables 5 and 6.\nAccording to Table 5 all of the n indexes are less than 1 which signifies that the hybrid nano-oil was a non-Newtonian fluid with shear thinning behavior, regardless of temperature and volume fraction.\nPower law indexes in terms of thickness are presented in Fig. 5 for various temperatures. As it can be seen at temperatures between 5 and 45 °C, adding nanoparticles to the base oil does not change the behavior of the hybrid nano-oil dramatically, as variation of power law indexes are nearly 0.04 which signifies that the effects of thickness are negligible. This is quite different at the temperature of 55 °C, as with increment of nanoparticles loading, n index is increased and its value for the sample of 1% volume fraction is considerably more than n value for 0% volume fraction. Fluctuations of n index curve indicate that the increment of thickness at 55 °C results in drastic changes of nano-oil behavior.\nFig. 6 illustrates consistency indexes based on thickness at various temperatures. According to this figure the value of m index is increased as a result of thickness enhancement but it is totally different at the\ntemperature of 55 °C that the m index is reduced. Consistency index enhancement signifies increment of apparent\nviscosity and its cause can be explained by the fact of random movement of dispersed nanoparticles in a base fluid. Van der Waals forces between the nanoparticles and the base oil form clusters of nanoparticles resulting in viscosity increment due to limited mobility of the nanoparticles.\nThe effect of temperature on the hybrid nano-oil at a constant shear rate is presented in Fig. 7. Increasing of temperature results in nanoparticles movement which is associated with reducing of the fluid resistance over being flown, therefore viscosity is reduced.\nAs a result of increasing in nanoparticles loading in the base fluid, the internal shear stress increases and this is associated with friction enhancement in the fluid that makes it able to resist more against flowing which is synonymous with viscosity enhancement."
+    }, {
+      "heading" : "3.2. Proposed correlation",
+      "text" : "In order to predict viscosity data of TiO2-MWCNT (45–55%)/ 10W40, Einstein [61] and Wang et al. [62] theoretical equations were utilized. The results are illustrated in Fig. 8.\nAs it can be seen, the theoretical equations are not capable of predicting viscosity in any of volume fraction or temperature conditions. Therefore, by using curve fitting technique on the experimental\ndata in terms of a constant temperature, a new quadratic equation was derived based on the thickness of the hybrid nano-oil for the purpose of viscosity prediction. this polynomial correlation is choosed between too many correlations because of its closer amount of R2 to 1 between all correlations. on the other hand the most common correlations that is in use for curve fitting are polynomial correlations like Eq. (4).\nμ μ a a φ a φ a φ= + + +nf bf 0 1 2 2 3 3\n(4)\nIndexes of the equation are listed in Table 7. In order to study error values of the predicted viscosities with the\nproposal equation, error diagram is depicted in Fig. 9. According to this figure it is clearly observed that most of the data are laid on the bisector line and the others are in its near proximity.\nFig. 10 shows the margin of errors. These values are all calculated using Eq. (5).\n⎜ ⎟ ⎜ ⎟\n⎜ ⎟\n⎛ ⎝ ⎞ ⎠\n⎛ ⎝ ⎞ ⎠\n⎛ ⎝ ⎞ ⎠\nDVE (%) = −\n× 100\nμ\nμ Exp\nμ\nμ prop\nμ\nμ Exp\nnf\nbf\nnf\nbf\nnf\nbf (5)\nAccording to this figure the highest calculated error is almost equal to 1.1% and it occurred at the temperature of 55 °C and volume fraction of 1%. Since the errors are nearly zero, it is concluded that the\npredicted viscosity values are very close to the actual values for volume fractions of 0.25% and 0.5%."
+    }, {
+      "heading" : "3.3. ANN modeling",
+      "text" : "The main objective of this study at this section was to obtain the pattern of nanofluid dynamic viscosity changes based on variables of temperature, volume fraction, and shear rate, with modeling of the empirical data. With using the available empirical data of different volume fractions of nanoparticles, various temperature points and different shear rates, the most appropriate technique for modeling of the empirical data, which has an excellent precision, is using of neural networks. In order to use neural networks, the input data must be inserted first; the networks divide the data into 3 sections of training data, validation data, and test data, after the data is preprocessed. In order to put data into the first layer neurons, a weight and a bias value are determined. After passing of the data through each layer’s neurons, the extracted values are compared with the empirical values of viscosity. If the error value is not within the acceptable range, this process is iterated with different values of weight. Otherwise, training stops and makes the network structure to be fixed. Fig. 11 shows a summary of this process.\nThe specifications of the neural network which was used in the present paper are shown in Table 8. Regarding to this table the neural networks exhibited an excellent accuracy as R2 value of 99.79% was obtained.\nError values for all data are depicted in Fig. 12 in terms of number of data. According to this figure most of the error values are laid on or in proximity of the bisector line so mean squared error (MSE) is 0.0000161.\nError values of the predicted data using neural network with the actual viscosity values are depicted in Fig. 13. According to this figure the highest error is 0.08.\nThe outstanding accuracy of neural network modeling can be observed in Fig. 14 in which the experimental data of viscosity are compared with neural network outputs. Fig. 15 illustrates a comparison between the diagrams for various temperature and thickness values in a constant shear rate. Regarding to this diagrams, the neural network was astonishingly capable of predicting viscosity of TiO2MWCNT (45–55%)/10W40 nano-oil.\nIn Fig. 15 the outputs of neural network modeling and correlation are compared with the empirical viscosity data at various temperatures. According to the diagrams, the neural network worked exceptionally for prediction of data and its outputs are in good accordance with\nexperimental viscosity data. But correlation has errors, mainly for lower volume fractions and higher temperature."
+    }, {
+      "heading" : "4. Conclusion",
+      "text" : "In this study, firstly rheological behavior of a nano-oil was determined empirically and then an equation was presented by which this behavior can be predicted. Also neural network modeling was utilized for the purpose of prediction. To do so a hybrid nano-oil consisted of TiO2 nanoparticles with mean diameter of 30 nm and MWCTNs with inner diameter of 2–6 nm and outer diameter of 5– 20 nm. TiO2 nanoparticles and MWCNTs were mixed with the proportion of 45% and 55% respectively and they were dispersed in volume fractions of 0.05, 0.1, 0.25, 0.5, 0.75 and 1. The measurements were conducted at the temperatures between 5 and 55 °C and in shear rate values within 666.5 up to 11,997.\nThe results signified that the TiO2-MWCNT/10W40 hybrid nano-oil was a non-Newtonian fluid with shear thinning behavior. According to the Ostwald–de Waele equation, power law and consistency indexes were obtained and their variations in terms of temperature and thickness were discussed afterward. Consistency index reduced by temperature enhancement and it was incremented by increasing in thickness of the nano-oil. Also with respect to power law index it was observed that with changing in thickness of the fluid, behavior of the hybrid nano-oil does not vary significantly, but at the temperature of 55 °C the non-Newtonian behavior\nof the nano-oil was affected by the thickness and it was occasionally increased or decreased. When the experimental data is compared with the theoretical models, it is clearly observable that none of the models was capable of an appropriate prediction of the nano-oil behavior; therefore, curve fitting technique was utilized for achieving a new governing equation. The new equation was capable of predicting experimental data\nas R2 values for the equation were calculated between 0.9221 and 0.9998. On the other hand, behavior of the hybrid nano-oil was verified with neural network modeling. The results signify that the output data of ANN are in good accordance with viscosity data. Neural network was more successful for data prediction as its R2 and MSE were 0.9979 and 0.000016 respectively."
+    } ],
+    "references" : [ {
+      "title" : "Electrical conductivity",
+      "author" : [ "S.N. Shoghl", "J. Jamali", "M.K. Moraveji" ],
+      "venue" : "viscosity, and density of different nanofluids: an experimental study, Exp. Therm. Fluid Sci. ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Experimental study on thermal conductivity of DWCNT-ZnO/water-EG nanofluids",
+      "author" : [ "M.H. Esfe", "W.M. Yan", "M. Akbari", "A. Karimipour", "M. Hassani" ],
+      "venue" : "Int. Commun. Heat Mass Transf., 68",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermal conductivity and viscosity optimization of nanodiamond-Co3O4/EG (40:60) aqueous nanofluid using NSGA- II coupled with RSM",
+      "author" : [ "M. Hemmat Esfe", "M.H. Hajmohammad" ],
+      "venue" : "J. Mol. Liq. 238 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Experimental investigation",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "J. Shahram" ],
+      "venue" : "model development and sensitivity analysis of rheological behavior of ZnO/10W40 nanolubricants for automotive applications, Physica E 90 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Designing an artificial neural network to predict dynamic viscosity of aqueous nanofluid of TiO2 using experimental data",
+      "author" : [ "M. Hemmat Esfe", "M.R.H. Ahangar", "M. Rejvani", "D. Toghraie", "M.H. Hajmohammad" ],
+      "venue" : "Int. Commun. Heat Mass Transf., 75",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Studying the effect of indentation on flow parameters and slow heat transfer of water-silver nano-fluid with varying volume fraction in a rectangular two-dimensional microchannel",
+      "author" : [ "A. Karimipour", "H. Alipour", "O.A. Akbari", "D.T. Semiromi", "M.H. Esfe" ],
+      "venue" : "Indian J. Sci. Technol., 8 (15)",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "An applicable study on the thermal conductivity of SWCNT-MgO hybrid nanofluid and price-performance analysis for energy management",
+      "author" : [ "M. Hemmat Esfe", "A. Alirezaie", "M. Rejvani" ],
+      "venue" : "Appl. Therm. Eng. 111 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Multi-objective optimization of cost and thermal performance of double walled carbon nanotubes/water nanofluids by NSGA-II using response surface method",
+      "author" : [ "Mohammad Hemmat Esfe", "Hadi Hajmohammad", "Reza Moradi", "Ali Akbar Abbasian Arani" ],
+      "venue" : "Appl. Therm. Eng",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2017
+    }, {
+      "title" : "Thermal conductivity enhancement of SiO2–MWCNT (85: 15%)–EG hybrid nanofluids",
+      "author" : [ "M. Hemmat Esfe", "P. Mohseni Behbahani", "A.A. Abbasian Arani", "M.R. Sarlak" ],
+      "venue" : "J. Therm. Anal. Calorim. 128 (1) ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An empirical investigation on thermal characteristics and pressure drop of Ag-oil nanofluid in concentric annular tube",
+      "author" : [ "A.A. Abbasian Arani", "H. Aberoumand", "S. Aberoumand", "A. Jafari Moghaddam", "M. Dastanian" ],
+      "venue" : "Heat Mass Transf. 52 (8) ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Experimental evaluation",
+      "author" : [ "M. Hemmat Esfe", "S. Esfandeh", "S. Saedodin", "H. Rostamian" ],
+      "venue" : "sensitivity analyzation and ANN modeling of thermal conductivity of ZnO- MWCNT/EG-water hybrid nanofluid for engineering applications, Appl. Therm. Eng. ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Examination of rheological behavior of MWCNTs/ZnO-SAE40 hybrid nano-lubricants under various temperatures and solid volume fractions",
+      "author" : [ "M.H. Esfe", "M. Afrand", "S.H. Rostamian", "D. Toghraie" ],
+      "venue" : "Exp. Therm. Fluid Sci. 80 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Designing an artificial neural network using radial basis function (RBF- ANN) to model thermal conductivity of ethylene glycol–water-based TiO2 nanofluids",
+      "author" : [ "M.H. Esfe" ],
+      "venue" : "J. Therm. Anal. Calorim. 127 (3) ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "An inspection of thermal conductivity of CuO-SWCNTs hybrid nanofluid versus temperature and concentration using experimental data",
+      "author" : [ "S.H. Rostamian", "M. Biglari", "S. Saedodin", "M.H. Esfe" ],
+      "venue" : "ANN modeling and new correlation, J. Mol. Liq. 231 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "The optimization of viscosity and thermal conductivity in hybrid nanofluids prepared with magnetic nanocomposite of nanodiamond cobaltoxide (ND-Co3O4) using NSGA-II and RSM",
+      "author" : [ "M. Hemmat Esfe", "M.H. Hajmohammad", "P. Razi", "M.R. Hassani Ahangar", "A.A. Abbasian Arani" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 79 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Investigation of rheological behavior of MWCNT (COOH-functionalized)/MgO-engine oil hybrid nanofluids and modelling the results with artificial neural networks",
+      "author" : [ "A. Alirezaie", "S. Saedodin", "M.H. Esfe", "S.H. Rostamian" ],
+      "venue" : "J. Mol. Liq. ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "The investigation of effects of temperature and nanoparticles volume fraction on the viscosity of copper oxide-ethylene glycol nanofluids",
+      "author" : [ "M. Hemmat Esfe" ],
+      "venue" : "Period. Polytech. Chem. Eng. ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Experimental investigation of switchable behavior of CuO-MWCNT (85%–15%)/10W-40 hybrid nano-lubricants for applications in internal combustion engines",
+      "author" : [ "M. Hemmat Esfe", "M.R. Sarlak" ],
+      "venue" : "J. Mol. Liq. ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "R",
+      "author" : [ "K. Binu", "M. Spoorthi", "K. Prajwal", "N. Vaz" ],
+      "venue" : "D’Silva, R. Pai, Formulation and viscosity analysis of TiO2 nanoparticle dispersions in engine oil, Am. J. Mater. Sci. 5 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Viscosity of carbon nanotubes water-based nanofluids: influence of concentration and temperature",
+      "author" : [ "S. Halelfadl", "P. Estellé", "B. Aladag", "N. Doner", "T. Maré" ],
+      "venue" : "Int. J. Therm. Sci. 71 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Non-Newtonian power-law behavior of TiO2/SAE 50 nano-lubricant: an experimental report and new correlation",
+      "author" : [ "M. Hemmat Esfe", "H. Rostamian" ],
+      "venue" : "J. Mol. Liq. 232 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "An experimental investigation and new correlation of viscosity of ZnO–EG nanofluid at various temperatures and different solid volume fractions",
+      "author" : [ "M.H. Esfe", "S. Saedodin" ],
+      "venue" : "Exp. Therm. Fluid Sci. 55 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Experimental investigation and model development for effective viscosity of Al2O3–glycerol nanofluids by using dimensional analysis and GMDH-NN methods",
+      "author" : [ "M. Sharifpur", "S.A. Adio", "J.P. Meyer" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 68 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "An empirical investigation on the dynamic viscosity of Mg(OH)2–ethylene glycol in different solid concentrations and proposing new correlation based on experimental data",
+      "author" : [ "M.H. Esfe", "S. Saedodin", "A. Asadi" ],
+      "venue" : "Int. J. Nat. Eng. Sci. 8 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Viscosity of water based SWCNH and TiO2 nanofluids",
+      "author" : [ "S. Bobbo", "L. Fedele", "A. Benetti", "L. Colla", "M. Fabrizio", "C. Pagura", "S. Barison" ],
+      "venue" : "Exp. Therm. Fluid Sci. 36 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Viscosity studies on novel copper oxide–coconut oil nanofluid",
+      "author" : [ "M.N. Rashin", "J. Hemalatha" ],
+      "venue" : "Exp. Therm. Fluid Sci. 48 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Effect of temperature and sonication time on nanofluid thermal conductivity measurements by nano-flash method",
+      "author" : [ "B. Buonomo", "O. Manca", "L. Marinelli", "S. Nardini" ],
+      "venue" : "Appl. Therm. Eng. 91 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "An experimental study on thermal conductivity of MgO nanoparticles suspended in a binary mixture of water and ethylene glycol",
+      "author" : [ "M.H. Esfe", "M. Afrand", "A. Karimipour", "W.-M. Yan", "N. Sina" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 67 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental determination of thermal conductivity and dynamic viscosity of Ag–MgO/water hybrid nanofluid",
+      "author" : [ "M.H. Esfe", "A.A.A. Arani", "M. Rezaie", "W.-M. Yan", "A. Karimipour" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 66 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental investigation and development of new correlations for thermal conductivity of CuO/EG–water nanofluid",
+      "author" : [ "M.H. Esfe", "S. Saedodin", "M. Akbari", "A. Karimipour", "M. Afrand", "S. Wongwises", "M.R. Safaei", "M. Dahari" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 65 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental study on thermal conductivity of ethylene glycol based nanofluids containing Al2O3 nanoparticles",
+      "author" : [ "M. Hemmat Esfe", "A. Karimipour", "W.-M. Yan", "M. Akbari", "M.R. Safaei", "M. Dahari" ],
+      "venue" : "Int. J. Heat Mass Transf. 88 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Viscosity of alumina nanoparticles dispersed in car engine coolant",
+      "author" : [ "M. Kole", "T. Dey" ],
+      "venue" : "Exp. Therm. Fluid Sci. 34 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Experimental investigation on non-Newtonian behavior of Al2O3- MWCNT/5W50 hybrid nano-lubricant affected by alterations of temperature, concentration and shear rate for engine applications",
+      "author" : [ "Mohammad Hemmat Esfe", "Rostam Karimpour", "Ali Akbar Abbasian Arani", "Jalal Shahram" ],
+      "venue" : "Int. Commun. Heat Mass Transf",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2017
+    }, {
+      "title" : "Rheological behaviour of ethylene glycoltitanate nanotube nanofluids",
+      "author" : [ "H. Chen", "Y. Ding", "A. Lapkin", "X. Fan" ],
+      "venue" : "J. Nanopart. Res. 11 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "An experimental investigation of rheological characteristics of non-Newtonian nanofluids",
+      "author" : [ "M. Tajik Jamal-Abad", "M. Dehghan", "S. Saedodin", "M.S. Valipour", "A. Zamzamian" ],
+      "venue" : "J. Heat Mass Transf. Res. (JHMTR) 1 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Rheology and colloidal structure of aqueous TiO2 nanoparticle suspensions",
+      "author" : [ "W.J. Tseng", "K.-C. Lin" ],
+      "venue" : "Mater. Sci. Eng. A 355 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Fabrication",
+      "author" : [ "M. Abareshi", "S.H. Sajjadi", "S.M. Zebarjad", "E.K. Goharshadi" ],
+      "venue" : "characterization, and measurement of viscosity of α-Fe2O3-glycerol nanofluids, J. Mol. Liq. 163 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Thermal properties and rheological behavior of water based Al2O3 nanofluid as a heat transfer fluid",
+      "author" : [ "M. Ghanbarpour", "E.B. Haghigi", "R. Khodabandeh" ],
+      "venue" : "Exp. Therm. Fluid Sci. 53 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Modeling and prediction of viscosity of water-based nanofluids by radial basis function neural networks",
+      "author" : [ "N. Zhao", "X. Wen", "J. Yang", "S. Li", "Z. Wang" ],
+      "venue" : "Powder Technol. 281 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Estimation of the viscosity of nine nanofluids using a hybrid GMDH-type neural network system",
+      "author" : [ "S. Atashrouz", "G. Pazuki", "Y. Alimoradi" ],
+      "venue" : "Fluid Phase Equilib. 372 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Experimental study on thermal conductivity of DWCNT-ZnO/water-EG nanofluids",
+      "author" : [ "M. Hemmat Esfe", "W.-M. Yan", "M. Akbari", "A. Karimipour", "M. Hassani" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 68 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermal conductivity of Cu/TiO 2–water/EG hybrid nanofluid: experimental data and modeling using artificial neural network and correlation",
+      "author" : [ "M.H. Esfe", "S. Wongwises", "A. Naderi", "A. Asadi", "M.R. Safaei", "H. Rostamian", "M. Dahari", "A. Karimipour" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 66 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Designing an artificial neural network to predict thermal conductivity and dynamic viscosity of ferromagnetic nanofluid",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "N. Sina", "M. Afrand", "S. Rostami" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 68 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "M",
+      "author" : [ "M.H. Esfe", "S. Saedodin", "A. Naderi", "A. Alirezaie", "A. Karimipour", "S. Wongwises", "M. Goodarzi" ],
+      "venue" : "bin Dahari, Modeling of thermal conductivity of ZnO-EG using experimental data and ANN methods, Int. Commun. Heat Mass Transf. 63 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Wei-Mon Yan",
+      "author" : [ "M. Hemmat Esfe", "H. Rostamian", "D. Toghraie" ],
+      "venue" : "Using artificial neural network to predict thermal conductivity of ethylene glycol with alumina nanoparticle: effects of temperature and solid volume fraction, J. Therm. Anal. Calorim. 126 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Estimation of thermal conductivity of CNTs-water in low temperature by artificial neural network and correlation",
+      "author" : [ "M. Hemmat Esfe", "K. Motahari", "E. Sanatizadeh", "M. Afrand", "H. Rostamian", "M. Hassani" ],
+      "venue" : "Int. Commun. Heat Mass Transf. ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Applications of feedforward multilayer perceptron artificial neural networks and empirical correlation for prediction of thermal conductivity of Mg (OH) 2–EG using experimental data",
+      "author" : [ "M. Hemmat Esfe", "M. Afrand", "S. Wongwises", "A. Naderi", "A. Asadi", "S. Rostami", "M. Akbari" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 67 ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "M",
+      "author" : [ "M. Hemmat Esfe", "M.R.H. Ahangar", "M. Rejvani", "D. Toghraie", "M.H. Hajmohammad" ],
+      "venue" : "Hemmat Esfe et al.  Physica E 94 (2017) 231–240 239  Designing an artificial neural network to predict dynamic viscosity of aqueous nanofluid of TiO2 using experimental data, Int. Commun. Heat Mass Transf. 75 ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Experimental investigation on convective heat transfer and rheological characteristics of Cu–TiO 2 hybrid nanofluids",
+      "author" : [ "D. Madhesh", "R. Parameshwaran", "S. Kalaiselvam" ],
+      "venue" : "Exp. Therm. Fluid Sci. 52 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Measurement of temperature-dependent viscosity and thermal conductivity of alumina and titania thermal oil nanofluids",
+      "author" : [ "J.T. Cieśliński", "K. Ronewicz", "S. Smoleń" ],
+      "venue" : "Arch. Thermodyn. 36 ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermophysical properties",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "O. Mahian", "S. Wongwises" ],
+      "venue" : "heat transfer and pressure drop of COOH-functionalized multi walled carbon nanotubes/water nanofluids, Int. Commun. Heat Mass Transf. 58 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Experimental investigation on thermo physical properties of single walled carbon nanotube nanofluids",
+      "author" : [ "M. Sabiha", "R. Mostafizur", "R. Saidur", "S. Mekhilef" ],
+      "venue" : "Int. J. Heat Mass Transf. 93 ",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Thermal conductivity of Cu/TiO 2–water/EG hybrid  nanofluid: experimental data and modeling using artificial neural network and correlation",
+      "author" : [ "M. Hemmat Esfe", "S. Wongwises", "A. Naderi", "A. Asadi", "M.R. Safaei", "H. Rostamian", "M. Dahari", "A. Karimipour" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 66 ",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental comparison among thermal characteristics of three metal oxide nanoparticles/turbine oil-based nanofluids under laminar flow regime",
+      "author" : [ "S.Z. Heris", "F. Farzin", "H. Sardarabadi" ],
+      "venue" : "Int. J. Thermophys. 36 ",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A new correlation for viscosity of nanofluids with considering the temperature dependence",
+      "author" : [ "Y. Bakhshan", "M. Saljooghi" ],
+      "venue" : "J. Comput. Theor. Nanosci. 11 ",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "An experimental investigation and new correlation of viscosity of ZnO–EG nanofluid at various temperatures and different solid volume fractions",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin" ],
+      "venue" : "Exp. Therm. Fluid Sci. 55 ",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Thermal conductivity of Al2O3/water nanofluids",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "O. Mahian", "S. Wongwises" ],
+      "venue" : "J. Therm. Anal. Calorim. 117 ",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Eine neue bestimmung der moleküldimensionen",
+      "author" : [ "A. Einstein" ],
+      "venue" : "Ann. Phys. 324 ",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 1906
+    }, {
+      "title" : "Thermal conductivity of nanoparticle-fluid mixture",
+      "author" : [ "X. Wang", "X. Xu", "S.U.S. Choi" ],
+      "venue" : "J. Thermophys. Heat Transf. 13 (1999) 474–480.  M. Hemmat Esfe et al.  Physica E 94 ",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Oils play an important role in most of heat transfer and engineering systems such as blood flow in the veins, so the act of improving the characteristics of oils can modify these systems to have higher performances [1].",
+      "startOffset" : 215,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 18,
+      "context" : "Viscosity of water based TiO2 nanofluids has decrement with temperature [22].",
+      "startOffset" : 72,
+      "endOffset" : 76
+    }, {
+      "referenceID" : 47,
+      "context" : "The decoration of Multiwall Carbon Nanotube determine the dilatant behavior [51].",
+      "startOffset" : 76,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 48,
+      "context" : "The specific heat of nanofluids has decrement with volume fraction [52].",
+      "startOffset" : 67,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 49,
+      "context" : "The rheological analysis showed that the transition region from shear thinning to Newtonian extended to the higher shear stress range compared to that of base fluids [53,54].",
+      "startOffset" : 166,
+      "endOffset" : 173
+    }, {
+      "referenceID" : 50,
+      "context" : "The rheological analysis showed that the transition region from shear thinning to Newtonian extended to the higher shear stress range compared to that of base fluids [53,54].",
+      "startOffset" : 166,
+      "endOffset" : 173
+    }, {
+      "referenceID" : 51,
+      "context" : "The thermal conductivity and dynamic viscosity of diamond &MWCNT/oil base fluid has enhancement with particle dispersed in nanofluid [55].",
+      "startOffset" : 133,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 20,
+      "context" : "Hemmat Esfe and Rostamian [24] SiO2-MWCNT SAE40 25–60 0–1 Dynamic viscosity Bakhshan and Saljooghi [58] TiO2 Water 10–60 0–12 Dynamic viscosity Hemmat Esfe et al.",
+      "startOffset" : 26,
+      "endOffset" : 30
+    }, {
+      "referenceID" : 54,
+      "context" : "Hemmat Esfe and Rostamian [24] SiO2-MWCNT SAE40 25–60 0–1 Dynamic viscosity Bakhshan and Saljooghi [58] TiO2 Water 10–60 0–12 Dynamic viscosity Hemmat Esfe et al.",
+      "startOffset" : 99,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 57,
+      "context" : "In order to predict viscosity data of TiO2-MWCNT (45–55%)/ 10W40, Einstein [61] and Wang et al.",
+      "startOffset" : 75,
+      "endOffset" : 79
+    }, {
+      "referenceID" : 58,
+      "context" : "[62] theoretical equations were utilized.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    } ],
+    "year" : 2017,
+    "abstractText" : "In this article, rheological behavior of TiO2-MWCNT (45–55%)/10w40 hybrid nano-oil was studied experimentally. The nanooils were tested at temperature ranges of 5–55 °C and in shear rates up to 11,997 s. With respect to viscosity, shear stress and shear rate variations it was cleared that either of the base oil and nano-oil were non-Newtonian fluids. New equations which were based on thickness of the fluid were presented for different temperature values, R-squared values were between 0.9221 and 0.9998 (the precise of correlation changes depend on temperature). Also to predict the nano-oil behavior, neural network method was utilized. an artificial neural network (MLP type) were used to predict the viscosity in terms of temperature, solid volume fraction and shear stress. to compare the prediction precise of neural network and correlation the results of these two were compared with together. ANN showed more accurate results in comparison with correlation results. R and (MSE) were 0.9979 and 0.000016 respectively for the ANN.",
+    "creator" : "Elsevier"
+  }
+}

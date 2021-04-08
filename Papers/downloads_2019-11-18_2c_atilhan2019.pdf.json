@@ -1,0 +1,531 @@
+{
+  "name" : "downloads_2019-11-18_2c_atilhan2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Molecular dynamics simulations of mixed deep eutectic solvents and their interaction with nanomaterials",
+    "authors" : [ "Mert Atilhan", "Santiago Aparicio" ],
+    "emails" : [ "mert.atilhan@tamu.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nJournal of Molecular Liquids\nj ourna l homepage: www.e lsev ie r .com/ locate /mol l iq\nMolecular dynamics simulations of mixed deep eutectic solvents and their interaction with nanomaterials\nMert Atilhan a,b,⁎, Santiago Aparicio c,⁎⁎ a Department of Chemical Engineering, Texas A&M University at Qatar, Doha, Qatar b Gas and Fuels Research Center, Texas A&M University, College Station, TX, USA c Department of Chemistry, University of Burgos, 09001 Burgos, Spain\n⁎ Correspondence to: M. Atilhan, Department of Che University at Qatar, Doha, Qatar. ⁎⁎ Corresponding author.\nE-mail addresses: mert.atilhan@tamu.edu (M. Atilhan)\nhttps://doi.org/10.1016/j.molliq.2019.03.068 0167-7322/© 2019 Elsevier B.V. All rights reserved.\na b s t r a c t a r t i c l e i n f o\nArticle history: Received 7 December 2018 Received in revised form 29 January 2019 Accepted 13 March 2019 Available online 14 March 2019\nThe nanoscopic level properties of amixed deep eutectic solvent composed by choline chloride as hydrogen bond acceptor and urea plus ethylene glycol plus glycerol as hydrogen bonddonor are studied using classicalmolecular dynamics simulations. Local heterogeneities are inferred by the development of prevailing hydrogen bonding for some of the involved hydrogen bond donors. Interfacial behaviour at vacuum is also characterized by different regions across the interface. In the case of liquid-liquid interfaces, the presence of a common type of hydrogen bond acceptor leads to minor structuring across the interfaces. The results of the behaviour of mixed deep eutectic on 2D surfaces show strong adsorption when graphene and boron nitride are considered and minor layering forMoS2, but adsorbed layers on thesematerials are also heterogeneous. Likewise, the behaviour of carbon nanotubes is also analysed, confirmed preferential confinement of one of the considered hydrogen bond donors (ethylene glycol) and nanotube solvation characterized by large adsorption of the considered hydrogen bond acceptor. The reported results show heterogeneities at the nanoscopic level in the mixed deep eutectic solvent induced by the developed preferential hydrogen bonding, which are proposed to control deep eutectic solvents properties through composition.\n© 2019 Elsevier B.V. All rights reserved.\nKeywords: Deep eutectic solvents Mixtures Nanomaterials Interfaces Hydrogen bonding"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8]. This interest can be justified considering their suitable physicochemical properties (e.g. wide liquid range, low volatility, moderate viscosity) [3,9,10], which can be fine-tuned by combining them with other types of solvents [11]. Furthermore, DESs can also be produced from natural sources [12], and thus leading to low – cost environmentally friendly and non-toxic materials. Also, large number of molecular combinations that lead to novel DESs provide a platform for developing task specific materials [13,14]. One of the most recent proposed applications of DESs stand on their use in nanotechnology [15] for modifying or improving the properties of functional materials at nanoscale [16,17]. Carbon-based nanomaterials such as 2D-graphene have also been considered in DESs for purposes such as exfoliation [18,19],\nmical Engineering, Texas A&M\n, sapar@ubu.es (S. Aparicio).\nfunctionalization [20], or tuning interface properties [21]. Additional 2D materials such as MoS2 [22] have been studied in DESs, and applications considering carbon nanotubes have been considered in DESs [23,24], thus proving the suitability of DESs for their application in nanomaterials development.\nDESs are produced by themixing of an hydrogen bond donor (HBD) and an hydrogen bond acceptor (HBA) in suitable molar ratios, thus leading to a eutectic mixture with melting points close or lower than ambient temperature. Most of the available literature on DESs considers compounds formed by the mixture of a single type of HBAwith a single type of HBD, e.g. thewell-knownDESs called reline is formed by choline chloride (ChCl) + Urea (URE) in 1:2 mol ratio. Nevertheless, the large number of HBA:HBD combinations considering different types of molecular functionalities leading to DESs can be extended if complex DESs containing several types of HBA and/or HBDs in the same formulation are considered. Moreover, thesemulti HBA –HBD DESs can be considered as a mixture of simple DESs in certain molar ratios, thus including the effect of composition in DESs formulation increasing the number of available DES. This approach is parallel to the study of ionic liquid mixtures considering them as liquid mixtures [25] or complex double salt fluids [26]. Nevertheless, the literature on mixed DESs is remarkably scarce, if multi HBA:HBD DESs are considered as a mixture of DESs, thus deviations of ideality upon mixing can be analysed in terms\nof excess andmixing thermophysical properties, which have beenmeasured by some authors showing remarkable deviations from ideality [27–29]. Accordingly, such cases point to additional effects present in multi HBA:HBD DESs (mixed DESs) that do not present in simple DESs cases.\nThe behaviour of mixed DESs should be analysed in terms of intermolecular interactions and properties at the nanoscopic level, which is not available in the literature, to advance in the development of suitable DESmixtures for the plethora of possible technological applications in a suitable way by considering the large amount of HBA:HBD combinations and themixture composition effects. Therefore, with the objective of advancing in the understanding of mixed DESs nanoscopic features a model system with 0.33 ChCl:URE (1:2) + 0.33 ChCl:ethylene glycol (EG) (1:2) + 0.33 ChCl:glycerol (GLY) (1:2) composition is studied in this work, Fig. 1, using classical molecular dynamics simulations (MD). This particular mixed DES was selected considering that the DESs composing this mixed system have been widely studied in the literature from experimental and theoretical viewpoints. The properties of this mixed DES are analysed in bulk liquid phase as a function of temperature but also its behaviour at vacuum interface are modelled. Likewise, the liquid-liquid interfaces between the involved components of the mixed DESs are considered. Moreover, considering the relevance of (mixed) DESs for nanotechnological applications, a study on the behaviour of the considered mixed DES regarding 2D materials (graphene, boron nitride andMoS2) and 1Dmaterials (carbon nanotubes) is carried out. The available literature on the behaviour of DES with regard to nanomaterials from a molecular perspective is very scarce [30] but results for related compounds such as ionic liquids (ILs) have showed remarkable restructuring and layering at 2D nanomaterials (graphene) [31–37]. The reported results provide a characterization of microscopic interactions and structuring of mixed DESs and their behaviour regarding relevant nanomaterials, which is of relevance for the development of suitable DESs at industrial level applications. This study is the first one in open literature that deals with DES mixtures and their interactions with 1D/2D surfaces."
+    }, {
+      "heading" : "2. Methods",
+      "text" : "MD simulations for all the studied systemswere carried outwith the LAMMPS software [38]. The forcefield parameterizations for all the considered materials (mixed DES components: Ch, URE, EG, GLY; 2Dmaterials: graphene, boron nitride, MoS2; carbon nanotube) are reported in Table S1 (Supplementary Information). Atomic charges for mixed DES components were obtained from density functional theory calculations (using ORCA software) of ChCl:URE, ChCl:GLY or ChCl:EG 1:2 molecular clusters. Slightly different charges were inferred for Ch cation and Cl anion in each type of cluster, and thus atomic charges were averaged for each atom in Ch and Cl to obtain a single parameterization to be used for mixed DES containing the three types of HBDs (URE, GLY and\nEG). Bond, angle, dihedral and Lennard-Jones parameters for DESs are obtained from a previous work [39]. Lennard-Jones parameters and charges for 2D materials were obtained from the literature (graphene [40]; boron nitride [41]; MoS2 [42]).\nInitial simulation boxes were prepared using Packmol program [43], for the systems described in Table S2 (Supplementary Information). The systems considered in this work were:\ni) Bulk liquid phases of mixed DES (i.e. DES containing 300 Ch cations + 300 Cl anions + 200 URE+ 200 GLY+ 200 EG, to resemble an equimolar mixture of ChCL:URE + ChCl:GLY + ChCl: EG all of them at 1:2 mol ratio; namely mixed DES).\nii) Mixed DES at vacuum interface. iii) System composed by three liquid layers formed from top to bot-\ntombyChCl:EG, ChCl:URE andChCl:GLY, all with 1:2mol ratio, to study the properties of DES:DES interfaces. iv) A liquid layer of mixed DES on top of a single graphene sheet, or boron nitride sheet orMoS2 sheet (all of themwith 5 × 5 nm2) to study the behaviour of mixed DES at 2D materials interfaces.\nv) One (15,15) carbon single walled nanotube (SWNT, 37 Å long and hydrogen terminated) surrounded by mixed DES to study the solvation of SWNTs by mixed DES, and the confinement of mixed DES inside complex geometries.\nMD simulations were carried out in the NPT (bulk liquid phases) or NVT (remaining systems) ensembles. Temperature and pressure were controlled with Nose-Hoover method [44], with all the simulations carried out at 300 K (except simulations for bulk liquid phases which were carried out at 300, 330, 360 and 390 K) and 1 bar (for NPT simulations). The equations of motion were integrated using velocity Verlet method with 1 fs time step. Lennard-Jones interactionswere treatedwith potential cut-offs of 12 Å and the appropriate tail corrections. Coulombic interactions were handled according to the particle-particle particlemesh method. Simulations of systems containing 2D nanomaterials or carbon nanotubeswere carried outwith these entitiesfixed in initial positions (i.e. rigid entities). Periodic boundary conditions were applied in all directions. Simulations 50 ns longwere used for production purposes for all the considered systems."
+    }, {
+      "heading" : "3. Results and discussion",
+      "text" : "The behaviour of ChCl:(URE-EG-GLY) DES was initially analysed at 300 K and 1 bar using center-of-mass radial distribution functions, RDFs, as reported in Fig. 2. The solvation shells around Ch show Cl anions characterized by two RDF peaks at 4.1 and 4.6 Å with HBDs (URE, EG and GLY) placed at different regions: UREmolecules being the closer ones to Ch (RDFpeak 4.7 Å) andGLY at outer regions (RDFpeak at 5.7Å) with EG molecules being placed between both URE and GLY, Fig. 2a.\ner with atom labelling (red) for relevant hydrogen bonding sites.\nTherefore, solvation shells around Ch cations are heterogeneous and they do not directly resemble bulk mixture composition with URE molecules being placed closer to the cation, i.e. leading to stronger interactions, and GLY molecules placed in outer shells with EG molecules acting as bridges between both HBD regions. In the case of solvation shells around Cl anion, Fig. 2b, GLY molecules are placed closer to Cl (RDF at 3.5 Å) in comparison with URE (RDF peak at 4.0 Å), with EG at 3.7 Å but the RDF first peak is remarkably larger for URE than for GLY or EG. In the case of shells around HBDs, Fig. 2c, RDFs show wide bands instead of narrow peaks as obtained for shells around Ch or Cl (Fig. 2a and b), thus showingweaker HBD-HBD interactions in comparison with Ch-HBD or Cl-HBD. Solvation numbers reported in Fig. 2d to f confirm heterogeneous composition of solvation shells; shells around Ch (Fig. 2d) at distances lower than 6 Å are richer in URE and have lower content of EG and remarkably of GLY. In the case of shells around Cl anion, Fig. 2e, heterogeneities are also inferred but in this casewith an enrichment in EGmolecules in comparison with URE or GLY, which can be justified considering that URE molecules tend to be closer to Ch cations and thus they are placed in outer regions of solvation shells around Cl, as inferred from Fig. 2b, and thus leading to larger EG concentrations around Cl. In the case of shells around each type of HBD, Fig. 2f, a trend to enrich URE – EG interactions is inferred in comparison with URE – GLY ones, which can be justified considering the Ch-URE and Cl-EG trend to interact leading to the local heterogeneities reported in Fig. 2d and e. Therefore, local composition in the studied mixed DES are remarkably different to bulk liquid one,which can have a large effect on the physical and chemical properties when nanoscopic effects are considered, e.g. solubility or solvation of solutes in mixed DESs. Likewise, the preferential interaction mechanism with some of the considered HBDs is confirmed as the corresponding RDFs in mixed DESs are different to those in pure DES, e.g. for RDFs obtained experimentally from scattering experiments for pure reline [45].\nThemechanism of interaction between the involvedmolecular pairs is analysed through the site-site RDFs reported in Fig. 3, which show values for relevant hydrogen bonding sites considering that DESs structuring relies on the properties of the developed hydrogen bonds. RDFs in Fig. 3a show possible hydrogen bonding involving Ch cation, considering that Chmay act both as hydrogen bond donor or acceptor through the hydroxyl site (Oc and Hc atoms in Fig. 1). The large Ch-Cl hydrogen bonding is inferred as expected because of the RDF first narrow and intense peak at 2.0 Å, thus the integrity of Ch-Cl pairs in maintained upon developing the mixed DES. Regarding the Ch-HBD hydrogen bonding, results in Fig. 3a show a very intense and narrow RDF peak for Ch-URE interaction at 1.7 Å corresponding to Ch-URE hydrogen bonding with Ch molecules acting as hydrogen bond donors through the hydroxyl site. The other possible Ch-HBD hydrogen bonds for the involved HBDs and donor/acceptor sites are discarded from RDFs reported in Fig. 3a. Therefore, the enrichment in URE for solvation shells around Ch is justified by the preferential trend of Ch to develop hydrogen bonds with URE in comparison with hydrogen bonding with EG and GLY, which is less relevant as the intensity of the corresponding RDFs peaks show. Regarding the hydrogen bonding involving Cl anions, Fig. 3b, it is also clear the trend to develop interactions with URE molecules, as indicated by the intense RDF peak at 2.0 Å, in comparison with theweaker RDFs for EG and GLY at 2.3 Å. The possible HBD-HBD hydrogen bonds are analysed in Fig. 3c, UREmolecules showa certain trend to be hydrogen bonded both with EG and GLYmolecules; with URE molecules acting as hydrogen bond donor or, in minor extension, as acceptors (RDFs peaks at 1.9 Å) although the corresponding RDF peaks are remarkably weaker than those corresponding to Ch-URE or Cl-URE interactions. The possible EG-GLY interactions are discarded by results in Fig. 3c.\nThe temperature effect on mixed DES structuring has been analysed in the 300 to 390K temperature range and results are reported in Fig. S1\n(Supplementary Information) for the both ends of this temperature range. The main features of the mixed DES structuring are maintained in the studied temperature range, the main RDF peaks are maintained in their position and only a slight change in peaks intensities is inferred, thus showing a decrease in solvation numbers.\nIn a second stage of the research, the interfacial properties of the studied mixed DES are considered. The properties of mixed DES – vacuum interface are analysed in Fig. 4. Number density profile show that EGmolecules are placed in regions close to the vacuumside of the interface, well above the Gibbs dividing surface (GDS), whereas URE molecules are placed below the GDS with Ch, Cl and GLY molecules being placed between URE and EG close to the GDS, Fig. 4a. This heterogeneity at vacuum interface can be explained considering the strong trend of URE molecules to interact with Ch and Cl ions as reported in Fig. 3, and thus, to increase the number of URE – Ch/Cl contacts UREmolecules tend to be placed in inner regions of the interface. On the contrary, EG molecules are placed in outer regions due to their lower trend to interact with HBA (Ch and Cl) with GLY representing an intermediate situation and thus being placed between both regions. Therefore, the heterogeneity of mixed DES interactions is also demonstrated based on the findings at their behaviours at interfaces. Nevertheless, the snapshot reported in Fig. 4b above the interface discards the formation of local domains on the mixed DES surface, all the molecules are evenly distributed without local surface domains.\nDES-DES liquid interfaceswere also analysed, and results reported in Fig. 5. As the consideredmixed DES is formed by three different types of HBDs (URE, EG and GLY) a system composed by the three simple DES (ChCl:URE, ChCl:EG and ChCl:GLY) developing two liquid – liquid interfaces is considered, to analyse the behaviour of interfaces in the process ofmixing the pureDES leading to the consideredmixedDES, Fig. 5a. The number density profiles across the two interfaces (ChCl:URE – ChCl:EG and ChCl:URE – ChCl:EG) are reported in Fig. 5b. The reported results show no remarkable densification neither of Ch or Cl ions at the studied liquid-liquid interfaces, and number density profiles for both ions seem to extend across the two interfaces without remarkable discontinuity. This is also inferred for the considered HBDs for which no density peaks are obtained at the interfaces. Therefore, these liquid-liquid interfaces seem to be characterized by small changes across interfaces because of the presence of a common HBA (ChCl).\nThe properties of mixed DES + 2D materials interfaces (graphene, boron nitride and MoS2) were also considered, Fig. 6. The three studied 2D materials show remarkable adsorption peaks on the surface, although the intensity of density peaks close to the 2D surface (first adsorbed layer) are remarkably lower for MoS2 than for graphene of\n(b)\nnterface at 300 K and 1 bar. z stands for perpendicular to DES-vacuum interface. zGDS stands (gray) Ch, (cyan) Cl, (blue) URE, (red) EG and (green) GLY molecules.\nboron nitride; thus, pointing to weaker mixed DES – MoS2 interactions (as representative of transition metal dichalcogenides). For graphene and boron nitride, the number density peaks show very similar properties in terms of intensities and position for the involved molecules, which point to similar adsorption mechanisms on both surfaces. The stronger peaks are inferred for Ch as cation and EG as HBD, withweaker peaks for the remaining species. The peaks for Ch and EG are situated closer to the graphene than to the boron nitride but the overall distribution on both surfaces is very similar, with thefirst adsorbed layer largely composed byCh extending along thewhole surfaces andwith EG evenly distributed on themwithout local clustering. It should be remarked the low URE concentration in the first adsorbed layer, thus pointing to URE molecules being placed in regions closer to the bulk liquid phase. Likewise, density profiles for GLY are characterized by two peaks, one place at the same distance than the EG one and the other one at the distance for the Ch peak. In the case, of MoS2, density peaks are wider and poorly defined than for graphene or boron nitride, and reported results indicate a first adsorbed layer with almost equal presence of all the involved molecules in contrast with the prevailing Ch and EG presence on graphene and boron nitride surfaces. Therefore, the large trend of Ch and EG molecules to be adsorbed on graphene and boron nitride leads to a first adsorbed layer with composition different to the bulk, non-adsorbed, mixed DES. In the case of MoS2, although densification at the interface in inferred, it is remarkably less intense than for graphene or boron nitride.\nThe behaviour of mixed DES regarding carbon nanotubes was also studied to consider the effect of 1D interfaces and the local changes on mixed DES upon adsorption on the external walls of the nanotube and after confinement inside it. The first relevant results inferred from density profiles reported in Fig. 7a is that only EG and, in very minor extension, GLY molecules are confined inside the (15,15) single walled carbon nanotube studied in this work. The confined EG molecules adopt a structure inside the nanotube occurring at the inner surface of the nanotube, whereas the small number of confined GLY molecules is scarcely distributed inside the nanotube, Fig. 7b. Rest of the molecules remain at the outer regions of the nanotube and being adsorbed on the external wall. Regarding the molecular adsorption outside of the nanotube, results in Fig. 7a show up to three well defined adsorption layers for Ch cation, with the first layer developed at similar distance of the first adsorbed layer on graphene, Fig. 6a. The intensity of these three adsorbed layers is almost the same, Fig. 7a, and thus, three\nconcentric solvation shells around the considered nanotube are inferred for Ch. The comparison of Ch adsorption on graphene, Fig. 6a, and on carbon nanotube, Fig. 7, show that in the case of graphene a very intense first layer is inferred followed by a secondweek one,whereas in the case of the studied carbon nanotube the ordering effect by the presence of the nanomaterial is extended well-beyond the first adsorbed layer. Therefore, the disrupting effect of 1D carbon nanotubes on mixed DES structuring is larger than in the case of 2D graphene nanomaterials. The structuring of Cl anions around the nanotube follows a similar pattern to the one for Ch, with density peaks at similar distances to the nanotube wall, thus pointing to the adsorption of Ch-Cl pairs in the outer wall of the nanotube. In the case of the considered HBDs, URE shows a well-defined first adsorbed layer but disordered following adsorbed layers are inferred, and in the case of EG and GLY the structuring of the adsorbed layer is poorly defined even when considering the first adsorbed layer. This result is in contrast with the strong adsorption of EG on graphene surface as reported in Fig. 6a and it can be justified with the trend of EG molecules to be confined inside the carbon nanotube. This trend of EG molecules to penetrate inside the carbon nanotube is confirmed in Fig. 8, in which the fast penetration is inferred showing that in roughly 3 ns EG molecules can penetrate and fill the nanotube inner cavity leading to the structuring reported in Fig. 7b. This confirms again the heterogeneity in the properties of mixed DES, with some of the HBDs showing affinity for the confined regions of the 1D material and other types of HBDs remaining in the outer sides of the nanotube, close to the HBA, which is strongly adsorbed on the nanotube surface."
+    }, {
+      "heading" : "4. Conclusions",
+      "text" : "A theoretical study using classical molecular dynamics simulations for ChCl:(URE-EG-GLY)mixed deep eutectic solvents (DESs) is reported in this work as an approach to the properties of complex DESs containing several types of hydrogen bond donors (HBD) and/or acceptors (HBA). The properties of bulk liquid phase were analysed as a function of temperature showing local heterogeneities caused by the different properties of the developed hydrogen bonds, which in the case of the studied system stand on the strong trend of URE to develop interactions with ChCl hydrogen bonding sites. Therefore, the balance of HBA:HBD interactions for the considered HBDs (URE, EG and GLY) determine the local properties of the mixed DESs. The local ordering is not\nremarkably affected by increasing temperature in the studied temperature range (300 to 390K). Regarding the interfacial behaviour, the properties at the vacuum interface are related with the behaviour of liquid phase, with EGmolecules close to the vacuum layer above the Gibbs dividing surface, URE molecules below it and GLY placed in middle regions, which is justified by the preferential interaction of URE with ChCl. In the case of liquid-liquid interfaces, the presence of a common HBA, ChCl, leads to minor changes in the properties across the\ninterfaces. The adsorption of themixed deep eutectic solvent on 2Dmaterials is characterized by large densification in the first adsorbed layer on graphene and boron nitride, with increase of Ch and EG concentration at the interface, and less remarkable adsorption on MoS2 surface. The behaviour around carbon nanotubes is characterized by strong adsorption of ChCl on the outer surface and prevailing confinement of EG, with minor ordering of URE and GLY outside the nanotube, being limited to a first adsorbed layer poorly defined.\nThe reported results show the formation of heterogeneities at the nanoscopic level in the liquidmixed deep eutectic solvents and because of the presence of 1D and 2D nanomaterials. Therefore, the different characteristics of hydrogen bonding as a function of the type of considered HBD leads to different local properties of the mixed DESs, which can be fine-tuned through mixture composition, thus extending the possibility of controlling the mixed fluid properties for designing fluids according to the technological needs."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "We acknowledge funding by Consejería de Educación, Junta de Castilla y León (project BU094G18) and SCAYLE-Supercomputación Castilla y León for providing supercomputing facilities. The statements made herein are solely the responsibility of the authors."
+    }, {
+      "heading" : "Appendix A. Supplementary data",
+      "text" : "Table S1 (MD force field parameterization for ions used along this work); Table S2 (description of systems used for MD simulations).\nSupplementary data to this article can be found online at doi: https:// doi.org/10.1016/j.molliq.2019.03.068."
+    } ],
+    "references" : [ {
+      "title" : "Deep eutectic solvents: designer fluids for chemical processes",
+      "author" : [ "J. Wazeer", "M. Hayyan", "M. Hadj-Kali" ],
+      "venue" : "J. Chem. Technol. Biotechnol. 93 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Deep eutectic solvents (DESs) and their applications",
+      "author" : [ "E.L. Smith", "A.P. Abbott", "K.S. Ryder" ],
+      "venue" : "Chem. Rev. 114 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Deep eutectic solvents: physicochemical properties and gas separation applications",
+      "author" : [ "G. García", "S. Aparicio", "R. Ullah", "M. Atilhan" ],
+      "venue" : "Energy Fuel 29 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Redox fusion of metal particles using deep eutectic solvents",
+      "author" : [ "A.P. Abbott", "S. Cihangir", "K.S. Ryder" ],
+      "venue" : "Chem.Commun 54 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Applications of deep eutectic solvents in biotechnology and bioengineering—promises and challenges",
+      "author" : [ "Y.P. Mbous", "M. Hayyan", "A. Hayyan", "W.F. Wong", "M.A. Hashim", "Y. Looi" ],
+      "venue" : "Biotechnol. Adv. 35 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Recent advances in the application of deep eutectic solvents as sustainable media as well as catalysts in organic reactions",
+      "author" : [ "P. Liu", "J.W. Hao", "L.P. Mo", "Z.H. Zhang" ],
+      "venue" : "RSC Adv. 5 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Ionic liquids and deep eutectic solvents for biodiesel synthesis: A review",
+      "author" : [ "H. Zhao", "G.A. Baker" ],
+      "venue" : "J. Chem. Technol. Biotechnol. 88 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Design of functional therapeutic deep eutectic solvents based on choline chloride and ascorbic acid",
+      "author" : [ "J.M. Silva", "R.L. Reis", "A. Paiva", "A.R.C. Duartte" ],
+      "venue" : "ACS Sustain. Chem. Eng. 6 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Ramón, Deep eutectic solvents: the organic reaction medium of the century",
+      "author" : [ "A.D.A. Alonso", "Baeza", "R. Chinchilla", "G. Guillena", "I.M. Pastor", "D.J" ],
+      "venue" : "Eur. J. Org. Chem",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2016
+    }, {
+      "title" : "Screening of deep eutectic solvents (DESs) as green CO2 sorbents: from solubility to viscosity",
+      "author" : [ "S. Sarmad", "Y. Xie", "J.P. Mikkola", "X. Ji" ],
+      "venue" : "New J. Chem. 41 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Tailoring properties of natural deep eutectic solvents with water to facilitate their applications",
+      "author" : [ "Y. Dai", "G.J. Witkamp", "R. Verpoorte", "Y.H. Choi" ],
+      "venue" : "Food Chem. 187 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Natural deep eutectic solvents: properties",
+      "author" : [ "Y. Liu", "J.B. Friesen", "J.B. McAlpine", "D.C. Lankin", "S.N. Chen", "G.F. Pauli" ],
+      "venue" : "applications and perspectives, J. Nat. Prod. 81 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Ternary deep eutectic solvents tasked for carbon dioxide capture",
+      "author" : [ "L.L. Sze", "S. Pandey", "S. Ravula", "H. Zhao", "G.A. Baker", "S.N. Baker" ],
+      "venue" : "ACS Sustain. Chem. Eng. 2 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Design and characterization of sugar-based deep eutectic solvents using conductor-like screening model for real solvents",
+      "author" : [ "L.P. Silva", "L. Fernandez", "J.H.F. Conceicao", "M.A.R. Martins", "A. Sosa", "J. Ortega", "S.P. Pinho", "J.A.P. Coutinho" ],
+      "venue" : "ACS Sustain. Chem. Eng. 6 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "M",
+      "author" : [ "A. Abo-Hamad", "M. Hayyan", "M.A. AlSaadi" ],
+      "venue" : "A, Hashim, potential applications of deep eutectic solvents in nanotechnology, Chem. Eng. J. 273 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Deep eutectic solvents: sustainable media for nanoscale and functional materials",
+      "author" : [ "D.V. Wagle", "H. Zhao", "G.A. Baker" ],
+      "venue" : "Acc. Chem. Res. 47 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "V",
+      "author" : [ "L.I.N. Tomé" ],
+      "venue" : "Baiao,W. da Silva, C.M.A. Brett, Deep eutectic solvents for the production and application of new materials, Appl. Mater. Today 10 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Mechanochemical exfoliation of 2D crystals in deep eutectic solvents",
+      "author" : [ "A.M. Abdelkader", "I.A. Kinloch" ],
+      "venue" : "ACS Sustain. Chem. Eng. 4 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Large scale cathodic exfoliation of graphite using deep eutectic solvent and water mixture",
+      "author" : [ "D. Vasquez-Sandoval", "J. Pavez", "C. Carlesi", "A. Aracena" ],
+      "venue" : "Fullerenes, Nanotubes, Carbon Nanostruct. 26 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Functionalization of graphene using deep eutectic solvents",
+      "author" : [ "M. Hayyan", "A. Abo-Hamad", "M. AlSaadi", "M. Hashim" ],
+      "venue" : "Nanoscale Res. Lett. 10 (2015) 324.  154  M. Atilhan, S. Aparicio / Journal of Molecular Liquids 283 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Elucidating the properties of graphene–deep eutectic solvents Interface",
+      "author" : [ "M. Atilhan", "L.T. Costa", "S. Aparicio" ],
+      "venue" : "Langmuir 33 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Sugar-based natural deep eutectic mixtures as green intercalating solvents for high-yield preparation of stable MoS2 Nanosheets: application to electrocatalysis of hydrogen evolution reaction",
+      "author" : [ "Z. Mohammadpour", "S.H. Abdollahi", "A. Safavi" ],
+      "venue" : "ACS Appl. Energy Mater. 1 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Stability and Thermophysical studies on deep eutectic solvent based carbon nanotube nanofluid",
+      "author" : [ "Y.Y. Chen", "R. Walvekar", "M. Khalid", "K. Shahbaz", "T.C.S. Gupta" ],
+      "venue" : "Mater. Res. Express 4 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Functionalization of carbon nanotubes using eutectic mixtures: A promising route for enhanced aqueous dispersibility and electrochemical activity",
+      "author" : [ "A.A. Hamad", "M. Hayyan", "M.A. AlSaadi", "M.E.S. Mirghani", "M.A. Hashim" ],
+      "venue" : "Chem. Eng. J. 311 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Mixtures of ionic liquids",
+      "author" : [ "H. Niedermeyer", "J.P. Hallett", "I.J. Villar-Garcia", "P.A. Hunt", "T. Welton" ],
+      "venue" : "Chem. Soc. Rev. 41 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Mixing ionic liquids – “simple mixtures” or “double salts",
+      "author" : [ "G. Chatel", "J.F.B. Pereira", "V. Debbeti", "H. Wang", "R.D. Rogers" ],
+      "venue" : "Green Chem. 16 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Characteristics and intermolecular interaction of eutectic binary mixtures: reline and glyceline",
+      "author" : [ "F.S. Mjalli", "O.U. Ahmed" ],
+      "venue" : "Korean J. Chem. Eng. 33 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Physical properties and intermolecular interaction of eutectic solvents binary mixtures: reline and ethaline",
+      "author" : [ "F.S. Mjalli", "O.U. Ahmed" ],
+      "venue" : "Asia Pac. J. Chem. Eng. 11 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Ethaline and glyceline binary eutectic mixtures: characteristics and intermolecular interactions",
+      "author" : [ "F.S. Mjalli", "O.U. Ahmed" ],
+      "venue" : "Asia Pac. J. Chem. Eng. 12 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Elucidating the properties of graphene–deep eutectic solvents Interface",
+      "author" : [ "M. Atilhan", "L.T. Costa", "S. Aparicio" ],
+      "venue" : "Langmuir 33 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Molecular dynamics study of carbon nanostructures in nmethylpiperazinium lactate ionic liquid",
+      "author" : [ "S. Aparicio", "M. Atilhan" ],
+      "venue" : "J. Phys. Chem. C 117 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Theoretical study on the solvation of C60 fullerene by ionic liquids",
+      "author" : [ "G. García", "M. Atilhan", "S. Aparicio" ],
+      "venue" : "J. Phys. Chem. B 118 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Adsorption of choline benzoate ionic liquid on graphene",
+      "author" : [ "G. García", "M. Atilhan", "S. Aparicio" ],
+      "venue" : "silicene, germanene and boron-nitride nanosheets: a DFT perspective, Phys. Chem. Chem. Phys. 17 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Theoretical study of amino acid-based ionic liquids interacting with carbon nanosystems",
+      "author" : [ "C. Herrera", "R. Alcalde", "G. García", "M. Atilhan", "S. Aparicio" ],
+      "venue" : "J. Phys. Chem. C 119 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A",
+      "author" : [ "L. Tanzi", "F. Raimondo", "R. Caminiti", "M. Campetella" ],
+      "venue" : "Di luca, L. Gontrani, Structural studies on choline-carboxylate bio-ionic liquids by x-ray scattering and molecular dynamics, J. Chem. Phys. 143 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Molecular dynamics simulation of amino acid ionic liquids near a graphene electrode: effects of alkyl side-chain length",
+      "author" : [ "B.S. Moghadam", "M. Razmkhah", "M.T.H. Mosavian", "F. Moosavi" ],
+      "venue" : "Phys. Chem. Chem. Phys. 18 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Molecular dynamics simulations of pyrrolidinium and imidazolium ionic liquids at graphene interfaces",
+      "author" : [ "S. Begic", "F. Jónsson", "F. Chen", "M. Forsyth" ],
+      "venue" : "Phys. Chem. Chem. Phys. 19 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Fast parallel algorithms for short-range molecular dynamics",
+      "author" : [ "S. Plimpton" ],
+      "venue" : "J. Comput. Phys. 117 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "Interfacial properties of deep eutectic solvents regarding to CO2 capture",
+      "author" : [ "G. García", "M. Atilhan", "S. Aparicio" ],
+      "venue" : "J. Phys. Chem. C 119 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Ordering layers of [bmim][PF6] ionic liquid on graphite surfaces: molecular dynamics simulation",
+      "author" : [ "S. Maolin", "Z. Fuchun", "W. Guozhong", "F. Haiping", "W. Chunlei", "C. Shimou", "Z. Yi", "H. Jun" ],
+      "venue" : "J. Chem. Phys. 128 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "L",
+      "author" : [ "X. Song" ],
+      "venue" : "Lu, M.Wei, Z. Dai, S. Wang, Molecular dynamics simulations on the water flux in different two-dimension materials, Mol. Simul. ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Chem",
+      "author" : [ "V. Sresht", "A.G. Rajan", "E. Bordes", "M.S. Strano", "A.A.H. Padua", "D. Blankschtein", "J. Phys" ],
+      "venue" : "C 121 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Packmol: A package for building initial configurations for molecular dynamics simulations",
+      "author" : [ "L. Martínez", "R. Andrade", "E.G. Birgin", "J.M. Martínez" ],
+      "venue" : "J. Comput. Chem. 30 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Constant-pressure equations of motion",
+      "author" : [ "W.G. Hoover" ],
+      "venue" : "Phys. Rev. A: At. Mol. Opt. Phys. 34 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 1986
+    }, {
+      "title" : "Bulk and interfacial structures of reline deep eutectic solvent: A molecular dynamics study",
+      "author" : [ "S. Kaur", "S. Sharma", "H.K. Kashyap" ],
+      "venue" : "J. Chem. Phys. 147 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8].",
+      "startOffset" : 91,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 1,
+      "context" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8].",
+      "startOffset" : 122,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 2,
+      "context" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8].",
+      "startOffset" : 159,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 3,
+      "context" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8].",
+      "startOffset" : 181,
+      "endOffset" : 184
+    }, {
+      "referenceID" : 4,
+      "context" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8].",
+      "startOffset" : 200,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 5,
+      "context" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8].",
+      "startOffset" : 215,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 6,
+      "context" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8].",
+      "startOffset" : 241,
+      "endOffset" : 244
+    }, {
+      "referenceID" : 7,
+      "context" : "Deep eutectic solvents (DESs) have attracted great attention both in industry and academia [1] with proposed applications [2] in fields such as gas separation [3], metal deposition [4], biotechnology [5], catalysis [6], biodiesel production [7], or pharmacological developments [8].",
+      "startOffset" : 278,
+      "endOffset" : 281
+    }, {
+      "referenceID" : 2,
+      "context" : "wide liquid range, low volatility, moderate viscosity) [3,9,10], which can be fine-tuned by combining them with other types of solvents [11].",
+      "startOffset" : 55,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 8,
+      "context" : "wide liquid range, low volatility, moderate viscosity) [3,9,10], which can be fine-tuned by combining them with other types of solvents [11].",
+      "startOffset" : 55,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 9,
+      "context" : "wide liquid range, low volatility, moderate viscosity) [3,9,10], which can be fine-tuned by combining them with other types of solvents [11].",
+      "startOffset" : 55,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 10,
+      "context" : "wide liquid range, low volatility, moderate viscosity) [3,9,10], which can be fine-tuned by combining them with other types of solvents [11].",
+      "startOffset" : 136,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 11,
+      "context" : "Furthermore, DESs can also be produced from natural sources [12], and thus leading to low – cost environmentally friendly and non-toxic materials.",
+      "startOffset" : 60,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 12,
+      "context" : "Also, large number of molecular combinations that lead to novel DESs provide a platform for developing task specific materials [13,14].",
+      "startOffset" : 127,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 13,
+      "context" : "Also, large number of molecular combinations that lead to novel DESs provide a platform for developing task specific materials [13,14].",
+      "startOffset" : 127,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 14,
+      "context" : "One of the most recent proposed applications of DESs stand on their use in nanotechnology [15] for modifying or improving the properties of functional materials at nanoscale [16,17].",
+      "startOffset" : 90,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 15,
+      "context" : "One of the most recent proposed applications of DESs stand on their use in nanotechnology [15] for modifying or improving the properties of functional materials at nanoscale [16,17].",
+      "startOffset" : 174,
+      "endOffset" : 181
+    }, {
+      "referenceID" : 16,
+      "context" : "One of the most recent proposed applications of DESs stand on their use in nanotechnology [15] for modifying or improving the properties of functional materials at nanoscale [16,17].",
+      "startOffset" : 174,
+      "endOffset" : 181
+    }, {
+      "referenceID" : 17,
+      "context" : "Carbon-based nanomaterials such as 2D-graphene have also been considered in DESs for purposes such as exfoliation [18,19],",
+      "startOffset" : 114,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 18,
+      "context" : "Carbon-based nanomaterials such as 2D-graphene have also been considered in DESs for purposes such as exfoliation [18,19],",
+      "startOffset" : 114,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 19,
+      "context" : "functionalization [20], or tuning interface properties [21].",
+      "startOffset" : 18,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 20,
+      "context" : "functionalization [20], or tuning interface properties [21].",
+      "startOffset" : 55,
+      "endOffset" : 59
+    }, {
+      "referenceID" : 21,
+      "context" : "Additional 2D materials such as MoS2 [22] have been studied in DESs, and applications considering carbon nanotubes have been considered in DESs [23,24], thus proving the suitability of DESs for their application in nanomaterials development.",
+      "startOffset" : 37,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 22,
+      "context" : "Additional 2D materials such as MoS2 [22] have been studied in DESs, and applications considering carbon nanotubes have been considered in DESs [23,24], thus proving the suitability of DESs for their application in nanomaterials development.",
+      "startOffset" : 144,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 23,
+      "context" : "Additional 2D materials such as MoS2 [22] have been studied in DESs, and applications considering carbon nanotubes have been considered in DESs [23,24], thus proving the suitability of DESs for their application in nanomaterials development.",
+      "startOffset" : 144,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 24,
+      "context" : "This approach is parallel to the study of ionic liquid mixtures considering them as liquid mixtures [25] or complex double salt fluids [26].",
+      "startOffset" : 100,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 25,
+      "context" : "This approach is parallel to the study of ionic liquid mixtures considering them as liquid mixtures [25] or complex double salt fluids [26].",
+      "startOffset" : 135,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 29,
+      "context" : "The available literature on the behaviour of DES with regard to nanomaterials from a molecular perspective is very scarce [30] but results for related compounds such as ionic liquids (ILs) have showed remarkable restructuring and layering at 2D nanomaterials (graphene) [31–37].",
+      "startOffset" : 122,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 37,
+      "context" : "MD simulations for all the studied systemswere carried outwith the LAMMPS software [38].",
+      "startOffset" : 83,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 38,
+      "context" : "Bond, angle, dihedral and Lennard-Jones parameters for DESs are obtained from a previous work [39].",
+      "startOffset" : 94,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 39,
+      "context" : "Lennard-Jones parameters and charges for 2D materials were obtained from the literature (graphene [40]; boron nitride [41]; MoS2 [42]).",
+      "startOffset" : 98,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 40,
+      "context" : "Lennard-Jones parameters and charges for 2D materials were obtained from the literature (graphene [40]; boron nitride [41]; MoS2 [42]).",
+      "startOffset" : 118,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 41,
+      "context" : "Lennard-Jones parameters and charges for 2D materials were obtained from the literature (graphene [40]; boron nitride [41]; MoS2 [42]).",
+      "startOffset" : 129,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 42,
+      "context" : "Initial simulation boxes were prepared using Packmol program [43], for the systems described in Table S2 (Supplementary Information).",
+      "startOffset" : 61,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 43,
+      "context" : "Temperature and pressure were controlled with Nose-Hoover method [44], with all the simulations carried out at 300 K (except simulations for bulk liquid phases which were carried out at 300, 330, 360 and 390 K) and 1 bar (for NPT simulations).",
+      "startOffset" : 65,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 44,
+      "context" : "for RDFs obtained experimentally from scattering experiments for pure reline [45].",
+      "startOffset" : 77,
+      "endOffset" : 81
+    } ],
+    "year" : 2019,
+    "abstractText" : "Article history: Received 7 December 2018 Received in revised form 29 January 2019 Accepted 13 March 2019 Available online 14 March 2019 The nanoscopic level properties of amixed deep eutectic solvent composed by choline chloride as hydrogen bond acceptor and urea plus ethylene glycol plus glycerol as hydrogen bonddonor are studied using classicalmolecular dynamics simulations. Local heterogeneities are inferred by the development of prevailing hydrogen bonding for some of the involved hydrogen bond donors. Interfacial behaviour at vacuum is also characterized by different regions across the interface. In the case of liquid-liquid interfaces, the presence of a common type of hydrogen bond acceptor leads to minor structuring across the interfaces. The results of the behaviour of mixed deep eutectic on 2D surfaces show strong adsorption when graphene and boron nitride are considered and minor layering forMoS2, but adsorbed layers on thesematerials are also heterogeneous. Likewise, the behaviour of carbon nanotubes is also analysed, confirmed preferential confinement of one of the considered hydrogen bond donors (ethylene glycol) and nanotube solvation characterized by large adsorption of the considered hydrogen bond acceptor. The reported results show heterogeneities at the nanoscopic level in the mixed deep eutectic solvent induced by the developed preferential hydrogen bonding, which are proposed to control deep eutectic solvents properties through composition. © 2019 Elsevier B.V. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

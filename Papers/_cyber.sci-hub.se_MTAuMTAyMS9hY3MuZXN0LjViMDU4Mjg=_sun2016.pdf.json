@@ -1,0 +1,342 @@
+{
+  "name" : "_cyber.sci-hub.se_MTAuMTAyMS9hY3MuZXN0LjViMDU4Mjg=_sun2016.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Dynamic Probabilistic Modelling of Environmental Emissions of Engineered Nanomaterials",
+    "authors" : [ "Tianyin Sun", "Nikolaus A Bornhöft", "Konrad Hungerbuehler", "Bernd Nowack", "Tian Yin Sun", "Nikolaus A. Bornhöft", "Konrad Hungerbühler" ],
+    "emails" : [ "nowack@empa.ch" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Subscriber access provided by MONASH UNIVERSITY\nEnvironmental Science & Technology is published by the American Chemical Society. 1155 Sixteenth Street N.W., Washington, DC 20036 Published by American Chemical Society. Copyright © American Chemical Society. However, no copyright claim is made to original U.S. Government works, or works produced by employees of any Commonwealth realm Crown government in the course of their duties.\nArticle\nDynamic Probabilistic Modelling of Environmental Emissions of Engineered Nanomaterials\nTianyin Sun, Nikolaus A Bornhöft, Konrad Hungerbuehler, and Bernd Nowack Environ. Sci. Technol., Just Accepted Manuscript • DOI: 10.1021/acs.est.5b05828 • Publication Date (Web): 04 Apr 2016\nDownloaded from http://pubs.acs.org on April 10, 2016\nJust Accepted\n“Just Accepted” manuscripts have been peer-reviewed and accepted for publication. They are posted online prior to technical editing, formatting for publication and author proofing. The American Chemical Society provides “Just Accepted” as a free service to the research community to expedite the dissemination of scientific material as soon as possible after acceptance. “Just Accepted” manuscripts appear in full in PDF format accompanied by an HTML abstract. “Just Accepted” manuscripts have been fully peer reviewed, but should not be considered the official version of record. They are accessible to all readers and citable by the Digital Object Identifier (DOI®). “Just Accepted” is an optional service offered to authors. Therefore, the “Just Accepted” Web site may not include all articles that will be published in the journal. After a manuscript is technically edited and formatted, it will be removed from the “Just Accepted” Web site and published as an ASAP article. Note that technical editing may introduce minor changes to the manuscript text and/or graphics which could affect content, and all legal disclaimers and ethical guidelines that apply to the journal pertain. ACS cannot be held responsible for errors or consequences arising from the use of information contained in these “Just Accepted” manuscripts.\n1\nDynamic Probabilistic Modelling of Environmental Emissions of 1\nEngineered Nanomaterials 2\n3\nTian Yin Sun 1,2‡ , Nikolaus A. Bornhöft 1,3 , Konrad Hungerbühler 2 and Bernd Nowack 1 * 4\n5\n1) Empa – Swiss Federal Laboratories for Materials Science and Technology 6\nTechnology and Society Laboratory 7\nLerchenfeldstrasse 5, CH-9014 St. Gallen, Switzerland 8\n9\n2) Institute for Chemical and Bioengineering, ETH Zürich, 10\nCH-8093 Zürich, Switzerland 11\n12\n3) Department of Informatics, University of Zurich, Binzmühlestrasse 14, 8050 Zurich, Swit-13\nzerland 14\n15\n16\n17\n* Corresponding author 18\n19\n20\nnowack@empa.ch 21\nTel: +41 (0)58 765 76 92 22\nFax: +41 (0)58 765 78 62 23\n24\n25\n‡ Current address: Singapore-ETH Centre, Future Resilient Systems, 1 Create Way, #06-01 CREATE Tower, 138602, Singapore.\nPage 1 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n2\nAbstract 26\nThe need for an environmental risk assessment for engineered nanomaterials (ENM) necessitates the 27 knowledge about their environmental concentrations. Despite significant advances in analytical meth-28 ods, it is still not possible to measure the concentrations of ENM in natural systems. Material flow and 29 environmental fate models have been used to provide predicted environmental concentrations. How-30 ever, almost all current models are static and consider neither the rapid development of ENM produc-31 tion nor the fact that many ENM are entering an in-use stock and are released with a lag phase. Here 32 we use dynamic probabilistic material flow modelling to predict the flows of four ENM (nano-TiO2, 33 nano-ZnO, nano-Ag and CNT) to the environment and to quantify their amounts in (temporary) sinks 34 such as the in-use stock and (“final”) environmental sinks such as soil and sediment. Caused by the in-35 crease in production, the concentrations of all ENM in all compartments are increasing. Nano-TiO2 36 had far higher concentrations than the other three ENM. Sediment showed in our worst-case scenario 37 concentrations ranging from 6.7 µg/kg (CNT) to about 40’000 µg/kg (nano-TiO2). In most cases the 38 concentrations in waste incineration residues are at the “mg/kg” level. The flows to the environment 39 that we provide will constitute the most accurate and reliable input of masses for environmental fate 40 models which are using process-based descriptions of the fate and behaviour of ENM in natural sys-41 tems and rely on accurate mass input parameters. 42\n43\n44\n45\nPage 2 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n3\nTOC Art 46\n47\n48\n49\nPage 3 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n4\nIntroduction 50\nConcerns about the potential environmental risks induced by the exposure to engineered nanomaterials 51 (ENM) are growing. An environmental risk by ENM might occur when the exposure to these materials 52 exceeds an ecotoxicological limit concentration in environment.1 Therefore, knowing the current lev-53 els of ENM in environment is a fundamental step to assess the environmental risk of these materials. 54 To date, the quantification of ENM in environmental samples, especially in solid samples such as soil 55\nand sediment, is still not possible. 2, 3 On the one hand, ENM are in most cases not directly detectable 56 by analytic methods due to their very low concentration; on the other hand, even if detected, there are 57 still major difficulties to differentiate the naturally occurring nanomaterials from the ENM. 4 In order to 58 perform a proactive environmental risk analysis, currently the only way to obtain information on exist-59\ning levels of ENM in the environment is to model predicted environmental concentrations (PEC). 2, 5 60 Several modelling studies have presented quantitative estimations of the environmental concentrations 61\nof ENM 2, 6-12 . Mechanistic models specifically considering agglomeration and sedimentation reactions 62 of ENM have also been developed13, 14. 63\nHowever, all the material flow models published so far are static and do not consider time-dependent 64 processes with respect to the use and release of ENM. The current models consider only the input by 65 production, manufacturing and consumption (PMC) into the system that occurs in one year and subse-66 quently distribute the mass over the entire system in the same year. The models also assume that all 67 ENM produced are released to waste streams and environmental compartments in the same year that 68 they enter the system and no in-use stocks are considered. With these two oversimplifications of the 69 true situation, the static models do not represent the actual ENM flows to environmental compartments 70 under conditions where a rapid increase in production of ENM is taking place15 and when they are en-71 tering in-use stocks. Moreover, the static models cannot predict concentrations in environmental sinks, 72 such as soil or sediment, because these compartments accumulate inputs over many years. 73\nFirst attempts in considering accumulation in environmental sinks have been made by Gottschalk et 74 al.9 who used a very simplistic model to scale the input in different years to calculate final concentra-75 tions in soil and sediment. Sun et al. made a spatio-temporal prediction of mass-flows and concentra-76 tions for five ENM in biosolids amended soil in South Australia over a period between 2005 and 77\n2012. 16 However, both studies only considered one aspect of the dynamic nature of the system, the pe-78 riodic production inputs into the system. The delayed ENM release from in-use stock was not covered 79 at all so far. 80\nA more realistic prediction of ENM flows to the environment therefore requires a dynamic material-81 flow analysis model (MFA). Unlike the static models, the dynamic MFA takes a reasonable time frame 82 as the temporal system boundary and tracks the flows over many years; it also no longer needs the 83 simplified assumption that all ENM are immediately released from all applications when they are pro-84\nPage 4 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n5\nduced. Dynamic MFA is a well-established modelling technique. Müller et al. 17 performed a review 85 on dynamic material flow modelling methods and studied whether and how uncertainty is treated by 86 these methods. More than half of the methods covered by this review did not consider uncertainty at 87 all; while there are some that use sensitivity analysis (37%), Gaussian error propagation (6%) or pa-88 rameter ranges (5%), but none supports a full uncertainty representation with probability. The proba-89 bilistic dynamic MFA (DP-MFA) method developed by Bornhöft et al.18 fills this knowledge gap. This 90 model treats all the uncertainty with probabilistic approaches. It constitutes the fundamental platform 91 based on which the dynamic materials flow model of ENM is built. 92\nThe aim of this work was to build a customised dynamic probabilistic material flow model (DP-MFA) 93 based on the method recently developed by Bornhöft et al.18 This new model predicts the former, cur-94 rent and future mass-flows of four ENM - nano-TiO2, nano-ZnO, nano-Ag, and CNT - to technical and 95 environmental compartments and the resulting concentrations in these compartments over time. 96\nPage 5 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n6\nMethods 97"
+    }, {
+      "heading" : "General principle 98",
+      "text" : "The new DP-MFA model for the four ENM is distinguished from all previous static models by the fol-99 lowing two aspects: 1) time scope consideration of a period rather than a single year; 2) time depend-100 ent ENM release from products over the life-cycle of the products rather than simply assuming com-101 plete ENM release from products in one year when they are produced. We call the first point input 102 dynamics in the context of this study, and the latter release dynamics. The input dynamics describe the 103 annual production of ENM as inflows into the system within a given period. The release dynamics de-104 scribe the time-dependent ENM release kinetics from a specific product category over the entire life-105 cycle. 106\nFollowing a life-cycle concept, the model tracks the ENM mass-flows from ENM production to incor-107 poration into the commercial products and finally from the products to technical and environmental 108\ncompartments during/after their use and disposal 19 . Probabilistic methods are employed for all the pa-109 rameters used in the modelling processes to address the inherent uncertainty in the raw data used20. 110 This means data from varied sources, with inherently different reliability, are combined into an appro-111 priate probability density distribution. The input data for the model are the annual production amounts 112 of ENM in the EU, the estimated shares of ENM applied onto product categories, the process-based 113 transfer coefficients within and among the technical systems and the transfer coefficients between en-114 vironmental compartments. All these parameters are treated as appropriate probability distributions 115 depending on the data available. For each of the parameters, 100’000 random iterations are made to 116 represent the comprehensive picture of the probability density distribution as described in a previous 117 study20. 118\nThe scheme of the DP-MFA is shown in Figure 1. It consists of two modules: the “Release Module” 119 and the “Distribution Module”. The “Release Module” addresses the input and release dynamics. It 120 describes the annual ENM production/consumption entering the system, the estimated share onto 121 product categories, the flows from product categories by immediate release or into in-use stocks and 122 finally the release from in-use stocks. The total annual release of ENM is then transferred to the com-123 partments of the “Distribution Module”. The “Distribution Module” is built upon the previous static 124 model11, which describes the ENM transfers within and between technical and environmental com-125\npartments. The transfer coefficients for the “Distribution Module” summarised from Sun (2014) 11 are 126 listed in the supporting information Table S5. 127\n128\nSystem boundary 129\nPage 6 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n7\nThe geographical focus of this study is the European Union (EU) due to the abundant information 130 available. But modelling for other regions can be easily expanded once data needed are provided. The 131 technical compartments included in this study are landfills, sewage treatment plants (STP), waste in-132 cineration plants (WIP), recycling and export. The environmental compartments considered are at-133 mosphere, natural and urban soil, sewage sludge treated soil, surface waters and sediment. Among the-134 se compartments, landfills, soil and sediment are defined as sink compartments. From sink 135 compartments no downstream flows are modelled. A study by Caballero et al.21 was included provid-136 ing an explicit description of ENM fate during and after recycling processes. 137\nIn this study we track the mass of the initial ENM. Transformed ENM (in our definition particles 138 which lose their nano features i.e. by incineration, dissolution, or chemical reactions) will be viewed 139 as loss of the ENM and flow to a virtual compartment called “Elimination”. 140\n141 142 PC: Product Category; Technical systems: landfills, sewage treatment plants, waste incineration, recycling, and export; Envi-143 ronment: Air, soil (natural and urban soil and sewage sludge treated soil), surface water, sediment; Stock indicates the mass 144 stocked for both “Use release” and “EoL release” which are further explained in the following section “Release dynamics”. 145 146\nFigure 1: Schematic of the probabilistic dynamic material flow model for ENM. It consists of two mod-147 ules, the “Release Module” and the “Distribution Module”. The “Release Module” focuses on dynamic 148 system behaviour, describing both the input dynamics and the release dynamics. The “Distribution 149 Module” describes ENM distributions within and between technical and environmental systems after 150 they are released out of the use phase. 151\n152\nInput dynamics 153\nPage 7 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n8\nWe considered in our model a time frame from 1990 to 2020. Explanations of the definition of the 154 time frame are given in the Supplementary Information (SI). The estimation of production of ENM 155 over time is made by multiplying the base year production (2012) with retrospective and prospective 156 scaling factors. The production of the four ENM in 2012 is based on the probability distributions pro-157\nvided by Sun et al. 11 updated with newly available data. Table S1 shows the raw data used for building 158 the probability distribution of the ENM production in 2012. The scaling factors for each individual 159 year are based on ENM market projections, nanotechnology patent analysis, and direct information on 160 ENM production15. We use the assumption that the development of ENM production is proportional to 161 nanotechnology development with respects to e.g. patents registrations, funding etc. A summary of all 162 the data used for estimating probability distributions of the scaling factors are summarised in Table S2. 163 The probability distribution of ENM production in 2012 and the probability distributions of scaling 164 factors are multiplied to obtain the probability distribution of ENM production for the period from 165 1990 to 2020. Production data in 2012 are used as the reference because they are available in Sun et 166 al.11. 167\nFor nano-Ag, an additional estimation of the production development for a period from 1900 to 2020 168 has been made. This longer time period is founded in the historic applications of “silver colloids” that 169\nare in fact nano-Ag. 22 Detailed information on how this was done can be found in the SI. 170\n171\nRelease dynamics 172\n“Release” in our definition refers to ENM that leave the production, manufacturing, and consumption 173 phase and are transferred to technical or environmental compartments. The total ENM production is 174 assigned to different nano-enabled product categories in shares based on the information provided by a 175\nprevious study. 11 This allocation of ENM to product categories is assumed to remain constant over the 176 time considered in this study. Figure 2 shows the scheme of how time dependent ENM release from 177 products is expressed in the model. It proceeds in four steps: allocation of total ENM to different 178 products❶, separation of ENM allocated to one product category into the “Use release” and “End of 179 Life (EoL) release” ❷, scheduling of “Use and EoL release” ❸, allocation of ENM to technical 180 and/or environmental compartment after “Use release” and “EoL release”❹. Scheduling in this con-181 text indicates the allocation of ENM mass released over the time. 182\nPage 8 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n9\n183\nTC: Transfer Coefficient; EoL: End of Life 184\nFigure 2: Schematic visualization of the time dependent ENM release dynamics. For ENM contained in 185 a product category, the first step ❶ is the allocation of total produced ENM to different products. The 186 second step ❷ is the division of the total ENM-content between the “Use release” and “EoL release”. 187 The ENM contained in a product category allocated to “Use release” is the fraction supposed to be re-188 leased during its use phase; the part allocated to “EoL release” is the fraction supposed to be remain-189 ing in the product and be released once the products come to their end of life. The third step ❸ is the 190 definition of the duration of the “Use release” and the “EoL release” as well as the release schedule; in 191 other words in how many years the release events take place for one product category and how much 192 of the fraction is released each year. The “EoL release” depends on the life-time distributions of each 193 product category; here normal distributions are assumed. The fourth step ❹ is the allocation of the 194 released ENM from the scheduled “Use release” and “EoL release” to technical and environmental 195 compartments. 196\n197\nTable 1 depicts the dynamic release parameters for nano-Ag as an example. The respective data for the 198 other ENM are given in the SI. This table demonstrates the division of the release between “Use re-199 lease” and “EoL release”, the release schedule over time and the allocation to different compartments 200 after release. As Table 1 shows, important products categories such as “Electronics and Appliances”, 201 “Medtech” and “Paints” have the major part of nano-Ag remaining in the product and it is released 202 when it reaches the end of life. In contrast, product categories like “Textiles”, “Cosmetics”, “Foods”, 203 “Cleaning agents” and “Plastics” have their nano-Ag component released mainly during the use phase. 204\nProduct life times are often independent of the ENM application, therefore they are either well known 205 or can be easily estimated. The release kinetics of ENM is specific to which ENM is applied to and 206\nPage 9 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n10\nhow the material is bound to a product. This information is based preferably on experimental data 207 when it is available or estimated on the basis of expert judgement. The use of realistic data compared 208\nto worst-case assumptions 7-12, 23 ensures a realistic modelling effort. 209\nThe product categories “Electronics & Appliances”, “Plastics”, “Paints”, “Metals” and “Filters” have 210 life-times normally longer than 5 years. With 20 years of use release, “Metals” is the product category 211 with the longest use release. “Electronics and Appliances”, the most important product category for 212\nnano-Ag, has an average life-time of 8 years. 24 Fast release is found in non-durable product categories 213 for instance “Cosmetics”, “Foods”, “Cleaning agents” and “Medtech”. For these, we have estimated 214 general use release durations of 1 to 2 years. Experimental studies indicated that the majority of nano-215 Ag release takes place in the early stage of their life-time.25, 26 Therefore, in the use release schedule 216 release is mostly allocated to the first year. Most nano-Ag released during use release end up in waste 217 water, which was evaluated on the basis of a previous study11. 218\nIn our approach, the EoL release schedule of ENM for a product category is represented by its life-219 time distribution, i.e. the time it takes until the products are discarded. The longest EoL release is es-220 timated for “Paints”. Although “Paints” have an average use release duration of 8 years, the EoL re-221 lease duration is in average 80 years, governed by the life-time of the buildings they are applied to.27, 28 222 Complete use release in the first year is assumed for product categories with fast use release, such as 223 “Foods”, “Cleaning agents” and “Medtech”. Distribution of nano-Ag to landfill, WIP, recycling and 224 export after EoL releases are made according to solids waste management statistics in the EU for gen-225 eral solid waste29 and specific waste30-35. 226\n227\nCalculation of concentrations 228\nConcentrations are calculated by using standard volumes of environmental compartments (based on 229 the REACH guidance36). There are either flow-through compartments (e.g. water, air) without accu-230 mulation and sinks (e.g. soil, sediment) with accumulation. Additionally, for air and surface water, a 231 retention time of 10 (Anastasio and Martin, 200137) and 40 (ECB, 200336) days were used, therefore 232 10/365 and 40/365 of the yearly input flows into these compartments were considered as the fraction 233 of ENM remaining in the two compartments. The value for air is not particle specific but represents an 234 average residence time of particles smaller than 100 nm in air. Over the timescale of the modelling (1 235 year) in principle all particles settle out of the atmosphere. This value is therefore not a very critical 236 one in our model and using an average value is therefore reasonable. A summary of the volumes of the 237 compartments is given in supporting information Table S7. 238\nPage 10 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n11\nTable 1: Summary of parameters for the release dynamics used in the model for nano-Ag; the respective information for nano-TiO2, nano-ZnO and CNT is provided in 239 Table S6, Supporting Information. The column “Priority” or ❶ is based on the share of nano-Ag applied in the different product categories. Columns ❷, ❸ and ❹ 240 correspond to the three allocation steps shown in Figure 2. Values of X in the column “Use release” in step ❷ indicate the fraction of nano-Ag contained in a product 241 released during the use phase; values of 1-X in the column “EoL release” indicate the fraction of nano-Ag released at the product’s end of life (EoL). “Use release dura-242 tion” in step ❸ means the estimated number of years during which release takes place; “Use release schedule” in step ❸ describes during the use phase how much 243 nano-Ag is released from a product each year; “Allocation after use release” and “Allocation after EoL release” in step ❹ contains information about the transfer co-244 efficients defining the nano-Ag allocation to different compartments after release; the life-times of the products categories are assumed to be normally distributed. 245 Average life-time and standard deviations are either based on literature if available or estimated based on expert judgement; 3 σ is used to show the whole span of 246 the life-time. 247\n❶ ❷ ❸ ❹ ❷ ❸ ❹\nPriority (share of the total nano-Ag application) (a)\nnano-Ag (product\ncategories)\nUse\nrelease Use\nrelease\nduration\n(years)\nUse release schedule Allocation after\nuse release (b)\nEoL\nrelease\nLifetime\ndistribution\n(normal)\nNote: σ is the\nstandard deviation\nAllocation after EoL release\nX Y1 Y2 Y3 Y4 … Waste\nwater Air\nSurface\nwater Soil 1-X Landfill WIP Recycling Export\n38.1% Electronics\n& Appliances 0.30\n(b) 8 (c) 1/8 (d) 1.00 0.70 (b) mean=8; 3σ=8 (c)(d) 0.09 (e) 0.06 (e) 0.65 (f) 0.2 (g)\n25.1% Textiles 0.60 (h)\n3 (i)\n0.7 (h)\n0.2 (h) 0.1 (h)\n0.80 0.20 0.40 (h)\nmean=3; 3σ=2 (i)\n0.31 (j)\n0.07 (j)\n0.28 (j)\n0.34 (j)\n10.2% Cosmetics 0.95 (b)\n2 (d)\n0.9 (d)\n0.1 (d)\n0.90 0.10 0.05 (b)\nY1=0.90, Y2=0.10 (d)\n0.35 (e) 0.25 (e)\n0.40 (k)\n6.6% Foods 0.90 (a)\n1 (d)\n1.0 (d)\n1.00 0.10 (a)\nY1=1.0 (d)\n0.6 (e)\n0.4 (e)\n6.0% Cleaning agents 0.95 (b)\n1 (d)\n1.0 (d)\n1.00 0.05 (b)\nY1=1.0 (d)\n0.35 (e) 0.25 (e)\n0.40 (k)\n3.6% Medtech 0.05 (d)\n1 (d)\n1.0 (d)\n1.00 0.95 (d)\nY1=1.0 (d)\n1 (d)\n3.3% Plastics 0.80 (d)\n8 (d)\n1/8 (d)\n1.00 0.20 (d)\nmean=8; 3σ=5 (d)\n0.35 (e) 0.25 (e)\n0.40 (k)\n3.0% Paints 0.35 (l)\n7 (m)\n0.9 (l)\n0.1*(1/6) (d)(l)\n0.50 0.25 0.25 0.65 (l)\nmean=80; 3σ=20 (n)\n0.3 (d)\n0.7 (o)\n2.4% Metals 0.05 (b)\n20 (d)\n1/20 (d)\n1.00 0.95 (b)\nmean=20; 3σ=5 (d)\n0.03 (e) 0.02 (e)\n0.95 (j)\n0.6% Glass & Ceramics 0.35 (l)\n10 (d)\n0.9 (l)\n0.1*(1/9) (d)(l)\n1.00 0.65 (l)\nmean=10; 3σ=5 (d)\n0.20 (e) 0.10 (e)\n0.7 (p)\n0.6% Soil remediation 0.98 (d)\n1 (d)\n1.0 (d)\n1.00 0.02 (d)\nY1=1.0 (d)\n0.6 (e)\n0.4 (e)\n0.3% Filter 0.30 (a)\n8 (m)\n1/8 (d)\n0.80 0.20 0.70 (a)\nmean=8; 3σ=8 (m)\n0.09 (e) 0.06 (e)\n0.65 (f)\n0.2 (g)\n0.2% Diapers 0.05 (d)\n1 (d)\n1.0 (d)\n1.00 0.95 (d)\nY1=1.0 (d)\n1 (d)\n0.1% Paper 0 (d)\n1.00 (d)\nmean=5; 3σ=4 (d)\n0.07 (e) 0.03 (e)\n0.7 (q)\n0.2 (q)\nNote: Yn = year n, e.g. Y1= year 1 248\n(a) Sun et al. 2014 11\n(b) Revised based on Sun et al.2014 11\n(c) SWICO report 24\n(d) Expert opinion (e) Bakas et al.2011 29\n(f) Kiddee et al. 2013 30\n(g) EEA 2012 31\n(h) Pers. com, P. Limpiteeprakan (i) Webpage 38\n(j) FOE 2013 32\n(k) EEA website 33\n(l) Kaegi et al. 2010 26\n(m)ATD Home inspection 28\n(n) Hischier et al.2015 27\n(o) EEA 2009 39\n(p) Glass International 34\n(q) ERPC 35\nPage 11 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n12\nResults and discussion 249\nMass-flows of the four ENM 250\nFlows of the four ENM from production and use to release into all compartments were modelled by 251 combining the modelled production volumes, shares of ENM applied in products and transfer factors 252 between all the compartments for the year 2014, incorporating the dynamics of the system from 1990 253 to 2014, as shown in Figure 3. The mean total productions of nano-TiO2, nano-ZnO, CNT and nano-254 Ag estimated for EU in 2014 were 39’000, 7’300, 730 and 50 tonnes respectively. Depending on the 255 products applying these materials, different shares of amounts currently produced are entering into in-256 use stock or are released into technical and environmental compartments. For nano-TiO2, nano-ZnO 257 and nano-Ag, about half of the year’s total input into the system enters the in-use stock and the rest is 258 directly released during the same year. With respect to CNT, less than 1% (1 out of 730 tons) is direct-259 ly released and nearly 100% is allocated to the in-use stock. The amount in the in-use stock up to 2014 260 for nano-TiO2, nano-ZnO and nano-Ag is in general around two times of their input in 2014; for CNT 261 it is four times because the majority is stocked. Releases from in-use stock together with the immedi-262 ate release from 2014’s input constitute the total release in 2014. Compared to the immediate release, 263 the release from stocks (previous year’s input into the system) is in most cases much smaller, being 264 about 15-30% of the total annual release. The one exception are CNT, for which more than 99% of the 265 annual release in 2014 is coming from in-use stock, again showing their particular applications in pol-266 ymer nano-composites which result in little immediate release. 267\nThis importance of releases from in-use stocks justifies the need for a dynamic modelling of ENM. 268 Because flows into a certain product category are split into stocked and released amounts, it is not pos-269 sible to compare the new results to those of static models such as from Sun (2014) or Keller (2014)10, 270 11, 23 . In these models the production in one year was completely distributed to the environment, an as-271 sumption that our dynamic modelling has clearly shown to be not representative for the ENM investi-272 gated. 273\nThe most prominent flows for nano-TiO2 and nano-ZnO after release were from production, manufac-274 turing, and consumption (PMC) to wastewater (and further to STP). This is due to the fact that the ma-275 jor applications for these two ENM are in cosmetics (the priority columns in Table 1 and Table S6 276 shows the shares for all ENM applications). For nano-Ag, the major flows are from PMC to landfill 277 and to waste water. The most prominent flows for CNT were from PMC to landfill, followed by the 278 flow to WIP, and from there to elimination. This can be explained by the fact that most of these mate-279 rials are applied in polymer composites. ENM flows through the STP are mainly captured in STP 280 sludge, and further transported to WIP and landfill, and some ENM end up in soil from sludge applica-281 tion. After wastewater treatment processes, nano-ZnO is transformed into different chemical forms 282\nsuch as ZnS, Zn sorbed to iron oxides and Zn3(PO4) 40, 41 and thus allocated to the virtual elimination 283\nPage 12 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n13\ncompartment. As mentioned above, after passing through wastewater treatment, most of the metallic 284 nano-Ag is transformed to Ag sulphides and is therefore also ending up in the elimination compart-285 ment (and therefore left the system because the metallic nano-Ag property was lost). 286\nWith respect to recycling, we were able to include the fate of ENM during recycling based on a recent 287\nmodelling study of ENM flows during recycling 21 . We were therefore able to follow the majority of 288 the mass flowing to recycling on their way to subsequent compartments. 289\nOne of the reasons to conduct a dynamic modelling endeavour is to calculate the ENM loads in com-290 partments that accumulate ENM. With the dynamic model we are able to provide the accumulated 291 mass of ENM in landfills, soil and sediment, with the values shown in black squares in Figure 3. All 292 these three compartments are important sinks of ENM. In general, the accumulated masses are about 293 five times larger than the contemporary input flows in 2014. For nano-TiO2 sludge treated soil (with 294 45’000 tons) is found to be the largest accumulator, followed by sediment (with 43’000 tons) and land-295 fills (with 40’000 tons). For nano-ZnO, sediments accumulate the most (with 7’000 tons), followed by 296 natural and urban soil (with 1’400 tons) and landfill (1’000 tons). Nano-Ag finds its most significant 297 accumulations in landfills (40 tons) and sediment (30 tons). In the case of CNT, landfills dominate the 298 list with almost 500 tons, while the accumulated masses in other sinks are less than 30 tons. These dif-299 ferences again highlight the varied life-cycles of the different products in which these ENM are ap-300 plied. 301\nBoth Figure 1 and Figure 3 highlight the release module, which drives the model dynamics. In the re-302 lease module there are two dynamic aspects: the time-dependent annual input and the time-dependent 303 ENM release from products. These two then result in a dynamic behaviour in all the following pro-304 cesses and compartments. In sink compartments there is an accumulation over time, which constitutes 305 an additional important dynamic aspect of our model. 306\n307\nPage 13 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n14\n308\n309\nPage 14 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n15\n310\n311\nPage 15 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n16\nPCNE: “Product Categories Not Evaluated” in the recycling compartment refers to materials in processes not 312 covered by Caballero-Guzman (2015), which forms the basis of the recycling processes modelled; NU Soil: 313 natural and urban soil. ST Soil: Sludge treated soil, for values of ENM annual inflows and accumulations to/in 314 ST soil, only the amount carried by sludge is accounted here. Pavements: where waste is used as road 315 pavements, is modelled here as a separately from recycling, because the data for this is directly available. 316\nFigure 3: Mass-flows and stocks of the dynamic modelling of a) nano-TiO2, b) nano-ZnO, c) nano-Ag 317 and d) CNT in the EU for the year 2014 in ton/year (for flows) and ton (for stocks). The nano-Ag flow 318 chart displays the 1990-2020 scenario. The values for flow quantities are mean values from the re-319 spective probability distributions and are rounded to three significant digits. The thickness of the ar-320 rows reflects the quantities of flows; the blue/black squares in some compartments represent stocks 321 in these compartments, e.g. in-use stock, landfill, soil, and sediment. Values in these stocks are given 322 to represent the current status of ENM accumulation in 2014. Colours of flow arrows are only for dif-323 ferentiating flows. The dynamic component, the “Release Module”, is highlighted with the red dashed 324 circle. The dashed lines from “Surface water” to “Sediment” or leaving the system indicate worst case 325 scenarios: A) full sedimentation and B) no sedimentation, where ENM are fully stable in water and are 326 carried by water out of the system boundary. 327\n328\nConcentrations 329\nOne reason to conduct a dynamic modelling endeavour is to describe the former and predict the future 330 development. Figure 4 shows the modelled mean and 15% and 85% quantiles concentrations evolution 331 of nano-TiO2, nano-ZnO, nano-Ag and CNT in the EU from 1990 to 2020 (for nano-Ag an additional 332 scenario from 1900 to 2020, provided in Figure S2). The compartments for which concentrations of 333 ENM are calculated are assumed to be well-mixed and homogenous, although natural and urban soil 334 and sewage sludge treated soil are differentiated. These concentrations are therefore representative for 335 an average hypothetical region as defined in the REACH guidance42. All details about the parameters 336 used to calculate the concentrations are given in Table S7. 337\nTriggered by the increase in production, the concentrations of all ENM in all compartments are in-338 creasing. Some of the compartments are flow-through compartments with no accumulation such as 339 sludge, waste and wastewater effluents, others are accumulating sinks such as sediment and soil. De-340 pending on the materials, the ranking order of concentrations differs, mainly caused by the different 341 life-cycles of the products where these materials are applied. Regarding the development, nano-TiO2, 342 nano-ZnO and nano-Ag follow a similar pattern. On a logarithmical scale, all materials show initially 343 larger increases of concentrations in sinks compared to flow-through compartments. The steepest in-344 crease in concentrations is observed for CNT in solid wastes. This can be explained again by the very 345 different life-cycles of products applying CNT. A dominant majority of the products applying CNT are 346 “durable” products, such as polymer composite that have almost no CNT release during use. Release 347 takes place only when they come to the disposal phase. This leads the fact that most of CNT end up in 348 solid waste over time, and further results in higher concentration there. Concentrations in air can be 349 found always at the bottom indicating very low concentrations. However, it must be noted that the unit 350\nPage 16 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n17\nused here for air is mg/m 3 which is different from the others. Therefore, these values cannot be directly 351 compared with the concentrations in other compartments. The uncertainty in the concentrations are 352 shown by the colored bands in Figure 4 (15% to 85% quantile), resulting from the combination of the 353 uncertainties of all modeling parameters. Basically the sewage treatment plant related compartments 354 (STP sludge, STP effluent and surface water) have a relatively high uncertainty range which can be 355 partially explained by the large uncertainty involved in the STP removal efficiency. This parameter 356 represents not only the uncertainty of the measured results but also the variety of a range of “generic 357 ENM” that the model is targeting. 358\n359\n360\nPage 17 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n18\nPage 18 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n19\nen for nano-ZnO because after STP processes no primary nano-ZnO survive as indicated in an earlier 371\nstudy i16 . 372\n373\nTable 2 shows the predicted ENM concentrations in STP effluent, surface water, STP sludge, air, solid 374 waste entering landfill, solid waste entering WIP, WIP bottom ash and WIP fly ash, as well as accumu-375 lated concentrations in sediment, soil, and STP sludge treated soil for the EU in 2014. The values pre-376 sented are the mean values, mode values, median values and the 15% and 85% quantiles (Q0.15 and 377 Q0.85) from each distribution. This feature of our results is unique compared to other deterministic 378 models because it allows assessing the range and the likelihood of expected concentrations. In general, 379 for all ENM (except nano-ZnO), the highest concentration is found in STP sludge, followed by solid 380 waste, WIP bottom ash and WIP fly ash. Among the environmental compartments (soil, surface water, 381 air and sediment), sediment had higher than other compartments, followed by STP-sludge treated soil, 382 then untreated soil and surface water, followed by air, with the lowest concentration of ENM overall. 383 For soil and sediment, the simulations provided the accumulative amount of ENM deposited in these 384 compartments since 1990. 385\nIn all the compartments considered, nano-TiO2 had far higher concentrations than the other three 386 ENM. This reflects the correlation between the total input production volume and the consequent con-387 centration in different compartments. Sediment, where most ENM entering surface water end up in our 388 worst-case scenario, showed accumulated concentration ranging from 6.7 µg/kg (CNT) to about 389 40’000 µg/kg (nano-TiO2). In most cases the concentrations in WIP materials (solid waste to WIP, 390 WIP bottom ash and WIP fly ash) are at the “mg/kg” level. 391\nComparing the results for the concentrations of nano-Ag based on the two scenarios with different 392 time scope, the results of the scenario with the time frame “1900-2020” are only slightly higher than 393 the results of the scenario “1990-2020”. For most compartments the difference is less than a factor of 394 two. Larger differences are found in the accumulated amounts in sludge treated soil and sediment. 395 There, the concentrations from the scenario “1900-2020” are a factor of five higher than those of the 396 scenario of depicting “1990–2020”. Here, certainly the longer accumulation effect plays a role, alt-397 hough historic nano-Ag uses were modelled to be much lower than current ones. 398\n399\nPage 19 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\nPage 20 of 27\nEnvironmental Science & Technology\n21\nAlthough in reality there may well be ENM in landfill leachates, our model did not take this into ac-405 count due to the insufficient quantitative information that exists on this process. It also needs to be 406 noted that the concentrations in surface water and sediment reflect worst-case scenarios for both com-407 partments. No fate modelling was performed and the water concentrations assume no sedimentation or 408 other losses while the sediment concentrations reflect complete sedimentation from water. However, 409 our flow results can be used as input data for dedicated mechanistic fate models that all rely on accu-410 rate predictions of the input flows. 411\nDue to the different dynamic and static modelling concepts applied, it is not really possible to draw a 412\ndirect comparison between the newly predicted concentrations results with all previous studies 8-11, 16, 23 . 413 As stated in the mass flow section above, the previous models distributed the produced mass in one 414 year to the whole system in that year while our dynamic modelling clearly revealed that in-use stocks 415 and delayed releases are highly important and essentially define the system behaviour. However, this 416 does not necessarily lead to lower predicted concentrations because releases from previous years are 417 also considered and in some cases may dominate the flows. Similar concentrations in 2014 predicted 418 by static and dynamic models may therefore by chance have the same magnitude. Extending the 419 simulation time will reveal larger and larger differences between the two approaches due to additional 420 releases from stocks. 421\nThe values presented in Table 2 include both the uncertainty in some of the parameters as well as the 422 variability that is caused by the representation of a range of different forms of an ENM (e.g. coatings, 423 functionalization), which are subsumed under the label of a generic ENM, e.g. nano-TiO2. In our ap-424 proach, single numbers are treated as distributions. Triangular, uniform, normal and other distributions 425 are used alone or combined in accordance to available data. This treatment of the available data allows 426 us to consider for each parameter the knowledge that is available by including always the specific un-427 certainty associated with each parameter. 428\nThe major purpose of the dynamic modelling is to track the historical concentrations and project the 429 future concentrations of ENM in accumulative compartments. Therefore, besides the ENM concentra-430 tions predicted for the year 2014, we also provide the concentrations in 2020 in Table S8. Additionally, 431 the predicted evolution of ENM concentrations in major compartments is provided in Figure 4. These 432 predictions are based on the combined estimates of different market research companies and are 433 grounded in the increase in the market in the last years and are probably valid if the technology con-434 tinues to develop as it does today. Full probability distributions of flow data for single years are avail-435 able from the authors upon request. 436\n437\nConsiderations for the applicability of model results 438\nPage 21 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n22\nThe concentrations we provide for the technical compartments, e.g. wastewater, sludge or bottom ash-439 es and the ENM loads into environmental compartments, e.g. surface water, soil and air (see Table S9), 440 can be used as input values for more sophisticated environmental fate models that incorporate a mech-441 anistic description of fate processes, e.g. agglomeration and sedimentation. These models then add an-442 other level of complexity with respect to dynamic modelling because they are considering the dynam-443 ics of physical and chemical reactions not included in our flow models. Praetorius et al. for example 444 used the ENM mass flow to natural waters from Gottschalk et al. 9 as input to their mechanistic river 445 fate modelling of nano-TiO2 13. Also Gottschalk et al.43 used the release from wastewater from the 446 same source as input for a local modelling study with high spatial resolution of ENM within the Swiss 447 river network. In another example using the same dataset, Dumont et al.44 calculated the spatial distri-448\nbution of ENM in European watersheds. Meesters et al. 45 took the emission data to air, water and soil 449 from the Mueller (2008)8 mass-flow model as their SimpleBox4Nano model input. Liu et al.46 used the 450\nENM emission results from Gottschalk et al. 9 and Keller et al. 23 as input data for their fate model. Dale 451 et al.47 used the US emission data for nano-Ag and nano-ZnO from Gottschalk et al.9 and included a 452 modelling of the dynamics of water and sediment flows in streams and chemical transformations. This 453 list exemplifies that the data provided by mass flow models are absolutely crucial for the fate models 454 to come up with correct environmental concentrations as they all rely on mass inputs into one or sev-455 eral environmental compartments. The results of our dynamic model provide so far the most reliable 456 and accurate results by incorporating ENM accumulation and release and they constitute the funda-457 mental input information for predicting realistic concentrations results by environmental fate models. 458 The use of dynamic MFA models is standard in assessing flows of materials in situations with rapid 459 technological changes 17 and our new dynamic MFA modelling of ENM is making use of this tool. 460 Whereas the dynamic modelling requires more input data, we have shown that it is feasible to estimate 461 the required data by combining information on technology development, release and fate processes in 462 technical systems. In a situation with rapid increase in production and use of ENM, the modelling of 463 environmental sinks needs to include historic uses that were much smaller (and future ones that might 464 be much higher). The use of ENM in products with a long delay before any substantial release may 465 occur (as is the case for ENM contained in polymers), is another strong argument for the use of a dy-466 namic model that is able to capture the stocks of ENM contained in products. 467\nWe have to stress here that the concentrations reported in our work for environmental sinks such as 468 soils and sediments do not consider any further chemical reaction such as dissolution or transfor-469 mation, which will likely be very important for materials such as Ag and ZnO. To include these reac-470 tions into models will require the use of the above-mentioned environmental fate models. The results 471 we provide are therefore worst-case assumptions on accumulated concentrations. Furthermore, be-472 cause our model tracks the ENM release with a one year-based resolution, the release variability be-473 tween seasons is not reflected in our study, e.g. consumption of sunscreen only takes place massively 474\nPage 22 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n23\nduring summer time. However, once data with better resolution are available, the model is able to cal-475 culate ENM release with a better temporal resolution. 476\nThe concentrations in natural compartments that we calculated nevertheless provide ecotoxicologists 477 and risk assessors with crucial exposure data needed for first ecological risk assessments. As long as 478 analytical chemists are not able to quantify ENM at the natural concentrations and distinguish them 479 from the natural background particles, the modelled concentrations constitute the only source of envi-480 ronmental exposure information that we have available. The modelled concentrations have previously 481 been used to compare the exposure levels used in toxicological studies48 or to perform a full environ-482 mental risk assessment based on the comparison of PEC values with NOEC values (no observed effect 483 concentrations) extracted from the ecotoxicological literature1. These assessments rely on the provi-484 sion of accurate environmental exposure data and our dynamic modelling is able to provide the most 485 realistic and accurate numbers on flows and accumulated amounts in sinks. In the current situation a 486 validation of modeled data for environmental ENM exposure is not possible as discussed in Nowack et 487 al. (2015)4 but using the resulting data together in a mutually supportive way will advance the field of 488 ENM risk assessment. 489\n490\nPage 23 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n24\nAcknowledgements 491\nThe authors would like to thank Prof. Dr. Martin Scheringer for valuable discussions on the manu-492 script. The authors would also like to thank Dr. Denise Mitrano for reviewing the manuscript and im-493 proving the English. Tian Yin Sun was supported by project 406440_131241 of the Swiss National 494 Science Foundation within the National Research Program 64. Nikolaus A. Bornhöft was supported by 495 the European Commission within the Seventh Framework Programme (FP7; MARINA project - Grant 496 Agreement n° 263215). 497\n498\nSupporting Information available 499\nDerivation of input dynamics. Details for release parameters for TiO2, ZnO and CNT. Summary of 500 volumes of technical and environmental compartments. Comparison of the modeled mean concentra-501 tion evolution of nano-Ag from two different scenarios from 1990 to 2020 and from 1900 to 2020. Ta-502 ble with Predicted (Accumulated) concentrations of nano-TiO2, nano-ZnO, nano-Ag and CNT in waste 503 streams and environmental compartments in the EU in 2020. This information is available free of 504 charge via the Internet at http://pubs.acs.org. 505\n506\nPage 24 of 27\nACS Paragon Plus Environment\nEnvironmental Science & Technology\n25"
+    } ],
+    "references" : [ {
+      "title" : "Engineered nanomaterials in water and soils: A risk quantification based on probabilistic exposure and effect modeling",
+      "author" : [ "F. Gottschalk", "E. Kost", "B. Nowack" ],
+      "venue" : "Environmental Toxicology and Chemistry 2013,",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2013
+    }, {
+      "title" : "Environmental concentrations of engineered nanomaterials: Review of modeling and analytical studies",
+      "author" : [ "F. Gottschalk", "T. Sun", "B. Nowack" ],
+      "venue" : "Environmental Pollution",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2013
+    }, {
+      "title" : "Analysis of engineered nanomaterials in complex matrices (environment and biota): General considerations and conceptual case studies",
+      "author" : [ "F. von der Kammer", "P.L. Ferguson", "P.A. Holden", "A. Masion", "K.R. Rogers", "S.J. Klaine", "A.A. Koelmans", "N. Horne", "J.M. Unrine" ],
+      "venue" : "Environ. Toxicol. Chem. 2012,",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2012
+    }, {
+      "title" : "Progress towards the validation of modeled environmental concentrations of engineered nanomaterials by analytical measurements",
+      "author" : [ "B. Nowack", "M. Baalousha", "N. Bornhoft", "Q. Chaudhry", "G. Cornelis", "J. Cotterill", "A. Gondikas", "M. Hassellov", "J. Lead", "D.M. Mitrano", "F. von der Kammer", "T. Wontner-Smith" ],
+      "venue" : "Environmental Science: Nano 2015,",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2015
+    }, {
+      "title" : "Modeling Approaches for Characterizing and Evaluating Environmental Exposure to Engineered Nanomaterials in Support of Risk-Based Decision Making",
+      "author" : [ "C.O. Hendren", "M. Lowry", "K.D. Grieger", "E.S. Money", "J.M. Johnston", "M.R. Wiesner", "S.M. Beaulieu" ],
+      "venue" : "Environ Sci Technol 2013,",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2013
+    }, {
+      "title" : "Estimation of cumulative aquatic exposure and risk due to silver: Contribution of nano-functionalized plastics and textiles",
+      "author" : [ "S.A. Blaser", "M. Scheringer", "M. MacLeod", "K. Hungerbuhler" ],
+      "venue" : "Sci. Total Environ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2008
+    }, {
+      "title" : "Current and future predicted environmental exposure to engineered nanoparticles; Central Science",
+      "author" : [ "A.B.A. Boxall", "Q. Chaudhry", "C. Sinclair", "A.D. Jones", "R. Aitken", "B. Jefferson", "C. Watts" ],
+      "venue" : null,
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2007
+    }, {
+      "title" : "Exposure modeling of engineered nanoparticles in the environment",
+      "author" : [ "N.C. Mueller", "B. Nowack" ],
+      "venue" : "Environ. Sci. Technol. 2008,",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2008
+    }, {
+      "title" : "Modeled environmental concentrations of engineered nanomaterials (TiO2, ZnO, Ag, CNT, fullerenes) for different regions",
+      "author" : [ "F. Gottschalk", "T. Sonderer", "R.W. Scholz", "B. Nowack" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2009
+    }, {
+      "title" : "Global life cycle releases of engineered nanomaterials",
+      "author" : [ "A. Keller", "S. McFerran", "A. Lazareva", "S. Suh" ],
+      "venue" : "J Nanopart Res 2013,",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2013
+    }, {
+      "title" : "Comprehensive probabilistic modelling of environmental emissions of engineered nanomaterials",
+      "author" : [ "T.Y. Sun", "F. Gottschalk", "K. Hungerbühler", "B. Nowack" ],
+      "venue" : "Environmental Pollution",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2014
+    }, {
+      "title" : "An assessment of the fate, behaviour and environmental risk associated with sunscreen TiO2 nanoparticles",
+      "author" : [ "A.C. Johnson", "M.J. Bowes", "A. Crossley", "H.P. Jarvie", "K. Jurkschat", "M.D. Jorgens", "A.J. Lawlor", "B. Park", "P. Rowland", "D. Spurgeon", "C. Svendsen", "I.P. Thompson", "R.J. Barnes", "R.J. Williams", "N. Xu" ],
+      "venue" : null,
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2011
+    }, {
+      "title" : "Development of Environmental Fate Models for Engineered Nanoparticles—A Case Study of TiO2 Nanoparticles in the Rhine River",
+      "author" : [ "A. Praetorius", "M. Scheringer", "K. Hungerbühler" ],
+      "venue" : "Environ Sci Technol 2012,",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2012
+    }, {
+      "title" : "Challenges in Exposure Modeling of Nanoparticles in Aquatic Environments",
+      "author" : [ "R. Arvidsson", "S. Molander", "B.A. Sanden", "M. Hassellov" ],
+      "venue" : "Human and Ecological Risk Assessment 2011,",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2011
+    }, {
+      "title" : "Industrial production quantities and uses of ten engineered nanomaterials in Europe and the world",
+      "author" : [ "F. Piccinno", "F. Gottschalk", "S. Seeger", "B. Nowack" ],
+      "venue" : "J Nanopart Res 2012,",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2012
+    }, {
+      "title" : "Probabilistic modelling of engineered nanomaterial emissions to the environment: a spatio-temporal approach",
+      "author" : [ "T.Y. Sun", "G. Conroy", "E. Donner", "K. Hungerbuhler", "E. Lombi", "B. Nowack" ],
+      "venue" : "Environmental Science: Nano 2015,",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2015
+    }, {
+      "title" : "Modeling Metal Stocks and Flows: A Review of Dynamic Material Flow Analysis Methods",
+      "author" : [ "E. Müller", "L.M. Hilty", "R. Widmer", "M. Schluep", "M. Faulstich" ],
+      "venue" : "Environ Sci Technol 2014,",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2014
+    }, {
+      "title" : "A dynamic probabilistic material flow modeling method",
+      "author" : [ "N.A. Bornhöft", "T.Y. Sun", "L.M. Hilty", "B. Nowack" ],
+      "venue" : "Environmental Modelling & Software 2016,",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2016
+    }, {
+      "title" : "Review of nanomaterial aging and transformations through the life cycle of nano-enhanced products",
+      "author" : [ "D.M. Mitrano", "S. Motellier", "S. Clavaguera", "B. Nowack" ],
+      "venue" : "Environment International 2015,",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2015
+    }, {
+      "title" : "Probabilistic material flow modeling for assessing the environmental exposure to compounds: Methodology and an application to engineered nanoTiO2 particles",
+      "author" : [ "F. Gottschalk", "R.W. Scholz", "B. Nowack" ],
+      "venue" : "Environ. Modeling Software 2010,",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2010
+    }, {
+      "title" : "Flows of engineered nanomaterials through the recycling process in Switzerland",
+      "author" : [ "A. Caballero-Guzman", "T. Sun", "B. Nowack" ],
+      "venue" : "Waste Management 2015,",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2015
+    }, {
+      "title" : "Height, M., 120 years of nanosilver history: implications for policy makers",
+      "author" : [ "B. Nowack", "H.F. Krug" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2011
+    }, {
+      "title" : "Predicted Releases of Engineered Nanomaterials: From Global to Regional to Local",
+      "author" : [ "A.A. Keller", "A. Lazareva" ],
+      "venue" : "Environmental Science & Technology Letters 2013,",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2013
+    }, {
+      "title" : "SLRS",
+      "author" : [ "SENS SWIC" ],
+      "venue" : "Fachbericht 2014;",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "The preparation and antibacterial activity of polyester fabric loaded with silver nanoparticles",
+      "author" : [ "H. Xu", "X. Shi", "Y. Lv", "Z. Mao" ],
+      "venue" : "Textile Research Journal 2013,",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2013
+    }, {
+      "title" : "Release of silver nanoparticles from outdoor facades",
+      "author" : [ "R. Kaegi", "B. Sinnet", "S. Zuleeg", "H. Hagendorfer", "E. Mueller", "R. Vonbank", "M. Boller", "M. Burkhardt" ],
+      "venue" : "Environmental Pollution",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2010
+    }, {
+      "title" : "Life cycle assessment of façade coating systems containing manufactured nanomaterials",
+      "author" : [ "R. Hischier", "B. Nowack", "F. Gottschalk", "I. Hincapie", "M. Steinfeldt", "C. Som" ],
+      "venue" : "J Nanopart Res 2015,",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2015
+    }, {
+      "title" : "Projections of Municipal Waste Management and Greenhouse Gases",
+      "author" : [ "I. Bakas", "M. Sieck", "T. Hermann", "F.M. Andersen", "H. Larsen" ],
+      "venue" : "European Environment Agency:",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2011
+    }, {
+      "title" : "Electronic waste management approaches: An overview",
+      "author" : [ "P. Kiddee", "R. Naidu", "M.H. Wong" ],
+      "venue" : "Waste Management 2013,",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2013
+    }, {
+      "title" : "Atmospheric nanoparticles",
+      "author" : [ "C. Anastasio", "S.T. Martin" ],
+      "venue" : "In Nanoparticles and the Environment,",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2001
+    }, {
+      "title" : "Fate of Zinc Oxide and Silver Nanoparticles in a Pilot Wastewater Treatment Plant and in Processed Biosolids",
+      "author" : [ "R. Ma", "C. Levard", "J.D. Judy", "J.M. Unrine", "M. Durenkamp", "B. Martin", "B. Jefferson", "G.V. Lowry" ],
+      "venue" : "Environ Sci Technol 2013,",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2013
+    }, {
+      "title" : "Fate of Zinc Oxide Nanoparticles during Anaerobic Digestion of Wastewater and Post-Treatment Processing of Sewage Sludge",
+      "author" : [ "E. Lombi", "E. Donner", "E. Tavakkoli", "T.W. Turney", "R. Naidu", "B.W. Miller", "K.G. Scheckel" ],
+      "venue" : "Environ Sci Technol 2012,",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2012
+    }, {
+      "title" : "Engineered nanomaterials in rivers – Exposure scenarios for Switzerland at high spatial and temporal resolution",
+      "author" : [ "F. Gottschalk", "C. Ort", "R.W. Scholz", "B. Nowack" ],
+      "venue" : "Environmental Pollution",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2011
+    }, {
+      "title" : "Nano silver and nano zinc-oxide in surface waters – Exposure estimation for Europe at high spatial and temporal resolution",
+      "author" : [ "E. Dumont", "A.C. Johnson", "V.D.J. Keller", "R.J. Williams" ],
+      "venue" : "Environmental Pollution",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2015
+    }, {
+      "title" : "Multimedia Modeling of Engineered Nanoparticles with SimpleBox4nano: Model Definition and Evaluation",
+      "author" : [ "J.A.J. Meesters", "A.A. Koelmans", "J.T.K. Quik", "A.J. Hendriks", "D. van de Meent" ],
+      "venue" : "Environ Sci Technol 2014,",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2014
+    }, {
+      "title" : "Multimedia Environmental Distribution of Engineered Nanomaterials",
+      "author" : [ "H.H. Liu", "Y. Cohen" ],
+      "venue" : "Environ Sci Technol 2014,",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2014
+    }, {
+      "title" : "Stream dynamics and chemical transformations control the environmental fate of silver and zinc oxide nanoparticles in a watershed-scale model",
+      "author" : [ "A.L. Dale", "G.V. Lowry", "E.A. Casman" ],
+      "venue" : "Environ Sci Technol 2015,",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2015
+    }, {
+      "title" : "Evaluation of Exposure Concentrations Used in Assessing Manufactured Nanomaterial Environmental Hazards: Are They Relevant",
+      "author" : [ "P.A. Holden", "F. Klaessig", "R.F. Turco", "J.H. Priester", "C.M. Rico", "H. Avila-Arias", "M. Mortimer", "K. Pacpaco", "J.L. Gardea-Torresdey" ],
+      "venue" : "Environ Sci Technol 2014,",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2014
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "An environmental risk by ENM might occur when the exposure to these materials 52 exceeds an ecotoxicological limit concentration in environment.(1) Therefore, knowing the current lev53",
+      "startOffset" : 144,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 8,
+      "context" : "First attempts in considering accumulation in environmental sinks have been made by Gottschalk et 74 al.(9) who used a very simplistic model to scale the input in different years to calculate final concentra75 tions in soil and sediment.",
+      "startOffset" : 104,
+      "endOffset" : 107
+    }, {
+      "referenceID" : 17,
+      "context" : "The proba89 bilistic dynamic MFA (DP-MFA) method developed by Bornhöft et al.(18) fills this knowledge gap.",
+      "startOffset" : 77,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 17,
+      "context" : "The aim of this work was to build a customised dynamic probabilistic material flow model (DP-MFA) 93 based on the method recently developed by Bornhöft et al.(18) This new model predicts the former, cur94 rent and future mass-flows of four ENM - nano-TiO2, nano-ZnO, nano-Ag, and CNT - to technical and 95 environmental compartments and the resulting concentrations in these compartments over time.",
+      "startOffset" : 158,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 20,
+      "context" : "A study by Caballero et al.(21) was included provid136 ing an explicit description of ENM fate during and after recycling processes.",
+      "startOffset" : 27,
+      "endOffset" : 31
+    }, {
+      "referenceID" : 10,
+      "context" : "Production data in 2012 are used as the reference because they are available in Sun et 166 al.(11).",
+      "startOffset" : 94,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 32,
+      "context" : "Also Gottschalk et al.(43) used the release from wastewater from the 446 same source as input for a local modelling study with high spatial resolution of ENM within the Swiss 447 river network.",
+      "startOffset" : 22,
+      "endOffset" : 26
+    }, {
+      "referenceID" : 33,
+      "context" : "In another example using the same dataset, Dumont et al.(44) calculated the spatial distri448",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 35,
+      "context" : "Liu et al.(46) used the 450 ENM emission results from Gottschalk et al.",
+      "startOffset" : 10,
+      "endOffset" : 14
+    }, {
+      "referenceID" : 36,
+      "context" : "Dale 451 et al.(47) used the US emission data for nano-Ag and nano-ZnO from Gottschalk et al.",
+      "startOffset" : 15,
+      "endOffset" : 19
+    }, {
+      "referenceID" : 8,
+      "context" : "used the US emission data for nano-Ag and nano-ZnO from Gottschalk et al.(9) and included a 452 modelling of the dynamics of water and sediment flows in streams and chemical transformations.",
+      "startOffset" : 73,
+      "endOffset" : 76
+    } ],
+    "year" : 2016,
+    "abstractText" : null,
+    "creator" : null
+  }
+}

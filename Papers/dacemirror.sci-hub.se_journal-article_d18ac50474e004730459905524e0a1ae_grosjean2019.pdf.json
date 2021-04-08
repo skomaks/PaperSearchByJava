@@ -1,0 +1,361 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_d18ac50474e004730459905524e0a1ae_grosjean2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Versatile electrification of two-dimensional nanomaterials in water",
+    "authors" : [ "Benoît Grosjean", "Marie-Laure Bocquet", "Rodolphe Vuilleumier" ],
+    "emails" : [ "marie-laure.bocquet@ens.fr)", "rodolphe.vuilleumier@ens.fr)" ],
+    "sections" : [ {
+      "heading" : "ARTICLE",
+      "text" : "Versatile electrification of two-dimensional nanomaterials in water Benoît Grosjean1, Marie-Laure Bocquet 1 & Rodolphe Vuilleumier 1\nThe recent emergence of nanofluidics has highlighted the exceptional properties of graphene\nand its boron-nitride counterpart as confining nanomaterials for water and ion transport.\nSurprisingly, ionic transport experiments have unveiled a consequent electrification of the\nwater/carbon surfaces, with a contrasting response for its water/boron-nitride homologue.\nIn this paper, we report free energy calculations based on ab initio molecular dynamics\nsimulations of hydroxide OH− ions in water near graphene and hexagonal boron nitride\n(h-BN) layers. Our results disclose that both surfaces get charged through hydroxide\nadsorption, but two strongly different mechanisms are evidenced. The hydroxide species\nshows weak physisorption on the graphene surface while it exhibits also strong chemisorption\non the h-BN surface. Interestingly OH− is shown to keep very fast lateral dynamics and\ninterfacial mobility within the physisorbed layer on graphene. Taking into account the large\nionic surface conductivity, an analytic transport model allows to reproduce quantitatively\nthe experimental data.\nhttps://doi.org/10.1038/s41467-019-09708-7 OPEN\n1 PASTEUR, Département de chimie, École normale supérieure, PSL University, Sorbonne Université, CNRS, 24 Rue Lhomond, 75005 Paris, France. Correspondence and requests for materials should be addressed to M.-L.B. (email: marie-laure.bocquet@ens.fr) or to R.V. (email: rodolphe.vuilleumier@ens.fr)\nNATURE COMMUNICATIONS | (2019) 10:1656 | https://doi.org/10.1038/s41467-019-09708-7 | www.nature.com/naturecommunications 1\n12 34\n56 78\n9 0 () :,;\nThe common wisdom states the chemical inertness ofboron-nitride and carbon-based nanomaterials in mildconditions1,2. However, this passive picture is not a dogma and was actually invalidated in various conditions. For example, defect-free graphene basal plane can be activated electronically when supported on metal substrates in ultrahigh vacuum3. More puzzling, the chemical reactivity of carbon and boron-nitride two-dimensional materials was assessed in aqueous solvents, thanks to nanofluidic transport measurements. Indeed giant surface charging was highlighted in ionic transport measurement of electrolytes through multiwall nanotubes made from carbon (CNT) or its BN analogue (BNNT)4,5, with a surface charge reaching up to 1 C.m−2 for BNNT and 0.01 to 0.1 C.m−2 for CNT. This is one to two orders of magnitude larger than any other reported surface charge, e.g., on silica glass6. The strong pH dependence for both materials led experimentalists to suggest hydroxide adsorption as a source of surface charge for both materials, although the very different salinity dependence pointed to different mechanisms and strengths of adsorption. This conjecture remains however unsupported up to now in terms of the chemical reactivity of these materials and the fundamental origin of this surface charging remains mysterious. Previous theoretical explorations of the behaviour of hydroxide ions at hydrated graphenic surfaces were developed at the semi-empirical level using classical dynamics (MD) study7. However, this level of modelling cannot correctly describe OH− in a hydrogen-bonded water network as it is eager to capture a proton from neighbouring water molecules via the Grotthus mechanism. Recently, a static quantum chemistry calculation without explicit water showed that BN can form a stable chemical bond with the hydroxide ion while carbon cannot, in contrast with the experiments and thus deepening the mystery of carbon charging8. One key challenge in this quest is, therefore, to properly simulate interfacial OH− ions in water, whose identity remains elusive due to the Grotthus mechanism: this requires an electronic description of the charged hydroxide species, as well as the surrounding water molecules and the reacting surface. Only computationally expensive ab initio molecular dynamic (AIMD), where the nuclei are classically propagated according to forces obtained from an ab initio electronic structure theory, are able to comprehensively reproduce the subtleties of the chemistry of OH − at interfaces. This should build on the numerous AIMD studies of the intrinsic reactivity of hydroxide in bulk water9–19, which made considerable progress lately. Despite a dependence on the type of density functional theory (DFT) functional, the current consensus is that of OH− generally forming two hydration states in bulk water with three or four hydrogen bonds donated to the hydroxide oxygen respectively (the latter state being called hypercoordinated). Proton transfer is facilitated when OH− is receiving three hydrogen bonds, but hindered with four bonds. However, simulating accurately the free energy of adsorption of hydrated hydroxide at interfaces is challenging and has been limited to date to the water/air interface16,20,21. Also, for this interface, comparison with experiments is delicate because of impurity effects22.\nHerein we report AIMD-based calculations of the free energy of a hydroxide at the water-graphene and the water-BN interfaces, considering that the clear experimental pH dependency of the surface charge infers a charging due to the anionic self-ion of water rather than its hydronium counterpart. Using advanced biasing methodologies to compute the potential of mean force (PMF) of the OH−, we found free energy minima corresponding to physisorption on both materials and chemisorption solely on the h-BN surface. Additional unbiased simulations confirm both the physisorption and chemisorption features of the PMFs and give insights into the solvating picture of the adsorbed hydroxide.\nOur results unveil fast migration of physisorbed OH− in the lateral direction parallel to the graphene sheet. Hence, we propose a non-classical view of graphene charging through physisorption of mobile hydroxides and derive an analytic model that highlights quantitative agreement with nanofluidic experimental data when the mobility of the surface hydroxide is taken into account."
+    }, {
+      "heading" : "Results",
+      "text" : "Potential of mean force protocol and results. The difficulty to compute a PMF as a function of hydroxide-surface distance using restrained sampling methods lies in the reactive nature of OH−. As illustrated in Supplementary Movies 1 and 2, frequent proton transfers from a solvating water molecule result in a discontinuous motion of the hydroxide species during MD and subsequent loss of information regarding the identity of the hydroxide oxygen O*. In order to keep track of the anion, one needs to apply two simultaneous constraints on O* during the simulations: its spatial location with respect to a surface atom and its hydrogen coordination value.\nFigure 1a displays the simulation box where one hydroxide with no counterion is inserted into a water/graphene interface (water/h-BN interface not shown) equivalent to an anion concentration of 0.57M. We propose an original PMF protocol as compared to others16,23 schematized in Fig. 1b that we summarize hereafter. The procedure is detailed in the Methods section and in Supplementary Methods. The anion-surface distance DO A is fixed by a constraint and is progressively varied by fixed values starting from the surface until the hydroxide has reached the bulk. The hydrogen coordination of the anion oxygen nO H is determined using a switch function (see Supplementary Fig. 1) and is restrained around a target value n* by applying a harmonic potential. Because of the hydroxide solvation varying between the surface and bulk water, its mean coordination takes up values respectively corresponding to 1.0 and 1.3 (see Supplementary Figs. 2 and 3). Two sets of MD trajectories were therefore computed with n*= 1.0 and n*= 1.3, respectively represented by blue and green plots in Fig. 1b. In order to obtain the effective coordination per distance to the surface and accordingly deduce the free energy profile, we apply for each surface-anion distance a standard debiasing method based on the weighted histograms analysis method (WHAM)24,25 to the two sets of constrained MD runs. This yields an intertwined set of trajectories labelled WHAM (black lines in Fig. 1b) along which thermodynamic integration is performed to obtain the free energy profile.\nThe resulting PMF curves are shown in Fig. 2a for h-BN (top) and graphene (bottom) as a function of DO A together with statistical error bars. While both free energy profiles yield positive surface excesses of hydroxides (see Supplementary Methods), there are striking differences between the two interfaces.\nFor h-BN two minima are obtained: the first minimum is a stiff well at 1.5 Å lying at −0.15 ± 0.19 eV corresponding to a chemisorbed state predicted earlier8 and in agreement with numerous examples of covalent hydroxylation of h-BN26. The second minimum is a shallow one at 3.5 Å lying at −0.21 ± 0.13 eV corresponding to a physisorbed state. The two adsorption states are separated by a free energy barrier of 0.79 ± 0.17 eV.\nFor the graphene surface, there is a large repulsion wall at close distance in line with the earlier DFT study8 and a physisorbed state at 3.3 Å and −0.27 ± 0.13 eV. Interestingly the superposition of the water density on the PMF plots (see Supplementary Fig. 4) demonstrates that the first physisorption well on graphene matches the closest water layer while the chemisorption well on h-BN lies beneath this first layer. An atomistic snapshot of the\n2 NATURE COMMUNICATIONS | (2019) 10:1656 | https://doi.org/10.1038/s41467-019-09708-7 | www.nature.com/naturecommunications\nanion in both states illustrates one instant of the dynamical solvated picture: in Fig. 2b top panel, the hydroxide anion is chemically bonded to a boron atom and is at the centre of a tetrahedron formed by a covalently bonded boron atom and three higher-lying water molecules—two hydrogen bond donors and one hydrogen bond acceptor. In Fig. 2b bottom panel, the hydroxide anion lies at the centre of a square planar complex formed by four H-bond donor water molecules lying in the first layer above graphene. A fifth water molecule lying further at the upper apex can also dynamically enter the solvation shell, thus forming a square pyramidal environment. In the latter solvation structure close to graphene, the hydroxide is greatly stabilized by around 11 kBT.\nFree MD runs. Our computed PMFs infer a fresh view of the graphene and h-BN interfaces in water and we now question the stability of the physisorption structures after removing all constraints. The resulting bias-free MD runs of 20 ps are visible in Supplementary Movies 1 and 2. Figure 3a shows the corresponding time evolution of the distance of the hydroxide from the surface (black curve): the O* lies mainly around 3 Å away from the sheet with some residence time at 4 Å. In Fig. 3b the lateral displacement—x,y trajectory—of the hydroxide is displayed with colour codes corresponding to the changing index of the O* atom. It can be seen that the hydroxide is not fixed in the xy plane and diffuses through proton transfers. The colour range permits to evaluate the average number of proton transfers (about 10 in 20 ps time). For comparison, the displacements both in vertical and lateral directions of the physisorbed hydroxide on the h-BN surface vs. time have been computed and show similar behaviour (see Supplementary Fig. 5). The self-diffusion coefficients of the hydroxide were derived from those trajectories by applying the Einstein equation with computed mean square displacements (see Supplementary Methods). Both the lateral and the vertical diffusions of the anion in the vicinity of the surfaces were determined. A hydroxide in bulk water was also simulated as a reference\ndisplaced (blue vertical arrow) from the surface to the bulk. The hydroxide, hydrogen, carbon and oxygen atoms are respectively represented in cyan, pink, grey and red. b Free energy or potential of mean force (PMF) simulation strategy for the water/h-BN and water/graphene interfaces in the constraint’s landscape. For each fixed distance of the hydroxide oxygen O* from the sheets, two MD runs are performed while restraining the hydrogen coordination of O* by a harmonic potential with a target of respectively n*= 1.0 (blue curve) and n*= 1.3 (green curve). The two sets of MD simulations thus obtained are represented by the mean hydrogen coordination and fluctuations around the mean (standard deviations as error bars). They are later combined into a third trajectory labelled WHAM (black curve) using the Weighted Histograms Analysis Method (WHAM) at each ion-surface distance independently\nNATURE COMMUNICATIONS | (2019) 10:1656 | https://doi.org/10.1038/s41467-019-09708-7 | www.nature.com/naturecommunications 3\nsystem to compare with the interfaces, using the same DFT dynamics framework. The isodirectional coefficient of a hydroxide in bulk water was obtained from a 50 ps MD trajectory. The obtained values are in qualitative agreement with both experimental and simulation data from the literature (see Table 1)18,27,28. Interestingly, although the diffusion of OH− at the h-BN/water and graphene/water interfaces is vertically confined, its 2D motion remains in the same order of magnitude of that of the anion in bulk water, corroborating the picture of a mobile ion physisorbed on the hexagonal layers.\nHow to understand that fast proton transfer do not allow for hydroxide diffusion away from the graphene interface? The answer arises from the existence of hydrogen bonds within the first water layer as observed at water-vapour interfaces29 and from a particular orientation of the hydroxide at the graphene–water interface. Indeed in Fig. 3a the cosine vs. time of the hydroxide tilt angle with respect to the surface (green curve) shows that the hydroxide can adopt two orientations with cosine values close to −1 and +1, corresponding to two H-up (outwards the interface) or H-down (inwards the interface) conformations respectively. Notably in the H-down state -corresponding to cosine equals 1- the oxygen lies closer to the interface than in the H-up state (see Fig. 3a and Supplementary Movie 2).\nWhen a hydroxide is lying H-down in close vicinity to the graphene, it can accept a proton from a H-bond donor water molecule lying above the anion but still remaining in the first water layer. After the proton transfer, the hydroxide ion is then found H-up and lying further away from the graphene sheet so that it can only accept protons from water molecules below,\ncloser to the surface, but not from water molecules in the second layer from the surface. As a result, the hydroxide diffuses rapidly via flip-flop moves within the hydrogen bond network of the first water layer and its transfer to the second water layer is kinetically hindered. Note that in the case of h-BN, we find a slightly different picture with a smoother distribution of cosine angles enhancing the number of proton transfers by a factor of two during the 50 ps MD trajectory (see Supplementary Fig. 5).\nIt is also interesting to compare the solvation picture of the hydroxide ion described above to other environments. Figure 4 compares the radial distribution functions for physisorbed hydroxide on h-BN (blue), chemisorbed hydroxide on h-BN (orange), physisorbed hydroxide on graphene (red), hydroxide in bulk water (black) and H2O molecule in bulk water (green). Integrals of g(r) are superposed with dashed lines to quantify the number of water molecules in the solvation shells. Our results for the bulk systems agree well with the literature: the hydroxide (water) is found five-fold (four-fold) coordinated in a squareplanar pyramid (tetrahedral) geometry in bulk water. The integral of the first peak of the g(r) for all cases except the chemisorption case reaches a plateau value of about 4 which corresponds to the number of nearest neighbour water molecules arranged in either the square planar or the tetrahedral geometry. It should be noted that the fifth apex water molecule of the pyramidal structure visible in three panels (blue, red and black) is not reflected in this plateau value demonstrating that it is only dynamically present, as further illustrated in Supplementary Fig. 6. Also, this integral of g(r) reaches 3 in the chemisorption case (orange dashed line), illustrating the partial desolvation of the hydroxide covalently bonded to the h-BN layer. Moreover, we observed that the\nphysisorbed at 3.9 Å from graphene (bottom) are displayed with details of the solvation shells (insets). The hydroxide, hydrogen, boron, carbon, nitrogen and oxygen atoms are respectively represented in cyan, orange, grey, blue, and red\n4 NATURE COMMUNICATIONS | (2019) 10:1656 | https://doi.org/10.1038/s41467-019-09708-7 | www.nature.com/naturecommunications\ndiffusion mechanism for the physisorbed anion mediated by proton transfer is similar to that in bulk water12 albeit restrained to occur only within the first interfacial water layer. Once the anion is in the active 4-fold solvation configuration (receiving three H-bonds), frequent proton transfers occur through the standard tetrahedral water network, until OH− finds itself once again in an inactive 5-fold environment (receiving four H-bonds).\nComparison to conductance measurements in a carbon nanotube. These results show that not only the graphene surface can be charged through physisorption of hydroxide but also that there is a concomitant appearance of a surface conductivity through hydroxide transport within the first water layer. To confirm this picture, we now compare our findings with the experimental conductance of single carbon nanotubes (CNT) measured by Secchi et al.4. These authors measured the conductance of single CNTs passing through a membrane separating two compartments containing a solution of KCl at concentration CS and at a pH fixed by addition of KOH. Since the tubes’s diameters range between 3.5 nm and 35 nm, the curvature effect remains subtle. Hence our simulated planar surfaces confining water in a space of around 2 nm width are appropriate atomistic models of the measured tubes.\nIn order to compare our results with experiments, it is necessary to take into account the electrostatic repulsion between adsorbed hydroxide ions and the presence of counterions in the double layer of the surface for charge equalization. These effects are missing in our simulation of a single hydroxide ion in absence of any counterion. Such effects however have been modelled successfully using mean-field approaches30.\nHere, for the sake of comparison, we employ the same charge equalization model as in reference 4. We start by simplifying the PMF as a box potential of depth Uads and width d (see Supplementary Discussion). Then, taking into account the electrostatic potential at the surface generated by a finite ion concentration, the chemical potential μOH of OH\n− adsorbed at the graphene surface, for a given hydroxide surface concentration Σ, is\nμOH ¼ kBT log ΣΛ3\nd\neVS þ Uads; ð1Þ\nwhere kB is the Boltzmann constant and Λ is the OH− de Broglie thermal wavelength at temperature T= 300 K. VS is the electrostatic potential at the surface, which self consistently depends on the salt concentration and the surface charge itself. It was evaluated in ref. 4 using the non-linear Poisson-Boltzmann equation, leading to a power-law dependence of the surface charge on salt concentration at low ionic strength, which has been observed experimentally.\nNATURE COMMUNICATIONS | (2019) 10:1656 | https://doi.org/10.1038/s41467-019-09708-7 | www.nature.com/naturecommunications 5\nThe conductance of the CNT is related to the surface concentration of hydroxide through the Poisson-Nernst-Planck (PNP) equation adapted to confined geometry. However, the usual picture for the conductance assumes that the adsorbed charges are immobile. Here, we contradict this picture, showing that the physisorbed hydroxide retains a large surface mobility. We evaluate the contribution of the mobile surface charge by first noting that the surface charge per unit length of a CNT of radius R is 2eπRΣ, e being the elementary charge. The adsorbed ions have a mobility λOH , thus when submitted to an electric field U/L, where L is the CNT length and U the potential applied across the CNT, they acquire a velocity v ¼ λOH eU=L. In the following, we will take the experimental bulk mobility for hydroxide (see Supplementary Discussion) since we found in our simulation a similar mobility for physisorbed hydroxide or for bulk hydroxide. This leads to a contribution of the mobile surface charge to the conductance being equal to GSurf ¼ 2e2λOH πRL Σ.\nWe thus correct the usual PNP result for the conductance, G, with the hydroxide mobility, such that we write\nG ¼ 2e2λ πR 2\nL\nffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi C2S þ Σ2\nR2\nr þ 2e2λOH\nπR L Σ; ð2Þ\nwhere CS is the salt (KCl) concentration. λ ¼ 12 λCl þ λKþð Þ is the KCl mobility. The first term thus accounts for the KCl contribution to the conductance, while the second term arises because of the mobile adsorbed charges. If we take Uads=−400 meV, on the high side but within error bars of our predicted value, and d= 0.21 Å, as extracted from our PMF (see Supplementary Methods), we obtain results in quantitative agreement with experiments for the conductance of a CNT with R= 35 nm and L= 1500 nm, at pH= 6 and pH= 9, see Fig. 5 left panel.\nThe model reproduces well the pH dependence of the conductance at low salt concentration, coherent with hydroxide ions being adsorbed on the CNT surface.\nThe importance of the mobility of the surface charges is clear from Fig. 5: the conductance predicted by omitting it is shown to deviate significantly from the experiments (see dashed lines in Fig. 5). For example, the predicted surface charge for a KCl concentration of CS= 0.001M and pH= 9 is eΣ= 0.01 C.m−2; it would lead to a conductance G= 0.1 nA.V−1 for the same CNT as above with fixed adsorbed charges, nonetheless it is four times larger, G= 0.4 nA.V−1, when taking into account the surface charge mobility. We have checked the stability of the predicted conductance with respect to variations in the parameters of the models. The effects of variations in R or L are limited (see Supplementary Discussion), while it is the largest for variations in pH. The effect of a pH variation of one unit is displayed in Fig. 5 right panel for the two models, including or not the surface charge mobility. The two predictions are still clearly separated showing that the effect of surface charge mobility is significant even with respect to variations of other parameters in the model. The effect of variations of the geometry of the tube are shown in Supplementary Figure 7.\nTaking into account the surface charge mobility thus turns out to be crucial to interpret electrohydrodynamics phenomena at graphene surfaces. This mobility of adsorbed charges also affects other phenomena: Maduar et al.31 have discussed the large influence of surface charge mobility on the Zeta potential. Here, we thus give a novel microscopic explanation as to why graphene is a good material candidate to exploit nanoscale transport phenomena such as electrophoresis, and electrosmosis, for blue energy production or water desalination4,6.\n6 NATURE COMMUNICATIONS | (2019) 10:1656 | https://doi.org/10.1038/s41467-019-09708-7 | www.nature.com/naturecommunications"
+    }, {
+      "heading" : "Discussion",
+      "text" : "In summary, we have shown by means of ab initio molecular dynamics that graphene and h-BN single layers can both charge up in contact with alkaline water but in a different way. On a graphene surface the hydrated hydroxide anion is physisorbed albeit diffusing laterally via lateral proton hops. On h-BN surface either the hydroxide anion covalently binds to a boron surface atom or remains physisorbed and mobile. These findings originate from free energy profiles of one OH− near the surfaces and have been further confirmed by unbiased MD trajectories starting at the PMF adsorption wells. Analytic developments accounting for the unveiled surface mobility of the adsorbed charges are very consistent with ionic conductance measurements performed earlier in nanofluidic devices. Understanding the atomistic mechanism behind tremendous surface charges measured on graphene and boron nitride nanomaterials in mild aqueous conditions is promising to identify industrially relevant candidate materials for blue energy production and water desalination applications6.\nThis charging mechanism can possibly be further investigated experimentally at the molecular scale by means of sum-frequency generation spectroscopy as the OH− remains mainly in the vicinity of the graphene surface. Also, the confinement of the hydroxide at the interface, with proton transfer restrained to the first interfacial water layer raises the question of its validity in extremely confined channels such as the recently elaborated ångstrom slit-pores nanofluidic devices32,33. In fact, only up to two water layers can penetrate in between the graphite layers constituting those channels. As interfacial molecular information on such system is not accessible experimentally, this will be the object of future AIMD studies, in the same spirit of the recent hydroxide solvation modelling in inorganic mackinawite slitpores34. Slit-pores channels made of non-metallic materials could also provide an appropriate substrate to probe the normal orientation of the hydroxide to the surfaces by the abovementioned interfacial spectroscopy technique."
+    }, {
+      "heading" : "Methods",
+      "text" : "Computational Details. AIMD was performed with the CP2K code35. The computations of the forces were carried out using the implementation of the DFT of the QuickStep module36,37. DZVP-MOLOPT-SR-GTH basis sets were used38 along with plane waves expanded to a 600 Ry energy cutoff. Electronic cores were represented by Geodecker-Teter-Hutter pseudopotentials39–41. The Perdew, Burke and Ernzerhof (PBE) functional was used42 with the D3 dispersion correction scheme43,44. PBE-D3 has indeed been recently shown to provide a good description of the water/graphene interface45.\nThe h-BN (graphene) single layer/water interface was modelled using a 13.04 Å × 12.55 Å × 21.0 Å (12.83 Å × 12.35 Å × 21.0 Å) orthorhombic cell containing 60 surface atoms arranged in a hexagonal monolayer, one hydroxide anion and\n97 (94) water molecules under periodic boundary conditions. This corresponds to surfaces separated by a ~ 16 Å thick and 0.57M hydroxide aqueous solution yielding pH 13.8. Simulations in bulk water were performed in a 12.42 Å side cubic cell containing 63 water molecules and one charged hydroxide. The deuterium mass is substituted for all protons to reduce the time step size needed for energy conservation in our Born-Oppenheimer AIMD and to limit nuclear quantum effects. The anion containing simulation cells did not include a counterion and the systems therefore presented a net charge neutralized by a uniformly charged background. AIMD simulations were carried out with a 0.5 fs timestep in the NVT ensemble at 323 K using Nose-Hoover thermostats46,47 with a time constant of 500 fs. At this increased temperature condition the PBE functional predicts a reasonable liquid water structure. The convergence of the WHAM procedure is illustrated in Supplementary Fig. 8. More information regarding computational details as well as a typical CP2K input file are respectively included in Supplementary Methods and Supplementary Note 1."
+    }, {
+      "heading" : "Data availability",
+      "text" : "The source data underlying Figs 1b, 2a, 3, 4 and 5 are accessible as source data files (https://figshare.com/articles/Plots_source_data/7623953) along with a corresponding python notebook (https://figshare.com/articles/Plots_python_notebook/762397). Experimental data points displayed Fig. 5 has been provided by Secchi et al.4. Other data is available upon reasonable request to the authors.\nReceived: 5 November 2018 Accepted: 15 March 2019"
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "This work was performed on the French national supercomputer Occigen under the DARI grants A0030807364 and A0030802309. M.L.B acknowlegdes funding from the H2020-FETOPEN project NANOPHLOW number 766972. The authors thank Lydéric Bocquet for fruitful discussions and for providing experimental data points for comparison with the presently reported analytic model. The authors also acknowledge Maximilien Levesque and Ari Paavo Seitsonen for profitable exchanges on technical issues."
+    }, {
+      "heading" : "Author contributions",
+      "text" : "B.G., M.-L.B. and R.V. equally contributed to the production of data, its analysis as well as the redaction and revisions of the manuscript."
+    }, {
+      "heading" : "Additional information",
+      "text" : "Supplementary Information accompanies this paper at https://doi.org/10.1038/s41467019-09708-7.\nCompeting interests: The authors declare no competing interests.\nReprints and permission information is available online at http://npg.nature.com/ reprintsandpermissions/\nJournal peer review information: Nature Communications thanks Dominik Marx, Roland Netz and the other anonymous reviewer(s) for their contribution to the peer review of this work. Peer reviewer reports are available.\nPublisher’s note: Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.\nOpen Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing,\nadaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/ licenses/by/4.0/.\n© The Author(s) 2019\n8 NATURE COMMUNICATIONS | (2019) 10:1656 | https://doi.org/10.1038/s41467-019-09708-7 | www.nature.com/naturecommunications"
+    } ],
+    "references" : [ {
+      "title" : "Ultrathin high-temperature oxidation-resistant coatings of hexagonal boron nitride",
+      "author" : [ "Z Liu" ],
+      "venue" : "Nat. Commun",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2013
+    }, {
+      "title" : "The necessity of structural irregularities for the chemical applications of graphene",
+      "author" : [ "A. Eftekhari", "H. Garcia" ],
+      "venue" : "Mater. Today Chem",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2017
+    }, {
+      "title" : "A computational study",
+      "author" : [ "M. Lattelais", "Bocquet", "M.-L. Cycloaddition of metal porphines on metalsupported graphene" ],
+      "venue" : "J. Phys. Chem. C 119, 9234–9241",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Scaling behavior for ionic transport and its fluctuations in individual carbon nanotubes",
+      "author" : [ "E. Secchi", "A. Niguès", "L. Jubin", "A. Siria", "L. Bocquet" ],
+      "venue" : "Phys. Rev. Lett. 116,",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2016
+    }, {
+      "title" : "Giant osmotic energy conversion measured in a single transmembrane boron nitride nanotube",
+      "author" : [ "A Siria" ],
+      "venue" : "Nature 494,",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2013
+    }, {
+      "title" : "New avenues for the large-scale harvesting of blue energy",
+      "author" : [ "A. Siria", "Bocquet", "M.-L", "L. Bocquet" ],
+      "venue" : "Nat. Rev. Chem",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2017
+    }, {
+      "title" : "Ion adsorption at the graphene/electrolyte interface",
+      "author" : [ "D.J. Cole", "P.K. Ang", "K.P. Loh" ],
+      "venue" : "J. Phys. Chem. Lett",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2011
+    }, {
+      "title" : "Graphene versus hexagonal boron nitride",
+      "author" : [ "Grosjean", "B. et al. Chemisorption of hydroxide on 2d materials from DFT calculations" ],
+      "venue" : "J. Phys. Chem. Lett. 7, 4695–4700",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Ab Initio molecular dynamics simulation of the solvation and transport of H3O+ and OH− ions in water",
+      "author" : [ "M. Tuckerman", "K. Laasonen", "M. Sprik", "M. Parrinello" ],
+      "venue" : "J. Phys. Chem",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 1995
+    }, {
+      "title" : "On the quantum nature of the shared proton in hydrogen bonds",
+      "author" : [ "M.E. Tuckerman" ],
+      "venue" : "Science 275,",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 1997
+    }, {
+      "title" : "Solvation structure and mobility mechanism of OH−: a car-parrinello molecular 102 Fixed OH Mobile OH Experiments  Fixed OH  pH ± 1 Mobile OH Experiments  101 10 Io  ni  c  co  nd  uc  ta  nc  e  (n  A  .V  –1 ) Salt concentration (mol.L)  10 10 10  10  pH = 9 pH = 9 pH = 6 10  10 Salt concentration (mol.L",
+      "author" : [ "B. Chen", "I. Ivanov", "J.M. Park", "M. Parrinello", "M.L. Klein" ],
+      "venue" : "J. Phys. Chem. B 106,",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2002
+    }, {
+      "title" : "The nature and transport mechanism of hydrated hydroxide ions in aqueous solution",
+      "author" : [ "M.E. Tuckerman", "D. Marx", "M. Parrinello" ],
+      "venue" : "Nature 417,",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2002
+    }, {
+      "title" : "Hydration and mobility of HO-(aq)",
+      "author" : [ "D. Asthagiri", "L.R. Pratt", "J.D. Kress", "Gomez", "M.A. From The Cover" ],
+      "venue" : "Proc. Natl Acad. Sci. USA 101, 7229–7233",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Structure and dynamics of OH(aq)",
+      "author" : [ "M.E. Tuckerman", "A. Chandra", "D. Marx" ],
+      "venue" : "Acc. Chem. Res",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2006
+    }, {
+      "title" : "Why are water-hydrophobic interfaces charged",
+      "author" : [ "K.N. Kudin", "R. Car" ],
+      "venue" : "J. Am. Chem. Soc. 130,",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2008
+    }, {
+      "title" : "hydroxide solvation, structural diffusion, and comparison to the hydrated proton",
+      "author" : [ "D. Marx", "A. Chandra", "Tuckerman", "M.E. Aqueous basic solutions" ],
+      "venue" : "Chem. Rev. 110, 2174–2216",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Hydroxide diffuses slower than hydronium in water because its solvated structure inhibits correlated proton transfer",
+      "author" : [ "M Chen" ],
+      "venue" : "Nat. Chem",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2018
+    }, {
+      "title" : "Sticky when wet",
+      "author" : [ "J. Chen", "A. Michaelides" ],
+      "venue" : "Nat. Chem. 10,",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2018
+    }, {
+      "title" : "A density functional theory perspective",
+      "author" : [ "M.D. Baer", "Kuo", "I.-F.W.", "D.J. Tobias", "Mundy", "C.J. Toward a unified picture of the water self-ions at the air-water interface" ],
+      "venue" : "J. Phys. Chem. B 118, 8364–8372",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Orientationinduced adsorption of hydrated protons at the air-water",
+      "author" : [ "S.I. Mamatkulov", "C. Allolio", "R.R. Netz", "D.J. Bonthuis" ],
+      "venue" : null,
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2017
+    }, {
+      "title" : "Impurity effects at hydrophobic surfaces",
+      "author" : [ "Y. Uematsu", "D.J. Bonthuis", "R.R. Netz" ],
+      "venue" : "Curr.Opin. Electrochem",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2018
+    }, {
+      "title" : "AbInitioMolecular dynamics study of carbon dioxide and bicarbonate hydration and the nucleophilic attack of hydroxide on CO2",
+      "author" : [ "K. Leung", "I.M.B. Nielsen", "I. Kurtz" ],
+      "venue" : "J. Phys. Chem. B 111,",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2007
+    }, {
+      "title" : "The weighted histogram analysis method for free-energy calculations on biomolecules",
+      "author" : [ "S. Kumar", "J.M. Rosenberg", "D. Bouzida", "R.H. Swendsen", "P.A. Kollman" ],
+      "venue" : "J. Comput. Chem",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 1992
+    }, {
+      "title" : "combining umbrella sampling with free energy calculations",
+      "author" : [ "M. Souaille", "Roux", "B. Extension to the weighted histogram analysis method" ],
+      "venue" : "Comput. Phys. Commun. 135, 40–57",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "emerging properties and applications",
+      "author" : [ "Q. Weng", "X. Wang", "X. Wang", "Y. Bando", "Golberg", "D. Functionalized hexagonal boron nitride nanomaterials" ],
+      "venue" : "Chem. Soc. Rev. 45, 3989–4012",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Prototropic charge migration in water",
+      "author" : [ "B. Halle", "G. Karlström" ],
+      "venue" : "J. Chem. Soc., Faraday Trans",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 1983
+    }, {
+      "title" : "The mechanism of the hydrogen ion conduction in liquid light and heavy water derived from the temperature dependence of their limiting conductivities",
+      "author" : [ "J.H. Sluyters", "M. Sluyters-Rehbach" ],
+      "venue" : "J. Phys. Chem. B 114,",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2010
+    }, {
+      "title" : "2D H-Bond network as the topmost skin to the air-water interface",
+      "author" : [ "S. Pezzotti", "D.R. Galimberti", "Gaigeot", "M.-P" ],
+      "venue" : "J. Phys. Chem. Lett",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2017
+    }, {
+      "title" : "Nanofluidics, from bulk to interfaces",
+      "author" : [ "L. Bocquet", "E. Charlaix" ],
+      "venue" : "Chem. Soc. Rev",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2010
+    }, {
+      "title" : "Electrohydrodynamics near hydrophobic surfaces",
+      "author" : [ "S. Maduar", "A. Belyaev", "V. Lobaskin", "O. Vinogradova" ],
+      "venue" : "Phys. Rev. Lett. 114,",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2015
+    }, {
+      "title" : "Molecular transport through capillaries made with atomicscale precision",
+      "author" : [ "B Radha" ],
+      "venue" : "Nature 538,",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2016
+    }, {
+      "title" : "Size effect in ion transport through angstrom-scale slits",
+      "author" : [ "A Esfandiar" ],
+      "venue" : "Science 358,",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2017
+    }, {
+      "title" : "On the complex structural diffusion of proton holes in nanoconfined alkaline solutions within slit pores",
+      "author" : [ "D. Muñoz-Santiburcio", "D. Marx" ],
+      "venue" : "Nat. Commun",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2016
+    }, {
+      "title" : "atomistic simulations of condensed matter systems",
+      "author" : [ "J. Hutter", "M. Iannuzzi", "F. Schiffmann", "VandeVondele", "J. CP2K" ],
+      "venue" : "Wiley Interdiscip. Rev. Comput. Mol. Sci. 4, 15–25",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Fast and accurate density functional calculations using a mixed Gaussian and plane waves approach",
+      "author" : [ "Vandevondele", "J. et al. Quickstep" ],
+      "venue" : "Comput. Phys. Commun. 167, 103–128",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "A hybrid gaussian and plane wave density functional scheme",
+      "author" : [ "G. Lippert", "J. Hutter", "M. Parrinello" ],
+      "venue" : "Mol. Phys. 92,",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 1997
+    }, {
+      "title" : "Gaussian basis sets for accurate calculations on molecular systems in gas and condensed phases",
+      "author" : [ "J. VandeVondele", "J. Hutter" ],
+      "venue" : "J. Chem. Phys. 127,",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2007
+    }, {
+      "title" : "Separable Dual-Space Gaussian pseudopotentials",
+      "author" : [ "S. Goedecker", "M. Teter", "J. Hutter" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 1996
+    }, {
+      "title" : "Relativistic separable dualspace Gaussian pseudopotentials from H to Rn",
+      "author" : [ "C. Hartwigsen", "S. Goedecker", "J. Hutter" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 1998
+    }, {
+      "title" : "Pseudopotentials for H to Kr optimized for gradient-corrected exchange-correlation functionals",
+      "author" : [ "M. Krack" ],
+      "venue" : "Theor. Chem. Acc. 114,",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2005
+    }, {
+      "title" : "Generalized gradient approximation made simple",
+      "author" : [ "J.P. Perdew", "K. Burke", "M. Ernzerhof" ],
+      "venue" : "Phys. Rev. Lett. 77,",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 1996
+    }, {
+      "title" : "A consistent and accurate ab initio parametrization of density functional dispersion correction (DFT-d) for the 94 elements H-Pu",
+      "author" : [ "S. Grimme", "J. Antony", "S. Ehrlich", "H. Krieg" ],
+      "venue" : "J. Chem. Phys. 132,",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2010
+    }, {
+      "title" : "Effect of the damping function in dispersion corrected density functional theory",
+      "author" : [ "S. Grimme", "S. Ehrlich", "L. Goerigk" ],
+      "venue" : "J. Comput. Chem",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2011
+    }, {
+      "title" : "Subchemical accuracy from many-body electronic structure methods",
+      "author" : [ "Brandenburg", "J.G. et al. Physisorption of water on graphene" ],
+      "venue" : "J. Phys. Chem. Lett. 10, 358–368",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "A molecular dynamics method for simulations in the canonical ensemble",
+      "author" : [ "S. Nosé" ],
+      "venue" : "Mol. Phys. 52,",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 1984
+    }, {
+      "title" : "A unified formulation of the constant temperature molecular dynamics methods",
+      "author" : [ "S. Nosé" ],
+      "venue" : "J. Chem. Phys. 81,",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 1984
+    } ],
+    "referenceMentions" : [ ],
+    "year" : 2019,
+    "abstractText" : "The recent emergence of nanofluidics has highlighted the exceptional properties of graphene and its boron-nitride counterpart as confining nanomaterials for water and ion transport. Surprisingly, ionic transport experiments have unveiled a consequent electrification of the water/carbon surfaces, with a contrasting response for its water/boron-nitride homologue. In this paper, we report free energy calculations based on ab initio molecular dynamics simulations of hydroxide OH− ions in water near graphene and hexagonal boron nitride (h-BN) layers. Our results disclose that both surfaces get charged through hydroxide adsorption, but two strongly different mechanisms are evidenced. The hydroxide species shows weak physisorption on the graphene surface while it exhibits also strong chemisorption on the h-BN surface. Interestingly OH− is shown to keep very fast lateral dynamics and interfacial mobility within the physisorbed layer on graphene. Taking into account the large ionic surface conductivity, an analytic transport model allows to reproduce quantitatively the experimental data. https://doi.org/10.1038/s41467-019-09708-7 OPEN",
+    "creator" : "Springer"
+  }
+}

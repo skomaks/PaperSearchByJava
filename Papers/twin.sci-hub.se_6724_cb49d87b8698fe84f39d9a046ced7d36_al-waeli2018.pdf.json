@@ -1,0 +1,963 @@
+{
+  "name" : "twin.sci-hub.se_6724_cb49d87b8698fe84f39d9a046ced7d36_al-waeli2018.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Comparison of prediction methods of PV/T nanofluid and nano-PCM system using a measured dataset and artificial neural network",
+    "authors" : [ "Ali H.A. Al-Waelia", "K. Sopiana", "Hussein A. Kazemb", "Jabar H. Yousif", "Miqdam T. Chaichan", "Adnan Ibrahim", "Sohif Mat", "Mohd Hafidz Ruslan" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nSolar Energy\njournal homepage: www.elsevier.com/locate/solener\nComparison of prediction methods of PV/T nanofluid and nano-PCM system using a measured dataset and artificial neural network\nAli H.A. Al-Waelia,⁎, K. Sopiana,⁎, Hussein A. Kazemb,⁎, Jabar H. Yousifb, Miqdam T. Chaichanc, Adnan Ibrahima, Sohif Mata, Mohd Hafidz Ruslana\na Solar Energy Research Institute, Universiti Kebangsaan Malaysia, 43600 Bangi, Selangor, Malaysia b Sohar University, PO Box 44, Sohar PCI 311, Oman c Energy and Renewable Energies Technology Research Center, Baghdad, Iraq\nA R T I C L E I N F O\nKeywords: Hybrid PV/T collectors Nanofluid Nano-PCM Artificial neural network\nA B S T R A C T\nIn this paper, a Photovoltaic/Thermal (PV/T) system was proposed, built and tested. Three various types of cooling were proposed: tank filled with water and water flows through the cooling pipes, tank filled with PCM and water flows through the cooling pipes, and tank filled with PCM/nano-SiC and nanofluid (water-SiC) flows through the cooling pipes. The three proposed systems results were compared with conventional PV. According to the results, it was found that nano-PCM and nanofluid improved the electrical current from 3.69 A to 4.04, and the electrical efficiency from 8.07% to 13.32%, compared with conventional PV. In addition, three Artificial Neural Network (ANN), MLP, SOFM and SVM methods were implemented using the experimental results. The results indicate that the output of the network is in good agreement with the experimental results and published works."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Under the current climate change situation, many countries are seeking more sustainable and environmentally friendly technologies. This is to eventually replace fossil fuels and transform the industrialised world and combat climate change (Edenhofer et al., 2011a). Renewable energies have been growing rapidly over the last two decades (Edenhofer et al., 2011b), and more applications are being introduced to the markets, depending on the resource (i.e. wind, solar, geothermal). Solar energy has shown tremendous results and favourability among residential users; due to their lightweight, low-emission nature and availability of the sun across the globe, every day (De Vries et al., 2007). Solar energy applications cover photovoltaics (PV) and solar thermal collectors (Islam et al., 2010). PV panels convert light into electricity and processes involving no mechanical parts, therefore no noise. Similarly, solar collectors produce thermal energy through use of tubes with working fluids within (i.e. water/air/nanofluid), thus making solar energy the most suitable choice for many residential and industrial entities. Further innovation was established with hybrid photovoltaic/thermal (PV/T) systems, which combine the two technologies to enhance their performance and save space and installation costs (Al-Waeli et al., 2017a). Photovoltaic panels lose a part of their efficiency due to a drop in the open circuit voltage, which is caused by\nan increase in cell temperature. Therefore, it is important to apply a cooling scheme, which creates the motive to attach solar collectors to the back of these panels to absorb their heat. In doing so, the PV panel will maintain its voltage over time, and the thermal collector will have a higher thermal output, due to absorbing the cell temperature. This is system classified based on the working fluid it depends on. Innovative designs propose using nanofluids and Phase Change Material (PCM). Various experiments and simulation studies have been conducted to different configurations of the hybrid system (Ghadiri et al., 2015; Khanjari et al., 2016; Cieśliński et al., 2016). One simulation method is to use Artificial Neural Network (ANN) to study and predict the performance of PV/T's (Kalani et al., 2017). Artificial neural networks are designed to mimic human brain functions/processes in computers, such as pattern recognition and learning (Singh et al., 2001). These networks rely on real data input and a pre-specified function, set by the programmer to produce the desired results. The algorithms of these networks can change their own instructions to improve performance and adaptability (Grossi and Buscema, 2007). This paper presents a novel design configuration of the hybrid PV/T system, using nanofluid and nano-phase change material, and evaluates its performance using artificial neural networks.\nhttps://doi.org/10.1016/j.solener.2018.01.026 Received 8 December 2017; Accepted 9 January 2018\n⁎ Corresponding authors. E-mail addresses: ali9alwaeli@gmail.com (A.H.A. Al-Waeli), k.sopian@ukm.edu.my (K. Sopian), husseinalwaeli@gmail.com (H.A. Kazem).\nSolar Energy 162 (2018) 378–396\n0038-092X/ © 2018 Elsevier Ltd. All rights reserved.\nT"
+    }, {
+      "heading" : "2. Literature review",
+      "text" : "Combining both nanofluid and PCM for PV/T requires a distinct understanding of both systems; this is due to the complexity this combination may introduce.\nPhotovoltaic thermal (PV/T) units may vary in the configuration depending on the working fluid; simpler configurations can be achieved when using air-based PV/T systems, and more sophisticated designs are created with nanofluid-based PV/T systems. For those systems, a heat exchanger separating the nanofluid and water or thermal output must be placed. This is to have nanofluid in a closed loop with the collector to achieve the cooling of the collector, simultaneously providing cooling to the nanofluid itself by transferring its heat to water. A special container for the nanofluid is made with limited capacity and a larger container for water, as output, should also be installed. Insulation is essential in such entities as it will protect the produced thermal energy and the temperature of the PV panel as well (Al-Waeli et al., 2017b). This type of system mainly counts on the nanofluid's ability to absorb heat within the pipes; this depends mainly on its thermophysical characteristics. Devendiran and Amirtham (2016) conducted a review of different preparation techniques of metal and metal oxides nanofluids, along with their effect on the physical and chemical characteristics. A detailed description of thermal conductivity enhancement for various types of nanofluids along with their thermo-physical and heat transfer properties was presented as well (Devendiran and Amirtham, 2016). Bajestan et al. (2016) investigated the effect of the TiO2-water nanofluid on the laminar convective heat transfer by numerically modelling the experimental tests. The authors found a 21% enhancement of the heat transfer coefficient on average. The study also investigates the effects of the nanoparticle concentration of TiO2, which was found to have a directly proportional relationship with the convective heat transfer coefficient, as opposed to the particle size, which has shown an opposite effect (Bajestan et al., 2016). Adriana (2017) studied the thermophysical properties of three oxide-based nanofluids. The results obtained showed a variety of features for those nanofluids, which are accredited to the addition of nanoparticles. This was accompanied by an enhancement in thermal conductivity of at least 12%. The study concluded that the use of nanofluids raised the convective heat transfer coefficient, and linked such rise to the Reynolds number and the nanoparticle concentration (Adriana, 2017). An exergy analysis is fundamental when dealing with PV/T systems in order to understand and validate the nanofluids’ effect on performance before installing the systems. Hassani et al. (2016) theoretically performed an exergy life cycle analysis of nanofluid based PV/T with three variable arrangements. Furthermore, the study compares the performance of the nanofluid based PV/T to the conventional PV and PV/T systems. The life cycle exergy results indicate a higher performance in nanofluid-based PV/T systems compared to the traditional ones. The authors found the system to achieve a maximum electrical and exegetic efficiency of 12% (Hassani et al., 2016). Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).\nTable 1 shows a summary to present the trends and ideas proposed for nanofluid based PV/T systems.\nAs for the PCM based photovoltaic thermal systems, many researchers have investigated their ability to improve the PV performance by preserving the cell temperature close to that of the ambient air temperature, as well as the capacity to store high amounts of latent heat. That coupled with various melting points, which make it compatible with different applications, renders the use of PCM very productive in solar energy applications. The nature of solar cell efficiency enhancement is also investigated. Smith et al. (2014) examined the\nimpact of the PCM with different melting temperatures, ranging from 0 °C to 50 °C in order to identify the best PCM melting temperature for various locations, by implementing a one-dimensional energy balance model to simulate the system. Authors claim an enhancement in efficiency and the cooling process of the solar cell when using PCM, and that the best results were in areas that have little intra-annual climate variability and high insolation. The simulation results show a 6% increase in the annual PV energy output in Mexico and eastern Africa, and an increase of 5% for the Arabic region, Southern Asia Central and South America, and much of Africa (Smith et al., 2014). The works of Al-Imam et al. (2016) involving different PV/T designs with PCM are also present. The authors conducted an outdoors experiment of a compound parabolic concentrator (CPC) Photovoltaic Thermal PV/T system with PCM to investigate the solar energy conversion into thermal energy, thermal efficiency and total, and the element of heat storage. Furthermore, a comparison between a clear and a semi-cloudy day during the winter seasons has been drawn. The study also examines various parameters, such as useful energy, thermal and overall efficiencies, etc. The results obtained show that the thermal efficiencies for bright and semi-cloudy days are 40–50% and 40%, respectively. While the overall PV/T efficiencies achieved for sunny and semi-cloudy days are ranging between around 55–63% and 46–55%, respectively (AlImam et al., 2016). Elarga et al. (2016) numerically investigate the dynamic-thermal behaviour and performance of a PCM-PV system in double skin facades (DSF) in different climates (Venice, Helsinki and Abu Dhabi). This is first done by developing a physical-mathematical model, which combines codes for optical, thermal and electrical behaviour that are validated when running the simulation. The model developed is coupled to an indoor air heat balance equation to test the performance of the system for such applications. The authors claim that the system causes a monthly reduction in cooling energy demands of approximately 20–30% while the increase in the PVs' electric energy with a peak value is around 5–8%. The peak produced power was found to be in Venice, Italy with a value of around 33W/m2 (Elarga et al., 2016). Recently, various studies have been conducted within the field of PCM/PV and PCM/PVT (Gaur et al., 2017; Browne et al., 2016; Hasan et al., 2010, 2014; Biwole et al., 2011; Kazanci et al., 2014; Qiu et al., 2015; Fiorentini et al., 2015; Stropnik and Stritih, 2016). Table 2 shows a summary of those studies.\nSome studies have gone through different routes, for example, Karunamurthy et al. (2012) incorporated CuO nanoparticles in paraffin PCM to improve its thermal conductivity. The experiments conducted show that dispersing nanoparticles with paraffin enhances the thermal conductivity of the PCM, which allows it to overcome the relatively low rate of heat transfer in the thermal energy storage applications (Karunamurthy et al., 2012).\nIn other works, Sardarabadi et al. (2017) designed, built and performed an experimental study on a ZnO-nanofluid based PV/T collector with Paraffin-PCM. The nanofluid runs in the pipes emerged in the PCM storage tank. The use of both techniques has raised the electrical output of the PV/T by 13% over the conventional PV model (Sardarabadi et al., 2017).\nOn the other hand, several researchers are implementing predicting tools for PV and PV/T system performance (Singh et al., 2001; Grossi and Buscema, 2007; Al-Waeli et al., 2017b; Devendiran and Amirtham, 2016; Bajestan et al., 2016). These methods can generally be classified as follows: empirical mathematical, regression, and artificial intelligent neural network based models and finally statistical models based on time series of data.\nArgiriou et al. (2012) proposed and integrated a neural controller model based on the feed forward back propagation for hydronic heating plants in buildings. Variables, such as meteorological modules, ambient temperature and solar irradiance were forecasted using the controller. These models depend on real-scale office buildings during real operating conditions. The studies show a comparison between operational results and the conventional controller in order to evaluate the\nTa bl e 1 Su m m ar y of\nth e lit er at ur e on\nna no\nfl ui d ba\nse d sy st em\ns.\nA ut ho rs R ef .\nY ea r\nLo ca ti on\nC oo\nlin g fl ui d\nA pp\nlic at io ns /p\nro ce ss /d\nes cr ip ti on\nSa rd ar ab\nad i an\nd Fa\nrd (2 01\n6) 20\n16 Ir an\nA l 2 O 3 Ti O 2 Zn O\nEv al ua\nti on\nof th re e m et al\nox id es\nna no\nfl ui ds 'c oo\nla nt\neff ec t on\nPV /T\nis co\nnd uc\nte d bo\nth ex pe\nri m en\nta lly\nan d nu\nm er ic al ly .Z\nnO /w\nat er\nna no\nfl ui d w as\nfo un\nd to\nca us e th e hi gh\nes tt he\nrm al\neffi ci en\ncy in\nco m pa\nri so n w it h th e ot he\nr tw\no na\nno fl ui ds\nan d de\nio ni ze d w at er -b\nas ed\nPV /T\nH je rr ild\net al .( 20\n16 )\n20 16\nA us tr al ia\nA gSi O 2 &\nC N Tw at er\nTh e st ud\ny ai m ed\nto de\nve lo p a m od\nel an\nd va\nlid at e th ro ug\nh ex pe\nri m en\nts th e us ed\nsp ec tr al ly -t ai lo ra bl e,\nm ul ti -p ar ti cl e na\nno fl ui d fi lt er\nw hi ch is pl ac ed be tw ee n si lic on ce ll an d a lig ht so ur ce .T he au th or s us ed A gSi O 2 na no fl ui d an d C N T in w at er .T he se m at er ia ls w er e us ed du e to it s su n lig ht ab so rb in g pr op er ti es .A gSi O 2 w as fo un d to in cr ea se th e co m bi ne d effi ci en cy to 30 % co m pa re d to ba se fl ui d fi lt er .T he el ec tr ic al effi ci en cy ac hi ev ed w as ar ou nd 6. 6%\nSa rd ar ab\nad i et\nal .( 20\n14 )\n20 14\nIr an\nSi O 2 -w\nat er\nTh e st ud\ny in ve\nst ig at es\nth e Si O 2 -n an\nofl ui d eff\nec ts\nas a co\nol an\nt on\nth e effi\nci en\ncy of\nPV /T\nsy st em\ns (b ot h el ec tr ic al\nan d th er m al ) th ro ug h ex pe ri m en ts .F ur th er m or e, tw o w ei gh t pe rc en t (w t.% ) w er e us ed , 1% an d 3% ,o f si lic a (S iO 2 )/ w at er na no fl ui d. Th e re su lt s sh ow ed an ov er al ls ys te m effi ci en cy in cr ea se of 3. 6% w he n 1 w t% w as us ed co m pa re d to w at er .W hi le 3% w ei gh t fr ac ti on pr od uc ed a to ta le ffi ci en cy in cr ea se of up to 7. 9% .T he th er m al effi ci en cy in cr ea se d ab ou t 7. 6% an d 12 .8 % fo r 1 w t% an d 3 w t% of si lic a/ w at er na no fl ui ds , re sp ec ti ve\nly R ad w an et al .( 20 16 ) 20 16 Eg yp t A l 2 O 3 an d Si C -W at er Th e st ud\ny ai m ed\nto ex am\nin e th e vo\nlu m e fr ac ti on\nan d m as s fl ow\nra te\nof A l 2 O 3 an\nd Si C –w\nat er\nna no\nfl ui ds\non th e pe\nrf or m an\nce of\nPV T sy st em . A ut ho rs co nc lu de d th at us in g Si C –w at er na no fl ui d le ad s to a hi gh er re du ct io n in th e PV pa ne lt em pe ra tu re ,c om pa re d to A l 2 O 3 –w at er .T hi s sh ow s th e Si C su pe ri or it y. Fu rt he rm or e, hi gh er pe rc en ta ge s of th e vo lu m e fr ac ti on of th e tw o na no pa rt ic le s le d to an in cr ea se in th e el ec tr ic al po w er w it h ab ou t 19 % an d a de cl in e in th e ce ll te m pe ra tu re up to 38 °C\nA n et\nal .( 20\n16 )\n20 16\nC hi na\nC u 9 S 5 -w\nat er\nTh e au\nth or s co\nnd uc\nte d ou\ntd oo\nr ex pe\nri m en\nts in\nSh an\ngh ai ,C\nhi na\nco nd\nit io ns\nfo r a co\nnc en\ntr at ed\nPV T w it h a sp ec tr al\nsp lit ti ng\nfi lt er\nw he\nn us in g\na C u9\nS5 (O\nle yl am\nin e so lu ti on\n) na\nno fl ui d as\nth e ba\nse fl ui d fo r co\nol in g th e en\nti ty .T\nhe rm\nal en\ner gy\nob ta in ed\nex ce ed\ned a 10\n0° C &\nov er al l\neffi ci en\ncy of\nth e un\nit ha\ns ra is ed\nar ou\nnd 17\n% .T\nhe st ud\ny al so\nco ns id er s di ff er en\nt co\nnc en\ntr at io ns\nan d di ff er en\nt ty pe\ns an\nd co\nm pa\nre s po\nly -\ncr ys ta lli ne\nto m on\nocr ys ta lli ne\nce lls ,w\nhi ch\nha s sh ow\nn be\ntt er\nco m pa\nti bi lit y to\nth e fi lt er .A\nut ho\nrs re co\nm m en\nde d us in g gl as s w it h an\nti -\nre fl ec ti on\nla ye\nr to\nav oi d op\nti ca l lo ss es\nK ha\nnj ar i et\nal .( 20\n16 )\n20 16\nIr an\nA g an\nd A l 2 O 3 -w\nat er\nTh is st ud\ny co\nns id er s tw\no ty pe\ns of\nna no\nfl ui ds ;A\ngw at er\nan d A l 2 O 3 -w\nat er\nna no\nfl ui ds ,a\ns co\nol an\nts PV\nT sy st em\n.A C FD\nsi m ul at io n w as\nm ad\ne fo r\nth e en\nti ty .T\nhe st ud\ny re su lt s in di ca te d an\nin cr ea se\nin th e effi\nci en\ncy an\nd th e he\nat tr an\nsf er\nco effi\nci en\nt w he\nn in cr ea si ng\nth e na\nno pa\nrt ic le s\nvo lu m et ri c ra ti o.\nA gw at er\nsh ow\ned hi gh\nes t in cr ea se\npe rc en\nta ge\nin he\nat tr an\nsf er\nco effi\nci en\nt w it h 43\n% , w hi le\nA lu m in aw at er\nle ad\ns to\n12 %\nin cr ea se .A\nl 2 O 3 ca us ed\nan in cr ea se\nin el ec tr ic al\neffi ci en\ncy of\nar ou\nnd 8–\n10 %\nth an\npu re\nw at er .T\nhe ad\ndi ti on\nof A gw at er\nna no\nfl ui d in cr ea se d\nth e el ec tr ic al\neffi ci en\ncy by\n28 –4\n5% hi gh\ner ov\ner pu\nre w at er\nH us si en\net al .( 20\n15 )\n20 15\nIr aq\nA l 2 O 3 -W\nat er\nTh e au\nth or s ha\nve co\nnd uc\nte d an\nex pe\nri m en\nta l in ve\nst ig at io n of\nA l 2 O 3 -w\nat er\nna no\nfl ui d w it h fo rc ed\nco nv\nec ti on\nas a co\nol an\nt of\nPV T sy st em s. V ar io us na no fl ui d co nc en tr at io ns w er e im pl em en te d, fr om 0. 1 to 0. 5 w it h st ep 0. 1% ,t o te st th e eff ec t of th e w ei gh t pe rc en t. R es ul ts ob ta in ed sh ow ed th at th e PV m od ul e te m pe ra tu re w as ar ou nd 79 .1 °C in th e ca se of us in g w at er al on e as th e ba se fl ui d. O n th e ot he r ha nd , na no fl ui d A l 2 O 3 w it h a co nc en tr at io n ra ti o of 0. 3% ca us ed th e pa ne l te m pe ra tu re to dr op to ar ou nd 42 .2 °C si gn ifi ca nt ly\nM an\nik an\nda n an\nd R aj an\n(2 01\n6) 20\n16 In di a\nSa nd\n-p ro py\nle ne\ngl yc ol -w\nat er\nTh e st ud\ny ai m ed\nto fi nd\nth er m oph\nys ic al\npr op\ner ti es 'm\nea su re m en\nts & ap\npl ic at io n of\nsa nd\n-p ro py\nle ne\ngl yc ol –w\nat er ,s ur fa ct an\nt fr ee ,f or\nso la r\nen er gy\nco lle\nct io n th ro ug\nh ex pe\nri m en\nts .T\nhe rm\noph\nys ic al\npr op\ner ti es ,o\nf 2%\nvo lu m e,\nsh ow\ned a re du\nct io n in\nvi sc os it y an\nd en\nha nc\nem en\nt in\nth er m al\nco nd\nuc ti vi ty\nof ar ou\nnd 47\n% an\nd 16\n.3 % ,r\nes pe\nct iv el y.\nTh is\nna no\nfl ui d ca us ed\nan en\nha nc\nem en\nt of\nhe at\ntr an\nsf er\nan d so la r en\ner gy\nco lle\nct io n of\nar ou\nnd 16\n.5 % .T\nhe st ud\ny off\ner s de\nta ils\nof th e na\nno fl ui d pr ep\nar at io n pr oc\nes s,\nus in g bo\nth FE\nSE M\nan d X R D\nfo r th e na\nno fl ui d\nG ha\ndi ri\net al .( 20\n15 )\n20 15\nIr an\nFe 3 O 4 -w\nat er\nTh e st ud\ny ai m ed\nto ex pe\nri m en\nta lly\nte st\nth e eff\nec ts\nof Fe\n3 O 4 -w\nat er\nna no\nfl ui d on\na PV\nT sy st em\n,w he\nn va\nry in g co\nnc en\ntr at io ns , in\nte rm\ns of\nov er al le\nffi ci en\ncy an\nd ex er gy\n.W at er\nan d fe rr ofl\nui d (F e 3 O 4 -w\nat er )w\nit h co\nnc en\ntr at io ns\nof 1%\nan d 3%\nw er e us ed\n.F ur th er m or e,\nth e fe rr ofl\nui ds\nw er e su bj ec te d to\nco ns ta nt\nan d va\nri ab\nle m ag\nne ti c fi el ds .T\nhe 3%\nco nc\nen tr at io n of\nth e fe rr ofl\nui d ca us ed\nim pr ov\nem en\nts in\nth e ov\ner al l\neffi ci en\ncy of\nth e sy st em\nfo r ab\nou t 45\n% .F\nur th er m or e,\nau th or s cl ai m ed\nth at\nad di ng\na th er m al\nco lle\nct or\nto a PV\nsy st em\nan d em\npl oy\nin g (3 % )\nfe rr ofl\nui d,\nun de\nr an\nal te rn at in g m ag\nne ti c fi el d,\nca us ed\nan in cr em\nen t of\n48 W\nin th e to ta l ex er gy\nC ri so st om\no et\nal .( 20\n17 )\n20 17\nA us tr al ia\nA gSi O 2 -w\nat er\nTh e au\nth or s de\nve lo pe\nd an\nop ti ca l &\nhe at\ntr an\nsf er\nm od\nel of\na co\nnc en\ntr at in g PV\n/T sy st em\nw it h A gSi O 2 /w\nat er\nna no\nfl ui d w it h a fi lt er .\nFu rt he\nrm or e,\nth e de\nve lo pe\nd m od\nel s w er e va\nlid at ed\nth ro ug\nh ou\ntd oo\nr ex pe\nri m en\nts of\na pr ot ot yp\ne of\nth e sy st em\n.R es ul ts\nob ta in ed\nsh ow\ned an\nin cr ea se\nof 12\n% in\nw ei gh\nte d en\ner gy\nou tp ut\nco m pa\nre d to\nco nv\nen ti on\nal PV\nsy st em\nR ej eb\net al .( 20\n16 )\n20 16\nFr an\nce ,I ra n an\nd Tu\nni si a\nC uH 2O\nTh e st ud\ny ev\nal ua\nte s pe\nrf or m an\nce of\nna no\nfl ui d ba\nse d PV\n/T by\nco ns id er in g w at er ,e\nth yl en\ne gl yc ol ,C\nu/ et hy\nle ne\ngl yc ol ,C\nu/ w at er ,A\nl 2 O 3 /\nw at er\n& A ls O 3 /e th yl en\ne gl yc ol\nas th e ba\nse fl ui ds ,a\nnd co\nns id er in g th re e ci ti es :L\nyo n,\nM as hh\nad ,a\nnd M on\nas ti r of\nFr an\nce ,I ra n,\nan d Tu\nni si a,\nre sp ec ti ve\nly .U\nsi ng\nC u/\nw at er\nin th e ci ty\nof M on\nas ti r in cr ea se d effi\nci en\nci es\nan d ou\ntp ut , w he\nre th e an\nnu al\nel ec tr ic al\nen er gy\nan d th er m al\nen er gy\nou tp ut s w er e ar ou\nnd 74\n6 kW\nh/ m\n2 an\nd 18\n42 kW\nh/ m\n2 ,r\nes pe\nct iv el y\nM ic ha\nel an\nd In iy an\n(2 01\n5) 20\n15 In di a\nC uO\n-H 2 O\nPr es en\nte d a no\nve ld\nes ig n of\nPV T w it h th e co\npp er\nsh ee tl am\nin at ed\ndi re ct ly\nto th e PV\nce ll an\nd C uO\nna no\nfl ui d as\nw or ki ng\nfl ui d,\nth e ad\ndi ti on of su rf ac ta nt w as al so in ve st ig at ed al on g w it h gl az in geff ec t. Th e m ax im um el ec tr ic al an d th er m al effi ci en ci es ac hi ev ed fo r PV T w it h gl az in g ar e 6. 18 % an d 30 .4 3% , w hi le m ax im um el ec tr ic al an d th er m al effi ci en ci es fo r th e co lle ct or w it ho ut gl az in g ar e 7. 62 % an d 28 .2 2%\nTa bl e 2 Su m m ar y of\nth e lit er at ur e on\nPC M\nba se d sy st em\ns.\nA ut ho rs R ef .\nY ea r\nLo ca ti on\nTy pe\nof PC\nM A pp\nlic at io ns /p\nro ce ss /d\nes cr ip ti on\nG au\nr et\nal .\n(2 01\n7) 20\n17 Fr an\nce PC\nM -O\nM 37\nC on\ndu ct ed\na th er m al\nan d el ec tr ic al\nin ve\nst ig at io n fo r ex er gy\nan d effi\nci en\ncy of\na w at er\nba se d PV\nT sy st em\nw it h an\nd w it ho\nut PC\nM ,b\ny de\nve lo pi ng\na m at he\nm at ic al\nm od\nel fo r it .T\nhe st ud y us ed PC M O M 37 fo r ty pi ca lw in te r an d su m m er da ys in Ly on ,F ra nc e. A ut ho rs cl ai m th at th e sy st em sh ow s be tt er re su lt s in bo th su m m er an d w in te r. Th e in ve st ig at io n al so in cl ud ed ot he r pa ra m et er s of PC M su ch as th e eff ec to fm as s on th e ou tl et w at er te m pe ra tu re ,m od ul e te m pe ra tu re ,a nd PV m od ul e el ec tr ic al effi ci en cy .T he re su lt s in di ca te th at du ri ng su m m er , PV effi ci en cy w it h an d w it ho ut PC M w er e 16 .3 0% an d 15 .4 0% , re sp ec ti ve ly .W he re as ,f or w in te r it ha s be en fo un d to be 16 .8 7% an d 16 .5 % ,r es pe ct iv el y\nBr ow\nne et al . (2 01\n6)\n20 16\nIr el an\nd Eu\nte ct ic\nm ix tu re\nof ca pr ic\nan d\npa lm\nit ic\nfa tt y\nac id s (C\nP)\nPr op\nos ed\na no\nve ld\nes ig n of\nw at er\nba se d PV\nT sy st em\nw it h PC\nM th ro ug\nh th er m os yp\nho n fl ow\nan d a he\nat ex ch\nan ge\nr, fo r D ub\nlin Ir el an\nd an\nd te st ed\nit fo r ou\ntd oo\nr co\nnd it io ns .T\nhe m et ho d w as co m pa re d to co nv en ti on al PV T an d PV sy st em s, as w el lt o be in g co m pa re d to th e sy st em w it ho ut a he at ex ch an ge r. Th e sy st em w as sh ow n to ha ve 5. 5 °C hi gh er in te m pe ra tu re th an ot he r sy st em s. Th e st ud y re su lt s cl ar ifi ed th at us in g PC M w as an effi ci en t m et ho d of st or in g he at\nH as an\net al .\n(2 01\n0) 20\n10 M al ay\nsi a\nPa ra ffi n w ax (R T2 0) ,( C –L\n), (C - P) ,( C aC l 2 ·6 H 2 O ) & (S P2 2)\nTh e pa\npe r m ea su re s th e im\npa ct\nof PC\nM on\nBu ild\nin g In te gr at ed\nPV (B IP V ) sy st em\n,b y en\nha nc\nin g PV\nm od\nul e effi\nci en\ncy an\nd ca pi ta liz\nin g on\nth e lo st te m pe\nra tu re .T\nhe st ud\ny de\nal s w it h fi ve\nty pe\ns of\nPC M s w it h m el ti ng\nte m pe\nra tu re s va\nri ed\nfr om\n25 ±\n4 °C\nan d he\nat of\nfu si on\nra ng\ned fr om\n14 0 to\n21 3 kJ\n/k g.\nA ll fi ve\nPC M 's w er e ev\nal ua\nte d at\nth re e in su la ti on\ns. Th\ne hi gh\nes t\nre du\nct io n in\nPV te m pe\nra tu re\nw as\nar ou\nnd 18\n°C\nBi w ol e\net al . (2 01\n1)\n20 11\nFr an\nce Li qu\nid an\nd So lid R T2\n5 Th\ne st ud\ny pr es en\nts a C FD\nm od\nel of\nhe at\nan d m as s tr an\nsf er\nfo r PV\npa ne\nlw it h a ro w\nPC M .T\nhe si m ul at io n in cl ud\nes th e th er m op\nhy si ca lc\nha ng\ne of\npr op\ner ti es .F\nur th er m or e,\nex pe\nri m en\nta l\nse tup\nis us ed\nto va\nlid at e th e w or k.\nTh e si m ul at io n sh ow\ns th at\na PC\nM ca n m ai nt ai n a 40\n°C pa\nne lt em\npe ra tu re\nfo r ap\npr ox\nim at el y tw\no ho\nur s un\nde r a co\nns ta nt\nso la r ra di at io n of\n1 kW\n/m 2\nK az an\nci et\nal .\n(2 01\n4)\n20 14\nD en\nm ar k\n– Th\ne st ud\ny in ve\nst ig at ed\nth e us e of\nPC M\nin a ph\not ov\nol ta ic /t he\nrm al\n(P V /T\n) fo r a pl us -e ne\nrg y ho\nus e to\nsu st ai n it s he\nat in g an\nd co\nol in g.\nTh e pe\nrf or m an\nce of\nPV T is\nco m pa\nre d to a co nv en ti on al PV sy st em ,w it h ph ot ov ol ta ic s us ed be in g th e sa m e. Th e re su lt s ob ta in ed to ve ri fy th at ad di ng PC M to th e PV /T sy st em is a be tt er so lu ti on to it s co nv en ti on al co\nun te rp ar t\nan d th at\nel ec tr ic al\neffi ci en\ncy en\nha nc\nem en\nt he\nlp ed\nPV re ac h ar ou\nnd 15\n.5 % .T\nhe PV\n/T effi\nci en\ncy w as\nar ou\nnd 42\n.8 % ,W\nhi le\nco nv\nen ti on\nal PV\nw as\nat 13\n.5 9%\n. O th er\nso lu ti on\ns w er e\nin vo\nlv ed\nsu ch\nas en\ner gy\nsa vi ng\nan d en\ner gy\neffi ci en\ncy m ec ha\nni sm s Q iu et al . (2 01 5) 20 15 U K O ct ad ec an eM el am in e fo rm al de hy de - w at er -M PC M Th eo re ti ca lly in ve st ig at es a ne w PV T de si gn th at em pl oy ed M PC\nM (M\nic ro en\nca ps ul at ed\nPh as e C ha\nng e M at er ia l)\nsl ur ry ,i n te rm\ns of\nen er gy\npe rf or m an\nce .T\nhe st ud\ny de\nve lo ps a m at he m at ic al m od el ,c om pu te r pr og ra m ,m od el va lid at io n th ro ug h pu bl is he d da ta & fu rt he r in ve st ig at io n in to as pe ct s su ch as sl ur ry co nc en tr at io n ra ti o an d R ey no ld s nu\nm be\nr. Th e m ax im um ac hi ev ed el ec tr ic al effi ci en cy w as 8. 7% w hi le th e m ax im um ac hi ev ed th er m al effi ci en cy w as 59 %\nH as an\net al .\n(2 01\n4) 20\n14 Ir el an d an d Pa\nki st an\nEu te ct ic\nof ca pr ic -\npa lm\nit ic\nac id\nan d\nC al ci um\nch lo ri de\nhe xa\nhy dr at e\nC aC\nl 2 ·6 H 2 O\nSt ud\ny co\nnd uc\nts an\nel ec tr ic al\nan d th er m al\nen er gy\neffi ci en\ncy an\nal ys is\nfo r a So\nlid -li qu\nid PC\nM in te gr at ed\nin to\nPV pa\nne ls PV\nte m pe\nra tu re\nre gu\nla ti on\nan d co\nol in g,\nin tw\no di ff er en\nt cl im\nat es .\nFu rt he\nrm or e,\nth e st ud\ny di sc us se s th e co\nst -e ff ec ti ve\nne ss\nof su ch\nsy st em\n.T he\nre su lt s in di ca te\nth e po\nte nt ia lv\nia bi lit y of\nth is\nsy st em\nfi na\nnc ia lly\nfo r Pa\nki st an\n,u nl ik e Ir el an\nd w hi ch\nsh ow ed le ss er fi na nc ia l po te nt ia l fo r m as s pr od uc ti on .T he av er ag e ac hi ev ed effi ci en ci es fo r Ir el an d an d Pa ki st an ar e 14 .6 an d 20 .3 ,r es pe ct iv el y\nFi or en\nti ni et al . (2 01\n5)\n20 15\nA us tr al ia\n– Th\ne pa\npe r st ud\nie d a ne\nw ai r ba\nse d ph\not ov\nol ta ic –t he\nrm al\n(P V T)\nco lle\nct or\nw it h th e ad\ndi ti on\nof PC\nM st or ag\ne un\nit in te gr at ed\nw it h a re ve\nrs e cy cl e he\nat pu\nm p fo r a H V A C ap\npl ic at io n.\nTh e\nau th or s de\nsi gn\ned th e sy st em\nto op\ner at e fo r bo\nth w in te r an\nd su m m er\nse as on\ns to\nhe at\nor co\nol th e in do\nor sp ac e.\nN um\ner ic al\nan d ex pe\nri m en\nta l w or k ha\ns be\nen ca rr ie d ou\nt to\nva lid\nat e th e\neff ec ti ve\nne ss\nof th e m od\nel .T\nhe m ax\nim um\nge ne\nra te d el ec tr ic al\neffi ci en\ncy w as\n9% w hi le\nth e m ax\nim um\nth er m al\neffi ci en\ncy w as\n45 %\nSt ro pn\nik an d St ri ti h (2 01\n6)\n20 16\nSl ov\nen ia\nR T2\n8H C\nTh e pa\npe r di sc us se s th e eff\nec to\nfa dd\nin g PC\nM to\nPV /T\nsy st em\non th e el ec tr ic al\neffi ci en\ncy an\nd pa\nne lt em\npe ra tu re .T\nhe sy st em\nw as\nin ve\nst ig at ed\nnu m er ic al ly\nby TR\nN SY\nS so ft w ar e an\nd us in g\nex pe\nri m en\nta ld\nat a to\nkn ow\nth e eff\nec ts .I tw\nas co\nm pa\nre d to\na co\nnv en\nti on\nal PV\nT sy st em\n.T he\nsi m ul at io n re su lt s in di ca te d th at\nth e el ec tr ic al\npr od\nuc ti on\nof PV\nT w it h PC\nM w as\n7. 3%\nhi gh er th an it s co un te rp ar t, fo r a on eye ar pe ri od .T he m ax im um ac hi ev ed el ec tr ic al effi ci en cy w as 13 % .T he au th or s co nc lu de d th at th e co ol in g eff ec t of ad de d PC M ca n be en ha nc ed by in cr ea si ng th e PC M th er m al co nd uc ti vi ty\nperformance of the proposed numerical-based simulation models. The results of the energy savings percentage based on the experiments and numerical models showed about 15% in North European weather conditions.\nKhatib et al. (2012) presented a solar irradiation system-based ANN model designed to gather data from 28 cities in Malaysia. This model forecasts the clearness index, which is used to form a predictive global solar irradiation system for Malaysia. The results of the solar irradiation system prediction show a mean absolute percentage error (MAPE) of 5.92%, and yielded 7.96% for the root mean squared error (RMSE) and 1.46% for the MSE.\nDorvloa et al. (2015) conducted an estimate of the solar radiationbased clearness index using the ANN technique. They designed a hybrid neural net system-based Radial Basis Function (RBF) and Multi-Layer Perceptron (MLP) for Oman, by utilising long-term data in the design\nprocess. The study claims that the performance of both the RBF and MLP models was satisfactory. However, the study suggested that RBF models are more efficient due to their lower computing power requirement, as opposed to the MLP. The RBF is trained with data collected from different meteorological stations around Oman, located in Sohar, Seeb, Masirah, Sur, Salalah and Fahud.\nSulaiman et al. (2012) attempted to forecast the power of a grid connected PV system by using the hybrid multilayer feed forward neural network (HMLFNN) technique. In the proposed model, an Artificial Immune System (AIS) was selected as an optimiser for the training process of Multilayer Feed Forward Neural Network (MLFNN). The input variables of the model are the solar irradiance and the module’s temperature, while the output was the energy generated by the system. However, the length of period for recording data was very short for training and testing the proposed HMLFNN technique, which does not\nTable 3 Comparison between different modelling techniques.\nAuthors/reference Year Location Model type Accuracy Time consumption Complexity\nKhatib (2014) 2012 Malaysia LM and NLM LM: Low NLM: Fair\nFast Low\nAlmonacid et al. (2009) 2009 Spain MLP High Fair Low Modi and Sukhatme (1979) 1979 India LM Low Fast Low Page (1961) 1961 40°N–40°S LM Low Fast Low Sben and Tan (2001) 2001 Turkey LM and NLM LM: Low\nNLM: Fair Fast Low\nJin et al. (2005) 2005 China LM and NLM LM: Low NLM: Fair\nFast Low\nMellit and Pavan (2010) 2010 Italy MLP High Long High Angstrom, 1956 1956 USA LM Fair Fast Low Altunkay (2004) 2004 Turkey MLRM High Long High Jiang (2008) 2008 India MLRM High Long High Sahin et al. (2013) 2013 Turkey ANN High Long High McCullock and Pitss (1943) 1943 USA ANN High Long High Al-Alawi et al. (2007) 2006 Oman ANN High Fast Fair Moody and Darken (1989) 1989 Romania FL High Long High Paulescu et al. (2008) 2008 Spain FL High Long High Jang (1993) 1993 USA AN-FIM High Long High Top et al. (1995) 1995 Turkey AN-FIM High Long High Almonacid et al. (2011) 2011 Spain MLP High Long High Kennedy and Eberhart (1995) 1995 India PSOM Fair Fair Fair\nFig. 1. Schematic diagram of the experimental rig.\nconsider the annual climate change that consequently affects the prediction accuracy in a negative manner.\nMellit and Kalogirou (2011) implemented an adaptive neuro-fuzzy inference scheme (ANFIS) using a back propagation (BP) learning algorithm to model and simulate the PV power system. The ANFIS was built to model the delivered and consumed power generation by the PV power system on a daily basis. Average daily measurements of the metrological data were used as input data for the proposed prediction model, therefore the uncertainty in solar irradiation was not considered.\nIzgi et al. (2012) implemented the ANN methodology to a data collector from the PV with a capacity power of 750W. The model was designed to determine the time horizon which has the highest display of generated electricity forecasting, under small scale applications. The best solar power prediction for the short and medium term are 5 and 35min, respectively in April, while they increase to 3 and 40min respectively during August. Lastly, test and training procedures mid-term solar power time horizon predictions are achieved better in August than April. The authors show the correlations between the coefficient and RMSE values which are estimated between the measured and ANN modelled data.\nBehrang et al. (2010) used ANN techniques to predict the daily\nGlobal Solar Radiation (GSR) on horizontal surfaces in Dezful city, Iran, with the input being meteorological variables. Input data were gathered from 2002 to 2006 for the daily mean air temperature, relative humidity, sunshine hours, evaporation and wind speed. The model of ANN used is a MLP and RBF model to get daily GSR, based on 6 combinations assumed by the authors to cover the subject of the study. The authors\nFig. 4. Top view of the collector.\nfound improvement to the ANN model over other models in the literature, where the MLP-V scored a Mean Absolute Percentage Error (MAPE) of 5.21% while the CGSRP model scored around 10.02%.\nTable 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995). The criteria classified are as follows; accuracy (high, low, fair); time consumption (fast, long, fair); and complexity (high, low, fair). A comparison between the described models has been made. ANN has been proven to be accurate and shows better results than the multiple linear regression (MLR) as suggested by the error index values, rendering it a very interesting approach. Some authors have claimed that the PSOM model is simple and easy to implement. Furthermore, fewer research studies have been conducted to model PV/T systems.\nThis study will merge the two techniques in Karunamurthy et al. (2012) and Sardarabadi et al. (2017) by dispersing the SiC nanoparticles in the paraffin PCM material and placing it in a container that will carry the PV panel, which is to the best of the author’s knowledge a\nnovel method and design of the PV/T systems. The pipes within the container will hold the working fluid which will be nanofluid SiCWater. This will further increase the thermal performance of the PV/T and maintain its electrical efficiency. As Table 3 suggests, ANN modelling techniques are commonly used because of the high degree of accuracy they provide. Therefore, this paper implements an ANN technique to model the solar energy production of PV/T systems."
+    }, {
+      "heading" : "3. Experimental setup",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Study area",
+      "text" : "The site of the experimental setup is the city of Bangi, Selangor Malaysia. The coordinates of its location are 2.9021N, 101.7830E (latitude like that of Kuala Lumpur, and city near it in distance as well). Its weather patterns, which are composed of temperature, wind speed and approximate humidity are around 31 °C, 10 km/h and 66%, respectively (Daghigh, 2011; Yazdanifard et al., 2016; Tripanagnostopoulos et al., 2005; Hegazy, 2000; Al-Waeli et al., 2017b). The average hours of sunshine are approximated between 150 and 210 h on a monthly basis, while the average rainy days on an annual basis are between 14 days in July (lowest) and 20 days in October, November and April (peak)."
+    }, {
+      "heading" : "3.2. New design description",
+      "text" : "The novelty of this design is the PV/T's inclusion of a tank which stores phase change material (PCM) with a high thermal storage capacity to maintain the heat transferred from the PV panel. The PCM's high thermal storage allows it to receive all the heat transfers from the PV panel. The stored heat is transferred from the tank through a fluid cycle which is placed in the tank, to an external heat exchanger, increasing the difference in temperature between the PV and PCM; hence improving the heat transfer process and cooling the PV panel, which upgrades its performance. The PCM used in the study (paraffin wax) was immerged with nano-SiC particles to enhance its charging and discharging processes. These processes, charging and discharging, are important because they allow to provide increasingly efficient cooling to the proposed system.\nThe PCM begins to harden at a temperature that is below its melting temperature. This is because of the sub cooling (also referred to as super cooling), which will not allow the PCM to release the entire latent heat stored at its melting temperature. It also enables the proper crystallisation of the PCM at the phase change temperature, where the latent heat is released. The appearance of any sub-cooling effect does not cause any difference during the fusion process (charging process), but is an important factor during the cooling process (discharging process). The crystallisation of the PCM begins when its temperature reaches values below its melting temperature (Chaichan et al., 2016). During the process of solidification, a proper crystallisation is an important factor in releasing the latent heat. The nuclei begin to form with the start of the crystallisation process. The formation of nuclei is a basic process: the nuclei are divided into two types; homogenous and heterogeneous (Zhang et al., 2012). In homogenous nuclei, the PCM itself facilitates modulation due to sufficient heat temperature. While, in heterogeneous nuclei, the process is not initiated by the PCM itself, but it starts due to the special additives that are intentionally added to the PCM, as in the recent study. A reduction in the melting and solidification time is due to the addition of nanoparticles and their dispersion in wax as a cores agent. These nanoparticles can form heterogeneous nuclei in the PCM compound (Ozerinc et al., 2010). Research around this topic is very important, but is not part of the research scope, so the interested reader can return to Kibria et al. (2015), Chaichan et al. (2015) and Choi et al. (2014)).\nThe performance of PCM decreases throughout time, which is a serious issue. This could be eliminated through addition of\nnanoparticles, which in turn increases the total recoverable energy from the PCM due to a high increase in the heat transfer rate caused by these particles. Jegadheeswarana et al. (2011) found that the addition of nanoparticles to paraffin wax reduces the solidification time and so promotes the paraffin's recovered exergy. Sobolciaka et al. (2015) conducted experimental work and stated that the fusion and re-crystallisation of the paraffin wax did not change after 30 cycles of heating/ cooling, and the thermophysical properties remained constant over five cycles of heat.\nThe experimental setup was built in the green innovation and technology parks' outdoors laboratory, which is owned by the National University of Malaysia. Figs. 1 and 2 show the schematic diagram and view of the main experimental rig, respectively. The setup consists of a supporting pole; carrying the PV panels, which were set facing south with an angle of 14° based on the findings of Elhassan et al. (2011) and Khatib et al. (2015). The setup includes a cabinet which contains a heat exchanger, water pumps, nanofluid container, laptop, wirings and a data acquisition system (DAQ). Behind this cabinet, a water tank was\ninstalled to hold the hot water produced from the exchanger. To prevent heat leakage from the PCM container to the ambient, it was isolated from its back and sides with glass wool with a 2 cm thickness. The insulation is critical as it will aggregate the heat drawn from the PV panel in the container and then extract via water and nanofluid. The proposed systems’ 'main system' is displayed in Figs. 1 and 2, while the remaining configurations are similar and set up in the park as well, with their own heat exchangers, tanks and setups.\nTo fairly validate this new PV/T design and test its performance, it is compared to different setups in the work; four combinations were set up to test the effectiveness of this design. These systems are: the conventional PV panel, PV/T with water-filled container and water as working fluid, PV/T with PCM-filled container and water as working fluid, PV/T with container filled with nanoparticles dispersed in PCM and nanofluid as working fluid. The data of all PV/T systems and PV systems were collected simultaneously.\nFig. 6. preparation steps of the nano-PCM.\nTable 4 Thermophysical properties of the tested nanofluids.\nProperty Nano-SiC rate 25 °C 30 °C 35 °C 40 °C 45 °C 50 °C 55 °C 60 °C 65 °C\nDensity (g/ml) 0 1 0.998 0.995 0.987 0.984 0.98 0.978 0.977 0.976 0.1 1 1 0.999 0.991 0.988 0.984 0.982 0.981 0.980 0.15 1 1 1 0.993 0.991 0.986 0.984 0.982 0.981 0.2 1 1 1 0.994 0.992 0.987 0.985 0.983 0.982 0.3 1 1 1 0.995 0.993 0.988 0.986 0.984 0.983 0.4 1 1 1 0.996 0.994 0.989 0.987 0.985 0.984\nViscosity (mPa·s) 0 1 0.98 0.967 0.93 0.92 0.91 0.908 0.907 0.906 0.1 1.009 0.988 0.975 0.938 0.928 0.918 0.908 0.908 0.907 0.15 1.012 0.991 0.978 0.941 0.931 0.921 0.91 0.906 0.905 0.2 1.017 0.997 0.983 0.945 0.935 0.925 0.915 0.908 0.907 0.3 1.019 0.997 0.984 0.946 0.936 0.926 0.916 0.915 0.910 0.4 1.020 0.998 0.985 0.948 0.938 0.928 0.915 0.913 0.911\nThermal conductivity (W/m. K) 0 0.61 0.62 0.625 0.6349 0.643 0.65 0.662 0.673 0.674 0.1 0.625 0.635 0.64 0.65 0.659 0.666 0.678 0.689 0.690 0.15 0.627 0.637 0.634 0.653 0.661 0.668 0.681 0.692 0.695 0.2 0.637 0.647 0.653 0.663 0.671 0.679 0.691 0.703 0.705 0.3 0.660 0.67 0.676 0.687 0.696 0.704 0.716 0.728 0.730 0.4 0.661 0.672 0.677 0.688 0.697 0.704 0.717 0.729 0.731"
+    }, {
+      "heading" : "3.3. Design of the PCM/Nanofluid based PV/T",
+      "text" : "The PV/T design focuses on employing less material for the selected photovoltaic size to avoid heat losses and ensure lesser costs. The PCM container was built out of galvanized steel and attached to the back of the panel. While, pipes were copper-made and used to convey the base fluid within due to copper's excellent thermal conductivity and common use in such applications. Figs. 3 and 4 illustrates schematic diagrams of the collector with a cross-sectional view and a top view, respectively.\nTable 1 presents the specifications of the Nano-PCM/PV/T collector.\nAs Figs. 3 and 4 indicate, a silicon oil layer is disposed between the PV panel and the PCM tank in order to ensure the elimination of air gaps and increase the thermal capacitance of the collector. The collector has two bulging pipes at its top; one to insert the PCM and the air, while the other is to exhale air bubbles from the collector. There is also a bottom tube, designed to guarantee the evacuation of the containers'\ncontents. A photo of the collector is shown in Fig. 5. It is noteworthy to point out that the conventional PV panels used have the same sizes to those used in the novel design to have a fair comparison between the two. Table 2 shows the properties of the PV panels used."
+    }, {
+      "heading" : "3.4. Preparation of the nanofluid and nano-PCM",
+      "text" : "The nanomaterial was prepared over two batches: the first batch was made to be dispersed in paraffin (PCM) while, the second was to be mixed with water and produce a nanofluid. The mass fraction value (wt. %) of the nanoparticles was taken into consideration, therefore different fractions were tested to be dispersed in the paraffin wax; creating multiple paraffin samples with the same amount of paraffin and varying amounts of SiC nanopowder. These fractions tested are 0%, 0.1%, 0.5%, 1%, 2%, 3% and 4%. All added SiC nanoparticles can be seen in Fig. 6a. The process of mixing was carried out using an Ultrasonic Shaker (TELSONIC ULTRASONICS CT-I2) bath with a volume of 12 L, which performed the heating, with a power of 800W and a 60min (30 kHz) shaking period, which is to guarantee no sedimentation and optimum dispersion occurred and that a homogeneous and stable suspension was formed as well. These samples were examined over stages; the first stage is the visual test; whether the addition of SiC-nanoparticles and ultra-sonication changed the paraffin colour or not. The first proof of a perfect amalgamation of nanoparticles in wax is its colour change and homogeneity for all tested wax-nano-SiC samples. The second stage is the thermo-physical properties test, where the fluidity, viscosity and thermal conductivity of each sample is tested to verify and detect the enhancement to paraffin. The specifications of the selected nano-SiC and paraffin wax are shown in Tables 3 and 4, respectively. After the selection of a certain mass fraction based on test results, it is produced for a relatively large-scale to fill the container, as can be seen in Fig. 6b.\nAs for the preparation of the SiC-water nanofluid, a similar path is followed that involves testing several weight percentages, using ultrasonic shaking, and thermophysical properties testing. After the discovery of the right nano-SiC for the paraffin wax mix and the nanofluid, further studying is required. This is established through Field Emission Scanning Electron Microscopy (FESEM), which displays an elucidation of the topographic surface of the SiC nanoparticles. Also, an X-ray diffraction (XRD) image was taken of the samples. Fig. 7 shows the XRD and FESEM image of the silicon carbide nanoparticles with and without paraffin and their presence which is proved to be ranging from 40 to 60 nm. An Electron Dispersion X-ray (EDX) image and an Electron Dispersion Spectroscopy (EDS) were also taken for the SiC-paraffin sample. EDX and EDS are simple but useful techniques for determining\nthe morphological composition of less than one cubic micron per substance. This equipment is attached to the Scanning Electron Microscopy (SEM) to facilitate the collection of elemental information from the sample under examination. This technique is non-destructive and has 0.1% sensitivity to elements that are heavier than carbon. This range of images validates the state and properties of the mix allowing a clearer understanding of the impact of employing SiC nanoparticles in paraffin. The analysis and discussion of the FESEM, EDX, and XRD images are presented in the results and discussion. Figs. 8 and 9 show the EDX and EDS of the SiC-paraffin sample, respectively.\nThe thermophysical properties tests were conducted at the Solar Energy Research Institute (SERI) laboratory with the main elements to be tested being the density, viscosity, heat capacity and thermal conductivity of all nanofluid and nano-PCM material samples. The density, viscosity and thermal conductivity was measured using the DII-300L\nLeading Factory Liquid Density Tester, the Brookfield programmable viscometer (model: LVDV-III ultra-programmable) and a KD2 Pro analyzer.lr thermal property (decimal ribs device, USA). All tests have been repeated three times on average in order to confirm their repeatability and minimise their uncertainty, which is caused by random errors in the measurement.\nThe preparation of the SiC nanofluid was achieved similarly to AlWaeli et al. (2017b). The thermophysical properties test results were similar as well. The stability was found to be ascertained for more than six months, which is an acceptable time for circulation and use of nanofluids, as it is included in Al-Waeli et al. (2017b)."
+    }, {
+      "heading" : "3.5. Characteristics of the selected equipment",
+      "text" : "To measure the solar radiation that strikes the area, an apogee meter pyranometer was placed in-between the panels. As for temperature measurement, K-type thermocouple sensors were attached to the inlet and outlet pipes, face of the PV panels and back of the container. For voltage and current measurements, multimeters were used. The flow of water and nanofluid was recorded using a flow meter type polysulphone-flow meter (manufacture in China). Table 5 shows the specifications of the equipment used along with the measurement parameter."
+    }, {
+      "heading" : "3.6. Calculation of system’s performance",
+      "text" : "The following equations were employed to calculate the system’s performance.\nThe system's thermal efficiency is (Al-Waeli et al., 2017b):\n× Q I A u\ns c (1)\nwhere Is is the solar intensity and Ac is the collector area. The electrical power is:\n= ×P I V (2)\nwhere I is the current and V is the voltage. The useful collected heat (W) (Hjerrild et al., 2016):\n= −Q mC T Ṫ ( )u p o i (3)\nwhere ṁ is the mass flow rate, Cp is the specific heat (J/kg K), and To and Ti are the outlet and inlet fluid temperatures, respectively.\nThe electrical efficiency ηe is (Rejeb et al., 2016):\n= × η P I Ae s panel (4)\nwhere Apanel is the PV panel area. The total efficiency η( t)= the thermal efficiency+ the electrical efficiency (Yazdanifard et al., 2017)\n= + = + × η η η Q P I At thermal electrical u\ns t (5)\nwhere At is the total area of the PV panel and collector."
+    }, {
+      "heading" : "3.7. Uncertainty analysis",
+      "text" : "Despite care being exercised during the experiments, it is highly important to guarantee accurate results in order to avoid measurement errors crawling on all trials. The main errors to avoid are the ones random in nature; some are due to the calibration of devices or human side errors caused by the examiner. Oftentimes bad data can be identified through obvious errors, and could be disposed of immediately. However, bad data points will be identified, as it is unacceptable to dispose of some data for the reason that they are not aligning with our expectations unless the error is obviously shown. These bad points are usually located outside the expected random deviation, and such data can be eliminated using a consistent statistical data analysis. Here, the human freaks and prejudices must not interfere based on what “must be” (Holman, 2011).\nThe method exercise in estimating the uncertainty in the test in order to determine various experimental measurement errors is the Kline and McClintock (1953) method. The uncertainty in the results is calculated employing the equation:\n⎜ ⎟ ⎜ ⎟ ⎜ ⎟= ⎡\n⎣ ⎢ ⎛ ⎝ ∂ ∂\n⎞ ⎠ + ⎛ ⎝ ∂ ∂\n⎞ ⎠ +…+⎛ ⎝ ∂ ∂\n⎞ ⎠\n⎤\n⎦ ⎥W\nR x w R x w R x wR n n 1 1\n2\n2 2\n2 2 0.5\n(6)\nwhere WR represents the uncertainty in the results, R is a given function of the independent variable (x1, x2, …, xn), and (w1, w2, …, wn) are the uncertainties in the independent variables. On this basis, the uncertainty in the thermophysical properties measurements for the recent study was estimated before extending to other experiments, and it is:\n= + + + + =W [(0.012) (0.18) (0.1) (0.9) (1.01) ] 1.368R 2 2 2 2 2 0.51\nThe uncertainty in the thermal efficiency measurements is:\n= + + =W [(1.2) (0.19) (0.22) ] 1.234R 2 2 2 0.52\nThe uncertainty in the electrical efficiency measurements is:\n= + =W [(0.05) (0.03) ] 0.058R 2 2 0.53\nThe experiments’ overall uncertainty is:\n= + + =W [(1.368) (1.234) (0.058) ] 1.843R 2 2 2 0.5\nThe resulted uncertainty is less than 2%, which indicated a high accuracy in measurements."
+    }, {
+      "heading" : "3.8. Test procedure",
+      "text" : "In this study, a SiC nanofluid with a 3% mass fraction was used, based on the results of Al-Waeli et al. (2017b, 2017c). Table 4 shows the properties of locally produced paraffin wax in Malaysia, the main defect of which is its low thermal conductivity. Paraffin wax was used as a neat and was mixed with nano-SiC. Nano-SiC was selected due to it is moderate costs and local availability but also due to its high thermal conductivity. The reservoirs were ready for testing, once the tanks were filled with wax and nano-SiC-wax. As for liquid wax, it was left to solidify using cooling water and nanofluid circulation in the inner tubes, until the paraffin was hardened.\nThe following systems have been designed, installed and measurements have been taken:\n• Conventional PV (PV). • PV/T-cooling tank filled with water and water flows through cooling pipes (PVT_Wat). • PV/T-cooling tank filled with PCM and water flows through cooling pipes (PVT_WAT_PCM). • PV/T-cooling tank filled with PCM/nano-SiC and nanofluid (waterSiC) flows through cooling pipes (PVT-PCM_WAT-Nano_NF).\nTable 6 Summary of neural models with different materials.\nMethod Material MSE RMSE MAE R\nMLP PVT_WAT-Curr 0.01226 0.23652 0.58768 0.87403 Fig. 10a SOFM PVT_WAT-Curr 0.01058 0.20113 0.53261 0.89391 Fig. 10b SVM PVT_WAT-Curr 0.22249 0.71016 1.18578 0.99221 Fig. 10c MLP PVT_WAT-Eff 0.03758 0.52643 1.12316 0.68882 Fig. 11a SOFM PVT_WAT-Eff 0.03429 0.53622 1.16612 0.69910 Fig. 11b SVM PVT_WAT-Eff 0.21247 0.08199 0.46259 0.97728 Fig. 11c MLP PVT_WAT_PCM-Curr 0.02144 0.38334 0.72209 0.78544 Fig. 12a MLP PVT_WAT_PCM-Eff 0.02144 0.50641 1.28273 0.70365 SOFM PVT_WAT_PCM-Curr 0.01837 0.33275 0.72743 0.81745 Fig. 12b SOFM PVT_WAT_PCM-Eff 0.01837 0.39719 1.18480 0.77781 SVM PVT_WAT_PCM-Curr 0.13672 0.79434 1.16801 0.99096 Fig. 12c SVM PVT_WAT_PCM-Eff 0.13672 0.46499 1.63443 0.98680 MLP PVT-PCM_WAT-Nano_NF-Curr 0.03497 0.45229 0.81247 0.74308 Fig. 13a MLP PVT-PCM_WAT-Nano_NF-Eff 0.03497 0.71018 1.48998 0.54186 SOFM PVT-PCM_WAT-Nano- NF-Curr 0.00966 0.10298 0.32602 0.94753 Fig. 13b SOFM PVT-PCM_WAT-Nano_NF-Eff 0.00966 0.19052 0.71768 0.90064 SVM PVT-PCM_WAT-Nano- NF-Curr 0.14923 0.60664 1.00077 0.99662 Fig. 13b SVM PVT-PCM_WAT-Nano_NF-Eff 0.14923 0.33353 1.22525 0.99109\nThe field trials began following the thermophysical property tests of both the nanofluid and the nano-wax, starting from the 3rd of June 2017 and only on clear and sunny days. The data collection was conducted between 8 AM and sunset. After sunset, fluid pumps remained active to ensure the cooling of the paraffin wax and was deactivated after confirming that the wax temperature reached the temperature of\nthe entering fluid and was completely solidified to be ready for the following experiments."
+    }, {
+      "heading" : "3.9. ANN simulation",
+      "text" : "Artificial Neural Networks (ANN) have frequently grown for\nPV_current PV_current Output\nmodelling and optimising the results of any system. ANN computation is used to analyse and process multiple input spaces and then maps them into a simple output space. The ANN was implemented in many domains such as engineering, science, education, social, linguistics, and geo-information. The neural architecture defines the associations\nbetween neurons (input, hidden, and output). The two main topologies of the ANN are the feed-forward and recurrent neural networks. Also, based on learning techniques, the ANN is divided into supervised and unsupervised (Adnan et al., 2005). This paper aims to design and implement an ANN system that is used to predict the productivity of a\nPV_Ele_eff PV_Ele_eff MLP\nphotovoltaic system established in Malaysia (UKM University). Different materials are used in the practical application in order to measure and record the suitable data for this study. The neural network simulation is conducted using the NeuroSolution software. The experiments used 1000 data sets, which are divided into three categories (50% for training the neural models, 20% for cross-validation and 30% for testing out of the neural model). In order to obtain the most accurate results, the experiments therefore include several types of neural\nnetworks such as the MLP, SOFM and SVM. The following parameters are used to simulate the neural models. The input parameters are Solar_Radiation and PVT_Cell_Temperature, whereas the output parameters are PVT_Current (A) and PVT_Electrical_Efficiency. Likewise, the PVT_Thermal efficiency is used in some experiments as an output parameter in order to determine the accuracy of PVT_Thermal.\nPVT_current(A) PVT_Electrica eff(%) PVT_Thermal eff(%)"
+    }, {
+      "heading" : "4. Results and discussions",
+      "text" : ""
+    }, {
+      "heading" : "4.1. Neural computing",
+      "text" : "The MLP consists of one hidden layer, two input layers (Solar_Radiation and PVT_Cell_Temperature) and two output layers\n(PVT_Current and PVT_Electrical_Efficiency). The maximum number of epochs is 1000. The transfer function is TanhAxon in hidden and output layers. The momentum learning method with a constant step size equal to1 and a momentum rate of 0.7 is implemented as a learning function. The architecture of the SOFM models consists of two inputs (Solar_Radiation and PVT_Cell_Temperature) and two outputs\nPVT_current(A) PVT_Electrica eff PVT_current(A) Output PVT_Electrica eff Output\n(PVT_Current and PVT_Electrical_Efficiency). It consists of supervised and unsupervised neuron outputs with a dimension of 5×5 with the learning rate starting with 0.01 and declining to 0.001. The initial radius is equal to 2 and descends to 0 as a final radius. A non-linear momentum learning rule is selected in the hidden layer with a step size of 1 and a momentum learning rate of 0.7. The transfer function TanhAxon is used in the four nearest neighbour PEs and output layers. The SVM supervised computing technique consists of two input layers (Solar_Radiation and PVT_Cell_Temperature) and two output layers (PVT_Current and PVT_Electrical_Efficiency). The maximum number of epochs is 1000.\nDifferent materials were tested and recorded in the simulation and practical experiments such as Water, PCM, Nano and Nano Fluid for the proposed PV/T system. The simulation results are summarised in Table 6.\nThe comparison of the desired output current of the PV_Wat model and the actual output for three days of MLP, SOFM, SVM models are depicted in Fig. 10a–c, respectively. Moreover, the comparison of the desired efficiency results and actual efficiency of the MLP, SOFM and SVM models are illustrated in Fig. 11a–c correspondingly. Similarly, the comparison of the desired output of PV/T model using water and PCM and results of current, efficiency and thermal efficiency based MLP, SOFM and SVM models is shown in Fig. 12a–12c, respectively. Fig. 13a–c present the association of the desired output of the PV/T\nmodel based water, Nano and Nano fluid and actual results of MLP, SOFM and SVM models, respectively. It is clear that for all the output, both groups of data (measured and predicted) are highly correlated. By using ANN models, some parts of the time and cost consuming experimental works can be avoided. The well-trained networks can model and predict the process in considerably lower time."
+    }, {
+      "heading" : "4.2. Prediction of mathematical models",
+      "text" : "Many methods are used to evaluate the accuracy and validity of result prediction in neural computations. The coefficient of determination (R2) is one of the important methods used to evaluate the validity of the predictive results compared to the actual (experimental) real model results. It is computed as in Eq. (7).\n= − ∑ − ∑ − R y f y y 1 ( ) ( )\ni n i i i n i i 2 2 2 (7)\nwhere y is the experimental value yi and fi is the predicted value of y. y is the mean of the experimental values. N is the number of values.\nNevertheless, in some cases, R2 is not sufficient to judge whether the obtained results are valid, especially using the time-series analysis.\nTherefore, other methods such as the Mean Absolute Percentage Error (MAPE), Root Mean Square Error (RMSE) Mean Absolute Error (MAE), and Mean Square Error (MSE) are applied to verify the validity\nof the predicting results as defined in Eqs. (8)(11), respectively.\n∑= − = MAPE N y f y 100 i\nN i i\ni1 (8)\n∑= + −=N y fRMSE 1 ( ) i N i i1 2 (9)\n∑= − = MAE N f y1 | | i\nN\ni i 1 (10)\n∑= − = MSE N f y1 ( ) i\nN\ni i 1\n2\n(11)\nIn comparison with the proposed three models, the best results of the MSE are equal to 0.0122 and 0.0105, MAE equal to 0.5876 and 0.5326 is achieved for MLP and SOFM in each case in terms of predicting the production of current-energy. Similarly, SVM is characterised by a lower performance based on the MSE value equal to\n0.2224 and MAE value equal to 1.1857. Also, the proposed models yield excellent results in terms of the MSE and MAE results in forecasting the efficiency of the solar panel. The MLP and SOFM achieved the best MSE results equal to 0.0375, 0.0342, and MAE equal to 0.6888, 0.6991, respectively. However, the SVM obtained MSE equal to 0.2124 and MAE equal to 0.9772. The results of the proposed three models for predicting the performance of the PV panel using cooling water and nanofluid are significantly accurate. The SOFM achieved the best results of predicting the production of current electricity and the efficiency of the PV panel equal to 0.0096 for both factors. Also MLP achieved a value of 0.0349 and SVM value of 0.1492 for both factors."
+    }, {
+      "heading" : "4.3. Comparison with similar works",
+      "text" : "A comparison of the three ANN models (MLP, SOFM, SVM) and the experimental results for the PV efficiency and current are shown in Tables 7 and 8, respectively. The mean value, which is a general trend or value that is used as a typical representative of a set of data, shows\nthat MLP more closely resembles the experimental results, while SVM does it less so but within the acceptable range. The variance and standard deviation shows that MLP and SOFM more closely resemble the experimental results, which quantifies the dispersion of data and amount of variation model values. On the other hand, of the three models, SOFM seems to more closely resemble the experimental results, which depicts the relationship between the dispersion of individual observations around the standard deviation.\nTo measure the “tailedness” and “asymmetry” of the probability distribution of a real-valued random variable, Kurtosis and Skewness are used, respectively. However, it was found that for Kurtosis, SVM and MLP are closer, while SVM is closer for Skewness. There is no consistency found in the maximum values of the three ANN models. However, for a minimum MLP, SVM, and SOFM are consistent with the experimental results particularly for efficiency.\nTo validate the different ANN models results, a comparison with published work is essential. Fig. 14a and b shows a comparison of R and RSME of the proposed models and published work in the literature. From Fig. 14a it is found that the SVM is more accurate and consistent with published work. However, SOFM and MLP are moderate. Fig. 14b shows that the RSME error is significantly low with respect to the published work, which shows the proposed ANN model’s accuracy. However, SOFM is the lowest error compared with MLP and SVM."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "A number of contributions are achieved in this paper. The first contribution of this paper involves both theoretical and practical aspects of solar energy production and cooling. The second contribution presents a novel design configuration for a hybrid PV/T system, using nanofluid and nano-phase change material, and evaluates its performance using suitable mathematical techniques. Besides, three neural models are designed and deployed in order to simulate and predict the behaviour of the real PV/T model. Also, the neural models give the ability to forecast the real results in future for any time, which will help to expect and manage the power production.\nThree PV/T systems have been proposed and implemented to investigate the effect of the cooling method on PV power and efficiency. In this study, the thermal behaviour of PV/T cooling methods was examined outdoors in Malaysia. The experimental results were validated using the Artificial Neural Networks method (ANN) and compared with published work. Three ANN methods were used as follows: MLP, SOFM and SVM, with two output of ANN network; PV current and efficiency. The results show that nano-PCM and nanofluid using SiC nanoparticles are the best coolants out of the three methods, which yield the maximum efficiency as high as 13.32% compared with conventional PV value equal to 8.07%.\nIn the second part, the experimental results are used to construct three ANN models, which are MLP, SOFM and SVM, to find the best relationship between input and output. The correlation coefficient and relative error between the targets and the network outputs were considered as the benchmarks for testing the network capability in predicting the new data sets. Also, statistics analyses and comparisons with published work are present. It is found that the well trained network had an acceptable performance. Using such a modelling technique reduces the need for excessive experimental efforts.\nConflict of interests\nThe authors declare that there is no conflict of interests regarding the publication of this paper."
+    }, {
+      "heading" : "Acknowledgment",
+      "text" : "The authors would like to honestly thank the National University of Malaysia for the provision of the grant AP-2017-006/2 to support this\nwork. Also, thanks to Solar Energy Research Institute (SERI), Makmal Morfologi CRIM (FESEM laboratory) and Makmal Pencirian Fizikal (XRD laboratory) from National University of Malaysia for their support as well."
+    } ],
+    "references" : [ {
+      "title" : "Forecasting based on neural network approach of solar potential in Turkey",
+      "author" : [ "S. Adnan", "E. Arcaklioglu", "M. Ozalp", "N. Caglar" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Adnan et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Adnan et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "Hybrid nanofluids based on Al2O3, TiO2 and SiO2: numerical evaluation of different approaches",
+      "author" : [ "M.A. Adriana" ],
+      "venue" : "Int. J. Heat Mass Transf",
+      "citeRegEx" : "Adriana,? \\Q2017\\E",
+      "shortCiteRegEx" : "Adriana",
+      "year" : 2017
+    }, {
+      "title" : "Predictive control of an integrated PVdiesel water and power supply system using an artificial neural network",
+      "author" : [ "A. Al-Alawi", "S.M. Al-Alawi", "S.M. Islam" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Al.Alawi et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Al.Alawi et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "Characterisation of Si-crystalline PV modules by artificial neural networks",
+      "author" : [ "F. Almonacid", "C. Rus", "L. Hontoria", "M. Fuentes", "G. Nofuentes" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Almonacid et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Almonacid et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Calculation of the energy provided by a PV generator",
+      "author" : [ "F. Almonacid", "C. Rus", "P. Pérez-Higueras", "L. Hontoria" ],
+      "venue" : "Comparative study: conventional methods vs. artificial neural networks. Energy",
+      "citeRegEx" : "Almonacid et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Almonacid et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Temporal significant wave height estimation from wind speed by perceptron Kalman filtering",
+      "author" : [ "A. Altunkaynak", "M. Ozger" ],
+      "venue" : "Ocean Eng",
+      "citeRegEx" : "Altunkaynak and Ozger,? \\Q2004\\E",
+      "shortCiteRegEx" : "Altunkaynak and Ozger",
+      "year" : 2004
+    }, {
+      "title" : "2017a. Photovoltaic/thermal (PV/T) systems: status and future prospects",
+      "author" : [ "A.H. Al-Waeli", "K. Sopian", "H.A. Kazem", "M.T. Chaichan" ],
+      "venue" : "Renew. Sustain. Energy Rev",
+      "citeRegEx" : "Al.Waeli et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Al.Waeli et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "2017b. An experimental investigation of SiC nanofluid as a base-fluid for a photovoltaic thermal PV/T system",
+      "author" : [ "A.H.A. Al-Waeli", "K. Sopian", "M.T. Chaichan", "H.A. Kazem", "H.A. Hasan", "A.N. Al-Shamani" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Al.Waeli et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Al.Waeli et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Comparative study to use nano-(Al2O3, CuO, and SiC) with water to enhance photovoltaic thermal PV/T collectors",
+      "author" : [ "A.H. Al-Waeli", "M.T. Chaichan", "H.A. Kazem", "K. Sopian" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Al.Waeli et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Al.Waeli et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Experimental investigation of a concentrating PV/ T collector with Cu9S5 nanofluid spectral splitting filter",
+      "author" : [ "W. An", "J. Wu", "T. Zhu", "Q. Zhu" ],
+      "venue" : "Appl. Energy",
+      "citeRegEx" : "An et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "An et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "On the computation of global radiation from records of sunshine",
+      "author" : [ "A. Angstrom" ],
+      "venue" : "Arkiv Geof",
+      "citeRegEx" : "Angstrom,? \\Q1956\\E",
+      "shortCiteRegEx" : "Angstrom",
+      "year" : 1956
+    }, {
+      "title" : "A neural network controller for hydronic heating systems of solar buildings",
+      "author" : [ "Argiriou", "A. Athanassios" ],
+      "venue" : "Neural Netw",
+      "citeRegEx" : "Argiriou and Athanassios,? \\Q2012\\E",
+      "shortCiteRegEx" : "Argiriou and Athanassios",
+      "year" : 2012
+    }, {
+      "title" : "Experimental and numerical investigation of nanofluids heat transfer characteristics for application in solar heat exchangers",
+      "author" : [ "E.E. Bajestan", "M.C. Moghadam", "H. Niazmand", "W. Daungthongsuk", "S. Wongwises" ],
+      "venue" : "Int. J. Heat Mass Transf",
+      "citeRegEx" : "Bajestan et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Bajestan et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "The potential of different artificial neural network (ANN) techniques in daily global solar radiation modeling based on meteorological data",
+      "author" : [ "M.A. Behrang", "E. Assareh", "A. Ghanbarzadeh", "A.R. Noghrehabadi" ],
+      "venue" : "Sol. Energy",
+      "citeRegEx" : "Behrang et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Behrang et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Improving the performance of solar panels by the use of phase-change materials",
+      "author" : [ "P. Biwole", "E. Pierre", "K. Frederic" ],
+      "venue" : "World Renewable Energy Congress-Sweden,",
+      "citeRegEx" : "Biwole et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Biwole et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Heat retention of a PV/thermal collector with PCM",
+      "author" : [ "M.C. Browne", "B. Norton", "S.J. McCormack" ],
+      "venue" : "Sol. Energy",
+      "citeRegEx" : "Browne et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Browne et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Enhancing a Trombe wall charging and discharging processes by adding nano-Al2O3 to phase change materials",
+      "author" : [ "M.T. Chaichan", "A.H. Al-Hamdani", "A.M. Kasem" ],
+      "venue" : "Int. J. Sci. Eng. Res",
+      "citeRegEx" : "Chaichan et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Chaichan et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Thermal conductivity and heat transfer performance enhancement of phase change materials (PCM) containing carbon additives for heat storage application",
+      "author" : [ "D.H. Choi", "J. Lee", "H. Hong", "Y.T. Kang" ],
+      "venue" : "Int. J. Refrig",
+      "citeRegEx" : "Choi et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Choi et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Performance of the PVT solar collector operated with water–Al2O3 nanofluid",
+      "author" : [ "J. Cieśliński", "B. Dawidowicz", "J. Krzyżak" ],
+      "venue" : "Polska Energetyka Słoneczna",
+      "citeRegEx" : "Cieśliński et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Cieśliński et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "A hybrid PV/T collector using spectrally selective absorbing nanofluids",
+      "author" : [ "F. Crisostomo", "N. Hjerrild", "S. Mesgari", "R.A. Taylor" ],
+      "venue" : "Appl. Energy",
+      "citeRegEx" : "Crisostomo et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Crisostomo et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Monthly performance of a PV thermal (PV/T) water heating system",
+      "author" : [ "R. Daghigh", "M.H. Ruslan", "A. Zaharim", "K. Sopain" ],
+      "venue" : "Proceedings of the 6th IASME/WSEAS International Conference on Energy & Environment,",
+      "citeRegEx" : "Daghigh et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Daghigh et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Renewable energy sources: their global potential for the first-half of the 21st century at a global level: an integrated approach",
+      "author" : [ "B.J. De Vries", "D.P. Van Vuuren", "M.M. Hoogwijk" ],
+      "venue" : "Energy Policy",
+      "citeRegEx" : "Vries et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Vries et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "A review on preparation, characterization, properties and applications of nanofluids",
+      "author" : [ "D.K. Devendiran", "V.A. Amirtham" ],
+      "venue" : "Renew. Sustain. Energy Rev",
+      "citeRegEx" : "Devendiran and Amirtham,? \\Q2016\\E",
+      "shortCiteRegEx" : "Devendiran and Amirtham",
+      "year" : 2016
+    }, {
+      "title" : "Solar radiation estimation using artificial neural networks",
+      "author" : [ "Dorvloa", "Atsu S.S", "Jervaseb", "Joseph A", "Al-Lawatib", "Ali" ],
+      "venue" : "Appl. Energy",
+      "citeRegEx" : "Dorvloa et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Dorvloa et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "IPCC special report on renewable energy sources and climate change mitigation",
+      "author" : [ "O. Edenhofer", "R. Pichs-Madruga", "Y. Sokona", "K. Seyboth", "P. Matschoss", "S. Kadner", "T. Zwickel", "P. Eickemeier", "G. Hansen", "S. Schlömer", "C. von Stechow" ],
+      "venue" : null,
+      "citeRegEx" : "Edenhofer et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Edenhofer et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Thermal and electrical performance of an integrated PV-PCM system in double skin façades: a numerical study",
+      "author" : [ "H. Elarga", "F. Goia", "A. Zarrella", "A. Dal Monte", "E. Benini" ],
+      "venue" : "Sol. Energy",
+      "citeRegEx" : "Elarga et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Elarga et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Output energy of photovoltaic module directed at optimum slope angle in Kuala Lumpur, Malaysia",
+      "author" : [ "Z.A.M. Elhassan", "M.F.M. Zain", "K. Sopian", "A. Awadall" ],
+      "venue" : "Res. J. Appl. Sci",
+      "citeRegEx" : "Elhassan et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Elhassan et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Development and optimization of an innovative HVAC system with integrated PVT and PCM thermal storage for a net-zero energy retrofitted house",
+      "author" : [ "M. Fiorentini", "P. Cooper", "Z. Ma" ],
+      "venue" : "Energy Build",
+      "citeRegEx" : "Fiorentini et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Fiorentini et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Numerical studies on thermal and electrical performance of a fully wetted absorber PVT collector with PCM as a storage medium",
+      "author" : [ "A. Gaur", "C. Ménézo", "S. Giroux" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Gaur et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Gaur et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Experimental investigation of a PVT system performance using nano ferrofluids",
+      "author" : [ "M. Ghadiri", "M. Sardarabadi", "M. Pasandideh-fard", "A.J. Moghadam" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Ghadiri et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Ghadiri et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Experimental investigation of a PVT system performance using nano ferrofluids",
+      "author" : [ "M. Ghadiri", "M. Sardarabadi", "M. Pasandideh-fard", "A.J. Moghadam" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Ghadiri et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Ghadiri et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Introduction to artificial neural networks",
+      "author" : [ "E. Grossi", "M. Buscema" ],
+      "venue" : "Eur. J. Gastroenterol. Hepatol",
+      "citeRegEx" : "Grossi and Buscema,? \\Q2007\\E",
+      "shortCiteRegEx" : "Grossi and Buscema",
+      "year" : 2007
+    }, {
+      "title" : "Evaluation of phase change materials for thermal regulation enhancement of building integrated PVs",
+      "author" : [ "A. Hasan", "S.J. McCormack", "M.J. Huang", "B. Norton" ],
+      "venue" : "Sol. Energy",
+      "citeRegEx" : "Hasan et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Hasan et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Energy and cost saving of a photovoltaic-phase change materials (PV-PCM) system through temperature regulation and performance enhancement of photovoltaics. Energies",
+      "author" : [ "A. Hasan", "S.J. McCormack", "M.J. Huang", "B. Norton" ],
+      "venue" : null,
+      "citeRegEx" : "Hasan et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Hasan et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Environmental and exergy benefit of nanofluid-based hybrid PV/T systems",
+      "author" : [ "S. Hassani", "R. Saidur", "S. Mekhilef", "R.A. Taylor" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Hassani et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Hassani et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Comparative study of the performances of four PV/thermal solar air collectors",
+      "author" : [ "A.A. Hegazy" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Hegazy,? \\Q2000\\E",
+      "shortCiteRegEx" : "Hegazy",
+      "year" : 2000
+    }, {
+      "title" : "Hybrid PV/T enhancement using selectively absorbing Ag–SiO2/carbon nanofluids",
+      "author" : [ "N.E. Hjerrild", "S. Mesgari", "F. Crisostomo", "J.A. Scott", "R. Amal" ],
+      "venue" : "Sol. Energy Mater. Sol. Cells",
+      "citeRegEx" : "Hjerrild et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Hjerrild et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Experimental Methods for Engineers, eighth ed",
+      "author" : [ "J.P. Holman" ],
+      "venue" : "McGraw-Hill Series in Mechanical Engineering,",
+      "citeRegEx" : "Holman,? \\Q2011\\E",
+      "shortCiteRegEx" : "Holman",
+      "year" : 2011
+    }, {
+      "title" : "Indoor investigation for improving the hybrid photovoltaic /thermal system performance using nanofluid (Al2O3-water)",
+      "author" : [ "H.A. Hussien", "A.H. Noman", "A.R. Abdulmunem" ],
+      "venue" : "Eng. Tech. J",
+      "citeRegEx" : "Hussien et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Hussien et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Usage of solar energy and its status in Malaysia",
+      "author" : [ "M.R. Islam", "R. Saidur", "N.A. Rahim", "K.H. Solangi" ],
+      "venue" : "Eng. e-Trans",
+      "citeRegEx" : "Islam et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Islam et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Short–mid-term solar power prediction by using artificial neural networks",
+      "author" : [ "E. Izgi", "A. Öztopal", "B. Yerli", "M.K. Kaymak", "A.D. Şahin" ],
+      "venue" : "Sol. Energy",
+      "citeRegEx" : "Izgi et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Izgi et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "ANFIS: Adaptive-network-based fuzzy inference system",
+      "author" : [ "J.S.R. Jang" ],
+      "venue" : "IEEE Trans. Syst. Manage. Cybern",
+      "citeRegEx" : "Jang,? \\Q1993\\E",
+      "shortCiteRegEx" : "Jang",
+      "year" : 1993
+    }, {
+      "title" : "Conductivity particles dispersed organic and inorganic phase change materials for solar energy storage–an exergy based comparative evaluation",
+      "author" : [ "S. Jegadheeswarana", "S.D. Pohekara", "T. Kousksoub" ],
+      "venue" : "International Conference on Advances in Energy Engineering (ICAEE2011), Energy Procedia,",
+      "citeRegEx" : "Jegadheeswarana et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Jegadheeswarana et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Prediction of monthly mean daily diffuse solar radiation using artificial neural networks and comparison with other empirical models",
+      "author" : [ "Y. Jiang" ],
+      "venue" : "Energy Policy",
+      "citeRegEx" : "Jiang,? \\Q2008\\E",
+      "shortCiteRegEx" : "Jiang",
+      "year" : 2008
+    }, {
+      "title" : "General formula for estimation of monthly average daily global solar radiation in China",
+      "author" : [ "Z. Jin", "W. Yezheng", "Y. Gang" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Jin et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Jin et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "Using artificial neural network models and particle swarm optimization for manner prediction of a photovoltaic thermal nanofluid based collector",
+      "author" : [ "Kalani", "Hadi", "Sardarabadi", "Mohammad", "Passandideh-Fard" ],
+      "venue" : "Appl. Therm. Eng",
+      "citeRegEx" : "Kalani et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Kalani et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Use of CuO nanomaterial for the improvement of thermal conductivity and performance of low temperature energy storage system of solar pond",
+      "author" : [ "K. Karunamurthy", "K. Murugumohankumar", "S. Suresh" ],
+      "venue" : "Digest J. Nano Mater. Bio Struct",
+      "citeRegEx" : "Karunamurthy et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Karunamurthy et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Sustainable heating, cooling and ventilation of a plus-energy house via PV/thermal panels",
+      "author" : [ "O.B. Kazanci", "M. Skrupskelis", "P. Sevela", "G.K. Pavlov", "B.W. Olesen" ],
+      "venue" : "Energy Build",
+      "citeRegEx" : "Kazanci et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Kazanci et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Particle swarm optimization",
+      "author" : [ "J. Kennedy", "R. Eberhart" ],
+      "venue" : "Proceedings of the International Conference on Neural Networks,",
+      "citeRegEx" : "Kennedy and Eberhart,? \\Q1995\\E",
+      "shortCiteRegEx" : "Kennedy and Eberhart",
+      "year" : 1995
+    }, {
+      "title" : "Numerical investigation on using of nanofluid in a water-cooled photovoltaic thermal system",
+      "author" : [ "Y. Khanjari", "F. Pourfayaz", "A.B. Kasaeian" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Khanjari et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Khanjari et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Optimization of a grid-connected renewable energy system for a case study in Nablus, Palestine",
+      "author" : [ "Khatib", "Tamer" ],
+      "venue" : "Int. J. Low Carbon Technol",
+      "citeRegEx" : "Khatib and Tamer,? \\Q2014\\E",
+      "shortCiteRegEx" : "Khatib and Tamer",
+      "year" : 2014
+    }, {
+      "title" : "Estimating global solar energy using multilayer perception artificial neural network",
+      "author" : [ "Khatib", "Tamer", "Mohamed", "Azah", "M. Mahmoud", "K. Sopian" ],
+      "venue" : "Int. J. Energy",
+      "citeRegEx" : "Khatib et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Khatib et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Optimization of the tilt angle of solar panels for Malaysia",
+      "author" : [ "T. Khatib", "A. Mohamed", "M. Mahmoud", "K. Sopian" ],
+      "venue" : "Energy Sources Part A",
+      "citeRegEx" : "Khatib et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Khatib et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Describing uncertainties in single-sample experiments",
+      "author" : [ "S.J. Kline", "F.A. McClintock" ],
+      "venue" : null,
+      "citeRegEx" : "Kline and McClintock,? \\Q1953\\E",
+      "shortCiteRegEx" : "Kline and McClintock",
+      "year" : 1953
+    }, {
+      "title" : "Sand-propylene glycol-water nanofluids for improved solar energy collection",
+      "author" : [ "S. Manikandan", "K.S. Rajan" ],
+      "venue" : "Energy",
+      "citeRegEx" : "Manikandan and Rajan,? \\Q2016\\E",
+      "shortCiteRegEx" : "Manikandan and Rajan",
+      "year" : 2016
+    }, {
+      "title" : "A logical calculus of the ideas immanent in nervous activity",
+      "author" : [ "W.S. McCullock", "W. Pitss" ],
+      "venue" : "Bull. Math. Biophys",
+      "citeRegEx" : "McCullock and Pitss,? \\Q1943\\E",
+      "shortCiteRegEx" : "McCullock and Pitss",
+      "year" : 1943
+    }, {
+      "title" : "Application of artificial neural networks for the wind speed prediction of target station using reference stations data",
+      "author" : [ "B. Mehmet", "B. Sahin", "A. Yasar" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Mehmet et al\\.,? \\Q2007\\E",
+      "shortCiteRegEx" : "Mehmet et al\\.",
+      "year" : 2007
+    }, {
+      "title" : "ANFIS-based modelling for photovoltaic power supply system: a case study",
+      "author" : [ "A. Mellit", "S.A. Kalogirou" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Mellit and Kalogirou,? \\Q2011\\E",
+      "shortCiteRegEx" : "Mellit and Kalogirou",
+      "year" : 2011
+    }, {
+      "title" : "A 24-h forecast of solar irradiance using artificial neural network: application for performance prediction of a grid-connected PV plant at Trieste, Italy",
+      "author" : [ "A. Mellit", "A.M. Pavan" ],
+      "venue" : "Sol. Energy",
+      "citeRegEx" : "Mellit and Pavan,? \\Q2010\\E",
+      "shortCiteRegEx" : "Mellit and Pavan",
+      "year" : 2010
+    }, {
+      "title" : "Performance analysis of a copper sheet laminated photovoltaic thermal collector using copper oxide–water nanofluid",
+      "author" : [ "J.J. Michael", "S. Iniyan" ],
+      "venue" : "Sol. Energy",
+      "citeRegEx" : "Michael and Iniyan,? \\Q2015\\E",
+      "shortCiteRegEx" : "Michael and Iniyan",
+      "year" : 2015
+    }, {
+      "title" : "Estimation of daily total and diffuse insolation in India from weather data",
+      "author" : [ "V. Modi", "S.P. Sukhatme" ],
+      "venue" : "Sol. Energy",
+      "citeRegEx" : "Modi and Sukhatme,? \\Q1979\\E",
+      "shortCiteRegEx" : "Modi and Sukhatme",
+      "year" : 1979
+    }, {
+      "title" : "Fast learning in networks of locally tuned processing units",
+      "author" : [ "T. Moody", "C. Darken" ],
+      "venue" : "Neural Comput",
+      "citeRegEx" : "Moody and Darken,? \\Q1989\\E",
+      "shortCiteRegEx" : "Moody and Darken",
+      "year" : 1989
+    }, {
+      "title" : "Enhanced thermal conductivity of nanofluids: a state-of-the-art review",
+      "author" : [ "S. Ozerinc", "S. Kakac", "A. Yazıcıoglu" ],
+      "venue" : "Microfluid. Nanofluid",
+      "citeRegEx" : "Ozerinc et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Ozerinc et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "The estimation of monthly Ea values of daily total short wave radiation on vertical and inclined surfaces from sunshine records for latitudes 40°N–40°S",
+      "author" : [ "J.K. Page" ],
+      "venue" : "Proceedings of the UN Conference on New Sources of Energy,",
+      "citeRegEx" : "Page,? \\Q1961\\E",
+      "shortCiteRegEx" : "Page",
+      "year" : 1961
+    }, {
+      "title" : "Fuzzy logic algorithms for atmospheric transmittances of use in solar energy estimation",
+      "author" : [ "Paulescu", "Marius", "Gravila", "Paul", "Tulcan-Paulescu", "Eugenia" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Paulescu et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Paulescu et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Theoretical investigation of the energy performance of a novel MPCM (Microencapsulated Phase Change Material) slurry based PV/T",
+      "author" : [ "Z. Qiu", "X. Zhao", "P. Li", "X. Zhang", "S. Ali", "J. Tan" ],
+      "venue" : null,
+      "citeRegEx" : "Qiu et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Qiu et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Performance enhancement of concentrated photovoltaic systems using a microchannel heat sink with nanofluids",
+      "author" : [ "A. Radwan", "M. Ahmed", "S. Ookawara" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Radwan et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Radwan et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Numerical and model validation of uncovered nanofluid sheet and tube type photovoltaic thermal solar system",
+      "author" : [ "O. Rejeb", "M. Sardarabadi", "C. Ménézo", "M. Passandideh-Fard", "M.H. Dhaou", "A. Jemni" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Rejeb et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Rejeb et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Comparison of ANN and MLR models for estimating solar radiation in Turkey using NOAA/AVHRR data",
+      "author" : [ "Sahin", "Mehmet", "Kaya", "Yılmaz", "Uyar", "Murat" ],
+      "venue" : "Adv. Space Res",
+      "citeRegEx" : "Sahin et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Sahin et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Experimental and numerical study of metal-oxides/ water nanofluids as coolant in photovoltaic thermal systems (PVT)",
+      "author" : [ "M. Sardarabadi", "M.P. Fard" ],
+      "venue" : "Sol. Energy Mater. Sol. Cells",
+      "citeRegEx" : "Sardarabadi and Fard,? \\Q2016\\E",
+      "shortCiteRegEx" : "Sardarabadi and Fard",
+      "year" : 2016
+    }, {
+      "title" : "Experimental investigation of the effects of silica/water nanofluid on PV/T (photovoltaic thermal units)",
+      "author" : [ "M. Sardarabadi", "M. Passandideh-Fard", "S.Z. Heris" ],
+      "venue" : "Energy",
+      "citeRegEx" : "Sardarabadi et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Sardarabadi et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Experimental study of using both ZnO/water nanofluid and phase change material (PCM) in photovoltaic thermal systems. Sol",
+      "author" : [ "M. Sardarabadi", "M. Passandideh-Fard", "M.J. Maghrebi", "M. Ghazikhani" ],
+      "venue" : "Energy Mater. Sol. Cells",
+      "citeRegEx" : "Sardarabadi et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Sardarabadi et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Simple models of solar radiation data for northwestern part of Turkey",
+      "author" : [ "Z. Sben", "E. Tan" ],
+      "venue" : "Energy Convers. Manage",
+      "citeRegEx" : "Sben and Tan,? \\Q2001\\E",
+      "shortCiteRegEx" : "Sben and Tan",
+      "year" : 2001
+    }, {
+      "title" : "Introduction to artificial neural networks",
+      "author" : [ "H.P. Singh", "C.A. Bailer-Jones", "R. Gupta" ],
+      "venue" : null,
+      "citeRegEx" : "Singh et al\\.,? \\Q2001\\E",
+      "shortCiteRegEx" : "Singh et al\\.",
+      "year" : 2001
+    }, {
+      "title" : "Global analysis of PV energy output enhanced by phase change material cooling",
+      "author" : [ "C.J. Smith", "P.M. Forster", "R. Crook" ],
+      "venue" : "Appl. Energy",
+      "citeRegEx" : "Smith et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Smith et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Calorimetric and dynamic mechanical behavior of phase change materials based on paraffin wax supported by expanded graphite",
+      "author" : [ "P. Sobolciaka", "M. Mrlíka", "M.A. AlMaadeeda", "I. Krupa" ],
+      "venue" : "Thermochim. Acta",
+      "citeRegEx" : "Sobolciaka et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Sobolciaka et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Increasing the efficiency of PV panel with the use of PCM",
+      "author" : [ "R. Stropnik", "U. Stritih" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Stropnik and Stritih,? \\Q2016\\E",
+      "shortCiteRegEx" : "Stropnik and Stritih",
+      "year" : 2016
+    }, {
+      "title" : "An artificial immune-based hybrid multi-layer feedforward neural network for predicting grid-connected photovoltaic system output",
+      "author" : [ "S.I. Sulaiman", "T.K.A. Rahman", "I. Musirin", "S. Shaari" ],
+      "venue" : "Energy Procedia",
+      "citeRegEx" : "Sulaiman et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Sulaiman et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Study of hourly solar radiation data in Istanbul",
+      "author" : [ "S. Top", "U. Dilma", "Z. Aslan" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Top et al\\.,? \\Q1995\\E",
+      "shortCiteRegEx" : "Top et al\\.",
+      "year" : 1995
+    }, {
+      "title" : "Energy, cost and LCA results of PV and hybrid PV/T solar systems",
+      "author" : [ "Y. Tripanagnostopoulos", "M. Souliotis", "R. Battisti", "A. Corrado" ],
+      "venue" : "Progr. Photovolt.: Res",
+      "citeRegEx" : "Tripanagnostopoulos et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Tripanagnostopoulos et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "Investigating the performance of a water-based PV/thermal (PV/T) collector in laminar and turbulent flow regime",
+      "author" : [ "F. Yazdanifard", "E. Ebrahimnia-Bajestan", "M. Ameri" ],
+      "venue" : "Renew. Energy",
+      "citeRegEx" : "Yazdanifard et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Yazdanifard et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Performance of nanofluid-based photovoltaic/thermal systems: a review",
+      "author" : [ "F. Yazdanifard", "M. Ameri", "E.E. Bajestan" ],
+      "venue" : "Renew. Sustain. Energy Rev",
+      "citeRegEx" : "Yazdanifard et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Yazdanifard et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Effective dispersion of multi-wall carbon nanotubes in hexadecane through physiochemical modification and decrease of super-cooling",
+      "author" : [ "S. Zhang", "Wu", "J.-Y", "Tse", "C.-T", "J. Niu" ],
+      "venue" : "Sol. Energy Mater. Sol. Cells",
+      "citeRegEx" : "Zhang et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Zhang et al\\.",
+      "year" : 2012
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 39,
+      "context" : "Solar energy applications cover photovoltaics (PV) and solar thermal collectors (Islam et al., 2010).",
+      "startOffset" : 80,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 29,
+      "context" : "Various experiments and simulation studies have been conducted to different configurations of the hybrid system (Ghadiri et al., 2015; Khanjari et al., 2016; Cieśliński et al., 2016).",
+      "startOffset" : 112,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 49,
+      "context" : "Various experiments and simulation studies have been conducted to different configurations of the hybrid system (Ghadiri et al., 2015; Khanjari et al., 2016; Cieśliński et al., 2016).",
+      "startOffset" : 112,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 18,
+      "context" : "Various experiments and simulation studies have been conducted to different configurations of the hybrid system (Ghadiri et al., 2015; Khanjari et al., 2016; Cieśliński et al., 2016).",
+      "startOffset" : 112,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 45,
+      "context" : "One simulation method is to use Artificial Neural Network (ANN) to study and predict the performance of PV/T's (Kalani et al., 2017).",
+      "startOffset" : 111,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 73,
+      "context" : "Artificial neural networks are designed to mimic human brain functions/processes in computers, such as pattern recognition and learning (Singh et al., 2001).",
+      "startOffset" : 136,
+      "endOffset" : 156
+    }, {
+      "referenceID" : 31,
+      "context" : "The algorithms of these networks can change their own instructions to improve performance and adaptability (Grossi and Buscema, 2007).",
+      "startOffset" : 107,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 22,
+      "context" : "A detailed description of thermal conductivity enhancement for various types of nanofluids along with their thermo-physical and heat transfer properties was presented as well (Devendiran and Amirtham, 2016).",
+      "startOffset" : 175,
+      "endOffset" : 206
+    }, {
+      "referenceID" : 12,
+      "context" : "The study also investigates the effects of the nanoparticle concentration of TiO2, which was found to have a directly proportional relationship with the convective heat transfer coefficient, as opposed to the particle size, which has shown an opposite effect (Bajestan et al., 2016).",
+      "startOffset" : 259,
+      "endOffset" : 282
+    }, {
+      "referenceID" : 1,
+      "context" : "The study concluded that the use of nanofluids raised the convective heat transfer coefficient, and linked such rise to the Reynolds number and the nanoparticle concentration (Adriana, 2017).",
+      "startOffset" : 175,
+      "endOffset" : 190
+    }, {
+      "referenceID" : 34,
+      "context" : "The authors found the system to achieve a maximum electrical and exegetic efficiency of 12% (Hassani et al., 2016).",
+      "startOffset" : 92,
+      "endOffset" : 114
+    }, {
+      "referenceID" : 69,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 36,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 70,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 66,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 9,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 49,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 38,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 54,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 29,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 19,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 67,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 59,
+      "context" : "Various studies have been conducted over the past five years or so, describing the nanofluid's effect on the PV/T systems in terms of the overall performance and thermal output (Sardarabadi and Fard, 2016; Hjerrild et al., 2016; Sardarabadi et al., 2014; Radwan et al., 2016; An et al., 2016; Khanjari et al., 2016; Hussien et al., 2015; Manikandan and Rajan, 2016; Ghadiri et al., 2015; Crisostomo et al., 2017; Rejeb et al., 2016; Michael and Iniyan, 2015).",
+      "startOffset" : 177,
+      "endOffset" : 458
+    }, {
+      "referenceID" : 74,
+      "context" : "The simulation results show a 6% increase in the annual PV energy output in Mexico and eastern Africa, and an increase of 5% for the Arabic region, Southern Asia Central and South America, and much of Africa (Smith et al., 2014).",
+      "startOffset" : 208,
+      "endOffset" : 228
+    }, {
+      "referenceID" : 25,
+      "context" : "The peak produced power was found to be in Venice, Italy with a value of around 33W/m(2) (Elarga et al., 2016).",
+      "startOffset" : 89,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 28,
+      "context" : "Recently, various studies have been conducted within the field of PCM/PV and PCM/PVT (Gaur et al., 2017; Browne et al., 2016; Hasan et al., 2010, 2014; Biwole et al., 2011; Kazanci et al., 2014; Qiu et al., 2015; Fiorentini et al., 2015; Stropnik and Stritih, 2016).",
+      "startOffset" : 85,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 15,
+      "context" : "Recently, various studies have been conducted within the field of PCM/PV and PCM/PVT (Gaur et al., 2017; Browne et al., 2016; Hasan et al., 2010, 2014; Biwole et al., 2011; Kazanci et al., 2014; Qiu et al., 2015; Fiorentini et al., 2015; Stropnik and Stritih, 2016).",
+      "startOffset" : 85,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 14,
+      "context" : "Recently, various studies have been conducted within the field of PCM/PV and PCM/PVT (Gaur et al., 2017; Browne et al., 2016; Hasan et al., 2010, 2014; Biwole et al., 2011; Kazanci et al., 2014; Qiu et al., 2015; Fiorentini et al., 2015; Stropnik and Stritih, 2016).",
+      "startOffset" : 85,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 47,
+      "context" : "Recently, various studies have been conducted within the field of PCM/PV and PCM/PVT (Gaur et al., 2017; Browne et al., 2016; Hasan et al., 2010, 2014; Biwole et al., 2011; Kazanci et al., 2014; Qiu et al., 2015; Fiorentini et al., 2015; Stropnik and Stritih, 2016).",
+      "startOffset" : 85,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 65,
+      "context" : "Recently, various studies have been conducted within the field of PCM/PV and PCM/PVT (Gaur et al., 2017; Browne et al., 2016; Hasan et al., 2010, 2014; Biwole et al., 2011; Kazanci et al., 2014; Qiu et al., 2015; Fiorentini et al., 2015; Stropnik and Stritih, 2016).",
+      "startOffset" : 85,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 27,
+      "context" : "Recently, various studies have been conducted within the field of PCM/PV and PCM/PVT (Gaur et al., 2017; Browne et al., 2016; Hasan et al., 2010, 2014; Biwole et al., 2011; Kazanci et al., 2014; Qiu et al., 2015; Fiorentini et al., 2015; Stropnik and Stritih, 2016).",
+      "startOffset" : 85,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 76,
+      "context" : "Recently, various studies have been conducted within the field of PCM/PV and PCM/PVT (Gaur et al., 2017; Browne et al., 2016; Hasan et al., 2010, 2014; Biwole et al., 2011; Kazanci et al., 2014; Qiu et al., 2015; Fiorentini et al., 2015; Stropnik and Stritih, 2016).",
+      "startOffset" : 85,
+      "endOffset" : 265
+    }, {
+      "referenceID" : 46,
+      "context" : "The experiments conducted show that dispersing nanoparticles with paraffin enhances the thermal conductivity of the PCM, which allows it to overcome the relatively low rate of heat transfer in the thermal energy storage applications (Karunamurthy et al., 2012).",
+      "startOffset" : 233,
+      "endOffset" : 260
+    }, {
+      "referenceID" : 71,
+      "context" : "The use of both techniques has raised the electrical output of the PV/T by 13% over the conventional PV model (Sardarabadi et al., 2017).",
+      "startOffset" : 110,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 73,
+      "context" : "On the other hand, several researchers are implementing predicting tools for PV and PV/T system performance (Singh et al., 2001; Grossi and Buscema, 2007; Al-Waeli et al., 2017b; Devendiran and Amirtham, 2016; Bajestan et al., 2016).",
+      "startOffset" : 108,
+      "endOffset" : 232
+    }, {
+      "referenceID" : 31,
+      "context" : "On the other hand, several researchers are implementing predicting tools for PV and PV/T system performance (Singh et al., 2001; Grossi and Buscema, 2007; Al-Waeli et al., 2017b; Devendiran and Amirtham, 2016; Bajestan et al., 2016).",
+      "startOffset" : 108,
+      "endOffset" : 232
+    }, {
+      "referenceID" : 22,
+      "context" : "On the other hand, several researchers are implementing predicting tools for PV and PV/T system performance (Singh et al., 2001; Grossi and Buscema, 2007; Al-Waeli et al., 2017b; Devendiran and Amirtham, 2016; Bajestan et al., 2016).",
+      "startOffset" : 108,
+      "endOffset" : 232
+    }, {
+      "referenceID" : 12,
+      "context" : "On the other hand, several researchers are implementing predicting tools for PV and PV/T system performance (Singh et al., 2001; Grossi and Buscema, 2007; Al-Waeli et al., 2017b; Devendiran and Amirtham, 2016; Bajestan et al., 2016).",
+      "startOffset" : 108,
+      "endOffset" : 232
+    }, {
+      "referenceID" : 60,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 63,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 72,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 44,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 58,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 10,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 43,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 68,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 55,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 2,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 61,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 64,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 41,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 78,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 48,
+      "context" : "Table 3 illustrates a comparison between the different modelling techniques in terms of accuracy, time consumption and complexity (Khatib, 2014; Almonacid et al., 2009, 2011; Modi and Sukhatme, 1979; Page, 1961; Sben and Tan, 2001; Jin et al., 2005; Mellit and Pavan, 2010; Angstrom, 1956; Altunkay and Ozger, 2004; Jiang, 2008; Sahin et al., 2013; McCullock and Pitss, 1943; Al-Alawi et al., 2007; Moody and Darken, 1989; Paulescu et al., 2008; Jang, 1993; Top et al., 1995; Kennedy and Eberhart, 1995).",
+      "startOffset" : 130,
+      "endOffset" : 503
+    }, {
+      "referenceID" : 80,
+      "context" : "Its weather patterns, which are composed of temperature, wind speed and approximate humidity are around 31 °C, 10 km/h and 66%, respectively (Daghigh, 2011; Yazdanifard et al., 2016; Tripanagnostopoulos et al., 2005; Hegazy, 2000; Al-Waeli et al., 2017b).",
+      "startOffset" : 141,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 79,
+      "context" : "Its weather patterns, which are composed of temperature, wind speed and approximate humidity are around 31 °C, 10 km/h and 66%, respectively (Daghigh, 2011; Yazdanifard et al., 2016; Tripanagnostopoulos et al., 2005; Hegazy, 2000; Al-Waeli et al., 2017b).",
+      "startOffset" : 141,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 35,
+      "context" : "Its weather patterns, which are composed of temperature, wind speed and approximate humidity are around 31 °C, 10 km/h and 66%, respectively (Daghigh, 2011; Yazdanifard et al., 2016; Tripanagnostopoulos et al., 2005; Hegazy, 2000; Al-Waeli et al., 2017b).",
+      "startOffset" : 141,
+      "endOffset" : 254
+    }, {
+      "referenceID" : 16,
+      "context" : "The crystallisation of the PCM begins when its temperature reaches values below its melting temperature (Chaichan et al., 2016).",
+      "startOffset" : 104,
+      "endOffset" : 127
+    }, {
+      "referenceID" : 82,
+      "context" : "The formation of nuclei is a basic process: the nuclei are divided into two types; homogenous and heterogeneous (Zhang et al., 2012).",
+      "startOffset" : 112,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 62,
+      "context" : "These nanoparticles can form heterogeneous nuclei in the PCM compound (Ozerinc et al., 2010).",
+      "startOffset" : 70,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 81,
+      "context" : "The total efficiency η ( t)= the thermal efficiency+ the electrical efficiency (Yazdanifard et al., 2017)",
+      "startOffset" : 79,
+      "endOffset" : 105
+    }, {
+      "referenceID" : 37,
+      "context" : "Here, the human freaks and prejudices must not interfere based on what “must be” (Holman, 2011).",
+      "startOffset" : 81,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 0,
+      "context" : "Also, based on learning techniques, the ANN is divided into supervised and unsupervised (Adnan et al., 2005).",
+      "startOffset" : 88,
+      "endOffset" : 108
+    } ],
+    "year" : 2018,
+    "abstractText" : "In this paper, a Photovoltaic/Thermal (PV/T) system was proposed, built and tested. Three various types of cooling were proposed: tank filled with water and water flows through the cooling pipes, tank filled with PCM and water flows through the cooling pipes, and tank filled with PCM/nano-SiC and nanofluid (water-SiC) flows through the cooling pipes. The three proposed systems results were compared with conventional PV. According to the results, it was found that nano-PCM and nanofluid improved the electrical current from 3.69 A to 4.04, and the electrical efficiency from 8.07% to 13.32%, compared with conventional PV. In addition, three Artificial Neural Network (ANN), MLP, SOFM and SVM methods were implemented using the experimental results. The results indicate that the output of the network is in good agreement with the experimental results and published works.",
+    "creator" : "Elsevier"
+  }
+}

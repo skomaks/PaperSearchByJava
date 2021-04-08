@@ -1,0 +1,506 @@
+{
+  "name" : "zero.sci-hub.se_5091_e446dc1be76fb72f2abf0e6d97eaa9c9_chithra2016.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "A comparative study on the compressive strength prediction models for High Performance Concrete containing nano silica and copper slag using regression analysis and Artificial Neural Networks",
+    "authors" : [ "S. Chithra", "Senthil Kumar", "F. Alfin Ashmita" ],
+    "emails" : [ "mail2chith@gmail.com" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nConstruction and Building Materials\njournal homepage: www.elsevier .com/locate /conbui ldmat\nA comparative study on the compressive strength prediction models for High Performance Concrete containing nano silica and copper slag using regression analysis and Artificial Neural Networks\nhttp://dx.doi.org/10.1016/j.conbuildmat.2016.03.214 0950-0618/ 2016 Elsevier Ltd. All rights reserved.\n⇑ Corresponding author. E-mail address: mail2chith@gmail.com (S. Chithra).\nS. Chithra a,⇑, S.R.R. Senthil Kumar b, K. Chinnaraju c, F. Alfin Ashmita d aDepartment of Civil Engineering, Government College of Technology, Coimbatore, India bAgni College of Technology, Chennai, India cDivision of Structural Engineering, Anna University, Chennai, India dDepartment of Structural Engineering, Government College of Technology, Coimbatore, India\nh i g h l i g h t s\nModels constructed for prediction of compressive strength of HPC using MRA and ANN. The best fit model is proposed from ANN for compressive strength prediction than MRA. Regression models are insufficient due to multicollinearity. Implication of Levenberg–Marquardt algorithm generated more accurate ANN models.\na r t i c l e i n f o\nArticle history: Received 23 January 2016 Received in revised form 26 March 2016 Accepted 30 March 2016\nKeywords: High Performance Concrete Nanosilica Copper slag Compressive strength Regression Artificial Neural Network\na b s t r a c t\nIn this study, Multiple Regression Analysis (MRA) and Artificial Neural Network (ANN) models are constructed to predict the compressive strength of High Performance Concrete containing nano silica and copper slag as partial cement and fine aggregate replacement respectively. The data used in the model construction were obtained from laboratory experiments. The compressive strength was experimentally determined for specimens containing 0%, 0.5%, 1%, 1.5%, 2%, 2.5% and 3% of nano silica as partial cement replacement as well as 0%, 10%, 20%, 30%, 40% and 50% of copper slag as partial fine aggregate replacement at curing ages of 1, 3, 7, 28, 56 and 90 days, accounting for a total of 264 observations. The observations were grouped into three sets based on the mineral admixtures incorporated. The mix constituents were fed as the input parameters to achieve the compressive strength as the target. The three sets of data were modelled using both Multiple Regression Analysis and Artificial Neural Networks and their results were evaluated and compared. Artificial Neural Network models demonstrated more accuracy and had higher correlation.\n2016 Elsevier Ltd. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "High-Performance Concrete (HPC) refers to the type of concrete mixture which has adequate workability, develops high strength and possesses excellent durability properties throughout its intended service life [7]. To achieve the above properties, ordinary concrete must be modified by limiting the water–cement ratio from 0.20 to 0.45, imparting high quality ingredients and introduc-\ning suitable water-reducing admixtures as well as mineral admixtures.\nTo ensure eco-friendly and sustainable development, several industrial by-products are being utilised in concrete manufacturing as a substitute for either cement or fine aggregate or as an admixture [5,16]. Copper slag is an industrial waste by-product obtained during the manufacturing of copper. Recently, studies are being conducted to incorporate copper slag in normal concretes and high performance concretes [3,17,18,24,37]. Copper slag has sufficient pozzolanic properties due to low calcium oxide content. It also possesses excellent mechanical and chemical properties, which make it an apt replacement for fine aggregate [9,18].\nMin–Hong Zhang and Jahidul Islam [21] have reported that the incorporation of nano silica accelerates the rate of cement hydration and contributes to the high early strength of concrete. It was also found that, the inclusion of nano silica brings about an improved pore packed structure of concrete, enhancing both strength and durability [8,22,23,33].\nIn order to minimize the experimental task for concrete mix design, probabilistic models are generally constructed and constitutive equations are derived. Regression analysis is one of the traditional methods involved in model generation [4,28,25]. The main advantage of regression analysis is its quicker and simpler predictions. The accuracy of the model can be considerably increased by performing multiple regression [28]. But the accuracy of regression analysis is found to decrease as the number of independent variables increases [32]. In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.\nMultiple Regression Analysis (MRA) is one of the traditional methods used to forecast the compressive strength of concrete, by implementing linear or non-linear methods [36,39]. MRA is based on the least-squares fit approach. It is a statistical technique to examine the relationship between one or more independent variables and a dependent variable.\nThe human brain is similar to a highly complex, non-linear and parallel computer. The structural components of human brain are the neurons, which are interconnected in a complex way. The idea of neural network has been derived from the human brain and hence the neural network consists of large parallel interconnections. Artificial Neural Network (ANN) is a mimic of the natural neural system, using computer software and electronic components, subject to certain limitations. ANN has the tendency to exploit non-linearity, predict input–output relationship, adapt to the changes in the free parameters and has sufficient fault tolerance. It also provides evidential response with a measure of confidence.\nANN has been broadly implemented in various fields like hydrology, meteorology and several engineering applications. Numerous researchers have applied ANN for both quantitative and qualitative prediction of the variables involved in water resource systems [27]. The global solar radiation in Al Ain City has been predicted with the help of ANN by Maitha H Al Shamisi et al. [19]. Bakhta Boukhatem et al. [5] have worked on the application of Artificial Neural Networks to calculate the efficiency factor of Ground Granulated Blast furnace Slag (GGBS) in concrete, so that, the performance of Supplementary Cementitious Materials (SCM) can be associated with that of Ordinary Portland Cement (OPC).\nNow-a-days, ANN is being significantly employed to forecast the compressive strength of concrete, by various researchers. Rafat Siddique et al. [29] have correlated the strength parameters of the experimental values with the data obtained from literatures for self-compacting concrete containing bottom ash using ANN. Yeh [38] has applied feed forward neural network with gradient descent technique to generate models to predict the strength of High Performance Concrete. Ferhat Bingol et al. [6] have engaged neural networks to determine the compressive strength of light weight concrete subjected to high temperatures because it was complex to model such patterns with the traditional methods. Adriana Trocoli et al. [1] have demonstrated the ability of ANN to develop compressive strength prediction models for a complex system of concrete containing Construction and Demolition Wastes (CDW), to relate seventeen input variables with one output variable.\nThe compressive strength predicted for different types of concrete composites using Artificial Neural Networks have been\ncompared with the results obtained from several other prediction techniques, like Non-Linear Regression, Model Tree, Statistical Analysis, Fuzzy Logic, ANFIS, genetic based algorithms and factorial design. The strength prediction models developed for High Strength Concrete with Poly-Vinyl Alcohol Fibre Reinforcement by means of ANN has been correlated with the regression models [25]. The Neural Network models created for light weight concrete exposed to fire have been related to the conventional regression models and their characteristics have been studied [6].\nIn the current study, the compressive strength of High Performance Concrete is taken as the dependent variable, whereas, the mix constituents and age of the specimen form the independent variables. The objective of this study is to construct probabilistic models for the prediction of compressive strength of High Performance Concrete with copper slag as partial fine aggregate. The main goals to be achieved in this study include:\n1. Construction of probabilistic models for the prediction of compressive strength of High Performance Concrete with copper slag as partial fine aggregate using: a. Multiple Regression Analysis and b. Artificial Neural Networks. 2. Ascertainment of the performance of each model. 3. Comparison and evaluation of the constitutive equations\nobtained by varying the inputs.\n2. Material properties\n2.1. Cement\nThe cement used in this study was Ordinary Portland Cement of 53 grade conforming to IS 12269:1987 [14], with a specific gravity of 3.15.\n2.2. Fine and coarse aggregates\nThe fine aggregate used was river sand conforming to zone II grading of IS 383:1970 [11]. The fine aggregate is characterized with a specific gravity of 2.66 and bulk density of 1780 kg/m3. The coarse aggregate used was crushed granite with specific gravity of 2.73 and maximum size of 12.5 mm.\n2.3. Nano silica\nCommercially available colloidal nano silica was used in this study as partial replacement for cement. Nano silica used in this study is an amorphous, milky white and non-crystalline polymorph of silicon dioxide. The particle size ranges from 5 to 40 nm and the specific gravity is 1.3 to1.32.\n2.4. Copper slag\nThe copper slag used in this study as partial replacement for fine aggregate was procured from Sterlite Industries, Tuticorin. It conforms to Zone II grading and is categorized by specific gravity of 3.91, bulk density of 2180 kg/m3 and fineness modulus of 3.39. The chemical composition of copper slag is presented in Table 1. The loss on ignition is 6.59% and the insoluble residue accounts for 14.88%.\n2.5. Super plastizer\nThe super plastizer used in the current study was polycarboxylate based super plastizer conforming to IS: 9103 – 1999 [13]."
+    }, {
+      "heading" : "3. Data collection",
+      "text" : "Forty-five concrete mixes as given in Table 2 were prepared by varying the fractions of copper slag and nano silica at constant water-binder ratio of 0.31. Potable water available in the institute campus was used for making concrete. All the concrete mixes were prepared with good supervision and were cured adequately. The specimens were tested at curing ages of 1, 3, 7, 28, 56 and 90 days. Referring to Neela Deshpande et al. [26], the weights per cubic meter of the materials were used as mandatory input parameters, known as raw data. The raw data for model generation includes cement content (C), nano silica content (NS), fine aggregate content (FA), copper slag content (CS), age of specimen (A) and super plasticizer dosage (SP). The coarse aggregate content (CA) and water content (W) are constant for all the concrete mixes. The target parameter is the experimental compressive strength (CST), whereas, the output obtained is designated as predicted compressive strength (PCS)."
+    }, {
+      "heading" : "3.1. Testing method",
+      "text" : "The compressive strength test was performed on cubes of sides 100 mm in accordance with IS: 516-1959 [12]. The compressive strength was determined for curing ages of 1, 3, 7, 28, 56 and 90 days. For each mixture, three specimens were tested. The testing was carried out on the specimens in wet condition. The specimens were tested in Compression Testing Machine of capacity 3000 kN. The cubes were placed in the machine such that the loading is applied to the opposite sides of the cube as cast. The loading was increased continuously at a rate of 140 kg/cm2/min and the maximum load that can be sustained by the specimen was noted. The maximum load divided by the cross sectional area of the specimen gives the compressive strength. For each mixture, the average of the three specimens is considered to be the compressive strength of the particular mixture at a specified curing age. The variations between the three specimens should not exceed ±15 percent."
+    }, {
+      "heading" : "4. Methodology",
+      "text" : "In this study, four different models have been developed using both MRA and ANN techniques. For each model, the input and output parameters have been varied. The details of each model are tabulated in Table 3."
+    }, {
+      "heading" : "4.1. Multiple Regression Analysis",
+      "text" : "The regression analysis has been carried out using MATLAB software. According to Atici [4], the validity of a particular model is based on the values of correlation coefficient (R), determination coefficient (R2), p-value, F-test and Durbin–Watson statistic.\nThe determination coefficient is calculated using the relation (Eq. (1)),\nR2 ¼ 1 Sum of squares of residuals Sum of squares of predicted values\nð1Þ\nThe determination coefficient equal to unity indicates a perfect fit. The determination coefficient values for MRA1, MRA2 and MRA3 are 0.6374, 0.6686 and 0.6717 respectively. Hence, from the above models MRA3 has the highest determination coefficient. However, the value of determination coefficient alone cannot validate the model. These results have to be combined with p-value, F-test and Durbin–Watson statistic.\nThe coefficients of the regression equation are calculated by considering 95% confidence level. Therefore the allowable error level is limited to 5%. Input variables with p-value less than 0.05 can only be considered to be significant. In case, if none of the pvalue of the variables obey the above condition, the model is considered to be inappropriate. This situation arises when the number of observations is not sufficient enough to acquire complete information about the predictors. A thumb rule is that, the number of input variables should not exceed the square root of the number of observations. If the number of input variables is higher, stepwise regression should be carried out. Stepwise regression refers to sequential addition of input variables on the basis of their significance, until a satisfactory regression model is achieved. In this"
+    }, {
+      "heading" : "M2 C, NS, FA, CS, A, SP 180 MRA2 ANN2",
+      "text" : ""
+    }, {
+      "heading" : "M1 C, NS, A, SP 54 MRA1 ANN1",
+      "text" : "study, the p-value of all the regression models are less than 0.05, which shows the significance of the models developed.\nThe F-test is used to ascertain the elimination of null hypothesis. It is generally denoted as Analysis of Variance or ANOVA Test. The F-test is carried out to generate two parameters, namely, Fvalue and F-significant. The higher the F-value, the higher will be the goodness-of-fit of the regression line to the target data. The F-significant is similar to p-value. For 95% confidence level, the Fsignificant value also should be less than 0.05. The F-value was less than 5% for all the regression models and the F-significant was observed to be 29.2986, 88.2932 and 132.4801 for models MRA1, MRA2 and MRA3.\nDurbin–Watson Statistic is used to express the existence of multi collinearity. It ranges from 0 to 4, in which, the midpoint 2 represents the absence of correlation among the input variables. Therefore a value of 1.5 to 2.5 is favourable to obtain models unaltered by multi collinearity. But the regression models developed in this study have Durbin Watson Statistic of 0.12, 0.25 and 0.22, which is closer to zero. This signifies the incidence of positive auto correlation. The quantity of copper slag and fine aggregate has interdependence. Also, the amount of nano silica can be associated with that of cement content. This dependency of the variables leads to auto correlation.\nRoot Mean Squared Error (RMSE) denotes the square root value of the average of the residual squares (Eq. (2)). It should be nearer to the zero line for a good fit [10]. The RMSE values of the regression models are found to be 10.967, 10.659 and 10.701 respectively. RMSE ¼ ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi 1 n Xn i¼1 ðCST PCSÞ2 vuut ð2Þ\nwhere, n = number of observations. Mean Absolute Percentage Error (MAPE) is the average of the absolute percentage error calculated as follows (Eq. (3)):\nMAPE ¼ 1 n Xn i¼1 CST PCS CST\n! 100% ð3Þ\nThe observed values of MAPE for models MRA1, MRA2 and MRA3 are 8.442, 6.715 and 7.406 respectively. Among the three models, the model MRA3 has the highest determination coefficient of 0.6717 as well as F-significant of 132.4801. Models MRA2 and MRA3 had values of DurbinWatson Statistic, RMSE and MAPE nearly equal to each other. The results obtained by multiple regression analysis are tabulated in Table 4.\nThe equations obtained by regression analysis (Eqs. (4–6)) are as follows:\nCST ¼ 0:1653 Cþ 2:3663 NSþ 0:4325 A 25:313 SP ð4Þ\nCST ¼ 1:8401 Cþ 1:6878 FAþ 1:7096 CSþ 0:4544 A 16:7853 SP ð5Þ\nCST ¼ 0:9693 Cþ 1:8104 FAþ 0:8277 CSþ 0:4496 A 19:6757 SP ð6Þ\nThe relationship between the compressive strength predicted by Multiple Regression Analysis and the experimental results are shown in Figs. 1–3."
+    }, {
+      "heading" : "4.2. Artificial Neural Network",
+      "text" : "There are several algorithms which can be implemented in Artificial Neural Network Modelling, namely, Bayesian regularisation, Levenberg–Marquardt, BFGS Quasi Newton, Powell–Beale conjugate gradient, One step secant, Gradient descent, Gradient descent with either momentum or adaptive learning rate or both, Fletcher– Powell conjugate gradient, Random order incremental training with learning, Resilient, Polak–Ribiere conjugate gradient and Batch training with weight and bias learning rules. Ozgur Kisi [27], has compared results of four different algorithms, namely: conjugate-gradient algorithm, back propagation algorithm, cascade algorithm and Levenberg–Marquardt algorithm for stream flow prediction. Among the various algorithms available, Levenberg–Marquardt algorithm is the most commonly used training algorithm due to its speed and robustness [15]. Hence in this paper, Levenberg–Marquardt (LM) algorithm has been adopted to synthesize Artificial Neural Network models. This algorithm uses layered feed-forward networks, in which, the neurons are arranged in layers, signals are sent forward and errors are propagated backwards (Fig. 4).\nThe neural network models are developed using Neural Network Toolbox in MATLAB software. In this study, three ANN models, namely ANN1, ANN2 and ANN3 have been generated as explained in Table 3. The models are generated with one hidden layer and 10 neurons in the hidden layer. Among the total data, approximately 70% of the data has been considered for training. Out of the remaining 30%, 15% has been considered for testing and 15% has been considered for validation. In Artificial Neural Networks, the training involves the adjustments of weights of each parameter, such that the variation between actual and predicted values are minimized. Non linear sigmoidal function was used as the transfer function. The number of iterations required by the neural network model to converge is termed as epoch. It is an indication of the number of times the weights were reinitialized until a satisfactory model with the highest possible correlation is obtained. The correlation coefficient (R) obtained for training, testing, validation and overall data for each model is presented in Table 5.\nFig. 4. Artificial Neural\nAll the neural network models have correlation coefficient almost equal to one. This shows that the neural network models have high degree of fitness to the actual values. Model ANN2 had the highest correlation coefficient of 0.9987 for the overall data. The relationship between the predicted and experimental compressive strength by Artificial Neural Network is depicted in Figs. 5–7.\nThe values of correlation coefficient (R), determination coefficient (R2), Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), Durbin Watson Statistic and Epoch required for the ANN models are summarized in Table 6.\nThe neural network models ANN1, ANN2 and ANN3 exhibited RMSE values of 2.1412, 1.2315 and 1.0361; MAPE values of 0.551, 0.420 and 0.361; Durbin–Watson Statistic of 1.5030, 1.1670 and 1.5799; and epochs required were 29, 42 and 25 respectively. The RMSE and MAPE values of all the neural network models are very low which shows that the difference between the actual and predicted values is very low. Also the Durbin Watson Statistic of ANN1 and ANN3 lie within the acceptable range denoting the absence of multi collinearity and null auto correlation. Of all the values, model ANN3 has the highest DurbinWatson Statistic and least values of RMSE, MAPE and epochs required."
+    }, {
+      "heading" : "5. Summary and discussion",
+      "text" : "In this study, forty-five different concrete mixes incorporating nano silica and copper slag were prepared and the compressive strength were determined for each mix at curing ages of 1, 3, 7, 28, 56 and 90 days. The compressive strength of High Performance Concrete with copper slag as partial fine aggregate was found to increase up to replacement of 40% fine aggregate by copper slag and 2% cement by nano silica, beyond which the condition was reversed. These results are similar to the results arrived by Al Jabri et al. [16] in which optimum compressive strength was obtained for 40–50% replacement of fine aggregate by copper slag.\nNetwork Topology.\nFig. 8. Comparison of Models ANN1 and MRA1.\n0\n20\n40\n60\n80\n100\n0 20 40 60 80 100\nPr ed\nic te\nd C\nom pr\nes si\nve S\ntr en\ngt h\n(M Pa\n)\nExperimental Compressive Strength (MPa)\nANN2\nMRA2\nFig. 9. Comparison of Models ANN2 and MRA2.\nModels were generated for compressive strength prediction of these concrete mixes by implementing Multiple Regression Analysis and Artificial Neural Network. Three models were developed using both regression and neural network techniques. The merits, drawbacks and performance of each developed model were assessed.\nAll the regression models exhibit p-value less than 0.05, which expresses the significance of the overall model at 95% confidence level. Moreover, the F-test also reveals considerable F-significant values and the F-value also ensures 95% confidence level of the developed models. But the validity of the regression model could not be assured due to the possibility of positive auto correlation exposed by Durbin–Watson Statistic and larger values of Root Mean Squared Error and Mean Absolute Percentage Error.\nThe R-squared value obtained for all the neural network models are greater than 0.9 which is in contrast to the regression models with R-squared values of 0.6374, 0.6686 and 0.6717. This shows the lack of acceptability of the regression models. The cumulative\n0\n20\n40\n60\n80\n100\n0 20 40 60 80 100\nPr ed\nic te\nd C\nom pr\nes si\nve S\ntr en\ngt h\n(M Pa\n)\nExperimental Compressive Strength (MPa)\nANN3\nMRA3\nFig. 10. Comparison of Models ANN3 and MRA3.\nerrors of a model will be minimal if the range of its Root Mean Squared Error and Mean Absolute Percentage Error are lower. In this study, the ANN models demonstrated Root Mean Squared Error values of 2.1412, 1.2315 and 1.0361 and Mean Absolute Percentage Error values of 0.551, 0.420 and 0.361. The number of iterations required for convergence (Epoch) varied from minimum of 25 to maximum of 42. Models ANN1 and ANN3 also satisfied the Durbin–Watson Statistic as their values are 1.503 and 1.5799, which lies within the permissible limit of 1.5 to 2.5.\nThe comparison of the three models developed using both Artificial Neural Network and Multiple Regression Analysis is depicted in Figs. 8–10. It is observed that the goodness-of-fit of the neural network models is superior when compared to the regression models. The outcome is analogous to that of Ferhat Bingol et al. [6]. The models developed by implementing feed forward back propagation Artificial Neural Network are found to have very high precision and accuracy [20]."
+    }, {
+      "heading" : "6. Conclusion",
+      "text" : "The regression models are inadequate to satisfy the Durbin– Watson test due to multi collinearity and also possesses very low determination coefficient. Hence the usage of regression models for compressive strength prediction seems to be statistically insufficient. The neural network models exhibit very low Root Mean Squared Error and Mean Absolute Percentage Error. Also, the Rsquared values of neural network models are closer to one, indicating a better fit when compared to the regression models. Of all the models, model ANN3 has the least RMSE and MAPE. It also satisfies Durbin–Watson Statistic and requires only 25 iterations to converge, which is the least value among all the neural network models. The residuals of all the neural network models are closer to the zero line. The regression equation can be applied for preliminary mix design calculation. However, in situations demanding higher accuracy and involving higher complexity, only neural network models are applicable. ANN models generate better results in prediction of compressive strength of High Performance Concrete with Copper Slag as Fine Aggregate replacement."
+    } ],
+    "references" : [ {
+      "title" : "Prediction of compressive strength of concrete containing construction and demolition waste using artificial neural networks, Constr",
+      "author" : [ "Adriana Trocoli Abdon Dantas", "Monica Batista Leite", "Koji de Jesus Nagahama" ],
+      "venue" : "Build. Mater",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2013
+    }, {
+      "title" : "Using ANN and ANFIS to predict the mechanical and chloride permeability properties of concrete  containing GGBFS and CNI, Compos",
+      "author" : [ "Ahmet Raif Boga", "Murak Ozturk", "Ilker Bekir Topcu" ],
+      "venue" : "Part B",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2013
+    }, {
+      "title" : "Prabhat Ranjan Prem",
+      "author" : [ "P.S. Ambily", "C. Umarani", "K. Ravisankar" ],
+      "venue" : "B.H. Bharatkumar, Nagesh R. Iyer, Studies on ultra high performance concrete incorporating copper slag as fine aggregate, Constr. Build. Mater. 77 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Prediction of the strength of mineral admixture concrete using multivariable regression analysis and an artificial neural network",
+      "author" : [ "U. Atici" ],
+      "venue" : "Expert Syst. Appl. 38 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Ahmet Tortum",
+      "author" : [ "A. Ferhat Bingol" ],
+      "venue" : "Rustem Gul, Neural networks analysis of compressive strength of lightweight concrete after high temperatures, Mater. Des. 52 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "High – performance concrete – stretching the paradigm",
+      "author" : [ "S.W. Forster" ],
+      "venue" : "Concrete Int. 16 (10) ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "Reduction of the calcium leaching rate of cement paste by addition of silica nanoparticles",
+      "author" : [ "J.J. Gaitero", "I. Campillo", "A. Guerrero" ],
+      "venue" : "Cement Concrete Res. 38 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Premchand",
+      "author" : [ "P. Gorai", "R.K. Jana" ],
+      "venue" : "Characteristics and utilisation of copper slag – a review, Resour. Conserv. Recycl. 39 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 1016
+    }, {
+      "title" : "Prediction of compressive strength of concrete containing fly ash using artificial neural networks and fuzzy logic, Comp",
+      "author" : [ "Ilker Bekir Topcu", "Mustafa Saridemir" ],
+      "venue" : "Mater. Sci",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2008
+    }, {
+      "title" : "Prediction of the compressive strength of no – slump concrete: a comparative study of regression, neural network and ANFIS models, Constr",
+      "author" : [ "Jafar Sobhani", "Meysam Najimi", "Ali Reza Pourkhorshidi", "Tayebh Parhizkar" ],
+      "venue" : "Build. Mater",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2010
+    }, {
+      "title" : "Effect of copper slag as a fine aggregate on the properties of cementmortars andconcrete",
+      "author" : [ "Khalifa S. Al-Jabri", "AbdullahH. Al-Saidy", "Ramzi Taha" ],
+      "venue" : "Constr. Build.Mater",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2011
+    }, {
+      "title" : "Al-Oraimi, Performance of high strength concrete made with copper slag as a fine aggregate, Constr",
+      "author" : [ "Khalifa S. Al-Jabri", "Makoto Hisada", "S.K. Abdullah H. Al-Saidy" ],
+      "venue" : "Build. Mater",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2009
+    }, {
+      "title" : "Al-Saidy, Copper slag as sand replacement for high performance concrete",
+      "author" : [ "Khalifa S. Al-Jabri", "Makoto Hisada", "Salem K. Al-Oraimi", "Abdullah H" ],
+      "venue" : "Cement Concrete Comp",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2009
+    }, {
+      "title" : "Using MATLAB to develop artificial neural network models for predicting global solar radiation",
+      "author" : [ "H. Maitha" ],
+      "venue" : "in: Ali. Assi (Ed.), Engineering Education and Research Using MATLAB, Intech",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "A comparison of model selection methods for compressive strength prediction of high – performance concrete using neural networks, Comput. Struct",
+      "author" : [ "Marek Slonski" ],
+      "venue" : null,
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2010
+    }, {
+      "title" : "Use of nano silica to reduce setting time and increase early strength of concrete with high volumes of fly ash or slag, Constr",
+      "author" : [ "Min-Hong Zhang", "Jahidul Islam" ],
+      "venue" : "Build. Mater",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2012
+    }, {
+      "title" : "An experimental survey on combined effects of fibers and nanosilica on the mechanical, rheological and durability properties of self – compacting concrete, Mater",
+      "author" : [ "Morteza H. Beigi", "Javad Berenjian", "Omid Lotfi Omran", "Aref Sadeghi Nik", "Iman M. Nikbin" ],
+      "venue" : "http://dx.doi",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2013
+    }, {
+      "title" : "Mechanical properties of high – strength concrete incorporating copper slag as coarse aggregate, Constr",
+      "author" : [ "Mostafa Khanzadi", "Ali Behnood" ],
+      "venue" : "Build. Mater",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2009
+    }, {
+      "title" : "Strength prediction models for PVA fiber – reinforced high – strength concrete",
+      "author" : [ "Muhd Fadhil Nuruddin", "Sadaqat Ullah Khan", "Nasir Shafiq", "Tehmina Ayub" ],
+      "venue" : "J. Mater. Civ. Eng",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 1943
+    }, {
+      "title" : "Modeling compressive strength of recycled aggregate concrete by artificial neural network, model tree and non – linear regression",
+      "author" : [ "Neela Deshpande", "Shreenivas Londhe", "Sushma Kulkarni" ],
+      "venue" : "Int. J. Sust. Built Env",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2014
+    }, {
+      "title" : "Streamflow forecasting using different artificial neural network algorithms",
+      "author" : [ "Ozgur Kisi" ],
+      "venue" : "J. Hydrol. Eng",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2007
+    }, {
+      "title" : "Regression models for the prediction of compressive strength of concrete with and without fly ash",
+      "author" : [ "Palika Chopra", "R.K. Sharma", "Maneek Kumar" ],
+      "venue" : "Int. J. Latest Trends Eng. Tech",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2014
+    }, {
+      "title" : "Prediction of compressive strength of self – compacting concrete containing bottom ash using artificial neural networks, Adv",
+      "author" : [ "Rafat Siddique", "Paratibha Aggarwal", "Yogesh Aggarwal" ],
+      "venue" : "Eng. Softw",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2011
+    }, {
+      "title" : "Prediction of the concrete compressive strength by means of core testing using GMDH – type neural network and ANFIS models, Comp",
+      "author" : [ "Rahmat Madandoust", "John H. Bungey", "Reza Ghavidel" ],
+      "venue" : "Mater. Sci",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2012
+    }, {
+      "title" : "Effect of different environmental parameters on pitting behaviours of AISI type 316L stainless steel: experimental studies and neural network modelling",
+      "author" : [ "K.V.S. Ramana", "T. Anita", "S. Mandal", "S. Kaliappan", "H. Shaikh", "P.V. Sivaprasad", "R.K. Dayal", "H.S. Khatak" ],
+      "venue" : "Mater. Des. 30 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Modeling compressive strength of EPS lightweight concrete using regression",
+      "author" : [ "A. Sadrmomtazi", "J. Sobhani", "M.A. Mirgozar" ],
+      "venue" : "neural network and ANFIS, Constr. Build. Mater. 42 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Beneficial role of nanosilica in cement based materials – a review",
+      "author" : [ "L.P. Singh", "S.R. Karade", "S.K. Bhattacharyya", "M.M. Yousuf", "S. Ahalawat" ],
+      "venue" : "Constr. Build. Mater. 47 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Segadaes, Factorial design used to model the compressive strength of mortars containing recycled  rubber",
+      "author" : [ "Sivaldo L. Correia", "Tania Partala", "A.M. Felipe C. Loch" ],
+      "venue" : "Compos. Struct",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2010
+    }, {
+      "title" : "The modeling of mode choices on intercity freight transportation with the artificial neural networks and adaptive neuro fuzzy inference system",
+      "author" : [ "A. Tortum", "N. Yayla", "M. Gokdag" ],
+      "venue" : "Expert Syst. Appl. 36 (3) ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "A mathematical model for the prediction of cement strength",
+      "author" : [ "S. Tsivilis", "G. Parissaki" ],
+      "venue" : "Cement Concrete Res. 25 (1) ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 1016
+    }, {
+      "title" : "Optimum content of copper slag as a fine aggregate in high strength concrete",
+      "author" : [ "Wu Wei", "Weide Zhang", "Guowei Ma" ],
+      "venue" : "Mater. Des",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2010
+    }, {
+      "title" : "Design of high – performance concrete mixture using neural networks and nonlinear programming",
+      "author" : [ "I.-C. Yeh" ],
+      "venue" : "J. Comput. Civil Eng. 13 (1) ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Multiple regression model for compressive strength prediction of high performance concrete",
+      "author" : [ "M.F.M. Zain", "S.M. Abd" ],
+      "venue" : "J. Appl. Sci. 9 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Prediction of concrete compressive strength: research on hybrid models genetic based algorithms and ANFIS",
+      "author" : [ "Zhe Yuan", "Lin-Na Wang", "Xu Ji" ],
+      "venue" : "Adv. Eng. Softw",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2014
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 5,
+      "context" : "High-Performance Concrete (HPC) refers to the type of concrete mixture which has adequate workability, develops high strength and possesses excellent durability properties throughout its intended service life [7].",
+      "startOffset" : 209,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 10,
+      "context" : "To ensure eco-friendly and sustainable development, several industrial by-products are being utilised in concrete manufacturing as a substitute for either cement or fine aggregate or as an admixture [5,16].",
+      "startOffset" : 199,
+      "endOffset" : 205
+    }, {
+      "referenceID" : 2,
+      "context" : "Recently, studies are being conducted to incorporate copper slag in normal concretes and high performance concretes [3,17,18,24,37].",
+      "startOffset" : 116,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 11,
+      "context" : "Recently, studies are being conducted to incorporate copper slag in normal concretes and high performance concretes [3,17,18,24,37].",
+      "startOffset" : 116,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 12,
+      "context" : "Recently, studies are being conducted to incorporate copper slag in normal concretes and high performance concretes [3,17,18,24,37].",
+      "startOffset" : 116,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 17,
+      "context" : "Recently, studies are being conducted to incorporate copper slag in normal concretes and high performance concretes [3,17,18,24,37].",
+      "startOffset" : 116,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 30,
+      "context" : "Recently, studies are being conducted to incorporate copper slag in normal concretes and high performance concretes [3,17,18,24,37].",
+      "startOffset" : 116,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 7,
+      "context" : "It also possesses excellent mechanical and chemical properties, which make it an apt replacement for fine aggregate [9,18].",
+      "startOffset" : 116,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 12,
+      "context" : "It also possesses excellent mechanical and chemical properties, which make it an apt replacement for fine aggregate [9,18].",
+      "startOffset" : 116,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 15,
+      "context" : "Min–Hong Zhang and Jahidul Islam [21] have reported that the incorporation of nano silica accelerates the rate of cement hydration and contributes to the high early strength of concrete.",
+      "startOffset" : 33,
+      "endOffset" : 37
+    }, {
+      "referenceID" : 6,
+      "context" : "It was also found that, the inclusion of nano silica brings about an improved pore packed structure of concrete, enhancing both strength and durability [8,22,23,33].",
+      "startOffset" : 152,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 16,
+      "context" : "It was also found that, the inclusion of nano silica brings about an improved pore packed structure of concrete, enhancing both strength and durability [8,22,23,33].",
+      "startOffset" : 152,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 26,
+      "context" : "It was also found that, the inclusion of nano silica brings about an improved pore packed structure of concrete, enhancing both strength and durability [8,22,23,33].",
+      "startOffset" : 152,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 3,
+      "context" : "Regression analysis is one of the traditional methods involved in model generation [4,28,25].",
+      "startOffset" : 83,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 21,
+      "context" : "Regression analysis is one of the traditional methods involved in model generation [4,28,25].",
+      "startOffset" : 83,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 18,
+      "context" : "Regression analysis is one of the traditional methods involved in model generation [4,28,25].",
+      "startOffset" : 83,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 21,
+      "context" : "The accuracy of the model can be considerably increased by performing multiple regression [28].",
+      "startOffset" : 90,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 25,
+      "context" : "But the accuracy of regression analysis is found to decrease as the number of independent variables increases [32].",
+      "startOffset" : 110,
+      "endOffset" : 114
+    }, {
+      "referenceID" : 4,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 74,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 14,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 74,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 24,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 74,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 1,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 124,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 23,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 124,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 28,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 124,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 27,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 152,
+      "endOffset" : 156
+    }, {
+      "referenceID" : 33,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 183,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 19,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 200,
+      "endOffset" : 204
+    }, {
+      "referenceID" : 8,
+      "context" : "In such complex cases, the use of methods like Artificial Neural Networks [6,20,31], adaptive neuro fuzzy inference systems [2,30,35], factorial design [34], genetic based algorithms [40], model tree [26] and fuzzy logic [10] are employed to improve the accuracy of the predicted models.",
+      "startOffset" : 221,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 29,
+      "context" : "Multiple Regression Analysis (MRA) is one of the traditional methods used to forecast the compressive strength of concrete, by implementing linear or non-linear methods [36,39].",
+      "startOffset" : 169,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 32,
+      "context" : "Multiple Regression Analysis (MRA) is one of the traditional methods used to forecast the compressive strength of concrete, by implementing linear or non-linear methods [36,39].",
+      "startOffset" : 169,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 20,
+      "context" : "Numerous researchers have applied ANN for both quantitative and qualitative prediction of the variables involved in water resource systems [27].",
+      "startOffset" : 139,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 22,
+      "context" : "[29] have correlated the strength parameters of the experimental values with the data obtained from literatures for self-compacting concrete containing bottom ash using ANN.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 31,
+      "context" : "Yeh [38] has applied feed forward neural network with gradient descent technique to generate models to predict the strength of High Performance Concrete.",
+      "startOffset" : 4,
+      "endOffset" : 8
+    }, {
+      "referenceID" : 4,
+      "context" : "[6] have engaged neural networks to determine the compressive strength of light weight concrete subjected to high temperatures because it was complex to model such patterns with the traditional methods.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 0,
+      "context" : "[1] have demonstrated the ability of ANN to develop compressive strength prediction models for a complex system of concrete containing Construction and Demolition Wastes (CDW), to relate seventeen input variables with one output variable.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 18,
+      "context" : "The strength prediction models developed for High Strength Concrete with Poly-Vinyl Alcohol Fibre Reinforcement by means of ANN has been correlated with the regression models [25].",
+      "startOffset" : 175,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 4,
+      "context" : "The Neural Network models created for light weight concrete exposed to fire have been related to the conventional regression models and their characteristics have been studied [6].",
+      "startOffset" : 176,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 19,
+      "context" : "[26], the weights per cubic meter of the materials were used as mandatory input parameters, known as raw data.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 3,
+      "context" : "According to Atici [4], the validity of a particular model is based on the values of correlation coefficient (R), determination coefficient (R(2)), p-value, F-test and Durbin–Watson statistic.",
+      "startOffset" : 19,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 8,
+      "context" : "It should be nearer to the zero line for a good fit [10].",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 20,
+      "context" : "Ozgur Kisi [27], has compared results of four different algorithms, namely: conjugate-gradient algorithm, back propagation algorithm, cascade algorithm and Levenberg–Marquardt algorithm for stream flow prediction.",
+      "startOffset" : 11,
+      "endOffset" : 15
+    }, {
+      "referenceID" : 9,
+      "context" : "Among the various algorithms available, Levenberg–Marquardt algorithm is the most commonly used training algorithm due to its speed and robustness [15].",
+      "startOffset" : 147,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 10,
+      "context" : "[16] in which optimum compressive strength was obtained for 40–50% replacement of fine aggregate by copper slag.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 14,
+      "context" : "The models developed by implementing feed forward back propagation Artificial Neural Network are found to have very high precision and accuracy [20].",
+      "startOffset" : 144,
+      "endOffset" : 148
+    } ],
+    "year" : 2016,
+    "abstractText" : "In this study, Multiple Regression Analysis (MRA) and Artificial Neural Network (ANN) models are constructed to predict the compressive strength of High Performance Concrete containing nano silica and copper slag as partial cement and fine aggregate replacement respectively. The data used in the model construction were obtained from laboratory experiments. The compressive strength was experimentally determined for specimens containing 0%, 0.5%, 1%, 1.5%, 2%, 2.5% and 3% of nano silica as partial cement replacement as well as 0%, 10%, 20%, 30%, 40% and 50% of copper slag as partial fine aggregate replacement at curing ages of 1, 3, 7, 28, 56 and 90 days, accounting for a total of 264 observations. The observations were grouped into three sets based on the mineral admixtures incorporated. The mix constituents were fed as the input parameters to achieve the compressive strength as the target. The three sets of data were modelled using both Multiple Regression Analysis and Artificial Neural Networks and their results were evaluated and compared. Artificial Neural Network models demonstrated more accuracy and had higher correlation. 2016 Elsevier Ltd. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

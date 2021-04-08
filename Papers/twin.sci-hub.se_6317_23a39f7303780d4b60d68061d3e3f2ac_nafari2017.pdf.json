@@ -1,0 +1,502 @@
+{
+  "name" : "twin.sci-hub.se_6317_23a39f7303780d4b60d68061d3e3f2ac_nafari2017.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Modeling and Performance Analysis of Metallic Plasmonic Nano-antennas for Wireless Optical Communication in Nanonetworks",
+    "authors" : [ "Mona Nafari" ],
+    "emails" : [ "monanafa@buffalo.edu).", "jmjornet@buffalo.edu)." ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nIndex Terms—Wireless Optical Communication, Nanophotonics, Plasmonics, Nano-antenna, Nanonetworks\nI. INTRODUCTION Nanotechnology is providing the engineering community with a new set of tools to design and manufacture novel nanoscale devices, which are able to perform simple tasks, such as computing, data storing, sensing and actuation. The integration of several of these nano-devices into a single entity will enable the development of advanced nanoscale machines. By means of communication, nanomachines will be able to organize themselves in networks, or nanonetworks, and complete more complex tasks in a distributed fashion, such as wireless nanosensor networks for chemical and biological attack prevention [2], advanced health monitoring systems [3], agricultural and plant monitoring [4], optimization and control of chemical reactors [5], or wireless networks on chip [6].\nFrom the electromagnetic (EM) perspective, the miniaturization of a conventional metallic antenna to meet the size requirements of a nanomachine would theoretically result in very high resonance frequencies. For example, according to classical antenna theory, a one-micrometer-long metallic antenna would radiate at approximately 150 THz. This is only true if the material of the antenna building components is assumed to be a perfect electrical conductor (PEC), i.e., a material with infinite conductivity. However, at the aforementioned frequencies, metals no longer behave as PEC [7].\nThis work was supported by the U.S. National Science Foundation (NSF) under Grant No. CBET-1445934 and CBET-1555720.\nMona Nafari and Josep Miquel Jornet are with the Department of Electrical Engineering, University at Buffalo, The State University of New York, NY 14260, USA (e-mail:{monanafa,jmjornet}@buffalo.edu).\nA preliminary version of this work was presented in [1].\nOn the contrary, the conductivity of metals such as gold or silver [8]; metamaterials, i.e., engineered materials with rationally designed arrangements of nano-structured building blocks [9]; as well as nanomaterials such as graphene [10], is a frequency-dependent complex-valued magnitude.\nThe material conductivity affects the way in which a current wave propagates in the nano-antenna. In particular, the global oscillations of electrical charge in close proximity to the surface of the antenna building components, i.e., within the so called penetration depth, results into the excitation of a confined EM wave at the surface of the antenna. This peculiar EM wave is commonly referred to as a surface plasmon polariton (SPP) wave. The frequency at which SPP waves are excited depends on the material conductivity of the antenna building components. For example, graphene supports SPP waves at frequencies as low as in the THz band (0.1- 10 THz) [11], whereas in noble metals such as gold or silver, SPP waves are only observed at tens of THz and above [7].\nStarting from this result, the field of plasmonic nanoantennas in the THz band and above has been gaining momentum. In [12], we proposed for the first time the use of graphene to develop THz plasmonic nano-antennas and, since then, many related works and extensions have followed [13]– [16]. For the time being, however, one of the main challenges at THz frequencies is posed by the lack of efficient THz sources, needed to drive the nano-antennas [17].\nWhen it comes to infrared and visible optical frequencies, the possibility for the first time to create precise accurate nano-structures, comparable to the optical wavelengths in their largest dimensions and with very high aspect ratios, has motivated the development of optical nano-antennas [18, 19]. In this case, optical sources such as nano-lasers, [20, 21], are more readily available. As explained in Sec. II, many works on the design of optical nano-antennas can be found in the literature. However, to the best of our knowledge, a unified mathematical framework able to relatee material properties, SPP wave behavior and the nano-antenna geometry with communication-relevant parameters, such as gain in transmission and reception is missing.\nIn this paper, we model and analyze the performance of metallic plasmonic nano-antennas for wireless optical communication. More specifically, we first develop a unified mathematical framework to investigate the performance in transmission and reception of nano-dipole antennas based on different metals. This framework takes into account the metal properties, i.e., its dynamic complex conductivity and\n2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\npermittivity; the propagation properties of SPP waves on the nano-antenna, i.e., their confinement factor and propagation length; and the antenna geometry, i.e., length and radius. By utilizing the framework, the generated plasmonic current in reception and the total radiated power and efficiency in transmission are analytically derived. To validate the model, we conduct extensive simulations with COMSOL Multi-physics. Finally, by utilizing the model, we numerically investigate and compare the performance of the developed nano-antennas at optical frequencies and provide directions for the design of wireless optical communication systems in nanonetworks.\nThe remaining of this paper is organized as follows. In Sec. II, we summarize the related works on optical nanoantenna. In Sec. III, we review the fundamental working principle of a plasmonic nano-antenna, describe the conductivity model utilized in our analysis and analyze the SPP wave propagation properties. Then, in Sec. IV, we formulate the EM fields on and inside the antenna, and obtain a semi-closed form expression for the plasmonic current in the nano-antenna. We then define the antenna performance metrics in far field in section V. Numerical and simulation results are presented in Sec. VI and the paper is concluded in Sec. VII."
+    }, {
+      "heading" : "II. RELATED WORKS",
+      "text" : "Within the last decade, there have been several fundamental works on the development of optical nano-antennas. In [22], the authors analyzed the propagation properties of SPP waves cylindrical or rod-type nano-antennas, by formulating and solving the SPP wave dispersion equation at the radial boundary condition along the nano-antenna. They mainly illustrated that different radius exhibit different wavelength-dependent effective mode index for a cylindrical nanowire waveguide. Importantly, their findings indicate the increasing importance of skin effect for SPPs in the terahertz range and above, as well as the enhancement of such effects on curved surfaces. Moreover, in [23], the derivation of angle-dependent reflection amplitude and phase of a SPP wave at a boundary between antenna and surrounding area is presented and, in [24], the impact of the nano-antenna caps is incorporated. All these works illustrate the fact that the nano-antenna geometry heavily impacts the propagation characteristics of the SPP waves. In [25], the nano-antenna fields are characterized, starting from the estimated propagation constant of SPP waves on nanowires obtained by means of experimental measurements. Some related aspects, such as the choice of metal and the slowly decaying modal field, are also discussed in [7, 26]. Optical properties of metals in terms of intra and interband processes as well as plasma effects are described in these materials, such that specifically [7] provides an overview of alternative plasmonic materials along with motivation for each material choice and important aspects of fabrication.\nAnother issue usually discussed in the related works is the need to account or not for quantum mechanical effects. If the feature size of the nano-antenna D, i.e., the smallest of the critical dimensions, is less than one nanometer, the quantum effects need to be taken into account. In this situation, solving Maxwell equations using non-local bulk dielectric functions\nmay extend the validity of the classical treatment. For plasmonic systems with narrow junctions, quantum-mechanical electron tunneling is the major nonlocal effect that determines the optical response of the system. In the non-contact regime, for distances D > 0.5 nm, no significant electron transfer can occur in-between the gap; thus, this situation can be correctly described within the classical electrodynamical treatment since tunneling happens in distances of 0.1 < D < 0.5 nm [27]. In the latter case, appropriate approaches from quantum mechanics, which usually involve the combination of Schrödinger equation with Maxwell equations, should be solved by consistently using numerical methods. In this paper, the feature size is the nano-antenna gap, which is still several nanometers long. As a result, we consider that the quantum current density, which can be used as an current additional source for the Maxwell equations, can be ignored."
+    }, {
+      "heading" : "III. PLASMONIC NANO-ANTENNA MODEL",
+      "text" : ""
+    }, {
+      "heading" : "A. Working Principle",
+      "text" : "The plasmonic nano-antenna design considered in the analysis, is shown in Fig. 1. The nano-antenna consists of two identical metallic arms with a feeding/receiving gap in between which its size is optimized. The working principle of the nano-antenna is as follows. We explain first its functioning in reception: • Consider an incident plane wave with polarization parallel\nto the plane defined by the nano-antenna long axis and the direction of the wave propagation. Following the notation in Fig. 1, we are interested in the incident electric field component parallel to the z-axis, EIncz , which is given by:\nEIncz (r, z) = E Inc 0 (r) sin θe j(k0 cos θ)z = EInc|| (r) e jk||z, (1) where EInc0 stands for the field strength, k0 refers to the wave vector, and θ is the angle of incidence. When EIncz\n2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nirradiates the nano-antenna, it excites the free electrons within the antenna penetration depth. The electronic response of the nano-antenna to an EM field is determined by the conductivity of its building material. In Sec. III-B, we describe the conductivity model for metals that we utilize in our analysis. • At the interface between the nano-antenna metallic arms and the surrounding medium, longitudinal SPP waves that propagate along the z-axis are excited. The SPP wave vector, kspp is determined by the antenna geometry, namely, the antenna arm radius and length, as well as on the real and imaginary part of the material conductivity. In Sec. III-C, we deduce the dispersion equation for SPP waves on the antenna and analyze their propagation properties as functions of the material conductivity and antenna geometry. • To enhance the detection of the incident EM wave, we are interested in designing a plasmonic resonant cavity. In particular, we are interested in having a resonant cavity for the fundamental resonant frequency, which depends on the SPP wave propagation speed. In Sec. IV, we analyze the nano-antenna in reception, by starting from the formulation of the electric field incident to the antenna, the electric field scattered by the antenna and the SPP wave propagating inside the antenna.\nThe same behavior holds in transmission due to the antenna reciprocity principle [28]. In particular, a SPP wave on the nano-antenna can be electrically excited by the feeding gap. The time-changing SPP wave, on its turn, induces a timechanging magnetic field, which on its turn generates an electric field, and this results in the propagation of an EM wave. As before, the performance of the nano-antenna in transmission depends on the conductivity of the material as well as on the geometry of the nano-antenna, which determine the SPP properties. In Sec. V, we analyze the nano-antenna performance in transmission in terms of radiated fields and resulting directivity."
+    }, {
+      "heading" : "B. Optical Conductivity Model for Metals",
+      "text" : "The conductivity of metals at optical frequencies is a complex-valued quantity. The real part of the conductivity is responsible for ohmic losses whereas the imaginary part accounts for the phase offset between the local electric field and current density [29]. There are many analytical models for the conductivity of metals. In this paper, we utilize the well-established Drude model, which takes into account the intra-band electron transitions within the metal energy bandstructure [30]. Accordingly, the metal complex conductivity σ and its complex permittivity εm can be written as functions of the angular frequency, ω = 2πf , as follows:\nσ (ω) = −j(εm (ω)− ε∞)ε0ω\n= −jωε0 [ − ω2pτ 2 D\n1 + ω2τ2D + j\nω2pτD\nω (1 + ω2τ2D)\n] ,\n(2)\nwhere ε0 is the vacuum permittivity, ε∞ is 1 for metals [31], τD is the electron relaxation time and ωp stands for the plasma\nTABLE I PARAMETERS FOR THE OPTICAL CONDUCTIVITY OF METALS\nMetal ωp [1015 rad/s] τD [10−14 s] ne [1028/m3]\nCu 14.11 0.7685 8.47 Al 22.75 26 18.1 Ag 13.35 0.8 5.86 Au 13.8 3.3 5.9\n100 200 300 400 500 600\nFrequency [THz]\n-1000\n-800\n-600\n-400\n-200\n0\n200\nǫ\nRe{ǫ Ag } Re{ǫ Au } Re{ǫ Cu } Re{ǫ Al } Im{ǫ Ag } Im{ǫ Au } Im{ǫ Cu } Im{ǫ Al }\nFig. 2. Real and imaginary parts of the relative permittivity for different nobel metals as functions of frequency.\nwave frequency, which is given by\nωp =\n√ nee2\nm∗ε0 , (3)\nwhere ne is the number of electrons per unit of volume, e stands for the electron charge, and m∗ is the electron effective mass of the electron. In Table I, the values for these parameters are summarized for different metals, including copper (Cu) and aluminum (Al) [26], gold (Au) [30] and silver (Ag) [32]. The choice of the best plasmonic material for a given application is a subject of discussion and research.\nIn Fig. 2, the real and imaginary parts of the relative permittivity for all four noble metals are shown as functions of frequency. The values of this figure is validated with actual data of [33]. The absolute value of the real and imaginary parts of the permittivity at higher frequencies tends to decrease, which considerably affects propagation of SPP waves, as we show in the next section."
+    }, {
+      "heading" : "C. Surface Plasmon Polariton Wave Dispersion Equation",
+      "text" : "Next, we analytically study the propagation properties of SPP waves in the nano-antenna, by taking into account both its geometry and the complex conductivity of its building material. More specifically, we are interested in characterizing the complex SPP wave vector, kspp. The real part of the wave vector, Re{kspp}, determines the SPP wavelength,\nλspp = 2π\nRe{kspp} , (4)\nas well as the confinement factor kspp/k0, where k0 = ω/c refers to free-space wave vector and c is the speed of light.\n2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nThe imaginary part, Im{kspp}, determines the SPP decay or, inversely, the SPP propagation length,\nL = 1\n2 Im{kspp} , (5)\nwhich is defined as the distance at which the SPP field strength has decreased by a value of 1/e.\nAs mentioned before, when the antenna is illuminated by an incident plane wave, axially symmetrical SPP modes are excited. In particular, for the design of an efficient antenna, we are interested in the propagation properties of Transverse Magnetic (TM) SPP wave modes [28]. To obtain kspp, we need to solve the dispersion equation for SPP waves on the nano-antenna arms. We assume that the electric field E and magnetic field H on the antenna have the following form [22]:\nEr (r, z) = Er (r) e jksppz, (6)\nEz (r, z) = Ez (r) e jksppz, (7)\nHφ (r, z) = Hφ (r) e jksppz. (8)\nStarting from the Maxwell’s equations in their differential form and taking into account that for an axially symmetrical mode ∂E∂φ = 0 and ∂H ∂φ = 0, the following equations can be written:\nEr (r, z) = −j εk0 ∂Hφ (r, z) ∂z , (9) Ez (r, z) = j\nεk0\n1\nr\n∂ (rHφ (r, z))\n∂r , (10)\nHφ (r, z) = −j µ0k0\n( ∂Er (r, z)\n∂z − ∂Ez (r, z) ∂r\n) , (11)\nwhere ε = εm is the relative permittivity of the region z < h or r < a and ε = εd is the relative permittivity of the region defined by z > h and r > a. By taking the z derivative of (8), the radial component of the electric field can be written as:\nEr (r, z) = ε −1 kspp\nk0 Hφ (r, z) . (12)\nBy substituting (12) into (11) and taking again the z derivative of (8), the magnetic field can be written as:\nHφ (r, z) = −jk0ε k2spp − k20ε dEz (r, z) dr . (13)\nFinally, by substituting (13) into (10), the following equation for Ez is obtained:\nζ2 d2Ez (r, z)\ndζ2 + ζ\ndEz (r, z)\ndζ − ζ2Ez (r, z) = 0, (14)\nwhere ζ = pm,dr and pm,d = √ k2spp − k20εm,dµ0 [22]. The solution of (14) for Ez (r, z) has the form of I0(pma) in the metal and K0 (pda) in the surrounding dielectric, where In(.) and Kn(.) are the generalized Bessel functions of first and second kind of order n. Substituting them into (13), and using the relations dI0(pmr)dr = pmI1 (pmr) and dK0(pdr) dr = −pdK1 (pdr), the solution of Hφ (r, z) can be determined. In particular, by taking into account the need for continuity in Ez (r, z) and Hφ (r, z) at the surface of the antenna, i.e., at\nthe interface between the surrounding dielectric and the metal, r = a, the following dispersion equation is obtained:\nK0 (pda) I1 (pma) K1 (pda) I0 (pma) = −εdpm εmpd , (15)\nwhich can only numerically be solved. Ultimately, kspp depends on the angular frequency ω, the cylinder radius a and the relative permittivities εm,d of the metal and the surrounding dielectric. In Fig. 3, the confinement factor for different metal is shown as a function of frequency; which illustrates how different permittivities affects the propagation properties in metals. In Fig. 4(a), the confinement factor (4) for gold-based nano-antennas is shown as a function of frequency and for different nanowire radius. As can be seen, the confinement factor increases as the frequency increases. Also, by increasing the radius, the confinement factor will decrease. Similarly, in Fig. 4(b), the SPP wave propagation length (5) is shown as a function of the frequency; the smaller the radius, the shorter the SPP propagation length becomes."
+    }, {
+      "heading" : "D. Effective Resonance Length",
+      "text" : "Besides the boundary condition imposed in the radial direction, there is another boundary effect that alters the\n2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\npropagation of SPP waves on the nano-antenna: the caps at the two ends. SPP waves travel along the wire length l with a propagation constant kspp and suffer a reflection at the two caps. To incorporate such effect in the analysis, the reflection coefficient R at the cap needs to be computed.\nFollowing the methodology introduced in [24], by taking into account the boundary condition at the cap, we can write:\nEr ( r, z = h− ) = (1 +R) Re{kspp}\nωε0ε F (r), (16) Hφ ( r, z = h− ) = (1−R)F (r) , (17)\nwith\nF (r) =\n{ I1(pmr) I1(pma)\n, ε = εm if r < a, K1(pdr) K1(pda) , ε = εd if r > a, (18)\nand\nEr ( r, z = h+ ) = ∫ +∞ 0 t (η) √ k20εd − η2 ωεdε0 J1 (ηR) dη,\n(19)\nHφ ( r, z = h+ ) = ∫ +∞ 0 t (η) J1 (ηR) dη, (20)\nwhere J1 (.) is the first order Bessel function of the first kind. To solve the reflection coefficient R, first we should find t.\nHence by using the orthogonality property of Bessel functions of the first kind, (19) is equated to (16), both sides multiplied by J1(ηr)r and then integrated from 0 to ∞ over r to have:\nt(η) = (1 +R) ηaεd Re{kspp} ε0ω √ k20εd − η2 [A1 (η) +A2 (η)], (21)\nwhere\nA1 (η) = pmI2 (pma) J1 (ηa) + ηI1(pma)J2 (ηa)\nI1(pma)εm(η2 + p2m) (22)\nand\nA2 (η) = pdK2 (pda) J1 (ηa)− ηK1(pda)J2 (ηa)\nK1 (pda) εd (η2 + p2d) . (23)\nFor the magnetic field Hφ, (20) is equated to (17). By multiplying both sides by F (r)rε , then integrating from 0 to ∞ over r, the final result would be:\nR = 1−G 1 +G , (24)\nwhere G is given by:\nG =\n∫ +∞ 0\n2ηεd Re{kspp}√ k20εd−η2 [A1(η) +A2(η)] 2 dη\nI1(pma)2−I0(pma)I2(pma) εmI1(pma)2 − K1(pda) 2−K0(pda)K2(pda) εdK1(pda)2\n.\n(25) Finally, the resonances of the nanowire can be calculated by considering the propagation of the SPP wave along the nanowire and reflection at two caps as [24]:\nlres = nπ − ϕ\nRe{kspp} , (26)\nwhere n is the resonance order, ϕ is the phase of the reflection coefficient R calculated from (24), and kspp is the wave vector calculated by (15). As before, this can only be numerically solved. In Fig. 5, the resonance length for gold-based nanoantennas is shown as a function of frequency. The length of a resonance optical nano-antenna is shorter than what an ideal PEC antenna would require to resonate at the same frequency, due to the large confinement factor of SPP waves in noble metal nanowires."
+    }, {
+      "heading" : "IV. PLASMONIC NANO-ANTENNA",
+      "text" : "PERFORMANCE IN RECEPTION\nIn reception, we are interested in characterizing the plasmonic current generated at the nano-antenna as a result of the incident EM wave. In order to determine the plasmonic current, we follow the conventional vector potential approach [28], but contrary to classical antenna theory for PEC antennas, we take into account that there is an electric field inside the antenna, within the penetration depth, which is the SPP wave that propagates with kspp.\nAt the nanowire surface, the following boundary condition between the plasmonic field inside the nano-antenna, the incident field on the nano-antenna and the scattered field by the nano-antenna needs to be satisfied:\nEInsidez (r, z) = E Inc z (r, z) + E Scat z (r, z) . (27)\n2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nTo simplify the analysis, we make the assumption that the nanowire is effectively very thin and, thus, the current density Jz , the vector potential Az and the electric field inside the antenna EInsidez depend only on z but not on r, i.e.,\nJz (r, z) ≈ Jz (z) , (28) Az (r, z) ≈ Az (z) , (29) EInsidez (r, z) ≈ EInsidez (z) . (30)\nThe field inside the nano-antenna EIncz in (27) is related to the current density through the material conductivity, σ given by (2), i.e.,\nJz (z) = σ (ω)E Inside z (z) . (31)\nThe incident field EIncz in (27) on the nano-antenna surface is given by (1).\nFrom [34], the scattered field by the nano-antenna, EScatz in (27), can be written as\nEScatz (a, z) = jc2\nω\n( ∂2\n∂z2 + k20\n) Az(a, z), (32)\nwhere Az (z) ≈\nµ0 4π Z̄Jz(z), (33)\nand Z̄ is the characteristic impedance of the wire, given by\nZ̄ = 4π\n(εm − 1)(k2spp − k20) , (34)\nwhere εm is the metal permittivity given in (2) and kspp is the SPP wave vector obtained from (15).\nBy combining (31), (32), (33), (34), and (1) in (27), the following inhomogeneous differential equation is obtained:\nEInc|| e jk||z +\njc2 ω ( ∂2 ∂z2 + k20) µ0 4π Z̄Jz(z) = 1 σ(ω) Jz(z). (35)\nThen, as analytically shown in [25, 34], the total current in the nano-antenna Jz can be written as the combination of the following terms\nJz(z) = J||e jk||z + J±pe ±jksppz, (36)\nwhere J||eik||z is induced by the illuminating field along the wire and J±p refers to two counter-propagating plasmonic current densities propagating with kspp.\nBy combining (36) and (35), an expression for J|| can be found:\nJ|| = σ(ω) (k2spp − k20) k2spp − k2|| EInc|| . (37)\nBy considering the role of the wire end caps as a hard boundary and the vanishing total current density, an expression for J±p is obtained as:\nJ±p = −J|| sin((kspp ± k||)h)\nsin(2kspph) , (38)\nwhere h = l2 and l stands for the length of wire given by (26). Finally, by combining (38) and (37), the plasmonic current density can be obtained as a function of the incident field Eincz . As before, this can only be numerically done."
+    }, {
+      "heading" : "V. ANTENNA PROPERTIES IN TRANSMISSION",
+      "text" : "By leveraging the analysis in reception, we now extend the study to the nano-antenna in transmission and, in particular, we focus on the first resonance frequency, i.e., n=1 in (26). We follow the standard vector potential approach to compute the radiated fields, with the peculiarity of having a plasmonic excitation current. For this, we consider the nano-antenna to be excited by a sinusoidal plasmonic current distribution Jz given by\nJz (x) = J0 sin ( kspp ( l 2 − z )) δ (x) δ (y)\n= J0 sin (nπ\n2 − ksppz\n) δ (x) δ (y) ,\n(39)\nwhere x = {x, y, z} and kspp is the excitation SPP wave propagation constant. The vector potential A is then defined as\nAz (x) = µ0 4π\n∫ J (x′) ejk0|x−x ′|\n|x− x′| d3x′, (40)\nwhere the integral is done over the volume of the nanoantenna. If we focus in the far field, |x| |x′|, |x − x′| ≈ r− n.x′ and r = |x| (n is the unit vector in the x direction), we can approximate the vector potential as\nlim k0r→∞ Az (x) = µ0 4π\nejk0r\nr\n∫ J (x′) e−jk0nx ′ d3x′. (41)\nBy substituting (39) in (41), again considering only the first resonance and recalling Euler’s formula ejksppz ′ +e−jksppz ′ = 2 cos (kspp) z ′, the vector potential can be rewritten as\nlim k0r→∞ Az (x) =\n=J0 µ0 4π\nejk0r\nr ∫ +h −h sin (nπ 2 − ksppz′ ) e−jz ′k||dz′\n=J0 µ0 8π\nejk0r\nr\n( ej(kspp−k||)z ′\nkspp − k|| − e −j(kspp+k||)z′ kspp + k|| )∣∣∣∣∣ +h\n−h (42)\nwhere k|| = k0 cos θ, as defined in Sec. III. By solving the vector potential integral (42) on the wire from − π2kspp to π 2kspp\n2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nfor the first resonance, the magnetic field H and the electric field E are obtained as:\nHφ (x) = 1\nµ0 ∇×A(x)\n≈ J0 4π\nejk0r\nr k0 sin θ\n2jkspp cos ( k|| kspp π 2 ) k2spp − k2|| ,\n(43)\nand\nEθ (x) = j\nk0 √ µ0 ε0 ∇×H (x)\n≈ √ µ0 ε0 J0 4π ejk0r r k0 sin θ\n2jkspp cos ( k|| kspp π 2 ) k2spp − k2|| . (44)\nNext, the radiation intensity can be calculated as\nUrad (θ, φ) = r2\n2 Re[E ×H∗]\n= √ µ0 ε0 J20k 2 0 8π2 sin2 θ kspp cos ( k|| kspp π 2 ) k2spp − k2|| 2 , (45)\nand now the total radiated power is found by integrating Urad over the entire space:\nPrad = ∫ 2π 0 ∫ π 0 Urad (θ, φ) sin θdθdφ\n= √ µ0 ε0 J20k 2 0 4π ∫ +π 0 sin3 θ kspp cos ( k|| kspp π 2 ) k2spp − k2|| 2 dθ, (46)\nwhich can be numerically solved. Another metric of interest is the radiation efficiency er, which is defined as the fraction of the power delivered to the radiation resistance Rr, [28, 35]:\ner = Rr\nRr +RL , (47)\nwhere the high-frequency resistance RL is used to represent the conduction-dielectric losses associated with the antenna structure based on a uniform current distribution and is computed using (2) as:\nRL = l\npa\n√ ωµ0\n2σ(ω) , (48)\nwhere l is length of antenna and pa = 2πa is the perimeter of the cross section of the antenna for a circular wire of radius a. The radiation resistance Rr in (47) represents the transfer of energy to the free-space wave from the antenna, and is obtained as:\nRr = 2Prad I20\n= 1\n2π √ µ0 ε0 ∫ +π 0 k20 sin 3 θ kspp cos ( k|| kspp π 2 ) k2spp − k2|| 2 dθ. (49)\nNote that when lim ksppk0 → 1 at θ = π 2 or confinement factor tends to decrease, we approach the traditional radiation resistance of λ/2 dipole, i.e., 73 Ω (Fig. 6).\nBoth the radiated power (46) and the radiation efficiency (47) depend on kspp. For the special case of a classical antenna (kspp = k0) (45) is reduced to:\nUrad (θ, φ) = J20 8π2 √ µ0 ε0 ( cos(π2 cos θ) sin θ )2 , (50)\nwhich is the known result for ideal PEC antennas and, similarly, (34) is simplified as well. In the next section, we numerically investigate the radiation efficiency of optical nanoantennas."
+    }, {
+      "heading" : "VI. NUMERICAL RESULTS",
+      "text" : "In this section, we validate the developed models by means of electromagnetic simulations with COMSOL Multi-physics (Finite Different Frequency Domain FDFD simulations) and we utilize the models to numerically investigate the performance of nano-antennas in reception and in transmission. As a reference,"
+    }, {
+      "heading" : "A. Antenna Performance in Reception",
+      "text" : "We numerically solve the plasmonic current density J±p given by (38), which depends on its turn on the SPP wave propagation constant kspp, resonant length l and material conductivity σ parameters given by (15), (26) and (2), respectively. In addition, we utilize COMSOL Multi-physics to validate our results by means of FDFD simulations, in which the only required initial parameter is the material conductivity σ.\nIn Figure 7, the plasmonic current density is shown as a function of the illumination frequency f for three different nano-antenna lengths l, namely, 500 nm, 302 nm and 150 nm. For these results, gold-based nano-antennas with 5 nm radius are considered. Clear resonances can be observed at 91 THz, 140 THz and 270 THz, respectively. The z-component of the current density and its maximum is taken from analytically produced data and FDFD simulations for different length and frequencies are performed for validation purposes. There is\n2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\ngood agreement between the numerical and the simulation results. As expected, the high confinement factor of SPP waves in actual metals results into significantly smaller nanoantennas when compared to ideal PEC antennas at the same frequency."
+    }, {
+      "heading" : "B. Antenna Performance in Transmission",
+      "text" : "In Fig. 8, the radiated fields, given by (44), are shown for different metals as functions of frequency. As expected from the reciprocity principle, the resonances occur at the same frequencies as for the nano-antenna in reception. The analytical and simulation models are with good agreement. In Fig. 9, we illustrate the radiation efficiency er given by (47) as function of frequency and for different materials. As can be seen, er decreases by increasing the frequency for all four metals. This is because for fixed geometry of nano-antenna, by increasing the frequency, the confinement factor increases, and this limits the radiation efficiency. Among different metals, aluminum has higher efficiency at each frequency, since it has higher absolute permittivity and higher conductivity, resulting into lower confinement factor and lower RL.\nOne last magnitude that is relevant to the nano-antenna performance in transmission and for communication is the 3-dB bandwidth. This can be easily obtained from the S11 parameter or return loss. Fig. 10 shows the antenna behavior for 137 nm nano-antenna and implies that the nano-antenna radiates best at different frequency (as its shown in Fig. 5 with resonance length) with different bandwidth. The figure suggests that bandwidth is roughly highest for aluminum and around 22 THz with better S11. The analysis made by COMSOL simulations and allowed us to verify the properties of the antennas with the previous analytical results."
+    }, {
+      "heading" : "VII. CONCLUSIONS",
+      "text" : "In this paper, we have developed a unified mathematical framework to analyze the performance of plasmonic nanoantennas in reception and transmission. Starting from the dynamic complex conductivity of the nano-antenna building\n2169-3536 (c) 2016 IEEE. Translations and content mining are permitted for academic research only. Personal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\ncomponents, we have formulated the dispersion equation for SPP waves in nano-wires and obtained the SPP wave propagation properties and nano-antenna fundamental resonance length by taking into account also the impact of the nanowire caps. We have then analytically derived an expression for the plasmonic current in the nano-antenna when irradiated by an incident EM wave. In addition, we have derived the radiated fields in transmission as well as the overall radiation efficiency. The analytical models have been then validated by means of FDFD simulations with COMSOL Multi-physics. The agreement between analytical and FDFD data allows us to verify aspects of the model such as far-field as well as near-field properties of the antennas, resonances, reception and emission patterns. We have analytically and numerically shown that the SPP wave confinement factor plays a key role in the nano-antenna efficiency and bandwidth."
+    } ],
+    "references" : [ {
+      "title" : "Metallic plasmonic nano-antenna for wireless optical communication in intra-body nanonetworks",
+      "author" : [ "M. Nafari", "J.M. Jornet" ],
+      "venue" : "Proc. of 10th EAI International Conference on Body Area Networks (BODYNETS), 2015.",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Electromagnetic wireless nanosensor networks",
+      "author" : [ "I.F. Akyildiz", "J.M. Jornet" ],
+      "venue" : "Nano Communication Networks (Elsevier) Journal, vol. 1, no. 1, pp. 3–19, Mar. 2010.",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Intra-body optical channel modeling for in vivo wireless nanosensor networks",
+      "author" : [ "H. Guo", "P. Johari", "J.M. Jornet", "Z. Sun" ],
+      "venue" : "IEEE Transactions on NanoBioscience, vol. 15, no. 1, pp. 41–52, Jan. 2016.",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Performance analysis of plant monitoring nanosensor networks at THz frequencies",
+      "author" : [ "A. Afsharinejad", "A. Davy", "B. Jennings", "C. Brennan" ],
+      "venue" : "IEEE Internet of Things Journal, vol. PP, no. 99, pp. 1–1, 2015.",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Power optimization in nano sensor networks for chemical reactors",
+      "author" : [ "E. Zarepour", "M. Hassan", "C.T. Chou", "A.A. Adesina" ],
+      "venue" : "Proceedings of ACM The First Annual International Conference on Nanoscale Computing and Communication. ACM, 2014, pp. 1–9.",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Graphene-enabled wireless communication for massive multicore architectures",
+      "author" : [ "S. Abadal", "E. Alarcon", "A. Cabellos-Aparicio", "M. Lemme", "M. Nemirovsky" ],
+      "venue" : "IEEE Communications Magazine, vol. 51, no. 11, pp. 137–143, 2013.",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Searching for better plasmonic materials",
+      "author" : [ "P.R. West", "S. Ishii", "G.V. Naik", "N.K. Emani", "V.M. Shalaev", "A. Boltasseva" ],
+      "venue" : "Laser & Photonics Reviews, vol. 4, no. 6, pp. 795–808, 2010.",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Gold, copper, silver and aluminum nanoantennas to enhance spontaneous emission",
+      "author" : [ "A. Mohammadi", "V. Sandoghdar", "M. Agio" ],
+      "venue" : "Journal of Computational and Theoretical Nanoscience, vol. 6, no. 9, pp. 2024– 2030, 2009.",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2024
+    }, {
+      "title" : "Low-loss plasmonic metamaterials",
+      "author" : [ "A. Boltasseva", "H.A. Atwater" ],
+      "venue" : "Science, vol. 331, no. 6015, pp. 290–291, 2011.",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Optical conductivity of graphene in the visible region of the spectrum",
+      "author" : [ "T. Stauber", "N.M.R. Peres", "A.K. Geim" ],
+      "venue" : "Physical Review B, vol. 78, p. 085432, Aug. 2008.",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Transformation optics using graphene",
+      "author" : [ "A. Vakil", "N. Engheta" ],
+      "venue" : "Science, vol. 332, no. 6035, pp. 1291–1294, Jun. 2011.",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Graphene-based nano-antennas for electromagnetic nanocommunications in the terahertz band",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "Proc. of 4th European Conference on Antennas and Propagation, EUCAP, Apr. 2010.",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Analysis and design of terahertz antennas based on plasmonic resonant graphene sheets",
+      "author" : [ "M. Tamagnone", "J. Gomez-Diaz", "J. Mosig", "J. Perruisseau-Carrier" ],
+      "venue" : "Journal of Applied Physics, vol. 112, no. 11, p. 114915, 2012.",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Graphene-based nano-patch antenna for terahertz radiation",
+      "author" : [ "I. Llatser", "C. Kremers", "A. Cabellos-Aparicio", "J.M. Jornet", "E. Alarcon", "D.N. Chigrin" ],
+      "venue" : "Photonics and Nanostructures - Fundamentals and Applications, vol. 10, no. 4, pp. 353–358, Oct. 2012.",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Graphene-based plasmonic nanoantenna for terahertz band communication in nanonetworks",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "IEEE JSAC, Special Issue on Emerging Technologies for Communications, vol. 12, no. 12, pp. 685–694, Dec. 2013.",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Time-domain analysis of graphene-based miniaturized antennas for ultra-short-range impulse radio communications",
+      "author" : [ "S. Abadal", "I. Llatser", "A. Mestres", "H. Lee", "E. AlarcÔøΩn", "A. Cabellos-Aparicio" ],
+      "venue" : "IEEE Transactions on Communications, vol. 63, no. 4, pp. 1470–1482, Apr. 2015.",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "On the feeding mechanisms for graphenebased THz plasmonic nano-antennas",
+      "author" : [ "J.M. Jornet", "A. Cabellos" ],
+      "venue" : "Proc. of 15th IEEE International Conference on Nanotechnology (IEEE NANO), 2015.",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Optical antennas and plasmonics",
+      "author" : [ "Q.-H. Park" ],
+      "venue" : "Contemporary physics, vol. 50, no. 2, pp. 407–423, 2009.",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Nanoantennas for visible and infrared radiation",
+      "author" : [ "P. Biagioni", "J.-S. Huang", "B. Hecht" ],
+      "venue" : "Reports on Progress in Physics, vol. 75, no. 2, p. 024402, 2012.",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Optical microcavities",
+      "author" : [ "K.J. Vahala" ],
+      "venue" : "Nature, vol. 424, no. 6950, pp. 839–846, 2003.",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Single-mode laser by parity-time symmetry breaking",
+      "author" : [ "L. Feng", "Z.J. Wong", "R.-M. Ma", "Y. Wang", "X. Zhang" ],
+      "venue" : "Science, vol. 346, no. 6212, pp. 972–975, 2014.",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Azimuthally polarized surface plasmons as effective terahertz waveguides",
+      "author" : [ "Q. Cao", "J. Jahns" ],
+      "venue" : "Optics express, vol. 13, no. 2, pp. 511– 518, 2005.",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Vectorial method for calculating the fresnel reflection of surface plasmon polaritons",
+      "author" : [ "R. Gordon" ],
+      "venue" : "Physical Review B, vol. 74, no. 15, p. 153417, 2006.",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Reflection of cylindrical surface waves",
+      "author" : [ "——" ],
+      "venue" : "Optics express, vol. 17, no. 21, pp. 18 621–18 629, 2009.",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Plasmonic nanowire antennas: Experiment, simulation, and theory",
+      "author" : [ "J. Dorfmuller", "R. Vogelgesang", "W. Khunsin", "C. Rockstuhl", "C. Etrich", "K. Kern" ],
+      "venue" : "Nano Letters, vol. 10, no. 9, pp. 3596–3603, 2010.",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Optical properties of noble metals. ii.",
+      "author" : [ "B. Cooper", "H. Ehrenreich", "H. Philipp" ],
+      "venue" : "Physical Review,",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 1965
+    }, {
+      "title" : "Bridging quantum and classical plasmonics with a quantum-corrected model",
+      "author" : [ "R. Esteban", "A.G. Borisov", "P. Nordlander", "J.A. Aizpurua" ],
+      "venue" : "Nature Communications, vol. 3, p. 825, 2012.",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Antenna–load interactions at optical frequencies: impedance matching to quantum systems",
+      "author" : [ "R.L. Olmon", "M.B. Raschke" ],
+      "venue" : "Nanotechnology, vol. 23, no. 44, p. 444001, 2012.",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Optical constants of the noble metals",
+      "author" : [ "P.B. Johnson", "R.-W. Christy" ],
+      "venue" : "Physical Review B, vol. 6, no. 12, p. 4370, 1972.",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 1972
+    }, {
+      "title" : "Mixing formulas in the time domain",
+      "author" : [ "G. Kristensson", "S. Rikte", "A. Sihvola" ],
+      "venue" : "JOSA A, vol. 15, no. 5, pp. 1411–1422, 1998.",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "Photonic crystals",
+      "author" : [ "J.-M. Lourtioz", "H. Benisty", "V. Berger", "J.-M. Gerard", "D. Maystre", "A. Tchelnokov" ],
+      "venue" : "Towards Nanoscale Photonic Devices, 2005.",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Handbook of optical materials",
+      "author" : [ "M.J. Weber" ],
+      "venue" : "CRC press,",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2002
+    }, {
+      "title" : "Optical wire antennas: Near-field imaging, modeling and emission patterns",
+      "author" : [ "J. Dorfmüller" ],
+      "venue" : "Ph.D. dissertation, Citeseer, 2010.",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Field and wave electromagnetics",
+      "author" : [ "D.K. Cheng" ],
+      "venue" : "Addison-wesley New York,",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 1989
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 1,
+      "context" : "By means of communication, nanomachines will be able to organize themselves in networks, or nanonetworks, and complete more complex tasks in a distributed fashion, such as wireless nanosensor networks for chemical and biological attack prevention [2], advanced health monitoring systems [3], agricultural and plant monitoring [4], optimization and control of chemical reactors [5], or wireless networks on chip [6].",
+      "startOffset" : 247,
+      "endOffset" : 250
+    }, {
+      "referenceID" : 2,
+      "context" : "By means of communication, nanomachines will be able to organize themselves in networks, or nanonetworks, and complete more complex tasks in a distributed fashion, such as wireless nanosensor networks for chemical and biological attack prevention [2], advanced health monitoring systems [3], agricultural and plant monitoring [4], optimization and control of chemical reactors [5], or wireless networks on chip [6].",
+      "startOffset" : 287,
+      "endOffset" : 290
+    }, {
+      "referenceID" : 3,
+      "context" : "By means of communication, nanomachines will be able to organize themselves in networks, or nanonetworks, and complete more complex tasks in a distributed fashion, such as wireless nanosensor networks for chemical and biological attack prevention [2], advanced health monitoring systems [3], agricultural and plant monitoring [4], optimization and control of chemical reactors [5], or wireless networks on chip [6].",
+      "startOffset" : 326,
+      "endOffset" : 329
+    }, {
+      "referenceID" : 4,
+      "context" : "By means of communication, nanomachines will be able to organize themselves in networks, or nanonetworks, and complete more complex tasks in a distributed fashion, such as wireless nanosensor networks for chemical and biological attack prevention [2], advanced health monitoring systems [3], agricultural and plant monitoring [4], optimization and control of chemical reactors [5], or wireless networks on chip [6].",
+      "startOffset" : 377,
+      "endOffset" : 380
+    }, {
+      "referenceID" : 5,
+      "context" : "By means of communication, nanomachines will be able to organize themselves in networks, or nanonetworks, and complete more complex tasks in a distributed fashion, such as wireless nanosensor networks for chemical and biological attack prevention [2], advanced health monitoring systems [3], agricultural and plant monitoring [4], optimization and control of chemical reactors [5], or wireless networks on chip [6].",
+      "startOffset" : 411,
+      "endOffset" : 414
+    }, {
+      "referenceID" : 6,
+      "context" : "However, at the aforementioned frequencies, metals no longer behave as PEC [7].",
+      "startOffset" : 75,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 0,
+      "context" : "A preliminary version of this work was presented in [1].",
+      "startOffset" : 52,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 7,
+      "context" : "On the contrary, the conductivity of metals such as gold or silver [8]; metamaterials, i.",
+      "startOffset" : 67,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 8,
+      "context" : ", engineered materials with rationally designed arrangements of nano-structured building blocks [9]; as well as nanomaterials such as graphene [10], is a frequency-dependent complex-valued magnitude.",
+      "startOffset" : 96,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 9,
+      "context" : ", engineered materials with rationally designed arrangements of nano-structured building blocks [9]; as well as nanomaterials such as graphene [10], is a frequency-dependent complex-valued magnitude.",
+      "startOffset" : 143,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 10,
+      "context" : "110 THz) [11], whereas in noble metals such as gold or silver, SPP waves are only observed at tens of THz and above [7].",
+      "startOffset" : 9,
+      "endOffset" : 13
+    }, {
+      "referenceID" : 6,
+      "context" : "110 THz) [11], whereas in noble metals such as gold or silver, SPP waves are only observed at tens of THz and above [7].",
+      "startOffset" : 116,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 11,
+      "context" : "In [12], we proposed for the first time the use of graphene to develop THz plasmonic nano-antennas and, since then, many related works and extensions have followed [13]– [16].",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 12,
+      "context" : "In [12], we proposed for the first time the use of graphene to develop THz plasmonic nano-antennas and, since then, many related works and extensions have followed [13]– [16].",
+      "startOffset" : 164,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 15,
+      "context" : "In [12], we proposed for the first time the use of graphene to develop THz plasmonic nano-antennas and, since then, many related works and extensions have followed [13]– [16].",
+      "startOffset" : 170,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 16,
+      "context" : "For the time being, however, one of the main challenges at THz frequencies is posed by the lack of efficient THz sources, needed to drive the nano-antennas [17].",
+      "startOffset" : 156,
+      "endOffset" : 160
+    }, {
+      "referenceID" : 17,
+      "context" : "When it comes to infrared and visible optical frequencies, the possibility for the first time to create precise accurate nano-structures, comparable to the optical wavelengths in their largest dimensions and with very high aspect ratios, has motivated the development of optical nano-antennas [18, 19].",
+      "startOffset" : 293,
+      "endOffset" : 301
+    }, {
+      "referenceID" : 18,
+      "context" : "When it comes to infrared and visible optical frequencies, the possibility for the first time to create precise accurate nano-structures, comparable to the optical wavelengths in their largest dimensions and with very high aspect ratios, has motivated the development of optical nano-antennas [18, 19].",
+      "startOffset" : 293,
+      "endOffset" : 301
+    }, {
+      "referenceID" : 19,
+      "context" : "In this case, optical sources such as nano-lasers, [20, 21], are more readily available.",
+      "startOffset" : 51,
+      "endOffset" : 59
+    }, {
+      "referenceID" : 20,
+      "context" : "In this case, optical sources such as nano-lasers, [20, 21], are more readily available.",
+      "startOffset" : 51,
+      "endOffset" : 59
+    }, {
+      "referenceID" : 21,
+      "context" : "In [22], the authors analyzed the propagation properties of SPP waves cylindrical or rod-type nano-antennas, by formulating and solving the SPP wave dispersion equation at the radial boundary condition along the nano-antenna.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 22,
+      "context" : "Moreover, in [23], the derivation of angle-dependent reflection amplitude and phase of a SPP wave at a boundary between antenna and surrounding area is presented and, in [24], the impact of the nano-antenna caps is incorporated.",
+      "startOffset" : 13,
+      "endOffset" : 17
+    }, {
+      "referenceID" : 23,
+      "context" : "Moreover, in [23], the derivation of angle-dependent reflection amplitude and phase of a SPP wave at a boundary between antenna and surrounding area is presented and, in [24], the impact of the nano-antenna caps is incorporated.",
+      "startOffset" : 170,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 24,
+      "context" : "In [25], the nano-antenna fields are characterized, starting from the estimated propagation constant of SPP waves on nanowires obtained by means of experimental measurements.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 6,
+      "context" : "Some related aspects, such as the choice of metal and the slowly decaying modal field, are also discussed in [7, 26].",
+      "startOffset" : 109,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 25,
+      "context" : "Some related aspects, such as the choice of metal and the slowly decaying modal field, are also discussed in [7, 26].",
+      "startOffset" : 109,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 6,
+      "context" : "Optical properties of metals in terms of intra and interband processes as well as plasma effects are described in these materials, such that specifically [7] provides an overview of alternative plasmonic materials along with motivation for each material choice and important aspects of fabrication.",
+      "startOffset" : 154,
+      "endOffset" : 157
+    }, {
+      "referenceID" : 27,
+      "context" : "The real part of the conductivity is responsible for ohmic losses whereas the imaginary part accounts for the phase offset between the local electric field and current density [29].",
+      "startOffset" : 176,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 28,
+      "context" : "In this paper, we utilize the well-established Drude model, which takes into account the intra-band electron transitions within the metal energy bandstructure [30].",
+      "startOffset" : 159,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 29,
+      "context" : "where ε0 is the vacuum permittivity, ε∞ is 1 for metals [31], τD is the electron relaxation time and ωp stands for the plasma TABLE I PARAMETERS FOR THE OPTICAL CONDUCTIVITY OF METALS",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 25,
+      "context" : "In Table I, the values for these parameters are summarized for different metals, including copper (Cu) and aluminum (Al) [26], gold (Au) [30] and silver (Ag) [32].",
+      "startOffset" : 121,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 28,
+      "context" : "In Table I, the values for these parameters are summarized for different metals, including copper (Cu) and aluminum (Al) [26], gold (Au) [30] and silver (Ag) [32].",
+      "startOffset" : 137,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 30,
+      "context" : "In Table I, the values for these parameters are summarized for different metals, including copper (Cu) and aluminum (Al) [26], gold (Au) [30] and silver (Ag) [32].",
+      "startOffset" : 158,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 31,
+      "context" : "The values of this figure is validated with actual data of [33].",
+      "startOffset" : 59,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 21,
+      "context" : "We assume that the electric field E and magnetic field H on the antenna have the following form [22]:",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 21,
+      "context" : "where ζ = pm,dr and pm,d = √ k2 spp − k2 0εm,dμ0 [22].",
+      "startOffset" : 49,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 23,
+      "context" : "Following the methodology introduced in [24], by taking into account the boundary condition at the cap, we can write:",
+      "startOffset" : 40,
+      "endOffset" : 44
+    }, {
+      "referenceID" : 23,
+      "context" : "(25) Finally, the resonances of the nanowire can be calculated by considering the propagation of the SPP wave along the nanowire and reflection at two caps as [24]:",
+      "startOffset" : 159,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 32,
+      "context" : "From [34], the scattered field by the nano-antenna, E z in (27), can be written as",
+      "startOffset" : 5,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 24,
+      "context" : "Then, as analytically shown in [25, 34], the total current in the nano-antenna Jz can be written as the combination of the following terms",
+      "startOffset" : 31,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 32,
+      "context" : "Then, as analytically shown in [25, 34], the total current in the nano-antenna Jz can be written as the combination of the following terms",
+      "startOffset" : 31,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 33,
+      "context" : "Another metric of interest is the radiation efficiency er, which is defined as the fraction of the power delivered to the radiation resistance Rr, [28, 35]:",
+      "startOffset" : 147,
+      "endOffset" : 155
+    } ],
+    "year" : 2017,
+    "abstractText" : "In this paper, metallic plasmonic nano-antennas are modeled and analyzed for wireless optical communication. More specifically, a unified mathematical framework is developed to investigate the performance in transmission and reception of metallic nano-dipole antennas. This framework takes into account the metal properties, i.e., its dynamic complex conductivity and permittivity; the propagation properties of Surface Plasmon Polariton waves on the nano-antenna, i.e., their confinement factor and propagation length; and the antenna geometry, i.e., length and radius. The generated plasmonic current in reception and the total radiated power and efficiency in transmission are analytically derived by utilizing the framework. In addition to numerical results, the analytical models are validated by means of simulations with COMSOL Multi-physics. The developed framework will guide the design and development of novel nanoantennas suited for wireless optical communication.",
+    "creator" : "Appligent AppendPDF Pro 5.5"
+  }
+}

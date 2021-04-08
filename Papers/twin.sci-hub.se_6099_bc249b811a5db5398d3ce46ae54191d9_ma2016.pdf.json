@@ -1,0 +1,540 @@
+{
+  "name" : "twin.sci-hub.se_6099_bc249b811a5db5398d3ce46ae54191d9_ma2016.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Nano-cross-junction effect on phonon transport in silicon nanowire cages",
+    "authors" : [ "Dengke Ma", "Hongru Ding", "Lei Feng", "Yue Wu", "Junichiro Shiomi", "Nuo Yang" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Nano-cross-junction effect on phonon transport in silicon nanowire cages\nDengke Ma ( ),1,2 Hongru Ding ( ),1,2 Han Meng ( ),1,2 Lei Feng,3 Yue Wu,4,5\nJunichiro Shiomi,3,6,* and Nuo Yang ( )1,2,† 1State Key Laboratory of Coal Combustion, Huazhong University of Science and Technology (HUST),\nWuhan 430074, People’s Republic of China 2Nano Interface Center for Energy (NICE), School of Energy and Power Engineering, HUST,\nWuhan 430074, People’s Republic of China 3Department of Mechanical Engineering, The University of Tokyo, 7-3-1 Hongo, Bunkyo, Tokyo 113-8656, Japan\n4School of Chemical and Environmental Engineering, Shanghai Institute of Technology, Shanghai 200235, People’s Republic of China\n5Department of Chemical and Biological Engineering, Iowa State University, 2033 Sweeney Hall, Ames, Iowa 50011, USA 6Center for Materials Research by Information Integration, National Institute for Materials Science, 1-2-1 Sengen,\nTsukuba, Ibaraki 305-0047, Japan (Received 23 November 2015; revised manuscript received 2 August 2016; published 24 October 2016)\nWave effects of phonons can give rise to controllability of heat conduction in nanostructures beyond that by particle scattering at surfaces and interfaces. In this paper, we propose a new class of three-dimensional nanostructures: a silicon-nanowire-cage (SiNWC) structure consisting of silicon nanowires (SiNWs) connected by nano-cross-junctions. We perform equilibrium molecular dynamics simulations and find an ultralow value of thermal conductivity of SiNWC, 0.173 Wm−1 K−1, which is one order lower than that of SiNWs. By further modal analysis and atomistic Green’s function calculations, we identify that the large reduction is due to significant phonon localization induced by the phonon local resonance and hybridization at the junction part in a wide range of phonon modes. This localization effect does not require the cage to be periodic, unlike the phononic crystals, and can be realized in structures that are easier to synthesize, for instance in a form of randomly oriented SiNW network.\nDOI: 10.1103/PhysRevB.94.165434\nOver the past decades, nanostructures have attracted great attention due to their unique properties, including low thermal conductivity. The most commonly exercised approach is to lower thermal conductivity by phonon scattering at boundaries (surfaces and interfaces) that become dominant over intrinsic scattering as the length scales of the nanostructures decrease. Taking silicon nanowires (SiNWs) as a representative material, reduction of thermal conductivity has been realized by enhanced phonon scatterings at surfaces due to high surface-to-volume ratio [1,2]. A number of works followed to further reduce the thermal conductivity of SiNWs by surface roughness [3–5], inner holes [6,7], dopants [8], and kinks [9,10]. This includes a report of ultralow value 1.1 Wm−1 K−1 in experiment [7] and 0.40 Wm−1 K−1 in simulation [8]; however, the values are obtained form ultrashort SiNWs of just a few nanometers. Such materials are not scalable by themselves because the thermal conductivity would increase with the length [11], and thus, fundamental barriers remain against the practical implementation.\nAnother line of effort to further reduce thermal conductivity of bulk materials is to utilize wave nature of phonons. Periodic phononic crystals can terminate or inhibit phonon propagation by interference of phonons reflected at boundaries [12–15]. A challenge here is to ensure the occurrence of wave interferences, which requires strict periodicity of the internal structure with a size on the order of the phonon waves, whose wavelength is about 1 nm at room temperature [16]. In addi-\n*shiomi@photon.t.u-tokyo.ac.jp †nuo@hust.edu.cn\ntion, boundaries of the internal structures need to be smooth enough to specularly reflect phonons. These structures make production of the phononic crystals by bottom-up synthesis and top-down fabrication extremely challenging [17].\nTherefore, there is a strong need for a structure that can give rise to wave effects (interference, localization, and resonance) locally so that the periodicity is no longer required. Recently, by introducing small pillars on a silicon thin film, Davis and Hussein theoretically obtained the reduction of the thermal conductivity through the local resonance of phonons [18]. In the same year, Han et al. confirmed local phonon interference by germanium atoms embedded at a Si interface [19]. However, these works also show limitation in the range of phonon modes in which the local structure can induce distinct resonance and hybridization. To have stronger impact on the overall thermal conductivity, the structure needs to influence a broader range of phonon modes instead of resonating with specific modes.\nThe current paper aims to resolve the above issues being encouraged by the advances in the bottom-up synthesis of various NW structures, which has been a driving force in realizing entirely new device concepts and functional systems [20]. The advances include the growth of branched and hyperbranched NW structures [21,22], two NW-heterostructurebased nanocomposites [23,24], ZnO nanotetrapod bridging networks [25], and planar NW cross-junction architectures [26]. These works have shown the advantages of twodimensional (2D) cross-junction over bridge junction.\nIn this paper, based on the above bottom-up approach and planar nano-cross-junctions (NCJs) [26], we take a step further and propose a SiNW cage (SiNWC) [Fig. 1(c)] structure\n2469-9950/2016/94(16)/165434(10) 165434-1 ©2016 American Physical Society\nconsisting of SiNWs [Fig. 1(a)] and three-dimensional (3D) NCJs [Fig. 1(b)]. Thus, the one-dimensional (1D) SiNW is turned into a 3D bulk material, as shown in Fig. 1(c). We perform equilibrium molecular dynamics (EMD) simulations and find that the thermal conductivity of SiNWC (κNWC) is drastically lower than that of the SiNWs. In addition to the parameter studies by varying the cross section area (CSA) of the cage bar, period length (PL), and temperature, the mechanism of the reduction is identified by modal analysis and atomistic Green’s function (AGF) calculations. Finally, the comparative study of SiNWC with and without periodicity confirms the localness of the resonance and hybridization effects and thus the robustness to loss of periodicity and ordered structure, leading us to suggest practical realization in a form of random networks.\nFigure 1(c) shows the simulation cell of EMD. The periodic boundary condition is applied in all three directions. (Simulation details are provided in Appendix A.) Upon studying the κNWC (the volume is the solid part of SiNWC excluding the void), the dependence of the value on the size of simulation cell is checked, and it is confirmed that the size of 9.78 × 9.78 × 9.78 nm3 adopted throughout this paper is large enough to overcome the finite size effect (shown in Fig. 6 in Appendix B).\nWe calculated the dependence of κNWC on the CSA of the cage bar at room temperature, while the PL of the simulation cell was fixed as 4.89 nm. As shown in Fig. 2(a) (black dots), when the CSA is decreased from 7.37 nm2 to 0.29 nm2, the κNWC is sharply reduced from 1.93 Wm−1 K−1 to 0.173 Wm−1 K−1, which is caused not only by the increasing surface-to-volume ratio, but interestingly by the NCJ effect (details explained later and shown in Figs. 3 and 4). We also calculated the κNWC for several different PLs at room temperature, while the CSA of the cage bar was fixed as 1.18 nm2. As\nshown in Fig. 2(a) (red squares), when the PL is reduced from 14.12 nm to 4.89 nm, κNWC decreases from 0.80 Wm−1 K−1 to 0.49 Wm−1 K−1. One reason is that reducing PL increases the density of NCJs, and NCJs give rise to phonon localization (details explained later and shown in Figs. 3 and 4). Another reason is that small PL corresponds to a short cage bar. Seeing the cage as a SiNW, as shown in previous studies, its thermal conductivity increases with the length [11]. Therefore, the shortening of the cage bar also decreases κNWC. (For the convenience of comparison with the measurement results,\n165434-2\nthe thermal conductivity is calculated by adopting Eq. (A2); the entire volume is given in Appendix A.)\nTo show that our results are robust, we also have used the Tersoff potential [27,28] to calculate the thermal conductivity of SiNWC [as shown in Fig. 2(a)]. The thermal conductivity calculated by the Tersoff potential is almost the same with the Stillinger-Weber (SW) potential. A more detailed calculation shows that the difference is within 10%.\nThe temperature dependence of κNWC from 300 to 1000 K is shown in Fig. 2(b). The structures of calculated SiNWC have different PL: 4.89 nm, 8.15 nm, and 11.9 nm. The results show that the κNWC of SiNWC is insensitive to the temperature. A similar temperature dependence is also found in other nanostructured materials with low thermal conductivity, such\nas kinked SiNWs [10] and 3D Si PnCs [12]. Noting that the thermal conductivity of bulk Si is dominated by Umklapp phonon-phonon scatterings and decreases as ∼T−1 at high temperature, so the temperature independence is a signature that the thermal conductivity of SiNWC is dominated by surface scattering or/and the phonon localization induced by NCJs.\nTo show the effect of NCJ clearly, we compare the κNWC with the thermal conductivity of SiNWs whose length and CSA are the same as the PL of SiNWC and the CSA of cage bar, respectively, named as SiNWs.S1. We take the value from Jiang et al. [10] calculated for SiNWs with CSA of 1.21 nm2, which is almost the same as that of cage bar, 1.18 nm2. However, the length is larger than the PL of SiNWC, and since the thermal conductivity of SiNWs increases linearly with the length when the length is much smaller than the mean free path [11]. We estimate the thermal conductivity of SiNWs.S1 by scaling down the values of SiNWs from Jiang et al. [10] linearly [results shown in Fig. 2(b)]. Interestingly, the thermal conductivity of SiNWC is still around one order of magnitude lower than that of SiNWs.S1. Considering that the size of SiNWs.S1 is the same as the cage bar, the further reduction of the κNWC should come from the NCJ effect instead of surface scatterings and length confinements. As shown in Fig. 9 in Appendix E, the similar phonon relaxation time between SiNWs and SiNWC further ensures this point [4,18,29] (calculation details are given in Appendix D).\nThe obtained κNWC is around three orders of magnitude lower than that of bulk Si calculated by EMD. The κNWC is around 4% of that of SiNWs reported from Yang et al. [30] and Majumdar et al. [31]. What’s more, the thermal conductivity of SiNWC is even lower than that of kinked SiNWs [10] (∼2.6 Wm−1 K−1) and that of Si PnCs [12] (∼0.22 Wm−1 K−1), which means the NCJ effect is stronger than the pinching effect in kinked SiNWs and the confinement of heat transfer in periodic SiPnCs. The κNWC is also lower than the measured thermal conductivity in Si/Ge NWs superlattice (∼5.8 Wm−1 K−1), which has intense alloy scatterings [32].\nTo understand the underlying physical mechanism and explicitly show the NCJ effect, we carried out a vibrational eigenmode analysis of phonons in SiNWs and SiNWC [33,34]. As seen in the phonon dispersion relations of SiNWs [Figs. 8(a) and 8(c) in Appendix D] and SiNWC [Fig. 3(a) and Figs. 8(b) and 8(d)], there are flat bands across the entire frequency range in SiNWC (results calculated by Tersoff potential, also shown in Fig. 8), which is the signature of local resonance [18]. These resonance modes interact with the propagating modes and form a hybridization, which reduces the group velocity and hinder the transport of the propagating modes, i.e. phonon localization [18]. In comparison with the pillared thin film of Davis and Hussein [18], SiNWC exhibits more flat bands because the cross-junction of SiNWs introduces more resonance due to pillars extending in multiple directions with the larger junction area, realizing more intensive mode hybridization. (A more detailed quantitative comparison is given in Appendix J.)\nIn Fig. 3(b), by using the AGF calculation [35,36], we show the phonon transmission coefficient of single NCJ and compare it to SiNWs with the same length (calculation details are given in Appendix F). The transmission coefficient of the single NCJ (the red line) is much lower than that of SiNWs\n165434-3\n(the black line) in a wide range of frequency. In addition, the participation ratio (PR) of SiNWs is smaller than that of SiNWs in the entire frequency range. These results together also serve as an evidence for phonon localization in a broad frequency range. [A localization analysis of the SiNWs and SiNWC by participation ratio is (PR) given in Appendices G and H.]\nTo observe the spatial distribution of localizations, we calculate the spatial energy distribution for strong localized eigenmodes [6,33] (calculation details are given in Appendix G). Figures 4(a) and 4(b) show the normalized energy distribution of almost localized modes (PR < 0.2) in a SiNW and a SiNWC, respectively. As shown in Fig. 4(a), the energy is likely to be localized on the surface, and the distribution is homogeneous along the longitudinal direction. Therefore, there is less localization inside the SiNWs, opening a channel for phonons to propagate from one side to the other in the longitudinal direction. On the other hand, Fig. 4(b) shows that in the case of SiNWC, the energy is localized not only on the surface but also at the NCJ, where the values of thermal energy Ei are much higher than those on surface, which inhibits the propagation of phonons. A better view of the localization at NCJ atoms can be obtained in Fig. 4(c), where we extract only the cage bar from Fig. 4(b). Interestingly, the NCJ atoms have a higher localization than the surface atoms. Hence, while phonons transport mainly inside the NW/cage bar, the high localization at the NCJ effectively acts as the bottleneck of thermal transport. (The spatial distribution of localizations calculated by using the Tersoff potential is given in Fig. 12 in Appendix I.)\nThe localization is induced by local resonance and occurs in the junction part (as shown in Fig. 4), so the NCJ effect does not require the periodic structures, which makes the SiNWC much easier to fabricate in experiment. To demonstrate this, we construct another structure, which has the same supercell length and CSA but a random supercell structure [shown in Fig. 1(d) and Figs. 7(a), 7(b) in Appendix C]. The thermal conductivity of this random structure is 0.51 Wm−1 K−1 [shown in Fig. 2(a)]. Comparing with the thermal conductivity of the corresponding periodic structure, 0.49 Wm−1 K−1, the deviation is only 4%. In addition, we construct another random structure, which is consistent with both 2D NCJ and 3D NCJ (shown in Figs. 7(c) and 7(d)). Its thermal conductivity is 0.14 Wm−1 K−1, which is much lower than that of the periodic structure whose thermal conductivity is 0.49 Wm−1 K−1 [shown in Fig. 2(a)]. This further reduction is due to the increasing of NCJ numbers. These two results of the random structure confirm the robustness to the loss of periodicity. Furthermore, it was confirmed that the transmission function of the NCJ does not depend on the length of surrounding wires. As shown in Fig. 3(b), the two NCJ structures (3D atomistic presentations of these structures are shown in Fig. 10 in Appendix F), where one is symmetric (the red line) and the other is random (the blue line), have almost the same transmission coefficient. These further demonstrated that the localization effect induced by NCJ does not require the cage to be periodic.\nIn summary, based on the NCJ, the SiNWC structure we proposed can turn the 1D SiNWs into a 3D bulk material. By performing EMD simulations, it is found that the SiNWC has an ultralow thermal conductivity (lowest obtained as\n0.173 Wm−1 K−1), even compared with the extremely short SiNWs with the same CSA. It is also found that the thermal conductivity of SiNWC increases with increasing PL and the CSA of the cage bar. Moreover, we found that the thermal conductivity was not sensitive to temperature in the range from 300 K to 1000 K. After comparatively studying the phonon eigenmodes in SiNWC and SiNWs by lattice dynamics, we demonstrated that the phonon localization is induced by phonon local resonance and hybridization at the junction part. The mechanism is a local effect, so it is completely different from the traditional periodic phononic crystal [12,14]. Through the EMD and AGF calculations, we further demonstrated that this localization effect does not require the cage to be periodic. The results suggest that ultralow thermal conductivity can be achieved by the novel random nanojunction structures, which is much easier to fabricate and scale up compared with periodic structures."
+    }, {
+      "heading" : "ACKNOWLEDGMENTS",
+      "text" : "N.Y., D.M., H.D., and H.M. are supported by the National Natural Science Foundation of China (Grant No. 51576076). J.S. and L.F. are supported by JSPS KAKENHI Grant No. 16H04274. Y.W. thanks The Eastern Scholar Program for support. The authors are grateful to Takuma Shiga, Xin Qian, and Masato Onishi for useful discussions. The authors thank the National Supercomputing Center in Tianjin (NSCC-TJ) for providing help in computations.\nThe authors declare no competing financial interests. D. M. and H. D. contributed equally to this work."
+    }, {
+      "heading" : "APPENDIX A: THE EMD SIMULATION DETAILS",
+      "text" : "Figure 1(c) shows the simulation cell in EMD. The periodic boundary condition is applied in all three directions in simulations. For the force field of covalently bonded Si, we use the SW potential, which includes both two-body and three-body potential terms. The SW potential has been used widely to study the thermal property of SiNWs and Si bulk material for its best fit to experimental results of the thermal expansion coefficients. The heat flux is defined as Jl(t) = ∑\ni\nviεi + 1 2 ∑ ij (i =j ) rij ( Fij · vij )+ ∑ ijk rij ( Fj (ijk) · vj ),\n(A1) where Fij and Fj (ijk) denote the two-body and three-body forces, respectively. The thermal conductivity is obtained from the Green-Kubo formula:\nκ = 1 3V kBT 2 ∫ ∞ 0 〈 J (0) · J (τ )〉dτ , (A2)\nwhere V is the volume of all the Si atoms (solid part of SiNWC excluding the void), kB is the Boltzmann constant, J (τ ) is the heat flux, T is the temperature, and the angular bracket denotes an ensemble average.\nThe velocity Verlet algorithm is employed in integrating equations of motion, and the time step is 0.25 fs. Initially, the system is equilibrated under the canonical ensemble (NVT) with the Langevin heat reservoir at the target temperature for 0.1 ns, followed by relaxation under a microcanonical\n165434-4\nensemble (NVE) for 0.12 ns. The heat current is then recorded with the NVE ensemble for 1.2 ns to calculate the thermal conductivity. The value of thermal conductivity is the mean value of 12 simulations with different initial conditions.\nThermal conductivity is derived from the Green-Kubo formula [Eq. (A1)]. Figure 6(a) in Appendix B shows a typical normalized heat current autocorrelation function (HCACF), which is used in the Green-Kubo formula to calculate thermal conductivity of the SiNWC. The size of SiNWCs is 7.37 × 4.89 nm3 (CSA × PL), 1.18 × 10.86 nm3, and 0.29 × 4.89 nm3, respectively; the temperature is 300 K. Due to the short relaxation time, the heat current autocorrelation curve decays rapidly at a few picoseconds and is then followed by a slower decay to zero within 10 ps approximately. This means that the noise is comparable to the signal. Figure 6(b) shows the thermal conductivity, which is an integration of HCACF. The thermal conductivity converges to 1.93, 0.69, and 0.173 Wm−1 K−1, respectively.\nFor the convenience of comparison with the measurement results, we also present the thermal conductivity, calculated by adopting from Eq. (A2) the entire volume (including the void) of SiNWC. The obtained values of thermal conductivity are 0.078, 1.20, and 0.038 Wm−1 K−1, corresponding to PL = 4.89 nm, CSA = 1.18 nm2; PL = 4.89 nm, CSA = 7.37 nm2; and PL = 8.85 nm, CSA = 1.18 nm2, respectively. It is worth noting that for SiNWC (PL = 4.89 nm, CSA = 0.29 nm2), the thermal conductivity is 0.0095 Wm−1 K−1, which is only 0.06‰ of the bulk thermal conductivity of silicon."
+    }, {
+      "heading" : "APPENDIX B: FINITE SIZE EFFECT IN SIMULATIONS",
+      "text" : "When using the Green Kubo formula to calculate thermal conductivity, the finite size effect could arise if the simulation cell is not sufficiently large. As shown in Fig. 5 in Appendix A, we calculate the thermal conductivity of SiNWCs with different sizes by EMD method at room temperature. We fix PL and CSA as 4.89 nm and 1.18 nm2, respectively. The values of thermal conductivity change little when the side length of\nthe simulation cell is larger than 4.89 nm. It shows that our simulation cell is large enough to overcome the finite size effect on calculating thermal conductivity. In all of the simulations of SiNWC, we use 9.78 nm as the side length of simulation cell and 4.89 nm as the PL."
+    }, {
+      "heading" : "APPENDIX C: SCHEMATICS OF THE TWO RANDOM SUPERCELL STRUCTURES",
+      "text" : "165434-5"
+    }, {
+      "heading" : "APPENDIX D: THE PHONON DISPERSION RELATIONS",
+      "text" : "OF SiNWS AND SiNWC BY SW AND TERSOFF POTENTIAL"
+    }, {
+      "heading" : "APPENDIX E: THE CALCULATION DETAILS",
+      "text" : ""
+    }, {
+      "heading" : "OF PHONON RELAXATION TIME",
+      "text" : "The methodology named normal mode analysis (NMA) can also be found in Henry and Chen’s work [37]. Based on LD calculations, the atomic trajectories generated by EMD simulations are transformed to normal mode coordinates, which can be expressed as a sum over the displacements of the atoms (labelled as the j th atom in the lth unit cell) in a system as\nQ(k,ν,t) = 1 N1/2 ∑ j,l m 1/2 j exp (−ik · rlj,0) · e∗j (k,ν) · ulj (t), (E1) where N is the number of unit cells in the crystal, mj is the mass of the atom j , k is the wave vector, ν corresponds to the mode polarization, e∗j denotes the complex conjugate of eigenvector obtained from LD, rlj,0 and u l j are the equilibrium position and relative displacement from equilibrium position of atom j in unit cell l, respectively.\nUnder the harmonic approximation, the normal mode energy of a classical system can be written as\nE(k,ν,t) = ω 2(k,ν)Q(k,ν,t) · Q∗(k,ν,t)\n2\n+ Q̇(k,ν,t) · Q̇ ∗(k,ν,t)\n2 , (E2)\n165434-6\nwhere the first term corresponds to the potential energy and the second term to the kinetic energy.\nThe phonon mode energy autocorrelation describes the temporal amplitude attenuation, and the frequency of the mode can be identified via the Fourier transform. Then, by fitting the peaks of the normalized autocorrelation with an exponential function, one can obtain the decay time constant, namely the relaxation time of corresponding phonon mode, which can be written as\nτ (k,ν) = ∫ ∞\n0 〈δE(k,ν,0) · δE(k,ν,t)〉dt 〈δE2(k,ν,0)〉 , (E3)\nwhere the angular bracket denotes an ensemble average. In this paper, we calculate the relaxation time by using NMA; details are described below. In EMD simulations and LD calculations, we use the SW potential to describe the interaction between Si atoms, and the periodic boundary conditions are applied in all three dimensions. To record the displacement and velocity, the simulations are conducted at the temperature of 300 K for 12 ns and 8 ns; time steps are chosen as 1 fs and 0.25 fs for bulk silicon and SiNWC, respectively. In addition, 12 independent simulations with different initial conditions were conducted to get better average.\nThe phonon relaxation time of SiNWs is taken from the work of Martin et al. [4]. In our simulation the roughness is small, so we choose the SiNWs in which the roughness root-mean-square (rms) value equals to 1 nm. As shown in Fig. 9, though the cross section of the chosen SiNW is equal to a circle with 115 nm diameter, the relaxation time is on the order of the SiNWC, especially the low frequency phonons. The one order reduction of thermal conductivity from bulk silicon to SiNWs comes from surface scatterings and length confinements; therefore, the relaxation time has an obvious decline. All of those is evidence that the reduction of thermal conductivity from SiNW to SiNWC should not come from the surface scatterings but from the NCJ effect."
+    }, {
+      "heading" : "APPENDIX F: THE CALCULATION DETAILS",
+      "text" : ""
+    }, {
+      "heading" : "OF THE AGF METHOD",
+      "text" : "The targeted system contains three coupled subsystems: two semi-infinite leads connected through the scattering region according to scattering theory. The heat flux flowing in along the system axis shows\nJ = ∫\nBZ ωkνg,kz (nL − nR)tk\nd3k\n(2π )3 , (F1)\nwhere ωk is the energy quantum of the phonon mode k, νg,kz is the phonon group velocity of the phonon mode kz, nL,R is the phonon number on the left and right reservoir following the Bose-Einstein distribution n = [(exp( ω/kBT ) − 1)]−1, and tk is the transmission probability of the phonon mode k. The integration goes through all the phonon modes in the irreducible Brillouin Zone (BZ). In the linear regime, the phonon population undergoes small perturbations, and thus the thermal conductance shows\nG = J/ T = ∫\nBZ ωkνg,kz\n∂n ∂T tk\nd3k\n(2π )3 . (F2)\nWe note that d3k = dkxdkydkz and νg,kzdkz = ∂ω/∂kzdkz = dω. Equation (F2) reduces to\nG = J/ T = ∫\nBZ ωk\n∂\n∂T (e\nw kB T − 1)−1[tωdkxdky] dω\n(2π )3 .\n(F3) Hence we identify the spectral phonon transmission function (ω) = tωg(ω), where g(ω) = dkxdky is the projected phonon density of states in the periodic directions of the system.\nWe probe the spectral phonon transmission function (ω) by AGF, and the thermal conductance can be obtained by following the Landauer formula:\nG = ∫ ωmax\n0 (ω)\n∂\n∂T (e\nω kB T − 1)−1 ωdω\n2π , (F4)\nwhere ωk and ωmax are the energy and the maximum frequency in the system. The T refers to the mean temperature of the system, and kB and represent the Boltzmann and the reduced Planck constants, respectively. The transmission (ω) is obtained from a nonequilibrium Green’s function approach as Tr[ LGs RG+s ]. The advanced and retarded\n165434-7\nGreen functions G+s and Gs can be deduced from\nGs = [(ω + i )2I − Ks − L − R]−1, (F5) where is an infinitesimal imaginary part that maintains the causality of the Green’s function and L = KabgLK+ab and R = KabgRK+ab are the self-energies of the left and right leads, the + exponent indicating the Hermitian conjugation. Finally, gL and gR refer to the surface Green’s functions of the left and right leads, while Ks and Kab are the force constant matrices derived from the potential for the scattering region and between neighboring atoms in the leads, respectively. The expression of the transmission also includes L = i( L − +L ) and R = i( R − +R )."
+    }, {
+      "heading" : "APPENDIX G: THE CALCULATION DETAILS OF PR AND ENERGY DISTRIBUTION",
+      "text" : "The localization of each eigenmode, λ, can be quantitatively characterized by PR, Pλ, which is defined as\nP −1λ = N ∑\ni (∑ α ε∗iα,λεiα,λ )2 , (G1)\nwhere N is the total number of atoms, εiα,λ is the αth eigenvector component of λ for atom i. The PR measures the fraction of atoms participating in a given mode. The value of Pλ corresponds to a localized mode with O(1/N ) and a delocalized mode with O(1).\nThe spatial distribution of energy is calculated as\nEi = ∑\nω ∑ λ ∑ α (n + 1/2) ωε∗iα λεiα λδ(ω − ωλ), (G2)\nwhere n is the phonon occupation number given by the BoseEinstein distribution."
+    }, {
+      "heading" : "APPENDIX H: THE PR CALCULATED BY SW AND TERSOFF POTENTIAL",
+      "text" : "The phonon eigenfrequencies and eigenvectors are obtained by LD. When using the general utility lattice program (GULP), the periodic boundary condition and free boundary condition are applied in the longitudinal direction and lateral direction of both SiNWs and SiNWC, respectively. The boundary\nconditions are consistent with those in our EMD simulations so that the phonon eigenmodes obtained by LD becomes consistent with those existing in EMD.\nTo show the phonon localization in bulk SiNWC, in Fig. 11(a) we compare the PR (P ) of each eigenmode for infinite length SiNWs (blue dots) with those for the SiNWC (red dots). The PL and CSA of SiNWs are 6.52 nm and 1.18 nm2, respectively, which are the same as the size of cage bar of the SiNWC. It shows a clear reduction of PR in SiNWC for both low and high frequency phonons. For the SiNWs, most of the P values are larger than 0.5, which indicates delocalized phonon modes. While, for the SiNWC most of the P values are less than 0.5, which means these modes are likely to be localized.\nTo quantitatively analyze the phonon localization, we define the localization ratio (LR) as the number of localized modes, whose P value is less than 0.5, divided by the total number of modes. According to the definition, a larger LR value corresponds to more localized phonon modes. Also shown in Fig. 11(a), the LR value of SiNWC is 78.4%, which is more than two times larger than that of SiNWs (33.1%). This means that the introduction of cross-junction drastically makes more\n165434-8\nphonon modes localized, which gives rise to the ultralow and temperature-independent thermal conductivity.\nAPPENDIX I: THE NORMALIZED ENERGY DISTRIBUTION OF SiNWS AND SiNWC CALCULATED"
+    }, {
+      "heading" : "BY TERSOFF POTENTIAL",
+      "text" : ""
+    }, {
+      "heading" : "APPENDIX J: A COMPARISON WITH THE WORK",
+      "text" : ""
+    }, {
+      "heading" : "OF DAVIS AND HUSSEIN",
+      "text" : "According to the data of Davis and Hussein [18], we construct the same uniform thin film (UTF) and pillared thin film (PTF) structure. Based on Tersoff potential, the\ncorresponding side length a = 0.543 nm, which is similar to Davis and Hussein’s (a = 0.54 nm). The phonon dispersion relations of UTF and PTF calculated [shown in Fig. 13(b)] by Tersoff potential is almost the same as the work of Davis and Hussein [shown in Fig. 13(a)].\nThen, we calculated the PR of UTF and PTF [shown in Fig. 13(b)]. The PR of PTF shows a clear reduction in low frequency phonons, while in other frequencies, only few modes show a reduction in PR. A more detailed calculation shows that, in Davis and Hussein’s work, the LR value increases from 12.5% (UTF) to 20.1% (PTF), while in our structures (as shown in Fig. 11), the LR value increases from 30.5% (SiNWs) to 80.2% (SiNWC).\n[1] S. G. Volz and G. Chen, Appl. Phys. Lett. 75, 2056 (1999). [2] D. Li, Y. Wu, P. Kim, L. Shi, P. Yang, and A. Majumdar, Appl.\nPhys. Lett. 83, 2934 (2003). [3] I. Ponomareva, D. Srivastava, and M. Menon, Nano Lett. 7, 1155\n(2007). [4] P. Martin, Z. Aksamija, E. Pop, and U. Ravaioli, Phys. Rev. Lett.\n102, 125503 (2009). [5] J. Lim, K. Hippalgaonkar, S. C. Andrews, A. Majumdar, and P.\nYang, Nano Lett. 12, 2475 (2012). [6] J. Chen, G. Zhang, and B. Li, Nano Lett. 10, 3978 (2010).\n[7] M. C. Wingert, S. Kwon, M. Hu, D. Poulikakos, J. Xiang, and R. Chen, Nano Lett. 15, 2605 (2015). [8] N. Yang, G. Zhang, and B. Li, Nano Lett. 8, 276 (2008). [9] B. Tian, P. Xie, T. J. Kempa, D. C. Bell, and C. M. Lieber,\nNat. Nano 4, 824 (2009). [10] J.-W. Jiang, N. Yang, B.-S. Wang, and T. Rabczuk, Nano Lett.\n13, 1670 (2013). [11] N. Yang, G. Zhang, and B. Li, Nano Today 5, 85 (2010). [12] L. Yang, N. Yang, and B. Li, Nano Lett. 14, 1734\n(2014).\n165434-9\n[13] P. E. Hopkins, C. M. Reinke, M. F. Su, R. H. Olsson, E. A. Shaner, Z. C. Leseman, J. R. Serrano, L. M. Phinney, and I. El-Kady, Nano Lett. 11, 107 (2011).\n[14] J. K. Yu, S. Mitrovic, D. Tham, J. Varghese, and J. R. Heath, Nat. Nanotechnol. 5, 718 (2010).\n[15] M. Nomura, Y. Kage, J. Nakagawa, T. Hori, J. Maire, J. Shiomi, R. Anufriev, D. Moser, and O. Paul, Phys. Rev. B 91, 205422 (2015).\n[16] S. Volz, J. Shiomi, M. Nomura, and K. Miyazaki, J. Therm. Sci. Tec. JPN 11, JTST0001 (2016).\n[17] J. Maire, R. Anufriev, R. Yanagisawa, S. Volz, and M. Nomura, arXiv:1508.04574. [18] B. L. Davis and M. I. Hussein, Phys. Rev. Lett. 112, 055505 (2014).\n[19] H. Han, L. G. Potyomina, A. A. Darinskii, S. Volz, and Y. A. Kosevich, Phys. Rev. B 89, 180301 (2014). [20] C. M. Lieber, MRS Bulletin 28, 486 (2003). [21] D. Wang, F. Qian, C. Yang, Z. Zhong, and C. M. Lieber, Nano\nLett. 4, 871 (2004). [22] B. Tian et al., Nat. Mater. 11, 986 (2012). [23] G. Zhang, H. Fang, H. Yang, L. A. Jauregui, Y. P. Chen, and Y.\nWu, Nano Lett. 12, 3627 (2012). [24] H. Yang, J.-H. Bahk, T. Day, A. M. Mohammed, G. J. Snyder,\nA. Shakouri, and Y. Wu, Nano Lett. 15, 1349 (2015).\n[25] D. Gedamu, I. Paulowicz, S. Kaps, O. Lupan, S. Wille, G. Haidarschin, Y. K. Mishra, and R. Adelung, Adv. Mat. 26, 1541 (2014).\n[26] D. Car, J. Wang, M. A. Verheijen, E. P. A. M. Bakkers, and S. R. Plissard, Adv. Mat. 26, 4875 (2014). [27] J. Tersoff, Phys. Rev. Lett. 56, 632 (1986). [28] J. Tersoff, Phys. Rev. B 37, 6991 (1988). [29] T. Tadano, Y. Gohda, and S. Tsuneyuki, Phys. Rev. Lett. 114,\n095501 (2015). [30] A. I. Hochbaum, R. Chen, R. D. Delgado, W. Liang, E. C.\nGarnett, M. Najarian, A. Majumdar, and P. Yang, Nature 451, 163 (2008).\n[31] K. Hippalgaonkar, B. Huang, R. Chen, K. Sawyer, P. Ercius, and A. Majumdar, Nano Lett. 10, 4341 (2010).\n[32] D. Li, Y. Wu, R. Fan, P. Yang, and A. Majumdar, Appl. Phys. Lett. 83, 3186 (2003).\n[33] A. Bodapati, P. K. Schelling, S. R. Phillpot, and P. Keblinski, Phys. Rev. B 74, 245207 (2006). [34] J. D. Gale, J. Chem. Soc., Faraday Trans. 93, 629 (1997). [35] W. Zhang, T. S. Fisher, and N. Mingo, Numer. Heat Transfer,\nPart B 51, 333 (2007). [36] J.-S. Wang, J. Wang, and J.-T. Lü, Eur. Phys. J. B 62, 381 (2008). [37] A. S. Henry and G. Chen, J. Comput. Theor. NanoS. 5, 141\n(2008).\n165434-10"
+    } ],
+    "references" : [ {
+      "title" : "Appl",
+      "author" : [ "S.G. Volz", "G. Chen" ],
+      "venue" : "Phys. Lett. 75, 2056 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Appl",
+      "author" : [ "D. Li", "Y. Wu", "P. Kim", "L. Shi", "P. Yang", "A. Majumdar" ],
+      "venue" : "Phys. Lett. 83, 2934 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "I. Ponomareva", "D. Srivastava", "M. Menon" ],
+      "venue" : "7, 1155 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Phys",
+      "author" : [ "P. Martin", "Z. Aksamija", "E. Pop", "U. Ravaioli" ],
+      "venue" : "Rev. Lett. 102, 125503 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "J. Lim", "K. Hippalgaonkar", "S.C. Andrews", "A. Majumdar", "P. Yang" ],
+      "venue" : "12, 2475 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "J. Chen", "G. Zhang", "B. Li" ],
+      "venue" : "10, 3978 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "M.C. Wingert", "S. Kwon", "M. Hu", "D. Poulikakos", "J. Xiang", "R. Chen" ],
+      "venue" : "15, 2605 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "N. Yang", "G. Zhang", "B. Li" ],
+      "venue" : "8, 276 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Nat",
+      "author" : [ "B. Tian", "P. Xie", "T.J. Kempa", "D.C. Bell", "C.M. Lieber" ],
+      "venue" : "Nano 4, 824 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "J.-W. Jiang", "N. Yang", "B.-S. Wang", "T. Rabczuk" ],
+      "venue" : "13, 1670 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Nano Today 5",
+      "author" : [ "N. Yang", "G. Zhang", "B. Li" ],
+      "venue" : "85 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "L. Yang", "N. Yang", "B. Li" ],
+      "venue" : "14, 1734 (2014). 165434-9  MA, DING, MENG, FENG, WU, SHIOMI, AND YANG  PHYSICAL REVIEW B 94, 165434 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "P.E. Hopkins", "C.M. Reinke", "M.F. Su", "R.H. Olsson", "E.A. Shaner", "Z.C. Leseman", "J.R. Serrano", "L.M. Phinney", "I. El-Kady" ],
+      "venue" : "11, 107 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Nat",
+      "author" : [ "J.K. Yu", "S. Mitrovic", "D. Tham", "J. Varghese", "J.R. Heath" ],
+      "venue" : "Nanotechnol. 5, 718 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Phys",
+      "author" : [ "M. Nomura", "Y. Kage", "J. Nakagawa", "T. Hori", "J. Maire", "J. Shiomi", "R. Anufriev", "D. Moser", "O. Paul" ],
+      "venue" : "Rev. B 91, 205422 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Sci",
+      "author" : [ "S. Volz", "J. Shiomi", "M. Nomura", "K. Miyazaki", "J. Therm" ],
+      "venue" : "Tec. JPN 11, JTST0001 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Phys",
+      "author" : [ "B.L. Davis", "M.I. Hussein" ],
+      "venue" : "Rev. Lett. 112, 055505 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Phys",
+      "author" : [ "H. Han", "L.G. Potyomina", "A.A. Darinskii", "S. Volz", "Y.A. Kosevich" ],
+      "venue" : "Rev. B 89, 180301 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "MRS Bulletin 28",
+      "author" : [ "C.M. Lieber" ],
+      "venue" : "486 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "D. Wang", "F. Qian", "C. Yang", "Z. Zhong", "C.M. Lieber" ],
+      "venue" : "4, 871 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "G. Zhang", "H. Fang", "H. Yang", "L.A. Jauregui", "Y.P. Chen", "Y. Wu" ],
+      "venue" : "12, 3627 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "H. Yang", "J.-H. Bahk", "T. Day", "A.M. Mohammed", "G.J. Snyder", "A. Shakouri", "Y. Wu" ],
+      "venue" : "15, 1349 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Adv",
+      "author" : [ "D. Gedamu", "I. Paulowicz", "S. Kaps", "O. Lupan", "S. Wille", "G. Haidarschin", "Y.K. Mishra", "R. Adelung" ],
+      "venue" : "Mat. 26, 1541 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Adv",
+      "author" : [ "D. Car", "J. Wang", "M.A. Verheijen", "E.P.A.M. Bakkers", "S.R. Plissard" ],
+      "venue" : "Mat. 26, 4875 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Phys",
+      "author" : [ "J. Tersoff" ],
+      "venue" : "Rev. Lett. 56, 632 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 1986
+    }, {
+      "title" : "Phys",
+      "author" : [ "J. Tersoff" ],
+      "venue" : "Rev. B 37, 6991 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 1988
+    }, {
+      "title" : "Phys",
+      "author" : [ "T. Tadano", "Y. Gohda", "S. Tsuneyuki" ],
+      "venue" : "Rev. Lett. 114, 095501 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Nature 451",
+      "author" : [ "A.I. Hochbaum", "R. Chen", "R.D. Delgado", "W. Liang", "E.C. Garnett", "M. Najarian", "A. Majumdar", "P. Yang" ],
+      "venue" : "163 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Nano Lett",
+      "author" : [ "K. Hippalgaonkar", "B. Huang", "R. Chen", "K. Sawyer", "P. Ercius", "A. Majumdar" ],
+      "venue" : "10, 4341 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Appl",
+      "author" : [ "D. Li", "Y. Wu", "R. Fan", "P. Yang", "A. Majumdar" ],
+      "venue" : "Phys. Lett. 83, 3186 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Phys",
+      "author" : [ "A. Bodapati", "P.K. Schelling", "S.R. Phillpot", "P. Keblinski" ],
+      "venue" : "Rev. B 74, 245207 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "J",
+      "author" : [ "J.D. Gale" ],
+      "venue" : "Chem. Soc., Faraday Trans. 93, 629 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Numer",
+      "author" : [ "W. Zhang", "T.S. Fisher", "N. Mingo" ],
+      "venue" : "Heat Transfer, Part B 51, 333 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Eur",
+      "author" : [ "J.-S. Wang", "J. Wang", "J.-T. Lü" ],
+      "venue" : "Phys. J. B 62, 381 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Theor",
+      "author" : [ "A.S. Henry", "G. Chen", "J. Comput" ],
+      "venue" : "NanoS. 5, 141 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Taking silicon nanowires (SiNWs) as a representative material, reduction of thermal conductivity has been realized by enhanced phonon scatterings at surfaces due to high surface-to-volume ratio [1,2].",
+      "startOffset" : 194,
+      "endOffset" : 199
+    }, {
+      "referenceID" : 1,
+      "context" : "Taking silicon nanowires (SiNWs) as a representative material, reduction of thermal conductivity has been realized by enhanced phonon scatterings at surfaces due to high surface-to-volume ratio [1,2].",
+      "startOffset" : 194,
+      "endOffset" : 199
+    }, {
+      "referenceID" : 5,
+      "context" : "A number of works followed to further reduce the thermal conductivity of SiNWs by surface roughness [3–5], inner holes [6,7], dopants [8], and kinks [9,10].",
+      "startOffset" : 119,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 6,
+      "context" : "A number of works followed to further reduce the thermal conductivity of SiNWs by surface roughness [3–5], inner holes [6,7], dopants [8], and kinks [9,10].",
+      "startOffset" : 119,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 7,
+      "context" : "A number of works followed to further reduce the thermal conductivity of SiNWs by surface roughness [3–5], inner holes [6,7], dopants [8], and kinks [9,10].",
+      "startOffset" : 134,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 8,
+      "context" : "A number of works followed to further reduce the thermal conductivity of SiNWs by surface roughness [3–5], inner holes [6,7], dopants [8], and kinks [9,10].",
+      "startOffset" : 149,
+      "endOffset" : 155
+    }, {
+      "referenceID" : 9,
+      "context" : "A number of works followed to further reduce the thermal conductivity of SiNWs by surface roughness [3–5], inner holes [6,7], dopants [8], and kinks [9,10].",
+      "startOffset" : 149,
+      "endOffset" : 155
+    }, {
+      "referenceID" : 7,
+      "context" : "40 Wm−1 K−1 in simulation [8]; however, the values are obtained form ultrashort SiNWs of just a few nanometers.",
+      "startOffset" : 26,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 10,
+      "context" : "Such materials are not scalable by themselves because the thermal conductivity would increase with the length [11], and thus, fundamental barriers remain against the practical implementation.",
+      "startOffset" : 110,
+      "endOffset" : 114
+    }, {
+      "referenceID" : 15,
+      "context" : "A challenge here is to ensure the occurrence of wave interferences, which requires strict periodicity of the internal structure with a size on the order of the phonon waves, whose wavelength is about 1 nm at room temperature [16].",
+      "startOffset" : 225,
+      "endOffset" : 229
+    }, {
+      "referenceID" : 16,
+      "context" : "Recently, by introducing small pillars on a silicon thin film, Davis and Hussein theoretically obtained the reduction of the thermal conductivity through the local resonance of phonons [18].",
+      "startOffset" : 185,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 17,
+      "context" : "confirmed local phonon interference by germanium atoms embedded at a Si interface [19].",
+      "startOffset" : 82,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 18,
+      "context" : "The current paper aims to resolve the above issues being encouraged by the advances in the bottom-up synthesis of various NW structures, which has been a driving force in realizing entirely new device concepts and functional systems [20].",
+      "startOffset" : 233,
+      "endOffset" : 237
+    }, {
+      "referenceID" : 19,
+      "context" : "The advances include the growth of branched and hyperbranched NW structures [21,22], two NW-heterostructurebased nanocomposites [23,24], ZnO nanotetrapod bridging networks [25], and planar NW cross-junction architectures [26].",
+      "startOffset" : 76,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 20,
+      "context" : "The advances include the growth of branched and hyperbranched NW structures [21,22], two NW-heterostructurebased nanocomposites [23,24], ZnO nanotetrapod bridging networks [25], and planar NW cross-junction architectures [26].",
+      "startOffset" : 128,
+      "endOffset" : 135
+    }, {
+      "referenceID" : 21,
+      "context" : "The advances include the growth of branched and hyperbranched NW structures [21,22], two NW-heterostructurebased nanocomposites [23,24], ZnO nanotetrapod bridging networks [25], and planar NW cross-junction architectures [26].",
+      "startOffset" : 128,
+      "endOffset" : 135
+    }, {
+      "referenceID" : 22,
+      "context" : "The advances include the growth of branched and hyperbranched NW structures [21,22], two NW-heterostructurebased nanocomposites [23,24], ZnO nanotetrapod bridging networks [25], and planar NW cross-junction architectures [26].",
+      "startOffset" : 172,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 23,
+      "context" : "The advances include the growth of branched and hyperbranched NW structures [21,22], two NW-heterostructurebased nanocomposites [23,24], ZnO nanotetrapod bridging networks [25], and planar NW cross-junction architectures [26].",
+      "startOffset" : 221,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 23,
+      "context" : "In this paper, based on the above bottom-up approach and planar nano-cross-junctions (NCJs) [26], we take a step further and propose a SiNW cage (SiNWC) [Fig.",
+      "startOffset" : 92,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 9,
+      "context" : "S1 [10], Si/Ge NWs [32], KSiNWs [10], SiNWC.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 29,
+      "context" : "S1 [10], Si/Ge NWs [32], KSiNWs [10], SiNWC.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 9,
+      "context" : "S1 [10], Si/Ge NWs [32], KSiNWs [10], SiNWC.",
+      "startOffset" : 32,
+      "endOffset" : 36
+    }, {
+      "referenceID" : 10,
+      "context" : "Seeing the cage as a SiNW, as shown in previous studies, its thermal conductivity increases with the length [11].",
+      "startOffset" : 108,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 24,
+      "context" : ") To show that our results are robust, we also have used the Tersoff potential [27,28] to calculate the thermal conductivity of SiNWC [as shown in Fig.",
+      "startOffset" : 79,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 25,
+      "context" : ") To show that our results are robust, we also have used the Tersoff potential [27,28] to calculate the thermal conductivity of SiNWC [as shown in Fig.",
+      "startOffset" : 79,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 9,
+      "context" : "as kinked SiNWs [10] and 3D Si PnCs [12].",
+      "startOffset" : 16,
+      "endOffset" : 20
+    }, {
+      "referenceID" : 11,
+      "context" : "as kinked SiNWs [10] and 3D Si PnCs [12].",
+      "startOffset" : 36,
+      "endOffset" : 40
+    }, {
+      "referenceID" : 9,
+      "context" : "[10] calculated for SiNWs with CSA of 1.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 10,
+      "context" : "However, the length is larger than the PL of SiNWC, and since the thermal conductivity of SiNWs increases linearly with the length when the length is much smaller than the mean free path [11].",
+      "startOffset" : 187,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 3,
+      "context" : "9 in Appendix E, the similar phonon relaxation time between SiNWs and SiNWC further ensures this point [4,18,29] (calculation details are given in Appendix D).",
+      "startOffset" : 103,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 16,
+      "context" : "9 in Appendix E, the similar phonon relaxation time between SiNWs and SiNWC further ensures this point [4,18,29] (calculation details are given in Appendix D).",
+      "startOffset" : 103,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 26,
+      "context" : "9 in Appendix E, the similar phonon relaxation time between SiNWs and SiNWC further ensures this point [4,18,29] (calculation details are given in Appendix D).",
+      "startOffset" : 103,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 9,
+      "context" : "What’s more, the thermal conductivity of SiNWC is even lower than that of kinked SiNWs [10] (∼2.",
+      "startOffset" : 87,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 11,
+      "context" : "6 Wm−1 K−1) and that of Si PnCs [12] (∼0.",
+      "startOffset" : 32,
+      "endOffset" : 36
+    }, {
+      "referenceID" : 29,
+      "context" : "8 Wm−1 K−1), which has intense alloy scatterings [32].",
+      "startOffset" : 49,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 30,
+      "context" : "To understand the underlying physical mechanism and explicitly show the NCJ effect, we carried out a vibrational eigenmode analysis of phonons in SiNWs and SiNWC [33,34].",
+      "startOffset" : 162,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 31,
+      "context" : "To understand the underlying physical mechanism and explicitly show the NCJ effect, we carried out a vibrational eigenmode analysis of phonons in SiNWs and SiNWC [33,34].",
+      "startOffset" : 162,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 16,
+      "context" : "8), which is the signature of local resonance [18].",
+      "startOffset" : 46,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 16,
+      "context" : "In comparison with the pillared thin film of Davis and Hussein [18], SiNWC exhibits more flat bands because the cross-junction of SiNWs introduces more resonance due to pillars extending in multiple directions with the larger junction area, realizing more intensive mode hybridization.",
+      "startOffset" : 63,
+      "endOffset" : 67
+    }, {
+      "referenceID" : 32,
+      "context" : "3(b), by using the AGF calculation [35,36], we show the phonon transmission coefficient of single NCJ and compare it to SiNWs with the same length (calculation details are given in Appendix F).",
+      "startOffset" : 35,
+      "endOffset" : 42
+    }, {
+      "referenceID" : 33,
+      "context" : "3(b), by using the AGF calculation [35,36], we show the phonon transmission coefficient of single NCJ and compare it to SiNWs with the same length (calculation details are given in Appendix F).",
+      "startOffset" : 35,
+      "endOffset" : 42
+    }, {
+      "referenceID" : 5,
+      "context" : "] To observe the spatial distribution of localizations, we calculate the spatial energy distribution for strong localized eigenmodes [6,33] (calculation details are given in Appendix G).",
+      "startOffset" : 133,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 30,
+      "context" : "] To observe the spatial distribution of localizations, we calculate the spatial energy distribution for strong localized eigenmodes [6,33] (calculation details are given in Appendix G).",
+      "startOffset" : 133,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 11,
+      "context" : "The mechanism is a local effect, so it is completely different from the traditional periodic phononic crystal [12,14].",
+      "startOffset" : 110,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 13,
+      "context" : "The mechanism is a local effect, so it is completely different from the traditional periodic phononic crystal [12,14].",
+      "startOffset" : 110,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 34,
+      "context" : "The methodology named normal mode analysis (NMA) can also be found in Henry and Chen’s work [37].",
+      "startOffset" : 92,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 16,
+      "context" : "According to the data of Davis and Hussein [18], we construct the same uniform thin film (UTF) and pillared thin film (PTF) structure.",
+      "startOffset" : 43,
+      "endOffset" : 47
+    } ],
+    "year" : 2016,
+    "abstractText" : "Dengke Ma ( ),1,2 Hongru Ding ( ),1,2 Han Meng ( ),1,2 Lei Feng,3 Yue Wu,4,5 Junichiro Shiomi,3,6,* and Nuo Yang ( )1,2,† 1State Key Laboratory of Coal Combustion, Huazhong University of Science and Technology (HUST), Wuhan 430074, People’s Republic of China 2Nano Interface Center for Energy (NICE), School of Energy and Power Engineering, HUST, Wuhan 430074, People’s Republic of China 3Department of Mechanical Engineering, The University of Tokyo, 7-3-1 Hongo, Bunkyo, Tokyo 113-8656, Japan 4School of Chemical and Environmental Engineering, Shanghai Institute of Technology, Shanghai 200235, People’s Republic of China 5Department of Chemical and Biological Engineering, Iowa State University, 2033 Sweeney Hall, Ames, Iowa 50011, USA 6Center for Materials Research by Information Integration, National Institute for Materials Science, 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan (Received 23 November 2015; revised manuscript received 2 August 2016; published 24 October 2016)",
+    "creator" : "LaTeX with hyperref package"
+  }
+}

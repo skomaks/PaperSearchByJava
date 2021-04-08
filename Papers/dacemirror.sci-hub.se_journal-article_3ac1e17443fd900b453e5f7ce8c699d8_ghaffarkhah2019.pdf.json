@@ -1,0 +1,973 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_3ac1e17443fd900b453e5f7ce8c699d8_ghaffarkhah2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Experimental and numerical analysis of rheological characterization of hybrid nano-lubricants containing COOH-Functionalized MWCNTs and oxide nanoparticles",
+    "authors" : [ "Ahmadreza Ghaffarkhaha", "Amin Bazzia", "Zahra Azimi Dijvejinb", "Mohsen Talebkeikhaha", "Mostafa Keshavarz Moravejic", "Farough Agina" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nInternational Communications in Heat and Mass Transfer\njournal homepage: www.elsevier.com/locate/ichmt\nExperimental and numerical analysis of rheological characterization of hybrid nano-lubricants containing COOH-Functionalized MWCNTs and oxide nanoparticles Ahmadreza Ghaffarkhaha, Amin Bazzia, Zahra Azimi Dijvejinb, Mohsen Talebkeikhaha, Mostafa Keshavarz Moravejic,⁎, Farough Agina a Department of Petroleum Engineering, Amirkabir University of Technology (Tehran Polytechnic), 424 Hafez Avenue, Tehran 15875-4413, Iran bDepartment of Petroleum Engineering, Faculty of Chemical Engineering, Tarbiat Modares University, Tehran 14115114, Iran c Department of Chemical Engineering, Amirkabir University of Technology (Tehran Polytechnic), 424 Hafez Avenue, Tehran 15875-4413, Iran\nA R T I C L E I N F O\nKeywords: Hybrid nano-lubricant COOH-Functionalized MWCNTs Decision tree Random forest\nA B S T R A C T\nIn this study, the dynamic viscosity of four different hybrid nano-lubricants was investigated. The base fluid was SAE 40 engine oil. The suspended nanoparticles consisted of 20 Vol% of COOH-Functionalized MWCNTs and 80 Vol% of oxide nanoparticles (SiO2, Al2O3, MgO, and ZnO). The experiments were performed at temperatures between 25 and 50°∁ and solid volume fractions of 0.05, 0.25, 0.50, 0.75 and 1%. In addition, the decision tree, random forest, Support Vector Machine (SVM), and Radial Basis Function Artificial Neural Networks (RBF-ANN) were used to predict the viscosity of prepared nanofluids. The decision tree and random forest methods have the highest accuracy in terms of predicting the dynamic viscosity of prepared nano-lubricants."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Developing the heat transfer fluids with an enhanced thermal conductivity is an important issue in a broad range of industrial fields such as oil and gas, automotive and electrical or nuclear energies [1–4]. Conventional heat transfer fluids such as oil, water and ethylene glycol (EG) have low thermal conductivity [5,6]. Adding thermal conductive nanoparticles to conventional heat transfer fluids could effectively improve their heat transfer capacities [7,8]. This in turn resulted into the increasing the life-cycle of working fluids, reducing the size of equipment and enhancing the efficiency of the application [9].\nSo far, a number of studies have investigated the effect of adding nanoparticles on thermal conductivity of traditional heat transfer fluids [10–14]. Choi et al. [15] added Al2O3 and AlN nanoparticles to transformer oil and observed about 20% enhancement in its overall heat transfer coefficient. Zyła [16] experimentally investigated the effect of MgO nanoparticles on thermo-physical properties of EG and reported that thermal conductivity has increased up to 33% by adding 7.2 vol% of nanoparticles. Agarwal et al. [17] evaluated the thermal conductivity of Al2O3 nanofluids in different base fluids. The results of this study showed that ethylene glycol based Al2O3 nanofluids show higher thermal conductivity compared to distilled water Al2O3 nanofluids.\nOther thermo-physical properties of heat transfer fluids such as density, electrical conductivity and viscosity are also affected by dispersing nanoparticles in them. The viscosity of nanofluids is considered as the second most important parameter since it directly affects the pressure drop of the system [18–20]. A literature review of the available studies on thermo-physical properties of different types of nanofluids is presented in Table 1.\nCarbon nanoparticle, such as nanotube, carbon nanofibers, diamond and grapheme are known to have the highest increase in thermal conductivity of conventional heat transfer fluids [32–36]. Generally, a very high amount of oxide or metal nanoparticles should be dispersed in a fluid to increase its thermal conductivity to the level of a more dilute solution of carbon nanoparticles [37–39]. Using high amount of nanoparticles reduces the stability, increases costs, reduce the fluidity of heat transfer fluids and greatly affects the viscosity of nanofluids [40–42]. In recent years, growing attention has been made to carbon based hybrid nanofluids which are consisted of carbon nanoparticles and other types of nanoparticles (i.e. chemically stable metals, metal oxides and oxide ceramic nanoparticles) [43–46]. Hybrid carbon based nanofluids have a desirable heat transfer and pressure drop characteristics [47–50]. A literature review on the available studies of hybrid carbon based nanofluids is presented in Table 2.\nSeveral researchers have used different numerical methods such as\nhttps://doi.org/10.1016/j.icheatmasstransfer.2019.01.003\n⁎ Corresponding author. E-mail address: moraveji@aut.ac.ir (M. Keshavarz Moraveji).\nInternational Communications in Heat and Mass Transfer 101 (2019) 103–115\n0735-1933/ © 2019 Elsevier Ltd. All rights reserved.\nT\ngenetic algorithms, Artificial Neural Network (ANN) and Adaptive Neuro-Fuzzy Inference System (ANFIS) in order to process thermophysical properties of nanofluids and obtain valid conclusions about the performance of different types of nanofluids in various operational conditions [60–64]. Ariana et al. [65] used ANN approach to estimate the thermal conductivity of alumina water-based nanofluids. Esfahani et al. [5] exercised ANFIS to determine viscosity and thermal conductivity of silver, copper and titanium oxide nanoparticles dispersed in mineral insulating oil. Rostamian et al. [66] employed the Multilayer Perception of Neural Network (MLP-ANN) to predict thermal conductivity of CuO-SWCNTs-EG water (40:60) nanofluids. Alade et al. [67] determined the thermal conductivity enhancement of metal and metallic oxide nanofluids using SVM.\nBased on the above mentioned works, it can be concluded that many researchers have evaluated and compared the effect of various nanoparticles on thermo-physical properties of different base fluids. Nevertheless, only a few comprehensive experimental and numerical studies have been performed on viscosity of engine oil nanofluids. However, the viscosity of oil based nanofluids is one of the key factors of saving energy and improving the durability of heat engines [55,68].\nIn this study, regarding the importance of the viscosity of oil based nanofluids, several hybrid nanfluids (COOH-Functionalized MWCNTs/ SiO2, COOH-Functionalized MWCNTs/ZnO, COOH-Functionalized MWCNTs/MgO, and COOH-Functionalized MWCNTs/Al2O3) have been prepared with SAE 40 engine oil. Then, the effects of nanoparticle concentration and temperature on viscosity of hybrid oil based nanofluids are evaluated. Furthermore, several numerical methods (i.e. decision tree, random forest, SVM and RBF-ANN) have been used to\npredict the viscosity of prepared nanofluids. For modeling, viscosity was considered as the target data and the volume fraction and temperature were regarded as the input data. To the best of authors' knowledge, the decision tree and random forest methods have not been used by other researchers to predict the various properties of nanofluids."
+    }, {
+      "heading" : "2. Experimental",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Material description",
+      "text" : "In this research, Al2O3 (US-Nano Co., USA), MgO (Sigma-Aldrich, USA), ZnO (US-Nano Co., USA), SiO2 (US-Nano Co., USA), and COOHFunctionalized MWCNT (US-Nano Co., USA) were used. In order to confirm the nanoparticles sizes and morphological characterizations, Field Emission Scanning Electron Microscopy (FESEM), Scanning electron microscope (SEM) or Transmission electron microscopy (TEM) pictures of these nanoparticles are presented in Fig. 1. The specifications of used nanoparticles are summarized in Table 3. SAE 40 engine oil was purchased from IRANOL Oil Co, Iran. The characteristics of SAE 40 engine oil are presented in Table 4."
+    }, {
+      "heading" : "2.2. Nanofluid preparation",
+      "text" : "Different hybrid nanofluids were produced by the two step method. First, nanoparticles were dispersed into SAE 40 oil using high speed homogenizer (T25 digital ULTRA-TURRAX, IKA, China) for about two hours. Then, in order to prevent nanoparticles agglomeration, the\nsuspensions were sonicated using ultrasonic processor (UP 200 St, Hielscher, Japan) for four hours. As can be seen in Fig. 2, no obvious sedimentation was observed in nanofluids containing 1 Vol% nanoparticles after 10 days.\nThe suspended nanoparticles consisted of 20 Vol% of COOHFunctionalized MWCNTs and 80 Vol% of oxide nanoparticles (i.e. SiO2, Al2O3, MgO, and ZnO). Stable nanofluids with different solid volume fractions of 0.05, 0.25, 0.50, 0.75 and 1% were prepared. It should be noted that in higher solid volume fractions, an agglomeration of nanoparticles occurs and long term stability significantly reduces. The\nrequired weight of different nanoparticles for achieving a desired volume concentration can be calculated based on the following equation [56]:\n= +\n+ +\n0.2 0.8\n0.2 0.8 100\nw\nMWCNT COOH\nw\noxide nanoparticles\nw\nMWCNT COOH\nw\noxide nanoparticles\nw\nengine oil\n(1)\nwhere, φ is the solid volume fraction, w is the weight in kg, and ρ is the density in kg m3."
+    }, {
+      "heading" : "2.3. Viscosity measurement",
+      "text" : "Viscometer CAP 2000+ (Brookfield Engineering Laboratories, USA) was used to measure the viscosity of nanofluids at temperatures between 25 and 50°∁. The accuracy of this viscometer is equal to± 2%. While, the repeatability of this viscometer was measured to be around±0.5%. In this study, CAP-1 spindle on high torque was used for all measurements.\nTable 3 Specifications of the used nanoparticles.\nSpecifications Value\nAl2O3 MgO ZnO SiO2 COOH-Functionalized MWCNT\nPurity (%) 99+ 99+ 99+ 98+ 97+ Average Particle Size (APS) (nm) 50 50 35–45 60–70 Outside diameter: 10-20 nm\nInside diameter: 5–10 nm Length: 10–30 μm\nSpecific Surface Area (SSA) (m2/g) > 19 20–50 ~65 160–600 >200 True density (g/cm3) 3.95 3.57 5.60 2.40 2.1 Color White White Milky white White Black"
+    }, {
+      "heading" : "3. Numerical modeling",
+      "text" : ""
+    }, {
+      "heading" : "3.1. ANN",
+      "text" : "ANNs have been used in solving a variety of problems in recognition of pattern, prediction, optimization, and control [69]. ANNs are known as tools for computational modeling of complex and nonlinear problems [70]. ANNs are comprised of interconnected adaptive elements which are called nodes or artificial neurons. These neurons are able to perform extensively parallel computations for processing of data [71,72]. The mechanism of ANNs is inspired from the human brain, which are capable of learning and generalizing from the experience [73]. Artificial neuron receives inputs from the environment, passes them through a linear threshold gate, and sends the signal (output) to another neuron. The perceptron allows the passing when the net input is stronger than the limit of threshold (bias). This process leads to activation of neuron fire. For n signals, the operation of perceptron neuron is as follows [70]:\n= <\ny w x b\nw x b\n1, if , 0, if , i\nn i i\ni\nn i i\n1\n1 (2)\n1 indicates “on” and 0 indicates “off” in the system. ANNs are classified in various ways, according to their features. This classification is based on the function of ANN which is designed to operate (such as clustering), the degree of the connectivity of neurons, the flow direction of information through the network which are recurrent and non-recurrent, type of learning algorithm, the learning rule, and required learning supervision of training the ANN [70]. Two types of ANNs are utilized in this paper. These two types are RBF-ANN and SVM."
+    }, {
+      "heading" : "3.1.1. RBF-ANN",
+      "text" : "RBF-ANN consisting three layers are a feed-forward error-back propagation network [72]. These three layers are input, hidden, and output layers. They are trained by different learning algorithms such as two-step hybrid learning [74]. The nodes in the hidden layer are cluster centers. The inputs of the first layer are clustered in the hidden layer. RBF-ANNs utilize functions such as Gaussian kernel. In such networks, center location and deviation are the main characteristics. The RBFANN can be defined as below [74,75]:\n= = … = … = f x w x c i N k M( ) (|| ||) 1, , 1, ,i i N i ki k i1\n(3)\nFirst, the distance between vector of inputs (xk) and center location is calculated. Then, the calculated distances are mapped to the kernel function (φki) in cluster i (M is the number of inputs and N is the number of clusters). Meanwhile, kernel functions which are nonlinear units of RBF-ANNs along with weight parameter(wi), create a linear connection between hidden layer and output layer [74,75]."
+    }, {
+      "heading" : "3.1.2. SVM",
+      "text" : "SVM is a technique used for pattern recognition, regression, solving linear operator equations and nonlinear classification. Unlike other types of neural networks, the SVM does not contain the limitation of over-fitting and under-fitting [76,77]. In this method, input data are mapped to a higher space dimension called kernel function. Therefore, classifying data in two classes is easily achievable since the mapped data are linearly separable. SVM maximizes the margin between classified classes by finding the optimal hyperplane. This can be conducted by using Quadratic Programming (QP) optimization method [76–78]."
+    }, {
+      "heading" : "3.2. Decision tree",
+      "text" : "Classification and Regression tree (CART) technique is a supervised learning tool used for cause-and-effect analyses. CART is classified into the decision or classification tree and regression tree [79]. These two types are selected according to the type of variables. If the variables are categorical, the decision tree is used. Otherwise, if the variables are continuous and discrete, the regression tree is used [80]. The objective of the decision tree is to predict the outcome of the set of variables as inputs by finding the set of rules [81]. Decision trees are attractive in data mining for several reasons. First, they are easily pervasive because of their intuitive representation. The second reason is that decision trees do not need any parameter setting from the user and hence are applicable in knowledge discovery. Third, decision trees are relatively fast in comparison to other methods. The last reason is the accuracy of decision trees among other classification methods [82]. Both methods follow the same protocol. During the decision tree procedure, parent nodes (first conditions) split into two child nodes. The splitting continues until no further splitting occurs (terminal nodes). This process is called binary recursive partitioning. The splitting is carried out based on the effect of inputs on the output by which the square error between real and predicted data is minimized. Once the decision tree is completed, a logical sequence of splitting criteria can be obtained [83]."
+    }, {
+      "heading" : "3.3. Random forests",
+      "text" : "Random forests were first introduced by Bierman for classification and regression problems [84]. Beirman showed that for increasing the accuracy of classification and regression, ensembles of the trees are needed. In other word, random forests are ensembles of various unpruned decision trees [84]. In ensemble classification, not only one but several classifiers are trained and their results are combined together by voting process. The most known methods are boosting and bagging [84,85]. Random forests use resembling but improved method of bootstrapping as bagging. Random forests have shown their comparability to boosting in term of accuracy regardless to the drawbacks of boosting [84,86]. Random forests method is easy to implement, offer\naccurate predictions and is suitable for large set of input variables without over fitting. In this technique, a group of samples is randomly selected and the remaining are used to test each tree. In fact, at each node, each tree is formed at random and by selecting the best split and then a small group of inputs or features split into sub nodes. This is repeated for all trees to increase the diversity of trees and reinforce the prediction accuracy. The tree is grown by utilizing CART methodology in order to reach the maximum size and no pruning. Different parameters are used by random forests to grow the trees [87,88]. These parameters include number of trees, subset size, and number of nodes. Number of trees and size of the subset are optimized to calculate the least error in ensembles of trees [84,89]."
+    }, {
+      "heading" : "4. Result and discussion",
+      "text" : ""
+    }, {
+      "heading" : "4.1. Rheological behavior",
+      "text" : "The dynamic viscosity of nanofluids directly affects their pumping power, heat and mass transfer behavior. In terms of rheological behaviors, fluids can be classified into two groups of Newtonian and nonNewtonian fluids. While the viscosity of non-Newtonian fluids changes due to variable shear rate, Newtonian fluids tend to exhibit constant viscosity at all shear rates. The dynamic viscosity of SEA 40 engine oil and prepared hybrid nanofluids, containing 1 Vol% nanoparticles, at various RPMs is shown in Fig. 3. It is seen in Fig. 3 that the base oil and prepared nano-lubricants exhibit Newtonian behavior since their viscosity is constant at various RPMs.\n4.2. Effects of temperature and solid volume fraction on viscosity of nanofluids\nThe dynamic viscosity of prepared hybrid nanofluids versus solid volume fraction is shown in Fig. 4. As can be seen, the dynamic viscosity of hybrid nanofluids slowly increases by increasing the volume fraction of nanoparticles. It is observed that in lower temperatures, the viscosity enhancement is more obvious compared to those at higher temperature. It should be noted that adding nanoparticles and nanotubes in engine oil causes an interaction between nanoparticles and oil molecules which in turn resulted into the increasing the viscosity of fluid. In higher temperatures, this interaction reduces. As a result, the value of viscosity enhancement is higher at lower temperatures [51,90]. Comparing the results presented in Fig. 4 also shows that the type of\noxide nanoparticles has an insignificant effect on dynamic viscosity of nanofluids. The samples containing 20 Vol% of COOH-Functionalized MWCNTs and 80 Vol% of oxide nanoparticles have an almost similar dynamic viscosity at a same temperature and solid volume fraction.\nThe dynamic viscosity versus temperature for prepared hybrid nanofluids is shown in Fig. 5. For all cases, the dynamic viscosity of samples reduces by increasing the temperature with a similar trend. It is observed that the reduction of viscosity by increasing the temperature is larger for samples with higher solid volume fractions. This is mainly because the interaction between nanoparticles and oil molecules are more likely to be affected by temperature in higher concentrations of nanoparticles [55]."
+    }, {
+      "heading" : "4.3. Comparison between experimental outcomes and available theoretical correlations",
+      "text" : "The Batchelor [91] (Eq. (4)), Wang [92] (Eq. (5)), and Esfe [58] (Eq. (6)) models were used to predict the dynamic viscosity of nanofluids.\n= + + µ µ (1 2.5 6.2 )nf bf 2\n(4)\n= + + µ µ (1 7.23 123 )nf bf 2\n(5)\n= + + + µ µ a a a a( )nf bf 0 1 2 2 3 3\n(6)\nwhere, μnf is the dynamic viscosity of the nanofluid in m Pa.s, μbf is the dynamic viscosity of the base fluid in m Pa.s,\nµ µ nf bf is the viscosity ratio,\nand a0, a1, a2, and a3 are the constant values, which are mentioned in [58].\nA comparison between measured viscosity ratio (for samples containing 1 Vol% nanoparticles) and predicted outcomes of the above mentioned models is shown in Fig. 6. As can be seen, these theoretical models could not effectively predict the rheological behavior of prepared hybrid nanofluids. It is worth to mention that the Esfe model [58] was obtained based on the experimental data of the MWCNTs/SiO2 (20–80) SAE 40 hybrid nano-lubricants. The only difference between our work and the study which was performed by Esfe et al. [58] was the usage of COOH-Functionalized MWCNTs instead of MWCNTs. However, the Esfe et al. [58] model was also unable to predict the viscosity\nof prepared hybrid nanofluids. This demonstrates the existence of a need for more robust methods for predicting the rheological behavior of hybrid nanofluids."
+    }, {
+      "heading" : "4.4. Numerical modeling",
+      "text" : "In this section the predicting performance of the implemented models is evaluated. A summary of the implemented models and their input and output parameters is shown in Fig. 7. In almost all of the previous studies in the field of predicting the dynamic viscosity of nanofluids using soft-computing approach, the input data of numerical models belonged to a single type of nanofluids. However, in this study, the input data of the implemented numerical models belongs to four types of nanoparticle systems (COOH-Functionalized MWCNTs/SiO2, COOH-Functionalized MWCNTs/ZnO, COOH-Functionalized MWCNTs/ MgO, and COOH-Functionalized MWCNTs/Al2O3). As a result, the outcomes of the implemented models of this study are not limited to a\nsingle type of nanoparticles and can be used to describe the rheological behavior of hybrid nanofluids containing 20 Vol% of COOH-Functionalized MWCNTs and 80 Vol% of oxide nanoparticles.\nFig. 8 shows a comparison between experimental data and results of various implemented models. As can be seen, the difference between experimental data and model prediction is much lower in decision tree and SVM compared to random forest and RBF-ANN methods. In Fig. 9, regression plots for different models are presented. In this figure, the vertical and horizontal axes are experimental and predicted values. This figure again shows the higher accuracy of decision tree and SVM\ncompares to random forest and RBF-ANN methods. The amount of error for different implemented models is shown in Fig. 10. It is clear that the smallest deviation belongs to decision tree and SVM methods, while the RBF-ANN has the lowest accuracy in terms of predicting the dynamic viscosity of hybrid nanofluids. As it has been mentioned before, in this study, decision tree and random forest methods were used for the first time to predict the dynamic viscosity of nanofluids. The results presented in Figs. 8 to 10 show decision tree method can be used in future studies to predict various properties of nanofluids."
+    }, {
+      "heading" : "5. Conclusion",
+      "text" : "The dynamic viscosity of four different hybrid nano-lubricant containing COOH-Functionalized MWCNTs and oxide nanoparticles was experimentally investigated. In addition, the decision tree, random forest, SVM, and RBF-ANN were used to predict the viscosity of prepared nanofluids. The summary of the results acquired by this study is mentioned below:\n1. For all samples, by increasing the temperature the dynamic viscosity of prepared hybrid nano-lubricants reduces. 2. For all samples, by increasing the solid volume fraction the dynamic viscosity of prepared hybrid nano-lubricants increases. 3. The type of oxide nanoparticles has an insignificant effect on the dynamic viscosity of prepared hybrid nano-lubricants. 4. Available theoretical models in the literature could not effectively predict the dynamic viscosity of prepared hybrid nano-lubricants. 5. The decision tree and SVM methods have a higher accuracy in terms of predicting the dynamic viscosity of prepared hybrid nano-lubricants. 6. In this study, for the first time, the decision tree and random forest methods were used to predict the dynamic viscosity of hybrid\nnanofluids. Nevertheless, only the decision tree method is recommended for future studies in the field of predicting the nanofluid properties due to its high accuracy."
+    } ],
+    "references" : [ {
+      "title" : "CFD investigation of local properties of Al2O3/water nanofluid in a converging microchannel under imposed pressure difference",
+      "author" : [ "H. Hadi Najafabadi", "M. Keshavarz Moraveji" ],
+      "venue" : "Adv. Powder Technol. 28 (3) ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "An experimental investigation on the heat transfer and pressure drop characteristics of nanofluid flowing in microchannel heat sink with multiple zigzag flow channel structures",
+      "author" : [ "W. Duangthongsuk", "S. Wongwises" ],
+      "venue" : "Exp. Thermal Fluid Sci. 87 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Experimental investigation on heat transfer characteristics and pressure drop of BPHE (brazed plate heat exchanger) using TiO2–water nanofluid",
+      "author" : [ "R. Barzegarian", "M.K. Moraveji", "A. Aloueyan" ],
+      "venue" : "Exp. Thermal Fluid Sci. 74 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Experimental investigation and CFD modeling of the dynamics of bubbles in nanofluid pool boiling",
+      "author" : [ "S.N. Shoghl", "M. Bahrami", "M.K. Moraveji" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 58 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Comparison of experimental data",
+      "author" : [ "J.A. Esfahani", "M.R. Safaei", "M. Goharimanesh", "L.R. De Oliveira", "M. Goodarzi", "S. Shamshirband", "E.P. Bandarra Filho" ],
+      "venue" : "modelling and non-linear regression on transport properties of mineral oil based nanofluids, Powder Technol. 317 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "An experimental evaluation on thermophysical properties of functionalized graphene nanoplatelets ionanofluids",
+      "author" : [ "J. Alizadeh", "M.K. Moraveji" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 98 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Three-dimensional CFD modeling of  Fig",
+      "author" : [ "H. Hadi Najafabadi", "M. Keshavarz Moraveji" ],
+      "venue" : "10. The amount of error for different implemented models.  A. Ghaffarkhah et al.  International Communications in Heat and Mass Transfer 101 (2019) 103–115 113  fluid flow and heat transfer characteristics of Al2O3/water nanofluid in microchannel heat sink with Eulerian-Eulerian approach, Iran. J. Chem. Eng. 13 (4) ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Electrical conductivity",
+      "author" : [ "S.N. Shoghl", "J. Jamali", "M.K. Moraveji" ],
+      "venue" : "viscosity, and density of different nanofluids: an experimental study, Exp. Thermal Fluid Sci. 74 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Stability",
+      "author" : [ "S.U. Ilyas", "R. Pendyala", "M. Narahari", "L. Susin" ],
+      "venue" : "rheology and thermal analysis of functionalized alumina-thermal oil-based nanofluids for advanced cooling systems, Energy Convers. Manag. 142 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Comparative study of Euler and mixture models for turbulent flow of Al2O3 nanofluid inside a horizontal tube",
+      "author" : [ "M. Hejazian", "M.K. Moraveji", "A. Beheshti" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 52 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Comparative numerical study of nanofluid heat transfer through an annular channel",
+      "author" : [ "A. Beheshti", "M.K. Moraveji", "M. Hejazian" ],
+      "venue" : "Num. Heat Transf. A Appl. 67 (1) ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Modeling of convective heat transfer of a nanofluid in the developing region of tube flow with computational fluid dynamics",
+      "author" : [ "M.K. Moraveji", "M. Darabi", "S.M.H. Haddad", "R. Davarnejad" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 38 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Experimental investigation of aluminum oxide nanofluid on heat pipe thermal performance",
+      "author" : [ "M.K. Moraveji", "S. Razvarz" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 39 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Experimental investigation for developing a new model for the thermal conductivity of silica/water-ethylene glycol (40%–60%) nanofluid at different temperatures and solid volume fractions",
+      "author" : [ "M.A. Esfahani", "D. Toghraie" ],
+      "venue" : "J. Mol. Liq. 232 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Preparation and heat transfer properties of nanoparticlein-transformer oil dispersions as advanced energy-efficient coolants",
+      "author" : [ "C. Choi", "H.S. Yoo", "J.M. Oh" ],
+      "venue" : "Curr. Appl. Phys. 8 (6) ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Viscosity and thermal conductivity of MgO–EG nanofluids",
+      "author" : [ "G. Zyła" ],
+      "venue" : "J. Therm. Anal. Calorim. ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Sensitivity of thermal conductivity for Al2O3 nanofluids",
+      "author" : [ "R. Agarwal", "K. Verma", "N.K. Agrawal", "R. Singh" ],
+      "venue" : "Exp. Thermal Fluid Sci. 80 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Rheological behaviour of nanofluids",
+      "author" : [ "H. Chen", "D. Yulong", "T. Chunqing" ],
+      "venue" : "New J. Phys. 9 (10) ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Experimental investigations of the viscosity of nanofluids at low temperatures",
+      "author" : [ "B. Aladag", "S. Halelfadl", "N. Doner", "T. Maré", "S. Duret", "P. Estellé" ],
+      "venue" : "Appl. Energy 97 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Thermal properties and rheological behavior of water based Al2O3 nanofluid as a heat transfer fluid",
+      "author" : [ "M. Ghanbarpour", "E. Bitaraf Haghigi", "R. Khodabandeh" ],
+      "venue" : "Exp. Thermal Fluid Sci. 53 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Natural convection of nano-fluids",
+      "author" : [ "N. Putra", "W. Roetzel", "S.K. Das" ],
+      "venue" : "Heat Mass Transf. 39 (8–9) ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Temperature dependent rheological property of copper oxide nanoparticles suspension (nanofluid)",
+      "author" : [ "D.P. Kulkarni", "D.K. Das", "G.A. Chukwu" ],
+      "venue" : "J. Nanosci. Nanotechnol. 6 (4) ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Efficiency of carbon nanotubes water based nanofluids as coolants",
+      "author" : [ "S. Halelfadl", "T. Maré", "P. Estellé" ],
+      "venue" : "Exp. Thermal Fluid Sci. 53 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Experimental studies on viscosity",
+      "author" : [ "G. Żyła", "J. Fal" ],
+      "venue" : "thermal and electrical conductivity of aluminum nitride–ethylene glycol (AlN–EG) nanofluids, Thermochim. Acta 637 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An experimental investigation and new correlation of viscosity of ZnO–EG nanofluid at various temperatures and different solid volume fractions",
+      "author" : [ "M.H. Esfe", "S. Saedodin" ],
+      "venue" : "Exp. Thermal Fluid Sci. 55 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "An experimental evaluation of the effect of ZnO nanoparticles on the rheological behavior of engine oil",
+      "author" : [ "K. Sepyani", "M. Afrand", "M.H. Esfe" ],
+      "venue" : "J. Mol. Liq. 236 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Effects of temperature and concentration on the viscosity of nanofluids made of single-wall carbon nanotubes in ethylene glycol",
+      "author" : [ "M. Baratpour", "A. Karimipour", "M. Afrand", "S. Wongwises" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 74 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Thermal conductivity and viscosity of Al2O3 nanofluids for different based ratio of water and ethylene glycol mixture",
+      "author" : [ "H.W. Chiam", "W.H. Azmi", "N.A. Usri", "R. Mamat", "N.M. Adam" ],
+      "venue" : "Exp. Thermal Fluid Sci. 81 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Temperature and particle-size dependent viscosity data for waterbased nanofluidshysteresis phenomenon",
+      "author" : [ "C.T. Nguyen", "F. Desgranges", "G. Roy", "N. Galanis", "T. Mare", "S. Boucher", "H.A. Mintsa" ],
+      "venue" : "Int. J. Heat Fluid Flow 28 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Synthesis and experimental investigation of the electrical conductivity of water based magnetite nanofluids",
+      "author" : [ "S. Bagheli", "H.K. Fadafan", "R.L. Orimi", "M. Ghaemi" ],
+      "venue" : "Powder Technol. 274 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental investigation on the thermophysical properties of Al2O3 nanoparticles suspended in car radiator coolant",
+      "author" : [ "M.M. Elias", "I.M. Mahbubul", "R. Saidur", "M.R. Sohel", "I.M. Shahrul", "S.S. Khaleduzzaman", "S. Sadeghipour" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 54 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Predicting the effective thermal conductivity of carbon nanotube based nanofluids",
+      "author" : [ "N.N.V. Sastry", "B. Avijit", "T. Sundararajan", "K.D. Sarit" ],
+      "venue" : "Nanotechnology 19 (5) ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Thermo-physical properties of water-based single-walled carbon nanotube nanofluid as advanced coolant",
+      "author" : [ "M. Xing", "J. Yu", "R. Wang" ],
+      "venue" : "Appl. Therm. Eng. 87 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Heat transfer effects on carbon nanotubes suspended nanofluid flow in a channel with non-parallel walls under the effect of velocity slip boundary condition: a numerical study",
+      "author" : [ "U. Khan", "N. Ahmed", "S.T. Mohyud-Din" ],
+      "venue" : "Neural Comput. & Applic. 28 (1) ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Heat transfer improvement of water/single-wall carbon nanotubes (SWCNT) nanofluid in a novel design of a truncated double-layered microchannel heat sink",
+      "author" : [ "A.A.A. Arani", "O.A. Akbari", "M.R. Safaei", "A. Marzban", "A.A. Alrashed", "G.R. Ahmadi", "T.K. Nguyen" ],
+      "venue" : "Int. J. Heat Mass Transf. 113 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Study on flow boiling critical heat flux enhancement of graphene oxide/water nanofluid",
+      "author" : [ "S.W. Lee", "K.M. Kim", "I.C. Bang" ],
+      "venue" : "Int. J. Heat Mass Transf. 65 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Review and comparison of nanofluid thermal conductivity and heat transfer enhancements",
+      "author" : [ "W. Yu", "D.M. France", "J.L. Routbort", "S.U. Choi" ],
+      "venue" : "Heat Transf. Eng. 29 (5)  ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Investigation of structural stability",
+      "author" : [ "S.J. Aravind", "P. Baskar", "T.T. Baby", "R.K. Sabareesh", "S. Das", "S. Ramaprabhu" ],
+      "venue" : "dispersion, viscosity, and conductive heat transfer properties of functionalized carbon nanotube based nanofluids, J. Phys. Chem. C 115 (34) ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "A review on development of nanofluid preparation and characterization",
+      "author" : [ "Y. Li", "S. Tung", "E. Schneider", "S. Xi" ],
+      "venue" : "Powder Technol. 196 (2) ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "John Philip",
+      "author" : [ "G. Vinodha", "L. Cindrella", "V. Sithara" ],
+      "venue" : "P.D. Shima, Synthesis, characterization, thermal conductivity and rheological studies in magnetite-decorated graphene oxide nanofluids, J. Nanofluids 7 (1) ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Preparation and evaluation of stable nanofluids for heat transfer application: a review",
+      "author" : [ "S.K. Sharma", "S.M. Gupta" ],
+      "venue" : "Exp. Thermal Fluid Sci. 79 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A review on preparation",
+      "author" : [ "D.K. Devendiran", "V.A. Amirtham" ],
+      "venue" : "characterization, properties and applications of nanofluids, Renew. Sust. Energ. Rev. 60 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Experimental evaluation",
+      "author" : [ "M.H. Esfe", "S. Esfandeh", "M. Afrand", "M. Rejvani", "S.H. Rostamian" ],
+      "venue" : "new correlation proposing and ANN modeling of thermal properties of EG based hybrid nanofluid containing ZnO-DWCNT nanoparticles for internal combustion engines applications, Appl. Therm. Eng. 133 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Influence of alumina/MWCNT hybrid nanoparticle additives on tribological properties of lubricants in turning operations",
+      "author" : [ "A.K. Sharma", "J.K. Katiyar", "S. Bhaumik", "S. Roy" ],
+      "venue" : "Friction ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Hybrid nanofluids for heat transfer applications–a state-ofthe-art review",
+      "author" : [ "G. Huminic", "A. Huminic" ],
+      "venue" : "Int. J. Heat Mass Transf. 125 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "An experimental study on the stability and thermal conductivity of water-ethylene glycol/TiO2-MWCNTs hybrid nanofluid: developing a new correlation",
+      "author" : [ "A. Akhgar", "D. Toghraie" ],
+      "venue" : "Powder Technol. 338 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A review on hybrid nanofluids: recent research",
+      "author" : [ "J. Sarkar", "P. Ghosh", "A. Adil" ],
+      "venue" : "development and applications, Renew. Sust. Energ. Rev. 43 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "The effect of functionalisation method on the stability and the thermal conductivity of nanofluid hybrids of carbon nanotubes/gamma alumina",
+      "author" : [ "S.M. Abbasi", "A. Nemati", "A. Rashidi", "K. Arzani" ],
+      "venue" : "Ceram. Int. 39 (4) ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Investigation of Al2O3- MWCNTs hybrid dispersion in water and their thermal characterization",
+      "author" : [ "M.J. Nine", "M. Batmunkh", "J.H. Kim", "H.S. Chung", "H.M. Jeong" ],
+      "venue" : "J. Nanosci. Nanotechnol. 12 (6) ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Surfactant-free dispersion of silver nanoparticles into MWCNT-aqueous nanofluids prepared by onestep technique and their thermal characteristics",
+      "author" : [ "B. Munkhbayar", "M.R. Tanshen", "J. Jeoun", "H. Chung", "H. Jeong" ],
+      "venue" : "Ceram. Int. 39 (6) ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Dynamic viscosity of MWCNT/ZnO–engine oil hybrid nanofluid: an experimental investigation and new correlation in different temperatures and solid concentrations",
+      "author" : [ "M. Asadi", "A. Asadi" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 76 ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "An experimental study on rheological behavior of hybrid nanofluids made of iron and copper oxide in a binary mixture of water and ethylene glycol: non-Newtonian behavior",
+      "author" : [ "M. Bahrami", "M. Akbari", "A. Karimipour", "M. Afrand" ],
+      "venue" : "Exp. Thermal Fluid Sci. 79 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Examination of rheological behavior of MWCNTs/ZnO-SAE40 hybrid nano-lubricants under various temperatures and solid volume fractions",
+      "author" : [ "M.H. Esfe", "M. Afrand", "S.H. Rostamian", "D. Toghraie" ],
+      "venue" : "Exp. Thermal Fluid Sci. 80 ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "An experimental study on rheological behavior of non- Newtonian hybrid nano-coolant for application in cooling and heating systems",
+      "author" : [ "H. Eshgarf", "M. Afrand" ],
+      "venue" : "Exp. Thermal Fluid Sci. 76 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Effects of temperature and solid volume fraction on viscosity of SiO2-MWCNTs/SAE40 hybrid nanofluid as a coolant and lubricant in heat engines",
+      "author" : [ "M. Afrand", "K.N. Najafabadi", "M. Akbari" ],
+      "venue" : "Appl. Therm. Eng. 102 ",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A study on rheological characteristics of hybrid nano-lubricants containing MWCNT-TiO2 nanoparticles",
+      "author" : [ "M.H. Esfe", "A.A.A. Arani", "M.R. Madadi", "A. Alirezaie" ],
+      "venue" : "J. Mol. Liq. 260 ",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Investigation of rheological behavior of MWCNT (COOH-functionalized)/MgO-Engine oil hybrid nanofluids and modelling the results with artificial neural networks",
+      "author" : [ "A. Alirezaie", "S. Saedodin", "M.H. Esfe", "S.H. Rostamian" ],
+      "venue" : "J. Mol. Liq. 241 ",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Effects of temperature and concentration on rheological behavior of MWCNTs/SiO2 (20–80)- SAE40 hybrid nano-lubricant",
+      "author" : [ "M.H. Esfe", "M. Afrand", "W.M. Yan", "H. Yarmand", "D. Toghraie", "M. Dahari" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 76 ",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Hybrid nanoparticles effects on rheological behavior of water- EG coolant under different temperatures: an experimental study",
+      "author" : [ "A. Zareie", "M. Akbari" ],
+      "venue" : "J. Mol. Liq. 230 ",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Prediction of rheological behavior of SiO2- MWCNTs/10W40 hybrid nanolubricant by designing neural network",
+      "author" : [ "A.A. Nadooshan", "M.H. Esfe", "M. Afrand" ],
+      "venue" : "J. Therm. Anal. Calorim. 131 (3) ",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Application of the FCM-based neuro-fuzzy inference system and genetic algorithm-polynomial neural network approaches to modelling the thermal conductivity of alumina–water nanofluids",
+      "author" : [ "M. Mehrabi", "M. Sharifpur", "J.P. Meyer" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 39 (7) ",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Viscosity of nanofluids based on an artificial intelligence model",
+      "author" : [ "M. Mehrabi", "M. Sharifpur", "J.P. Meyer" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 43 ",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Designing an artificial neural network to predict thermal conductivity and dynamic viscosity of ferromagnetic nanofluid",
+      "author" : [ "M.H. Esfe", "S. Saedodin", "N. Sina", "M. Afrand", "S. Rostami" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 68 ",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Hydrodynamic and thermal performance prediction of functionalized MWNT-based water nanofluids under the laminar flow regime using the adaptive neuro-fuzzy inference system",
+      "author" : [ "M. Savari", "S. Rashidi", "A. Amiri", "M. Shanbedi", "S.Z. Heris", "S.N. Kazi" ],
+      "venue" : "Num. Heat Transf. A. Appl. 70 (1) ",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Prediction of thermal conductivity of alumina water-based nanofluids by artificial neural networks",
+      "author" : [ "M.A. Ariana", "B. Vaferi", "G. Karimi" ],
+      "venue" : "Powder Technol. 278 ",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "An inspection of thermal conductivity of CuO-SWCNTs hybrid nanofluid versus temperature and concentration using experimental data ANN modeling and new correlation",
+      "author" : [ "S.H. Rostamian", "M. Biglari", "S. Saedodin", "M.H. Esfe" ],
+      "venue" : "J. Mol. Liq. 231  A. Ghaffarkhah et al.  International Communications in Heat and Mass Transfer 101 (2019) 103–115 114  ",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Modeling thermal conductivity enhancement of metal and metallic oxide nanofluids using support vector regression",
+      "author" : [ "I.O. Alade", "T.A. Oyehan", "I.K. Popoola", "S.O. Olatunji", "A. Bagudu" ],
+      "venue" : "Adv. Powder Technol. 29 (1) ",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effect of suspending hybrid nano-additives on rheological behavior of engine oil and pumping power",
+      "author" : [ "E. Dardan", "M. Afrand", "A.M. Isfahani" ],
+      "venue" : "Appl. Therm. Eng. 109 ",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Artificial neural networks: a tutorial",
+      "author" : [ "A.K. Jain", "J. Mao", "K.M. Mohiuddin" ],
+      "venue" : "Computer 29 (3) ",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "Artificial neural networks: fundamentals",
+      "author" : [ "I.A. Basheer", "M. Hajmeer" ],
+      "venue" : "computing, design, and application, J. Microbiol. Methods 43 (1) ",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : null,
+      "year" : 2000
+    }, {
+      "title" : "Solution for a distributed hydrological model and applications",
+      "author" : [ "R. Hecht-Nielsen" ],
+      "venue" : "Neurocomputing ",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : null,
+      "year" : 1990
+    }, {
+      "title" : "Forecasting with artificial neural networks: the state of the art",
+      "author" : [ "G. Zhang", "B.E. Patuwo", "M.Y. Hu" ],
+      "venue" : "Int. J. Forecast. 14 (1) ",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "Neural Networks: A Comprehensive Foundation",
+      "author" : [ "S. Haykin" ],
+      "venue" : "Prentice Hall PTR ",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "Radial basis functions",
+      "author" : [ "D.S. Broomhead", "L. David" ],
+      "venue" : "multi-variable functional interpolation and adaptive networks, No. RSRE-MEMO-4148, Royal Signals and Radar Establishment Malvern, United Kingdom",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : null,
+      "year" : 1988
+    }, {
+      "title" : "Support-vector networks",
+      "author" : [ "C. Cortes", "V. Vapnik" ],
+      "venue" : "Mach. Learn. 20 (3) ",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "The Nature of Statistical Learning Theory",
+      "author" : [ "V. Vapnik" ],
+      "venue" : "Springer science & business media ",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Support Vector Machines: Theory and Applications",
+      "author" : [ "L. Wang" ],
+      "venue" : "vol. 177, Springer Science & Business Media",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Singer",
+      "author" : [ "H. Zhang", "H. Burton" ],
+      "venue" : "Recursive partitioning and applications, Springer Science & Business Media",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Multivariate adaptive regression splines",
+      "author" : [ "H.J. Friedman" ],
+      "venue" : "Ann. Stat. ",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : null,
+      "year" : 1991
+    }, {
+      "title" : "A comparative study on the predictive ability of the decision tree",
+      "author" : [ "B. Pradhan" ],
+      "venue" : "support vector machine and neuro-fuzzy models in landslide susceptibility mapping using GIS, Comput. Geosci. 51 ",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "BOAT—Optimistic Decision Tree Construction",
+      "author" : [ "J. Gehrke", "V. Ganti", "R. Ramakrishnan", "W.Y. Loh" ],
+      "venue" : "ACM SIGMOD Record,",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : "82",
+      "year" : 1999
+    }, {
+      "title" : "Classification and Regression Trees",
+      "author" : [ "L. Breiman" ],
+      "venue" : "Routledge",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Random forests",
+      "author" : [ "L. Breiman" ],
+      "venue" : "Mach. Learn. 45 (1) ",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Experiments with a new boosting algorithm",
+      "author" : [ "Y. Freund", "R.E. Schapire" ],
+      "venue" : "InIcml 96 ",
+      "citeRegEx" : "85",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "Random forests for land cover classification",
+      "author" : [ "P.O. Gislason", "J.A. Benediktsson", "J.R. Sveinsson" ],
+      "venue" : "Pattern Recogn. Lett. 27 (4) ",
+      "citeRegEx" : "86",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Analysis of a random forests model",
+      "author" : [ "G. BIAU" ],
+      "venue" : "J. Mach. Learn. Res. ",
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Data Mining: Practical Machine Learning Tools and Techniques",
+      "author" : [ "I.H. Witten", "E. Frank", "M.A. Hall", "C.J. Pal" ],
+      "venue" : "Morgan Kaufmann",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A comprehensive data mining approach to estimate the rate of penetration: application of neural network",
+      "author" : [ "S. Eskandarian", "P. Bahrami", "P. Kazemi" ],
+      "venue" : "rule based models and feature ranking, J. Pet. Sci. Eng. 156 ",
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Effects of temperature and particles concentration on the dynamic viscosity of MgO-MWCNT/ethylene glycol hybrid nanofluid: experimental study",
+      "author" : [ "O. Soltani", "M. Akbari" ],
+      "venue" : "Phys. E. 84 ",
+      "citeRegEx" : "90",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "The effect of Brownian motion on the bulk stress in a suspension of spherical particles",
+      "author" : [ "G.K. Batchelor" ],
+      "venue" : "J. Fluid Mech. 83 (1) ",
+      "citeRegEx" : "91",
+      "shortCiteRegEx" : null,
+      "year" : 1977
+    }, {
+      "title" : "Thermal conductivity of nanoparticle-fluid mixture",
+      "author" : [ "X. Wang", "X. Xu", "S.U.S. Choi" ],
+      "venue" : "J. Thermophys. Heat Transf. 13 (4) (1999) 474–480.  A. Ghaffarkhah et al.  International Communications in Heat and Mass Transfer 101 ",
+      "citeRegEx" : "92",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 4,
+      "context" : "Conventional heat transfer fluids such as oil, water and ethylene glycol (EG) have low thermal conductivity [5,6].",
+      "startOffset" : 108,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 5,
+      "context" : "Conventional heat transfer fluids such as oil, water and ethylene glycol (EG) have low thermal conductivity [5,6].",
+      "startOffset" : 108,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 6,
+      "context" : "Adding thermal conductive nanoparticles to conventional heat transfer fluids could effectively improve their heat transfer capacities [7,8].",
+      "startOffset" : 134,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 7,
+      "context" : "Adding thermal conductive nanoparticles to conventional heat transfer fluids could effectively improve their heat transfer capacities [7,8].",
+      "startOffset" : 134,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 8,
+      "context" : "This in turn resulted into the increasing the life-cycle of working fluids, reducing the size of equipment and enhancing the efficiency of the application [9].",
+      "startOffset" : 155,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 14,
+      "context" : "[15] added Al2O3 and AlN nanoparticles to transformer oil and observed about 20% enhancement in its overall heat transfer coefficient.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 15,
+      "context" : "Zyła [16] experimentally investigated the effect of MgO nanoparticles on thermo-physical properties of EG and reported that thermal conductivity has increased up to 33% by adding 7.",
+      "startOffset" : 5,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 16,
+      "context" : "[17] evaluated the thermal conductivity of Al2O3 nanofluids in different base fluids.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 64,
+      "context" : "[65] used ANN approach to estimate the thermal conductivity of alumina water-based nanofluids.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 4,
+      "context" : "[5] exercised ANFIS to determine viscosity and thermal conductivity of silver, copper and titanium oxide nanoparticles dispersed in mineral insulating oil.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 65,
+      "context" : "[66] employed the Multilayer Perception of Neural Network (MLP-ANN) to predict thermal conductivity of CuO-SWCNTs-EG water (40:60) nanofluids.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 66,
+      "context" : "[67] determined the thermal conductivity enhancement of metal and metallic oxide nanofluids using SVM.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 54,
+      "context" : "However, the viscosity of oil based nanofluids is one of the key factors of saving energy and improving the durability of heat engines [55,68].",
+      "startOffset" : 135,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 67,
+      "context" : "However, the viscosity of oil based nanofluids is one of the key factors of saving energy and improving the durability of heat engines [55,68].",
+      "startOffset" : 135,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 53,
+      "context" : "[54] 50% EG 50% functionalized MWCNT 27.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 56,
+      "context" : "[57] Engine oil 10% functionalized MWCNT 25–50 0.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 55,
+      "context" : "The required weight of different nanoparticles for achieving a desired volume concentration can be calculated based on the following equation [56]:",
+      "startOffset" : 142,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 68,
+      "context" : "ANNs have been used in solving a variety of problems in recognition of pattern, prediction, optimization, and control [69].",
+      "startOffset" : 118,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 69,
+      "context" : "ANNs are known as tools for computational modeling of complex and nonlinear problems [70].",
+      "startOffset" : 85,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 70,
+      "context" : "These neurons are able to perform extensively parallel computations for processing of data [71,72].",
+      "startOffset" : 91,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 71,
+      "context" : "The mechanism of ANNs is inspired from the human brain, which are capable of learning and generalizing from the experience [73].",
+      "startOffset" : 123,
+      "endOffset" : 127
+    }, {
+      "referenceID" : 69,
+      "context" : "For n signals, the operation of perceptron neuron is as follows [70]:",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 69,
+      "context" : "This classification is based on the function of ANN which is designed to operate (such as clustering), the degree of the connectivity of neurons, the flow direction of information through the network which are recurrent and non-recurrent, type of learning algorithm, the learning rule, and required learning supervision of training the ANN [70].",
+      "startOffset" : 340,
+      "endOffset" : 344
+    }, {
+      "referenceID" : 72,
+      "context" : "They are trained by different learning algorithms such as two-step hybrid learning [74].",
+      "startOffset" : 83,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 72,
+      "context" : "The RBFANN can be defined as below [74,75]:",
+      "startOffset" : 35,
+      "endOffset" : 42
+    }, {
+      "referenceID" : 73,
+      "context" : "The RBFANN can be defined as below [74,75]:",
+      "startOffset" : 35,
+      "endOffset" : 42
+    }, {
+      "referenceID" : 72,
+      "context" : "Meanwhile, kernel functions which are nonlinear units of RBF-ANNs along with weight parameter(wi), create a linear connection between hidden layer and output layer [74,75].",
+      "startOffset" : 164,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 73,
+      "context" : "Meanwhile, kernel functions which are nonlinear units of RBF-ANNs along with weight parameter(wi), create a linear connection between hidden layer and output layer [74,75].",
+      "startOffset" : 164,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 74,
+      "context" : "Unlike other types of neural networks, the SVM does not contain the limitation of over-fitting and under-fitting [76,77].",
+      "startOffset" : 113,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 75,
+      "context" : "Unlike other types of neural networks, the SVM does not contain the limitation of over-fitting and under-fitting [76,77].",
+      "startOffset" : 113,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 77,
+      "context" : "CART is classified into the decision or classification tree and regression tree [79].",
+      "startOffset" : 80,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 78,
+      "context" : "Otherwise, if the variables are continuous and discrete, the regression tree is used [80].",
+      "startOffset" : 85,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 79,
+      "context" : "The objective of the decision tree is to predict the outcome of the set of variables as inputs by finding the set of rules [81].",
+      "startOffset" : 123,
+      "endOffset" : 127
+    }, {
+      "referenceID" : 80,
+      "context" : "The last reason is the accuracy of decision trees among other classification methods [82].",
+      "startOffset" : 85,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 81,
+      "context" : "Once the decision tree is completed, a logical sequence of splitting criteria can be obtained [83].",
+      "startOffset" : 94,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 82,
+      "context" : "Random forests were first introduced by Bierman for classification and regression problems [84].",
+      "startOffset" : 91,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 82,
+      "context" : "In other word, random forests are ensembles of various unpruned decision trees [84].",
+      "startOffset" : 79,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 82,
+      "context" : "The most known methods are boosting and bagging [84,85].",
+      "startOffset" : 48,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 83,
+      "context" : "The most known methods are boosting and bagging [84,85].",
+      "startOffset" : 48,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 82,
+      "context" : "Random forests have shown their comparability to boosting in term of accuracy regardless to the drawbacks of boosting [84,86].",
+      "startOffset" : 118,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 84,
+      "context" : "Random forests have shown their comparability to boosting in term of accuracy regardless to the drawbacks of boosting [84,86].",
+      "startOffset" : 118,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 85,
+      "context" : "Different parameters are used by random forests to grow the trees [87,88].",
+      "startOffset" : 66,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 86,
+      "context" : "Different parameters are used by random forests to grow the trees [87,88].",
+      "startOffset" : 66,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 82,
+      "context" : "Number of trees and size of the subset are optimized to calculate the least error in ensembles of trees [84,89].",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 87,
+      "context" : "Number of trees and size of the subset are optimized to calculate the least error in ensembles of trees [84,89].",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 50,
+      "context" : "As a result, the value of viscosity enhancement is higher at lower temperatures [51,90].",
+      "startOffset" : 80,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 88,
+      "context" : "As a result, the value of viscosity enhancement is higher at lower temperatures [51,90].",
+      "startOffset" : 80,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 54,
+      "context" : "This is mainly because the interaction between nanoparticles and oil molecules are more likely to be affected by temperature in higher concentrations of nanoparticles [55].",
+      "startOffset" : 167,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 89,
+      "context" : "A comparison between measured viscosity ratio (for samples containing 1 Vol% nanoparticles) and predicted outcomes of the The Batchelor [91], Wang [92],",
+      "startOffset" : 136,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 90,
+      "context" : "A comparison between measured viscosity ratio (for samples containing 1 Vol% nanoparticles) and predicted outcomes of the The Batchelor [91], Wang [92],",
+      "startOffset" : 147,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 57,
+      "context" : "and a0, a1, a2, and a3 are the constant values, which are mentioned in [58].",
+      "startOffset" : 71,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 57,
+      "context" : "It is worth to mention that the Esfe model [58] was obtained based on the experimental data of the MWCNTs/SiO2 (20–80) SAE 40 hybrid nano-lubricants.",
+      "startOffset" : 43,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 57,
+      "context" : "[58] was the usage of COOH-Functionalized MWCNTs instead of MWCNTs.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 57,
+      "context" : "[58] model was also unable to predict the viscosity of prepared hybrid nanofluids.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    } ],
+    "year" : 2019,
+    "abstractText" : "In this study, the dynamic viscosity of four different hybrid nano-lubricants was investigated. The base fluid was SAE 40 engine oil. The suspended nanoparticles consisted of 20 Vol% of COOH-Functionalized MWCNTs and 80 Vol% of oxide nanoparticles (SiO2, Al2O3, MgO, and ZnO). The experiments were performed at temperatures between 25 and 50°∁ and solid volume fractions of 0.05, 0.25, 0.50, 0.75 and 1%. In addition, the decision tree, random forest, Support Vector Machine (SVM), and Radial Basis Function Artificial Neural Networks (RBF-ANN) were used to predict the viscosity of prepared nanofluids. The decision tree and random forest methods have the highest accuracy in terms of predicting the dynamic viscosity of prepared nano-lubricants.",
+    "creator" : "Elsevier"
+  }
+}

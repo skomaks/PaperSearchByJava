@@ -1,0 +1,316 @@
+{
+  "name" : "downloads_2019-11-08_a8_marucho2019.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "A java application to characterize biomolecules and nanomaterials in electrolyte aqueous solutions✩,✩✩",
+    "authors" : [ "Marcelo Marucho" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nComputer Physics Communications\njournal homepage: www.elsevier.com/locate/cpc\nA java application to characterize biomolecules and nanomaterials in electrolyte aqueous solutions✩,✩✩\nMarcelo Marucho Department of Physics and Astronomy, The University of Texas at San Antonio, San Antonio, TX 78249, United States\na r t i c l e i n f o\nArticle history: Received 23 January 2018 Received in revised form 14 February 2019 Accepted 8 March 2019 Available online 30 April 2019\nKeywords: Software Density Functional Theory Nanomaterials Biomolecules Solvation Electrical Double Layer Polyelectrolytes Biophysics\na b s t r a c t\nThe electrostatic, entropic and surface interactions between a macroion (nanoparticle or biomolecule), surrounding ions and water molecules play a fundamental role in the behavior and function of colloidal systems. However, the molecular mechanisms governing these phenomena are still poorly understood. One of the major limitations in procuring this understanding is the lack of appropriate computational tools. Additionally, only experts in the field with an extensive background in programming, who are trained in statistical mechanics, and have access to supercomputers are able to study these systems. To overcome these limitations, in this article, we present a free, multi-platform, portable Java software, which provides experts and non-experts in the field an easy and efficient way to obtain an accurate molecular characterization of electrical and structural properties of aqueous electrolyte mixture solutions around both cylindrical- and spherical-like rigid macroions under multiple conditions. These properties include the normalized ions and water density profile distributions, the mean electrostatic potential, the integrated charge, the zeta potential, the electrostatic potential energy, the particle crowding entropy energy, the ion–ion electrostatic direct correlation energy, and the ionic potential of mean force. The Java software does not require outstanding skills and comes with detailed userguide documentation. The application is based on the so-called Classical Density Functional Theory Solver (CSDFTS), which was successfully applied to a variety of rod-like biopolymers, rigid-like globular proteins, nanoparticles, and nano-rods. CSDFTS implements several electrolyte and macroion models, uses different levels of approximation and takes advantage of high performance Fortran90 routines and optimized libraries. These features enable the software to run on single processor computers at low-to-moderate computational cost depending on the computer performance, the grid resolution, and the characterization of the macroion and the electrolyte solution, among other factors. As a unique feature, the software comes with a graphical user interface (GUI) that allows users to take advantage of the visually guided setup of the required input data to properly characterize the system and configure the solver. Several examples on nanomaterials and biomolecules are provided to illustrate the use of the GUI and the solver performance. Program summary Program Title: CSDFTS Program Files doi: http://dx.doi.org/10.17632/4t8ybf93d5.1 Licensing provisions: GPLv2. Programming language: Java 1.8. External routines/libraries: GNU gawk installation is required if the user wants to calculate the protein volume using the 3v application. Nature of problem: A rich and complex, yet not fully understood, electrical double layer (EDL) formation arises when a nanoparticle or biomolecule is immersed in a liquid solution. Solution method: The Java application is based on the Classical Density Functional Theory Solver (CSDFTS). Additional comments including unusual features: The software incorporates a graphical user interface which eliminates the arduous and error-prone manual entry of data, and substantially reduces the time spent on the setup of the information required to characterize the macroion and the electrolyte\n✩ This paper and its associated computer program are available via the Computer Physics Communication homepage on ScienceDirect (http://www.sciencedirect. com/science/journal/00104655). ✩✩ The review of this paper was arranged by Stephan Fritzsche.\nE-mail address: marcelo.marucho@utsa.edu. URL: https://www.utsa.edu/physics/faculty/MarceloMarucho.html.\nhttps://doi.org/10.1016/j.cpc.2019.03.022 0010-4655/© 2019 Elsevier B.V. All rights reserved.\nsolution. Additionally, each GUI screen provides helpful information about how to fill out the input data by simply holding the mouse pointer over the corresponding text or blank box. the GUI tests all the input data before running the CSDFTS to avoid the incorrect use of the software and prevent meaningless results.\nThe GUI requires a variety of the user’s computer applications, which are a part of the basic operating systems. The GUI uses ‘‘Activity Monitor’’, ‘‘procexp.exe’’, and ‘‘gnome-system-monitor’’ (or ‘‘top’’) applications for Mac, Windows and Linux users, respectively, to monitor the user’s computer performance. It also uses ‘‘Terminal.app’’, ‘‘cmd.exe’’ and ‘‘gnome-terminal’’ (or ‘‘xterm’’) for Mac, Windows, and Linux users, respectively, to display the CSDFT calculations.\n© 2019 Elsevier B.V. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "A rich and complex, yet not fully understood, electrical double layer (EDL) formation arises when a nanoparticle or biomolecule is immersed in a liquid solution [1–5]. In such conditions, the structural and thermodynamic properties of the liquid surrounding the macroion are shown to be very different from those corresponding to the bulk phase, which in turn, have a high impact on the behaviors and functions of the macroion. For instance, physicochemical properties of nanomaterials such as particle size (PS), shape, Zeta potential (ZP), and surface charge density (SCD) have significant effects on their stability, circulation in blood and absorption into cell membranes [6–10]. Alteration of the pH and electrolyte conditions modify the SCD and ZP, which affect the binding of nanomaterials to biological tissue and target them to specific sites inside the cell. Whereas, in biophysics [11–13], the formation of high order structures, including bundles and networks, involve interactions between highly charged linker proteins and biopolymers that are often modulated by the biological environment. The environment has been shown to have a profound impact on biological functions. For instance, ZP and SCD in microfilaments, nucleic acids, and globular proteins play a fundamental role in the stabilization of these systems due to charge residue groups on their surface. Extremely positive or negative ZP values cause larger repulsive forces. This repulsion between macroions with similar electric charge prevents aggregation of the macroions and thus ensures easy redispersion. Adversely, altering the ZP to the point at which it exhibits zero net charge may decrease stabilization forces and promote agglomeration.\nBeyond the substantial progress done in the characterization of these colloidal systems, the complex interplay between the physicochemical properties of macroions and biological environment still remains elusive due to the lack of appropriate methodologies. Conventional computational tools and approaches are limited by their approximations and computational cost. Certainly, the current understanding of EDL properties of macroions is based mainly on mean-field theories like the counterion condensation theory [1], the non linear Poisson–Boltzmann (NLPB) formalism and its modifications [13], which consider electrostatic potential interactions only. Additionally, scientific software developed to characterize solvation and electrical double layers of nanomaterials and biomolecules might be helpful in understanding these phenomena. However, they usually require specialized training and expertise in computational biology, expensive commercial licenses, and access to clusters or supercomputers, which are often an obstacle for many researchers, experimentalists, even students lacking these requirements. Thus, it is essential to develop not only more accurate and efficient approaches but also readily accessible, friendly implementation of a software package that provides experts and non-experts a visualized guide (graphical user interface) to perform these calculations without limitations [14].\nIn this article, we present a free, multi-platform and portable Java software which provides both experts and non-experts in\nthe field an easy and efficient way to get an accurate molecular characterization of the EDL properties for biomolecules and nanomaterials at infinite dilution. The application is based on the so-called Classical Solvation Density Function Theory (CSDFT) and its modifications, which have been shown to be particularly useful in studying multiple environmental scenarios for a variety of rod-like [15,16] and spherical [17–19] rigid-like macroions without computational restriction. The approach has been shown to be in a good agreement with numerical simulations and experimental results in a variety of benchmark systems including segments of B-DNAs, Actin filaments, and Silica oxide nanoparticles [15–19]. As a unique feature, CSDFT extends the capabilities of NLPB formalism, eliminating the extremely high computational demands of full atomistic simulation calculations without losing important structural features of complex EDL properties (see Fig. 1). It considers not only the electric, but also the entropic and many-body interactions. This feature has been particularly useful for identifying and characterizing dominant interactions and molecular mechanisms governing the behavior and function of macroions under a variety of electrolyte conditions.\nIn the next sections, we explain how to install, run and use the software. We also include examples to illustrate the solver performance and applicability. In Appendix, we provide a brief summary of the approach and computational scheme implemented by the software to solve the CSDFT numerically."
+    }, {
+      "heading" : "2. Overview",
+      "text" : "The software allows the user to use a variety of models and approaches. It provides four macroion models: nanoparticle, nanorod, globular protein, and rod-like biopolymer. For each of these models, there are two approaches to characterize the macroion size and the surface charge density: experimental and protonation/deprotonation models for nanomaterials applications, and experimental and molecular structure models for biophysics applications. Additionally, the software comes with two electrolyte approaches: NLPB and CSDFT. These approaches include 3 ion size types (Crystal, Effective and Hydrated), and two solvent models (implicit and explicit). As a unique feature, the Java application comes with a graphical user interface (GUI) which eliminates the arduous and error-prone manual entry of data, and substantially reduces the time spent on the setup of the information required to characterize the macroion and the electrolyte solution. Additionally, each GUI screen provides helpful information about how to fill out the input data by simply holding the mouse pointer over the corresponding text or blank box. The GUI also provides default values for key input parameters and preselects some relevant algorithms to speed up the setup of the input data. However, they may be easily changed at any time. Moreover, the GUI tests all the input data before running the CSDFTS to avoid the incorrect use of the software and prevent meaningless results. At the end of the calculations, the GUI generates twodimension plots of the selected output files to provide graphical representations of the structural and electrostatic properties of\nthe macroion EDL. Finally, all the output data files are properly saved and organized in the designated folder for post-analysis purposes."
+    }, {
+      "heading" : "3. General considerations",
+      "text" : ""
+    }, {
+      "heading" : "3.1. System requirements",
+      "text" : "The software requires at least 500 MB of disk space to be installed. Additional disk space is required to save the output files generated by each simulation, which may be as large as 1Gb or more. The available RAM memory required to run the software depends on many factors. Based on the examples presented in this article, most simulations require only a few Gbs whereas highly demanding calculations may demand up to 12 Gbs.\nThe software is portable, e.g. it does not require external libraries, leave its files or settings on the host computer, or modify the existing system and its configuration. The software comes with Java 1.8 which is configured by the installer to run the GUI. The Fortran90 codes are distributed as binary files. For biophysics applications, the software requires the molecular structure visualization java tool ‘‘Jmol’’ (http://jmol.sourceforge. net/) [20] and either the java based protein volume ‘‘provol’’ (gmlab.bio.rpi.edu/) [21] or the Unix based ‘‘v3’’ (http://3vee. molmovdb.org/volumeCalc.php) [22] applications. These open sources are compiled and distributed along with the software. To use the latter application, the user’s computer needs to have the GNU ‘‘gawk’’ application installed (https://www.gnu.org/software /gawk/). The software also includes ‘‘pdb2pqr’’ and ‘‘propka’’ binary files with the necessary libraries to perform molecular structure calculations (http://apbs-pdb2pqr.readthedocs.io/en/latest/ pdb2pqr/index.html) [23]. Additionally, the GUI requires a variety of the user’s computer applications, which are a part of the basic operating systems. In particular, the GUI uses ‘‘Activity Monitor’’, ‘‘procexp.exe’’, and ‘‘gnome-system-monitor’’ (or ‘‘top’’) applications for Mac, Windows and Linux users, respectively, to monitor the user’s computer performance. It also uses ‘‘Terminal.app’’, ‘‘cmd.exe’’ and ‘‘gnome-terminal’’ (or ‘‘xterm’’) for Mac, Windows, and Linux users, respectively, to display CSDFT calculations."
+    }, {
+      "heading" : "3.2. Installation",
+      "text" : "The software is distributed as a single zip file containing the self-installer application. The user does not need ‘‘Root’’ or ‘‘Admin’’ permissions to install the software on the user’s home directory. The user may unzip the file on the desktop directory, open the resulting folder, then double-click the self-installer application to run the wizard setup and follow a number of module steps (See Fig. 2). The installer creates the folder ‘‘CSDFTS’’ in the chosen directory to save the software source files, including the GUI executable ‘‘CSDFTS-software’’. It is highly recommended to install it using the default directory option (‘‘/Applications’’ for Mac and $HOME for Linux and Windows users). If selected, the installer also creates an icon on the desktop for easy access to run the GUI. The software was successfully installed and tested on a variety of operating systems (Windows 7 and 10, Sierra, Centos 7, Ubuntu 14, Fedora 24, Debian 8) and provides an uninstaller application for easy removal."
+    }, {
+      "heading" : "3.3. Output files",
+      "text" : "During the first simulation, the GUI creates a folder named ‘‘CSDFTS_Workspace’’ in ‘‘My Documents’’ and ‘‘$HOME’’ directory for Windows and Unix operating systems, respectively. Within this folder, the GUI creates one sub-folder per each simulation to save and organize all the corresponding output data files. The name of the sub-folders follows the convention:\nAnalysis_<<macroion-electrolyte>>_<<Date>>__<<Time>>, where <<macroion-electrolyte>> is the macroion and electrolyte model selected by the user, <<Date>> is the current date, and <<Time>> is the real time when the model was selected (see Fig. 3).\nThe GUI generates the following output files: ‘‘DensityProfile.dat (normalized ions and water density profile distributions’’); ‘‘ElectrostaticPotential.dat’’ (mean electrostatic potential); ‘‘IntegrateCharge.dat’’ (the integrated charge), and ‘‘IonContributions.dat’’(normalized electrostatic potential energy, particle crowding entropy energy, and ion–ion electrostatic correlation energy to the ionic potential of mean force). Explicit expressions\nTable 1 Output files created by CSDFTS.\nFile name Units Description\nDensityProfile.dat The first column is for distances. The second column corresponds to the first ion species selected in ion model section, and so on. If the CSDFT is selected, the last column corresponds to water\nElectrostaticPotential.dat KT/e The first column is for distances.the second column contains the values of the mean\nIntegratedCharge.dat e The first column is for distances.the second column contains the values of the integrated charge\nIonConstributions.dat J/KT\nThe first column is for distances. Then, there is one set of columns per contribution. The number of columns per contribution is equal to the number of ion species. The order of the set of columns from left to right reads: the electrostatic potential energy, excluded volume energy, the ion–ion correlation energy, and the potential of mean force (sum of the previous contributions). The order of the columns in each set of contributions is the following: first column corresponds to the first selected ion species, and so on.\nfor these properties are provided in Appendix. The size of these files may vary depending on the number of ions species, number of grid points, and electrolyte model. These files are formatted in a multi-column arrangement where the row number corresponds to the number of grid points, the first column contains the discretized distance in unit of Å, and the remaining column(s) provide the numerical solution(s) (see Table 1). Other relevant data including SCD, ZP, and PS are saved in the log file ‘‘out.txt’’, whereas information on the input data and solver configuration are included in the files ‘‘inp.in’’ and ‘‘input.file’’ for spherical and cylindrical macroions, respectively. If the molecular structure option is selected for biophysical applications, the GUI generates the following additional files: ‘‘input.pdb’’ (copy of the molecular structure uploaded by the user); ‘‘input.pqr’’ (pdb2pqr output\ndata); ‘‘input.propka’’ (propka output data) ; ‘‘out.pdb’’ (molecular structure information with hydrogen atoms removed); ‘‘out.xyzr’’ (atomic positions in xyzr format); ‘‘vol.txt’’ (3v and provol output data including information on the macroion surface and volume as well as the number of residues and atoms); ‘‘lengthandcharge.txt’’ (total macroion charge and dimensions), and ‘‘radiusandcharge.txt’’ (parameters characterizing the macroion radius and charge density)."
+    }, {
+      "heading" : "4. Graphical user interface: use and applications",
+      "text" : ""
+    }, {
+      "heading" : "4.1. GUI Description",
+      "text" : "In this section we describe the screen sequence generated by the GUI. The first, second and third screens correspond to\n‘‘project window’’, ’’model window’’, and ‘‘results visualization window’’, respectively. Each screen provides information to help the user fill out the input data by moving the mouse pointer over the corresponding text or blank box (see Fig. 4)."
+    }, {
+      "heading" : "4.1.1. Project window: selection of the solute geometry model and electrolyte solution theory",
+      "text" : "The main screen, shown in Fig. 5, corresponds to the project window which provides user access to the Menu, Information and Model Sections.\nThe menu section, located at the top left corner of the window, contains the File, Tools and Help menus. The File Menu contains the Results Visualization and Exit options (see Fig. 6(a)). The Results Visualization option may be used after running the simulation. This option allows users to select output file(s) and visualize the solution(s) in two-dimensional plot(s).\nThe Tools Menu contains the Browse PDB files, Crystal Ion Library, Effective Ion Library, and Hydrated Ion Library options (see Fig. 6(b)). The tool Browse PDB files is used for biophysical applications only. It allows users to open a web browser and download protein molecular structure(s) from the protein database web page (http://www.rcsb.org/). The user may use this tool any time. The Ion Library tools provide the user access to the tables pretabulated with specific information on ion species, valences, and diameters that are required to characterize the electrolyte aqueous solution. These tools can be used to redefine existing ion\nspecies and define new ion species as well. The last menu, shown in Fig. 6(c), corresponds to the Help Menu which provides access to the user’s guide, software license, and contact information.\nThe Solute Geometry Model section is located at the central bottom part of the window. To select the macroion (solute), the user has four options: Nanoparticles and nanorods for nanomaterials applications, or globular proteins and rod-biopolymers for biophysical applications.\nThe Electrolyte Aqueous Solution Model is located right below the Solute geometry model. CSDFTS offers two electrolyte aqueous solution theories. NLPB uses an implicit solvent model and considers electric interactions only, whereas, CSDFT uses an explicit solvent model (SPM) and considers not only the electric but also the entropic and ion–ion correlation interactions. More information on solvent and ion models is provided in Appendix. The selection of the EDL model mainly depends on the computational resources, the electrolyte conditions, physicochemical properties of the solute, and the accuracy required for the numerical solution (illustrative examples are provided below). As a rule of thumb, NLPB is more efficient but less accurate than CSDFT. It is worth mentioning that CSDFT is a unique feature of the software, whereas NLPB theory is included for testing and comparison purposes, mostly. Indeed, there are other programs based on implicit solvent models such as APBS [24] and MPBEC [25] who provide the solution for both symmetric and asymmetric macroion shapes."
+    }, {
+      "heading" : "4.1.2. Model window: system and solver configuration",
+      "text" : "Once the Solute Geometry Model and the Electrolyte Aqueous Solution Model are selected in the project window, the GUI automatically opens a second screen, the model window. In this screen, most of the text-based user interaction occurs (see Fig. 7). It contains the following modules: Electrolyte Model, Solute Model, andNumerical Scheme and Runtime Options.\nThe Ion Model section shown in Fig. 8 allows users to characterize the electrolyte solution by providing the bulk concentration [ρ0i ] and the valence zi for each ion species i. In NLPB theory, ions are represented as point-like particles, and consequently, there is no need to define the ion sizes. Whereas, in CSDFT each ionic species i is represented by charged hard spheres of diameter di. In this case, CSDFTS offers a pre-tabulated crystal, effective and hydrated ionic diameter types, which are estimated using different experimental techniques [26]. To characterize the electrolyte solution, the user has to select the first ion species and its properties, then click the button ‘‘Add’’, and subsequently repeat the procedure to add more ion species. The ‘‘Delete’’ and ‘‘Update’’ buttons allow users to remove and change the properties of a previously selected ion. Once the user selects all the ion species (e.g. valence and bulk concentration), the electroneutrality condition (e.g. ∑ i zi[ρ 0 i ] = 0) must be satisfied. The status of this condition is displayed at the bottom of this section. Note that only ion species comprising the electrolyte solution must be defined in this section. Hydrogen and Hydroxide ions controlling the pH level of the electrolyte solution are assigned by CSDFTS automatically.\nThe Solvent Model section, shown in Fig. 9, allows users to characterize the structural and electric properties of the solvent. Both NLPB and CSDFT consider the solvent as neutral polar molecules. NLPB only requires the value of the uniform bulk dielectric permittivity constant ϵ to model the solvent electrical properties. CSDFT additionally requires the solvent molar bulk concentration [ρ0w] and molecular diameter dw to model the solvent entropy properties. The default values displayed in this section correspond to the experimental values for water. More details on solvent models are provided in Appendix.\nIn the Solute Model section, Fig. 10(a) corresponds to nanomaterials, whereas Fig. 10(b) corresponds to biomolecules. The current version of the software represents nanoparticles and globular proteins as spherical rigid solutes. Nanorods and rod-biopolymers are represented as infinitely long cylindrical rigid solutes. These solutes are characterized by the effective radius R, as well as, the surface charge density σ and the length ℓ = e/λ ( electron charge e per axial charge density λ) for spherical and cylindrical shapes, respectively.\nFor nanomaterials, the user is required to provide an effective radius which is usually obtained from experiments. Nevertheless, there are two options to characterize the biomolecule size. The user may either provide this information from experiments (Experimental data model) or it can be estimated from the molecular structure (Molecular structure model).\nA novel feature of the software lies in the option to calculate the macroion surface charge density σ arising from the\nprotonation/deprotonation reactions of the dissociable functional groups at the solid/liquid interface. The user can click the Illustration buttons to visualize the different options and models (see Fig. 11). For nanomaterials, this charging/discharging mechanism has traditionally been described using surface complexation models (SCMs), where titration of surface groups is described by the pH level and an ensemble of mass balance equilibria with associated equilibrium constants (see Appendix). This approach is included in the protonation/deprotonation model. The user has to provide the equilibrium constants pKa and pKb for protonation and deprotonation of the active functional group, respectively, as well as the number density of total functional groups on the surface N, and the pH level (see Fig. 10(a)). The resulting SCD depends on the ZP and vise-versa. A different scenario is presented for globular proteins and rod-biopolymers since the titration is usually described by a set of empirical rules relating the protein structure to the equilibrium constant values of ionizable groups (residues). This mechanism is included in theMolecular structure model option. The user has to upload the molecular structure (pdb file), select a force field, and define the pH level as shown in Fig. 10(b). This uncharged molecular structure in pdb format is used by the software to automatically run the pdb2pqr/propka application (http://sourceforge.net/projects/ pdb2pqr/). This application assigns atomic charges and sizes, adds missing hydrogens, optimizes the hydrogen bonding network, and renormalizes atomic charges of the residues exposed to the surface due to pH effects (protonation/deprotonation process). Afterward, the GUI uses the molecular structure in pdb format to automatically run either the provol (default) or 3v application. This approach estimates the total macroion volume in a grid mesh of 0.5 Å by rolling a probe particle of radius 1.4 Å on its surface. Finally, the information obtained from the total protein charge and volume is used to calculate the effective solute radius as well as the uniform surface charge density σ and the length ℓ for spherical and cylindrical shapes, respectively. For each of these approaches, the GUI opens an external terminal window to display these inner calculations (see Fig. 12). It also opens a RAM memory window to monitor the user’s computer performance (see Fig. 13). Once the calculations are over, the GUI closes these windows and enables the execution buttons ‘‘Generate the input file and run CSDFT manually’’ and ‘‘run CSDFT automatically’’ to run CSDFT.\nThe software provides another important feature for biophysics applications, namely, the molecular visualization tool. Once the aforementioned calculations are over, the user can visualize the uploaded molecular structure which provides a detailed molecular characterization including the amino acid sequence and the number and type of residues exposed to the electrolyte (see Fig. 14). Alternatively, the user may select the experimental data option to provide the values of these parameters from experiments. In this case, there is no waiting time to run CSDFTS.\nThe Thermodynamic Conditions option is used to define the electrolyte solution temperature. The default value displayed in Fig. 15 corresponds to the room temperature.\nTheNumerical Scheme and Runtime Option section, shown in Fig. 17, allows the user to configure key parameters which play\na fundamental role in the solver performance. They control the accuracy and computational cost. The tolerance number represents the numerical error required by the user to numerically obtain the normalized density profile solutions. A minimum of six digits of precision is highly recommended (default value). The radial grid resolution represents the regular separation distance h between two consecutive points in the domain discretized of the radial distance. The value recommended for this parameter is 0.05 Å which has been shown to work for most applications on computers without RAM memory restrictions. The domain of\nthe solution ranges from the macroion surface (e.g. the radius R) to the cutoff L. The latter is determined automatically by CSDFTS to provide the correct (long range) asymptotic behavior of the mean electrostatic potential, and consequently, satisfy the electroneutrality condition of the system. The number of grid points is calculated as follows N = (L − R)/h + 1. The Mixing Parameter represents a number between 0 and 1. Its default value is 0.35. This parameter is used in the protonation/deprotonation model to help the solver to reach stability and convergence in the solution iteratively.\nFig. 9. Solvent model.\nWe note that high resolution and tolerance generate high computational cost, allocated RAM memory, solver stability, and accuracy, but slow the rate of convergence on the calculations. The user may use a lower resolution to speed up the calculations and reduce the allocated RAM memory at the risk of losing\nconvergence in the CSDFTS iterations. In that case, the solver will stop the simulation after 10000 iterations. The user may kill the process using standard approaches (e.g. ‘‘Ctrl+C’’). More details on the numerical solver scheme are provided in Appendix.\nAfter all changes on preselected parameters and options are completed, all boxes are filled out and pre-calculations are over, the user may either press the button Generate the input file and run CSDFT manually or run CSDFT automatically. To ensure the correct use of the software and avoid useless results, the GUI tests all the input data, and sends the user warning messages if unusual/nonphysical values are assigned or missing information is detected (see Fig. 16).\nWe highly recommend the user to select the option run CSDFT automatically. The other option is more suitable for those skilled computer users who prefer to run simulations using the command line. In this case, the GUI generates the input file ‘‘inp.in’’ for spherical solutes and ‘‘inputfile.in’’ for cylindrical solutes. To\nrun CSDFTS manually in Linux operating systems, the user should open a terminal and change the current directory to the corresponding output sub-folder directory. Next, the user should type\n‘‘∼/CSDFT/Linux/sphere_linux.sh inp.in’’ for spherical solutes or ‘‘∼/CSDFT/Linux/cylinder_linux.sh inputfile.in’’ for cylindrical solutes. A similar procedure is required for other operating systems."
+    }, {
+      "heading" : "4.1.3. Results visualization",
+      "text" : "If the ‘‘run CSDFT automatically’’ option is selected, the results visualization window appears once the simulation is over. This screen allows the user to select the output file(s) and visualize the numerical solution(s) in two dimension plot(s) (see Fig. 18). The user may right-click on the desired plot to change the plot properties (see Fig. 18(c)). The user can also visualize the data on spreadsheets as shown in Fig. 18(b)."
+    }, {
+      "heading" : "4.2. Quick start",
+      "text" : "The user is recommended to follow these simple steps:\n• On the first screen, select the macroion type and subsequently the electrolyte model. • On the second screen, select the ions and provide the corresponding concentrations. Make sure to fulfill the electroneutrality condition. Next, define the solvent model. The dielectric permittivity value may be changed if needed. If CSDFT was selected, the solvent concentration and molecule size may be also changed. Subsequently, configure the solver. The resolution and tolerance may be changed depending on the user’s computer performance and available RAM memory. The default values are recommended to be used in computers without substantial RAM memory restrictions. Otherwise, decrease the resolution accordingly. For nanomaterials applications and protonation/deprotonation models, the mixing parameter may be changed if needed. For biophysics applications and the molecular structure option, the user has two options for the protein volume application. The default application works for all the operating systems whereas ‘‘3v’’ only works for Unix operating systems which requires the installation of the GNU gawk application on the user’s computer. As a rule of thumb, the latter runs faster and requires less allocated RAM memory. The last step is the selection of the solute model. For nanomaterials applications, select either the experimental or protonation/deprotonation option and provide the corresponding information. At this stage, the software is ready to\nTable 2 Illustrative examples.\nh[Å] Properties Example Example Example Example Example\n1 2 3 4 5\nCSDFT NLPB CSDFT NLPB CSDFT NLPB CSDFT NLPB CSDFT NLPB\npH 4 11 7 8 5\nRadius [Å] 50 30 9.5 16.38 22.13\n0.05\nσ [C/m2] or ℓ [Å] −0.0135 −0.0137 −0.1913 −0.191 7.2 7.2 0.0048 0.0048 18.39 18.39\nZP [mV] −8.59 −12.14 −3.94 −93.66 7.81 19.48 1.44 2.65 1.69 4.13\nMax.RAM memory [Gb] 2.9 1 2.5 1.5 1.1 0.5 0.7 0.7 11.5 11.5\nApprox. computing time [min] 15 <1 27 <1 4 <1 2 1 49 47\n0.1\nσ [C/m2] or ℓ [Å] −0.0137 −0.0137 −0.193 −0.191 7.2 7.2 0.0048 0.0048 18.39 18.39\nZP [mV] −8.65 −12.13 −3.89 −93.45 7.77 19.31 1.28 2.63 1.57 4.11\nMax.RAM memory [Gb] 2.3 0.7 2.2 1.5 0.4 0.4 0.5 0.5 11.5 11.5\nApprox. computing time [min] 9 <1 19 <1 1 <1 2 1 51 47\nrun the CSDFTS. For biophysics applications, select either the experimental or the molecular structure option and provide the corresponding information. In the latter case, select the force field and set up the pH before uploading the molecular structure. Wait until calculations on the molecular structure are over. Afterward, the molecular structure may be visualized. Finally, select either the ‘‘Generate the input file and run CSDFT manually’’ or ‘‘run CSDFT automatically’’. • If the ‘‘run CSDFT automatically’’ was selected, an additional screen is available to visualize solutions in 2D plots. • If there is an issue in the previous steps, close all screens and start over again. Double check all the input data and selected options. Make changes on those parameters that may improve the CSDFTS convergence and the user’s computer performance."
+    }, {
+      "heading" : "4.3. Examples",
+      "text" : "In this section, we analyze several macroions under different electrolyte conditions (see Table 2). We ran these simulations on several operating systems and CPU processors. The results shown in the present article corresponds to those obtained on a single Intel Xeon 5680 and CentOS 7 operating system.\nThe first example is a spherical Silica oxide nanoparticle of radius 50 Å immersed in a salt mixture of 0.2M NaCl + 0.05 M MgCl2 (e.g. 0.2M Na+, 0.05 M Mg+2, and 0.3M Cl− after complete dissociation), with protonotation/deprotonation defined by equilibrium constants pKa = 6.8 and pKb = 1.7, density number of active site N = 0.000002mol/m2, and pH level 4 . The second example is a Silica oxide nanorod of radius 30 Å immersed in a single salt of 0.65 M KCl (e.g. 0.65 M K+ and 0.65 M Cl−). We assign the same values for pKa, pKb, and N, but pH level is set equal to 11. The third example is a segment of B-DNA with experimental value for the radius of 9.5 Å and length ℓ = 7.2 Å immersed in a mixed salt of 0.3M NaCl +0.15M KCl (0.3 M Na+, 0.15 M K+, and 0.45 M Cl−) at neutral pH. The fourth example is the myoglobin globular protein immersed in a single salt of 0.15\nM CaCl2 (e.g. 0.15 M Ca+2 and 0.3 M Cl−). We use the molecular structure 4of9.pdb (153 residues), Amber force field and pH level 8. The last example is an actin filament immersed in 0.35M KCl (e.g. 0.35M K+ and 0.35 M Cl−). We utilize the molecular structure 3B5U.pdb (375 residues), Amber force field, and pH level 5. We use crystal ion types for the CSDFT approach and predefined values for the remaining parameters unless otherwise is defined in Table 2.\nTo illustrate numerical solutions, we show in Fig. 19 the structural properties of the EDL predicted by CSDFT and NLPB for a myoglobin protein, whereas in Fig. 20, we present the electric properties of the EDL corresponding to an actin filament. This visualization is useful for analyzing the behavior of the electrostatic potential interactions and the ion–water distributions at short and long distances from the macroion. It is also relevant for analyzing the effective range, intensity, and nature of the driving force governing the potential of mean force for each ion species. An extensive analysis and discussion on structural and electrical properties of EDLs for these systems can be found elsewhere [13,15,17–19,27].\nOverall, the software offers diversity in applicability and analysis in many colloidal systems. Running multiple simulations at different pH levels may provide a molecular understanding on the impact of pH on the ZP, SCD, and EDL properties of macroions, and consequently, their stability and aggregation. Furthermore, simulating different electrolyte solutions may be useful to understand the effects of biological fluids on biomolecules and their functions. It is also possible to perform multiple simulations for different macroion sizes, charges, and shapes to study their influence on membrane absorption."
+    }, {
+      "heading" : "5. Future directions",
+      "text" : "Users will receive notifications to update the software when a new release is available. Future versions of the software will provide an extension of the capabilities of the current one-dimension CSDFT to account for molecular structure (irregular shape and inhomogeneous charge distribution) and water polarization [27] (variable solvent dielectric permittivity) details on the calculation of EDL properties. This extension will be of fundamental importance in describing solvation free energies, specific ion and water binding sites, among other properties. Whereas, extra modules will involve combinations between CSDFT and hydrodynamic approaches [8] to describe a variety of phenomena, ranging from macroions transport and diffusion to ionic currents around biopolymers [16].\nFig. 17. Numerical scheme and runtime options."
+    }, {
+      "heading" : "Acknowledgments",
+      "text" : "This work was supported by NIH, United States Grant 1SC1GM127187-01. The author warmly thanks technicians Esteban Valderrama and Samrita Neogi for their participation in programming and testing the software."
+    }, {
+      "heading" : "Appendix. Theory and numerical scheme",
+      "text" : "A.1. CSDFT For spherical and cylindrical macroions immersed in a aqueous electrolyte solution at neutral ph.\nIn this approach, we consider a rigid charged macroion of effective radius R and uniform surface charge density σ surrounded by an electrolyte solution comprised of m ionic species. We use the solvent particle model to characterize the electrolyte. Each ionic species i is represented by bulk Molar concentration [ρ0i ], a charged hard sphere of diameter di, and total charge qi = ezi, where e is the electron charge and zi is the corresponding ionic valence. Additionally, the solvent molecules are represented as a neutral ion species whereas the solvent electrostatics is considered implicitly by using the continuum dielectric environment with a dielectric constant ϵ. The macroion–liquid interaction induces inhomogeneous ion profiles [ρi(r)] which are calculated using CSDFT as follows [15,17]:\n[ρi(r)] = { [ ρ0i ] exp { ∆Ei(r, {[ρj]}) } ,r > R + di/2\n0,r ≤ R + di/2 (1)\nwhere ∆Ei(r, {[ρj]}) ≡ −βqiψ(r, {[ρj]}) + ∆c (1)hs i (r, {[ρj]}) + ∆c(1)resi (r, {[ρj]}) stands for the ionic PMF per unit of thermal\nenergy KT , β = 1/kT , k is the Boltzmann constant, T the temperature, and c(1)hsi (r, {[ρj]}) and c (1)res i (r, {[ρj]}) are the hard sphere (particle crowding) and residual electrostatic ion–ion direct correlation functions, respectively. ψ(r, {[ρj]}) represents the mean electrostatic potential (MEP) of the system\nψ(r, {[ρj]}) = e ϵ\n∫ ∞\nr\ndr ′\nr ′ P(r ′, {[ρj]}, n) (2)\nand\nP(r ′, {[ρj]}, n) = 1\nr ′n−1 { Rnσ e + ∫ r ′ R dr ′r ′n ∑\ni\nziρi(r ′) } { n=1 for cylindrical macroions n=2 for spherical macroions\n(3)\nthe integrated charge (see Fig. 1). Expression (2) is the formal solution of the PB equation for a homogeneous anisotropic dielectric media ϵ\n∇ 2ψ(r, {[ρj]}) = − 1 ϵ m∑ i=1 zi [ρi(r)]\nϵ∂ψ(r, {[ρj]})/∂r|r=s= −σ , ψ(r, {[ρj]})|r→∞→ 0, (4)\nwith the surface charge layer position defined as s ≡ R + ⟨{di}⟩ and ⟨{di}⟩ ≡ NAl3B ∑ i |zi| [ρ 0 i ]di/(2m). In the latter definition, NA and lB stand for the Avogadro number and the Bjerrum length, respectively.\nWe note that ℓ = e/λ represents the electron charge e per axial charge density λ, which is the characteristic parameter used to describe the charge distribution in cylindrical solutes. The corresponding surface charge density is σ = λ/(2πR) = e/(2πRℓ).\nA.2. Surface complexation model: accounting for ph effects of the electrolyte aqueous solution on the macroion surface charge density\nIn order to account for the titration that regulates the macroion surface charge density σ we consider the following two protonation reactions of single MO-coordinated sites :\nMOH ↔ MO− + H+, MOH + H+ ↔ MOH+2 . (5)\nwith equilibrium constants KA and KB\nKA = NMO− [H+]s\nNMOH , KB = NMOH+2 NMOH [H+]s . (6)\nIn the above expressions, NMOH , NMO− , and NMOH+2 are the surface site densities of MOH , SO− and MOH+2 , respectively. [H + ]s is the concentration of H+ ions at the SCD position s, namely [H+]s ≡ [ρH (s)] = [ρ0H ]exp { ∆EH (s, {[ρj]}) } , (7)\nwhere ∆EH (s, {[ρj]}) = −βζ +∆c (1)hs H (s, {[ρj]})+∆c (1)res H (s, {[ρj]}) is the hydrogen PMF per unit of thermal energy KT , ζ ≡ ψ(s, {[ρj]}) is the ZP, and ∆c (1)hs H and ∆c (1)res H represent the hydrogen hard sphere (particle crowding) and ion–ion direct correlation contributions, respectively. The bulk concentration of\nH+ ions is represented by [ρ0H ], which is related to the pH value of the bulk liquid at infinite dilution by the expression pH = −Log([ρ0H ]). The total number density of functional groups on the SCD position is Ntotal = NMO− + NMOH + NMOH+2 and the SCD is σ = −F (NMO −NMOH+2 ), where F represents the Faraday constant. Writing the densities sites in terms of the equilibrium constants (7), the SCD can be calculated as follows [18,19]:\nσ = −FNtotal KA − KB\n( [ρH (r)]r=s )2 KA + [ρH (r)]r=s + KB ( [ρH (r)]r=s )2 (8)\nThe pH of the solution is adjusted by adding strong acid (NaOH) and (HCl) solutions to the electrolyte. The free proton and hydroxyl ion bulk concentrations are given by the wellknown expressions [ρ0H ] = 10 −pH , and [ρ0OH ] = 10 −(14−pH), respectively, and the bulk concentrations of the electrolyte are chosen to satisfy the bulk electroneutrality condition.\nA.3. NLPB approach\nNLPB is a particular case of the CSDFT approach. Indeed, the expressions introduced in the previous sections for CSDFT recover\nthe NLPB approach by setting all ion sizes equal to zero. As a result, s = R, ∆c(1)resi (r, {[ρj]}) = 0, and ∆c (1)hs i (r, {[ρj]}) = 0 for continuum models.\nA.4. Iterative solver scheme\nWhile the expression (8) describes the effects of the structural and electrostatic properties of the electrolyte on the SCD, the boundary condition in expression (4) accounts for the SCD effects on the structural and electrostatic properties of the electrolyte. Therefore, Eqs. (1)–(8) must be solved self-consistently as it is shown in Fig. 21."
+    } ],
+    "references" : [ {
+      "title" : "Biophys",
+      "author" : [ "G.S. Manning", "Q. Rev" ],
+      "venue" : "11 (2) ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 1978
+    }, {
+      "title" : "Chem",
+      "author" : [ "D.C. Grahame" ],
+      "venue" : "Rev. 41 (3) ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 1947
+    }, {
+      "title" : "Electrochemical Systems",
+      "author" : [ "J. Newman" ],
+      "venue" : "Chapter 1, Englewood Cliffs, N.J. Prentice-Hall",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 1973
+    }, {
+      "title" : "Annu",
+      "author" : [ "J. Wu", "Z. Li" ],
+      "venue" : "Rev. Phys. Chem. 58 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Phys",
+      "author" : [ "R.L. Hayes", "J.K. Noel", "A. Mandic", "P.C. Whitford", "K.Y. Sanbonmatsu", "U. Mohanty", "J.N. Onuchic" ],
+      "venue" : "Rev. Lett. 114 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Chem",
+      "author" : [ "M. Barisik", "S. Atalay", "A. Beskok", "S.J. Qian", "J. Phys" ],
+      "venue" : "C 118 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Colloids Surf",
+      "author" : [ "S.M. Löbbus", "W. Vogelsberger" ],
+      "venue" : "A 195 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Electrokinetic and Colloid Transport Phenomena",
+      "author" : [ "J.H. Masliyah", "S. Bhattacharjee" ],
+      "venue" : "John Wiley and Sons, Hoboken",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "L",
+      "author" : [ "A. Studart", "E. Amstad" ],
+      "venue" : "Gauckler, Langmuir 23 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Biophys",
+      "author" : [ "M.L. Sushko", "D.G. Thomas", "S.A. Pabit", "L. Pollack", "A.V. Onufriev", "N.A. Baker" ],
+      "venue" : "J. 110 (2) ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Yu-Hsiu",
+      "author" : [ "P.A. Janmey", "D.R. Slochower" ],
+      "venue" : "Wang, Qi. Wen, A. Cebers, Soft Matter 10 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Phys",
+      "author" : [ "A.A. Kornyshev" ],
+      "venue" : "Chem. B 111 (20) ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Biophys",
+      "author" : [ "P. Ren", "J. Chun", "D.G. Thomas", "M.J. Schnieders", "M. Marucho", "J. Zhang", "N.A. Baker", "Q. Rev" ],
+      "venue" : "49 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "New Algorithms for Macromolecular Simulation",
+      "author" : [ "N.A. Baker", "D. Bashford", "D.A. Case" ],
+      "venue" : "Vol. 49, Springer, Berlin",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "B",
+      "author" : [ "Z. Ovanesyan" ],
+      "venue" : "Medasani, M.O. Fenley, M.G.I. Guerrero-Garcí a, M. Olvera de la Cruz, M. Marucho, J. Chem. Phys. 141 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "RSC Adv",
+      "author" : [ "C. Hunley", "D. Uribe", "M. Marucho" ],
+      "venue" : "8 (22) ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Phys",
+      "author" : [ "B. Medasani", "Z. Ovanesyan", "D.G. Thomas", "M. Sushko", "M. Marucho", "J. Chem" ],
+      "venue" : "140 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "J",
+      "author" : [ "Z. Ovanesyan", "A. Aljzmi", "M. Almusaynid", "A. Khan", "E. Valderrama", "K.L. Nash", "M. Marucho" ],
+      "venue" : "Colloid Interface Sci. 462 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Phys",
+      "author" : [ "C. Hunley", "M. Marucho" ],
+      "venue" : "Chem. Chem. Phys. 19 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "M",
+      "author" : [ "C.R. Chen" ],
+      "venue" : "Makhatadze, BMC Bioinformatics 16 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Nucleic Acids Res",
+      "author" : [ "N.R. Voss", "M. Gerstein" ],
+      "venue" : "38 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Nucleic Acids Res",
+      "author" : [ "T.J. Dolinsky", "J.E. Nielsen", "J.A. McCammon", "N.A. Baker" ],
+      "venue" : "32 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Comput",
+      "author" : [ "S. Vergara-Perez", "M. Marucho" ],
+      "venue" : "Phys. Comm. 198 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Acta Crystall",
+      "author" : [ "R.D. Shannon" ],
+      "venue" : "A 32 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 1976
+    }, {
+      "title" : "Phys",
+      "author" : [ "V. Warshavsky", "M. Marucho" ],
+      "venue" : "Rev. E 93 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Certainly, the current understanding of EDL properties of macroions is based mainly on mean-field theories like the counterion condensation theory [1], the non linear Poisson–Boltzmann (NLPB) formalism and its modifications [13], which consider electrostatic potential interactions only.",
+      "startOffset" : 147,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 12,
+      "context" : "Certainly, the current understanding of EDL properties of macroions is based mainly on mean-field theories like the counterion condensation theory [1], the non linear Poisson–Boltzmann (NLPB) formalism and its modifications [13], which consider electrostatic potential interactions only.",
+      "startOffset" : 224,
+      "endOffset" : 228
+    }, {
+      "referenceID" : 13,
+      "context" : "Thus, it is essential to develop not only more accurate and efficient approaches but also readily accessible, friendly implementation of a software package that provides experts and non-experts a visualized guide (graphical user interface) to perform these calculations without limitations [14].",
+      "startOffset" : 290,
+      "endOffset" : 294
+    }, {
+      "referenceID" : 14,
+      "context" : "The application is based on the so-called Classical Solvation Density Function Theory (CSDFT) and its modifications, which have been shown to be particularly useful in studying multiple environmental scenarios for a variety of rod-like [15,16] and spherical [17–19] rigid-like macroions without computational restriction.",
+      "startOffset" : 236,
+      "endOffset" : 243
+    }, {
+      "referenceID" : 15,
+      "context" : "The application is based on the so-called Classical Solvation Density Function Theory (CSDFT) and its modifications, which have been shown to be particularly useful in studying multiple environmental scenarios for a variety of rod-like [15,16] and spherical [17–19] rigid-like macroions without computational restriction.",
+      "startOffset" : 236,
+      "endOffset" : 243
+    }, {
+      "referenceID" : 19,
+      "context" : "edu/) [21] or the Unix based ‘‘v3’’ (http://3vee.",
+      "startOffset" : 6,
+      "endOffset" : 10
+    }, {
+      "referenceID" : 22,
+      "context" : "Indeed, there are other programs based on implicit solvent models such as APBS [24] and MPBEC [25] who provide the solution for both symmetric and asymmetric macroion shapes.",
+      "startOffset" : 94,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 23,
+      "context" : "In this case, CSDFTS offers a pre-tabulated crystal, effective and hydrated ionic diameter types, which are estimated using different experimental techniques [26].",
+      "startOffset" : 158,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 24,
+      "context" : "Future versions of the software will provide an extension of the capabilities of the current one-dimension CSDFT to account for molecular structure (irregular shape and inhomogeneous charge distribution) and water polarization [27] (variable solvent dielectric permittivity) details on the calculation of EDL properties.",
+      "startOffset" : 227,
+      "endOffset" : 231
+    }, {
+      "referenceID" : 7,
+      "context" : "Whereas, extra modules will involve combinations between CSDFT and hydrodynamic approaches [8] to describe a variety of phenomena, ranging from macroions transport and diffusion to ionic currents around biopolymers [16].",
+      "startOffset" : 91,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 15,
+      "context" : "Whereas, extra modules will involve combinations between CSDFT and hydrodynamic approaches [8] to describe a variety of phenomena, ranging from macroions transport and diffusion to ionic currents around biopolymers [16].",
+      "startOffset" : 215,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 14,
+      "context" : "The macroion–liquid interaction induces inhomogeneous ion profiles [ρi(r)] which are calculated using CSDFT as follows [15,17]:",
+      "startOffset" : 119,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 16,
+      "context" : "The macroion–liquid interaction induces inhomogeneous ion profiles [ρi(r)] which are calculated using CSDFT as follows [15,17]:",
+      "startOffset" : 119,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 17,
+      "context" : "(7), the SCD can be calculated as follows [18,19]:",
+      "startOffset" : 42,
+      "endOffset" : 49
+    }, {
+      "referenceID" : 18,
+      "context" : "(7), the SCD can be calculated as follows [18,19]:",
+      "startOffset" : 42,
+      "endOffset" : 49
+    } ],
+    "year" : 2019,
+    "abstractText" : "The electrostatic, entropic and surface interactions between a macroion (nanoparticle or biomolecule), surrounding ions and water molecules play a fundamental role in the behavior and function of colloidal systems. However, the molecular mechanisms governing these phenomena are still poorly understood. One of the major limitations in procuring this understanding is the lack of appropriate computational tools. Additionally, only experts in the field with an extensive background in programming, who are trained in statistical mechanics, and have access to supercomputers are able to study these systems. To overcome these limitations, in this article, we present a free, multi-platform, portable Java software, which provides experts and non-experts in the field an easy and efficient way to obtain an accurate molecular characterization of electrical and structural properties of aqueous electrolyte mixture solutions around both cylindricaland spherical-like rigid macroions under multiple conditions. These properties include the normalized ions and water density profile distributions, the mean electrostatic potential, the integrated charge, the zeta potential, the electrostatic potential energy, the particle crowding entropy energy, the ion–ion electrostatic direct correlation energy, and the ionic potential of mean force. The Java software does not require outstanding skills and comes with detailed userguide documentation. The application is based on the so-called Classical Density Functional Theory Solver (CSDFTS), which was successfully applied to a variety of rod-like biopolymers, rigid-like globular proteins, nanoparticles, and nano-rods. CSDFTS implements several electrolyte and macroion models, uses different levels of approximation and takes advantage of high performance Fortran90 routines and optimized libraries. These features enable the software to run on single processor computers at low-to-moderate computational cost depending on the computer performance, the grid resolution, and the characterization of the macroion and the electrolyte solution, among other factors. As a unique feature, the software comes with a graphical user interface (GUI) that allows users to take advantage of the visually guided setup of the required input data to properly characterize the system and configure the solver. Several examples on nanomaterials and biomolecules are provided to illustrate the use of the GUI and the solver performance. Program summary Program Title: CSDFTS Program Files doi: http://dx.doi.org/10.17632/4t8ybf93d5.1 Licensing provisions: GPLv2. Programming language: Java 1.8. External routines/libraries: GNU gawk installation is required if the user wants to calculate the protein volume using the 3v application. Nature of problem: A rich and complex, yet not fully understood, electrical double layer (EDL) formation arises when a nanoparticle or biomolecule is immersed in a liquid solution. Solution method: The Java application is based on the Classical Density Functional Theory Solver (CSDFTS). Additional comments including unusual features: The software incorporates a graphical user interface which eliminates the arduous and error-prone manual entry of data, and substantially reduces the time spent on the setup of the information required to characterize the macroion and the electrolyte ✩ This paper and its associated computer program are available via the Computer Physics Communication homepage on ScienceDirect (http://www.sciencedirect. com/science/journal/00104655). ✩✩ The review of this paper was arranged by Stephan Fritzsche. E-mail address: marcelo.marucho@utsa.edu. URL: https://www.utsa.edu/physics/faculty/MarceloMarucho.html. https://doi.org/10.1016/j.cpc.2019.03.022 0010-4655/© 2019 Elsevier B.V. All rights reserved. M. Marucho / Computer Physics Communications 242 (2019) 104–119 105 solution. Additionally, each GUI screen provides helpful information about how to fill out the input data by simply holding the mouse pointer over the corresponding text or blank box. the GUI tests all the input data before running the CSDFTS to avoid the incorrect use of the software and prevent meaningless results. The GUI requires a variety of the user’s computer applications, which are a part of the basic operating systems. The GUI uses ‘‘Activity Monitor’’, ‘‘procexp.exe’’, and ‘‘gnome-system-monitor’’ (or ‘‘top’’) applications for Mac, Windows and Linux users, respectively, to monitor the user’s computer performance. It also uses ‘‘Terminal.app’’, ‘‘cmd.exe’’ and ‘‘gnome-terminal’’ (or ‘‘xterm’’) for Mac, Windows, and Linux users, respectively, to display the CSDFT calculations. © 2019 Elsevier B.V. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

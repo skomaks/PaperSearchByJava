@@ -1,0 +1,2058 @@
+{
+  "name" : "downloads_2019-10-23_74_wei2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Machine learning in materials science",
+    "authors" : [ "Jing Wei", "Xuan Chu", "Xiang-Yu Sun", "Kun Xu", "Hui-Xiong Deng", "Jigen Chen", "| Zhongming Wei", "| Ming Lei" ],
+    "emails" : [ "zmwei@semi.ac.cn", "mlei@bupt.edu.cn" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Correspondence Zhongming Wei, State Key Laboratory of Superlattices and Microstructures, Institute of Semiconductors, Chinese Academy of Sciences, Center of Materials Science and Optoelectronics Engineering, University of Chinese Academy of Sciences, Beijing 100083, China. Email: zmwei@semi.ac.cn\nMing Lei, State Key Laboratory of Information Photonics and Optical Communications, Beijing University of Posts and Telecommunications, Beijing 100876, China. Email: mlei@bupt.edu.cn\nFunding information China Postdoctoral Science Foundation, Grant/Award Number: 2017M620694; National Natural Science Foundation of China, Grant/Award Number: 61622406 61571415; Beijing Academy of Quantum Information Sciences, Grant/Award Number: Y18G04; Strategic Priority Research Program of Chinese Academy of Sciences, Grant/Award Numbers: XDB30000000, 2016YFB0700700, 2017YFA0207500; National Key Research and Development Program of China; National Postdoctoral Program for Innovative Talents, Grant/ Award Number: BX201700040\nerror method and the density functional theory (DFT)-based method, are unable to\nkeep pace with the development of materials science today due to their long devel-\nopment cycles, low efficiency, and high costs. Accordingly, due to its low compu-\ntational cost and short development cycle, machine learning is coupled with\npowerful data processing and high prediction performance and is being widely used\nin material detection, material analysis, and material design. In this article, we dis-\ncuss the basic operational procedures in analyzing material properties via machine\nlearning, summarize recent applications of machine learning algorithms to several\nmature fields in materials science, and discuss the improvements that are required\nfor wide-ranging application.\nKEYWORD S\ndata processing, deep learning, machine learning, modeling, validation"
+    }, {
+      "heading" : "1 | INTRODUCTION",
+      "text" : "The guiding ideology of materials science can be summarized in four paradigms1: the first paradigm is the empirical trial\nand error method, the second paradigm is physical and chemical laws, the third paradigm is computer simulation, and the fourth paradigm is big data-driven science. Among them, with the continuous development of data mining technology and\nThis is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited. © 2019 The Authors. InfoMat published by John Wiley & Sons Australia, Ltd on behalf of UESTC.\n338 InfoMat. 2019;1:338–358.wileyonlinelibrary.com/journal/inf2\nartificial intelligence, the fourth paradigm can perfectly unify the other three paradigms in the aspects of theory, experiment, and computer simulation. New methods that are based on big data, such as machine learning, have emerged in and from the study of materials science.\nRapid developments in information science, energy, national defense, and other fields have imposed crucial and diverse requirements for materials. However, traditional methods for discovering new materials, such as the empirical trial and error method and the density functional theory (DFT)-based method, typically require a long research and development cycle, are of high cost with low efficiency, and have difficulty keeping pace with the development of materials science today. Machine learning can substantially reduce the computational costs and shorten the development cycle; hence, it is one of the most efficient ways of replacing DFT calculations or even repetitive laboratory experiments.\nMachine learning was proposed by Samuel2 in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.3-11 With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives. Early in the last century, machine learning was used to detect the solubility of C60 in materials science,\n12 and it has now been used to discover new materials, to predict material and molecular properties, to study quantum chemistry, and to design drugs.13-17 As the resources and tools for machine learning are abundant and easy to access, the barrier to entry for applying machine learning in materials science is lower than ever.\nIn this article, we not only stated the basic operational procedures in analyzing the materials' properties of machine learning but also summarized its algorithms application on several mature fields in materials science recently and discussed the improvement required for wild-ranging application. This work committed to popularize the basic\nknowledge of machine learning and promote its use in materials science.\nAs a branch of artificial intelligence, machine learning uses large amounts of data to continuously optimize models and to make reasonable predictions under the guidance of algorithms.17,18 A complete process of machine learning, including data processing, modeling, and validation, will be discussed in detail below. Figure 1 shows a simple workflow of machine learning."
+    }, {
+      "heading" : "2 | DATA PROCESSING",
+      "text" : "Information in materials science is substantially enriched by the development of big data. Agrawal and Choudhary1 summarized the changes that have been caused by big data into seven Vs: volume, velocity, variety, variability, veracity, value, and visualization. Together, these hindered the application of data processing in materials science, which, as a crucial step of machine learning, will directly affect the performance of the resulting machine learning model. Typically, data processing consists of two parts: data selection and feature engineering."
+    }, {
+      "heading" : "2.1 | Data selection",
+      "text" : "In data selection, data are selected comprehensively by considering their type, quality, and format.\nThe use of high-quality data can prevent the consideration of erroneous, missing or redundant information; hence, researchers must collect data from authoritative databases. In 2011, the United States proposed the Materials Genome Initiative for highlighting the importance of massive data in the development of materials science, which strongly encouraged the establishment of a high-quality material database.19 Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.20-27 In addition, text mining technology has been used to retrieve\nFIGURE 1 Workflow of machine learning\nrelevant literature on materials to enrich existing databases. Raccuglia et al28 proposed training a machine learning model on failure data from failed experiments as an application of data processing in materials science. They integrated experimental data that were gathered from failed or less successful hydrothermal synthesis reactions to train a machine learning model to predict the crystallization of template vanadium selenite crystals. This model outperforms traditional manual analysis and the accuracy can reach 89% in predicting the formation conditions of new organic template inorganic products.\nAt present, the data for materials science can be roughly classified into four types: material properties from experiments and simulations (physical, chemical, structural, thermodynamics, dynamics, etc.), chemical reaction data (reaction rate, reaction temperature, etc.), image data (scanning electron microscope images of materials, photos of material surfaces, etc.), and data from the literature.1 These data are discrete (eg, texts), continuous (eg, vectors and\ntensors), or in the form of weighted graphs.29 Because the data are stored in various databases in various formats, it is difficult to consider data from multiple databases. In addition, the required data format depends on the machine learning algorithm that is applied. Therefore, it is necessary to unify the data in terms of format and to select a suitable data representation for machine learning algorithms in data processing. Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.27,29-39 Figure 2 illustrates various representations of a molecule.29"
+    }, {
+      "heading" : "2.2 | Feature engineering",
+      "text" : "After data selection, one should extract suitable characteristics for the predicted target, which is called feature engineering. Feature engineering is the process of extracting features from raw data to enable the application of algorithms. It is crucial to the whole machine learning model and sometime determines the upper limit of its performance. The position of\nfeature engineering in the machine learning workflow is specified in Figure 1.\nTraditional machine learning methods (shallow learning) require features to be selected manually. For example, Oliynyk et al40 used machine learning methods to study potential Heusler compounds and properties. In this study, they finalized 22 features (eg, the group number of element B, the total number of p valence electrons, and the radius difference A/B) via experiments to accelerate the discovery of hidden relationships by\ncomputers. Lu et al41 selected 14 (eg, the tolerance factor, the total ionic charge, the p orbital electrons, and the sum of the s and p orbital radii) out of 30 initial features for training a machine learning model to predict undiscovered hybrid organicinorganic perovskites (HOIPs) for photovoltaics. Figure 3 illustrates the workflow of their study and the most representative features, which were selected for machine learning.41\nHowever, manual feature engineering is not an ideal solution. The limitations of human experience render\ndifficult the identification of the most representative features for the prediction target. In addition, manual feature engineering requires higher labor and computational costs. More recently, the development of deep learning has eliminated the need for manually featured engineering,42,43 which may become a trend in machine learning for materials science."
+    }, {
+      "heading" : "3 | MODELING",
+      "text" : "With sufficient data in a suitable format, one can build a model for analyzing materials. The modeling steps include selecting appropriate algorithms, training from training data, and making accurate predictions.\nMachine learning can be divided into supervised learning, unsupervised learning, semi-supervised learning and reinforcement learning.13,17 Supervised learning is also known as “learning with a teacher”, namely, the corresponding outputs of the training data have been labeled. In contrast, the corresponding outputs of the training data in unsupervised learning are unlabeled. For semisupervised learning, some of the training data are labeled and the remaining data are unlabeled; the amount of unlabeled data often well exceeds the number of labeled data. In reinforcement learning, instead of specifying to the model how to produce correct actions, reinforcement signals that are provided by the environment are used to evaluate the quality of the generated actions and to improve the strategies for adapting to the environment.\nAlgorithms are available for implementing the four types of machine learning methods that are described above, which can be divided into two types: shallow learning and deep learning."
+    }, {
+      "heading" : "3.1 | Shallow learning",
+      "text" : "Referring to traditional machine learning models, shallow learning methods, such as support vector machine (SVM), decision tree (DT), and artificial neural network (ANN), are mainly used in linear classification."
+    }, {
+      "heading" : "3.1.1 | Support vector machine",
+      "text" : "The SVM44,45 is a generalized linear classifier for the binary classification of data. The SVM identifies an N – 1-dimensional hyperplane for a group of data points in the N-dimensional data dimension. Consider the classification of two-dimensional (2D) data sets as an example: the hyperplane can correctly divide the training data into two categories. If unknown data are encountered, the algorithm will apply this classification model to the unknown data. Figure 4A illustrates the strategy of a linear SVM.46 Proposed in 1964, the SVM has been rapidly developed since 1990s and has spawned a series of improved algorithms. The SVM has been applied in face recognition, text categorization, biomedicine, and other pattern recognition problems.46-51\nDue to its excellent classification performance, SVM has been used to classify compounds that are related to a target drug and to successfully identify the drug that is most similar to the target drug in primary screening.52 In addition, the SVM is well suited for identifying structure–property relationships. Corma et al53 used the synthesis variables (eg, the initial gel concentration, the reaction process, the temperature, and the time) in the process of zeolite synthesis as the inputs and accurately predicted the structural characteristics and thermodynamic properties of the synthesized products."
+    }, {
+      "heading" : "3.1.2 | Naive Bayes classifier",
+      "text" : "The naive Bayes classifier,13,54 which has been extensively studied since 1950s, is a series of simple probability classifiers that are based on Bayes theorem under a strong independence assumption on the features. It is not a single algorithm for training such classifiers, but a series of algorithms that are based on the following principle: each feature of a sample is unrelated to the others. An object to be classified shall be deemed to belong to the category that corresponds to the maximum probability if the probability of each category has been obtained. In many practical applications, the naive Bayes model parameter uses the maximum likelihood estimation\nmethod; hence, the naive Bayes model can be applied without using the Bayes probability or any Bayes model in this scenario. One advantage of a naive Bayes classifier is that it only requires the estimation of necessary parameters (the mean and the variance of each variable) based on a small number of training data to make predictions; therefore, it is often used to predict whether a strategy (such as a synthetic recipe for a new molecule) will realize the desired result."
+    }, {
+      "heading" : "3.1.3 | Decision tree",
+      "text" : "The DT55 is a method for approximating discrete function values. It is a typical classification method that induces a set of classification rules from the training set with the objective of correctly classifying examples. Figure 4B illustrates the architecture of a DT. DT was first developed in 1960s by J. Ross Quinlan, who proposed the iterative dichotomiser 3 (ID3) algorithm. Then, the C4.5 algorithm was improved based on the ID3 algorithm in terms of its pruning technology and derivation rules, among other aspects. The DT method typically consists of three steps: feature selection, DT generation, and DT pruning. Among them, the objective of feature selection is to retain features that exhibit sufficient classification performance; the objective of pruning is to make the tree simpler and, thus, more generalizable. There may be multiple DTs that can correctly classify the training data; hence, it is crucial to choose a DT that is less inconsistent with the training data and is sufficiently generalizable.\nCarrete used DTs to synthesize new AB2C Heusler compounds.40 The training data were collected from Pearson's Crystal Data and the ASM Alloy Phase Diagram Database with the following conditions: (a) the phases do not contain hydrogen, noble gases, or radioactive or actinide elements and (b) the phases exhibit exact 1:2:1 stoichiometry, contain three components and are thermodynamically stable. Twenty-two features (eg, the group number of element B, the total number of p valence electrons, the radius difference A/B, and the electronegativity value of each element) were selected for representing the Heusler compounds. The random forest algorithm (which consists of multiple DTs) was applied to train multiple predictors and to combine their output to yield a single final prediction. Each subpredictor is a DT that has been trained on a small subset of the training data."
+    }, {
+      "heading" : "3.1.4 | Artificial neural network",
+      "text" : "In 1943, W. S. McCulloch and W. Pitts established a mathematical model: the MP model. Through the MP model, they proposed a formal mathematical description of neurons and the network structure and proved that a single neuron can perform the logical function, thereby initiating the era of ANNs.\nAn ANN refers to a nonlinear and adaptive information processing system that is formed by many interconnected processing units (neurons). It is a type of nonprogramed and adaptive information processing architecture, which obtains parallel and distributed information via network transformation and dynamic behavior and imitates the information processing function of the human nervous system. The ANN is an interdisciplinary system that involves neuroscience, artificial intelligence, computer science, and other fields; the architecture is illustrated in Figure 4C.\nIn an ANN, neurons connect with each other to form layers and represent objects, such as features, words, concepts, or meaningful abstract patterns. There are three types of layers in an ANN: the input layer, the output layer, and the hidden layer. The input layer receives signals or data from the outside world. The output layer outputs the system processing results. The hidden layer lies between the input and output layers and cannot be viewed from outside the network. It performs calculations based on the core function. The input data of an ANN are joined into a new vector and transformed into a matrix prior to flowing into the network. As the data stream passes through the network, the ith neuron in the input layer multiplies the input data by the weight Wij and outputs it to the jth neuron in the next layer. The weight between neurons reflects the connection strength of the network and the ANN can improve the performance of whole model by adjusting the weight. In the hidden layer, the weighted inputs from the neurons are summed and added to the bias prior to being delivered to the next layer via the activation function. Finally, the output is estimated via a suitable transformation function in the output layer. The main advantages of ANN are as follows: it has a selflearning function, it has associative storage function, and it can search for optimal solutions at a high speed.\nNearly 40 types of neural network models have been proposed, which include backpropagation networks, perceptrons, self-organizing maps, the Hopfield network, and Boltzmann machines. The ANN has been used in many fields of materials science, such as nanomaterial synthesis, quantum computing, and material property analysis.56-60"
+    }, {
+      "heading" : "3.2 | Deep learning",
+      "text" : "Although shallow learning yields satisfactory results in various areas of materials science, several problems are encountered: First, shallow learning algorithms cannot realize the same accuracy as DFT in various tasks, although they have reduced the computational cost. Second, shallow learning algorithms require manual feature engineering; hence, their application requires researchers with domain knowledge to develop suitable representations for the input data. This directly leads to the decline of the model accuracy.42,43,61-63\nIn recent years, the development of deep learning has made new progress in the application of data-driven methods in the field of materials science. As discussed above, shallow learning, which is based on manual feature extraction and linear classification, is highly suitable for linear classification tasks. However, the performance is insufficient for nonlinear classification tasks. By using a nonlinear cascade processing unit for automatic feature extraction and deriving low-level features to obtain more abstract high-level representations of attribute categories, deep models typically outperform shallow models on nonlinear tasks.\nCurrently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.64-73 In materials science, various architectures (e.g., convolutional neural network [CNN], recurrent neural network [RNN], deep belief network [DBN], and deep coding network] have demonstrated excellent performance in material detection, material analysis, material design, and quantum chemistry.42,43,74-78 CNN and RNN will be introduced in the following section. The following methods will not be discussed in detail: DBN, which can be used not only to classify and recognize data but also to generate data; deep stacking network, which consists of multiple blocking models and is easy to train via a supervised approach; and deep Q network, which is a new algorithm that combines deep learning with reinforcement learning to realize end-to-end learning from perception to action.\nDue to insufficient material database availability, deep learning still cannot solve many problems in materials science. Moreover, due to the long training time and low interpretability of deep neural networks (DNNs), they may not outperform shallow learning in solving some problems. Therefore, the algorithm that is used for modeling must be selected according to the task."
+    }, {
+      "heading" : "3.2.1 | Convolutional neural network",
+      "text" : "The CNN is a feedforward ANN. Inspired by the classical concepts of simple cells and complex cells in visual neuroscience, a CNN combines the ANN with discrete convolution for image processing, which can accept images directly as the input of the network to avoid the complex processes of feature extraction and data reconstruction that are carried out in traditional image recognition algorithms.\nIn 1980, Kunihiko Fukushima proposed a neural network model, namely, neocognitron, which was the predecessor of the CNN, for visual pattern recognition. After that, although scientists tried utilizing many methods to train multilayer networks, the performance of the CNN was limited due to lack of computing resources when the network depth increased. After 2006, the high-efficiency graphics processing unit became a universal computing device, which facilitated further development of the CNN.79,80\nA typical CNN network model is illustrated in Figure 5A. Typically, neurons in two adjacent layers are fully connected, whereas neurons in the same layer are not. Each layer of a CNN accepts the output of the layer above as input. Three types of layers are used to construct the CNN architecture between input and output: the convolutional layer, the pooling layer, and the fully connected layer. The convolutional layer is used to extract the characteristics of the input data and to reduce noise. The pooling layer subsamples the input data and divides the input into small regions to apply functions on each region, such as an average function or a maximum function. Figure 5B,C illustrates operations of the convolutional layer and the max pooling layer. Sometimes, other types of layers, such as the drop-out layer, are used to control the size of the CNN.15,43,61,80,82"
+    }, {
+      "heading" : "3.2.2 | Recurrent neural network",
+      "text" : "As there are no connections between neurons in the same layer of the CNN model, data flow from the input layer to the hidden layer and, finally, are output by the output layer. Therefore, it is difficult for a CNN to process data that are related.82 Hence, a RNN should be used to process sequential data. In an RNN, the output of the previous step is stored and used to calculate the current output, together with the data from the input layer. If Si is defined as the state of the RNN, xi and yi are the input and output, respectively, of the network, and i is the number of steps, then the current state of network Si can be calculated as follows:\nSi = f U*xi +W*Si−1ð Þ,\nwhere f is a nonlinear function, and U and W are parameters of the RNN.\nAccording to the above equation, the parameters of each layer in the RNN can be shared. Network state Si is often regarded as a memory unit of the hidden layer that stores the output from the previous step and updates the current input of a nonlinear function each time. Therefore, an RNN requires less parameter learning than CNN.82\nThe RNN has been applied widely in machine translation, speech recognition, and other fields of natural language processing.83-85 In the field of materials science, the use of an RNN to imitate a similar reward mechanism to design new materials with specified properties has been proposed.13\nHowever, errors that may occur during the training process, such model bias and model variance. Model bias is typically caused by errors in the assumptions of the algorithm, whereas model variance is caused by sensitivity to small fluctuations in the training set. In addition to these two types of errors, errors can be caused by calculation limitations or missing data.13 Moreover, in some cases, overfitting occurs:\nto maintain a consistent hypothesis, the hypothesis becomes excessively strict and, consequently, the performance of the model cannot be guaranteed if the data set to be predicted differs from the training set. Common causes of overfitting are as follows: the modeling sample selection is unsuitable (eg, too few samples, an unsuitable sample selection method, incorrect sample labels), thereby resulting in the selected sample being insufficient for representing the predetermined classification rules; the interference of the model is so large that the computer considers part of the noise as a feature; the model hypothesis cannot reasonably hold or the conditions under which the hypothesis is true are not satisfied; and too many parameters and too high of a model complexity. In addition, for the DT model, if the growth is not restricted rationally, free growth may only include simple event data or no event data, such that although it can perfectly fit the training data, it cannot adapt to other data sets. For the\nANN, first, the decision surface may not be unique to the sample, which causes the back propagation algorithm to converge the weights to a more complex decision surface; second, overtraining may cause the model to fit noise or features that are not representative. Therefore, model validation is necessary for reducing errors and avoiding overfitting.86"
+    }, {
+      "heading" : "4 | MODEL VALIDATION",
+      "text" : "When the training of a model has been completed, model validation is conducted to evaluate the accuracy of the model by using the unseen data, which differ from the data in the training data set. Many machine learning methods divide the original data into a training set and a test set and use the training set for model training and the test set for model validation.\nK-fold cross-validation is a common validation method. K-fold cross-validation refers to randomly splitting the original data into K parts and using K – 1 parts for model training in each round while retaining one part for model validation. All these parts were used for model validation and the average value of the verification results was calculated as the final estimate.87-89 One disadvantage of K-fold crossvalidation is that it requires the construction of K models, which can be highly time-consuming for a large data set.86\nAnother common validation method is leave-one-out cross-validation (LOOCV). Similar to K-fold cross-validation, if there are N samples in the original data set, each sample is used individually as the verification set and the remaining N – 1 samples are used as the training set; hence, LOOCV considers N models and the average classification accuracy of the final validation set of these N models is used as the performance index of the classifiers. Compared with K-fold cross-validation, LOOCV has two main advantages: first, almost all the samples in each round are used to train the model; hence, the distribution is closer to the distribution of the original samples and the obtained results are more reliable. Second, during the experiment, no random factors affect the experimental data, thereby ensuring that the experimental process can be repeated. Similar to K-fold cross-validation, LOOCV has the disadvantage of high computing cost. If the number of original data samples is large, LOOCV has difficulties in implementation, unless the calculations are parallelized to reduce the calculation time.\nMethods such as repeating learning test (RLT) crossvalidation and bootstrap cross-validation are also used to validate models. In contrast to LOOCV, RLT crossvalidation divides part of the data set for validation. Therefore, the computational complexity is substantially reduced. However, the optimal amount of data for model validation is difficult to determine and the test set usually must be selected according to the scenario in practice. Bootstrap cross-validation is a generalization error method that is based on multiple sampling. This method is effective in reducing the variance of K-fold cross-validation; however, the computational cost increases."
+    }, {
+      "heading" : "5 | APPLICATIONS",
+      "text" : "Compared with computational simulation, machine learning can identify patterns in large high-dimensional data sets effectively, extract useful information quickly and discover hidden laws. Therefore, it is well suited for material discovery and can accelerate the process of predicting the properties of materials, which typically requires computationally expensive theoretical calculations. In this section, we will introduce three main applications of machine learning in the field of materials science."
+    }, {
+      "heading" : "5.1 | Material property analysis",
+      "text" : ""
+    }, {
+      "heading" : "5.1.1 | Degradation detection",
+      "text" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.59,77,86,90-112 Agrawal et al86 explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters. They focused on 25 features that are associated with fatigue strength and found that the tempering temperature was the most important feature that affects the fatigue strength. The process can be divided into four steps: first, the raw data were preprocessed using domain knowledge. Second, rankingbased feature selection methods were applied to select features with high relevance. Then, machine learning algorithms were used to predict the fatigue strength. Finally, LOOCV was used to evaluate the accuracies of the models. The results show that many machine learning methods, such as ANNs, SVM, and linear regression, realized high prediction accuracy, with R2 values >.98 and error rates <4%.\nZhang proposed an efficient architecture with pixel-level accuracy that is based on CNN. From three-dimensional (3D) images of an asphalt surface, it could detect pavement cracks automatically with a high accuracy of 90.13%. A model that was built by Gibert et al94 proposed an efficient model for railway track inspection. The model was based on a fully convolutional network. Four convolutional layers were used for material classification and five convolutional layers were used for fastener detection. Researchers used an artificially illuminated car to collect 203 287 track images along 85 miles of track and annotated the data using a customized software tool. The data set was divided into five parts, with 80% of the images used for training and 20% for testing. For each data segmentation, 50 000 patches of each class were randomly sampled. Therefore, each model was trained on 2 million patches. The architecture of the model and the semantic segmentation results are presented in Figure 6."
+    }, {
+      "heading" : "5.1.2 | Nanomaterials analysis",
+      "text" : "With the development of artificial intelligence, machine learning plays an increasingly important role in the field of nanomaterials.58,113-115 As early as 1993, the use of machine learning to study the solubility of C60 was proposed. 12 Machine learning has been widely used to predict the toxicity of nanomaterials, to discover new nontoxic nanoparticles, to develop multistructure/single-property relationships of nanoparticles, to study quantum-mechanical observables of\nmolecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.16,29,58,60,76,113-118 Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs). They used text mining to extract relevant QD toxicity data from 307 studies in the literature and applied the random forest regression model to analyze the data. According to their results, the toxicity was closely related to the surface properties (such as the shell, ligand, and surface modification), the diameter, the assay type, and the exposure time of QDs. Figure 7 presents the characteristics of 14 species that substantially influence QD toxicity.113"
+    }, {
+      "heading" : "5.1.3 | Molecular property prediction",
+      "text" : "High-throughput density functional calculations for molecular property prediction are highly time-consuming. As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high\naccuracy.13,14,42,43,62,74,75,119-128 ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.42 It extracts the physical and chemical interactions and similarities between elements automatically and makes fast and precise predictions. The framework of ElemNet is illustrated in Figure 8.42 Similar to ElemNet, Chemception is a model that is based on a CNN that transforms raw data of compounds into 2D images to predict toxicity, activity, and solvation properties.43 In addition, Ward et al122 proposed a general machine learning framework for predicting properties of inorganic materials. This model can be applied to predict diverse properties of crystalline and amorphous materials, such as band gap energy and glassforming ability."
+    }, {
+      "heading" : "5.2 | Discovering new materials",
+      "text" : ""
+    }, {
+      "heading" : "5.2.1 | Structure-oriented design",
+      "text" : "Many classification and regression algorithms can be applied to predict the chemical composition of a material from its\nstructure.28,40,41,129,130 Perovskite is an important crystal structure in many fields.131,132 Shuaihua et al used various regression algorithms (Gradient boosting regression, kernel ridge regression [KRR], support vector regression, Gaussian process regression, DT regression, and multilayer perceptron regression) to predict stable lead-free HOIPs from 5158 unexplored HOIPs and successfully identified six stable compounds (C2H5OInBr3, C2H6NInBr3, NH3NH2InBr3, C2H5OSnBr3, NH4InBr3, and C2H6NSnBr3).\n41 Pilania et al121 developed a systematic feature engineering approach and an efficient machine learning model for predicting electronic bandgaps of double perovskites and for selecting stable perovskite candidates. The structure of double perovskite crystal and the chemical space of cations in the A-site and B-site are illustrated in Figure 9A,B. The KRR-based\nlearning model was trained and tested on a data set of more than 1300 double perovskites. From this learning framework, it is concluded that the lowest occupied energy levels of the A-site elements and the electronegativities of the Bsite elements are key factors that primarily control the bandgaps of double perovskites.\nOliynyk et al40 proposed a Heusler discovery engine that is based on the random forest algorithm for identifying new full-Heusler compounds. This model realized a high truepositive rate of .94 and successfully predicted 12 novel gallides, namely, MRu2Ga and RuM2Ga (M = Ti − Co), as Heusler compounds. Legrain et al130 trained a model using experimentally reported compounds to predict the stability of half-Heusler compounds. The model, which was based on the random forest algorithm, retrieved 71 178 compositions\nand yielded 30 results, which mostly matched half-Heusler compounds, for further exploration. Another similar study was reported on identifying low-thermal-conductivity halfHeusler semiconductors.133 The random forest algorithm was used to scan more than 79 000 half-Heusler entries in the AFLOWLIB database. Possible half-Heusler compounds from all nonradioactive combinations of elements in the periodic table were considered. Figure 9C,D illustrates the structure of a half-Heusler compound and the chemical space of this study."
+    }, {
+      "heading" : "5.2.2 | Element-oriented design",
+      "text" : "Machine learning can be used to predict new compounds and their structures from an input composition.134-136 A probabilistic model that was based on an experimental crystal structure database was used to identify 209 new ternary oxides.134 In addition, Meredig et al136 constructed a machine learning model that was based on thousands of DFT calculation results for predicting the thermodynamic stability of arbitrary compositions. The researchers built a large database of DFT calculation results and two predictive formation energy models (one heuristic and one machine\nlearning based). Then, they used these two models to scan 1.6 million candidate ternary compositions, ranked the most probable results by combining the two models and finally identified 4500 new stable materials.\nIn a similar study, machine learning was used to study binary compounds.135 First, researchers used a unsupervised learning algorithm to separate 67 octet compounds into distinct classes according to their crystal structures; second, the supervised learning algorithm was applied to identify the correct crystal structures of 55 compounds; finally, a regression algorithm was used to predict the melting points of 44 AB suboctet compounds by mining a combination of 16 properties of the constituent atoms of each binary compound. In the studies that are discussed above, machine learning has demonstrated high accuracy and its potential in discovering new compounds.\nRecently, a model that was based on objective-reinforced generative adversarial networks was proposed for generating new organic molecules with specified chemical features and physical responses via a reward mechanism.13,137 The model consists of a generator and a discriminator: the generator captures the distribution of the data while the discriminator compares the molecular structure that is obtained by the\ngenerator with real molecular structures to determine whether the molecular structure that was obtained by the generator can exist. The generator is trained to maximize the error probability of the discriminator. Repeating this process will increase the discrimination performance of discriminator between real and fake data. Therefore, such “reward mechanism” reinforcement learning network can be used to design chemical structures with special physical or biological characteristics. Figure 10 illustrates the framework of this objective-reinforced generative adversarial network."
+    }, {
+      "heading" : "5.2.3 | Inverse design",
+      "text" : "Deep learning has high potential in the inverse design of materials.13,29,78,137 Inverse design begins from the required functionality and searches for the ideal molecular structure that exhibits this functionality. The method takes a functionality as input and outputs a molecular structure.29 Figure 11A compares three material design schemes. The successful realization of inverse-designed organic molecules via a model that was based on DNN and RNN was reported.78 In contrast to reconstructing molecule structures directly from molecule descriptors, the inverse design model translates molecule descriptors into molecule identifiers. Therefore, a DNN and a RNN are adopted as the encoder and the decoder, respectively. The DNN identifies the relationship between molecule structures and material properties and encodes the molecule descriptors x into encoded molecule information z; the RNN decodes the encoded molecule information z into molecule structure identifier y to reconstruct the encoded molecular descriptors into a molecular structure. If the molecular structure of the RNN output is stable and the molecular properties are consistent with the target, the inverse design of molecules is successful. Figure 11B,C illustrates the workflow of the molecular inverse design method and the gradient-based optimization of molecular properties in continuous latent space."
+    }, {
+      "heading" : "5.2.4 | Drug design",
+      "text" : "Drug design is one of the mature fields in which machine learning is utilized.52,63,79,139 Machine learning approaches that are modeled on small molecules can handle the structural complexity of proteins and can predict structureactivity relationships accurately, which facilitates the discovery of target drugs.79 A typical process of machine learning for drug discovery begins with compounds that have already been tested. Then, batches of compounds are repeatedly designed and selected for parallel testing. The activity model is refined at each step to select the most promising compound for the next batch and the process is repeated until an active drug has been identified.52 This is an effective method for discovering active drugs; however, it has a long development cycle and is computationally expensive. Figure 12B illustrates the workflow of this drug discovery approach, which is based on machine learning.\nModern drug discovery strategies include ligand-based drug design (LBDD) and structure-based drug design (SBDD) techniques,139 some steps of which use machine learning to simplify calculations or to build statistical validation models. LBDD includes similarity search (the use of 2D or 3D information from one or more compounds to calculate a similarity index for sorting compounds in the unknown database) and the construction of a classification or regression model for predicting biological activity. Figure 12A illustrates the framework of LBDD. Compared with SBDD, LBDD has lower computational cost and is easier to use. SBDD can be used when information about biological target structures is available. Here, machine learning can be applied to predict the tertiary structures of receptors through predictions of secondary structures, solvent accessibility, and disordered regions, among other factors.139 Many common machine learning algorithms, such as ANN, SVM, DTs, random forest, and k-nearest neighbor, can be used in two drug discovery strategies.\nRecently, AtomNet, which is the first architecture that is based on deep CNNs for molecular binding affinity\nprediction, was applied for bioactivity prediction in structure-based drug discovery.79 It predicts the structure of a protein directly and yields outstanding results in SBDD.\nBecause the filters of AtomNet cannot be easily visualized, the researchers proposed an indirect way of verifying that the model had learned relevant features. They applied filters\nto input data and examined the location where they maximally fire. Figure 12C illustrates the first convolutional layer, which specializes as a sulfonyl/sulfonamide detector. According to the results, the filter can infer a meaningful spatial arrangement of input atomic types without any prior chemical knowledge."
+    }, {
+      "heading" : "5.3 | Quantum chemistry",
+      "text" : "Machine learning, in place of or combined with computer simulation (DFT), is often used to simplify the computations of complex problems in the field of quantum chemistry.41,134,140-142 By using DFT data to train a machine learning model, Seko et al substantially reduced the calculation cost without sacrificing the accuracy of the model. Models that have been trained on DFT data have been used to predict the melting temperatures of single and binary compounds.128\nAs a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.29,76,115,120,121,126,127,143-145 A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.76 In this work, each atomic type corresponds to a coefficient vector c0i , which is progressively refined by\ninteraction vij. The interaction vij is determined by the current coefficient vector ctj and the distance Dij between atoms i and j. After T interactions, the energy of the final coefficient vector cTi is predicted to be Ei and the molecular energy E is the sum of all the atomic energies. Figure 13 illustrates their work in detail."
+    }, {
+      "heading" : "6 | PROSPECTS",
+      "text" : "Machine learning has been widely used in the prediction of properties, the discovery of new materials and the exploration of quantum chemistry due to its powerful prediction performance and relatively low computational cost. However, the application of machine learning in materials science still faces many problems. For example, the available high-quality data that are related to materials are insufficient, the properties of materials are difficult to represent perfectly, and the prediction accuracy is lower than that of DFT calculations. Herein, we propose further directions that may contribute to the application of machine learning in materials science.\nFirst, accelerating the construction of a material database is highly important for the future development of machine learning. As a data-driven method, the quantity and quality of data directly affect the accuracy of machine learning. The scientific literature and experimental records contain a large amount of material data to which machine learning can be applied, such as molecular properties, reaction conditions, and synthetic formulations. Using text mining, these useful\ndata, which are scattered among articles, journals and magazines, can be quickly collected, which will substantially enrich the existing material databases and enable the creation of specialized databases.13,16,146\nSecond, establishing new principles for machine learning is essential. With the development of deep learning and the replacement of manual feature engineering, raw data will be represented more effectively in the future. However, experts\nstill do not understand the basis on which DNNs select features and the meanings of the selected features. This renders the results of deep learning insufficiently convincing and fails to yield a widely suitable theory. Trying to understand what is going on inside the “black box” not only enhances the generalizability of machine learning in materials science but also facilitates the identification of laws of nature that are unknown to humans.\nThird, quantum chemistry could be another key application of machine learning. Machine learning's powerful dataprocessing capability enables it to solve many problems in quantum chemistry. Combining DFT with machine learning can substantially increase the prediction accuracy of the model. This could be a powerful tool for predicting complicated properties and structures of molecules, for investigating quantum multibody systems and for discovering new materials.\nMachine learning still cannot realize the expected accuracy when applied to some tasks due to insufficient material data. Therefore, a more accurate model that was trained on a small but accurate data set is absolutely necessary in some scenarios. The performance of a deep learning model that has been trained on a small data set size of 4000 samples has been demonstrated to be sufficient.42 In addition, the method that was discussed above of training a model with failure data that were collected from failed experiments may be helpful in such scenarios.28"
+    }, {
+      "heading" : "ACKNOWLEDGMENTS",
+      "text" : "Dr J. Wei and X. Chu contributed equally to this work. Dr J. Wei acknowledges that this project was funded by China Postdoctoral Science Foundation (no. 2017 M620694) and National Postdoctoral Program for Innovative Talents (BX201700040). This work was also financially supported by the National Natural Science Foundation of China (grant nos. 61622406 and 61571415), the National Key Research and Development Program of China (grant nos. 2017YFA0207500 and 2016YFB0700700), the Strategic Priority Research Program of Chinese Academy of Sciences (grant no. XDB30000000), and Beijing Academy of Quantum Information Sciences (grant no. Y18G04). All authors agree with the content of manuscript.\nCONFLICT OF INTEREST\nThe authors declare no conflict of interest.\nORCID\nJing Wei https://orcid.org/0000-0003-2991-0123 Zhongming Wei https://orcid.org/0000-0002-6237-0993"
+    } ],
+    "references" : [ {
+      "title" : "Perspective: materials informatics and big data: realization of the “fourth paradigm” of science in materials science",
+      "author" : [ "A Agrawal", "A. Choudhary" ],
+      "venue" : "APL Mater",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2016
+    }, {
+      "title" : "Mastering the game of Go with deep neural networks and tree search",
+      "author" : [ "D Silver", "A Huang", "CJ Maddison" ],
+      "venue" : null,
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2016
+    }, {
+      "title" : "Mastering the game of Go without human knowledge",
+      "author" : [ "D Silver", "J Schrittwieser", "K Simonyan" ],
+      "venue" : null,
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2017
+    }, {
+      "title" : "Deep convolutional neural networks for computer-aided detection: CNN architectures, dataset characteristics and transfer learning",
+      "author" : [ "HC Shin", "HR Roth", "M Gao" ],
+      "venue" : "IEEE Trans Med Imag",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2016
+    }, {
+      "title" : "Jumping NLP curves: a review of natural language processing research [review article",
+      "author" : [ "E Cambria", "B. White" ],
+      "venue" : "IEEE Comput Intell Mag",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2014
+    }, {
+      "title" : "Dependency distance: a new perspective on syntactic patterns in natural languages",
+      "author" : [ "H Liu", "C Xu", "J. Liang" ],
+      "venue" : "Phys Life Rev",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2017
+    }, {
+      "title" : "Data mining for internet of things: a survey",
+      "author" : [ "Tsai C-W", "Lai C-F", "Chiang M-C", "Yang LT" ],
+      "venue" : "IEEE Commun Surv Tutor",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2014
+    }, {
+      "title" : "Robots that can adapt like animals",
+      "author" : [ "A Cully", "J Clune", "D Tarapore", "JB. Mouret" ],
+      "venue" : null,
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2015
+    }, {
+      "title" : "Machine learning for medical diagnosis—history, state of the art and perspective",
+      "author" : [ "I. Kononenko" ],
+      "venue" : "Artif Intell Med",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2001
+    }, {
+      "title" : "A security risk analysis model for information systems: causal relationships of risk factors and vulnerability propagation analysis",
+      "author" : [ "N Feng", "HJ Wang", "M. Li" ],
+      "venue" : "Inform Sciences",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2014
+    }, {
+      "title" : "Solubility of fullerene  (C60) in a variety of solvents",
+      "author" : [ "RS Ruoff", "DS Tse", "R Malbotra", "DC. Lorents" ],
+      "venue" : "Phys Chem",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 1993
+    }, {
+      "title" : "Machine learning for molecular and materials science",
+      "author" : [ "KT Butler", "DW Davies", "H Cartwright", "O Isayev", "A. Walsh" ],
+      "venue" : null,
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2018
+    }, {
+      "title" : "Advances in computational methods to predict the biological activity of compounds",
+      "author" : [ "C Nantasenamat", "C Isarankura-Na-Ayudhya", "V. Prachayasittikul" ],
+      "venue" : "Expert Opin Drug Discov",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2010
+    }, {
+      "title" : "A review of deep learning in the study of materials degradation. npj Mater Degrad",
+      "author" : [ "W Nash", "T Drummond", "N. Birbilis" ],
+      "venue" : null,
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2018
+    }, {
+      "title" : "Nanomaterials discovery and design through machine learning",
+      "author" : [ "M Wang", "T Wang", "P Cai", "X. Chen" ],
+      "venue" : "Small Method",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 1900
+    }, {
+      "title" : "Applying machine learning to accelerate new materials development",
+      "author" : [ "W Wu", "Q. Sun" ],
+      "venue" : "Sci Sin Phys Mech Astron",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2018
+    }, {
+      "title" : "Machine learning from examples: inductive and lazy method",
+      "author" : [ "RL de Mantaras", "E. Armengol" ],
+      "venue" : "Data Knowl Eng",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 1998
+    }, {
+      "title" : "Materials genome initiative",
+      "author" : [ "Andrea Widener CEW" ],
+      "venue" : "Govern Policy",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2011
+    }, {
+      "title" : "The Harvard clean energy project: large-scale computational screening and design of organic photovoltaics on the world community",
+      "author" : [ "J Hachmann", "R Olivares-Amaya", "S Atahan-Evrenk" ],
+      "venue" : null,
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2011
+    }, {
+      "title" : "Lead candidates for high-performance organic photovoltaics from high-throughput quantum chemistry—the Harvard Clean Energy Project",
+      "author" : [ "J Hachmann", "R Olivares-Amaya", "A Jinich" ],
+      "venue" : "Energ Environ Sci",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2014
+    }, {
+      "title" : "Commentary: the materials project: a materials genome approach to accelerating materials innovation",
+      "author" : [ "A Jain", "SP Ong", "G Hautier" ],
+      "venue" : "APL Mater. 2013;1:011002",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2013
+    }, {
+      "title" : "Materials design and discovery with high-throughput density functional theory: the open quantum materials database (OQMD)",
+      "author" : [ "JE Saal", "S Kirklin", "M Aykol" ],
+      "venue" : null,
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2013
+    }, {
+      "title" : "The open quantum materials database (OQMD): assessing the accuracy of DFT formation energies",
+      "author" : [ "S Kirklin", "JE Saal", "B Meredig" ],
+      "venue" : "npj Comput Mater",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2015
+    }, {
+      "title" : "AFLOWLIB.ORG: a distributed materials properties repository from high-throughput ab initio calculations",
+      "author" : [ "S Curtarolo", "W Setyawan", "S Wang" ],
+      "venue" : "Comp Mater Sci",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2012
+    }, {
+      "title" : "The Cambridge Structural Database a quarter of a million crystal structures and rising",
+      "author" : [ "Allen FH" ],
+      "venue" : "Struc Sci",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2002
+    }, {
+      "title" : "Materials data science: current status and future outlook",
+      "author" : [ "SR Kalidindi", "M. De Graef" ],
+      "venue" : "Annu Rev Mat Res",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2015
+    }, {
+      "title" : "Machine-learningassisted materials discovery using failed experiments",
+      "author" : [ "P Raccuglia", "KC Elbert", "PD Adler" ],
+      "venue" : null,
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2016
+    }, {
+      "title" : "Inverse molecular design using machine learning generative models for matter engineering",
+      "author" : [ "B Sanchez-Lengeling", "A. Aspuru-Guzik" ],
+      "venue" : null,
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2018
+    }, {
+      "title" : "On representing chemical environments",
+      "author" : [ "AP Bartók", "R Kondor", "G. Csányi" ],
+      "venue" : "Phys Rev B",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2013
+    }, {
+      "title" : "Machine learning predictions of molecular properties: accurate many-body potentials and nonlocality in chemical space",
+      "author" : [ "K Hansen", "F Biegler", "R Ramakrishnan" ],
+      "venue" : "J Phys Chem Lett",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2015
+    }, {
+      "title" : "Wavelet scattering regression of quantum chemical energies",
+      "author" : [ "M Hirn", "S Mallat", "N. Poilvert" ],
+      "venue" : "Multiscale Model Sim",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2017
+    }, {
+      "title" : "Molecular graph convolutions: moving beyond fingerprints",
+      "author" : [ "S Kearnes", "K McCloskey", "M Berndl", "V Pande", "P. Riley" ],
+      "venue" : "J Comput Aided Mol des",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2016
+    }, {
+      "title" : "Extended-connectivity fingerprints",
+      "author" : [ "D Rogers", "M. Hahn" ],
+      "venue" : "J Am Chem Soc",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2010
+    }, {
+      "title" : "Fast and accurate modeling of molecular atomization energies with machine learning",
+      "author" : [ "M Rupp", "A Tkatchenko", "KR Muller", "OA. Von Lilienfeld" ],
+      "venue" : "Phys Rev Lett. 2012;108:058301",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2012
+    }, {
+      "title" : "Chemical language and information system. 1. Introduction to methodology and encoding rules",
+      "author" : [ "D Weininger", "A. Smiles" ],
+      "venue" : "J Am Chem Soc",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 1988
+    }, {
+      "title" : "High-throughput machine-learning-driven synthesis of full-Heusler compounds",
+      "author" : [ "AO Oliynyk", "E Antono", "TD Sparks" ],
+      "venue" : "Chem Mater",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2016
+    }, {
+      "title" : "Accelerated discovery of stable lead-free hybrid organic-inorganic perovskites via machine learning",
+      "author" : [ "S Lu", "Q Zhou", "Y Ouyang", "Y Guo", "Q Li", "J. Wang" ],
+      "venue" : null,
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2018
+    }, {
+      "title" : "ElemNet: deep learning the chemistry of materials from only elemental composition",
+      "author" : [ "D Jha", "L Ward", "A Paul" ],
+      "venue" : null,
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2018
+    }, {
+      "title" : "A tutorial on support vector machines for pattern recognition",
+      "author" : [ "Burges CJC" ],
+      "venue" : "Data Min Knowl Disc",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 1998
+    }, {
+      "title" : "Support vector channel selection in BCI",
+      "author" : [ "TN Lal", "M Schroder", "T Hinterberger" ],
+      "venue" : "IEEE Trans Biomed Eng",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2004
+    }, {
+      "title" : "Knowledge-based analysis of microarray gene expression data by using support vector machines",
+      "author" : [ "MPS Brown", "WN Grundy", "D Lin" ],
+      "venue" : null,
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2000
+    }, {
+      "title" : "Solving large protein secondary structure classification problems by a nonlinear complementarity algorithm with {0, 1} variables",
+      "author" : [ "C Cifarelli", "G. Patrizi" ],
+      "venue" : "Optim Method Softw. 2007;22:25-49",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2007
+    }, {
+      "title" : "Joint time-frequency-space classification of EGG in a brain-computer Interface application",
+      "author" : [ "GNG Molina", "T Ebrahimi", "J-M. Vesin" ],
+      "venue" : "Eurasip J Adv Sig Pg",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2003
+    }, {
+      "title" : "Text categorization with support vector machines— learning with many relevant features",
+      "author" : [ "T. Joachims" ],
+      "venue" : null,
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 1998
+    }, {
+      "title" : "A SVM face recognition method based on Gaborfeatured key point",
+      "author" : [ "Qin J", "He Z-S" ],
+      "venue" : null,
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2005
+    }, {
+      "title" : "Active learning with support vector machines in the drug discovery process",
+      "author" : [ "MK Warmuth", "J Liao", "G Ratsch" ],
+      "venue" : "J Am Chem Soc",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2003
+    }, {
+      "title" : "Zeolite synthesis modelling with support vector machines-a combinatorial approach",
+      "author" : [ "JM Serra", "LA Baumes", "M Moliner" ],
+      "venue" : "Comb Chem High Throughput",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2007
+    }, {
+      "title" : "Idiot's Bayes—not so stupid after all",
+      "author" : [ "DJ Hand", "K. Yu" ],
+      "venue" : "Int Stat",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2001
+    }, {
+      "title" : "Introduction of decision tree",
+      "author" : [ "Quinlan JR" ],
+      "venue" : "Mach Leam",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 1986
+    }, {
+      "title" : "A polarizable force field for water using an artificial neural network",
+      "author" : [ "Kwang-Hwi Choa KTN", "Scheraga HA" ],
+      "venue" : "J Mol Struct",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2002
+    }, {
+      "title" : "Investigation on the synthesis conditions at the interpore distance of nanoporous anodic aluminum oxide: a comparison of experimental study, artificial neural network, and multiple linear regression",
+      "author" : [ "H Akbarpour", "M Mohajeri", "M. Moradi" ],
+      "venue" : "Comp Mater Sci",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2013
+    }, {
+      "title" : "Artificial neural networks combined with experimental design: a “soft” approach for chemical kinetics",
+      "author" : [ "F Amato", "JL Gonzalez-Hernandez", "J. Havel" ],
+      "venue" : null,
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2012
+    }, {
+      "title" : "Defect detection in reinforced concrete using random neural architectures",
+      "author" : [ "JB Butcher", "CR Day", "JC Austin", "PW Haycock", "D Verstraeten", "B. Schrauwen" ],
+      "venue" : "Comput Aid Civil Infrastruct",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2014
+    }, {
+      "title" : "Artificial neural network (ANN) method for modeling of sunset yellow dye adsorption using zinc oxide nanorods loaded on activated carbon: kinetic and isotherm study",
+      "author" : [ "M Maghsoudi", "M Ghaedi", "A Zinali", "AM Ghaedi", "MH. Habibi" ],
+      "venue" : "Spectrochim Acta A",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2015
+    }, {
+      "title" : "Deep learning: methods and applications",
+      "author" : [ "L. Deng" ],
+      "venue" : "Found Trends Signal Process",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2014
+    }, {
+      "title" : "PotentialNet for molecular property prediction",
+      "author" : [ "EN Feinberg", "D Sur", "Z Wu" ],
+      "venue" : "ACS Cent Sci",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2018
+    }, {
+      "title" : "Deep learning in biomedicine",
+      "author" : [ "M Wainberg", "D Merico", "A Delong", "BJ. Frey" ],
+      "venue" : "Nat Biotechnol. 2018;36:829-838",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2018
+    }, {
+      "title" : "ImageNet classification with deep convolutional neural networks",
+      "author" : [ "A Krizhevsky", "I Sutskever", "GE. Hinton" ],
+      "venue" : "Commun ACM",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2017
+    }, {
+      "title" : "Learning hierarchical features for scene labeling",
+      "author" : [ "CE Farabet", "C Couprie", "L Najman", "Y. LeCun" ],
+      "venue" : null,
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 1929
+    }, {
+      "title" : "Going deeper with convolutions",
+      "author" : [ "C Szegedy", "W Liu", "Y Jia" ],
+      "venue" : null,
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2015
+    }, {
+      "title" : "Deep neural networks for acoustic modeling in speech recognition: the shared views of four research groups",
+      "author" : [ "G Hinton", "L Deng", "D Yu" ],
+      "venue" : null,
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2012
+    }, {
+      "title" : "Deep neural nets as a method for quantitative structure-activity relationships",
+      "author" : [ "J Ma", "RP Sheridan", "A Liaw", "GE Dahl", "V. Svetnik" ],
+      "venue" : "J Chem Inf",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2015
+    }, {
+      "title" : "Online particle detection with neural networks based on topological calorimetry information",
+      "author" : [ "T Ciodaro", "D Deva", "JM de Seixas", "D. Damazio" ],
+      "venue" : null,
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 2030
+    }, {
+      "title" : "Connectomic reconstruction of the inner plexiform layer in the mouse retina",
+      "author" : [ "M Helmstaedter", "KL Briggman", "SC Turaga", "V Jain", "HS Seung", "W. Denk" ],
+      "venue" : null,
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2013
+    }, {
+      "title" : "Deep learning of the tissue-regulated splicing",
+      "author" : [ "MK Leung", "HY Xiong", "LJ Lee", "BJ. Frey" ],
+      "venue" : "code. Bioinformatics",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : "71",
+      "year" : 2014
+    }, {
+      "title" : "RNA splicing. The human splicing code reveals new insights into the genetic determinants of disease",
+      "author" : [ "HY Xiong", "B Alipanahi", "LJ Lee" ],
+      "venue" : null,
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2015
+    }, {
+      "title" : "Material structure-property linkages using three-dimensional convolutional neural networks",
+      "author" : [ "A Cecen", "H Dai", "YC Yabansu", "SR Kalidindi", "L. Song" ],
+      "venue" : "Acta Mater",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2018
+    }, {
+      "title" : "Sch Net—a deep learning architecture for molecules and materials",
+      "author" : [ "KT Schutt", "HE Sauceda", "PJ Kindermans" ],
+      "venue" : "J Chem Phys. 2018;148:241722",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2018
+    }, {
+      "title" : "Quantum-chemical insights from deep tensor neural networks",
+      "author" : [ "KT Schutt", "F Arbabzadah", "S Chmiela" ],
+      "venue" : "Nat Commun",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 2017
+    }, {
+      "title" : "Deep learning–based autonomous concrete crack evaluation through hybrid image scanning",
+      "author" : [ "K Jang", "N Kim", "Y-K. An" ],
+      "venue" : "Struct Health Monit",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : "77",
+      "year" : 2019
+    }, {
+      "title" : "Deep-learning-based inverse design model for intelligent discovery of organic molecules",
+      "author" : [ "K Kim", "S Kang", "J Yoo" ],
+      "venue" : "npj Comput Mater",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : "78",
+      "year" : 2018
+    }, {
+      "title" : "Modeling MongoDB with relational model",
+      "author" : [ "G Zhao", "W Huang", "S Liang", "Y. Tang" ],
+      "venue" : "Fourth International Conference on Emerging Intelligent Data and Web Technologies",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : "83",
+      "year" : 2013
+    }, {
+      "title" : "Joint online spoken language understanding and language modeling with recurrent neural networks",
+      "author" : [ "B Liu", "I. Lane" ],
+      "venue" : "Proc Sigdial",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : "84",
+      "year" : 2016
+    }, {
+      "title" : "Exploration of data science techniques to predict fatigue strength of steel from composition and processing parameters",
+      "author" : [ "A Agrawal", "PD Deshpande", "A Cecen" ],
+      "venue" : null,
+      "citeRegEx" : "86",
+      "shortCiteRegEx" : "86",
+      "year" : 2014
+    }, {
+      "title" : "A survey of cross-validation procedures for model selection",
+      "author" : [ "S Arlot", "A. Celisse" ],
+      "venue" : null,
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : "87",
+      "year" : 2010
+    }, {
+      "title" : "Model selection via multifold cross validation",
+      "author" : [ "P. Zhang" ],
+      "venue" : "Ann Stat",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : "88",
+      "year" : 1993
+    }, {
+      "title" : "A comparative study of ordinary cross-validation, vfoldcross-validation and the repeated learning testing methods",
+      "author" : [ "P. Burman" ],
+      "venue" : null,
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : "89",
+      "year" : 1989
+    }, {
+      "title" : "Evaluation of deep learning approaches based on convolutional neural networks for corrosion detection",
+      "author" : [ "Atha DJ", "Jahanshahi MR" ],
+      "venue" : "Struct Health Monit",
+      "citeRegEx" : "90",
+      "shortCiteRegEx" : "90",
+      "year" : 2017
+    }, {
+      "title" : "The identification of pitting and crevice corrosion using a neural network",
+      "author" : [ "TF Barton", "DL Tuck", "DB. Wells" ],
+      "venue" : null,
+      "citeRegEx" : "91",
+      "shortCiteRegEx" : "91",
+      "year" : 1993
+    }, {
+      "title" : "Autonomous structural visual inspection using region-based deep learning for detecting multiple damage",
+      "author" : [ "Y-J Cha", "W Choi", "G Suh", "S Mahmoudkhani", "O. Büyüköztürk" ],
+      "venue" : null,
+      "citeRegEx" : "92",
+      "shortCiteRegEx" : "92",
+      "year" : 2018
+    }, {
+      "title" : "Material classification and semantic segmentation of railway track images with deep convolutional neural networks",
+      "author" : [ "X Gibert", "VM Patel", "R. Chellappa" ],
+      "venue" : null,
+      "citeRegEx" : "93",
+      "shortCiteRegEx" : "93",
+      "year" : 2015
+    }, {
+      "title" : "Deep multitask learning for railway track inspection",
+      "author" : [ "X Gibert", "VM Patel", "R. Chellappa" ],
+      "venue" : "IEEE Trans Intell Transport",
+      "citeRegEx" : "94",
+      "shortCiteRegEx" : "94",
+      "year" : 2017
+    }, {
+      "title" : "Automatic detection of welding defects using deep neural network. JPCS",
+      "author" : [ "W Hou", "Y Wei", "J Guo" ],
+      "venue" : null,
+      "citeRegEx" : "95",
+      "shortCiteRegEx" : "95",
+      "year" : 2018
+    }, {
+      "title" : "Convolutional neural network based fault detection for rotating machinery",
+      "author" : [ "O Janssens", "V Slavkovikj", "B Vervisch" ],
+      "venue" : "J Sound Vib",
+      "citeRegEx" : "96",
+      "shortCiteRegEx" : "96",
+      "year" : 2016
+    }, {
+      "title" : "A neural network constructed by deep learning technique and its application to intelligent fault diagnosis",
+      "author" : [ "F Jia", "Y Lei", "L Guo", "J Lin", "S. Xing" ],
+      "venue" : null,
+      "citeRegEx" : "97",
+      "shortCiteRegEx" : "97",
+      "year" : 2018
+    }, {
+      "title" : "A convolutional neural network based feature learning and fault diagnosis method for the condition monitoring of gearbox",
+      "author" : [ "L Jing", "M Zhao", "P Li", "X. Xu" ],
+      "venue" : null,
+      "citeRegEx" : "98",
+      "shortCiteRegEx" : "98",
+      "year" : 2017
+    }, {
+      "title" : "Structural damage detection with automatic feature-extraction through deep learning",
+      "author" : [ "Lin Y-Z", "Nie Z-H", "Ma H-W" ],
+      "venue" : "Comput Aid Civil Infrastruct",
+      "citeRegEx" : "99",
+      "shortCiteRegEx" : "99",
+      "year" : 2017
+    }, {
+      "title" : "AI-facilitated coating corrosion assessment system for productivity enhancement. ICIEA",
+      "author" : [ "L Liu", "E Tan", "Y Zhen" ],
+      "venue" : null,
+      "citeRegEx" : "100",
+      "shortCiteRegEx" : "100",
+      "year" : 2018
+    }, {
+      "title" : "Ultrasonic signal classification and imaging system for composite materials via deep convolutional neural networks",
+      "author" : [ "M Meng", "YJ Chua", "E Wouterson", "CPK. Ong" ],
+      "venue" : null,
+      "citeRegEx" : "101",
+      "shortCiteRegEx" : "101",
+      "year" : 2017
+    }, {
+      "title" : "Corrosion detection using AI a comparison of standard computed vision techniques and deep learning model",
+      "author" : [ "L Petricca", "T Moss", "G Figueroa", "S. Broen" ],
+      "venue" : null,
+      "citeRegEx" : "103",
+      "shortCiteRegEx" : "103",
+      "year" : 2016
+    }, {
+      "title" : "Detection and characterization of defects using GMR probes and artificial neural networks",
+      "author" : [ "O Postolache", "HG Ramos", "AL. Ribeiro" ],
+      "venue" : null,
+      "citeRegEx" : "104",
+      "shortCiteRegEx" : "104",
+      "year" : 2011
+    }, {
+      "title" : "Neural network based processing of thermal NDE data for corrosion detection",
+      "author" : [ "Prabhu DR", "Winfree WP" ],
+      "venue" : null,
+      "citeRegEx" : "105",
+      "shortCiteRegEx" : "105",
+      "year" : 1993
+    }, {
+      "title" : "Non-destructive investigation of corrosion current density in steel reinforced concrete by artificial neural networks",
+      "author" : [ "L. Sadowski" ],
+      "venue" : null,
+      "citeRegEx" : "106",
+      "shortCiteRegEx" : "106",
+      "year" : 2013
+    }, {
+      "title" : "Artificial intelligence for the assessment on the corrosion conditions diagnosis of transmission line tower foundations",
+      "author" : [ "J Uruchurtu-Chavarin", "M Malo-Tamayo", "J. Hernandez-Perez JA" ],
+      "venue" : "Recent Patent Corros Sci",
+      "citeRegEx" : "107",
+      "shortCiteRegEx" : "107",
+      "year" : 2012
+    }, {
+      "title" : "Grid-based pavement crack analysis using deep learning",
+      "author" : [ "X Wang", "Z. Hu" ],
+      "venue" : "ICTIS",
+      "citeRegEx" : "108",
+      "shortCiteRegEx" : "108",
+      "year" : 2017
+    }, {
+      "title" : "Automated pixel-level pavement crack detection on 3D asphalt surfaces using a deep-learning network",
+      "author" : [ "A Zhang", "KCP Wang", "B Li" ],
+      "venue" : null,
+      "citeRegEx" : "109",
+      "shortCiteRegEx" : "109",
+      "year" : 2017
+    }, {
+      "title" : "Machine health monitoring with LSTM networks",
+      "author" : [ "R Zhao", "J Wangy", "R Yanz", "K. Mao" ],
+      "venue" : null,
+      "citeRegEx" : "110",
+      "shortCiteRegEx" : "110",
+      "year" : 2016
+    }, {
+      "title" : "Deep learning and its applications to machine health monitoring",
+      "author" : [ "R Zhao", "R Yan", "Z Chen", "K Mao", "P Wang", "RX. Gao" ],
+      "venue" : "Mech Syst Signal Process",
+      "citeRegEx" : "111",
+      "shortCiteRegEx" : "111",
+      "year" : 2019
+    }, {
+      "title" : "Learning to monitor machine health with convolutional bi-directional LSTM networks. Sensors (Basel)",
+      "author" : [ "R Zhao", "R Yan", "J Wang", "K. Mao" ],
+      "venue" : null,
+      "citeRegEx" : "112",
+      "shortCiteRegEx" : "112",
+      "year" : 2017
+    }, {
+      "title" : "Meta-analysis of cellular toxicity for cadmium-containing quantum dots",
+      "author" : [ "E Oh", "R Liu", "A Nel" ],
+      "venue" : "Nat Nanotechnol",
+      "citeRegEx" : "113",
+      "shortCiteRegEx" : "113",
+      "year" : 2016
+    }, {
+      "title" : "Machine learning for silver nanoparticle electron transfer property prediction",
+      "author" : [ "B Sun", "M Fernandez", "AS. Barnard" ],
+      "venue" : "J Chem Inf Model",
+      "citeRegEx" : "114",
+      "shortCiteRegEx" : "114",
+      "year" : 2017
+    }, {
+      "title" : "Predicting phase behavior of grain boundaries with evolutionary search and machine learning",
+      "author" : [ "Q Zhu", "A Samanta", "B Li", "RE Rudd", "T. Frolov" ],
+      "venue" : null,
+      "citeRegEx" : "115",
+      "shortCiteRegEx" : "115",
+      "year" : 2018
+    }, {
+      "title" : "Raman spectroscopy and support vector machines for quick toxicological evaluation of titania nanoparticles",
+      "author" : [ "G Pyrgiotakis", "OE Kundakcioglu", "PM Pardalos", "BM. Moudgil" ],
+      "venue" : "J Ranman Spectrosc",
+      "citeRegEx" : "116",
+      "shortCiteRegEx" : "116",
+      "year" : 2011
+    }, {
+      "title" : "Modeling biological activities of nanoparticles",
+      "author" : [ "V Chandana Epa", "FR Burden", "C Tassa" ],
+      "venue" : null,
+      "citeRegEx" : "117",
+      "shortCiteRegEx" : "117",
+      "year" : 2012
+    }, {
+      "title" : "Optimizing chemical reactions with deep reinforcement learning",
+      "author" : [ "Z Zhou", "X Li", "RN. Zare" ],
+      "venue" : "ACS Cent Sci",
+      "citeRegEx" : "118",
+      "shortCiteRegEx" : "118",
+      "year" : 2017
+    }, {
+      "title" : "Accelerating materials property predictions using machine learning",
+      "author" : [ "G Pilania", "C Wang", "X Jiang", "S Rajasekaran", "R. Ramprasad" ],
+      "venue" : null,
+      "citeRegEx" : "119",
+      "shortCiteRegEx" : "119",
+      "year" : 2013
+    }, {
+      "title" : "How to represent crystal structures for machine learning: towards fast prediction of electronic properties",
+      "author" : [ "KT Schütt", "H Glawe", "F Brockherde" ],
+      "venue" : "Phys Rev B",
+      "citeRegEx" : "120",
+      "shortCiteRegEx" : "120",
+      "year" : 2051
+    }, {
+      "title" : "Machine learning bandgaps of double perovskites",
+      "author" : [ "G Pilania", "A Mannodi-Kanakkithodi", "BP Uberuaga", "R Ramprasad", "JE Gubernatis", "T. Lookman" ],
+      "venue" : null,
+      "citeRegEx" : "121",
+      "shortCiteRegEx" : "121",
+      "year" : 1937
+    }, {
+      "title" : "A generalpurpose machine learning framework for predicting properties of inorganic materials",
+      "author" : [ "L Ward", "A Agrawal", "A Choudhary", "C. Wolverton" ],
+      "venue" : "npj Comput Mater",
+      "citeRegEx" : "122",
+      "shortCiteRegEx" : "122",
+      "year" : 2016
+    }, {
+      "title" : "Applying machine learning techniques to predict the properties of energetic materials",
+      "author" : [ "DC Elton", "Z Boukouvalas", "MS Butrico", "MD Fuge", "PW. Chung" ],
+      "venue" : null,
+      "citeRegEx" : "123",
+      "shortCiteRegEx" : "123",
+      "year" : 2018
+    }, {
+      "title" : "Chem SAR: an online pipelining platform for molecular SAR modeling",
+      "author" : [ "J Dong", "ZJ Yao", "MF Zhu" ],
+      "venue" : "J Chem",
+      "citeRegEx" : "124",
+      "shortCiteRegEx" : "124",
+      "year" : 2017
+    }, {
+      "title" : "Data-mined similarity function between material compositions",
+      "author" : [ "L Yang", "G. Ceder" ],
+      "venue" : "Phys Rev B",
+      "citeRegEx" : "125",
+      "shortCiteRegEx" : "125",
+      "year" : 2013
+    }, {
+      "title" : "Informatics-aided bandgap engineering for solar materials",
+      "author" : [ "P Dey", "J Bible", "S Datta" ],
+      "venue" : "Comp Mater Sci",
+      "citeRegEx" : "126",
+      "shortCiteRegEx" : "126",
+      "year" : 2014
+    }, {
+      "title" : "Machine learning and statistical analysis for materials science: stability and transferability of fingerprint descriptors and chemical insights",
+      "author" : [ "P Pankajakshan", "S Sanyal", "OE de Noord", "I Bhattacharya", "A Bhattacharyya", "U. Waghmare" ],
+      "venue" : "Chem Mater",
+      "citeRegEx" : "127",
+      "shortCiteRegEx" : "127",
+      "year" : 2017
+    }, {
+      "title" : "Machine learning with systematic density-functional theory calculations: application to melting temperatures of single- and binary-component solids",
+      "author" : [ "A Seko", "T Maekawa", "K Tsuda", "I. Tanaka" ],
+      "venue" : "Phys Rev B",
+      "citeRegEx" : "128",
+      "shortCiteRegEx" : "128",
+      "year" : 2014
+    }, {
+      "title" : "Designing rules and probabilistic weighting for fast materials discovery in the Perovskite structure",
+      "author" : [ "Castelli IE", "Jacobsen KW" ],
+      "venue" : "Model Simulat Mater Sci Eng",
+      "citeRegEx" : "129",
+      "shortCiteRegEx" : "129",
+      "year" : 2014
+    }, {
+      "title" : "Materials screening for the discovery of new halfHeuslers: machine learning versus ab initio methods",
+      "author" : [ "F Legrain", "J Carrete", "A van Roekeghem", "GKH Madsen", "N. Mingo" ],
+      "venue" : "J Phys Chem B",
+      "citeRegEx" : "130",
+      "shortCiteRegEx" : "130",
+      "year" : 2018
+    }, {
+      "title" : "SnO2-in-polymer matrix for highefficiency Perovskite solar cells with improved reproducibility and stability",
+      "author" : [ "J Wei", "F Guo", "X Wang" ],
+      "venue" : null,
+      "citeRegEx" : "131",
+      "shortCiteRegEx" : "131",
+      "year" : 2018
+    }, {
+      "title" : "Redox-based resistive switching memories—nanoionic mechanisms, prospects, and challenges",
+      "author" : [ "R Waser", "R Dittmann", "G Staikov", "K. Szot" ],
+      "venue" : null,
+      "citeRegEx" : "132",
+      "shortCiteRegEx" : "132",
+      "year" : 2009
+    }, {
+      "title" : "Finding unprecedentedly lowthermal-conductivity half-Heusler semiconductors via highthroughput materials modeling",
+      "author" : [ "J Carrete", "W Li", "N Mingo" ],
+      "venue" : "Phys Rev X",
+      "citeRegEx" : "133",
+      "shortCiteRegEx" : "133",
+      "year" : 2014
+    }, {
+      "title" : "Finding nature's missing ternary oxide compounds using machine learning and density functional theory",
+      "author" : [ "G Hautier", "CC Fischer", "A Jain", "T Mueller", "G. Ceder" ],
+      "venue" : null,
+      "citeRegEx" : "134",
+      "shortCiteRegEx" : "134",
+      "year" : 2010
+    }, {
+      "title" : "Data mining for materials: computational experiments with AB compounds",
+      "author" : [ "Y Saad", "D Gao", "T Ngo", "S Bobbitt", "JR Chelikowsky", "W. Andreoni" ],
+      "venue" : "Phys Rev B",
+      "citeRegEx" : "135",
+      "shortCiteRegEx" : "135",
+      "year" : 2012
+    }, {
+      "title" : "Combinatorial screening for new materials in unconstrained composition space with machine learning",
+      "author" : [ "B Meredig", "A Agrawal", "S Kirklin" ],
+      "venue" : "Phys Rev B",
+      "citeRegEx" : "136",
+      "shortCiteRegEx" : "136",
+      "year" : 2014
+    }, {
+      "title" : "Automatic chemical design using a data-driven continuous representation of molecules",
+      "author" : [ "R Gomez-Bombarelli", "JN Wei", "D Duvenaud" ],
+      "venue" : "ACS Cent Sci",
+      "citeRegEx" : "138",
+      "shortCiteRegEx" : "138",
+      "year" : 2018
+    }, {
+      "title" : "Use of machine learning approaches for novel drug discovery",
+      "author" : [ "AN Lima", "EA Philot", "GH Trossini" ],
+      "venue" : "Expert Opin Drug Discov. 2016;11:225-239",
+      "citeRegEx" : "139",
+      "shortCiteRegEx" : "139",
+      "year" : 2016
+    }, {
+      "title" : "Prediction errors of molecular machine learning models lower than hybrid DFT error",
+      "author" : [ "FA Faber", "L Hutchison", "B Huang" ],
+      "venue" : "J Chem Theory Comput",
+      "citeRegEx" : "140",
+      "shortCiteRegEx" : "140",
+      "year" : 2017
+    }, {
+      "title" : "ANI-1: an extensible neural network potential with DFT accuracy at force field computational cost",
+      "author" : [ "JS Smith", "O Isayev", "AE. Roitberg" ],
+      "venue" : null,
+      "citeRegEx" : "141",
+      "shortCiteRegEx" : "141",
+      "year" : 2017
+    }, {
+      "title" : "To address surface reaction network complexity using scaling relations machine learning and DFT calculations",
+      "author" : [ "ZW Ulissi", "AJ Medford", "T Bligaard", "JK. Norskov" ],
+      "venue" : null,
+      "citeRegEx" : "142",
+      "shortCiteRegEx" : "142",
+      "year" : 2017
+    }, {
+      "title" : "Assessment and validation of machine learning methods for predicting molecular atomization energies",
+      "author" : [ "K Hansen", "G Montavon", "F Biegler" ],
+      "venue" : "J Chem Theory Comput",
+      "citeRegEx" : "143",
+      "shortCiteRegEx" : "143",
+      "year" : 2013
+    }, {
+      "title" : "Including crystal structure attributes in machine learning models of formation energies via Voronoi tessellations",
+      "author" : [ "L Ward", "R Liu", "A Krishna" ],
+      "venue" : "Phys Rev B. 2017;96:024104",
+      "citeRegEx" : "144",
+      "shortCiteRegEx" : "144",
+      "year" : 2017
+    }, {
+      "title" : "Molecule Net: a benchmark for molecular machine learning",
+      "author" : [ "Z Wu", "B Ramsundar", "EN Feinberg" ],
+      "venue" : "Chem Sci",
+      "citeRegEx" : "145",
+      "shortCiteRegEx" : "145",
+      "year" : 2018
+    }, {
+      "title" : "Materials synthesis insights from scientific literature via text extraction and machine learning",
+      "author" : [ "E Kim", "K Huang", "A Saunders", "A McCallum", "G Ceder", "E. Olivetti" ],
+      "venue" : "Chem Mater",
+      "citeRegEx" : "146",
+      "shortCiteRegEx" : "146",
+      "year" : 2017
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 1,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 2,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 3,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 4,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 5,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 6,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 7,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 8,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 9,
+      "context" : "Machine learning was proposed by Samuel(2) in 1959 and has been widely applied in computer vision, general game playing, economics, data mining, and bioinformatics, among other areas.(3-11) With artificial intelligence and machine learning coming of age, important advances are being made not only by researchers in the mainstream artificial intelligence field but also by experts in other fields who are employing these methods to realize their own objectives.",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 11,
+      "context" : "Early in the last century, machine learning was used to detect the solubility of C60 in materials science, 12 and it has now been used to discover new materials, to predict material and molecular properties, to study quantum chemistry, and to design drugs.(13-17) As the resources and tools for machine learning are abundant and easy to access, the barrier to entry for applying machine learning in materials science is lower than ever.",
+      "startOffset" : 255,
+      "endOffset" : 263
+    }, {
+      "referenceID" : 12,
+      "context" : "Early in the last century, machine learning was used to detect the solubility of C60 in materials science, 12 and it has now been used to discover new materials, to predict material and molecular properties, to study quantum chemistry, and to design drugs.(13-17) As the resources and tools for machine learning are abundant and easy to access, the barrier to entry for applying machine learning in materials science is lower than ever.",
+      "startOffset" : 255,
+      "endOffset" : 263
+    }, {
+      "referenceID" : 13,
+      "context" : "Early in the last century, machine learning was used to detect the solubility of C60 in materials science, 12 and it has now been used to discover new materials, to predict material and molecular properties, to study quantum chemistry, and to design drugs.(13-17) As the resources and tools for machine learning are abundant and easy to access, the barrier to entry for applying machine learning in materials science is lower than ever.",
+      "startOffset" : 255,
+      "endOffset" : 263
+    }, {
+      "referenceID" : 14,
+      "context" : "Early in the last century, machine learning was used to detect the solubility of C60 in materials science, 12 and it has now been used to discover new materials, to predict material and molecular properties, to study quantum chemistry, and to design drugs.(13-17) As the resources and tools for machine learning are abundant and easy to access, the barrier to entry for applying machine learning in materials science is lower than ever.",
+      "startOffset" : 255,
+      "endOffset" : 263
+    }, {
+      "referenceID" : 15,
+      "context" : "Early in the last century, machine learning was used to detect the solubility of C60 in materials science, 12 and it has now been used to discover new materials, to predict material and molecular properties, to study quantum chemistry, and to design drugs.(13-17) As the resources and tools for machine learning are abundant and easy to access, the barrier to entry for applying machine learning in materials science is lower than ever.",
+      "startOffset" : 255,
+      "endOffset" : 263
+    }, {
+      "referenceID" : 15,
+      "context" : "As a branch of artificial intelligence, machine learning uses large amounts of data to continuously optimize models and to make reasonable predictions under the guidance of algorithms.(17,18) A complete process of machine learning, including data processing, modeling, and validation, will be discussed in detail below.",
+      "startOffset" : 184,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 16,
+      "context" : "As a branch of artificial intelligence, machine learning uses large amounts of data to continuously optimize models and to make reasonable predictions under the guidance of algorithms.(17,18) A complete process of machine learning, including data processing, modeling, and validation, will be discussed in detail below.",
+      "startOffset" : 184,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 17,
+      "context" : "In 2011, the United States proposed the Materials Genome Initiative for highlighting the importance of massive data in the development of materials science, which strongly encouraged the establishment of a high-quality material database.(19) Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.",
+      "startOffset" : 237,
+      "endOffset" : 241
+    }, {
+      "referenceID" : 18,
+      "context" : "Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.(20-27) In addition, text mining technology has been used to retrieve",
+      "startOffset" : 265,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 19,
+      "context" : "Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.(20-27) In addition, text mining technology has been used to retrieve",
+      "startOffset" : 265,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 20,
+      "context" : "Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.(20-27) In addition, text mining technology has been used to retrieve",
+      "startOffset" : 265,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 21,
+      "context" : "Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.(20-27) In addition, text mining technology has been used to retrieve",
+      "startOffset" : 265,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 22,
+      "context" : "Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.(20-27) In addition, text mining technology has been used to retrieve",
+      "startOffset" : 265,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 23,
+      "context" : "Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.(20-27) In addition, text mining technology has been used to retrieve",
+      "startOffset" : 265,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 24,
+      "context" : "Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.(20-27) In addition, text mining technology has been used to retrieve",
+      "startOffset" : 265,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 25,
+      "context" : "Various material databases, such as the Open Quantum Material Database, Material Project, Computational Materials Repository, Harvard Clean Energy Project, Inorganic Crystal Structure Database and AFLOWLIB, have already been used for computational materials science.(20-27) In addition, text mining technology has been used to retrieve",
+      "startOffset" : 265,
+      "endOffset" : 273
+    }, {
+      "referenceID" : 0,
+      "context" : "), and data from the literature.(1) These data are discrete (eg, texts), continuous (eg, vectors and tensors), or in the form of weighted graphs.",
+      "startOffset" : 32,
+      "endOffset" : 35
+    }, {
+      "referenceID" : 27,
+      "context" : "These data are discrete (eg, texts), continuous (eg, vectors and tensors), or in the form of weighted graphs.(29) Because the data are stored in various databases in various formats, it is difficult to consider data from multiple databases.",
+      "startOffset" : 109,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 25,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 92,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 27,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 91,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 28,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 91,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 29,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 91,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 30,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 91,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 31,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 91,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 32,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 91,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 33,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 91,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 34,
+      "context" : "Fingerprint, SMILES, weighted graph, and the Coulomb matrix are common data representations.(27,29-39) Figure 2 illustrates various representations of a molecule.",
+      "startOffset" : 91,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 27,
+      "context" : "Figure 2 illustrates various representations of a molecule.(29)",
+      "startOffset" : 59,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 27,
+      "context" : "FIGURE 2 Representations of a molecule.(29) Copyright 2018, The American Association for the Advancement of Science 340 WEI ET AL.",
+      "startOffset" : 39,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 36,
+      "context" : "Figure 3 illustrates the workflow of their study and the most representative features, which were selected for machine learning.(41) However, manual feature engineering is not an ideal solution.",
+      "startOffset" : 128,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 36,
+      "context" : "A heat map of the Pearson correlation coefficient matrix for the 14 selected features for HOIPs.(41) Copyright 2018, Springer",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 11,
+      "context" : "Machine learning can be divided into supervised learning, unsupervised learning, semi-supervised learning and reinforcement learning.(13,17) Supervised learning is also known as “learning with a teacher”, namely, the corresponding outputs of the training data have been labeled.",
+      "startOffset" : 133,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 15,
+      "context" : "Machine learning can be divided into supervised learning, unsupervised learning, semi-supervised learning and reinforcement learning.(13,17) Supervised learning is also known as “learning with a teacher”, namely, the corresponding outputs of the training data have been labeled.",
+      "startOffset" : 133,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 39,
+      "context" : "Figure 4A illustrates the strategy of a linear SVM.(46) Proposed in 1964, the SVM has been rapidly developed since 1990s and has spawned a series of improved algorithms.",
+      "startOffset" : 51,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 39,
+      "context" : "The SVM has been applied in face recognition, text categorization, biomedicine, and other pattern recognition problems.(46-51) Due to its excellent classification performance, SVM has been used to classify compounds that are related to a target drug and to successfully identify the drug that is most similar to the target drug in primary screening.",
+      "startOffset" : 118,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 40,
+      "context" : "The SVM has been applied in face recognition, text categorization, biomedicine, and other pattern recognition problems.(46-51) Due to its excellent classification performance, SVM has been used to classify compounds that are related to a target drug and to successfully identify the drug that is most similar to the target drug in primary screening.",
+      "startOffset" : 118,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 41,
+      "context" : "The SVM has been applied in face recognition, text categorization, biomedicine, and other pattern recognition problems.(46-51) Due to its excellent classification performance, SVM has been used to classify compounds that are related to a target drug and to successfully identify the drug that is most similar to the target drug in primary screening.",
+      "startOffset" : 118,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 42,
+      "context" : "The SVM has been applied in face recognition, text categorization, biomedicine, and other pattern recognition problems.(46-51) Due to its excellent classification performance, SVM has been used to classify compounds that are related to a target drug and to successfully identify the drug that is most similar to the target drug in primary screening.",
+      "startOffset" : 118,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 43,
+      "context" : "The SVM has been applied in face recognition, text categorization, biomedicine, and other pattern recognition problems.(46-51) Due to its excellent classification performance, SVM has been used to classify compounds that are related to a target drug and to successfully identify the drug that is most similar to the target drug in primary screening.",
+      "startOffset" : 118,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 44,
+      "context" : "The SVM has been applied in face recognition, text categorization, biomedicine, and other pattern recognition problems.(46-51) Due to its excellent classification performance, SVM has been used to classify compounds that are related to a target drug and to successfully identify the drug that is most similar to the target drug in primary screening.",
+      "startOffset" : 118,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 45,
+      "context" : "Due to its excellent classification performance, SVM has been used to classify compounds that are related to a target drug and to successfully identify the drug that is most similar to the target drug in primary screening.(52) In addition, the SVM is well suited for identifying structure–property relationships.",
+      "startOffset" : 222,
+      "endOffset" : 226
+    }, {
+      "referenceID" : 35,
+      "context" : "Carrete used DTs to synthesize new AB2C Heusler compounds.(40) The training data were collected from Pearson's Crystal Data and the ASM Alloy Phase Diagram Database with the following conditions: (a) the phases do not contain hydrogen, noble gases, or radioactive or actinide elements and (b) the phases exhibit exact 1:2:1 stoichiometry, contain three components and are thermodynamically stable.",
+      "startOffset" : 58,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 49,
+      "context" : "The ANN has been used in many fields of materials science, such as nanomaterial synthesis, quantum computing, and material property analysis.(56-60)",
+      "startOffset" : 140,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 50,
+      "context" : "The ANN has been used in many fields of materials science, such as nanomaterial synthesis, quantum computing, and material property analysis.(56-60)",
+      "startOffset" : 140,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 51,
+      "context" : "The ANN has been used in many fields of materials science, such as nanomaterial synthesis, quantum computing, and material property analysis.(56-60)",
+      "startOffset" : 140,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 52,
+      "context" : "The ANN has been used in many fields of materials science, such as nanomaterial synthesis, quantum computing, and material property analysis.(56-60)",
+      "startOffset" : 140,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 53,
+      "context" : "The ANN has been used in many fields of materials science, such as nanomaterial synthesis, quantum computing, and material property analysis.(56-60)",
+      "startOffset" : 140,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 37,
+      "context" : "This directly leads to the decline of the model accuracy.(42,43,61-63) WEI ET AL.",
+      "startOffset" : 57,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 54,
+      "context" : "This directly leads to the decline of the model accuracy.(42,43,61-63) WEI ET AL.",
+      "startOffset" : 56,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 55,
+      "context" : "This directly leads to the decline of the model accuracy.(42,43,61-63) WEI ET AL.",
+      "startOffset" : 56,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 56,
+      "context" : "This directly leads to the decline of the model accuracy.(42,43,61-63) WEI ET AL.",
+      "startOffset" : 56,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 57,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 58,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 59,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 60,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 61,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 62,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 63,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 64,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 65,
+      "context" : "Currently, deep learning exhibits powerful performance in image recognition, speech recognition, natural language understanding, biomedicine, and other fields.(64-73) In materials science, various architectures (e.",
+      "startOffset" : 158,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 37,
+      "context" : ", convolutional neural network [CNN], recurrent neural network [RNN], deep belief network [DBN], and deep coding network] have demonstrated excellent performance in material detection, material analysis, material design, and quantum chemistry.(42,43,74-78) CNN and RNN will be introduced in the following section.",
+      "startOffset" : 243,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 66,
+      "context" : ", convolutional neural network [CNN], recurrent neural network [RNN], deep belief network [DBN], and deep coding network] have demonstrated excellent performance in material detection, material analysis, material design, and quantum chemistry.(42,43,74-78) CNN and RNN will be introduced in the following section.",
+      "startOffset" : 242,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 67,
+      "context" : ", convolutional neural network [CNN], recurrent neural network [RNN], deep belief network [DBN], and deep coding network] have demonstrated excellent performance in material detection, material analysis, material design, and quantum chemistry.(42,43,74-78) CNN and RNN will be introduced in the following section.",
+      "startOffset" : 242,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 68,
+      "context" : ", convolutional neural network [CNN], recurrent neural network [RNN], deep belief network [DBN], and deep coding network] have demonstrated excellent performance in material detection, material analysis, material design, and quantum chemistry.(42,43,74-78) CNN and RNN will be introduced in the following section.",
+      "startOffset" : 242,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 69,
+      "context" : ", convolutional neural network [CNN], recurrent neural network [RNN], deep belief network [DBN], and deep coding network] have demonstrated excellent performance in material detection, material analysis, material design, and quantum chemistry.(42,43,74-78) CNN and RNN will be introduced in the following section.",
+      "startOffset" : 242,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 70,
+      "context" : ", convolutional neural network [CNN], recurrent neural network [RNN], deep belief network [DBN], and deep coding network] have demonstrated excellent performance in material detection, material analysis, material design, and quantum chemistry.(42,43,74-78) CNN and RNN will be introduced in the following section.",
+      "startOffset" : 242,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 13,
+      "context" : "Sometimes, other types of layers, such as the drop-out layer, are used to control the size of the CNN.(15,43,61,80,82)",
+      "startOffset" : 102,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 54,
+      "context" : "Sometimes, other types of layers, such as the drop-out layer, are used to control the size of the CNN.(15,43,61,80,82)",
+      "startOffset" : 102,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 71,
+      "context" : "The RNN has been applied widely in machine translation, speech recognition, and other fields of natural language processing.(83-85) In the field of materials science, the use of an RNN to imitate a similar reward mechanism to design new materials with specified properties has been proposed.",
+      "startOffset" : 123,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 72,
+      "context" : "The RNN has been applied widely in machine translation, speech recognition, and other fields of natural language processing.(83-85) In the field of materials science, the use of an RNN to imitate a similar reward mechanism to design new materials with specified properties has been proposed.",
+      "startOffset" : 123,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 11,
+      "context" : "In the field of materials science, the use of an RNN to imitate a similar reward mechanism to design new materials with specified properties has been proposed.(13) However, errors that may occur during the training process, such model bias and model variance.",
+      "startOffset" : 159,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 11,
+      "context" : "In addition to these two types of errors, errors can be caused by calculation limitations or missing data.(13) Moreover, in some cases, overfitting occurs: 344 WEI ET AL.",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 73,
+      "context" : "Therefore, model validation is necessary for reducing errors and avoiding overfitting.(86)",
+      "startOffset" : 86,
+      "endOffset" : 90
+    }, {
+      "referenceID" : 74,
+      "context" : "All these parts were used for model validation and the average value of the verification results was calculated as the final estimate.(87-89) One disadvantage of K-fold crossvalidation is that it requires the construction of K models, which can be highly time-consuming for a large data set.",
+      "startOffset" : 133,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 75,
+      "context" : "All these parts were used for model validation and the average value of the verification results was calculated as the final estimate.(87-89) One disadvantage of K-fold crossvalidation is that it requires the construction of K models, which can be highly time-consuming for a large data set.",
+      "startOffset" : 133,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 76,
+      "context" : "All these parts were used for model validation and the average value of the verification results was calculated as the final estimate.(87-89) One disadvantage of K-fold crossvalidation is that it requires the construction of K models, which can be highly time-consuming for a large data set.",
+      "startOffset" : 133,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 73,
+      "context" : "One disadvantage of K-fold crossvalidation is that it requires the construction of K models, which can be highly time-consuming for a large data set.(86) Another common validation method is leave-one-out cross-validation (LOOCV).",
+      "startOffset" : 149,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 52,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 200,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 69,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 200,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 73,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 200,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 77,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 78,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 79,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 80,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 81,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 82,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 83,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 84,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 85,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 86,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 87,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 88,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 89,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 90,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 91,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 92,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 93,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 94,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 95,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 96,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 97,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 98,
+      "context" : "Machine learning is more accurate and convenient than human judgment in material analysis for the detection of metal corrosion and asphalt pavement cracking and the determination of concrete strength.(59,77,86,90-112) Agrawal et al(86) explored various applications in which machine learning methods (such as feature selection and predictive modeling) are used to predict the fatigue strength of steel by studying the relationship among various properties of the alloy and its composition and manufacturing process parameters.",
+      "startOffset" : 199,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 51,
+      "context" : "With the development of artificial intelligence, machine learning plays an increasingly important role in the field of nanomaterials.(58,113-115) As early as 1993, the use of machine learning to study the solubility of C60 was proposed.",
+      "startOffset" : 133,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 99,
+      "context" : "With the development of artificial intelligence, machine learning plays an increasingly important role in the field of nanomaterials.(58,113-115) As early as 1993, the use of machine learning to study the solubility of C60 was proposed.",
+      "startOffset" : 132,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 100,
+      "context" : "With the development of artificial intelligence, machine learning plays an increasingly important role in the field of nanomaterials.(58,113-115) As early as 1993, the use of machine learning to study the solubility of C60 was proposed.",
+      "startOffset" : 132,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 101,
+      "context" : "With the development of artificial intelligence, machine learning plays an increasingly important role in the field of nanomaterials.(58,113-115) As early as 1993, the use of machine learning to study the solubility of C60 was proposed.",
+      "startOffset" : 132,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 14,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 95,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 27,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 95,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 51,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 95,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 53,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 95,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 68,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 95,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 99,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 94,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 100,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 94,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 101,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 94,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 102,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 94,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 103,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 94,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 104,
+      "context" : "molecular systems, to analyze chemical reactions of nanomaterials and to solve kinetic systems.(16,29,58,60,76,113-118) Oh et al successfully applied metaanalysis to study the chemical toxicity of quantum dots (QDs).",
+      "startOffset" : 94,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 99,
+      "context" : "Figure 7 presents the characteristics of 14 species that substantially influence QD toxicity.(113)",
+      "startOffset" : 93,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 11,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 192,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 12,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 192,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 37,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 192,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 55,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 192,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 66,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 192,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 67,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 192,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 105,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 106,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 107,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 108,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 109,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 110,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 111,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 112,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 113,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 114,
+      "context" : "As an alternative, machine learning is a feasible approach for the fast prediction of structures or properties of molecules, compounds and materials; in addition, it can realize high accuracy.(13,14,42,43,62,74,75,119-128) ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.",
+      "startOffset" : 191,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 37,
+      "context" : "ElemNet is a model that is based on a DNN that takes elements as input for predicting material properties.(42) It extracts the physical and chemical interactions and similarities between elements automatically and makes fast and precise predictions.",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 37,
+      "context" : "The framework of ElemNet is illustrated in Figure 8.(42) Similar to ElemNet, Chemception is a model that is based on a CNN that transforms raw data of compounds into 2D images to predict toxicity, activity, and solvation properties.",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 81,
+      "context" : "FIGURE 6 Deep learning for railway track inspection.(94) A.",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 26,
+      "context" : "structure.(28,40,41,129,130) Perovskite is an important crystal structure in many fields.",
+      "startOffset" : 10,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 35,
+      "context" : "structure.(28,40,41,129,130) Perovskite is an important crystal structure in many fields.",
+      "startOffset" : 10,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 36,
+      "context" : "structure.(28,40,41,129,130) Perovskite is an important crystal structure in many fields.",
+      "startOffset" : 10,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 115,
+      "context" : "structure.(28,40,41,129,130) Perovskite is an important crystal structure in many fields.",
+      "startOffset" : 10,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 116,
+      "context" : "structure.(28,40,41,129,130) Perovskite is an important crystal structure in many fields.",
+      "startOffset" : 10,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 117,
+      "context" : "Perovskite is an important crystal structure in many fields.(131,132) Shuaihua et al used various regression algorithms (Gradient boosting regression, kernel ridge regression [KRR], support vector regression, Gaussian process regression, DT regression, and multilayer perceptron regression) to predict stable lead-free HOIPs from 5158 unexplored HOIPs and successfully identified six stable compounds (C2H5OInBr3, C2H6NInBr3, NH3NH2InBr3, C2H5OSnBr3, NH4InBr3, and C2H6NSnBr3).",
+      "startOffset" : 60,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 118,
+      "context" : "Perovskite is an important crystal structure in many fields.(131,132) Shuaihua et al used various regression algorithms (Gradient boosting regression, kernel ridge regression [KRR], support vector regression, Gaussian process regression, DT regression, and multilayer perceptron regression) to predict stable lead-free HOIPs from 5158 unexplored HOIPs and successfully identified six stable compounds (C2H5OInBr3, C2H6NInBr3, NH3NH2InBr3, C2H5OSnBr3, NH4InBr3, and C2H6NSnBr3).",
+      "startOffset" : 60,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 99,
+      "context" : "Researchers used data mining to collect toxicity data of QDs and random forest was used to identify relevant QD data attributes and to develop robust data-driven models of QD toxicity.(113)",
+      "startOffset" : 184,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 37,
+      "context" : "FIGURE 8 Deep neural networks for property prediction of materials.(42) Copyright 2018, Springer Nature 348 WEI ET AL.",
+      "startOffset" : 67,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 119,
+      "context" : "Another similar study was reported on identifying low-thermal-conductivity halfHeusler semiconductors.(133) The random forest algorithm was used to scan more than 79 000 half-Heusler entries in the AFLOWLIB database.",
+      "startOffset" : 102,
+      "endOffset" : 107
+    }, {
+      "referenceID" : 120,
+      "context" : "Machine learning can be used to predict new compounds and their structures from an input composition.(134-136) A probabilistic model that was based on an experimental crystal structure database was used to identify 209 new ternary oxides.",
+      "startOffset" : 100,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 121,
+      "context" : "Machine learning can be used to predict new compounds and their structures from an input composition.(134-136) A probabilistic model that was based on an experimental crystal structure database was used to identify 209 new ternary oxides.",
+      "startOffset" : 100,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 122,
+      "context" : "Machine learning can be used to predict new compounds and their structures from an input composition.(134-136) A probabilistic model that was based on an experimental crystal structure database was used to identify 209 new ternary oxides.",
+      "startOffset" : 100,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 120,
+      "context" : "A probabilistic model that was based on an experimental crystal structure database was used to identify 209 new ternary oxides.(134) In addition, Meredig et al(136) constructed a machine learning model that was based on thousands of DFT calculation results for predicting the thermodynamic stability of arbitrary compositions.",
+      "startOffset" : 127,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 121,
+      "context" : "In a similar study, machine learning was used to study binary compounds.(135) First, researchers used a unsupervised learning algorithm to separate 67 octet compounds into distinct classes according to their crystal structures; second, the supervised learning algorithm was applied to identify the correct crystal structures of 55 compounds; finally, a regression algorithm was used to predict the melting points of 44 AB suboctet compounds by mining a combination of 16 properties of the constituent atoms of each binary compound.",
+      "startOffset" : 72,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 11,
+      "context" : "Recently, a model that was based on objective-reinforced generative adversarial networks was proposed for generating new organic molecules with specified chemical features and physical responses via a reward mechanism.(13,137) The model consists of a generator and a discriminator: the generator captures the distribution of the data while the discriminator compares the molecular structure that is obtained by the FIGURE 9 A.",
+      "startOffset" : 218,
+      "endOffset" : 226
+    }, {
+      "referenceID" : 107,
+      "context" : "The structure of a double perovskite crystal.(121) Copyright 2016, Springer Nature.",
+      "startOffset" : 45,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 107,
+      "context" : "The chemical space of cations in the A-site and B-site for double perovskite prediction.(121) Copyright 2016, Springer Nature.",
+      "startOffset" : 88,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 119,
+      "context" : "The chemical space for low-thermal-conductivity half-Heusler compound prediction.(133) Copyright 2014, American",
+      "startOffset" : 81,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 11,
+      "context" : "Deep learning has high potential in the inverse design of materials.(13,29,78,137) Inverse design begins from the required functionality and searches for the ideal molecular structure that exhibits this functionality.",
+      "startOffset" : 68,
+      "endOffset" : 82
+    }, {
+      "referenceID" : 27,
+      "context" : "Deep learning has high potential in the inverse design of materials.(13,29,78,137) Inverse design begins from the required functionality and searches for the ideal molecular structure that exhibits this functionality.",
+      "startOffset" : 68,
+      "endOffset" : 82
+    }, {
+      "referenceID" : 70,
+      "context" : "Deep learning has high potential in the inverse design of materials.(13,29,78,137) Inverse design begins from the required functionality and searches for the ideal molecular structure that exhibits this functionality.",
+      "startOffset" : 68,
+      "endOffset" : 82
+    }, {
+      "referenceID" : 27,
+      "context" : "The method takes a functionality as input and outputs a molecular structure.(29) Figure 11A compares three material design schemes.",
+      "startOffset" : 76,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 70,
+      "context" : "The successful realization of inverse-designed organic molecules via a model that was based on DNN and RNN was reported.(78) In contrast to reconstructing molecule structures directly from molecule descriptors, the inverse design model translates molecule descriptors into molecule identifiers.",
+      "startOffset" : 120,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 45,
+      "context" : "Drug design is one of the mature fields in which machine learning is utilized.(52,63,79,139) Machine learning approaches that are modeled on small molecules can handle the structural complexity of proteins and can predict structureactivity relationships accurately, which facilitates the discovery of target drugs.",
+      "startOffset" : 78,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 56,
+      "context" : "Drug design is one of the mature fields in which machine learning is utilized.(52,63,79,139) Machine learning approaches that are modeled on small molecules can handle the structural complexity of proteins and can predict structureactivity relationships accurately, which facilitates the discovery of target drugs.",
+      "startOffset" : 78,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 124,
+      "context" : "Drug design is one of the mature fields in which machine learning is utilized.(52,63,79,139) Machine learning approaches that are modeled on small molecules can handle the structural complexity of proteins and can predict structureactivity relationships accurately, which facilitates the discovery of target drugs.",
+      "startOffset" : 78,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 45,
+      "context" : "The activity model is refined at each step to select the most promising compound for the next batch and the process is repeated until an active drug has been identified.(52) This is an effective method for discovering active drugs; however, it has a long development cycle and is computationally expensive.",
+      "startOffset" : 169,
+      "endOffset" : 173
+    }, {
+      "referenceID" : 124,
+      "context" : "Here, machine learning can be applied to predict the tertiary structures of receptors through predictions of secondary structures, solvent accessibility, and disordered regions, among other factors.(139) Many common machine learning algorithms, such as ANN, SVM, DTs, random forest, and k-nearest neighbor, can be used in two drug discovery strategies.",
+      "startOffset" : 198,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 11,
+      "context" : "FIGURE 10 Framework of an objective-reinforced generative adversarial network.(13) Copyright 2018, Springer Nature 350 WEI ET AL.",
+      "startOffset" : 78,
+      "endOffset" : 82
+    }, {
+      "referenceID" : 27,
+      "context" : "Comparing with inverse design that is based on high-throughput screening, the machine-learning-based inverse design method is more effective in chemical space exploration.(29) Copyright 2018, The American Association for the Advancement of Science.",
+      "startOffset" : 171,
+      "endOffset" : 175
+    }, {
+      "referenceID" : 123,
+      "context" : "The workflow of the inverse design method.(138) Copyright 2018, American Chemical Society.",
+      "startOffset" : 42,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 123,
+      "context" : "Gradient-based optimization in continuous latent space.(138) Copyright 2018, American Chemical Society WEI ET AL.",
+      "startOffset" : 55,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 36,
+      "context" : "Machine learning, in place of or combined with computer simulation (DFT), is often used to simplify the computations of complex problems in the field of quantum chemistry.(41,134,140-142) By using DFT data to train a machine learning model, Seko et al substantially reduced the calculation cost without sacrificing the accuracy of the model.",
+      "startOffset" : 171,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 120,
+      "context" : "Machine learning, in place of or combined with computer simulation (DFT), is often used to simplify the computations of complex problems in the field of quantum chemistry.(41,134,140-142) By using DFT data to train a machine learning model, Seko et al substantially reduced the calculation cost without sacrificing the accuracy of the model.",
+      "startOffset" : 171,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 125,
+      "context" : "Machine learning, in place of or combined with computer simulation (DFT), is often used to simplify the computations of complex problems in the field of quantum chemistry.(41,134,140-142) By using DFT data to train a machine learning model, Seko et al substantially reduced the calculation cost without sacrificing the accuracy of the model.",
+      "startOffset" : 170,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 126,
+      "context" : "Machine learning, in place of or combined with computer simulation (DFT), is often used to simplify the computations of complex problems in the field of quantum chemistry.(41,134,140-142) By using DFT data to train a machine learning model, Seko et al substantially reduced the calculation cost without sacrificing the accuracy of the model.",
+      "startOffset" : 170,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 127,
+      "context" : "Machine learning, in place of or combined with computer simulation (DFT), is often used to simplify the computations of complex problems in the field of quantum chemistry.(41,134,140-142) By using DFT data to train a machine learning model, Seko et al substantially reduced the calculation cost without sacrificing the accuracy of the model.",
+      "startOffset" : 170,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 114,
+      "context" : "Models that have been trained on DFT data have been used to predict the melting temperatures of single and binary compounds.(128) As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.",
+      "startOffset" : 124,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 27,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 270,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 68,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 270,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 101,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 270,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 106,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 270,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 107,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 270,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 112,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 270,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 113,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 270,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 128,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 269,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 129,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 269,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 130,
+      "context" : "As a data-driven method, machine learning can bypass the solution of complex equations (eg, the Kohn-Sham equation or Schrödinger equation) to determine the properties that are related to the energy, geometry, and curvature of the potential energy surfaces of molecules.(29,76,115,120,121,126,127,143-145) A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.",
+      "startOffset" : 269,
+      "endOffset" : 305
+    }, {
+      "referenceID" : 68,
+      "context" : "A group developed a model that is based on a deep tensor neural network for predicting atomic energies and local chemical potentials in molecules, reliable isomer energies, and molecules with peculiar electronic structures, thereby resulting in insights into quantum-mechanical observables of molecular systems.(76) In this work, each atomic type corresponds to a",
+      "startOffset" : 311,
+      "endOffset" : 315
+    }, {
+      "referenceID" : 124,
+      "context" : "LBDD strategies for drug design.(139) Copyright 2016, Taylor & Francis.",
+      "startOffset" : 32,
+      "endOffset" : 37
+    }, {
+      "referenceID" : 45,
+      "context" : "The drug discovery approach.(52) Copyright 2003, American Chemical Society.",
+      "startOffset" : 28,
+      "endOffset" : 32
+    }, {
+      "referenceID" : 11,
+      "context" : "data, which are scattered among articles, journals and magazines, can be quickly collected, which will substantially enrich the existing material databases and enable the creation of specialized databases.(13,16,146) Second, establishing new principles for machine learning is essential.",
+      "startOffset" : 205,
+      "endOffset" : 216
+    }, {
+      "referenceID" : 14,
+      "context" : "data, which are scattered among articles, journals and magazines, can be quickly collected, which will substantially enrich the existing material databases and enable the creation of specialized databases.(13,16,146) Second, establishing new principles for machine learning is essential.",
+      "startOffset" : 205,
+      "endOffset" : 216
+    }, {
+      "referenceID" : 131,
+      "context" : "data, which are scattered among articles, journals and magazines, can be quickly collected, which will substantially enrich the existing material databases and enable the creation of specialized databases.(13,16,146) Second, establishing new principles for machine learning is essential.",
+      "startOffset" : 205,
+      "endOffset" : 216
+    }, {
+      "referenceID" : 68,
+      "context" : "Encoding of a molecule into a vector of nuclear charges and an interatomic distance matrix as input of a neural network.(76) Copyright 2017, Springer Nature.",
+      "startOffset" : 120,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 68,
+      "context" : "The architecture of a deep tensor neural network.(76) Copyright 2017, Springer Nature.",
+      "startOffset" : 49,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 68,
+      "context" : "The total energies that are extracted from the calculated (black) and predicted (orange) molecular dynamics trajectories of toluene.(76) Copyright 2017, Springer Nature.",
+      "startOffset" : 132,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 68,
+      "context" : "The energy contribution of a hydrogen test charge on the isosurfaces of various molecules.(76) Copyright 2017, Springer Nature WEI ET AL.",
+      "startOffset" : 90,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 37,
+      "context" : "The performance of a deep learning model that has been trained on a small data set size of 4000 samples has been demonstrated to be sufficient.(42) In addition, the method that was discussed above of training a model with failure data that were collected from failed experiments may be helpful in such scenarios.",
+      "startOffset" : 143,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 26,
+      "context" : "In addition, the method that was discussed above of training a model with failure data that were collected from failed experiments may be helpful in such scenarios.(28)",
+      "startOffset" : 164,
+      "endOffset" : 168
+    } ],
+    "year" : 2019,
+    "abstractText" : "State Key Laboratory of Information Photonics and Optical Communications, Beijing University of Posts and Telecommunications, Beijing, China State Key Laboratory of Superlattices and Microstructures, Institute of Semiconductors, Chinese Academy of Sciences, Center of Materials Science and Optoelectronics Engineering, University of Chinese Academy of Sciences, Beijing, China Zhejiang Provincial Key Laboratory for Cutting Tools, Taizhou University, Taizhou, China Beijing Academy of Quantum Information Sciences, Beijing, China",
+    "creator" : "Arbortext Advanced Print Publisher 9.1.520/W Unicode"
+  }
+}

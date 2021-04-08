@@ -1,0 +1,788 @@
+{
+  "name" : "twin.sci-hub.se_6082_7fa2bf48d50150f6a3c2978e7b37521f_karimipour2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "The effects of different nano particles of Al2O3 and Ag on the MHD nano fluid flow and heat transfer in a microchannel including slip velocity and temperature jump",
+    "authors" : [ "Arash Karimipour", "Annunziata D’Orazio", "Mostafa Safdari Shadloo", "Mostafa Safdari", "Annunziata D'Orazio" ],
+    "emails" : [ "arashkarimipour@gmail.com", "annunziata.dorazio@uniroma1.it", "msshadloo@coria.fr" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "The forced convection of nanofluid flow in a long microchannel is studied numerically according to the finite volume approach and by using a developed computer code. Microchannel domain is under the influence of a magnetic field with uniform strength. The hot inlet nanofluid is cooled by the heat exchange with the cold microchannel walls. Different types of nanoparticles such as Al2O3 and Ag are examined while the base fluid is considered as water. Reynolds number are chosen as Re=10 and Re=100. Slip velocity and temperature jump boundary conditions are simulated along the microchannel walls at different values of slip coefficient for different amounts of Hartmann number. The investigation of magnetic field effect on slip velocity and temperature jump of nanofluid is\npresented for the first time. The results are shown as streamlines and isotherms; moreover the profiles of slip velocity and temperature jump are drawn. It is observed that more slip coefficient corresponds to less Nusselt number and more slip velocity especially at larger Hartmann number. It is recommended to use Al2O3-water nanofluid instead of Ag-water to increase the heat transfer rate from the microchannel walls at low values of Re. However at larger amounts of Re, the nanofluid composed of nanoparticles with higher thermal conductivity works better.\nKeywords: Nano particles, Nano fluid, Slip flow, Magneto hydro dynamic."
+    }, {
+      "heading" : "Nomenclature",
+      "text" : "AR Aspect ratio of the microchannel (L/H)\nB Slip coefficient in non-dimensional form/h)\nB0 The strength of magnetic field cp Specific heat (Jkg -1 K -1 ) dp diameter of nanoparticles (10 nm) h The height of Microchannel (m) H The height of Microchannel in non-dimensional form Ha Hartmann number k Thermal conductivity (Wm -1 K -1 ) l The length of microchannel (m) L The length of microchannel in non-dimensional form\nNu Nusselt number p Pressure (Pa) P Pressure in non-dimensional form Pr Prandtl number Re Reynolds number T Temperature (K) TC The temperature of cold walls (K) TH The temperature of hot inlet nanofluid (K) u Horizontal velocity (ms -1 ) ui Inlet velocity (ms -1 ) U Horizontal velocity in non-dimensional form Us Slip velocity in non-dimensional form v Vertical velocity (ms -1 ) V Vertical velocity in non-dimensional form x Horizontal Cartesian coordinate (m) X Horizontal Cartesian coordinate in non-dimensional form y Vertical Cartesian coordinate (m) Y Vertical Cartesian coordinate in non-dimensional form"
+    }, {
+      "heading" : "Greek symbols",
+      "text" : " Thermal diffusivity (m 2 s -1 )\n Slip coefficient (m)   Electrical conductivity (Sm -1 )\n Volume fraction of nanoparticles  Dynamic viscosity (Nsm -2 )\n Temperature in non-dimensional form\ns Temperature jump in non-dimensional form  Density (kgm -3 )  Kinematic viscosity (m 2 s -1 )\nSubscripts f Fluid nf Nanofluid s Solid nanoparticles"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Due to low thermal conductivity of liquids, the main heat transfer mechanism is considered as the convection among them. Hence the enhancement of liquid thermal conductivity can invigorate the total heat transfer rate from. In this way, using nanofluid can be useful which is a mixture of solid nanoparticles suspended in the base fluid. Higher thermal conductivity of nanoparticles corresponds to more thermal conductivity of the mixture and increases the conduction heat transfer beside its convection [1-6]. Several works can be referred which used nanofluid at different physical conditions such as the forced and natural convection in the enclosures or the nanofluid flow through the pipes and ducts. However, using nanofluid in heat exchangers or in the more complex geometries is also reported in some other articles [7-12]. Among them Oztop and Abu-Nada [13] reported the natural convection of nanofluid in partially heated rectangular enclosure for\ndifferent kinds of nanoparticles such as TiO2, Cu, AL2O3. Moreover the enhancement of Nusselt number of Cu-water nanofluid in a lid-driven cavity was observed in those of Tiwari and Das [14]. A large number of articles can be addressed which studied the mixed convection of nanofluids filled in the closed or open cavities [15-21]. Applying the nanofluid is not limited to the laminar single phase flows; hence a great number of works tried to investigate the nanofluid flow in turbulent regime or supposing it as a two-phase mixture [22-24]. The fluid flow and heat transfer at micro-scales level are completely different from the macro-scales one. More efficiency beside the small size of a micro-device encourages researchers to pay more attention on [25-29]. The gas micro-flows are classified according to the Knudsen number while at Kn<0.001, the flow regime is continuum and could be simulated by classic Navier-Stokes equations. However at 0.001<Kn<0.1, the slip flow regime is dominated and Navier-Stokes equations with the slip boundary condition must be used [30-34]. Moreover at 0.1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42]. For a liquid micro-flow at slip flow regime (like the nanofluid flow through a\nmicrochannel), the slip coefficient is defined as  (and not as Kn) and the no-slip boundary\ncondition is dropped; so that the slip velocity and temperature jump boundary conditions should be involved. The combination of a nanofluid flow in a microchannel might be an innovative way to enhance the heat transfer rate at micro scales level [43-47]. The investigation of the magneto-hydrodynamic field effect (MHD) on hydrodynamic and thermal properties of a fluid flow was presented as a follow-up case study; which implies\nthe flow of electrically conducting fluid in a duct happens in the presence of a transverse magnetic field and generates the Lorentz force against the fluid flow direction [48-53]. Present work aims to simulate the nanofluid flow in a microchannel in the presence of a magnetic field. However what distinguishes this study from the previous articles is the investigation of magnetic field effects on nanofluid slip velocity and temperature jump for the first time (to the best of authors’ knowledge) which was ignored in previous papers [54]."
+    }, {
+      "heading" : "2. Problem statement",
+      "text" : "The forced convection of Newtonian homogeneous nanofluid flow in a long microchannel with aspect ratio of AR=L/H=30, is studied numerically. Microchannel domain is under the influence of a magnetic field with strength of B0 as shown in Fig. 1. The hot inlet nanofluid is cooled by the heat exchange with the cold microchannel walls. Different types of nanoparticles such as Al2O3 and Ag are examined at fixed value of nanoparticles volume fraction , while the base fluid is considered as water. The nanoparticles\ndiameter are supposed as dp=10 nm. Duo to represent a real physical situation, Nanofluid Reynolds number (Re) could not be a large value through the microchannel; so that Reynolds number are chosen as Re=10 and Re=100. Slip velocity and temperature jump boundary conditions are simulated along the microchannel walls at different values of slip coefficient (B=0.01, B=0.05 and B=0.1) for different amounts of Hartmann number (Ha=0, Ha=20 and Ha=40). As a result, the\ninvestigation of magnetic field effect on slip velocity and temperature jump of nanofluid flow through the microchannel is presented for the first time at present article."
+    }, {
+      "heading" : "3. Formulation",
+      "text" : "Two-dimensional Navier-Stokes equations are applied for the nanofluid flow considering magnetic field effect as [55]: Continuity equation:\nu v 0 x y       (1)\nMomentum equation along the x-coordinates:\n22 2\nnf 0 nf 2 2\nnf nf\nBu u 1 p u u u v u\nx y x x y\n              \n        (2)\nMomentum equation along the y-coordinates:\n2 2\nnf 2 2\nnf\nv v 1 p v v u v\nx y y x y\n                    (3)\nEnergy equation:\n2 2\nnf 2 2\nT T T T u v\nx y x y\n         \n     (4)\nDensity and viscosity of the nanofluid can be estimated by Eqs. (5) and (6) using nanoparticles volume fraction; while the subscripts f, s and nf represent the base-fluid, solid nanoparticles and nanofluid, respectively:\nnf s f(1 )      (5)\n2.5\nnf f /(1 )   (6) Moreover Xuan and Li [56] equation is used for the nanofluid heat capacity:\n      p p pnf f sc 1 c c      (7) Nanofluid thermal conductivity can be achieved from Chon et al. formula [57] which is able to consider the nanoparticles diameter and their Brownian motions as follows:\n0.3690 0.7476 0.9955 1.2321\n0.7460 s f cnf f\n2\nf p f f f BF\nk B Tk d 1 64.7 k d k 3 l                             \n(8)\nIt should be mentioned that lBF in Eq. (8), shows the base fluid mean free path, Bc1.380710 -23 J/K, represents the Boltzmann constant and would be equals to:\nB\n5T CA(10 ), C 140 (K), B 247 (K), A 2.414(10 (Pa.s)     ) (9)\nEq. (10) can be used to determine the electrical conductivity of nanofluid according to the electrical conductivity of the base fluid and nanoparticles as follows [55,58]:\ns fnf f s f s f\n3( / 1) 1\n( / 2) ( / 1)\n     \n         (10)\nTo show the governing equations in non-dimensional form, the following parameters are introduced:\ni i\nC H C\n2 nf i\nH h / h, L l / h Y y / h, X x / h V v / u , U u / u\n(T T ) /(T T )\nP p /( u )\n     \n   \n \n(11)\nAs a result, the non-dimensional form of the governing Navier-Stokes equations can be derived as:\nU V 0 X Y       (12)\n2 2 2\n2 2\nU U P 1 U U Ha U V U\nX Y X Re X Y Re\n            \n      (13)\n2 2\n2 2\nV V P 1 V V U V\nX Y Y Re X Y\n           \n      (14)\n2 2\n2 2\n1 U V\nX Y RePr X Y\n          \n     (15)\nNotes that Reynolds number, Prandtl number and Hartmann number are defined based on the nanofluid properties as Reuih/nf , Prnf/nf and HaB0h(nf/nf) 0.5 ."
+    }, {
+      "heading" : "4. Boundary conditions",
+      "text" : "Hot uniform flow is supposed for the inlet as Uinletui/ui1 and inlet1; while the fully developed condition is achieved at the outlet. At present study, it is tried to simulate the slip velocity and temperature jump boundary conditions along the microchannel walls. Eq. (16) represents the slip velocity according to the slip length (Ls) [59]:\n(16)fluidwall fluid wall s wall\nu (y) u u (y wall) u L\ny\n     \n\nwhere uwall and ufluid are the velocity of wall and the velocity of fluid on the wall, respectively. Finally, the slip velocity of nanofluid along the microchannel walls can be\ndetermined by using the slip coefficient, as follows [60]:\n(17) s\ny 0,h\nu u\ny \n  \n\nEq. (18) shows the non-dimensional slip velocity using B/h, as the non-dimensional form\nof slip coefficient:\n(18)s Y 0,1\nU U B\nY \n  \n\nThrough the same procedure of developing the slip velocity equation and by using , as the\ntemperature jump distance; Temperature jump values can be determined along the microchannel walls:\n(19)fluidwall fluid wall wall\nT (y) T T (y wall) T\ny\n      \n\n(20)s Y 0,1\nB Pr Y     \nMoreover the local and averaged nanofluid Nusselt numbers along the microchannel walls are presented as:\nnf X\nY 0 (or Y 1)f\nk Nu\nk Y  \n     \n  (21)\nL\nm X 0\n1 Nu Nu dX\nL   (22)"
+    }, {
+      "heading" : "5. Numerical procedure, Grid independency and validation",
+      "text" : "Finite volume method based on SIMPLE algorithm is used to descritize and solve the governing equations. To do this, an implicit FORTRAN computer code is developed to\nsimulate the nanofluid flow and heat transfer. Table 1 shows the thermo-physical properties of different nanoparticles and water.\nThe values of U and  at X=L/2 and Y=H/2 for 0.04, ReHaand0.1 and for\nwater-Al2O3 nanofluid at different grid nodes are presented in Table 2. Difference between the results of 45030 and 52535 are found negligible; so the grid of 45030 is chosen for\nthe next calculations. Fully developed velocity profiles from the present work versus Hooman and Ejlali [61] are compared in Fig. 2 at Kn=0 and Kn=0.1. In their work the theoretical results of fully developed hydrodynamic and thermal forced convection in both parallel plate and circular microchannel including slip velocity and temperature jump were studied for flow of both gases and liquids. More validation which concerns the copper–water nanofluid through two isothermally heated parallel plates is presented in Fig. 3-a versus those of Santra et al. [19] for different\nvalues of Re and . Moreover Fig. 3-b shows the last validation of forced convection\nnanofluid flow in a microchannel in the absence of slip velocity and in the presence of magnetic field reported by Aminossadati et al. [54] at Re=10, 100 and Ha=0, 10, 20. Good agreements between the averaged Nusselt number from the present computer code with those of Santra et al. [19] and Aminossadati et al. [54] in Fig. 3-a and Fig. 3-b are observed."
+    }, {
+      "heading" : "6. Results",
+      "text" : "The laminar forced convection of nanofluid flow in a microchannel is studied numerically. Microchannel domain is under the influence of a magnetic field with the strength of B0\n(Fig. 1). Fig. 4 shows the fully developed horizontal velocity profiles of U for water-Al2O3 nanofluid at 0.04, Re10, Ha0 and Ha40 for different values of B. Slip coefficient (B)\nhas the significant effects on U profiles from B0.01 to B0.1. It is seen that more B\ncorresponds to more slip velocity at Y0 and Y1 and less Umax at Y=0.5 for Ha=0. At the state of Ha=40, the Magnetic field makes the Lorentz force in opposite direction of fluid flow. Hence larger Ha leads to smaller Umax at Y=0.5; and also generates a core of uniform flow from Y≈0.15 to Y≈0.85 which means have the larger fluid velocity adjacent to the walls. However the velocity of this core is not affected significantly by B at higher vales of\nHa. This fact occurs reversely for slip velocities at Y0 and Y1; so that the increase of slip\nvelocity with B would happen more severely at larger Ha.\nTemperature profiles of at different cross sections of microchannel for water-Al2O3 nanofluid at 0.04, Re10, B0.01 for Ha0 and Ha40 are observed in Fig. 5. The hot\ninlet nanofluid is cooled by the heat exchange with the cold microchannel walls through the\nmicrochannel so that at X0.8L the nanofluid temperature would be almost equal to the\nwalls temperature. Variations of Hartmann number do not have an important effect on \nprofiles; however a little reduction could be traced in max at Y=0.5 for Ha=40 in comparison with the state of Ha=0. To have a better visual aspect of nanofluid flow along the microchannel length, the\nstreamlines and isotherms of water-Al2O3 nanofluid at 0.04, B0.01, Ha0 and Re10 are presented in Fig. 6. It should be mentioned that only the region around the entrance length, 0<X<5, are shown in this figure for more clarity. Streamlines are uniform and parallel except through a small space at entrance (0<X<0.5). Reduce the temperature of hot\ninlet flow due to heat exchange with the cold walls is well obvious in the isotherms plots of this figure. In order to investigate the effects of magnetic field on the streamlines and\nisotherm, these contours are drawn in Fig. 7 for Ha=40 at 0.04, B0.01 and Re=10. The\nimbalance of streamlines at 0<X<0.5, vanish at the state of Ha=40 compared with Ha=0 while isotherms plots do not show the sensible change with Ha. One of the most important properties of a micro-flow is slip velocity boundary condition which means the fluid adjacent to the wall does not have the same velocity and is able to slip along it. This phenomenon can be observed clearly in Fig. 8-a which concerns the slip velocity profiles for water-Al2O3 nanofluid along the microchannel wall for different values of B at =0.04, Re=10 and Ha=20. Slip velocity profile begins from its greatest amount at\nentrance and then it reduces along the microchannel wall so that tends to the specified value. This figure implies the significant effect of B on Us. The effects of Ha on slip velocity can be studied in Fig. 8-b; where such this research case has not been reported before in the literature. It is observed that the positive effects of slip coefficient on the slip velocity can be occurred more severely at higher Hartmann numbers; which means stronger magnetic field invigorates the micro-scale properties. As a result, the highest value of slip velocity at fully developed condition is achieved at highest amounts of slip coefficient and Hartmann number as B=0.1 and Ha=40. Temperature jump variations along the microchannel wall are presented in Fig. 9 for water-\nAl2O3 nanofluid at 0.04, Re10, Ha20 and different values of B. Temperature jump effects are ignored in the most previous articles; however Fig. 9 implies that its values are sensible at 0<X<15 and should be involved especially at microchannel entrance space\nwhere has the most heat exchange with the walls. Larger B corresponds to larger s, while the effects of Ha can be ignored on. Local profiles of Nusselt number for water-Ag nanofluid along the microchannel wall at\ndifferent values of Ha and Re for 0.04 and B0.05 are shown in Fig. 10. NuX begins from its greatest amount at inlet and then decreases along the microchannel wall. To better explain the heat transfer rate from the walls, the averaged Nusselt numbers at\ndifferent values of Ha and B for Re10 and Re100 at  are presented in Fig. 11. At\nhigher values of Re as Re=100, Num of Ag-water nanofluid is larger than Al2O3-water one. This well known fact is because of the higher thermal conductivity of Ag; however at lower values of Re as Re=10, this procedure occurs reversely. As it is said before the nanofluid Reynolds number through a microchannel usually has a small value to illustrate the real physical situation. As a result and in order to increase the heat transfer rate from a real microchannel (at low Re), it is proposed to use the Al2O3-water nanofluid instead of Agwater. However at larger values of Re (as Re=100) the nanofluid composed of nanoparticles with higher thermal conductivity would work better. Showing the roll of slip coefficient on Num could be another interesting point of Fig. 11. More B corresponds to less Num; which means averaged Nusselt number decreases due to slip velocity boundary condition. The reader approaches to a new finding with more focus on Fig. 11. It is seen that larger Ha leads to larger Num at higher values of Re (as Re=100); so the stronger magnetic field increases the heat transfer rate however this phenomenon is not significant at low values of Reynolds number."
+    }, {
+      "heading" : "7. Conclusion",
+      "text" : "Forced convection of nanofluid (Ag-water and Al2O3-water) flow in a microchannel was studied numerically. Microchannel domain was under the influence of a magnetic field. The investigation of magnetic field effect on slip velocity and temperature jump was presented for the first time and the following points were obtained: Magnetic field makes the Lorentz force in opposite direction of fluid flow; Hence larger Hartmann number (Ha) leads to smaller Umax at Y=0.5 and also generates a core of uniform flow from Y≈0.15 to Y≈0.85. Moreover larger Ha leads to larger Num, at higher values of Re. More slip coefficient (B) corresponds to less Num and more Us, especially at larger Ha. The highest value of Us, at fully developed condition is achieved at highest amounts of B and Ha as B=0.1 and Ha=40.\nTemperature jump (s) effects should be involved at microchannel entrance area where the most heat exchange with the walls happen. Larger B corresponds to larger s, while the effects of Ha can be ignored on. It is recommended to use Al2O3-water nanofluid instead of Ag-water to increase the heat transfer rate from the microchannel walls at low values of Re. However at larger amounts of Re, the nanofluid composed of nanoparticles with higher thermal conductivity works better.\nReferences\n[1] S. Lee, S.U.S. Choi, S. Li, J.A. Eastman, Measuring thermal conductivity of fluids containing oxide nanoparticles, ASME J. Heat Transfer 121 (1999) 280-289. [2] M.H. Esfe, S.S.M. Esforjani, M. Akbari, A. Karimipour, Mixed-convection flow in a lid driven square cavity filled with a nanofluid with variable properties: effect of the nanoparticle diameter and of the position of a hot obstacle, Heat Transfer Res. 45 (2014) 563-578. [3] Akbar, N.S., 2015. Ferromagnetic CNT suspended H 2 O+ Cu nanofluid analysis through composite stenosed arteries with permeable wall. Physica E: Low-dimensional Systems and Nanostructures, 72, pp.70-76. [4] M.H. Esfe, S. Saedodin, M. Akbari, A. Karimipour, M. Afrand, S. Wongwises, M.R. Safaei, M. Dahari, Experimental investigation and development of new correlations for thermal conductivity of CuO/EG–water nanofluid, International Communications in Heat and Mass Transfer 65 (2015) 47-51. [5] Esfe, M.H., Naderi, A., Akbari, M., Afrand, M. and Karimipour, A., 2015. Evaluation of thermal conductivity of COOH-functionalized MWCNTs/water via temperature and solid volume fraction by using experimental data and ANN methods. Journal of Thermal Analysis and Calorimetry, 121(3), pp.1273-1278. [6] Akbar, N.S., 2015. Biofluidics Study in Digestive System with Thermal Conductivity of Shape Nanosize H 2 O+ Cu Nanoparticles. Journal of Bionic Engineering, 12(4), pp.656663. [7] M.H. Esfe, A.A.A. Arani, A. Karimipour, S.S.M. Esforjani, Numerical simulation of natural convection around an obstacle placed in an enclosure filled with different types of nanofluids, Heat Transfer Res. 45 (2014) 279-292.\n[8] Akbar, N.S. and Khan, Z.H., 2016. Effect of variable thermal conductivity and thermal radiation with CNTS suspended nanofluid over a stretching sheet with convective slip boundary conditions: Numerical study. Journal of Molecular Liquids, 222, pp. 279-286. [9] Baratpour, M., Karimipour, A., Afrand, M. and Wongwises, S., 2016. Effects of temperature and concentration on the viscosity of nanofluids made of single-wall carbon nanotubes in ethylene glycol. International Communications in Heat and Mass Transfer, 74, pp. 108-113. [10] Akbar, N.S., 2015. A new thermal conductivity model with shaped factor ferromagnetism nanoparticles study for the blood flow in non-tapered stenosed arteries. IEEE transactions on nanobioscience, 14(7), pp. 780-789. [11] Akbar, N.S. and Mustafa, M.T., 2015. Ferromagnetic effects for nanofluid venture through composite permeable stenosed arteries with different nanosize particles. AIP Advances, 5(7), p.077102. [12] Esfe, M.H., Saedodin, S., Asadi, A. and Karimipour, A., 2015. Thermal conductivity and viscosity of Mg (OH) 2-ethylene glycol nanofluids. Journal of Thermal Analysis and Calorimetry, 120(2), pp.1145-1149. [13] H.F. Oztop, E. Abu-Nada, Numerical study of natural convection in partially heated rectangular enclosures filled with nanofluids, Int. J. Heat Fluid Flow 29 (2008) 1326-1336. [14] R.K. Tiwari, M.K. Das, Heat transfer augmentation in a two-sided lid-driven differentially heated square cavity utilizing nanofluid, Int. J. Heat Mass Transfer 50 (2007) 2002-2018.\n[15] Akbar, N.S., Raza, M. and Ellahi, R., 2016. Copper oxide nanoparticles analysis with water as base fluid for peristaltic flow in permeable tube with heat transfer. Computer methods and programs in biomedicine, 130, pp.22-30. [16] A. Karimipour, A.H. Nezhad, A. Behzadmehr, S. Alikhani, E. Abedini, Periodic mixed convection of a nanofluid in a cavity with top lid sinusoidal motion, Proc. IMechE, Part C: J. Mechanical Engineering Science 225 (2011) 2149-2160. [17] A. Karimipour, M.H. Esfe, M.R. Safaei, D.T. Semiromi, S.N. Kazi, Mixed convection of copper–water nanofluid in a shallow inclined lid driven cavity using the lattice Boltzmann method, Physica A 402 (2014) 150-168. [18] M.H. Esfe, M. Akbari, D. Toghraie, A. Karimipour, M. Afrand, Effect of nanofluid variable properties on mixed convection flow and heat transfer in an inclined two-sided liddriven cavity with sinusoidal heating on sidewalls, Heat Transfer Res. 45 (2014) 409-432. [19] A.K. Santra, S. Sen, N. Chakraborty, Study of heat transfer due to laminar flow of copper–water nanofluid through two isothermally heated parallel plates, Int. J. Therm. Sci. 48 (2009) 391-400. [20] M.H. Esfe, M. Akbari, A. Karimipour, M. Afrand, O. Mahian, S. Wongwises, Mixedconvection flow and heat transfer in an inclined cavity equipped to a hot obstacle using nanofluids considering temperature-dependent properties, International Journal of Heat and Mass Transfer 85 (2015) 656-666. [21] A. Karimipour, M. Afrand, M. Akbari, M.R. Safaei, Simulation of Fluid Flow and Heat Transfer in the Inclined Enclosure, World Academy of Science, Engineering and Technology 61 (2012) 435-440.\n[22] M. R. Safaei, O. Mahian, F. Garoosi, K. Hooman, A. Karimipour, S. N. Kazi, S. Gharehkhani, Investigation of Micro- and Nanosized Particle Erosion in a 90° Pipe Bend Using a Two-Phase Discrete Phase Model, The Scientific World Journal (2014) Article ID 740578, 12 pages, http://dx.doi.org/10.1155/2014/740578. [23] A. Behzadmehr, M. Saffar-Avval, N. Galanis, Prediction of turbulent forced convection of a nanofluid in a tube with uniform heat flux using a two phase approach, Int. J. Heat Fluid Flow 28 (2007) 211-219. [24] C. Abdellahoum, A. Mataoui, H.F. Oztop, Turbulent forced convection of nanofluid over a heated shallow cavity in a duct, Powder Technology 277 (2015) 126-134. [25] M. Gad-el-Hak, Flow physics in MEMS, Rev. Mec. Ind. 2 (2001) 313-341. [26] H.P. Kavehpour, M. Faghri, Y. Asako, Effects of compressibility and rarefaction on gaseous flows in microchannels, Numer. Heat Transfer, Part A 32 (1997) 677-696. [27] M. Goodarzi, M.R. Safaei, H.F. Oztop, A. Karimipour, E. Sadeghinezhad, M. Dahari, S.N. Kazi, N. Jomhari, Numerical Study of Entropy Generation due to Coupled Laminar and Turbulent Mixed Convection and Thermal Radiation in an Enclosure Filled with a Semitransparent Medium, The Scientific World Journal (2014) Article ID 761745, 8 pages, http://dx.doi.org/10.1155/2014/761745. [28] N.T. Nguyen, S.T. Wereley, Fundamentals and Applications of Microfluidics, second ed. Artech house INC, Norwood, MA 02062, 2006. [29] M. El Abdallaoui, M. Hasnaoui, A. Amahmid, Numerical simulation of natural convection between a decentered triangular heating cylinder and a square outer cylinder filled with a pure fluid or a nanofluid using the lattice Boltzmann method, Powder Technology, 277 (2015) 193-205.\n[30] A. Raisi, B. Ghasemi, S.M. Aminossadati, A numerical study on the forced convection of laminar nanofluid in a microchannel with both slip and no-slip conditions, Numeric. Heat Transfer; Part A 59 (2011) 114-129. [31] M. Mital, Analytical analysis of heat transfer and pumping power of laminar nanofluid developing flow in microchannels, Applied Thermal Engineering 50 (2013) 429-436. [32] Nojoomizadeh, M. and Karimipour, A., 2016. The effects of porosity and permeability on fluid flow and heat transfer of multi walled carbon nano-tubes suspended in oil (MWCNT/Oil nano-fluid) in a microchannel filled with a porous medium. Physica E: Lowdimensional Systems and Nanostructures. [33] W.H. Mah, Y.M. Hung, N. Guo, Entropy generation of viscous dissipative nanofluid flow in microchannels, Int. J. Heat Mass Transfer 55 (2012) 4169-4182. [34] M. Kalteh, A. Abbassi, M. Saffar-Avval, J. Harting, Eulerian–Eulerian two-phase numerical simulation of nanofluid laminar forced convection in a microchannel, Int. J. Heat Fluid Flow 32 (2011) 107-116. [35] A. Karimipour, New correlation for Nusselt number of nanofluid with Ag / Al2O3 / Cu nanoparticles in a microchannel considering slip velocity and temperature jump by using lattice Boltzmann method, Int. Journal of Thermal Sciences 91 (2015) 146-156. [36] Y. Xuan, Q. Li, M. Ye, Investigations of convective heat transfer in ferrofluid microflows using lattice-Boltzmann approach, Int. J. Thermal Sci. 46 (2007) 105-111. [37] X. Nie, G.D. Doolen, S. Chen, Lattice-Boltzmann simulation of fluid flows in MEMS, J. Stat. Phys. 107 (2002) 279-289. [38] M. Goodarzi, M.R. Safaei, A. Karimipour, K. Hooman, M. Dahari, S.N. Kazi, E. Sadeghinezhad, Comparison of the Finite Volume and Lattice Boltzmann Methods for\nSolving Natural Convection Heat Transfer Problems inside Cavities and Enclosures, Abstract and Applied Analysis (2014) Article ID 762184, 15 pages, http://dx.doi.org/10.1155/2014/762184. [39] A. Karimipour, A.H. Nezhad, A. D’Orazio, E. Shirani, The effects of inclination angle and Prandtl number on the mixed convection in the inclined lid driven cavity using lattice Boltzmann method, J. Theoret. Appl. Mech. 51 (2013) 447-462. [40] A. Karimipour, A.H. Nezhad, A. D’Orazio, E. Shirani, Investigation of the gravity effects on the mixed convection heat transfer in a microchannel using lattice Boltzmann method, Int. J. Therm. Scie. 54 (2012) 142-152. [41] G. Bird, Molecular gas dynamics and the direct simulation of gas flows, Oxford, 1994. [42] A. Karimipour, A.H. Nezhad, E. Shirani, A. Safaei, Simulation of fluid flow and heat transfer in inclined cavity using Lattice Boltzmann method, World Academy of Science, Engineering and Technology, 5 (2011) 558-565. [43] F. Hedayati, G. Domairry, Effects of nanoparticle migration and asymmetric heating on mixed convection of TiO2–H2O nanofluid inside a vertical microchannel, Powder Technology, 272 (2015) 250-259. [44] A. Malvandi, D.D. Ganji, Mixed convective heat transfer of water/alumina nanofluid inside a vertical microchannel, Powder Technology, 263 (2014) 37-44 [45] A. Mahmoudi, I. Mejri, M.A. Abbassi, A. Omri, Lattice Boltzmann simulation of MHD natural convection in a nanofluid-filled cavity with linear temperature distribution, Powder Technology 256 (2014) 257-271.\n[46] F. Hedayati, A. Malvandi, M.H. Kaffash, D.D. Ganji, Fully developed forced convection of alumina/water nanofluid inside microchannels with asymmetric heating, Powder Technology 269 (2015) 520-531. [47] A. Karimipour, A.H. Nezhad, A. D’Orazio, M.H. Esfe, M.R. Safaei, E. Shirani, Simulation of copper–water nanofluid in a microchannel in slip flow regime using the lattice Boltzmann method, European Journal of Mechanics B/Fluids 49 (2015) 89-99. [48] R. Ellahi, The effects of MHD and temperature dependent viscosity on the flow of non-Newtonian nanofluid in a pipe: Analytical solutions, Applied Mathematical Modelling 37 (2013) 1451-1467. [49] Haq, R.U., Nadeem, S., Khan, Z.H. and Akbar, N.S., 2015. Thermal radiation and slip effects on MHD stagnation point flow of nanofluid over a stretching sheet. Physica E: Lowdimensional Systems and Nanostructures, 65, pp.17-23. [50] M. Mahmoodi, M.H. Esfe, M. Akbari, A. Karimipour, M. Afrand, Magneto-natural convection in square cavities with a source-sink pair on different walls, International Journal of Applied Electromagnetics and Mechanics 47 (2015) 21-32. [51] Forghani-Tehrani, P., Karimipour, A., Afrand, M. and Mousavi, S., 2016. Different nano particles volume fraction and Hartmann number effects on flow and heat transfer of water-silver nanofluid under the variable heat flux. Physica E: Low-dimensional Systems and Nanostructures. [52] A. Malvandi, D.D. Ganji, Effects of nanoparticle migration and asymmetric heating on magnetohydrodynamic forced convection of alumina/water nanofluid in microchannels, European Journal of Mechanics - B/Fluids 52 (2015) 169-184.\n[53] N. Hajialigol, A. Fattahi, M. Haji Ahmadi, M. Ebrahim Qomi, E. Kakoli, MHD mixed convection and entropy generation in a 3-D microchannel using Al2O3–water nanofluid, Journal of the Taiwan Institute of Chemical Engineers 46 (2015) 30-42. [54] S.M. Aminossadati, A. Raisi, B. Ghasemi, Effects of magnetic field on nanofluid forced convection in a partially heated microchannel, Int. J. Non-Linear Mecha. 46 (2011) 1373-1382. [55] A.H. Mahmoudi, I. Pop, M. Shahi, Effect of magnetic field on natural convection in a triangular enclosure filled with nanofluid, Int. J. Thermal Sciences 59 (2012) 126-140. [56] Y. Xuan, Q. Li, Investigation on convective heat transfer and flow features of nanofluids, ASME J. Heat Transfer 125 (2003) 151-155. [57] C.H. Chon, K.D. Kihm, S.P. Lee, S.U.S. Choi, Empirical correlation finding the role of temperature and particle size for nanofluid (AL2O3) thermal conductivity enhancement, Appl. Phys. Lett. 87 (2005) 1-3. [58] J.C. Maxwell, A Treatise on Electricity and Magnetism, second ed. Oxford University Press, Cambridge (1904) 435-441. [59] P.A. Thompson, S.M. Troian, A general boundary condition for liquid flow at solid surfaces, Phys. Rev. Lett. 63 (1997) 766-769. [60] G.D. Ngoma, F. Erchiqui, Heat flux and slip effects on liquid flow in a microchannel, Int. J. Therm. Scie. 46 (2007) 1076-1083. [61] K. Hooman, A. Ejlali, Effects of viscous heating, fluid property variation, velocity slip, and temperature jump on convection through parallel plate and circular microchannels, Int. Commun. Heat Mass Transfer 37 (1) (2010) 34–38."
+    }, {
+      "heading" : "Figures:",
+      "text" : "Fig. 1. Physical domain of microchannel.\nU 0.0 0.5 1.0 1.5\nY\n0.00\n0.25\n0.50\n0.75\n1.00 present work (Kn = 0.1)\npresent work (Kn = 0.0)\nKn = 0.0 Kn = 0.1\nFig. 2. Fully developed velocity profiles from the present work versus Hooman and Ejlali [61] (Symbols: Hooman and Ejlali [61], Lines: Present work).\nsantra\n\n0.00 0.01 0.02 0.03 0.04\nNum\n1.5\n2.0\n2.5\n3.0\n3.5\n4.0\nCol 1 vs Col 2 Col 1 vs Col 3 Col 1 vs Col 4 Col 1 vs Col 9 Col 1 vs Col 10 Col 1 vs Col 11\nRe50\nRe200\nRe100\nFig. 3-a. Num from this article in comparison with Santra et al. [19] (Symbols: Santra et al. [19], Lines: Present work).\nRe=100\nHa\n0 10 20\nNum\n1.5\n2.0\n2.5\n3.0\n3.5\n4.0\n4.5\n5.0\n5.5\nRe=10\nRe=10\n0.04 Ha=0 Re=10\nU\n0.0 0.5 1.0 1.5\nY\n0.00\n0.25\n0.50\n0.75\n1.00\nB0.01 B0.05 B0.1\n0.04 Ha40 Re10\nU\n0.0 0.5 1.0 1.5\nY\n0.00\n0.25\n0.50\n0.75\n1.00\nB0.01 B0.05 B0.1\n0.04 B0.01 Ha0 Re10\n\n0.00 0.25 0.50 0.75 1.00\nY\n0.00\n0.25\n0.50\n0.75\n1.00 X0.2L\nX0.4L X0.6L X0.8L\n0.04 B0.01 Ha40 Re10\n\n0.00 0.25 0.50 0.75 1.00\nY\n0.00\n0.25\n0.50\n0.75\n1.00 X0.2L\nX0.4L X0.6L X0.8L\nFig. 6. Streamlines and isotherms of water-Al2O3 nanofluid at 0.04, B0.01, Ha0 and Re10.\n0.04 Ha20 Re10\nX\n0 1 2 3 4 5\nU s\n0.00\n0.25\n0.50\n0.75\n1.00\nB0.01 B0.05 B0.1\nSlip velocity along the lower wall\nFig. 8-a. Slip velocity profiles for water-Al2O3 nanofluid along the microchannel wall for different values of B.\nHa\n0 20 40\nU s\n0.00\n0.25\n0.50\n0.75\n1.00\nB=0.01 B=0.05 B=0.1\nFig. 8-b. Slip velocity for water-Al2O3 nanofluid versus of Ha for different values of B at fully developed condition.\n0.04 Ha20 Re10\nX\n0 3 6 9 12 15 18 21\n s\n0.00\n0.05\n0.10\n0.15\nB0.01 B0.05 B0.1\nFig. 9. Temperature jump for water-Al2O3 nanofluid along the microchannel wall for 0.04, Re10 and Ha20 at different values of B.\nAg 0.04 Re10 B0.05\nX\n0 2 4 6 8 10\nNu X\n0\n3\n6\n9\n12\n15\na0 a20 a0\nAg 0.04 Re100 B0.05\nX\n0 2 4 6 8 10 12 14 16 18 20\nNu X\n0\n3\n6\n9\n12\n15\na0 a20 a0\nHa\n0 20 40\nNu m\n0.7\n0.8\n0.9\n1.0\n1.1\n1.2 Ag B=0.01\nAg B=0.05 Ag B=0.1 Al 2 O 3 B=0.01 Al 2 O 3 B=0.05 Al 2 O 3 B=0.1\nHa\n0 20 40\nNu m\n4.0\n4.5\n5.0\n5.5\n6.0\n6.5\nAg B=0.01 Ag B=0.05 Ag B=0.1 Al 2 O 3 B=0.01 Al 2 O 3 B=0.05 Al 2 O 3 B=0.1\nFig. 11. Num on the microchannel wall at different values of Ha and B for Re10 (top) and Re100 (bottom) at .\nTables:\nTable 1. Thermo-physical properties of nano particles and water. Pas) K (W/mK) (Kg/m 3\n) cp (J/KgK)\n8.9110 -4 0.6 997 4179 water\n- 429 10500 235 Ag - 40 3970 765 Al2O3\nTable 2. Grid independency study for the values of U and  at X=L/2 and Y=H/2 for 0.04, ReHaand0.1 for water-Al2O3 nanofluid.\n37525 45030 52535\nU 1.309 1.310 1.310\n 0.131 0.133 0.134"
+    }, {
+      "heading" : "Highlights:",
+      "text" : " Mixture of nanoparticles and water flow in a microchannel is simulated.\n The effects of a magnetic field on the domain and nano particles are presented.\n Different types of nanoparticles such as Al2O3 and Ag are examined.  Nanofluid composed of nanoparticles with higher k, works better to increase Nu."
+    } ],
+    "references" : [ {
+      "title" : "Measuring thermal conductivity of fluids containing oxide nanoparticles",
+      "author" : [ "S. Lee", "S.U.S. Choi", "S. Li", "J.A. Eastman" ],
+      "venue" : "ASME J. Heat Transfer 121 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Mixed-convection flow in a lid driven square cavity filled with a nanofluid with variable properties: effect of the nanoparticle diameter and of the position of a hot obstacle",
+      "author" : [ "M.H. Esfe", "S.S.M. Esforjani", "M. Akbari", "A. Karimipour" ],
+      "venue" : "Heat Transfer Res. 45 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Ferromagnetic CNT suspended H 2 O+ Cu nanofluid analysis through composite stenosed arteries with permeable wall",
+      "author" : [ "N.S. Akbar" ],
+      "venue" : "Physica E: Low-dimensional Systems and Nanostructures,",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2015
+    }, {
+      "title" : "Experimental investigation and development of new correlations for thermal conductivity of CuO/EG–water nanofluid",
+      "author" : [ "M.H. Esfe", "S. Saedodin", "M. Akbari", "A. Karimipour", "M. Afrand", "S. Wongwises", "M.R. Safaei", "M. Dahari" ],
+      "venue" : "International Communications in Heat and Mass Transfer 65 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Evaluation of thermal conductivity of COOH-functionalized MWCNTs/water via temperature and solid volume fraction by using experimental data and ANN methods",
+      "author" : [ "M.H. Esfe", "A. Naderi", "M. Akbari", "M. Afrand", "A. Karimipour" ],
+      "venue" : "Journal of Thermal Analysis and Calorimetry,",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2015
+    }, {
+      "title" : "Biofluidics Study in Digestive System with Thermal Conductivity of Shape Nanosize H 2 O+ Cu Nanoparticles",
+      "author" : [ "N.S. Akbar" ],
+      "venue" : "Journal of Bionic Engineering,",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2015
+    }, {
+      "title" : "Numerical simulation of natural convection around an obstacle placed in an enclosure filled with different types of nanofluids",
+      "author" : [ "M.H. Esfe", "A.A.A. Arani", "A. Karimipour", "S.S.M. Esforjani" ],
+      "venue" : "Heat Transfer Res. 45 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Effect of variable thermal conductivity and thermal radiation with CNTS suspended nanofluid over a stretching sheet with convective slip boundary conditions: Numerical study",
+      "author" : [ "N.S. Akbar", "Z.H. Khan" ],
+      "venue" : "Journal of Molecular Liquids,",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2016
+    }, {
+      "title" : "Effects of temperature and concentration on the viscosity of nanofluids made of single-wall carbon nanotubes in ethylene glycol",
+      "author" : [ "M. Baratpour", "A. Karimipour", "M. Afrand", "S. Wongwises" ],
+      "venue" : "International Communications in Heat and Mass Transfer,",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2016
+    }, {
+      "title" : "A new thermal conductivity model with shaped factor ferromagnetism nanoparticles study for the blood flow in non-tapered stenosed arteries",
+      "author" : [ "N.S. Akbar" ],
+      "venue" : "IEEE transactions on nanobioscience,",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2015
+    }, {
+      "title" : "Ferromagnetic effects for nanofluid venture through composite permeable stenosed arteries with different nanosize particles",
+      "author" : [ "N.S. Akbar", "M.T. Mustafa" ],
+      "venue" : "AIP Advances,",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2015
+    }, {
+      "title" : "Thermal conductivity and viscosity of Mg (OH) 2-ethylene glycol nanofluids",
+      "author" : [ "M.H. Esfe", "S. Saedodin", "A. Asadi", "A. Karimipour" ],
+      "venue" : "Journal of Thermal Analysis and Calorimetry,",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2015
+    }, {
+      "title" : "Numerical study of natural convection in partially heated rectangular enclosures filled with nanofluids",
+      "author" : [ "H.F. Oztop", "E. Abu-Nada" ],
+      "venue" : "Int. J. Heat Fluid Flow 29 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Heat transfer augmentation in a two-sided lid-driven differentially heated square cavity utilizing nanofluid",
+      "author" : [ "R.K. Tiwari", "M.K. Das" ],
+      "venue" : "Int. J. Heat Mass Transfer 50 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Copper oxide nanoparticles analysis with water as base fluid for peristaltic flow in permeable tube with heat transfer",
+      "author" : [ "N.S. Akbar", "M. Raza", "R. Ellahi" ],
+      "venue" : "Computer methods and programs in biomedicine,",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2016
+    }, {
+      "title" : "Periodic mixed convection of a nanofluid in a cavity with top lid sinusoidal motion",
+      "author" : [ "A. Karimipour", "A.H. Nezhad", "A. Behzadmehr", "S. Alikhani", "E. Abedini" ],
+      "venue" : "Proc. IMechE, Part C: J. Mechanical Engineering Science 225 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Mixed convection of copper–water nanofluid in a shallow inclined lid driven cavity using the lattice Boltzmann method",
+      "author" : [ "A. Karimipour", "M.H. Esfe", "M.R. Safaei", "D.T. Semiromi", "S.N. Kazi" ],
+      "venue" : "Physica A 402 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Effect of nanofluid variable properties on mixed convection flow and heat transfer in an inclined two-sided liddriven cavity with sinusoidal heating on sidewalls",
+      "author" : [ "M.H. Esfe", "M. Akbari", "D. Toghraie", "A. Karimipour", "M. Afrand" ],
+      "venue" : "Heat Transfer Res. 45 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Study of heat transfer due to laminar flow of copper–water nanofluid through two isothermally heated parallel plates",
+      "author" : [ "A.K. Santra", "S. Sen", "N. Chakraborty" ],
+      "venue" : "Int. J. Therm. Sci. 48 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Mixedconvection flow and heat transfer in an inclined cavity equipped to a hot obstacle using nanofluids considering temperature-dependent properties",
+      "author" : [ "M.H. Esfe", "M. Akbari", "A. Karimipour", "M. Afrand", "O. Mahian", "S. Wongwises" ],
+      "venue" : "International Journal of Heat and Mass Transfer 85 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Simulation of Fluid Flow and Heat Transfer in the Inclined Enclosure",
+      "author" : [ "A. Karimipour", "M. Afrand", "M. Akbari", "M.R. Safaei" ],
+      "venue" : "World Academy of Science, Engineering and Technology 61 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Investigation of Micro- and Nanosized Particle Erosion in a 90° Pipe Bend Using a Two-Phase Discrete Phase Model",
+      "author" : [ "M.R. Safaei", "O. Mahian", "F. Garoosi", "K. Hooman", "A. Karimipour", "S.N. Kazi", "S. Gharehkhani" ],
+      "venue" : "The Scientific World Journal ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Prediction of turbulent forced convection of a nanofluid in a tube with uniform heat flux using a two phase approach",
+      "author" : [ "A. Behzadmehr", "M. Saffar-Avval", "N. Galanis" ],
+      "venue" : "Int. J. Heat Fluid Flow 28 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Turbulent forced convection of nanofluid over a heated shallow cavity in a duct",
+      "author" : [ "C. Abdellahoum", "A. Mataoui", "H.F. Oztop" ],
+      "venue" : "Powder Technology 277 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Flow physics in MEMS",
+      "author" : [ "M. Gad-el-Hak" ],
+      "venue" : "Rev. Mec. Ind. 2 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Effects of compressibility and rarefaction on gaseous flows in microchannels",
+      "author" : [ "H.P. Kavehpour", "M. Faghri", "Y. Asako" ],
+      "venue" : "Numer. Heat Transfer, Part A 32 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Numerical Study of Entropy Generation due to Coupled Laminar and Turbulent Mixed Convection and Thermal Radiation in an Enclosure Filled with a Semitransparent Medium",
+      "author" : [ "M. Goodarzi", "M.R. Safaei", "H.F. Oztop", "A. Karimipour", "E. Sadeghinezhad", "M. Dahari", "S.N. Kazi", "N. Jomhari" ],
+      "venue" : "The Scientific World Journal ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Fundamentals and Applications of Microfluidics",
+      "author" : [ "N.T. Nguyen", "S.T. Wereley" ],
+      "venue" : "second ed. Artech house INC, Norwood, MA 02062",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Numerical simulation of natural convection between a decentered triangular heating cylinder and a square outer cylinder filled with a pure fluid or a nanofluid using the lattice Boltzmann method",
+      "author" : [ "M. El Abdallaoui", "M. Hasnaoui", "A. Amahmid" ],
+      "venue" : "Powder Technology, 277 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A numerical study on the forced convection of laminar nanofluid in a microchannel with both slip and no-slip conditions",
+      "author" : [ "A. Raisi", "B. Ghasemi", "S.M. Aminossadati" ],
+      "venue" : "Numeric. Heat Transfer; Part A 59 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Analytical analysis of heat transfer and pumping power of laminar nanofluid developing flow in microchannels",
+      "author" : [ "M. Mital" ],
+      "venue" : "Applied Thermal Engineering 50 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "The effects of porosity and permeability on fluid flow and heat transfer of multi walled carbon nano-tubes suspended in oil (MWCNT/Oil nano-fluid) in a microchannel filled with a porous medium",
+      "author" : [ "M. Nojoomizadeh", "A. Karimipour" ],
+      "venue" : "Physica E: Lowdimensional Systems and Nanostructures",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2016
+    }, {
+      "title" : "Entropy generation of viscous dissipative nanofluid flow in microchannels",
+      "author" : [ "W.H. Mah", "Y.M. Hung", "N. Guo" ],
+      "venue" : "Int. J. Heat Mass Transfer 55 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Eulerian–Eulerian two-phase numerical simulation of nanofluid laminar forced convection in a microchannel",
+      "author" : [ "M. Kalteh", "A. Abbassi", "M. Saffar-Avval", "J. Harting" ],
+      "venue" : "Int. J. Heat Fluid Flow 32 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "New correlation for Nusselt number of nanofluid with Ag / Al2O3 / Cu nanoparticles in a microchannel considering slip velocity and temperature jump by using lattice Boltzmann method",
+      "author" : [ "A. Karimipour" ],
+      "venue" : "Int. Journal of Thermal Sciences 91 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Investigations of convective heat transfer in ferrofluid microflows using lattice-Boltzmann approach",
+      "author" : [ "Y. Xuan", "Q. Li", "M. Ye" ],
+      "venue" : "Int. J. Thermal Sci. 46 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Lattice-Boltzmann simulation of fluid flows in MEMS",
+      "author" : [ "X. Nie", "G.D. Doolen", "S. Chen" ],
+      "venue" : "J. Stat. Phys. 107 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2002
+    }, {
+      "title" : "Comparison of the Finite Volume and Lattice Boltzmann Methods for  Solving Natural Convection Heat Transfer Problems inside Cavities and Enclosures",
+      "author" : [ "M. Goodarzi", "M.R. Safaei", "A. Karimipour", "K. Hooman", "M. Dahari", "S.N. Kazi", "E. Sadeghinezhad" ],
+      "venue" : "Abstract and Applied Analysis ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "A",
+      "author" : [ "A. Karimipour", "A.H. Nezhad" ],
+      "venue" : "D’Orazio, E. Shirani, The effects of inclination angle and Prandtl number on the mixed convection in the inclined lid driven cavity using lattice Boltzmann method, J. Theoret. Appl. Mech. 51 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "A",
+      "author" : [ "A. Karimipour", "A.H. Nezhad" ],
+      "venue" : "D’Orazio, E. Shirani, Investigation of the gravity effects on the mixed convection heat transfer in a microchannel using lattice Boltzmann method, Int. J. Therm. Scie. 54 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Molecular gas dynamics and the direct simulation of gas flows",
+      "author" : [ "G. Bird" ],
+      "venue" : "Oxford",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "Simulation of fluid flow and heat transfer in inclined cavity using Lattice Boltzmann method",
+      "author" : [ "A. Karimipour", "A.H. Nezhad", "E. Shirani", "A. Safaei" ],
+      "venue" : "World Academy of Science, Engineering and Technology, 5 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Effects of nanoparticle migration and asymmetric heating on mixed convection of TiO2–H2O nanofluid inside a vertical microchannel",
+      "author" : [ "F. Hedayati", "G. Domairry" ],
+      "venue" : "Powder Technology, 272 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Mixed convective heat transfer of water/alumina nanofluid inside a vertical microchannel",
+      "author" : [ "A. Malvandi", "D.D. Ganji" ],
+      "venue" : "Powder Technology, 263 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Lattice Boltzmann simulation of MHD natural convection in a nanofluid-filled cavity with linear temperature distribution",
+      "author" : [ "A. Mahmoudi", "I. Mejri", "M.A. Abbassi", "A. Omri" ],
+      "venue" : "Powder Technology 256 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Fully developed forced convection of alumina/water nanofluid inside microchannels with asymmetric heating",
+      "author" : [ "F. Hedayati", "A. Malvandi", "M.H. Kaffash", "D.D. Ganji" ],
+      "venue" : "Powder Technology 269 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A",
+      "author" : [ "A. Karimipour", "A.H. Nezhad" ],
+      "venue" : "D’Orazio, M.H. Esfe, M.R. Safaei, E. Shirani, Simulation of copper–water nanofluid in a microchannel in slip flow regime using the lattice Boltzmann method, European Journal of Mechanics B/Fluids 49 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "The effects of MHD and temperature dependent viscosity on the flow of non-Newtonian nanofluid in a pipe: Analytical solutions",
+      "author" : [ "R. Ellahi" ],
+      "venue" : "Applied Mathematical Modelling 37 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Thermal radiation and slip effects on MHD stagnation point flow of nanofluid over a stretching sheet",
+      "author" : [ "R.U. Haq", "S. Nadeem", "Z.H. Khan", "N.S. Akbar" ],
+      "venue" : "Physica E: Lowdimensional Systems and Nanostructures,",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2015
+    }, {
+      "title" : "Magneto-natural convection in square cavities with a source-sink pair on different walls",
+      "author" : [ "M. Mahmoodi", "M.H. Esfe", "M. Akbari", "A. Karimipour", "M. Afrand" ],
+      "venue" : "International Journal of Applied Electromagnetics and Mechanics 47 ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Different nano particles volume fraction and Hartmann number effects on flow and heat transfer of water-silver nanofluid under the variable heat flux",
+      "author" : [ "P. Forghani-Tehrani", "A. Karimipour", "M. Afrand", "S. Mousavi" ],
+      "venue" : "Physica E: Low-dimensional Systems and Nanostructures",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2016
+    }, {
+      "title" : "Effects of nanoparticle migration and asymmetric heating on magnetohydrodynamic forced convection of alumina/water nanofluid in microchannels",
+      "author" : [ "A. Malvandi", "D.D. Ganji" ],
+      "venue" : "European Journal of Mechanics - B/Fluids 52 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "MHD mixed convection and entropy generation in a 3-D microchannel using Al2O3–water nanofluid",
+      "author" : [ "N. Hajialigol", "A. Fattahi", "M. Haji Ahmadi", "M. Ebrahim Qomi", "E. Kakoli" ],
+      "venue" : "Journal of the Taiwan Institute of Chemical Engineers 46 ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effects of magnetic field on nanofluid forced convection in a partially heated microchannel",
+      "author" : [ "S.M. Aminossadati", "A. Raisi", "B. Ghasemi" ],
+      "venue" : "Int. J. Non-Linear Mecha. 46 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Effect of magnetic field on natural convection in a triangular enclosure filled with nanofluid",
+      "author" : [ "A.H. Mahmoudi", "I. Pop", "M. Shahi" ],
+      "venue" : "Int. J. Thermal Sciences 59 ",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Investigation on convective heat transfer and flow features of nanofluids",
+      "author" : [ "Y. Xuan", "Q. Li" ],
+      "venue" : "ASME J. Heat Transfer 125 ",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Empirical correlation finding the role of temperature and particle size for nanofluid (AL2O3) thermal conductivity enhancement",
+      "author" : [ "C.H. Chon", "K.D. Kihm", "S.P. Lee", "S.U.S. Choi" ],
+      "venue" : "Appl. Phys. Lett. 87 ",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "A Treatise on Electricity and Magnetism",
+      "author" : [ "J.C. Maxwell" ],
+      "venue" : "second ed. Oxford University Press, Cambridge ",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 1904
+    }, {
+      "title" : "A general boundary condition for liquid flow at solid surfaces",
+      "author" : [ "P.A. Thompson", "S.M. Troian" ],
+      "venue" : "Phys. Rev. Lett. 63 ",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Heat flux and slip effects on liquid flow in a microchannel",
+      "author" : [ "G.D. Ngoma", "F. Erchiqui" ],
+      "venue" : "Int. J. Therm. Scie. 46 ",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Effects of viscous heating",
+      "author" : [ "K. Hooman", "A. Ejlali" ],
+      "venue" : "fluid property variation, velocity slip, and temperature jump on convection through parallel plate and circular microchannels, Int. Commun. Heat Mass Transfer 37 (1) ",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Higher thermal conductivity of nanoparticles corresponds to more thermal conductivity of the mixture and increases the conduction heat transfer beside its convection [1-6].",
+      "startOffset" : 166,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 1,
+      "context" : "Higher thermal conductivity of nanoparticles corresponds to more thermal conductivity of the mixture and increases the conduction heat transfer beside its convection [1-6].",
+      "startOffset" : 166,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 2,
+      "context" : "Higher thermal conductivity of nanoparticles corresponds to more thermal conductivity of the mixture and increases the conduction heat transfer beside its convection [1-6].",
+      "startOffset" : 166,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 3,
+      "context" : "Higher thermal conductivity of nanoparticles corresponds to more thermal conductivity of the mixture and increases the conduction heat transfer beside its convection [1-6].",
+      "startOffset" : 166,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 4,
+      "context" : "Higher thermal conductivity of nanoparticles corresponds to more thermal conductivity of the mixture and increases the conduction heat transfer beside its convection [1-6].",
+      "startOffset" : 166,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 5,
+      "context" : "Higher thermal conductivity of nanoparticles corresponds to more thermal conductivity of the mixture and increases the conduction heat transfer beside its convection [1-6].",
+      "startOffset" : 166,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 6,
+      "context" : "However, using nanofluid in heat exchangers or in the more complex geometries is also reported in some other articles [7-12].",
+      "startOffset" : 118,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 7,
+      "context" : "However, using nanofluid in heat exchangers or in the more complex geometries is also reported in some other articles [7-12].",
+      "startOffset" : 118,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 8,
+      "context" : "However, using nanofluid in heat exchangers or in the more complex geometries is also reported in some other articles [7-12].",
+      "startOffset" : 118,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 9,
+      "context" : "However, using nanofluid in heat exchangers or in the more complex geometries is also reported in some other articles [7-12].",
+      "startOffset" : 118,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 10,
+      "context" : "However, using nanofluid in heat exchangers or in the more complex geometries is also reported in some other articles [7-12].",
+      "startOffset" : 118,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 11,
+      "context" : "However, using nanofluid in heat exchangers or in the more complex geometries is also reported in some other articles [7-12].",
+      "startOffset" : 118,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 12,
+      "context" : "Among them Oztop and Abu-Nada [13] reported the natural convection of nanofluid in partially heated rectangular enclosure for",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 13,
+      "context" : "Moreover the enhancement of Nusselt number of Cu-water nanofluid in a lid-driven cavity was observed in those of Tiwari and Das [14].",
+      "startOffset" : 128,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 14,
+      "context" : "A large number of articles can be addressed which studied the mixed convection of nanofluids filled in the closed or open cavities [15-21].",
+      "startOffset" : 131,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 15,
+      "context" : "A large number of articles can be addressed which studied the mixed convection of nanofluids filled in the closed or open cavities [15-21].",
+      "startOffset" : 131,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 16,
+      "context" : "A large number of articles can be addressed which studied the mixed convection of nanofluids filled in the closed or open cavities [15-21].",
+      "startOffset" : 131,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 17,
+      "context" : "A large number of articles can be addressed which studied the mixed convection of nanofluids filled in the closed or open cavities [15-21].",
+      "startOffset" : 131,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 18,
+      "context" : "A large number of articles can be addressed which studied the mixed convection of nanofluids filled in the closed or open cavities [15-21].",
+      "startOffset" : 131,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 19,
+      "context" : "A large number of articles can be addressed which studied the mixed convection of nanofluids filled in the closed or open cavities [15-21].",
+      "startOffset" : 131,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 20,
+      "context" : "A large number of articles can be addressed which studied the mixed convection of nanofluids filled in the closed or open cavities [15-21].",
+      "startOffset" : 131,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 21,
+      "context" : "Applying the nanofluid is not limited to the laminar single phase flows; hence a great number of works tried to investigate the nanofluid flow in turbulent regime or supposing it as a two-phase mixture [22-24].",
+      "startOffset" : 202,
+      "endOffset" : 209
+    }, {
+      "referenceID" : 22,
+      "context" : "Applying the nanofluid is not limited to the laminar single phase flows; hence a great number of works tried to investigate the nanofluid flow in turbulent regime or supposing it as a two-phase mixture [22-24].",
+      "startOffset" : 202,
+      "endOffset" : 209
+    }, {
+      "referenceID" : 23,
+      "context" : "Applying the nanofluid is not limited to the laminar single phase flows; hence a great number of works tried to investigate the nanofluid flow in turbulent regime or supposing it as a two-phase mixture [22-24].",
+      "startOffset" : 202,
+      "endOffset" : 209
+    }, {
+      "referenceID" : 24,
+      "context" : "More efficiency beside the small size of a micro-device encourages researchers to pay more attention on [25-29].",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 25,
+      "context" : "More efficiency beside the small size of a micro-device encourages researchers to pay more attention on [25-29].",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 26,
+      "context" : "More efficiency beside the small size of a micro-device encourages researchers to pay more attention on [25-29].",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 27,
+      "context" : "More efficiency beside the small size of a micro-device encourages researchers to pay more attention on [25-29].",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 28,
+      "context" : "More efficiency beside the small size of a micro-device encourages researchers to pay more attention on [25-29].",
+      "startOffset" : 104,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 29,
+      "context" : "1, the slip flow regime is dominated and Navier-Stokes equations with the slip boundary condition must be used [30-34].",
+      "startOffset" : 111,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 30,
+      "context" : "1, the slip flow regime is dominated and Navier-Stokes equations with the slip boundary condition must be used [30-34].",
+      "startOffset" : 111,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 31,
+      "context" : "1, the slip flow regime is dominated and Navier-Stokes equations with the slip boundary condition must be used [30-34].",
+      "startOffset" : 111,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 32,
+      "context" : "1, the slip flow regime is dominated and Navier-Stokes equations with the slip boundary condition must be used [30-34].",
+      "startOffset" : 111,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 33,
+      "context" : "1, the slip flow regime is dominated and Navier-Stokes equations with the slip boundary condition must be used [30-34].",
+      "startOffset" : 111,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 34,
+      "context" : "1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 35,
+      "context" : "1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 36,
+      "context" : "1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 37,
+      "context" : "1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 38,
+      "context" : "1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 39,
+      "context" : "1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 40,
+      "context" : "1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 41,
+      "context" : "1<Kn<10 and Kn>10, the transient and free molecular regimes are treated the flow, respectively and the particle base methods should be applied [35-42].",
+      "startOffset" : 143,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 42,
+      "context" : "The combination of a nanofluid flow in a microchannel might be an innovative way to enhance the heat transfer rate at micro scales level [43-47].",
+      "startOffset" : 137,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 43,
+      "context" : "The combination of a nanofluid flow in a microchannel might be an innovative way to enhance the heat transfer rate at micro scales level [43-47].",
+      "startOffset" : 137,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 44,
+      "context" : "The combination of a nanofluid flow in a microchannel might be an innovative way to enhance the heat transfer rate at micro scales level [43-47].",
+      "startOffset" : 137,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 45,
+      "context" : "The combination of a nanofluid flow in a microchannel might be an innovative way to enhance the heat transfer rate at micro scales level [43-47].",
+      "startOffset" : 137,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 46,
+      "context" : "The combination of a nanofluid flow in a microchannel might be an innovative way to enhance the heat transfer rate at micro scales level [43-47].",
+      "startOffset" : 137,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 47,
+      "context" : "the flow of electrically conducting fluid in a duct happens in the presence of a transverse magnetic field and generates the Lorentz force against the fluid flow direction [48-53].",
+      "startOffset" : 172,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 48,
+      "context" : "the flow of electrically conducting fluid in a duct happens in the presence of a transverse magnetic field and generates the Lorentz force against the fluid flow direction [48-53].",
+      "startOffset" : 172,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 49,
+      "context" : "the flow of electrically conducting fluid in a duct happens in the presence of a transverse magnetic field and generates the Lorentz force against the fluid flow direction [48-53].",
+      "startOffset" : 172,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 50,
+      "context" : "the flow of electrically conducting fluid in a duct happens in the presence of a transverse magnetic field and generates the Lorentz force against the fluid flow direction [48-53].",
+      "startOffset" : 172,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 51,
+      "context" : "the flow of electrically conducting fluid in a duct happens in the presence of a transverse magnetic field and generates the Lorentz force against the fluid flow direction [48-53].",
+      "startOffset" : 172,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 52,
+      "context" : "the flow of electrically conducting fluid in a duct happens in the presence of a transverse magnetic field and generates the Lorentz force against the fluid flow direction [48-53].",
+      "startOffset" : 172,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 53,
+      "context" : "However what distinguishes this study from the previous articles is the investigation of magnetic field effects on nanofluid slip velocity and temperature jump for the first time (to the best of authors’ knowledge) which was ignored in previous papers [54].",
+      "startOffset" : 252,
+      "endOffset" : 256
+    }, {
+      "referenceID" : 54,
+      "context" : "Formulation Two-dimensional Navier-Stokes equations are applied for the nanofluid flow considering magnetic field effect as [55]: Continuity equation:",
+      "startOffset" : 124,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 55,
+      "context" : "Moreover Xuan and Li [56] equation is used for the nanofluid heat capacity:",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 56,
+      "context" : "formula [57] which is able to consider the nanoparticles diameter and their Brownian motions as follows:",
+      "startOffset" : 8,
+      "endOffset" : 12
+    }, {
+      "referenceID" : 54,
+      "context" : "(10) can be used to determine the electrical conductivity of nanofluid according to the electrical conductivity of the base fluid and nanoparticles as follows [55,58]:",
+      "startOffset" : 159,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 57,
+      "context" : "(10) can be used to determine the electrical conductivity of nanofluid according to the electrical conductivity of the base fluid and nanoparticles as follows [55,58]:",
+      "startOffset" : 159,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 58,
+      "context" : "(16) represents the slip velocity according to the slip length (Ls) [59]:",
+      "startOffset" : 68,
+      "endOffset" : 72
+    }, {
+      "referenceID" : 59,
+      "context" : "determined by using the slip coefficient, as follows [60]:",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 60,
+      "context" : "Fully developed velocity profiles from the present work versus Hooman and Ejlali [61] are compared in Fig.",
+      "startOffset" : 81,
+      "endOffset" : 85
+    } ],
+    "year" : 2016,
+    "abstractText" : "The forced convection of nanofluid flow in a long microchannel is studied numerically according to the finite volume approach and by using a developed computer code. Microchannel domain is under the influence of a magnetic field with uniform strength. The hot inlet nanofluid is cooled by the heat exchange with the cold microchannel walls. Different types of nanoparticles such as Al2O3 and Ag are examined while the base fluid is considered as water. Reynolds number are chosen as Re=10 and Re=100. Slip velocity and temperature jump boundary conditions are simulated along the microchannel walls at different values of slip coefficient for different amounts of Hartmann number. The investigation of magnetic field effect on slip velocity and temperature jump of nanofluid is presented for the first time. The results are shown as streamlines and isotherms; moreover the profiles of slip velocity and temperature jump are drawn. It is observed that more slip coefficient corresponds to less Nusselt number and more slip velocity especially at larger Hartmann number. It is recommended to use Al2O3-water nanofluid instead of Ag-water to increase the heat transfer rate from the microchannel walls at low values of Re. However at larger amounts of Re, the nanofluid composed of nanoparticles with higher thermal conductivity works better.",
+    "creator" : "Elsevier"
+  }
+}

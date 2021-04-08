@@ -1,0 +1,567 @@
+{
+  "name" : "zero.sci-hub.se_6321_99baf8075c4078402515b1e74feada8c_apuzzo2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Free vibrations of Bernoulli-Euler nano-beams by the stress-driven nonlocal integral model",
+    "authors" : [ "Andrea Apuzzo", "Raffaele Barretta", "Raimondo Luciano", "Francesco Marotti de Sciarra", "Rosa Penna" ],
+    "emails" : [ "a.apuzzo@unicas.it", "luciano@unicas.it", "rabarret@unina.it", "marotti@unina.it", "rpenna@unisa.it" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "AC CE\nPT ED\nNonlocal theories of Continuum Mechanics are widely used in order to assess size effects in nano-structures. In this paper, free vibrations of nano-beams are investigated by making recourse to the novel stress-driven nonlocal integral model (SDM). Equations of motion governing the dynamics of a Bernoulli-Euler nano-beam are consistently formulated and numerically integrated by Matlab. Selected case studies involving structures of nanotechnological interest are examined. Natural frequencies, evaluated according to the SDM, are compared with those obtained by the Eringen differential law (EDM) and by the gradient elasticity theory (GradEla). SDM provides an effective methodology to describe nonlocal phenomena in NEMS.\nKey words: A. Nano-structures, B. Elasticity, Free Vibrations, NEMS.\nPreprint submitted to Elsevier March 27, 2017\nM AN\nUS CR\nIP T\nAC CE\nPT ED"
+    }, {
+      "heading" : "1 Introduction",
+      "text" : "Carbon nanotubes are non-traditional materials of current interest in several applicative sectors, such as engineering, medicine and electronics [1–6]. Methodologies of Continuum Mechanics, advantageously adopted in order to study composite structures [7–13], are nowadays exploited also to assess size effects in devices at nano-scale [14–18]. The key aspect of this approach is in selecting suitable nonlocal elastic relations [19–31]. The Eringen differential law (EDM), introduced in Eq.(3.19) of [32] and applied by Peddieson to Nanotechnology in [33], is certainly the most popular constitutive strategy for the analysis of bending, vibration and buckling of nano-beams [34–42]. For nonlocal problems formulated in unbounded domains, EDM can be considered equivalent to a strain-driven integral convolution (Eq.(2.2) in [32]), due to the tacit fulfillment of suitable constitutive boundary conditions of vanishing at infinity. In this context, EDM was effectively exploited by Eringen in order to investigate screw dislocations and Rayleigh surface waves. In nonlocal structural problems of technical interest, involving bounded domains and standard kinematic boundary constraints, the constitutive boundary conditions (CBCs) [43, 44] associated with the Eringen strain-driven integral convolution (EIM) are in contrast with equilibrium equations. Accordingly, the elastostatic problem of a nano-structure formulated according to EIM admits no solution at all. The inappropriate usual choice of disregarding the CBCs and to model nonlocal phenomena in nano-beams by EDM cannot be considered a physically significant assumption. A discussion about inapplicability of Eringen theory to Structural Mechanics and resolutions of improperly claimed paradoxes [45–48] is provided in [49,50].\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nThese difficulties were by-passed in [51, 52] by adopting the local-nonlocal mixture originally conceived in [53, 54]. An innovative stress-driven nonlocal integral model (SDM) was proposed in [55] to examine size-dependent static behavior of inflected nano-beams. Unlike the Eringen strain-driven nonlocal integral convolution, SDM provides a new mathematically and mechanically consistent approach for the design and optimization of nano-structures [56]. Such a strategy is resorted to in the present paper to study size-dependent dynamical behavior of nano-beams. The plan is the following. The stress-driven integral model (SDM) is formulated in Sect.2 for Bernoulli-Euler nano-beams. Equations governing free vibrations are provided in Sect.3. Fundamental natural frequencies of cantilever, simply-supported, clamped-pinned and doubly-clamped nano-beams are numerically computed and compared with the ones obtained by the gradient elasticity theory (GradEla) [57–60] and by the Eringen differential law (EDM) in Sect.4. Concluding remarks are summarized in Sect.5."
+    }, {
+      "heading" : "2 Stress-driven nonlocal integral model (SDM)",
+      "text" : "Let us consider a straight beam under flexure. Length and cross-section are respectively denoted by L and Ω . The bending plane is described by the pair of Cartesian axes (x, y) , with x nano-beam axial abscissa. According to the Bernoulli-Euler kinematics, the geometric bending curvature χt at time t is related to the transverse displacement vt by\nχ(x, t) := χt(x) = v (2) t (x) , (1)\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nwhere the apex (•)(n) is the n-th derivative along x , with n ∈ N . The differential condition of d’Alembert dynamical equilibrium for a freely vibrating nano-beam writes as\nM (2) = −m v̈ , (2)\nwhere M and m are the bending moment and mass per unit length of the nano-beam and the dot ˙(•) stands for time derivative.\nThe stress-driven nonlocal elastic model (SDM) proposed in [55] is described by the following integral convolution law defining the elastic curvature field\nχel(x) = ∫ L\n0 φλ(x− ξ)C(ξ)M(ξ) dξ , (3)\nwith C local elastic compliance, which is the inverse of the elastic stiffness (E is the Young modulus)\nK := ∫\nΩ E y2dA . (4)\nThe dimensionless nonlocal parameter λ > 0 in Eq.(3) is the ratio between a characteristic length Lc and the nano-beam length L . As proven in [55], introducing the special kernel\nφλ(x) := 1\n2Lc exp\n( − |x|\nLc\n) , (5)\nthe integral law Eq.(3) is equivalent to the differential condition\nχel − L 2 c χ (2) el = CM , (6)\nwith the constitutive boundary conditions χ(1) el (0) = 1 Lc χel(0) ,\nχ(1) el (L) = − 1 Lc χel(L) .\n(7)\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nHereafter, we assume a purely elastic constitutive behavior. Accordingly, geometric and elastic bending curvature fields are coincident χ = χel . It is worth noting that the kernel Eq.(5) fulfils symmetry, positivity and limit impulsivity φλ(x− ξ) = φλ(ξ − x) ≥ 0 ,\nlim λ→0 φλ(x) = δ(x) ,\n(8)\nwith δ the Dirac unit impulse at 0 ∈ R and the limit being intended in terms of distributions\nlim λ→0 ∫ +∞ −∞ φλ(x− ξ) · f(ξ) dξ = f(x) , (9)\nfor any continuous map f : R 7→ R ."
+    }, {
+      "heading" : "3 Free vibrations of nano-beams",
+      "text" : "Natural frequencies of a elastically homogeneous Bernoulli-Euler nanobeam, formulated according to the SDM recalled in Sect.2, are evaluated as follows. Let us preliminary take the second derivative along the abscissa x of Eq.(6) and prescribe the differential condition of equilibrium Eq.(2)\nχ(2) el − L2c χ(4)el = −C m v̈ . (10)\nEnforcement of the differential condition of kinematic compatibility Eq.(1) provides the differential equation governing free vibrations of a nano-beam\nv(4) − L2c v(6) = −C m v̈ . (11)\nNatural frequencies and mode shapes are got by separating spatial and time variables as\nv(x, t) = ψ(x)φ(t) . (12)\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nEq.(11) rewrites thus as\nψ(4)(x)φ(t)− L2c ψ(6)(x)φ(t) = −C mψ(x) φ̈(t) , (13)\nwhence we get\n− ω2 := φ̈(t) φ(t) = L2c ψ (6)(x)− ψ(4)(x) C mψ(x) . (14)\nThe previous condition provides two basic differential equations\n φ̈(t) + ω2 φ(t) = 0 ,\nL2c ψ (6)(x)− ψ(4)(x) + s ψ(x) = 0 ,\n(15)\nwith the scalar s defined by\ns := ω2C m . (16)\nThe general integral of Eq.(15)1 (harmonic motion) is given by\nφ(t) = a sin(ω t) + b cos(ω t) , (17)\nwith the pair (a, b) to be evaluated by prescribing suitable initial conditions.\nEvaluation of natural frequencies consists of three steps.\n(1) Integration of Eq.(15)2 . The general integral is expressed in terms of a\nsix-dimensional array p = {p1 , p2 , p3 , p4 , p5 , p6} .\n(2) Enforcement of six boundary conditions providing a homogeneous alge-\nbraic system A(λ, s)p = o .\n(3) Solution of the nonlinear equation in s (see Eq.(16))\ndetAλ(s) = 0 , (18)\nfor a fixed dimensionless nonlocal parameter λ .\nM AN\nUS CR\nIP T\nAC CE\nPT ED"
+    }, {
+      "heading" : "4 Case studies",
+      "text" : "The stress-driven nonlocal elastic model (SDM) is here adopted in order to get a numerical assessment of fundamental natural frequencies ω1 for cantilever, simply-supported, clamped-pinned and doubly-clamped nano-beams in terms of the dimensionless nonlocal parameter λ = Lc/L . Let us introduce the dimensionless fundamental natural frequency\nω∗ := ω1 L2 √ m\nK . (19)\nThe solution methodology exposed in Sect.3 requires the prescription of four kinematic and/or static boundary conditions involving transverse displacement, bending moment and their derivatives, as follows.\nCantilever nano-beam v(0) = 0 , v(1)(0) = 0 , M(L) = 0 , M (1)(L) = 0 . (20)\nSimply-supported nano-beam v(0) = 0 , M(0) = 0 , v(L) = 0 , M(L) = 0 . (21)\nClamped-pinned nano-beam v(0) = 0 , v(1)(0) = 0 , v(L) = 0 , M(L) = 0 . (22)\nDoubly-clamped nano-beam v(0) = 0 , v(1)(0) = 0 , v(L) = 0 , v(1)(L) = 0 . (23)\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nMoreover, for all the considered structural schemes, the following further two boundary constitutive conditions in terms of transverse displacements (see Eqs.(7) and (1)) are to be enforced v(3)(0) = 1 Lc v(2)(0) ,\nv(3)(L) = − 1 Lc v(2)(L) .\n(24)\nThe results are compared with the ones corresponding to the Eringen Differential law (EDM) and to the Gradient Elasticity theory (GradEla). EDM is based on the following constitutive relation\nM − L2cM (2) = K χel . (25)\nThe ensuing differential problem governing free vibrations of nano-beams is expressed by a fourth-order differential equation in terms of transverse displacements. Fundamental natural frequencies are obtained in literature (see e.g. [34]) by discarding the higher-order constitutive boundary conditions inferred from the Eringen strain-driven integral nonlocal law [50]. We emphasize that the higher-order constitutive boundary conditions of Eringen strain-driven integral theory are in contrast with equilibrium conditions [49]. The strain-driven model cannot be adopted in order to study size-effects in nano-beams and accordingly its differential counterpart (EDM) cannot be considered as a significant and reliable nonlocal model in structural applications. GradEla is formulated by introducing the following specific elastic energy\nψ(χel, χ (1) el\n) := 1\n2 K χ2 el +\n1 2 LcK (χ(2)el ) 2 , (26)\nwhich is a special case of the model (C1) presented in [61] by setting α = 0 . The corresponding differential equation governing free vibrations of a nanobeam coincides with the one of the SDM Eq.(11). Difference with SDM consists\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nin the higher-order constitutive boundary conditions which take the form (see Table 2 in [61])  Lc v(3)(0) = 0 ,\nLc v(3)(L) = 0 . (27)\nIn Figs.1, 2, 3, 4, plots of dimensionless fundamental natural frequencies ω∗ , associated with SDM, GradEla and EDM, vs. the dimensionless nonlocal parameter λ are provided for all kinematic boundary conditions examined above. Numerical evaluations of ω∗(λ) and the ratios ∆1 and ∆2 between the gaps of ω∗ of SDM with respect to EDM and GradEla are listed in Tables 1,2,3,4. As displayed in Fig.5, SDM exhibits a hardening behavior both in terms of nonlocal parameter λ and of the number of kinematic boundary constraints. The acronyms CF, PP, CP, CC stand for clamp-free, pin-pin, clamp-pin, clampclamp respectively. The softest structural response, with respect to all the examined kinematic boundary conditions, is exhibited by cantilever nano-beams.\nFigure 1. Cantilever nano-beam: dimensionless fundamental natural frequency ω∗ vs. nonlocal parameter λ , evaluated by SDM, EDM and GradEla.\nM\nAN\nUS\nCR\nIP T\nAC CE\nPT ED\nFigure 3. Clamped-pinned nano-beam: fundamental natural frequency ω∗ vs. nonlocal parameter λ , evaluated by SDM, EDM and GradEla.\nM\nAN\nUS CR\nIP T\nAC CE\nPT ED\nFigure 5. Dimensionless fundamental natural frequency ω∗ vs. nonlocal parameter λ , evaluated by SDM under standard kinematic boundary conditions."
+    }, {
+      "heading" : "5 Closing remarks",
+      "text" : "The outcomes of the present paper may be summarized as follows.\nM AN\nUS CR\nIP T\nAC CE\nPT ED\nEringen differential law (EDM) and by the gradient elasticity theory (GradEla). SDM provides, for all considered kinematic boundary conditions, the highest frequencies.\n(3) In gradient elasticity theories, the problematic choice of physically moti-\nvated higher-order boundary conditions is actively debated in literature, as witnessed by the recent valuable papers in [62–64]. A significant improvement brought by the new stress-driven integral approach (SDM) is that all boundary conditions are naturally and univocally provided by the theory, so that closure of the nonlocal dynamical problem is assured.\n(4) In the research field of nano-structures, the stress-driven nonlocal integral\nmodel (SDM) provides an effective constitutive remedy to the inapplicable Eringen strain-driven nonlocal integral theory [50]."
+    } ],
+    "references" : [ {
+      "title" : "Nanotribology and nanomechanics of MEMS/NEMS and BioMEMS/BioNEMS materials and devices. Microelectronic Engineering 2007;84:387-412",
+      "author" : [ "B. Bhushan" ],
+      "venue" : null,
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2007
+    }, {
+      "title" : "A critical review on nanotube and nanotube/nanoclay related polymer composite materials",
+      "author" : [ "K-T Lau", "C Gu", "D. Hui" ],
+      "venue" : "Composites Part B",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2006
+    }, {
+      "title" : "Nanotechnology in biomedical applications-a review",
+      "author" : [ "V Saji", "H Choe", "K. Young" ],
+      "venue" : "Int J Nano and Biomat 2010;3:119-139",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2010
+    }, {
+      "title" : "Surface science, MEMS and NEMS: Progress and opportunities for surface science research performed on, or by, microdevices",
+      "author" : [ "D Berman", "J. Krim" ],
+      "venue" : "M  AN US CR IP T AC CE PT  ED  ACCEPTED MANUSCRIPT Progr Surf Sci 2013;88:171-211",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2013
+    }, {
+      "title" : "Recent Progress on Man-Made Inorganic Nanomachines",
+      "author" : [ "K Kim", "J Guo", "X Xu", "DL. Fan" ],
+      "venue" : null,
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2015
+    }, {
+      "title" : "Non-local constitutive response of a random laminate subjected to configuration-dependent body force",
+      "author" : [ "Luciano R", "Willis JR" ],
+      "venue" : "J Mech Phys Solids",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2001
+    }, {
+      "title" : "Debonding of FRP in multi-span masonry arch structures via limit analysis",
+      "author" : [ "A Caporale", "L Feo", "D Hui", "R. Luciano" ],
+      "venue" : "Comp Struct",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2014
+    }, {
+      "title" : "Exact solutions of isotropic viscoelastic functionally graded Kirchhoff plates",
+      "author" : [ "R Barretta", "R. Luciano" ],
+      "venue" : "Comp Struct 2014;118:448-454",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2014
+    }, {
+      "title" : "Nonlinear homogenized properties of defected composite materials",
+      "author" : [ "D Bruno", "F Greco", "R Luciano", "P. Nevone Blasi" ],
+      "venue" : "Computers Struct 2014;134:102-111",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2014
+    }, {
+      "title" : "Analogies between Kirchhoff plates and functionally graded Saint-Venant beams under torsion",
+      "author" : [ "R Barretta", "R. Luciano" ],
+      "venue" : "Cont Mech Thermodyn",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2015
+    }, {
+      "title" : "A multiscale model for the numerical simulation of the anchor bolt pull-out test in lightweight aggregate concrete",
+      "author" : [ "F. Greco", "L. Leonetti", "R. Luciano" ],
+      "venue" : "Construct Building Mat",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2015
+    }, {
+      "title" : "Effects of microfracture and contact induced instabilities on the macroscopic response of finitely deformed elastic composites",
+      "author" : [ "F Greco", "L Leonetti", "R Luciano", "P. Nevone Blasi" ],
+      "venue" : "Composites Part B",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2016
+    }, {
+      "title" : "Size-dependent dynamic pull-in instability of vibrating electrically actuated microbeams based on the strain gradient elasticity theory",
+      "author" : [ "Sedighi HM" ],
+      "venue" : "Acta Astronautica 2014;95:111-123",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2014
+    }, {
+      "title" : "Modified continuum model for stability analysis of asymmetric FGM double-sided NEMS: Corrections due to finite conductivity, surface energy and nonlocal effect",
+      "author" : [ "HM Sedighi", "M Keivani", "M. Abadyan" ],
+      "venue" : "Composites Part B",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2015
+    }, {
+      "title" : "Dynamic instability analysis of electrostatic functionally graded doubly-clamped nano-actuators",
+      "author" : [ "HM Sedighi", "F Daneshmand", "M. Abadyan" ],
+      "venue" : "Comp Struct 2015;124:55-64",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2015
+    }, {
+      "title" : "Non-linear dynamic instability of a double-sided nano-bridge considering centrifugal force and rarefied gas flow",
+      "author" : [ "HM Sedighi", "A Koochi", "F Daneshmand", "M. Abadyan" ],
+      "venue" : "Int. J. Non-Linear Mech",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2015
+    }, {
+      "title" : "Rippling effect on the structural response of electrostatically actuated single-walled carbon nanotube based NEMS actuators",
+      "author" : [ "Ouakad HM", "Sedighi HM" ],
+      "venue" : "Int. J. Non-Linear",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2016
+    }, {
+      "title" : "Analysis of micro-sized beams for various boundary conditions based on the strain gradient elasticity theory",
+      "author" : [ "B Akgöz", "Ö. Civalek" ],
+      "venue" : "Arch Appl Mech 2012;82:423-443",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2012
+    }, {
+      "title" : "Large amplitude free vibration of nanobeams with various boundary conditions based on the nonlocal elasticity theory. Composites Part B 2014;56:621-628",
+      "author" : [ "M. Şimşek" ],
+      "venue" : null,
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2014
+    }, {
+      "title" : "Thermo-mechanical vibration analysis of nonlocal temperature-dependent FG nanobeams with various boundary conditions",
+      "author" : [ "F Ebrahimi", "E. Salari" ],
+      "venue" : "Composites Part B",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2015
+    }, {
+      "title" : "Comments on nonlocal effects in nano-cantilever beams",
+      "author" : [ "C Li", "L Yao", "W Chen", "S. Li" ],
+      "venue" : "Int J Eng Sci 2015;87:47-57",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2015
+    }, {
+      "title" : "Post-buckling analysis of functionally graded nanobeams incorporating nonlocal stress and microstructure-dependent strain gradient 18  M  AN US CR IP T AC CE PT  ED  ACCEPTED MANUSCRIPT effects",
+      "author" : [ "L Li", "Y. Hu" ],
+      "venue" : "Int J Mech Sciences",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2017
+    }, {
+      "title" : "Functionally graded Timoshenko nanobeams: A novel nonlocal gradient formulation. Composites Part B 2016;100:208-219",
+      "author" : [ "R Barretta", "L Feo", "R Luciano", "F Marotti de Sciarra", "R. Penna" ],
+      "venue" : null,
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2016
+    }, {
+      "title" : "Nonlocal integral approach to the dynamical response of nano-beams",
+      "author" : [ "KG Eptaimeros", "CC Koutsoumaris", "GJ. Tsamasphyros" ],
+      "venue" : "Int J Mech Sciences",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2016
+    }, {
+      "title" : "Nonlocal-integro-differential modeling of vibration of elastically supported nanorods",
+      "author" : [ "K. Kiani" ],
+      "venue" : "Physica E 2016;83:151-163",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2016
+    }, {
+      "title" : "Free dynamic analysis of functionally graded tapered nanorods via a newly developed nonlocal surface energy-based integro-differential model",
+      "author" : [ "K. Kiani" ],
+      "venue" : "Composite Struct 2015;139:151-166",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2015
+    }, {
+      "title" : "A different approach to Eringen’s nonlocal integral stress model with applications for beams",
+      "author" : [ "CC Koutsoumaris", "KG Eptaimeros", "GJ. Tsamasphyros" ],
+      "venue" : "Int J Solids Struct",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2016
+    }, {
+      "title" : "Size-dependent torsion of functionally graded bars. Composites Part B 2015;82:205-211",
+      "author" : [ "M. Rahaeifard" ],
+      "venue" : null,
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2015
+    }, {
+      "title" : "A review on nonlocal elastic models for bending, buckling, vibrations, and wave propagation of nanoscale beams",
+      "author" : [ "MA Eltaher", "ME Khater", "SA. Emam" ],
+      "venue" : "Appl Math Modelling",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2016
+    }, {
+      "title" : "Nonlocal continuum-based modeling of mechanical characteristics of nanoscopic structures",
+      "author" : [ "H Rafii-Tabar", "E Ghavanloo", "SA. Fazelzadeh" ],
+      "venue" : "Physics Reports",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2016
+    }, {
+      "title" : "On differential equations of nonlocal elasticity and solutions of screw dislocation and surface waves",
+      "author" : [ "Eringen AC" ],
+      "venue" : "J Appl Phys 1983;54:4703-4710",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 1983
+    }, {
+      "title" : "Application of nonlocal continuum models to nanotechnology",
+      "author" : [ "J Peddieson", "GR Buchanan", "RP. McNitt" ],
+      "venue" : "Int J Engrg Sci 2003;41:305-312",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2003
+    }, {
+      "title" : "Nonlocal theories for bending, buckling and vibration of beams",
+      "author" : [ "J.N. Reddy" ],
+      "venue" : "Int J Engrg Sci 2007;45:288-307",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2007
+    }, {
+      "title" : "A general nonlocal beam theory: Its application to nanobeam bending, buckling and vibration",
+      "author" : [ "M. Aydogdu" ],
+      "venue" : "Physica E 2009;41:1651-1655",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2009
+    }, {
+      "title" : "Small-scale effect on the vibration of non uniform nanocantilever based on nonlocal elasticity theory",
+      "author" : [ "Murmu T", "Pradhan SC" ],
+      "venue" : null,
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2009
+    }, {
+      "title" : "Free vibration analysis of microtubules as cytoskeleton components: nonlocal Euler-Bernoulli beam modeling. Sci. Iran",
+      "author" : [ "Ö Civalek", "B. Akgoz" ],
+      "venue" : null,
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2010
+    }, {
+      "title" : "Dynamics and stability of transverse vibrations of nonlocal nanobeams with a variable axial load",
+      "author" : [ "C Li", "CW Lim", "JL. Yu" ],
+      "venue" : "Smart Mater. Struct",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2010
+    }, {
+      "title" : "Small scale effect on vibrational response of single walled carbon nanotubes with different boundary conditions based on nonlocal beam models",
+      "author" : [ "R Ansari", "S Sahmani" ],
+      "venue" : "Commun. Nonlinear Sci. Numer. Simul",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2012
+    }, {
+      "title" : "On the modeling of carbon nanotubes: A critical review",
+      "author" : [ "Rafiee R", "Moghadam RM" ],
+      "venue" : "Composites Part B",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2014
+    }, {
+      "title" : "Size-dependent electromechanical bending, buckling and free vibration analysis of functionally graded piezoelectric nanobeams Journal of Intelligent Material Systems and Structures 2016;27(16):2199-2215",
+      "author" : [ "Y. Tadi Beni" ],
+      "venue" : null,
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2016
+    }, {
+      "title" : "A review on nonlocal elastic models for bending, buckling, vibrations, and wave propagation of nanoscale beams",
+      "author" : [ "MA Eltaher", "ME Khater", "SA. Emam" ],
+      "venue" : "Appl Math Modelling 2016;40(5-6):4109-4128",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2016
+    }, {
+      "title" : "One-dimensional nonlocal and gradient elasticity: Closed-form solution and size effect",
+      "author" : [ "E Benvenuti", "A. Simone" ],
+      "venue" : "Mech Res",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2013
+    }, {
+      "title" : "The small length scale effect for a non-local cantilever beam: a paradox solved",
+      "author" : [ "Challamel N", "Wang CM" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2008
+    }, {
+      "title" : "Comments on nonlocal effects in nano-cantilever beams",
+      "author" : [ "C Li", "L Yao", "W Chen", "S. Li" ],
+      "venue" : "Int J Engrg Sci 2015;87:47-57",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2015
+    }, {
+      "title" : "Eringen’s Stress Gradient Model for Bending of Nonlocal Beams",
+      "author" : [ "N Challamel", "JN Reddy", "CM. Wang" ],
+      "venue" : "J Eng Mech 2016;142(12),",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2016
+    }, {
+      "title" : "Bending of Euler-Bernoulli beams using Eringen’s integral formulation: A paradox resolved",
+      "author" : [ "J Fernández-Sáez", "R Zaera", "JA Loya", "JN. Reddy" ],
+      "venue" : "Int J Eng Sci 2016;99:107-116",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2016
+    }, {
+      "title" : "Comment on the paper \"Exact solution of Eringen’s nonlocal integral model for bending of Euler-Bernoulli and Timoshenko beams\" by Meral Tuna & Mesut Kirca",
+      "author" : [ "G Romano", "R. Barretta" ],
+      "venue" : "Int J Eng Sci 2016;109,",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2016
+    }, {
+      "title" : "Constitutive boundary conditions and paradoxes in nonlocal elastic nano-beams",
+      "author" : [ "G Romano", "R Barretta", "M Diaco", "F. Marotti de Sciarra" ],
+      "venue" : "Int J Mech Sciences",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2017
+    }, {
+      "title" : "Closed form solution for a nonlocal elastic bar in tension",
+      "author" : [ "AA Pisano", "P. Fuschi" ],
+      "venue" : "Int J Solids Struct 2003;40:13-23",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2003
+    }, {
+      "title" : "Exact solutions for the static bending of Euler- Bernoulli beams using Eringen’s two-phase local/nonlocal model. AIP Advances 2016;6:085114",
+      "author" : [ "YB Wang", "XW Zu", "HH. Dai" ],
+      "venue" : "M  AN US CR IP T AC CE PT  ED  ACCEPTED MANUSCRIPT",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2016
+    }, {
+      "title" : "Linear theory of nonlocal elasticity and dispersion of plane waves",
+      "author" : [ "Eringen AC" ],
+      "venue" : "Int J Eng Sci",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 1972
+    }, {
+      "title" : "Theory of nonlocal elasticity and some applications",
+      "author" : [ "Eringen AC" ],
+      "venue" : "Res Mechanica",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 1987
+    }, {
+      "title" : "Nonlocal elasticity in nanobeams: the stress-driven integral model",
+      "author" : [ "G Romano", "R. Barretta" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2017
+    }, {
+      "title" : "Stress-driven versus strain-driven nonlocal integral model for elastic nano-beams",
+      "author" : [ "G Romano", "R. Barretta" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2017
+    }, {
+      "title" : "On the role of gradients in the localization of deformation and fracture",
+      "author" : [ "Aifantis EC" ],
+      "venue" : "Int J Eng Sci",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 1992
+    }, {
+      "title" : "On the structure of the mode III crack-tip in gradient elasticity",
+      "author" : [ "S. Altan", "E.C. Aifantis" ],
+      "venue" : "Scr Metall Mater 1992;26:319-324",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 1992
+    }, {
+      "title" : "On some aspects in the special theory of gradient elasticity",
+      "author" : [ "Altan SB", "Aifantis EC" ],
+      "venue" : "J Mech Behavior Mat",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 1997
+    }, {
+      "title" : "A simple approach to solve boundary-value problems in gradient elasticity",
+      "author" : [ "Ru CQ", "Aifantis EC" ],
+      "venue" : null,
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 1993
+    }, {
+      "title" : "Variational formulations for functionally graded nonlocal Bernoulli-Euler nanobeams",
+      "author" : [ "R Barretta", "L Feo", "R Luciano", "F. Marotti de Sciarra" ],
+      "venue" : "Composite Struct 2015;129:80-89",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2015
+    }, {
+      "title" : "Stress gradient versus strain gradient constitutive models within elasticity",
+      "author" : [ "C. Polizzotto" ],
+      "venue" : "Int J Solids Struct",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2014
+    }, {
+      "title" : "A unifying variational framework for stress gradient and strain gradient elasticity theories",
+      "author" : [ "C. Polizzotto" ],
+      "venue" : "Eur J Mech A/Solids 2015;49:430-440",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2015
+    }, {
+      "title" : "Variational formulations and extra boundary conditions within stress gradient elasticity theory with extensions to beam and plate models",
+      "author" : [ "C. Polizzotto" ],
+      "venue" : "Int J Solids Struct 2016;80:405-419",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2016
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 30,
+      "context" : "19) of [32] and applied by Peddieson to Nanotechnology in [33], is certainly the most popular constitutive strategy for the analysis of bending, vibration and buckling of nano-beams [34–42].",
+      "startOffset" : 7,
+      "endOffset" : 11
+    }, {
+      "referenceID" : 31,
+      "context" : "19) of [32] and applied by Peddieson to Nanotechnology in [33], is certainly the most popular constitutive strategy for the analysis of bending, vibration and buckling of nano-beams [34–42].",
+      "startOffset" : 58,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 30,
+      "context" : "2) in [32]), due to the tacit fulfillment of suitable constitutive boundary conditions of vanishing at infinity.",
+      "startOffset" : 6,
+      "endOffset" : 10
+    }, {
+      "referenceID" : 41,
+      "context" : "In nonlocal structural problems of technical interest, involving bounded domains and standard kinematic boundary constraints, the constitutive boundary conditions (CBCs) [43, 44] associated with the Eringen strain-driven integral convolution (EIM) are in contrast with equilibrium equations.",
+      "startOffset" : 170,
+      "endOffset" : 178
+    }, {
+      "referenceID" : 46,
+      "context" : "A discussion about inapplicability of Eringen theory to Structural Mechanics and resolutions of improperly claimed paradoxes [45–48] is provided in [49,50].",
+      "startOffset" : 148,
+      "endOffset" : 155
+    }, {
+      "referenceID" : 47,
+      "context" : "A discussion about inapplicability of Eringen theory to Structural Mechanics and resolutions of improperly claimed paradoxes [45–48] is provided in [49,50].",
+      "startOffset" : 148,
+      "endOffset" : 155
+    }, {
+      "referenceID" : 48,
+      "context" : "M AN US CR IP T AC CE PT ED ACCEPTED MANUSCRIPT These difficulties were by-passed in [51, 52] by adopting the local-nonlocal mixture originally conceived in [53, 54].",
+      "startOffset" : 85,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 49,
+      "context" : "M AN US CR IP T AC CE PT ED ACCEPTED MANUSCRIPT These difficulties were by-passed in [51, 52] by adopting the local-nonlocal mixture originally conceived in [53, 54].",
+      "startOffset" : 85,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 50,
+      "context" : "M AN US CR IP T AC CE PT ED ACCEPTED MANUSCRIPT These difficulties were by-passed in [51, 52] by adopting the local-nonlocal mixture originally conceived in [53, 54].",
+      "startOffset" : 157,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 51,
+      "context" : "M AN US CR IP T AC CE PT ED ACCEPTED MANUSCRIPT These difficulties were by-passed in [51, 52] by adopting the local-nonlocal mixture originally conceived in [53, 54].",
+      "startOffset" : 157,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 52,
+      "context" : "An innovative stress-driven nonlocal integral model (SDM) was proposed in [55] to examine size-dependent static behavior of inflected nano-beams.",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 53,
+      "context" : "Unlike the Eringen strain-driven nonlocal integral convolution, SDM provides a new mathematically and mechanically consistent approach for the design and optimization of nano-structures [56].",
+      "startOffset" : 186,
+      "endOffset" : 190
+    }, {
+      "referenceID" : 52,
+      "context" : "The stress-driven nonlocal elastic model (SDM) proposed in [55] is described by the following integral convolution law defining the elastic curvature field",
+      "startOffset" : 59,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 52,
+      "context" : "As proven in [55], introducing the special kernel",
+      "startOffset" : 13,
+      "endOffset" : 17
+    }, {
+      "referenceID" : 32,
+      "context" : "[34]) by discarding the higher-order constitutive boundary conditions inferred from the Eringen strain-driven integral nonlocal law [50].",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 47,
+      "context" : "[34]) by discarding the higher-order constitutive boundary conditions inferred from the Eringen strain-driven integral nonlocal law [50].",
+      "startOffset" : 132,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 46,
+      "context" : "We emphasize that the higher-order constitutive boundary conditions of Eringen strain-driven integral theory are in contrast with equilibrium conditions [49].",
+      "startOffset" : 153,
+      "endOffset" : 157
+    }, {
+      "referenceID" : 58,
+      "context" : "GradEla is formulated by introducing the following specific elastic energy ψ(χel, χ (1) el ) := 1 2 K χ(2) el + 1 2 LcK (χ((2)) el ) 2 , (26) which is a special case of the model (C1) presented in [61] by setting α = 0 .",
+      "startOffset" : 197,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 58,
+      "context" : "M AN US CR IP T AC CE PT ED ACCEPTED MANUSCRIPT in the higher-order constitutive boundary conditions which take the form (see Table 2 in [61])  Lc v((3))(0) = 0 , Lc v((3))(L) = 0 .",
+      "startOffset" : 137,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 47,
+      "context" : "(4) In the research field of nano-structures, the stress-driven nonlocal integral model (SDM) provides an effective constitutive remedy to the inapplicable Eringen strain-driven nonlocal integral theory [50].",
+      "startOffset" : 203,
+      "endOffset" : 207
+    } ],
+    "year" : 2017,
+    "abstractText" : "Nonlocal theories of Continuum Mechanics are widely used in order to assess size effects in nano-structures. In this paper, free vibrations of nano-beams are investigated by making recourse to the novel stress-driven nonlocal integral model (SDM). Equations of motion governing the dynamics of a Bernoulli-Euler nano-beam are consistently formulated and numerically integrated by Matlab. Selected case studies involving structures of nanotechnological interest are examined. Natural frequencies, evaluated according to the SDM, are compared with those obtained by the Eringen differential law (EDM) and by the gradient elasticity theory (GradEla). SDM provides an effective methodology to describe nonlocal phenomena in NEMS.",
+    "creator" : "Elsevier"
+  }
+}

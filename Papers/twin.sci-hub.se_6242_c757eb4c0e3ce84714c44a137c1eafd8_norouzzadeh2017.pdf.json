@@ -1,0 +1,589 @@
+{
+  "name" : "twin.sci-hub.se_6242_c757eb4c0e3ce84714c44a137c1eafd8_norouzzadeh2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Finite element analysis of nano-scale Timoshenko beams using the integral model of nonlocal elasticity",
+    "authors" : [ "A. Norouzzadeh", "R. Ansari" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nPhysica E\njournal homepage: www.elsevier.com/locate/physe\nFinite element analysis of nano-scale Timoshenko beams using the integral model of nonlocal elasticity\nA. Norouzzadeh, R. Ansari⁎\nDepartment of Mechanical Engineering, University of Guilan, P.O. Box 3756, Rasht, Iran\nA R T I C L E I N F O\nKeywords: Integral constitutive equations Pure numerical approach Nano-scaled Timoshenko beam Finite element analysis Boundary conditions Paradox\nA B S T R A C T\nStress-strain relation in Eringen's nonlocal elasticity theory was originally formulated within the framework of an integral model. Due to difficulty of working with that integral model, the differential model of nonlocal constitutive equation is widely used for nanostructures. However, paradoxical results may be obtained by the differential model for some boundary and loading conditions. Presented in this article is a finite element analysis of Timoshenko nano-beams based on the integral model of nonlocal continuum theory without employing any simplification in the model. The entire procedure of deriving equations of motion is carried out in the matrix form of representation, and hence, they can be easily used in the finite element analysis. For comparison purpose, the differential counterparts of equations are also derived. To study the outcome of analysis based on the integral and differential models, some case studies are presented in which the influences of boundary conditions, nonlocal length scale parameter and loading factor are analyzed. It is concluded that, in contrast to the differential model, there is no paradox in the numerical results of developed integral model of nonlocal continuum theory for different situations of problem characteristics. So, resolving the mentioned paradoxes by means of a purely numerical approach based on the original integral form of nonlocal elasticity theory is the major contribution of present study."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Nowadays, it is quite clear that classical continuum theories are unable to give precise and comprehensive predictions of the phenomena at micro- and nano-scale. Size-dependency, effects of surface energies and dispersion characteristics of wave propagation are examples of important issues which are neglected in the classical continuum mechanics [1–5]. It refers to the fact that there is no internal material length parameter in the classical theories and they are scale-free. As an example on this area, one can mention the recent paper of Carcaterra [6] in which an equivalent theory of Euler beam is proposed to discover the quantum effects on the flexural vibration of nano-beams.\nAlthough the main body of attempts began in 1960's, the development of higher-order/size-dependent elasticity theories are considered as the contribution of many researchers over more than a century. From fundamental studies on this field, one can mention papers by Mindlin [7–10], Toupin [11,12], Kroner [13,14] and works by Eringen [15–18]. Further investigations in this field lead to the improvement of introduced theories and as a result, the well-known nonlocal elasticity [17–19], couple stress/strain gradient [7,11,20,21] and modified couple stress/strain gradient [22,23] theories have been employed in\nliterature extensively. Moreover, it is reported that the effects of surface layers are considerable in micro/nano and thin structures which ratios of surface to volume are high [24,25]. Among proposed models, the surface elasticity theory of Gurtin and Murdoch [26,27] is attracted a lot of attention. Javili et al. [28] showed that, in contrast to the surface elasticity, consideration of surface and curve energies require the first and second derivatives of the deformation gradient, respectively. Thickness of surface and the flexural resistance are taken into account in their presented higher-gradient surface elasticity theory.\nNonlocal elasticity theory indicates that the stress component of a body at reference point depends on the strain field on the entire domain (not only that point) which is against on what classical/local theories are based on. Eringen formulated this nonlocal stress-strain relationship concept by means of integral constitutive equation.\n∫ k κ dvσ x x x Cε x x( ) = ( − , ) ( ) ( ) v (1)\nBecause of the adversity of dealing with integro-partial differential equations, differential form of above relation is presented for a specific kind of kernel which is assumed to be a Green function of linear differential operator [18].\nκ σ Cε(1 − ∇ ) =2 2 (2)\nhttp://dx.doi.org/10.1016/j.physe.2017.01.006 Received 12 October 2016; Accepted 3 January 2017\n⁎ Corresponding author.\nPhysica E 88 (2017) 194–200\nAvailable online 16 January 2017 1386-9477/ © 2017 Elsevier B.V. All rights reserved.\nMARK\nHere, it is worth mentioning that nonlocality concept is also seen in the so-called peridynamics continuum theory. According to [29,30], the modern peridynamics theory [31] was perceived and even formulated in Piola's works. This theory presents a nonlocal model of force interactions; i.e., the force applied on a material particle of a continuum depends on the deformation of particles at a finite difference. As the original model of nonlocal elasticity, the idea of force interactions in peridynamics is implemented by means of an integral operator [32]. This integral form and the corresponding integro-differential equations of motion provide an appropriate tool to analyze the problems with singularities and discontinuity which attract a lot of attention in fracture mechanics [33,34].\nIn addition of conceiving peridynamics, dell’Isola and co-authors pointed out that Piola's works in 19th century were the cornerstone of the concepts of nonlocal and higher-order gradient continuum theories. For more information, the reader can follow the detailed discussion in [29,30]. The notable point is that due to the incapability of Cauchy stress formulation to model the internal action of nonlocal continuum, the generalized concept of stress is developed in nonlocal elasticity theories. dell’Isola et al. [35] also showed that there is a need for at least Nth gradient continuum theory to generalize the Cauchy representation of contact interactions between sub-bodies. They utilized the principle of virtual powers (or virtual works) to generalize the Cauchy formulations for Nth gradient Piola continuum with the corresponding suitable boundary conditions [29].\nTrace of literature shows that the differential form of nonlocal elasticity is widely used to detect size-dependent characteristics of small-scale structures in different static and dynamic problems. For instance, Ansari et al. [36] studied the vibration behaviour of singlelayered graphene sheets (SLGSs) based on the nonlocal elasticity and Mindlin plate theories. The Molecular Dynamic (MD) simulations are also established to obtain the appropriate values of nonlocal parameters corresponding to different boundary conditions. Narendar and Gopalakrishnan [37] investigated the thermo-mechanical pre-buckling characteristics of single-walled carbon nanotubes (SWCNTs) resting on Winkler medium. They incorporate the nonlocal continuum and Timoshenko beam theories to achieve the critical buckling temperatures. Also, Rahmani and Pedram [38] presented the effects of small scales in functionally graded materials (FGMs) based on the nonlocal Timoshenko beam model. Simsek [39] employed the nonlocal strain gradient theory (NLSGT) with von-Karman nonlinearities to propose a size-dependent FGM Euler-Bernoulli beam model. The Galerkin's method and a novel Hamiltonian approach are used to find a closedform solution of the free vibration problem.\nDespite of the wide usage of differential form of nonlocal elasticity theory, there are some contradictions in predicted results of this model in certain occasions. It is reported [40–42] that in cantilever beams/ plates, a surprising stiffening behaviour is seen with increase of nonlocal parameter. This is while, the softening responses are observed for other boundary conditions and higher vibrational modes of a cantilever body [43]. Also it is clear that in case of point loading, there is no impacts of material length scale i.e. no nonlocal and sizedependent effects. To tackle this issue, some attempts are made in recent years including the studies of Challamel and co-workers [42– 44], Polizzotto [45] and paper of Pisano and Fuschi [46].\nIn the present paper, Eringen's nonlocal elasticity theory with integral form of constitutive relations is applied to analyze the mechanical characteristics of nano-beams. Integral model of nonlocal continuum theory is used with the Timoshenko beam model to detect the small scale effects without the mentioned paradoxical behaviour. The content of paper is organised as follows: the governing equations of motion are obtained in matrix-vector form of both integral and differential models in Sections 2 and 3, respectively. The matrix-vector form of representation provides a suitable tool for the implementation of the finite element method (FEM). The minimum total potential energy principle is adopted to derive the equations of static bending\nproblem of nano-beams. Section 4 is dedicated to discuss about numerical case studies in which the responses of nano-beams predicted by local elasticity, integral and differential models of nonlocal theories are compared for different boundary and load conditions. As it is expected, the present integral model does not suffer from inconsistence results of differential form of nonlocal elasticity theory."
+    }, {
+      "heading" : "2. Integral model of nonlocal elasticity",
+      "text" : "A schematic view of the nano-beam under consideration is shown in Fig. 1. It is assumed that the axial direction of nano-beam (with length L) is located on the x1 axis; also width b and thickness h directions are x2 and x3 axes, respectively. Material properties are consist of Young modulus E , Poisson's ratio ν and internal length parameter a. Furthermore, the transverse distributed static load P is applied on nano-beam."
+    }, {
+      "heading" : "2.1. Derivation of formulation",
+      "text" : "Based on the Eringen's nonlocal elasticity theory, the constitutive relations of beam-type structures are in the general form as follows\nt x x λδ ε x x με x x C ε x x( , ) = ( , )+2 ( , ) = ( , )ij ij kk ij ijkl kl3 3 3 3 (3)\n∫σ x x k x x κ t x x dx( , ) = ( − , ) ( , )ij x ij3 3 (4)\nin which, tij and σij are the components of local and nonlocal stress tensors, respectively and εij expresses the strain tensor component. δij denote Kronecker delta and Cijkl is the fourth order elastic tensor consists of λ and μ, the Lame's classical constants, in which λ Eν ν μ E ν= /1 − , = /2(1 + )2 . Also, x x= 1 signals the reference point in which the stress component σij is related to all points on domain represented by x x= 1. The nonlocal modulus or kernel k is a function of nonlocal parameter κ and neighborhood distance x x− in which κ e a= 0 and e0 is a material constant.\nIn the present study, it is assumed that nano-beam is made from the linear isotropic materials. In this manner, the strain energy of beam and its variation can be written, respectively, as\n⎛ ⎝⎜\n⎞ ⎠⎟\n∫ ∫\n∫ ∫ ∫\nσ x x ε x x dxdA\nk x x κ t x x dx ε x x dxdA\nΠ = 1 2\n( , ) ( , )\n= 1 2\n( − , ) ( , ) ( , )\ns A x ij ij\nA x x ij ij\n3 3\n3 3 (5)\n⎛ ⎝⎜ ⎞ ⎠⎟∫ ∫ ∫ ∫ ∫δ σ x x δε x x dxdA k x x κ t x x dx δε x x dxdAΠ = ( , ) ( , ) = ( − , ) ( , ) ( , )s A x ij ij A x x ij ij3 3 3 3\n(6)\nNow, displacement field of Timoshenko beam is introduced as\nu x x u x x ψ x u x x w x( , ) = ( )+ ( ), ( , ) = ( )1 3 3 3 3 (7)\nwhere u and w are the axial and transverse deflections, respectively and ψ shows the rotation angle of the cross section with respect to the vertical direction. Above relations can be written in following form\n⎡ ⎣⎢\n⎤ ⎦⎥\nx x u u\nx x x u w ψ\nu Pq u\nP q\n= , ( , ) = [ ]\n( ) = 1 0 0 1 0 , ( ) = [ ]\n3 1 3 T\n3 3 T\n(8)\nThe constitutive relation of Eq. (4) is expressed in matrix-vector form as\n∫x x k x x κ x x dxσ Cε( , ) = ( − , ) ( , ) x 3 3 (9)\n⎡ ⎣⎢\n⎤ ⎦⎥\n⎡ ⎣⎢\n⎤ ⎦⎥\n⎡ ⎣⎢ ⎤ ⎦⎥x x σ x x σ x x λ μ k μ x x ε x x ε x xσ C ε( , ) = ( , ) ( , ) , = +2 0 0 , ( , ) = ( , ) 2 ( , ) xx\nxz s\nxx\nxz 3\n3 3 3\n3\n3\n(10)\nwhere, σ is the stress vector at reference point. C indicates the elastic matrix and ε is the strain vector of beam. Also, ks denotes shear correction factor.\nBy considering the strain-displacement relationship as\n⎛ ⎝⎜ ⎞ ⎠⎟ε u x u x = 1 2 ∂ ∂ + ∂ ∂ij i j j i (11)\none has\nx x x xε P Eq( , ) = ( ) ( )3 3 (12)\nin which the matrix P is determined in Eq. (8) and\n⎡ ⎣ ⎢⎢\n⎤ ⎦ ⎥⎥ x x x E = ∂/∂ 0 0 0 ∂/∂ 1 0 0 ∂/∂ (13)\nAlso, Eq. (5) and Eq. (6) can be rewritten as\n∫ ∫ x x x x dxdAε σΠ = 12 ( , ) ( , )s A x T 3 3 (14)\n∫ ∫δ δ x x x x dxdAε σΠ = ( , ) ( , )s A x T 3 3 (15)\nin which the strain vector at reference point ε is\n⎡ ⎣⎢ ⎤ ⎦⎥x x ε x x ε x x x x δ x x x δ xε P Eq ε P E q( , ) = ( , ) 2 ( , ) = ( ) ( ), ( , ) = ( ) ( ) xx xz 3 3 3 3 3 3\n(16)\nx u x w x ψ x x xq E E( ) = [ ( ) ( ) ( )] , = ∂/∂ →∂/∂ ,T (17)\nSo, the stress vector, strain energy and its variation are obtained in terms of displacement field components as follows\n∫x x k x x κ dxσ CPEq( , ) = ( − , ) x 3 (18)\n⎛ ⎝⎜ ⎞ ⎠⎟∫ ∫ ∫ k dx dxdAq E P CPEqΠ = 1 2s A x x T T T\n(19)\n⎛ ⎝⎜ ⎞ ⎠⎟∫ ∫ ∫δ δ k dx dxdAq E P CPEqΠ =s A x x T T T\n(20)\nFurthermore, the external work applied on nano-beam is achieved as\n∫ dx F F Fq F FΠ = 12 , = [ ]w x u w ψ T T\n(21)\n∫δ δ dxq FΠ =w x T (22)\nwhere Fu and Fw exhibit the distributed load on axial and lateral directions, respectively, and Fψ is the distributed moment."
+    }, {
+      "heading" : "2.2. Finite element analysis",
+      "text" : "Now, the Finite Element Method (FEM) is adopted to solve the integral formulation of nonlocal beam elasticity. As it is observed from foregoing formulation, at a given point of x, the stress tensor should be calculated in entire domain of x . So, unlike the finite element analysis of conventional problems, two procedures of assemblage are required to determine the strain energy of structure. The local coordinate system of elements corresponding to x and x domains are denoted by ξ and ξ, respectively.\nIn an element, the displacement components of beam are interpolated by appropriate shape functions as\nξ ξq N d q N d= ( ) , = ( ) (23)\nξ ξ ξ N ξ N ξ ξ ξ\nξ N ξ N ξ\nN I N N N I N\nN\n( ) = ⊗ ( ), ( ) = [ ( ) … ( )] ( ) = ⊗ ( ),\n( ) = [ ( ) … ( )]\n∼ ∼ ∼\n∼ n\nn\n3 1 3\n1 (24)\nin which, d and d denote the nodal values in ξ - and ξ-coordinates respectively. Also, Ni is the shape function of ith node, ⊗ signals the Kronecker delta product and Ip is the p-by-p unit matrix.\nSo, the strain vectors are achieved as\nξ ξ ξ ξ δ ξ ξ δε PB d ε PB d ε PB d( ) = ( ) , ( ) = ( ) , ( ) = ( ) (25)\nξ ξ ξ ξB EN B EN( ) = ( ), ( ) = ( ) (26)\nWith respect to Eq. (18), the stress vector of an element is determined\n∫ k J dξσ Sd S CPB= , =e ξ (27)\nwhere J denotes Jacobian in ξ -coordinates. In this stage, it is useful to define the following resultant\n∫ dAN P σˆ =e A e T\n(28)\n∫ ∫k J dξ dAN Sd S CB C P CPˆ = ˆ , ˆ = , =e ξ A T (29)\nBy performing the assemblage process in ξ -coordinates, the stress components at reference point x are obtained. So, one has the total matrices and vectors as\n  S S d→ ,ˆ→ ˆ , → (30)\nAccording to Eq. (19) and Eq. (20), the strain energy of element and its variation are presented as\n ∫ ∫ ∫JdξdA Jdξd B P d BΠ = 12 = 1 2 ˆs e A ξ ξ , T T T T T\n(31)\n ∫δ δ Jdξ δd B d KΠ = ˆ =s e ξ s e, T T T , (32)\nwhere J is the Jacobian in ξ-coordinates and the stiffness matrix of element Ks e, is achieved as\n∫ JdξK B= ˆs e ξ , T\n(33)\nAlso, the external work of element and its variation from Eq. (21) and Eq. (22) are captured as\n∫δ δ Jdξd F F N FΠ = =w e e e ξ , T T\n(34)\nAfter assemblage procedure in ξ-coordinates, the assembled matrices and vectors are\n  d K F→ , → , →s e s e, (35)\nand by choosing the same nodes for FEM local coordinate systems (ξ ξ= ), one has  = . So, the strain energy and external work of Timoshenko nano-beam are specified as\n  δ δΠ =s sT (36)\n δ δΠ =w T (37)\nEmploying the minimum total potential energy principle δ (Π −Π ) = 0s w leads to\n  =s (38)"
+    }, {
+      "heading" : "3. Differential model of nonlocal elasticity",
+      "text" : "It would be helpful to present the governing differential equations of motion and the corresponding finite element formulation of the\nconventional differential model of nonlocal elasticity theory. This makes it possible to directly compare the different natures of two models of nonlocal theory."
+    }, {
+      "heading" : "3.1. Derivation of formulation",
+      "text" : "Eringen stated that for a specific kernel function, the integral constitutive relations of Eq. (4) can be transformed to the differential model as\nμ σ λδ ε με C ε(1 − ∇ ) = +2 =ij ij kk ij ijkl kl2 (39)\nor in matrix-vector form as\nμ σ σσ Cε σ(1 − ∇ ) = , = [ ]xx xz2 T (40)\nin which μ κ= 2 and Laplacian operator in 1D problem is x∇ = ∂ /∂2 2 2. By taking into consideration of Eq. (10) and Eq. (12), the resultant of stress vector is written as\n∫ dAN P σˆ = A T (41)\nμ N CEq(1 − ∇ ) ˆ =2 (42)\nwhere C is introduced in Eq. (29). So, the strain energy, external work and their variations have the following form\n∫ ∫ ∫ ∫ ∫dxdA dxdA dxε σ q E P σ q E NΠ = 12 = 1 2 = 1 2 ˆs A x A x x T T T T T T (43)\n∫ dxq FΠ =w x T\n(44)\n∫δ δ dxq E NΠ = ˆs x T T (45)\n∫δ δ dxq FΠ =w x T\n(46)\nBy means of minimum total potential energy principle, one has\n∫ ∫δ δ dx δ μ δ dxq E N q F q E CEq q F( ˆ − ) = ( −(1 − ∇ ) ) = 0 x x T T T T T 2 T (47)\nand the variation of equivalent energy terms are defined as\n∫δ δ dxq E CEqΠ =s x T T (48)\n∫δ μ δ dxq FΠ = (1 − ∇ )w x 2 T\n(49)"
+    }, {
+      "heading" : "3.2. Finite element analysis",
+      "text" : "The conventional finite element implementation is carried out to detect the equations of motion of nano-scale Timoshenko beam based on the differential model of nonlocal elasticity. So,\nq Nd= (50)"
+    }, {
+      "heading" : "N NN I N N= ⊗ , = [ … ]∼ ∼ n3 1 (51)",
+      "text" : "ε PBd B EN= , = (52)\nFrom Eq. (48) and Eq. (49), one has\n∫δ δ Jdξd K d K B CBΠ = , =s e s e s e ξ , T , , T\n(53)\n∫δ δ μ Jdξd F F N FΠ = , = (1 − ∇ )w e e e ξ , T 2 T\n(54)\nand finally by adopting the assemblage process, the following set of equations are achieved\n  K d F= → =s e e s, (55)"
+    }, {
+      "heading" : "4. Selected results",
+      "text" : "In this section, some numerical examples have been brought to investigate the results predicted by the integral and differential models of nonlocal elasticity theory. Also, the effects of different important parameters on the bending responses of nano-beams are analyzed through the following discussion.\nIt is known that inconsistent results appear by employing differential model of nonlocal elasticity in analysis of cantilever beams. The main paradoxes are: 1) deflection does not affected by nonlocal parameter in case of point loading; 2) the stiffness of structure is increased by nonlocal parameter in distributed loading conditions. According to this important issue, the present study aims to resolve the above-mentioned paradoxical behaviors by implementation of the original integral model of nonlocal continuum theory. In this regard, a purely numerical approach with no simplification assumptions, is considered herein.\nFirst, some comparisons are made to validate the proposed formulation and solution methodology of present paper. Ref. [47] studied the bending problem of Euler-Bernoulli beam with using the integral form of nonlocal elasticity. They presented the analytical solution of integral form of nonlocal elasticity with specific kernel function in which satisfied the boundary and loading conditions proposed by [48].\nTo validate present investigation based on finite element analysis of integral formulation of nonlocal nano-scale Timoshenko beam theory, the analysis of cantilever beam is carried out with assumption of L h ν k/ = 25, = 0, = 5/6s and results are compared with those reported by Ref. [47]. Also, F F F P= = 0, =u ψ w and three types of transverse loading conditions including a) point load, b) uniform distributed and c) triangular loads are considered. Dimensionless lateral deflection is defined as W wEI qL= / 4 where I denotes the second moment of inertia and q has the following values: a) q P L= / , b) q P= , c) q L= . The kernel function is considered as [47]\nk x x κ κ e( − , ) = 1 2 x x κ− −\nFrom Fig. 2, it is seen that the above mentioned two paradoxes are solved by applying the integral model of nonlocal continuum theory. In all three cases, the maximum deflection of cantilever nano-beam is increased significantly with increase of nonlocal parameter. In addition of the trend of changes, a very good agreement is observed with reported results of Ref. [47].\nFor rest of paper, it is assumed that nano-beam is made of Al in which is subjected to the uniform distributed load. The material and geometrical properties are as follows"
+    }, {
+      "heading" : "E ν k L h b h= 68. 5GPa, = 0. 35, = 5/6, / = 12, / = 1s",
+      "text" : "and dimensionless deflection is w WEI PL= / 4. Also, the nonlocal parameter is fixed at κ = 1nm [49].\nHere, some explanations are provided about the computational features of present approach. As it is stated further, the assemblage process of the stress resultant must be carried out in each point of the Gaussian quadrature scheme. So, if m times function evaluation is needed in a conventional finite element analysis (like differential model), this number is raised to m2 times in assemblage procedure of integral model. It is clear that the computational run time of this approach is higher than differential model which came back to different nature of constitutive relations.\nBesides of what above, the “dynamic rate of convergence” of elements is another new aspect of this approach. It is related to the neighborhood distance concept in kernel function such that with increase of structure scales, higher number of elements should be\nemployed to cover the domain properly and give small values of x x− . To show this issue, convergence trends are tabulated in Table 1 corresponding to different thickness-to-nonlocal parameter ratios. In present study, the higher order elements (with 8 nodes) are applied in which are able to satisfy appropriately the neighboring distance of points as well as being locking free.\nDepicted in Figs. 3–5 are variation of maximum deflection of cantilever, clamped-pinned and pinned-pinned nano-beams with thickness-to-nonlocal parameter ratios, respectively. For comparison purpose, the graphs of predicted results of classical/local continuum\nTable 1 Convergence study of finite element analysis with different values of thickness-tononlocal parameter ratios.\nh κ\nNumber of elements\n20 40 60 80 100 120"
+    }, {
+      "heading" : "20 0.0905 0.1055 0.1092 0.1108 0.1113 0.1115",
+      "text" : ""
+    }, {
+      "heading" : "15 0.0989 0.1089 0.1111 0.1119 0.1121 0.1122",
+      "text" : ""
+    }, {
+      "heading" : "10 0.1071 0.1123 0.1134 0.1137 0.1139 0.1139",
+      "text" : ""
+    }, {
+      "heading" : "5 0.1158 0.1174 0.1177 0.1179 0.1179 0.1179",
+      "text" : "and differential model of Eringen's nonlocal elasticity are presented, too. It is observed that, in all cases, by increase of nano-beam scales, reported responses of nonlocal theories tend to converge to those of predicted by the classical elasticity theory. Fig. 3 demonstrates the existing paradox of differential model in cantilever beams, again. It is found that the convergence of integral model to the local elasticity theory occurred at higher ratios in compare with differential model. Also, it can be concluded that small-scale effects in present model are significantly higher than predicted by differential model. Fig. 4 demonstrates that employing both integral and differential forms of nonlocal elasticity in analysis of clamped-pinned nano-beams lead to similar trend of changes. But, differential model underestimates the maximum deflection of nan-beam as well as the ratio of convergence to the local theory. Fig. 5 shows that the integral and differential models of nonlocal continuum theories produce approximately the same responses in analysis of pinned-pinned nano-scale beams. Consequently, there is no remarkable error to use differential model in analyzing nano-beams with this type of boundary conditions."
+    }, {
+      "heading" : "5. Conclusion",
+      "text" : "Investigated in this paper, was a size-dependent analysis of static\nbending of Timoshenko nano-beams. The integral model of nonlocal continuum theory was employed to study the small scales effects. The formulations of problem for integral and differential models were obtained in the matrix-vector form of representation. Then, finite element analysis was carried out to solve the governing equations of motion. Some numerical examples for various boundary conditions and different loadings were given to realize the differences of results of two models.\nIt was reported that differential model of nonlocal continuum theory leads to the unexpected inconsistent results in certain types of boundary and loading conditions. But, it was observed that there is no paradox in the behaviour of cantilever nano-beams with the implementation of integral model of nonlocal elasticity theory. The softening responses were reported by the increase of nonlocal parameter, in all types of loading conditions. Also, it was concluded that the effects of material length parameters are negligible in nano-structures with larger scales. Hence, present work showed that the integral model of nonlocal elasticity can be analyzed in the general case without simplifying assumptions and predicts no contradictory results. This solution strategy is capable of being straightforwardly used in similar problems."
+    } ],
+    "references" : [ {
+      "title" : "A unifying variational framework for stress gradient and strain gradient elasticity theories",
+      "author" : [ "C. Polizzotto" ],
+      "venue" : "Eur. J. Mech.-A/Solids 49 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Torsional wave propagation in multiwalled carbon nanotubes using nonlocal elasticity",
+      "author" : [ "M. Arda", "M. Aydogdu" ],
+      "venue" : "Appl. Phys. A 122 (3) ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Geometrically nonlinear free vibration and instability of fluid-conveying nanoscale pipes including surface stress effects",
+      "author" : [ "R. Ansari", "A. Norouzzadeh", "R. Gholami", "M.F. Shojaei", "M. Darabi" ],
+      "venue" : "Microfluid. Nanofluid. 20 (1) ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Nonlocal and surface effects on the buckling behavior of functionally graded nanoplates: an isogeometric analysis",
+      "author" : [ "R. Ansari", "A. Norouzzadeh" ],
+      "venue" : "Phys. E: Low-dimens. Syst. Nanostruct. 84 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Quantum Euler beam—QUEB: modeling nanobeams vibration",
+      "author" : [ "A. Carcaterra" ],
+      "venue" : "Contin. Mech. Thermodyn. 27 (1–2) ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effects of couple-stresses in linear elasticity",
+      "author" : [ "R. Mindlin", "H. Tiersten" ],
+      "venue" : "Arch. Ration. Mech. Anal. 11 (1) ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 1962
+    }, {
+      "title" : "Micro-structure in linear elasticity",
+      "author" : [ "R.D. Mindlin" ],
+      "venue" : "Arch. Ration. Mech. Anal. 16 (1) ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 1964
+    }, {
+      "title" : "Second gradient of strain and surface-tension in linear elasticity",
+      "author" : [ "R.D. Mindlin" ],
+      "venue" : "Int. J. Solids Struct. 1 (4) ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 1965
+    }, {
+      "title" : "Stress functions for a Cosserat continuum",
+      "author" : [ "R. Mindlin" ],
+      "venue" : "Int. J. Solids Struct. 1 (3) ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 1965
+    }, {
+      "title" : "Elastic materials with couple-stresses",
+      "author" : [ "R.A. Toupin" ],
+      "venue" : "Arch. Ration. Mech. Anal. 11 (1) ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 1962
+    }, {
+      "title" : "Theories of elasticity with couple-stress",
+      "author" : [ "R.A. Toupin" ],
+      "venue" : "Arch. Ration. Mech. Anal. 17 (2) ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 1964
+    }, {
+      "title" : "On the physical reality of torque stresses in continuum mechanics",
+      "author" : [ "E. Kröner" ],
+      "venue" : "Int. J. Eng. Sci. 1 (2) ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 1963
+    }, {
+      "title" : "Elasticity theory of materials with long range cohesive forces",
+      "author" : [ "E. Kröner" ],
+      "venue" : "Int. J. Solids Struct. 3 (5) ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 1967
+    }, {
+      "title" : "Linear theory of micropolar viscoelasticity",
+      "author" : [ "A.C. Eringen" ],
+      "venue" : "Int. J. Eng. Sci. 5 (2) ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 1967
+    }, {
+      "title" : "Theory of micromorphic materials with memory",
+      "author" : [ "A.C. Eringen" ],
+      "venue" : "Int. J. Eng. Sci. 10 (7) ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 1972
+    }, {
+      "title" : "On nonlocal elasticity",
+      "author" : [ "A.C. Eringen", "D. Edelen" ],
+      "venue" : "Int. J. Eng. Sci. 10 (3) ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 1972
+    }, {
+      "title" : "On differential equations of nonlocal elasticity and solutions of screw dislocation and surface waves",
+      "author" : [ "A.C. Eringen" ],
+      "venue" : "J. Appl. Phys. 54 (9) ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 1983
+    }, {
+      "title" : "Nonlocal Continuum Field Theories",
+      "author" : [ "A.C. Eringen" ],
+      "venue" : "Springer Science & Business Media",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2002
+    }, {
+      "title" : "On first strain-gradient theories in linear elasticity",
+      "author" : [ "R. Mindlin", "N. Eshel" ],
+      "venue" : "Int. J. Solids Struct. 4 (1) ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 1968
+    }, {
+      "title" : "Strain gradient interpretation of size effects",
+      "author" : [ "E. Aifantis" ],
+      "venue" : "Int. J. Fract. Vol. 95 (No. 1- 4) ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Experiments and theory in strain gradient elasticity",
+      "author" : [ "D.C.C. Lam", "F. Yang", "A. Chong", "J. Wang", "P. Tong" ],
+      "venue" : "J. Mech. Phys. Solids 51 (8) ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Couple stress based strain gradient theory for elasticity",
+      "author" : [ "F. Yang", "A. Chong", "D.C.C. Lam", "P. Tong" ],
+      "venue" : "Int. J. Solids Struct. 39 (10) ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2002
+    }, {
+      "title" : "Thin plate theory including surface effects",
+      "author" : [ "P. Lu", "L. He", "H. Lee", "C. Lu" ],
+      "venue" : "Int. J. Solids Struct. 43 (16) ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Surface stress effects on the free vibration behavior of nanoplates",
+      "author" : [ "R. Ansari", "S. Sahmani" ],
+      "venue" : "Int. J. Eng. Sci. 49 (11) ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "A continuum theory of elastic material surfaces",
+      "author" : [ "M.E. Gurtin", "A.I. Murdoch" ],
+      "venue" : "Arch. Ration. Mech. Anal. 57 (4) ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 1975
+    }, {
+      "title" : "Surface stress in solids",
+      "author" : [ "M.E. Gurtin", "A.I. Murdoch" ],
+      "venue" : "Int. J. Solids Struct. 14 (6) ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 1978
+    }, {
+      "title" : "Geometrically nonlinear higher-gradient elasticity with energetic boundaries",
+      "author" : [ "A. Javili", "F. Dell'Isola", "P. Steinmann" ],
+      "venue" : "J. Mech. Phys. Solids 61 (12) ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "At the origins and in the vanguard of peridynamics, non-local and higher-gradient continuum mechanics: an underestimated and still topical contribution of Gabrio",
+      "author" : [ "F. Dell’Isola", "U. Andreaus", "L. Placidi" ],
+      "venue" : null,
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2015
+    }, {
+      "title" : "Some cases of unrecognized transmission of scientific knowledge: from antiquity to gabrio piola’s peridynamics and generalized continuum theories, in: Generalized Continua as Models for Classical and Advanced Materials",
+      "author" : [ "F. Dell’Isola", "A. Della Corte", "R. Esposito", "L. Russo" ],
+      "venue" : null,
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2016
+    }, {
+      "title" : "Reformulation of elasticity theory for discontinuities and long-range forces",
+      "author" : [ "S.A. Silling" ],
+      "venue" : "J. Mech. Phys. Solids 48 (1) ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2000
+    }, {
+      "title" : "A meshfree method based on the peridynamic model of solid mechanics",
+      "author" : [ "S.A. Silling", "E. Askari" ],
+      "venue" : "Comput. Struct. 83 (17) ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Impact fracture analysis enhanced by contact of peridynamic and finite element formulations",
+      "author" : [ "J. Lee", "W. Liu", "J.-W. Hong" ],
+      "venue" : "Int. J. Impact Eng. 87 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Peridynamic model for dynamic fracture in unidirectional fiber-reinforced composites",
+      "author" : [ "W. Hu", "Y.D. Ha", "F. Bobaru" ],
+      "venue" : "Comput. Methods Appl. Mech. Eng. 217 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "How contact interactions may depend on the shape of Cauchy cuts in Nth gradient continua: approach “á la d’Alembert",
+      "author" : [ "F. Dell’Isola", "P. Seppecher", "A. Madeo" ],
+      "venue" : "Z. Angew. Math. Phys",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2012
+    }, {
+      "title" : "Nonlocal plate model for free vibrations of singlelayered graphene sheets",
+      "author" : [ "R. Ansari", "S. Sahmani", "B. Arash" ],
+      "venue" : "Phys. Lett. A 375 (1) ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Critical buckling temperature of single-walled carbon nanotubes embedded in a one-parameter elastic medium based on nonlocal continuum mechanics",
+      "author" : [ "S. Narendar", "S. Gopalakrishnan" ],
+      "venue" : "Phys. E: Low-dimens. Syst. Nanostruct. 43 (6) ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Analysis and modeling the size effect on vibration of functionally graded nanobeams based on nonlocal Timoshenko beam theory",
+      "author" : [ "O. Rahmani", "O. Pedram" ],
+      "venue" : "Int. J. Eng. Sci. 77 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Nonlinear free vibration of a functionally graded nanobeam using nonlocal strain gradient theory and a novel Hamiltonian approach",
+      "author" : [ "M. Şimşek" ],
+      "venue" : "Int. J. Eng. Sci. 105 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Application of nonlocal continuum models to nanotechnology",
+      "author" : [ "J. Peddieson", "G.R. Buchanan", "R.P. McNitt" ],
+      "venue" : "Int. J. Eng. Sci. 41 (3) ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Application of nonlocal continuum mechanics to static analysis of micro-and nano-structures",
+      "author" : [ "Q. Wang", "K. Liew" ],
+      "venue" : "Phys. Lett. A 363 (3) ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "The small length scale effect for a non-local cantilever beam: a paradox solved",
+      "author" : [ "N. Challamel", "C. Wang" ],
+      "venue" : "Nanotechnology 19 (34) ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "On nonconservativeness of Eringen's nonlocal elasticity in beam mechanics: correction from a discrete-based approach",
+      "author" : [ "N. Challamel", "Z. Zhang", "C. Wang", "J. Reddy", "Q. Wang", "T. Michelitsch", "B. Collet" ],
+      "venue" : "Arch. Appl. Mech. 84 (9–11) ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "A dispersive wave equation using nonlocal elasticity",
+      "author" : [ "N. Challamel", "L. Rakotomanana", "L. Le Marrec" ],
+      "venue" : "C. R. Méc. 337 (8) ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Nonlocal elasticity and related variational principles",
+      "author" : [ "C. Polizzotto" ],
+      "venue" : "Int. J. Solids Struct. 38 (42) ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Closed form solution for a nonlocal elastic bar in tension",
+      "author" : [ "A.A. Pisano", "P. Fuschi" ],
+      "venue" : "Int. J. Solids Struct. 40 (1) ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Bending of Euler–Bernoulli beams using Eringen's integral formulation: a paradox resolved",
+      "author" : [ "J. Fernández-Sáez", "R. Zaera", "J. Loya", "J. Reddy" ],
+      "venue" : "Int. J. Eng. Sci. 99 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Handbook of Integral Equations",
+      "author" : [ "A.D. Polyanin", "A.V. Manzhirov" ],
+      "venue" : "CRC Press",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Wave propagation in carbon nanotubes via nonlocal continuum mechanics",
+      "author" : [ "Q. Wang" ],
+      "venue" : "J. Appl. Phys. 98 (12) (2005) 124301.  A. Norouzzadeh, R. Ansari  Physica E 88 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 4,
+      "context" : "As an example on this area, one can mention the recent paper of Carcaterra [6] in which an equivalent theory of Euler beam is proposed to discover the quantum effects on the flexural vibration of nano-beams.",
+      "startOffset" : 75,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 9,
+      "context" : "From fundamental studies on this field, one can mention papers by Mindlin [7–10], Toupin [11,12], Kroner [13,14] and works by Eringen [15–18].",
+      "startOffset" : 89,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 10,
+      "context" : "From fundamental studies on this field, one can mention papers by Mindlin [7–10], Toupin [11,12], Kroner [13,14] and works by Eringen [15–18].",
+      "startOffset" : 89,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 11,
+      "context" : "From fundamental studies on this field, one can mention papers by Mindlin [7–10], Toupin [11,12], Kroner [13,14] and works by Eringen [15–18].",
+      "startOffset" : 105,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 12,
+      "context" : "From fundamental studies on this field, one can mention papers by Mindlin [7–10], Toupin [11,12], Kroner [13,14] and works by Eringen [15–18].",
+      "startOffset" : 105,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 5,
+      "context" : "Further investigations in this field lead to the improvement of introduced theories and as a result, the well-known nonlocal elasticity [17–19], couple stress/strain gradient [7,11,20,21] and modified couple stress/strain gradient [22,23] theories have been employed in literature extensively.",
+      "startOffset" : 175,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 9,
+      "context" : "Further investigations in this field lead to the improvement of introduced theories and as a result, the well-known nonlocal elasticity [17–19], couple stress/strain gradient [7,11,20,21] and modified couple stress/strain gradient [22,23] theories have been employed in literature extensively.",
+      "startOffset" : 175,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 18,
+      "context" : "Further investigations in this field lead to the improvement of introduced theories and as a result, the well-known nonlocal elasticity [17–19], couple stress/strain gradient [7,11,20,21] and modified couple stress/strain gradient [22,23] theories have been employed in literature extensively.",
+      "startOffset" : 175,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 19,
+      "context" : "Further investigations in this field lead to the improvement of introduced theories and as a result, the well-known nonlocal elasticity [17–19], couple stress/strain gradient [7,11,20,21] and modified couple stress/strain gradient [22,23] theories have been employed in literature extensively.",
+      "startOffset" : 175,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 20,
+      "context" : "Further investigations in this field lead to the improvement of introduced theories and as a result, the well-known nonlocal elasticity [17–19], couple stress/strain gradient [7,11,20,21] and modified couple stress/strain gradient [22,23] theories have been employed in literature extensively.",
+      "startOffset" : 231,
+      "endOffset" : 238
+    }, {
+      "referenceID" : 21,
+      "context" : "Further investigations in this field lead to the improvement of introduced theories and as a result, the well-known nonlocal elasticity [17–19], couple stress/strain gradient [7,11,20,21] and modified couple stress/strain gradient [22,23] theories have been employed in literature extensively.",
+      "startOffset" : 231,
+      "endOffset" : 238
+    }, {
+      "referenceID" : 22,
+      "context" : "Moreover, it is reported that the effects of surface layers are considerable in micro/nano and thin structures which ratios of surface to volume are high [24,25].",
+      "startOffset" : 154,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 23,
+      "context" : "Moreover, it is reported that the effects of surface layers are considerable in micro/nano and thin structures which ratios of surface to volume are high [24,25].",
+      "startOffset" : 154,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 24,
+      "context" : "Among proposed models, the surface elasticity theory of Gurtin and Murdoch [26,27] is attracted a lot of attention.",
+      "startOffset" : 75,
+      "endOffset" : 82
+    }, {
+      "referenceID" : 25,
+      "context" : "Among proposed models, the surface elasticity theory of Gurtin and Murdoch [26,27] is attracted a lot of attention.",
+      "startOffset" : 75,
+      "endOffset" : 82
+    }, {
+      "referenceID" : 26,
+      "context" : "[28] showed that, in contrast to the surface elasticity, consideration of surface and curve energies require the first and second derivatives of the deformation gradient, respectively.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 16,
+      "context" : "Because of the adversity of dealing with integro-partial differential equations, differential form of above relation is presented for a specific kind of kernel which is assumed to be a Green function of linear differential operator [18].",
+      "startOffset" : 232,
+      "endOffset" : 236
+    }, {
+      "referenceID" : 27,
+      "context" : "According to [29,30], the modern peridynamics theory [31] was perceived and even formulated in Piola's works.",
+      "startOffset" : 13,
+      "endOffset" : 20
+    }, {
+      "referenceID" : 28,
+      "context" : "According to [29,30], the modern peridynamics theory [31] was perceived and even formulated in Piola's works.",
+      "startOffset" : 13,
+      "endOffset" : 20
+    }, {
+      "referenceID" : 29,
+      "context" : "According to [29,30], the modern peridynamics theory [31] was perceived and even formulated in Piola's works.",
+      "startOffset" : 53,
+      "endOffset" : 57
+    }, {
+      "referenceID" : 30,
+      "context" : "As the original model of nonlocal elasticity, the idea of force interactions in peridynamics is implemented by means of an integral operator [32].",
+      "startOffset" : 141,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 31,
+      "context" : "This integral form and the corresponding integro-differential equations of motion provide an appropriate tool to analyze the problems with singularities and discontinuity which attract a lot of attention in fracture mechanics [33,34].",
+      "startOffset" : 226,
+      "endOffset" : 233
+    }, {
+      "referenceID" : 32,
+      "context" : "This integral form and the corresponding integro-differential equations of motion provide an appropriate tool to analyze the problems with singularities and discontinuity which attract a lot of attention in fracture mechanics [33,34].",
+      "startOffset" : 226,
+      "endOffset" : 233
+    }, {
+      "referenceID" : 27,
+      "context" : "For more information, the reader can follow the detailed discussion in [29,30].",
+      "startOffset" : 71,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 28,
+      "context" : "For more information, the reader can follow the detailed discussion in [29,30].",
+      "startOffset" : 71,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 33,
+      "context" : "[35] also showed that there is a need for at least Nth gradient continuum theory to generalize the Cauchy representation of contact interactions between sub-bodies.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 27,
+      "context" : "They utilized the principle of virtual powers (or virtual works) to generalize the Cauchy formulations for Nth gradient Piola continuum with the corresponding suitable boundary conditions [29].",
+      "startOffset" : 188,
+      "endOffset" : 192
+    }, {
+      "referenceID" : 34,
+      "context" : "[36] studied the vibration behaviour of singlelayered graphene sheets (SLGSs) based on the nonlocal elasticity and Mindlin plate theories.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 35,
+      "context" : "Narendar and Gopalakrishnan [37] investigated the thermo-mechanical pre-buckling characteristics of single-walled carbon nanotubes (SWCNTs) resting on Winkler medium.",
+      "startOffset" : 28,
+      "endOffset" : 32
+    }, {
+      "referenceID" : 36,
+      "context" : "Also, Rahmani and Pedram [38] presented the effects of small scales in functionally graded materials (FGMs) based on the nonlocal Timoshenko beam model.",
+      "startOffset" : 25,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 37,
+      "context" : "Simsek [39] employed the nonlocal strain gradient theory (NLSGT) with von-Karman nonlinearities to propose a size-dependent FGM Euler-Bernoulli beam model.",
+      "startOffset" : 7,
+      "endOffset" : 11
+    }, {
+      "referenceID" : 41,
+      "context" : "This is while, the softening responses are observed for other boundary conditions and higher vibrational modes of a cantilever body [43].",
+      "startOffset" : 132,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 43,
+      "context" : "To tackle this issue, some attempts are made in recent years including the studies of Challamel and co-workers [42– 44], Polizzotto [45] and paper of Pisano and Fuschi [46].",
+      "startOffset" : 132,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 44,
+      "context" : "To tackle this issue, some attempts are made in recent years including the studies of Challamel and co-workers [42– 44], Polizzotto [45] and paper of Pisano and Fuschi [46].",
+      "startOffset" : 168,
+      "endOffset" : 172
+    }, {
+      "referenceID" : 45,
+      "context" : "[47] studied the bending problem of Euler-Bernoulli beam with using the integral form of nonlocal elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 46,
+      "context" : "They presented the analytical solution of integral form of nonlocal elasticity with specific kernel function in which satisfied the boundary and loading conditions proposed by [48].",
+      "startOffset" : 176,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 45,
+      "context" : "The kernel function is considered as [47]",
+      "startOffset" : 37,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 47,
+      "context" : "Also, the nonlocal parameter is fixed at κ = 1nm [49].",
+      "startOffset" : 49,
+      "endOffset" : 53
+    } ],
+    "year" : 2017,
+    "abstractText" : "Stress-strain relation in Eringen's nonlocal elasticity theory was originally formulated within the framework of an integral model. Due to difficulty of working with that integral model, the differential model of nonlocal constitutive equation is widely used for nanostructures. However, paradoxical results may be obtained by the differential model for some boundary and loading conditions. Presented in this article is a finite element analysis of Timoshenko nano-beams based on the integral model of nonlocal continuum theory without employing any simplification in the model. The entire procedure of deriving equations of motion is carried out in the matrix form of representation, and hence, they can be easily used in the finite element analysis. For comparison purpose, the differential counterparts of equations are also derived. To study the outcome of analysis based on the integral and differential models, some case studies are presented in which the influences of boundary conditions, nonlocal length scale parameter and loading factor are analyzed. It is concluded that, in contrast to the differential model, there is no paradox in the numerical results of developed integral model of nonlocal continuum theory for different situations of problem characteristics. So, resolving the mentioned paradoxes by means of a purely numerical approach based on the original integral form of nonlocal elasticity theory is the major contribution of present study.",
+    "creator" : "Elsevier"
+  }
+}

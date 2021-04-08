@@ -1,0 +1,765 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_96074aa9af91c73039bc81b9c2a983e8_azarhoosh2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Performance analysis of ultrasound-assisted synthesized nano-hierarchical SAPO-34 catalyst in the methanol-to-lights-olefins process via artificial intelligence methods",
+    "authors" : [ "Mohammad Javad Azarhoosha", "Rouein Halladjb", "Sima Askaric", "Abbas Aghaeinejad-Meybodia" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nUltrasonics - Sonochemistry\njournal homepage: www.elsevier.com/locate/ultson\nPerformance analysis of ultrasound-assisted synthesized nano-hierarchical SAPO-34 catalyst in the methanol-to-lights-olefins process via artificial intelligence methods Mohammad Javad Azarhoosha, Rouein Halladjb, Sima Askaric, Abbas Aghaeinejad-Meybodia,⁎\na Chemical Engineering Department, Faculty of Engineering, Urmia University, P.O. Box 57561-51818, Urmia, Iran b Faculty of Chemical Engineering, Amirkabir University of Technology (Tehran Polytechnic), P.O. Box 15875-4413, Tehran, Iran c Department of Chemical Engineering, Science and Research Branch, Islamic Azad University, P.O. Box 14778-93855, Tehran, Iran\nA R T I C L E I N F O\nKeywords: Ultrasound-assisted synthesis Nano-hierarchical SAPO-34 MTO process Multi-linear regression Artificial neural network Genetic programming Genetic algorithm\nA B S T R A C T\nThe present study has focused on performance analysis of ultrasound-assisted synthesized nano-hierarchical silico-alumino-phosphate-34 (SAPO-34) catalyst during methanol-to-light-olefins (MTO) process. A classical method, i.e., multiple linear regression (MLR) and two intelligent methods, i.e., genetic programming (GP) and artificial neural networks (ANN) were used for modeling of the performance of nano-hierarchical SAPO-34 catalyst. We studied the influence of basic parameters for the sonochemical synthesis of nano-hierarchical SAPO34 catalyst such as crystallization time, ultrasonic irradiation time, ultrasonic intensity, amount of organic template (diethylamine (DEA) and carbon nanotube (CNT)) on its performance (methanol conversion and light olefins selectivity) in MTO process.\nThe results revealed that the models achieved using the GP method had the highest accuracy for training and test data. Therefore, GP models were used in the following to predict the effect of main parameters for the sonochemical synthesis of nano-hierarchical SAPO-34 catalyst. Finally, an optimal catalyst with the highest yield into light olefins was predicted using the genetic optimization algorithm. The genetic models were employed as an evaluation function in the genetic algorithm (GA). A good agreement between the outputs of GP models for the optimal catalyst and experimental results were obtained. The optimal ultrasound-assisted synthesized nanohierarchical SAPO-34 was accompanied by light olefins selectivity of 77% and methanol conversion of 94% from the onset of the process after 9 h."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Ethylene, propylene, and butylene are used mainly as light olefins in the petrochemical industries [1,2]. The methanol-to-light-olefins (MTO) process using a non-oil source as an alternative method has been considered due to the shortage of oil resources in the future and the industries growing demand to light olefins [3,4]. Among the catalysts that used for the MTO process, SAPO-34 is the most proper catalyst due to small pores and moderate acidity [5,6]. SAPO-34 is a silico-aluminophosphate micro-pore molecular sieve with chabasite (CHA) structure that has a suitable catalytic performance in the MTO process. This catalyst has a very high selectivity for producing light olefins by almost complete methanol conversion, because of mild acidity, shape selectivity due to its small entry pores, and thermal stability [28]. One of the main problems of the MTO process is rapid deactivation of SAPO-34 catalyst, which could be because of the synthesis factors, hence, the\ncatalyst performance could be optimized by adjusting the synthesis conditions [7,8].\nThe ultrasonic-assisted synthesis of the SAPO-34 catalysts is one of the promising methods for improving its performance in the MTO process [9–11], which has also been adopted in the present study. In fact, the ultrasonic radiation to the initial solution during the preparation of the precursor gel (prior to the start of the hydrothermal process) leads to its uniformity and significantly improves the initial nucleation [12]. The results of previous studies were indicative high crystallinity, narrow distribution of particle size, and a significant increase in the external surface of the synthesized catalyst. The synthesized catalyst was along with a much higher selectivity and lifetime compared to the conventional catalysts [13–15].\nSynthesize of SAPO-34 catalysts with a hierarchical structure is another approach for the increase of its performance [16–19]. In this method, macro pores (pores with diameters (dp) > 50 nm) and Meso\nhttps://doi.org/10.1016/j.ultsonch.2019.104646 Received 5 April 2019; Received in revised form 5 June 2019; Accepted 16 June 2019\n⁎ Corresponding author. E-mail address: a.aghaeinejad@urmia.ac.ir (A. Aghaeinejad-Meybodi).\nUltrasonics - Sonochemistry 58 (2019) 104646\nAvailable online 17 June 2019 1350-4177/ © 2019 Elsevier B.V. All rights reserved.\nT\npores (2 nm < dp < 50 nm) are added to the structure of zeolite, which contains micro-pores (dp < 2 nm) [20–22]. Nowadays, this method has been examined in studies with a growing number in recent years [23–25]. In this method, in addition to the use of base microporous templates such as tetraethyl ammonium hydroxide (TEAOH), diethylamine (DEA), etc., other templates are also utilized to create meso-pores in the structure of the SAPO-34 microporous structure [26–29].\nRen et al. [30] synthesized the hierarchical SAPO-34 base catalyst using a hydrothermal method and then placed it in nitric acid and oxalic acid solutions for 6 h. Finally, the catalysts were separated by filtration and calcinated after washing with water. The results indicated that the fabricated catalyst had a hierarchical structure and higher acidic sites in comparison with the base catalyst, hence increasing the lifetime of the catalyst in the MTO process (increasing from 210 to 390min) and leading to a higher light olefins selectivity (from 92% to 94%) [30].\nMousavi et al. [31] used polyethylene glycol (PEG) as the agent to create the meso-pores in the hierarchical SAPO-34 catalyst. PEG leaving the structure in the calcination process in synthesized catalysts led to the creation of a hierarchical structure in the catalysts, which greatly enhanced the performance of the MTO process [31].\nIn the hydrothermal synthesis of the hierarchical SAPO-34 catalyst, Yang et al. [32] utilized phenylaminopropyltrimethoxysilane (PHAPTMS) as a silicon source and also as a template to create mesopores as well as TEAOH as a microporous template. The use of PHAPTMS in the primary gel led to the creation of meso-pores inside the SAPO-34 microporous structure, and the hierarchical SAPO-34 catalysts were produced with an average particle size of 50 nm. In the MTO process, these catalysts displayed a high degree of stability and light olefins selectivity.\nRimaz et al. [33] applied carbon nanotube (CNT) as a hard template and DEA as a microporous template in the synthesis of hierarchical SAPO-34 using the dry gel technique. The results revealed an increase in the outer surface of the synthesized catalyst as well as the creation of a hierarchical structure, resulting in a significant improvement of the catalyst performance in the MTO process [33]."
+    }, {
+      "heading" : "1.1. Problem statement and goals of this study",
+      "text" : "In this research work, an ultrasonic-assisted hydrothermal synthesis was applied to the synthesis of the nano-hierarchical SAPO-34 catalysts. These catalysts were synthesized with CNT as a template creating pores with meso and macro sizes and DEA as the microporous template [27]. Also, the effects of main parameters such as crystallization time, amount of templates, ultrasonic irradiation time and power intensity on the performance of synthesized nano-hierarchical SAPO-34 have been investigated and modeled in the MTO process.\nFor this purpose, first, a set of 40 catalysts was randomly synthesized and its performance was investigated in the MTO process. Common experimental design methods – i.e., full or partial factorial method, and response surface method (RSM) – need a large number of tests in case of the high number of input factors, which is not economically cost-effective. Therefore, in these methods the level numbers must be limited. In addition, due to the limited number of levels, the results of modeling are usually not along with high accuracy for experiments with parameter values other than level values. Therefore, in this study, a randomized test design method has been exploited in which each factor has an unspecified number of levels. The advantages of this method include reduction of the number of experiments required, lack of limitation in the experiments at specific levels of influential factors, and hence the higher accuracy of the presented models. Then, classical modeling methods such as MLR (multiple linear regression) and intelligent methods such as GP (genetic programming) and ANN (artificial neural networks) models were presented aiming to predict the effect of synthesis conditions on the performance properties of the synthesized catalysts in the MTO process such as light olefins selectivity and methanol conversion. In the following, among the above-mentioned models, a model with the highest accuracy and the highest prediction power was adopted to examine the influence of operating parameters and selection of optimum catalyst. Finally, the efficiency of the optimal predicted catalyst was compared with experimental results.\nNomenclature\nACO Ant colony ANN Artificial neural networks ANOVA Analysis of variance BET Brunauer–Emmett–Teller Analysis CHA Chabasite CNT Carbon nanotube CNT Normalized values of CNT/Al2O3 DEA Diethylamine DEA Normalized values of DEA/Al2O3 DME Dimethyl ether dp Pore diameter FESEM Field emission scanning electron microscope GA Genetic algorithm GP Genetic programming I Intensity percentage of the ultrasound waves MLR Multiple linear regression MTO Methanol-to-light-olefins P Power intensity PEG Polyethylene glycol PHAPTMS Phenylaminopropyltrimethoxysilane PUS Ultrasonic irradiation power intensity percentage PUS Normalized values of ultrasonic irradiation power\nintensity RMSE Root mean square error RSM Response surface method R2 Determination coefficient SAPO-34 Silico-alumino-phosphate-34 SBET Total specific surface area SC H2 4 Ethylene selectivity after 9 h SC H2 4 Dimensionless ethylene selectivity after 9 h SC H3 6 Propylene selectivity after 9 h SC H3 6 Dimensionless propylene selectivity after 9 h Sext Outer specific surface area TEAOH Tetraethyl ammonium hydroxide TEOS Tetraethyl orthosilicate tcr Crystallization time tcr Normalized values of crystallization time tUS Ultrasonic irradiation time tUS Normalized values of ultrasonic irradiation time Vmicro Volume of the micro-pores Vmeso Volume of the meso-pores WHSV Weight hourly space velocity XRD X-ray diffraction XCH OH3 Methanol conversion after 9 h XCH OH3 Dimensionless methanol conversion after 9 h"
+    }, {
+      "heading" : "2. Materials and methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Synthesis and characterization of catalyst",
+      "text" : "For SAPO-34 synthesis, initial solution with the molar composition of 1Al2O3: 1P2O5: 0.6SiO2: xCNT: yDEA: 70H2O was used using aluminum isopropoxide (Merck, Germany, ≥98wt%, 220418), tetraethylortosilicate (TEOS, Merck, Germany, ≥99wt%, 8006580250) and phosphoric Acid (Merck, Germany, 85 wt%, 1005731000) as aluminum, silicon and phosphor source, respectively (x and y are varied in different samples). First, the required amount of distilled water, DEA (Merck, Germany, ≥99wt%, 8030100500) and aluminum isopropoxide were mixed together and stirred for 1 h. Next, the mixing process continued for 2 h after adding the required amount of TEOS to the solution. Afterwards, phosphoric acid was added to the solution as dropwise and until the white gel was obtained, the mixing process continued. In the next stage, the CNTs (Merck, Germany, ≥98wt%, 901051) were added to the solution and the solution was stirred for 1 h [27].\nThen, in the crystallization step, the obtained solution was placed under ultrasonic irradiation (with different time and intensities for different samples). Finally, the obtained gel was inserted in the autoclave (stainless steel Teflon) and placed in the oven (Tebazma, Iran, OT53) at 200 °C for a desired period time, which varied for various samples [27].\nIn the crystallization stage, a two-phase solution was obtained, that was centrifuged at a rate of 600 rpm in order to separate its solids from the liquid. The separated solids were washed with distilled water after each separation and re-separation was performed through centrifugation. The separation and washing steps were conducted for 3 times. For drying the solid washed material, it was inserted it in the oven for 5 h at 110 °C. In the final stage, to remove organic templates, the calcination process was carried out for 5 h at 640 °C. The various steps of catalyst synthesis are demonstrated in Fig. 1. From previous studies [14,27], the minimum and maximum values of the important parameters in the synthesis of the nano-hierarchical SAPO-34 catalyst were specified for the experiment design, as presented in Table 1. The power intensity of ultrasonic irradiation in W/cm2 was obtained by the following relation [13]:\n= ×P i300 100\n2\n(1)\nwhere, P and i are the power intensity and the intensity percentage of the ultrasound waves, respectively. According to Table 1, 40 tests were designed using the randommethod, which are presented in Appendix A.\nTo study the formed phases in the optimal catalyst, the X-ray\ndiffraction (XRD) analysis was performed (Phillips, Germany, PW 3050) with CuKα diffraction at 40 kV and 40mA and a wavelength of λ=1.54 A. To investigate the shape and size of the crystals, the field emission scanning electron microscope (FESEM) analysis, which is one of the most widely used methods in this regard, was employed. For this purpose, a FESEM device (TESCAN, Czech Republic, MRI A3 TESCAN-XMU) was exploited to perform the analysis. The Brunauer–Emmett–Teller (BET) analysis using the BET device (Quantachrome, USA, Autosorb-1) device was used for determination of the specific surface area of the optimal catalyst. The optimal outer specific surface area of the optimal sample (Sext) and the volume of the micropores (Vmicro) was calculated using the t-plot model, the total specific surface area (SBET) using the BET model, and the volume of the mesopores (Vmeso) as well as the mesopore size distribution using the BJH method from the exclusion branch of the isotherm curve."
+    }, {
+      "heading" : "2.2. Processing test",
+      "text" : "The schematic of the reactor system has been presented in Fig. 2. For the activation, a flow of nitrogen gas with the flow of 100 cc/min was passed over the catalyst for 1 h at 500 °C before the start of any reaction. After the catalyst recovery, the nitrogen gas valve was closed and the feed valve was opened, and a 20% by volume solution of methanol (99.9 wt%, Merck) and water were pumped into the fixed bed reactor. After the reaction, the flow leaving the reactor entered the condenser and its temperature was decreased to prevent secondary reactions. At this stage, the water and heavy hydrocarbons, if any, and unreacted methanol were condensed and accumulated in the condenser. The remaining gas flow was transmitted to the gas chromatograph (GC) for analysis or to the outside environment.\nIn addition to the feed flow of methanol and water entering the reactor, there was another flow that was connected to the nitrogen gas capsule. Due to the time interval between reactor synthesis and testing, nitrogen gas was utilized for dehumidification and recovery of the catalysts. This step was carried out prior to the onset of the reaction at\n500 °C for 1 h with a flow rate of approximately 100ml/min. A bubble flow-meter was used to adjust the flow rate before injection.\nThe MTO reactions takes place in a tubular fixed bed reactor (internal diameter: 15mm) with different catalysts. Due to the low pressures of the MTO process, the evaluation of the performance of different catalysts in this process was conducted at atmospheric pressure. To carry out the MTO reaction at the desired temperature, the temperature of the reactor was controlled by an electric furnace equipped with a PID (proportional integral derivative) controller. The sensor of this controller can be moved in the central part of the reactor and placed in the zone where the catalyst was located, so that the catalyst bed temperature was adjusted to the reaction temperature. In tests regarding the performance of the catalysts, all tests were performed at 450 °C, the flow rate of input feed about 0.47ml/min, and 1 g of SAPO-34 catalyst and 4.5 h−1 of methanol WHSV (weight hourly space velocity)[27].\nThe analysis of the reaction products was performed using an online GC (Agilent, USA, 6890 N), equipped with a flame ionization detector (FID) and plot-Q column. Methanol conversion and dry basis light olefins selectivity are defined as below:\n=Methanol Conversion The mass of methanol consumed The mass of methanol entered (2)\n=light olefins selectivity The mass of light olefins produced The mass of all products except water (3)\nThe efficiency of the synthesized SAPO-34 in the MTO process, including light olefins selectivity and methanol conversion rate after 9 h of use, is given in Appendix B. Since the biggest problem with SAPO-34 catalyst is its deactivation and loss of efficiency over time, the process characteristics of catalysts are assessed after 9 h of the start of the process."
+    }, {
+      "heading" : "2.3. Methods of modeling and optimization",
+      "text" : ""
+    }, {
+      "heading" : "2.3.1. Multi linear regression (MLR)",
+      "text" : "MLR is used when some independent variables are used to predict a dependent variable. In this method, a relationship between independent and dependent variables is predicted using a linear polynomial. Even in case of the lack of a sensible physical relationship\namong variables, they can be related to each other with a mathematical relationship. Although this function may be physically meaningless, it can be very important for predicting the values of a variable in terms of the data associated with other variables [13,34]. Different modeling and optimization methods were done in MATLAB R2018b software."
+    }, {
+      "heading" : "2.3.2. Artificial neural network (ANN)",
+      "text" : "Nowadays, ANN as one of the fields of artificial intelligence, is used as a powerful tool for implementing complex functions in various fields. Neural networks are a very suitable tool for function fitting and pattern recognition, and it can be proved that simple neural networks are capable of fitting any operational function [35–38].\nAmong the types of neural networks, multilayer feed-forward neural networks have the highest usage in fitting and predicting of operational functions. These types of networks consist of three layers of neurons: input layer, hidden layer(s), and output layer. It should be mentioned that each layer consists of several neurons. The number of neurons of the input layer is based on the number of operating parameters (independent variables), and the number of neurons of the output layer is based on the number of target variables. However, a trial and error method is used to determining the optimal number of neurons in the hidden layer(s) [13,39].\nIn this section, the multilayer feed-forward neural networks have been employed to predict the physio-chemical and process properties of the nano-hierarchical SAPO-34 catalysts. 70% of the data (28 data) were used as training data, 10% of data (4 data) as validation data, and the rest (8 data) as test data. It should be noted that the data were randomly divided. Since the number of data was limited, a separate ANN was designed for each dependent variable. Using the trial and error method, the number of neurons in the hidden layer was chosen equal to 4. ANNs created by the back propagation method were trained using the Levenberg-Marquardt learning rule."
+    }, {
+      "heading" : "2.3.3. Genetic algorithm",
+      "text" : "The classical methods such as goal-programming method and goalattainment method, or evolutionary methods including GA, ant colony (ACO) algorithm, and Particle swarm optimization (PSO) can be applied in optimization [40]. In recent years, in solving complex problems, evolutionary algorithms such as GA have been much more\neffective compared to the classic methods [41–44]. One of the most important algorithms with random search technique is GA. the idea of GA has been derived from the nature and Darwin’s theory. This algorithm is widely used to solve of optimization problems. More suitable generations are formed from more suitable chromosomes in nature. Meanwhile, some mutations occur in the chromosomes, which can result in better future generations. This idea is used in genetic algorithms to solve problems [45,46]. Table 2 indicates the characteristics applied in the GA code of this study."
+    }, {
+      "heading" : "2.3.4. Genetic programming (GP)",
+      "text" : "The GP method was introduced by Koza in 1992 as an extension of the GA approach, in which programs (solutions) are represented as tree structures and in a functional programming language. Overall, this method can be described as a comprehensive instrumental approach that searches the problem space rather than the data space. In other words, GP is an optimization and regression provision method generating solutions to solve the problem with the Darwin's principle of natural selection. Using this solution, the desired solution to the problem can be achieved or at least the final response can be estimated without the need for explicit programming. The GP ability in finding the solution with the best fit with the data points, without a presumption of the model structure, has been found to be very effective. This solution is ultimately presented as a mathematical relation [47,48]. The features applied in the GP code used in this study are given in Table 3."
+    }, {
+      "heading" : "2.4. Mechanism of the ultrasound in the synthesis process of SAPO-34",
+      "text" : "Sonochemical synthesis by US irradiation (20 kHz–10MHz) is a new method for synthesis of nanoparticles especially nanocatalysis [11–14]. Contrary to conventional methods (mainly hydrothermal synthesis), this method is very simple, fast, and does not need any complicated facilities. In this method, the size of particles can be easily controlled by changing the ultrasound-related variables [11,13]. Chemical effects of US waves are due to acoustic cavitation phenomena in the solution. Due to the collapse of bubbles, a temperature and pressure of about 5000–25,000 K and 181.8MPa are produced [11,13]. Collapsing of bubbles occurred in less than a nanosecond and so, a high rate of temperature decrease (1011 K/s) takes place, which prevents the organization and agglomeration of particles [11–13].\nBecause of cavitation effect, which can create high temperature and high pressure in a solution, the ultrasonic treatment can influence the crystallization kinetics and the formation of crystal nuclei. Ultrasound seems to also influence the physicochemical phenomena related to nucleation and crystal growth, occurring during crystallization [12,14]. For instance, it was observed that ultrasonic waves decrease the supersaturation limits and modify the morphology of postash alum crystals. In this case, the average crystal size decreased with an increase in ultrasonic power [14]. Applying ultrasound was also shown to affect the primary nucleation of potassium sulphate, by leading to reductions in the induction time and the metastable zone width of this material [12,14].\nDue to non-homogenous zeolites, which are prepared by hydrothermal crystallization, the degree of control over their preparation and properties bears importance [14]. In this respect, the nucleation and\ncrystal growth rates, and the resulting particle size distribution are especially important to tailor. The molar ratios of the reactants, and the synthesis time and temperature are the main parameters in determining the type and properties of the zeolite formed. Ultrasound can enhance and alter dissolution processes, chemical reactions, nucleation and growth of precipitates [14]. It is extremely useful in crystallization processes since it can initiate seeding and control subsequent crystal growth in a saturated or supercooled medium [12,14]."
+    }, {
+      "heading" : "3. Results and discussion",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Investigating the role the ultrasound-assisted hydrothermal synthesis",
+      "text" : "In this section, a comparison between structural characteristics and performance of two catalyst samples synthesized by ultrasound-assisted hydrothermal (SONO-SAPO-34) and hydrothermal (HT-SAPO-34) is investigated. In both catalysts, CNT/Al2O3, DEA/Al2O3 in initial gel and crystallization time are 1, 2 and 6 h, respectively. In SONO-SAPO-34 the, the obtained solution was placed under ultrasonic irradiation before crystallization step (US time=20min and US irradiation intensity= 243W.m−2). Results obtained from XRD for HT-SAPO-34 and SONO-SAPO-34 samples are presented in Fig. 3. The only difference between these samples is in the using of ultrasound in the catalyst synthesis. According to the observed peaks and their comparison with the reported peaks for SAPO-34, both of the samples are pure and the amorphous phase is not seen in the samples. It is observed that XRD of\nthese samples have different peak intensities and SONO-SAPO-34 sample has more peak intensities than HT-SAPO-34, which demonstrates that ultrasound-assisted hydrothermal synthesis can increase the peak intensities and, consequently, crystallinity.\nThe images obtained from FESEM analysis of all samples are presented in Fig. 4. As can be seen in this figure, HT_SAPO-34 catalyst, which was synthesized using hydrothermal method, is composed of cubic crystals. Using the ultrasound waves in SAPO-34 synthesis remarkably changes the morphology and decrease the size of particles so that, in SONO-SAPO-34 sample, spherical nanoparticles are seen instead of cubic particles, which is the common shape for SAPO-34. It can be stated that with using of ultrasound waves, a large number of\nprimary crystals are formed with very small sizes [14]. Moreover, the ultrasound waves influences the reduction of particle agglomeration significantly. The first reason is that the huge amount of energy created because of collapse of cavitation bubbles results in a high temperature reduction in the reaction medium and preventing particle agglomeration. The second reason is that the solution is very well mixed because of the higher intensity of ultrasound waves, it can prevent the adhesion and accumulation of primary crystalline nuclei through controlling their number, as these nuclei can accumulate in different parts of the reaction environment [14].\nTable 4 shows the results of N2 adsorption-desorption analysis of both samples. The results show that the SONO-SAPO-34 has more surface of micro-pores, external surface and BET surface than HT-SAPO34. Fig. 5 demonstrates the performance of HT-SAPO-34 and SONOSAPO-34 catalysts in MTO process, in which SONO-SAPO-34 catalyst has the better performance than HT-SAPO-34."
+    }, {
+      "heading" : "3.2. Results of modeling",
+      "text" : ""
+    }, {
+      "heading" : "3.2.1. MLR modeling results",
+      "text" : "Predictive MLR models for the performance of the catalyst of nanohierarchical SAPO-34 synthesized by the ultrasound-assisted hydrothermal method in the MTO process have been addressed in this section. To check the accuracy of this model for future studies and unseen data, data related to 30 catalysts synthesized in accordance with the test design (catalysts S1–S30) were utilized to present the model as train data and the data of the 10 remaining catalysts (catalysts S30–S40) were applied to check the model accuracy as test data. MLR results were as follows:\n= + + +\nX\nDEA CNT t P t0.589 0.186 0.156 0.382 0.324 0.005 CH OH\ncr US US\n3\n(4)\n= + + +\nS\nDEA CNT t P t0.186 0.347 0.623 0.247 0.401 0.019 C H\ncr US US\n2 4\n(5)\n= + + +S DEA CNT t P t0.136 0.367 0.500 0.175 0.372 0.033C H cr US US3 6 (6)\nwhere, the dependent variablesSC H3 6 , SC H2 4 and XCH OH3 respectively represent the dimensionless values of the selectivity of propylene, selectivity of ethylene and methanol conversion after 9 h. In addition, the independent variables of DEA, CNT , tcr , PUS , and tUS represent the normalized values of DEA/Al2O3, CNT/Al2O3, crystallization time, ultrasonic irradiation power intensity percentage, and ultrasonic\nirradiation time, respectively. All data were normalized based on their experimental values to values in the range of [0, 1] using the following equation:\n=y y y y y( )/( )min max min (7)\nwhere y , y, ymin and ymax are normalized value, real value, minimum value and maximum value of the independent or dependent variable, respectively. Eqs. (6)–(13) were obtained using the Eq. (5):\n=X X( 11)/(88 11)CH OH CH OH3 3 (8)\n=S S( 0)/(28 0)C H C H2 4 2 4 (9)\n=S S( 0)/(27 0)C H C H3 6 3 6 (10)\n=DEA DEA( 2)/(6 2) (11)\n=CNT CNT( 0)/(2 0) (12)\n=t t( 4)/(12 4)cr cr (13)\n=P P( 20)/(100 20)US US (14)\n=t t( 5)/(45 5)US US (15)\nIn Table 5, the results of the analysis of variance (ANOVA) for the above regression models are listed. The parameter F in this table determines whether the proposed models can generally describe dependent variables. This parameter should be compared with the critical value obtained from the F distribution function. Given the confidence level of 0.05 (α=0.05) and the degrees of freedom of 5 and 34 respectively for the regression and residues from the F distribution function, the critical area value is defined as equation (13):\n=F F (5, 34) 2.49(0.05) (16)\nComparison of the values obtained for F and the critical value of 2.49 revealed the model was able to establish a proper fit between the independent and dependent variables. In this case, it can be stated that the relationship between independent and dependent variables is not random and Eqs. (2)–(4) are meaningful.\nThe values of the root mean square error (RMSE) and the determination coefficient (R2) of the MLR models have been calculated and listed in Table 6. Moreover, the predicted values by the model and the experimental values for process indicators have been compared in Fig. 6. As demonstrated in Fig. 6 and Table 6, the proposed MLR models\ndid not show an appropriate performance in predicting the behavior of catalysts in the MTO process."
+    }, {
+      "heading" : "3.2.2. ANN modeling results",
+      "text" : "To prediction of MTO process performance of the nano-hierarchical SAPO-34 catalysts, the multilayer feed-forward neural networks were used. 70% of the data (28 data) were used as training data, 10% of data (4 data) as validation data, and the rest (8 data) as test data. Since the number of data was limited, a separate ANN was designed for each dependent variable, and according to trial and error technique, 4 neurons was considered for the hidden layer. ANNs created by the back propagation method were trained using the Levenberg-Marquardt learning rule. Fig. 7 demonstrated an overview of optimum neural networks designed to predict objective variables.\nThe performance of ANNs has been measured to predict the dependent variables using R2 and RMSE and presented in Table 6. The comparison of the actual values of the process performance of the catalysts with the values predicted by ANNs has been shown in Fig. 8. This figure shows that there is a very good agreement between the ANN models and experimental values for train data set. But the accuracy of ANN models were not desirable because of low number of data."
+    }, {
+      "heading" : "3.2.3. GP modeling results",
+      "text" : "The results of the predictive models obtained on the basis of GP for the process properties of catalysts have been presented in Eqs. (14)–(16).\n= +\n+ + + + +\n+ + + +\n+\n+ + +\n+ +\n+ + + + +\n+ + + +\n( )( )\n( ) ( )\n( )\nS\nC\nC D C U t D U D D D t C\nC D C U t\nD\nC C P\n3\n5 ( ) (4 ) 2 ( ) 4 2 (1 ) 3 5\n. . 3 (1 )\n2\n2\nC H\nC U U\nU D\nU C C C P\nD U P D C t D P D D U\nt t C D P C P D t C t CP C D\n6 . (2 ) 7\n2 3 4\n2 2\n(3 )(1 ) (4 )( )\n( )(1 ) 4\n3 7\n7 9 9\n2 3(1 )( ) (2 )(4 ) 2 ( 9) 7 (2 3 ) 2\n3 6\n2\n2 2\n(19)\nwhere, the dependent variable XCH OH3 is methanol conversion, SC H2 4 is selectivity of ethylene and SC H3 6 is selectivity of propylene after 9 h. In addition, the independent variables D, C, t, P, and U represent the normalized values of DEA/Al2O3, CNT/Al2O3, crystallization time, ultrasonic intensity percentage, and time of ultrasonic of ultrasound waves, respectively. All data were normalized based on their experimental values to values in the range of [0, 1] using Eqs. (5)–(12).\nThe GA performance has been measured to predict the dependent variables using multiple correlation coefficients of R2, and RMSE (see Table 6). The comparison of the actual values of the physical-chemical and process properties of the catalysts with the values predicted by the models derived from GP has been indicated in Fig. 9. As can be seen, the GP models can predict the experimental results with a very good accuracy that shows the very good performance of the GP models."
+    }, {
+      "heading" : "3.2.4. Selection of the best modeling method",
+      "text" : "In this part of the study, the best modeling method has been determined by the obtained results of models in the previous sections (Table 6). The results obtained by three models of MLR, ANN, and GP indicated that the artificial intelligence-based methods (ANN and GP) were accompanied by a much higher accuracy in comparison with the classical methods (regression). In fact, intelligence-based methods can be used as powerful tools for implementing complex functions in various fields and it can be proved that these methods are capable of fitting any operational function. However, as it can be seen, the models derived from GP have higher R2 values and lower RMSE values compared to ANNs for all test values. The reason for the low accuracy of ANNs can be attributed to the relatively low number of data. Furthermore, the accuracy of the prediction of genetic models for the test data (unseen) was also very good as the training data (seen). Therefore, these models can predict the values of the dependent variables using independent variables in the best way. In next, GP as an optimal modeling method was applied to find the optimal catalyst and study of the influences of synthesis parameters on SAPO-34 catalyst performance."
+    }, {
+      "heading" : "3.3. Effect of synthesis parameters on the performance of nano-hierarchical SAPO-34 catalysts",
+      "text" : ""
+    }, {
+      "heading" : "3.3.1. Effect of amount of DEA and CNT templates",
+      "text" : "Fig. 10 demonstrates the effect of the two DEA and CNT templates in the initial gel on the light olefins selectivity and conversion of methanol in the MTO process, 9 h after the onset of the reaction. It can be observed that by increasing the amount of the DEA template, the light olefins selectivity decreased due to a decrease in catalyst lifetime. According to the previous study of the author’s research team, with the increase in DEA level, the surface area of the micropores, which is indicative of the crystallinity of the crystals formed, and the BET level\nDEA/Al2O3 CNT/Al2O3 Crystallization Time (h) Ultrasonic irradiation Intensity (W/cm2) Ultrasonic irradiation Time (min) Yield of light olefins after 9 h\n3 1 5 192 25 0.679\nincreased, however, the outer surface of the samples reduced [27]. This finding indicated that decrease in the DEA amount (to the extent that it does not cause the transfer of the CHA phase (SAPO-34) to AFI (SAPO5) and the destruction of the SAPO-34 structure), albeit reducing the crystallinity of the sample, reduces the size of the crystals produced, improving the outer surface of the samples and hence their lifetime and performance in long time [27]. This figure also shows that by increasing the amount of CNT to the CNT/Al2O3 ratio value of 1, the light olefins selectivity and conversion of methanol increases. In other words, the increase in CNT, on the one hand, causes introduction of the mesopores and even macropores into the SAPO-34 structure and creation of a nano-hierarchical structure, and hence, the reaction products can be quickly transferred to the outside environment after being produced [27]. On the other hand, this leads to the creation of smaller and unagglomerated particles, and the external surface of the samples increases [27]. In fact, the catalyst with a nano-hierarchical structure allows the entry of more meso-pores be subjected to molecular diffusion, hence increasing the specific surface area. All of these factors lead to the increased catalyst lifetime and as a result, better performance in\nthe MTO process after 9 h [27]. But, the interesting point predicted by the genetic model is that when the CNT/Al2O3 ratio reaches a value greater than 1, a further increase in the CNT value in the initial gel not only does not improve the nano-hierarchical structure and, hence, its performance in the MTO process, but it also weakens its performance. This can be justified by the fact that the excessive entry of CNTs into the SAPO-34 structure can significantly weaken the microporous structure of the SAPO-34, thus diminishing the performance and light olefins selectivity in the MTO process [27]."
+    }, {
+      "heading" : "3.3.2. Effect of crystallization time",
+      "text" : "The effect of the amount of DEA and crystallization time on the conversion of methanol, and light olefins selectivity after 9 h from the onset of the process has been illustrated in Fig. 11. As shown in this figure, the methanol conversion, and light olefins selectivity increase when crystallization time increases up to 5 h, but decline with further increase in the crystallization time. According to the previous study of the author’s research team, by increasing the crystallization time up to 5 h, catalysts with higher purity and crystallinity, and hence with a better process performance, are produced. However, with a further increase of the crystallization time, catalysts consisting of agglomerated crystals with larger size and smaller outer surface are formed which reduce their performance in the MTO process [27]. Besides, it is observed that in higher crystallization time (more than 6 h), the catalyst performance decreases with increasing DEA, but in lower amounts of the crystallization time (< 6 h), with increasing DEA template up to the ratio value of DEA/Al2O3= 3, in the MTO process, the performance of the synthesized catalysts is improved. In fact, in lower crystallization times, higher amounts of the DEA template are required to produce\nhigh purity and crystallinity of SAPO-34 catalysts and. Nevertheless, in the MTO process, the performance of the synthesized catalysts decreases with further increase in this ratio, which can be attributed to the growth of the resulting crystals with increasing the amount of DEA. As a result, the outer surface of the catalysts, which plays a significant role in the performance of the SAPO-34 catalyst, decreases [27]."
+    }, {
+      "heading" : "3.3.3. Effect of time and power intensity of ultrasonic irradiation waves",
+      "text" : "Fig. 12 demonstrates the effect of the variables associated with the irradiation of the ultrasound waves on the target variables (conversion of methanol and light olefins selectivity) in the MTO process. It can be seen that in the short time of irradiation of the ultrasound waves, with the increase in the power intensity of the ultrasound waves, the conversion of methanol, and also the light olefins selectivity increases. In other words, increasing the intensity of ultrasound waves decreases the size of produced nano-catalyst particles. In addition, by increasing the power intensity of the ultrasound waves, the time required to synthesize a high-crystallinity catalyst decreases, resulting in a catalyst with high crystallinity [13]. In the MTO process, these factors lead to the improvement of the performance of the SAPO-34 catalyst. However, in longer radiation times, the methanol conversion, and light olefins selectivity have maximum value versus power intensity; this finding is consistent with the results reported in previous studies [13,14]. It can be claimed the high-energy waves result in the structure degradation or alteration, thus diminishing the crystallinity of the produced particles.\nFurthermore, in constant power intensities, when the intensity of ultrasonic waves is low, the conversion of methanol, and light olefins selectivity increase with increasing irradiation time. In fact, insufficient and non-uniform mixing of the solution is performed during low irradiation times by the ultrasonic waves, and in this short time, fewer cavitation bubbles, and hence the primary crystalline nuclei are likely to form [13,14]. Besides, in this short time, there is not a possibility for the enough growth of SAPO-34 crystals [13,14]. In contrast, at higher times, a large number of initial crystalline nuclei form and grow continuously until the level of super-saturation of the solution is reduced [14]. Afterwards, further growth of crystals is not possible. This issue is indicative of an increase in crystallinity and a decrease in the average particle size with increasing radiation time [14]. However, in the high intensity of ultrasonic waves, particles with the best performance are obtained in the MTO process at optimum times of radiation of the waves. Indeed, with the increase in the time of emission of ultrasonic waves up to the optimal amount, the sample crystallinity is increased, and a catalyst with a smaller particle size is obtained [14,27]. In other words, the further increase in the radiation time from the optimal radiation time in the high-intensity ultrasound waves causes the structure degradation, and thus reduced the crystallinity of the particles produced at long radiation times [14]. Therefore, its performance drops in the MTO process."
+    }, {
+      "heading" : "3.4. Finding the optimal nano-hierarchical SAPO-34 catalyst",
+      "text" : "The GA optimization algorithm was adopted to find the optimal catalyst with the best performance in the MTO process. In most cases, the fitness function and the objective function are the same as the objective is to either maximize or minimize the given evaluation function. In this method, the maximum yield of light olefins after 9 h from the process was used as the objective function defined as below:\n= ×Light olefins Yield Methanol conversion Light olefins selectivity (20)\nGP models calculate the light olefins yield. Table 7 displays the optimal catalyst found by the GA with the highest light olefins yield after 9 h of the process.\nIn the following, the optimal catalyst introduced was synthesized and its performance after 9 h from the onset of the MTO process were compared with the results of genetic prediction models, as presented in Table 8. It can be observed that genetic models could well predict the empirical results. Fig. 13a, and b represent the results of the XRD and FESEM analyses for the optimal synthesized SAPO-34 catalyst. According to the XRD peaks (Fig. 13a) and comparing them with those reported for SAPO-34 [27], the optimum SAPO-34 catalyst was pure without amorphous phase. As can be seen in Fig. 13b, adding CNTs as mesopore template and using ultrasound irradiation during the SAPO34 synthesis remarkably changed the particle morphology, so that, in optimum SAPO-34, spherical nanoparticles are seen instead of the common, cubic shape for SAPO-34 particles [27]. Moreover, the distribution of products in the MTO process using optimized catalyst is depicted in Fig. 13c. As seen in Fig. 13c, the optimum SAPO-34 showed a good methanol conversion and selectivity of light olefins (ethylene and propylene) at long times. Also, because of its hierarchical structure, it showed great resistance to coke formation and deactivation, remarkably increasing the catalyst lifetime.\nIn previous work of askari and halladj [14], SAPO-34 nano-catalysts were synthesized using ultrasound-assisted hydrothermal. In their study, the best catalyst sample synthesized in similar process conditions of the present study had a yield of 10% relative to the light olefins after a period of 9 h from the start of the process. Dimethyl ether (DME) accounted for most of the products produced in this period, which was undesirable [14]. However, as it was observed, the optimal catalyst in the current study had a yield of 72% relative to light olefins after 9 h; this significant increase in performance can be attributed to the creation of a nano-hierarchical structure in the optimal catalyst."
+    }, {
+      "heading" : "4. Conclusion",
+      "text" : "In the present study, the effect of main parameters on sonochemical synthesis of hierarchical SAPO-34 catalyst – i.e., crystallization time, ultrasonic irradiation time and power intensity and amount of organic templates (CNT and DEA) – on its performance in the MTO process was investigated and modeled using classical (MLR) and intelligent methods (ANN and GP). The results revealed that the models achieved using the GP method had the highest accuracy for training and test data. Therefore, these models were used to predict the effect of catalyst synthesis parameters. The predictions showed that increasing the amount of CNT template creates a nano-hierarchical structure in the catalyst, also, the time and intensity of irradiation of the ultrasound waves, increase the lifetime of the catalyst and improve its performance at long times (9 h after the beginning of the reaction). Nevertheless, with the excessive increase in the values of the above variables, the catalyst performance drops due to the degradation of its structure. Moreover, the performance of the catalyst improves by decreasing the DEA level (to the extent that it does not cause the phase transfer from SAPO-34 to SAPO-5). Therefore, the optimal values of the synthesis variables and hence the optimal catalyst with the highest light olefins yield should be found, which the GA method was used for this purpose. Genetic models were exploited as the evaluation function in GA. The results predicted for the optimal catalyst were well consistent with the experimental results and showed high efficiency for light olefins after 9 h after the start of the process."
+    }, {
+      "heading" : "Acknowledgment",
+      "text" : "The authors sincerely thank to the INIC (IRAN Nanotechnology Initiative Council, Iran) for all the support provided.\nAppendix\nAppendix A and B"
+    }, {
+      "heading" : "Appendix A",
+      "text" : "Synthesis conditions of experimental design list.\nRun CNT/ Al2O3\nDEA/ Al2O3\nCrystallization Time (h)\nUltrasonic Irradiation Intensity (%)\nUltrasonic Irradiation Time (min)\nS1 1.6 6 5 100 30 S2 0.2 3 8 100 45 S3 0.2 6 12 60 35 S4 0.2 3.5 12 90 45 S5 1.4 2 11 100 30 S6 1.6 5 7 70 10 S7 1.4 2 6 20 5 S8 1.8 5 6 100 5 S9 0.8 3.5 10 90 10 S10 1 4 9 80 35 S11 0.6 5 9 30 10 S12 1 6 7 70 10 S13 1.6 3 8 80 40 S14 2 4 5 30 15 S15 1.8 3 11 40 40 S16 0.6 2.5 6 70 20 S17 0.6 5.5 9 60 40 S18 0.6 5 10 50 25 S19 0 2 8 90 40 S20 0.2 4.5 8 20 15 S21 0.2 5.5 6 60 10 S22 1.2 3 9 80 35 S23 0.8 2 6 100 10 S24 1.8 4 12 20 20 S25 0.2 6 4 80 35 S26 1.8 2 7 40 35 S27 0.8 6 5 40 10 S28 0.2 5.5 9 60 10 S29 1.8 4.5 7 60 20 S30 0 3 5 30 15 S31 0.8 2 12 100 25 S32 1 3.5 12 50 5 S33 1.6 3.5 6 50 5 S34 0.2 6 12 70 5 S35 0.4 3.5 11 20 5 S36 0.2 4.5 10 70 20 S37 1.2 3 10 30 30 S38 0.4 3.5 9 90 5 S39 2 5 8 50 20 S40 0.6 4 8 90 35\nAppendix B Process performance of experimental design list.\nRun Methanol Conversion (%)\nEthylene Selectivity (%)\nPropylene Selectivity (%)\nS1 55 19 15 S2 41 0 0 S3 21 0 0 S4 25 0 0 S5 48 23 19 S6 53 13 7 S7 50 15 10 S8 51 16 11 S9 60 15 10 S10 73 25 22 S11 33 0 0 S12 63 14 8 S13 68 25 23 S14 42 16 10 S15 40 16 11 S16 69 19 14\n(continued on next page)"
+    } ],
+    "references" : [ {
+      "title" : "GeAPSO-34 molecular sieves: synthesis",
+      "author" : [ "X. Hu", "L. Yuan", "S. Cheng", "J. Luo", "H. Sun", "S. Li", "L. Li", "C. Wang" ],
+      "venue" : "characterization and methanol-to-olefins performance, Catal. Commun. 123 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Origin and evolution of the initial hydrocarbon pool intermediates in the transition period for the conversion of methanol to olefins over H-ZSM-5 zeolite",
+      "author" : [ "S. Wang", "Y. Chen", "Z. Qin", "T.-S. Zhao", "S. Fan", "M. Dong", "J. Li", "W. Fan", "J. Wang" ],
+      "venue" : "J. Catal. 369 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Pathways in particle assembly by ultrasound-assisted spray-drying of kaolin/SAPO-34 as a fluidized bed catalyst for methanol to light olefins",
+      "author" : [ "S. Aghamohammadi", "M. Haghighi", "A. Ebrahimi" ],
+      "venue" : "Ultrason. Sonochem. 53 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Performance enhanced SAPO-34 catalyst for methanol to olefins: template synthesis using a CO2-based polyurea",
+      "author" : [ "Y. Yu", "J. Qin", "M. Xiao", "S. Wang", "D. Han", "Y. Meng" ],
+      "venue" : "Catalysts 9 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Achieving a super-long lifetime in the zeolite-catalyzed MTO reaction under high pressure: synergistic effect of hydrogen and water",
+      "author" : [ "X. Zhao", "J. Li", "P. Tian", "L. Wang", "X. Li", "S. Lin", "X. Guo", "Z. Liu" ],
+      "venue" : "ACS Catal. 9 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Synthesis of sub-micrometric SAPO-34 by a morpholine assisted two-step hydrothermal route and its excellent MTO catalytic performance",
+      "author" : [ "S. Bakhtiar", "S. Ali", "X. Wang", "F. Yuan", "Z. Li", "Y. Zhu" ],
+      "venue" : "Dalton Trans. 48 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Dual templating fabrication of hollow SAPO‐34 molecular sieves for enhanced MTO catalytic activity and selectivity",
+      "author" : [ "H. Yang", "P. Miao", "Q. Sun", "Y. Zhang", "D. Tian" ],
+      "venue" : "Crystal Res. Technol. ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Partial regeneration of the spent SAPO-34 catalyst in the methanol-to-olefins process via steam gasification",
+      "author" : [ "J. Zhou", "J. Zhang", "Y. Zhi", "J. Zhao", "T. Zhang", "M. Ye", "Z. Liu" ],
+      "venue" : "Ind. Eng. Chem. Res. 57 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Ultrasonic-assisted hydrothermal synthesis and catalytic behavior of a novel SAPO-34/Clinoptilolite nanocomposite catalyst for high propylene demand in MTO process",
+      "author" : [ "E. Moradiyan", "R. Halladj", "S. Askari", "P.M. Bijani" ],
+      "venue" : "J. Phys. Chem. Solids 107 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Synthesis of SAPO-34 catalysts via sonochemically prepared method and its catalytic performance in methanol conversion to light olefins",
+      "author" : [ "R. Ahmadova", "H. Ibragimov", "E. Kondratenko", "U. Rodemerc" ],
+      "venue" : "Appl. Petrochem. Res. 8 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Application of evolutionary algorithms for modelling and optimisation of ultrasound-related parameters on synthesised SAPO- 34 catalysts: crystallinity and particle size",
+      "author" : [ "M.J. Azarhoosh", "R. Halladj", "S. Askari" ],
+      "venue" : "Prog. React. Kinet. Mech. 43 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "The beneficial use of ultrasound in synthesis of nanostructured Ce-doped SAPO-34 used in methanol conversion to light olefins",
+      "author" : [ "M. Charghand", "M. Haghighi", "S. Aghamohammadi" ],
+      "venue" : "Ultrason. Sonochem. 21 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Modeling and optimization of catalytic performance of SAPO-34 nanocatalysts synthesized sonochemically using a new hybrid of non-dominated sorting genetic algorithm-II based artificial neural networks NSGA-II-ANNs",
+      "author" : [ "S. Askari", "R. Halladj", "M.J. Azarhoosh" ],
+      "venue" : "RSC Adv. 5 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Ultrasonic pretreatment for hydrothermal synthesis of SAPO- 34 nanocrystals",
+      "author" : [ "S. Askari", "R. Halladj" ],
+      "venue" : "Ultrason. Sonochem. 19 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "An investigation of the crystallization kinetics of zeotype SAPO-34 crystals synthesized by hydrothermal and sonochemical  methods",
+      "author" : [ "F.M. Shalmani", "R. Halladj", "S. Askari" ],
+      "venue" : "Ultrason. Sonochem. 29 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "The preparation of hierarchical SAPO-34 crystals via post-synthesis fluoride etching",
+      "author" : [ "X. Chen", "A. Vicente", "Z. Qin", "V. Ruaux", "J.-P. Gilson", "V. Valtchev" ],
+      "venue" : "Chem. Commun. 52 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Seeding induced nano-sized hierarchical SAPO-34 zeolites: cost-effective synthesis and superior MTO performance",
+      "author" : [ "Q. Sun", "N. Wang", "R. Bai", "X. Chen", "J. Yu" ],
+      "venue" : "J. Mater. Chem. A 4 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Coke suppression in MTO over hierarchical SAPO-34 zeolites",
+      "author" : [ "X. Liu", "S. Ren", "G. Zeng", "G. Liu", "P. Wu", "G. Wang", "X. Chen", "Z. Liu", "Y. Sun" ],
+      "venue" : "RSC Adv. 6 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A top-down approach to hierarchical SAPO-34 zeolites with improved selectivity of olefin",
+      "author" : [ "X. Chen", "D. Xi", "Q. Sun", "N. Wang", "Z. Dai", "D. Fan", "V. Valtchev", "J. Yu" ],
+      "venue" : "Microporous Mesoporous Mater. 234 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Synthesis of tri-level hierarchical SAPO-34 zeolite with intracrystalline micro–meso–macroporosity showing superior MTO performance",
+      "author" : [ "Q. Sun", "N. Wang", "G. Guo", "X. Chen", "J. Yu" ],
+      "venue" : "J. Mater. Chem. A 3 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Recent advances of the nano-hierarchical SAPO-34 in the methanol-to-olefin (MTO) reaction and other applications",
+      "author" : [ "J. Zhong", "J. Han", "Y. Wei", "P. Tian", "X. Guo", "C. Song", "Z. Liu" ],
+      "venue" : "Catal. Sci. Technol. 7 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Cost-effective synthesis of hierarchical SAPO-34 zeolites with abundant intracrystalline mesopores and excellent MTO performance",
+      "author" : [ "G. Guo", "Q. Sun", "N. Wang", "R. Bai", "J. Yu" ],
+      "venue" : "Chem. Commun. 54 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Controllable synthesis of hierarchical porous petal-shaped SAPO-34 zeolite with excellent DTO performance",
+      "author" : [ "S. Zhang", "Z. Wen", "L. Yang", "C. Duan", "X. Lu", "Y. Song", "Q. Ge", "Y. Fang" ],
+      "venue" : "Microporous Mesoporous Mater. 274 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Fabrication of hierarchical ZnSAPO-34 by alkali treatment with improved catalytic performance in the methanol-to-olefin reaction",
+      "author" : [ "C. Sun", "Y. Wang", "Z. Wang", "H. Chen", "X. Wang", "H. Li", "L. Sun", "C. Fan", "C. Wang", "X. Zhang" ],
+      "venue" : "C. R. Chim. 21 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Hierarchical SAPO-34 architectures with tailored acid sites using sustainable sugar templates",
+      "author" : [ "I. Miletto", "C. Ivaldi", "G. Paul", "S. Chapman", "L. Marchese", "R. Raja", "E. Gianotti" ],
+      "venue" : "Chem. Open 7 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Synthesis of hierarchical SAPO-34 nanocrystals with improved catalytic performance for methanol to olefins",
+      "author" : [ "B. Yang", "P. Zhao", "J. Ma", "R. Li" ],
+      "venue" : "Chem. Phys. Lett. 665 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Sonochemical synthesis of SAPO-34 catalyst with hierarchical structure using CNTs as mesopore template",
+      "author" : [ "M.J. Azarhoosh", "R. Halladj", "S. Askari" ],
+      "venue" : "Res. Chem. Intermed. 43 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Presenting a new kinetic model for methanol to light olefins reactions over a hierarchical SAPO-34 catalyst using the Langmuir–Hinshelwood–Hougen–Watson mechanism",
+      "author" : [ "M.J. Azarhoosh", "R. Halladj", "S. Askari" ],
+      "venue" : "J. Phys.: Condens. Matter 29 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "A dynamic kinetic model for methanol to light olefins reactions over a nanohierarchical SAPO-34 catalyst: catalyst synthesis model presentation",
+      "author" : [ "M.J. Azarhoosh", "R. Halladj", "S. Askari" ],
+      "venue" : "and validation at the bench scale, Int. J. Chem. Kinetics 50 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Enhanced MTO performance over acid treated hierarchical SAPO-34",
+      "author" : [ "S. Ren", "G. Liu", "X. Wu", "X. Chen", "M. Wu", "G. Zeng", "Z. Liu", "Y. Sun" ],
+      "venue" : "Chin. J. Catal. 38 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Synthesis and catalytic performances of hierarchical SAPO-34 monolith",
+      "author" : [ "H. Yang", "Z. Liu", "H. Gao", "Z. Xie" ],
+      "venue" : "J. Mater. Chem. 20 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Synthesis of hierarchal SAPO-34 nano catalyst with dry gel conversion method in the presence of carbon nanotubes as a hard template",
+      "author" : [ "S. Rimaz", "R. Halladj", "S. Askari" ],
+      "venue" : "J. Colloid Interface Sci. 464 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Regression and Linear Models",
+      "author" : [ "R.B. Darlington" ],
+      "venue" : "McGraw-Hill, New York",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 1990
+    }, {
+      "title" : "Artificial Neural Networks",
+      "author" : [ "R.J. Schalkoff" ],
+      "venue" : "McGraw-Hill, New York",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Degradation of Fluoxetine using catalytic ozonation in aqueous media in the presence of nano-γ-alumina catalyst: experimental",
+      "author" : [ "A. Aghaeinejad-Meybodi", "A. Ebadi", "S. Shafiei", "A. Khataee", "A. Dehghani Kiadehi" ],
+      "venue" : "modeling and optimization study, Sep. Purif. Technol. 211 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Modeling and optimization of antidepressant drug fluoxetine removal in aqueous media by ozone/H2O2 process: comparison of central composite design and artificial neural network approaches",
+      "author" : [ "A. Aghaeinejad-Meybodi", "A. Ebadi", "S. Shafiei", "A.R. Khataee", "M. Rostampour" ],
+      "venue" : "J. Taiwan Inst. Chem. Eng. 48 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Angelo Basile",
+      "author" : [ "K. Ghasemzadeh", "A. Aghaeinejad-Meybodi" ],
+      "venue" : "Hydrogen production as a green fuel in silica membrane reactor: experimental analysis and artificial neural network modeling, Fuel 222 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Hydrogen production by a Pd Ag membrane reactor during glycerol steam reforming: ANN modeling study",
+      "author" : [ "K. Ghasemzadeh", "F. Ahmadnejad", "A. Aghaeinejad-Meybodi", "A. Basile" ],
+      "venue" : "Int. J. Hydrogen Energy 43 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Simulation and optimization of a horizontal ammonia synthesis reactor using genetic algorithm",
+      "author" : [ "M. Azarhoosh", "F. Farivar", "H.A. Ebrahim" ],
+      "venue" : "RSC Adv. 4 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Simulation and multi-objective optimization of a trickle-bed reactor for diesel hydrotreating by a heterogeneous model using non-dominated sorting genetic algorithm II",
+      "author" : [ "A. Bakhshi Ani", "H. Ale Ebrahim", "M.J. Azarhoosh" ],
+      "venue" : "Energy Fuels 29 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "8-Lump kinetic model for fluid catalytic cracking with olefin detailed distribution study",
+      "author" : [ "A.G. Sani", "H.A. Ebrahim", "M. Azarhoosh" ],
+      "venue" : "Fuel 225 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Simulating and optimizing auto-thermal reforming of methane to synthesis gas using a non-dominated sorting genetic algorithm II method",
+      "author" : [ "M. Azarhoosh", "H.A. Ebrahim", "S. Pourtarah" ],
+      "venue" : "Chem. Eng. Commun. 203 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Simulating and optimizing hydrogen production by low-pressure autothermal reforming of natural gas using nondominated sorting genetic algorithm-II",
+      "author" : [ "M. Azarhoosh", "H. Ale Ebrahim", "S. Pourtarah" ],
+      "venue" : "Chem. Biochem. Eng. Quarter. 29 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Kinetic modeling and optimization of the operating condition of MTO process on SAPO-34 catalyst",
+      "author" : [ "A.T. Najafabadi", "S. Fatemi", "M. Sohrabi", "M. Salmasi" ],
+      "venue" : "J. Ind. Eng. Chem. 18 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Intergrowth structure modelling in silicoaluminophosphate SAPO-18/34 family",
+      "author" : [ "W.A. Sławiński", "D.S. Wragg", "D. Akporiaye", "H. Fjellvåg" ],
+      "venue" : "Microporous Mesoporous Mater. 195 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Genetic programming: an introduction",
+      "author" : [ "W. Banzhaf", "P. Nordin", "R.E. Keller", "F.D. Francone" ],
+      "venue" : "Morgan Kaufmann San Francisco ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "A field guide to genetic programming",
+      "author" : [ "R. Poli", "W.B. Langdon", "N.F. McPhee", "J.R. Koza" ],
+      "venue" : "Lulu. com, 2008.  M.J. Azarhoosh, et al. Ultrasonics - Sonochemistry 58 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Ethylene, propylene, and butylene are used mainly as light olefins in the petrochemical industries [1,2].",
+      "startOffset" : 99,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 1,
+      "context" : "Ethylene, propylene, and butylene are used mainly as light olefins in the petrochemical industries [1,2].",
+      "startOffset" : 99,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 2,
+      "context" : "The methanol-to-light-olefins (MTO) process using a non-oil source as an alternative method has been considered due to the shortage of oil resources in the future and the industries growing demand to light olefins [3,4].",
+      "startOffset" : 214,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 3,
+      "context" : "The methanol-to-light-olefins (MTO) process using a non-oil source as an alternative method has been considered due to the shortage of oil resources in the future and the industries growing demand to light olefins [3,4].",
+      "startOffset" : 214,
+      "endOffset" : 219
+    }, {
+      "referenceID" : 4,
+      "context" : "Among the catalysts that used for the MTO process, SAPO-34 is the most proper catalyst due to small pores and moderate acidity [5,6].",
+      "startOffset" : 127,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 5,
+      "context" : "Among the catalysts that used for the MTO process, SAPO-34 is the most proper catalyst due to small pores and moderate acidity [5,6].",
+      "startOffset" : 127,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 27,
+      "context" : "This catalyst has a very high selectivity for producing light olefins by almost complete methanol conversion, because of mild acidity, shape selectivity due to its small entry pores, and thermal stability [28].",
+      "startOffset" : 205,
+      "endOffset" : 209
+    }, {
+      "referenceID" : 6,
+      "context" : "One of the main problems of the MTO process is rapid deactivation of SAPO-34 catalyst, which could be because of the synthesis factors, hence, the catalyst performance could be optimized by adjusting the synthesis conditions [7,8].",
+      "startOffset" : 225,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 7,
+      "context" : "One of the main problems of the MTO process is rapid deactivation of SAPO-34 catalyst, which could be because of the synthesis factors, hence, the catalyst performance could be optimized by adjusting the synthesis conditions [7,8].",
+      "startOffset" : 225,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 11,
+      "context" : "In fact, the ultrasonic radiation to the initial solution during the preparation of the precursor gel (prior to the start of the hydrothermal process) leads to its uniformity and significantly improves the initial nucleation [12].",
+      "startOffset" : 225,
+      "endOffset" : 229
+    }, {
+      "referenceID" : 29,
+      "context" : "[30] synthesized the hierarchical SAPO-34 base catalyst using a hydrothermal method and then placed it in nitric acid and oxalic acid solutions for 6 h.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 29,
+      "context" : "The results indicated that the fabricated catalyst had a hierarchical structure and higher acidic sites in comparison with the base catalyst, hence increasing the lifetime of the catalyst in the MTO process (increasing from 210 to 390min) and leading to a higher light olefins selectivity (from 92% to 94%) [30].",
+      "startOffset" : 307,
+      "endOffset" : 311
+    }, {
+      "referenceID" : 30,
+      "context" : "[32] utilized phenylaminopropyltrimethoxysilane (PHAPTMS) as a silicon source and also as a template to create mesopores as well as TEAOH as a microporous template.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 31,
+      "context" : "[33] applied carbon nanotube (CNT) as a hard template and DEA as a microporous template in the synthesis of hierarchical SAPO-34 using the dry gel technique.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 31,
+      "context" : "The results revealed an increase in the outer surface of the synthesized catalyst as well as the creation of a hierarchical structure, resulting in a significant improvement of the catalyst performance in the MTO process [33].",
+      "startOffset" : 221,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 26,
+      "context" : "These catalysts were synthesized with CNT as a template creating pores with meso and macro sizes and DEA as the microporous template [27].",
+      "startOffset" : 133,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 26,
+      "context" : "In the next stage, the CNTs (Merck, Germany, ≥98wt%, 901051) were added to the solution and the solution was stirred for 1 h [27].",
+      "startOffset" : 125,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 26,
+      "context" : "Finally, the obtained gel was inserted in the autoclave (stainless steel Teflon) and placed in the oven (Tebazma, Iran, OT53) at 200 °C for a desired period time, which varied for various samples [27].",
+      "startOffset" : 196,
+      "endOffset" : 200
+    }, {
+      "referenceID" : 13,
+      "context" : "From previous studies [14,27], the minimum and maximum values of the important parameters in the synthesis of the nano-hierarchical SAPO-34 catalyst were specified for the experiment design, as presented in Table 1.",
+      "startOffset" : 22,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 26,
+      "context" : "From previous studies [14,27], the minimum and maximum values of the important parameters in the synthesis of the nano-hierarchical SAPO-34 catalyst were specified for the experiment design, as presented in Table 1.",
+      "startOffset" : 22,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 12,
+      "context" : "The power intensity of ultrasonic irradiation in W/cm(2) was obtained by the following relation [13]:",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 26,
+      "context" : "5 h of methanol WHSV (weight hourly space velocity)[27].",
+      "startOffset" : 51,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 12,
+      "context" : "Although this function may be physically meaningless, it can be very important for predicting the values of a variable in terms of the data associated with other variables [13,34].",
+      "startOffset" : 172,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 32,
+      "context" : "Although this function may be physically meaningless, it can be very important for predicting the values of a variable in terms of the data associated with other variables [13,34].",
+      "startOffset" : 172,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 12,
+      "context" : "However, a trial and error method is used to determining the optimal number of neurons in the hidden layer(s) [13,39].",
+      "startOffset" : 110,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 37,
+      "context" : "However, a trial and error method is used to determining the optimal number of neurons in the hidden layer(s) [13,39].",
+      "startOffset" : 110,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 38,
+      "context" : "Genetic algorithm The classical methods such as goal-programming method and goalattainment method, or evolutionary methods including GA, ant colony (ACO) algorithm, and Particle swarm optimization (PSO) can be applied in optimization [40].",
+      "startOffset" : 234,
+      "endOffset" : 238
+    }, {
+      "referenceID" : 43,
+      "context" : "This idea is used in genetic algorithms to solve problems [45,46].",
+      "startOffset" : 58,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 44,
+      "context" : "This idea is used in genetic algorithms to solve problems [45,46].",
+      "startOffset" : 58,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 45,
+      "context" : "This solution is ultimately presented as a mathematical relation [47,48].",
+      "startOffset" : 65,
+      "endOffset" : 72
+    }, {
+      "referenceID" : 46,
+      "context" : "This solution is ultimately presented as a mathematical relation [47,48].",
+      "startOffset" : 65,
+      "endOffset" : 72
+    }, {
+      "referenceID" : 10,
+      "context" : "In this method, the size of particles can be easily controlled by changing the ultrasound-related variables [11,13].",
+      "startOffset" : 108,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 12,
+      "context" : "In this method, the size of particles can be easily controlled by changing the ultrasound-related variables [11,13].",
+      "startOffset" : 108,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 11,
+      "context" : "Ultrasound seems to also influence the physicochemical phenomena related to nucleation and crystal growth, occurring during crystallization [12,14].",
+      "startOffset" : 140,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 13,
+      "context" : "Ultrasound seems to also influence the physicochemical phenomena related to nucleation and crystal growth, occurring during crystallization [12,14].",
+      "startOffset" : 140,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 13,
+      "context" : "In this case, the average crystal size decreased with an increase in ultrasonic power [14].",
+      "startOffset" : 86,
+      "endOffset" : 90
+    }, {
+      "referenceID" : 11,
+      "context" : "Applying ultrasound was also shown to affect the primary nucleation of potassium sulphate, by leading to reductions in the induction time and the metastable zone width of this material [12,14].",
+      "startOffset" : 185,
+      "endOffset" : 192
+    }, {
+      "referenceID" : 13,
+      "context" : "Applying ultrasound was also shown to affect the primary nucleation of potassium sulphate, by leading to reductions in the induction time and the metastable zone width of this material [12,14].",
+      "startOffset" : 185,
+      "endOffset" : 192
+    }, {
+      "referenceID" : 13,
+      "context" : "Due to non-homogenous zeolites, which are prepared by hydrothermal crystallization, the degree of control over their preparation and properties bears importance [14].",
+      "startOffset" : 161,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 13,
+      "context" : "Ultrasound can enhance and alter dissolution processes, chemical reactions, nucleation and growth of precipitates [14].",
+      "startOffset" : 114,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 11,
+      "context" : "It is extremely useful in crystallization processes since it can initiate seeding and control subsequent crystal growth in a saturated or supercooled medium [12,14].",
+      "startOffset" : 157,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 13,
+      "context" : "It is extremely useful in crystallization processes since it can initiate seeding and control subsequent crystal growth in a saturated or supercooled medium [12,14].",
+      "startOffset" : 157,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 13,
+      "context" : "It can be stated that with using of ultrasound waves, a large number of primary crystals are formed with very small sizes [14].",
+      "startOffset" : 122,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 13,
+      "context" : "The second reason is that the solution is very well mixed because of the higher intensity of ultrasound waves, it can prevent the adhesion and accumulation of primary crystalline nuclei through controlling their number, as these nuclei can accumulate in different parts of the reaction environment [14].",
+      "startOffset" : 298,
+      "endOffset" : 302
+    }, {
+      "referenceID" : 26,
+      "context" : "increased, however, the outer surface of the samples reduced [27].",
+      "startOffset" : 61,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 26,
+      "context" : "This finding indicated that decrease in the DEA amount (to the extent that it does not cause the transfer of the CHA phase (SAPO-34) to AFI (SAPO5) and the destruction of the SAPO-34 structure), albeit reducing the crystallinity of the sample, reduces the size of the crystals produced, improving the outer surface of the samples and hence their lifetime and performance in long time [27].",
+      "startOffset" : 384,
+      "endOffset" : 388
+    }, {
+      "referenceID" : 26,
+      "context" : "In other words, the increase in CNT, on the one hand, causes introduction of the mesopores and even macropores into the SAPO-34 structure and creation of a nano-hierarchical structure, and hence, the reaction products can be quickly transferred to the outside environment after being produced [27].",
+      "startOffset" : 293,
+      "endOffset" : 297
+    }, {
+      "referenceID" : 26,
+      "context" : "On the other hand, this leads to the creation of smaller and unagglomerated particles, and the external surface of the samples increases [27].",
+      "startOffset" : 137,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 26,
+      "context" : "All of these factors lead to the increased catalyst lifetime and as a result, better performance in the MTO process after 9 h [27].",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 26,
+      "context" : "This can be justified by the fact that the excessive entry of CNTs into the SAPO-34 structure can significantly weaken the microporous structure of the SAPO-34, thus diminishing the performance and light olefins selectivity in the MTO process [27].",
+      "startOffset" : 243,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 26,
+      "context" : "However, with a further increase of the crystallization time, catalysts consisting of agglomerated crystals with larger size and smaller outer surface are formed which reduce their performance in the MTO process [27].",
+      "startOffset" : 212,
+      "endOffset" : 216
+    }, {
+      "referenceID" : 26,
+      "context" : "As a result, the outer surface of the catalysts, which plays a significant role in the performance of the SAPO-34 catalyst, decreases [27].",
+      "startOffset" : 134,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 12,
+      "context" : "In addition, by increasing the power intensity of the ultrasound waves, the time required to synthesize a high-crystallinity catalyst decreases, resulting in a catalyst with high crystallinity [13].",
+      "startOffset" : 193,
+      "endOffset" : 197
+    }, {
+      "referenceID" : 12,
+      "context" : "However, in longer radiation times, the methanol conversion, and light olefins selectivity have maximum value versus power intensity; this finding is consistent with the results reported in previous studies [13,14].",
+      "startOffset" : 207,
+      "endOffset" : 214
+    }, {
+      "referenceID" : 13,
+      "context" : "However, in longer radiation times, the methanol conversion, and light olefins selectivity have maximum value versus power intensity; this finding is consistent with the results reported in previous studies [13,14].",
+      "startOffset" : 207,
+      "endOffset" : 214
+    }, {
+      "referenceID" : 12,
+      "context" : "In fact, insufficient and non-uniform mixing of the solution is performed during low irradiation times by the ultrasonic waves, and in this short time, fewer cavitation bubbles, and hence the primary crystalline nuclei are likely to form [13,14].",
+      "startOffset" : 238,
+      "endOffset" : 245
+    }, {
+      "referenceID" : 13,
+      "context" : "In fact, insufficient and non-uniform mixing of the solution is performed during low irradiation times by the ultrasonic waves, and in this short time, fewer cavitation bubbles, and hence the primary crystalline nuclei are likely to form [13,14].",
+      "startOffset" : 238,
+      "endOffset" : 245
+    }, {
+      "referenceID" : 12,
+      "context" : "Besides, in this short time, there is not a possibility for the enough growth of SAPO-34 crystals [13,14].",
+      "startOffset" : 98,
+      "endOffset" : 105
+    }, {
+      "referenceID" : 13,
+      "context" : "Besides, in this short time, there is not a possibility for the enough growth of SAPO-34 crystals [13,14].",
+      "startOffset" : 98,
+      "endOffset" : 105
+    }, {
+      "referenceID" : 13,
+      "context" : "In contrast, at higher times, a large number of initial crystalline nuclei form and grow continuously until the level of super-saturation of the solution is reduced [14].",
+      "startOffset" : 165,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 13,
+      "context" : "This issue is indicative of an increase in crystallinity and a decrease in the average particle size with increasing radiation time [14].",
+      "startOffset" : 132,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 13,
+      "context" : "Indeed, with the increase in the time of emission of ultrasonic waves up to the optimal amount, the sample crystallinity is increased, and a catalyst with a smaller particle size is obtained [14,27].",
+      "startOffset" : 191,
+      "endOffset" : 198
+    }, {
+      "referenceID" : 26,
+      "context" : "Indeed, with the increase in the time of emission of ultrasonic waves up to the optimal amount, the sample crystallinity is increased, and a catalyst with a smaller particle size is obtained [14,27].",
+      "startOffset" : 191,
+      "endOffset" : 198
+    }, {
+      "referenceID" : 13,
+      "context" : "In other words, the further increase in the radiation time from the optimal radiation time in the high-intensity ultrasound waves causes the structure degradation, and thus reduced the crystallinity of the particles produced at long radiation times [14].",
+      "startOffset" : 249,
+      "endOffset" : 253
+    }, {
+      "referenceID" : 26,
+      "context" : "13a) and comparing them with those reported for SAPO-34 [27], the optimum SAPO-34 catalyst was pure without amorphous phase.",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 26,
+      "context" : "13b, adding CNTs as mesopore template and using ultrasound irradiation during the SAPO34 synthesis remarkably changed the particle morphology, so that, in optimum SAPO-34, spherical nanoparticles are seen instead of the common, cubic shape for SAPO-34 particles [27].",
+      "startOffset" : 262,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 13,
+      "context" : "In previous work of askari and halladj [14], SAPO-34 nano-catalysts were synthesized using ultrasound-assisted hydrothermal.",
+      "startOffset" : 39,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 13,
+      "context" : "Dimethyl ether (DME) accounted for most of the products produced in this period, which was undesirable [14].",
+      "startOffset" : 103,
+      "endOffset" : 107
+    } ],
+    "year" : 2019,
+    "abstractText" : "The present study has focused on performance analysis of ultrasound-assisted synthesized nano-hierarchical silico-alumino-phosphate-34 (SAPO-34) catalyst during methanol-to-light-olefins (MTO) process. A classical method, i.e., multiple linear regression (MLR) and two intelligent methods, i.e., genetic programming (GP) and artificial neural networks (ANN) were used for modeling of the performance of nano-hierarchical SAPO-34 catalyst. We studied the influence of basic parameters for the sonochemical synthesis of nano-hierarchical SAPO34 catalyst such as crystallization time, ultrasonic irradiation time, ultrasonic intensity, amount of organic template (diethylamine (DEA) and carbon nanotube (CNT)) on its performance (methanol conversion and light olefins selectivity) in MTO process. The results revealed that the models achieved using the GP method had the highest accuracy for training and test data. Therefore, GP models were used in the following to predict the effect of main parameters for the sonochemical synthesis of nano-hierarchical SAPO-34 catalyst. Finally, an optimal catalyst with the highest yield into light olefins was predicted using the genetic optimization algorithm. The genetic models were employed as an evaluation function in the genetic algorithm (GA). A good agreement between the outputs of GP models for the optimal catalyst and experimental results were obtained. The optimal ultrasound-assisted synthesized nanohierarchical SAPO-34 was accompanied by light olefins selectivity of 77% and methanol conversion of 94% from the onset of the process after 9 h.",
+    "creator" : "Elsevier"
+  }
+}

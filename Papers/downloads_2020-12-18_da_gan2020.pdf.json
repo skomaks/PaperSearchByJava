@@ -1,0 +1,337 @@
+{
+  "name" : "downloads_2020-12-18_da_gan2020.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Comparison of three artificial neural networks for predict the electrodeposition of nano-silver film",
+    "authors" : [ "Hongyu Gan", "Guangming Liu", "Chao Shi", "Rongmao Tang", "Yi Xiong", "Yongqiang Liu", "Huanhuan Liu" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Materials Today Communications 26 (2021) 101950\nAvailable online 9 December 2020 2352-4928/© 2020 Elsevier Ltd. All rights reserved.\nComparison of three artificial neural networks for predict the electrodeposition of nano-silver film\nHongyu Gan, Guangming Liu *, Chao Shi, Rongmao Tang, Yi Xiong, Yongqiang Liu, Huanhuan Liu School of Material Science and Engineering, Nanchang Hangkong University, Nanchang, 330063, China\nA R T I C L E I N F O\nKeywords: Electrodeposition Silver Artificial neural networks Nanocrystal Prediction\nA B S T R A C T\nThe back-propagation neural network (BP), genetic algorithm based on BP (GA-BP), and extreme learning machine (ELM) were established to predict the glossiness of silver film and current efficiency for the electrodeposition of nano-silver film in this paper. The artificial neural networks (ANNs) were built to predict the results and contrast with experimental results. The prediction results demonstrated that GA-BP exhibited a relatively higher accuracy than simple BP. ELM demonstrated an efficient rate and the time required was far less than BP and GA-BP, which also had a high accuracy if the sample data were sufficient. GA-BP only needs a few sample data as the basis to obtain high accuracy, which has a low demand for sample data. In conclusion, for the electrodeposition of nano-silver film, the order of the accuracy of learning process is ELM > GA-BP > BP, the order of analogical ability is GA-BP ≈ BP > ELM and the order of time required is GA-BP > BP > ELM. Mean impact value (MIV) analysis was utilized to explore the impact of each parameter for three kinds of ANNs. The results display that glossiness, and current efficiency are mainly controlled by current density and substrate glossiness, but which parameter plays the crucial role is not manifest."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "With the rapid development of science and technology, the requirements for the conductivity of electronic components are immense. Silver is widely used in electronic components owing to its excellent conductivity. Compared with common silver, nano-silver is attracted more attention on account of its unique properties caused by its size effect. Therefore, nano-silver is attractive for applications in the fields of functional materials [1,2], optics [3,4], biology [5,6] and electron [7].\nThe properties of the electrodeposited layer that obtains in the aqueous solution are dependent on numerous factors, including current density, the concentration of various components, stirring rate, the pH of bath and so on. It is necessary and critical to analyze the influence of these factors on silver electrodeposition to provide a theoretical basis to select experimental parameters. Detailed comprehensive analysis of the impact of these factors on the electrodeposited film requires a large number of experiments by traditional analytical methods. Therefore, it is necessary to develop a method that requires finite experimental samples to extensively and accurately predict the experimental results, and reduce the number of experiments and costs. Artificial neural\nnetworks (ANNs) are commonly used prediction models by prediction of the biological nervous system. The prediction of experimental results is realized by ANNs based on the experimental data and the mapping from experimental parameters to results [8–10].\nThe back-propagation neural network (BP) is the vital part of the feedforward ANNs, which has powerful adaptive, self-organizing and associative memory ability, and is universally applied in material science [11–13]. BP only relies on the finite iteration of experimental data to reflect the internal law. Therefore, it is a particularly powerful tool to handle some complex nonlinear problems in material science [14–17]. But BP is easy to fall into local minima. For overcoming the disadvantage, genetic algorithm (GA) is often utilized to optimize BP [18–20]. It is well known that genetic algorithm based on BP (GA-BP) is widely used in weather prediction [21,22]. In the field of material, numerous researchers focused on GA-BP in recent years [23,24]. Extreme learning machine (ELM) was a relatively new feedforward ANN and designed for supervised learning problems when it was offered. However, its application scope has been extended, including unsupervised learning problems represented by clustering in subsequent studies [25,26].\nIn this study, the experiments and corresponding tests of\n* Corresponding author. E-mail address: gemliu@126.com (G. Liu).\nContents lists available at ScienceDirect\nMaterials Today Communications\njournal homepage: www.elsevier.com/locate/mtcomm\nhttps://doi.org/10.1016/j.mtcomm.2020.101950 Received 5 October 2020; Received in revised form 5 December 2020; Accepted 6 December 2020\nMaterials Today Communications 26 (2021) 101950\nelectrodeposition about the nano-silver film have been implemented to form the data set. BP, GA-BP and ELM were built to predict the results and contrast with experimental results. The accuracy, reliability, sample required and time required were reported in this study to provide a reference for the selection of the ANN model in the silver electrodeposition field. The accuracy and reliability were evaluated by calculating the coefficient of determination (R2), mean absolute percentage error (MAPE), root mean squared error (RMSE), and average absolute relative error (AARE). Mean impact value (MIV) analysis was utilized to explore the impact of each parameter for three kinds of ANNs. Considering the application and preparation of the silver film, input parameters were pH, stirring rate, current density and copper substrate glossiness, output parameters were glossiness and current efficiency in this paper."
+    }, {
+      "heading" : "2. Material and methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Material preparation",
+      "text" : "Rectangular specimens with dimensions of 100 × 100 × 3 mm3 were cut by electrical-discharge method. The surfaces were prepared with the same sequence of grinding with SiC paper from P400 to P1000, and cleaned by acetone, ethanol, and ultrapure water with ultrasonic before experiments. Electrodeposition baths were consisted of 0.8 M succinimide, 0.06 M AgNO3, 0.08 ammonium citrate. The pH values of the baths in the range of 8–11 were adjusted by KOH solution and borax (Na2B4O7⋅10H2O) in the concentration range of 0.04 M to 0.06 M was selected as pH stabilizer. In the process of electrodeposition, the cathode current density ranged from 0.4 to 0.7 A/dm2, the stirring rate ranged from 600 to 1200 r/min, and electrodeposition was performed at ambient temperature."
+    }, {
+      "heading" : "2.2. Characterization",
+      "text" : "The current efficiency could be calculated by the mass gain of the cathode. The calculation formula could be expressed as follows:\nη = meNNA tMSJ\n(1)\nWhere η is the current efficiency, m is the net mass gain, M is the molar mass of silver, t is the electrodeposition time, J is the current density, S is the effective surface area of the electrode, NA is the Avogadro constant, N is the silver ion valence state, and e is the electric quantity of element charge.\nR2, MAPE and RMSE were usually employed to characterize the\nresult of the prediction. If R2 is close to 1, which indicates that there is a precise linear relationship between outputs and targets. Contrarily, there is a negative linear relationship between outputs and targets if R2 is close to 0. Commonly, R2, MAPE and RMSE were calculated by Eq.2-4 [27,28]. In this paper, the coefficient of determination R2 was calculated by Eq.5 to reduce the workload and avoid the error from the calculation of average value. Their calculation formulas are given as follows:\nR2 = [ ∑N i=1 (xi − x)(yi − y)]2\n∑N i=1 (xi − x)2 ∑N i=1 (yi − y)2\n(2)\nRMSE =\n̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅\n1 N\n∑N i=1 (yi − xi)2\n√ √ √ √ (3)\nMAPE = 1 N\n∑N\ni=1\n̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅ (yi − xi)2\nyi\n√\n(4)\nR2 = (N\n∑N i=1 xiyi − ∑N i=1 xi ∑N i=1 yi)2\n[N ∑N\ni=1 x2i − (\n∑N i=1 xi)2][N ∑N i=1 y2i − ( ∑N i=1 yi)2]\n(5)\nWhere N is the number of samples in the test set, y is the experimental value and x is the predicted value.\nAARE was usually used to compare the experimental data with the results of prediction and calculated by Eq.6 [28].\nAARE = 1 N\n∑N i=1 ei = 1 N ∑N i=1 |yi − xi| yi\n(6)\nWhere N is the number of samples in test set, e is the absolute value of relative error, y is the experimental value and x is the predicted value.\nMean impact value (MIV) analysis explores the contribution rates of each input parameter to improve the prediction performance and provide the reference of the numerical selection of each parameter. It has been extensively used in the analytical application of machine learning and the process of MIV analysis as follows [29,30]:\nTwo new data sets are obtained by increasing or decreasing the value of the i-th parameter of the test set data proportionally by 10 %.\nxi(1) = ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ x11 … ⋮ … 1.1xi1 …\nx1N ⋮\n1.1xiN ⋮ …\nxn1 … ⋮ xnN\n⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒\nn×N\nand xi(2) = ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ x11 … ⋮ … 0.9xi1 …\nx1N ⋮\n0.9xiN ⋮ …\nxn1 … ⋮ xnN\n⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒\nn×N\n(7)\nWhere x is the experimental datum, n is the number of parameters and N is the number of samples in the test set.\nThe two new data sets are taken as the input sets of ANN, and the corresponding output sets Yi(1) and Yi(2) are obtained and then let Zi = Yi(1) - Yi(2).\nso, Zi = Yi(1) − Yi(2) = ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ z11 … z1N ⋮ ⋱ ⋮\nzm1 … zmN\n⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒ ⃒\nm×N\nand MIVi,j =\n∑N t=1 Zjt\nN (8)\nWhere MIVi,j is the MIV value of the i-th input parameter to the j-th output parameter, m is the number of output parameters, and N is the number of samples in test set.\nThe sign of MIVi,j represents the direction of the influence from the input parameter to the output parameter, and the magnitude of MIVi,j measures the comparative importance of the input parameter to the\nH. Gan et al.\nMaterials Today Communications 26 (2021) 101950\noutput parameter [29]. At last, calculate the contribution rates of each input parameter to each output parameter.\nCi,j = ⃒ ⃒MIVi,j ⃒ ⃒\n∑n\nt=1\n⃒ ⃒MIVt,j ⃒ ⃒\n(9)\nWhere Ci,j is the contribution rate of the i-th input parameter to the j-th output parameter, n is the number of parameters and m is the number of output parameters."
+    }, {
+      "heading" : "2.3. ANN operations",
+      "text" : "All ANN operations were performed on a computer with 8 cores (Intel Core i7− 7700HQ) processor and 1TB memory (solid-state disk). A gloss meter (YG60, 3 nh) was used to test the glossiness of samples.\nThe data set was randomly divided into a training set and test set. For ensure the accuracy of the test, the training set (data not shown) contains 95 % of the samples, and the test set (show in Table 1) contains the leftover 5%.\nTo study the dependence of various ANNs on the amount of data, to investigate the analogical ability of ANNs, half data on training set were randomly taken out as semi test set. According to the characteristics of silver electrodeposition, copper substrate glossiness, stirring rate, current density and bath pH were used as input units of ANNs. In contrast,\ntheir data were used as the input set. Similarly, the current efficiency and silver film glossiness were used as output units, while their data were used as the output set."
+    }, {
+      "heading" : "2.4. Construction of back-propagation neural network (BP)",
+      "text" : "The neuron and topological structure model of BP was depicted in Fig. 1 and the main code of BP was shown in the Fig. 2. The network was designed as a three-layer structure, which was composed of input layer, output layer and hidden layer that was set as a single layer.\nThe neurons in the same layer were independent of each other and connected with all neurons in the adjacent layer. The number of neurons in the hidden layer was calculated by Eq.10 as follows:\nl = 2 n + 1 (10)\nWhere l is the number of hidden layer units, and n is the number of input units.\nThe data were normalized to the (0,1) range before input and inversely normalized before output to avoid the influence of the prediction accuracy caused by the oversized numerical discrepancy in the same parameter. The normalization function was defined as follows:\ny = x − xmin\nxmax − xmin (11)\nWhere x is the raw datum, y is the normalized datum. xmax and xmin are\nH. Gan et al.\nMaterials Today Communications 26 (2021) 101950\nthe maximum and minimum value. Analogously, all neurons used weight to correct when output data to avoid the influence of the prediction accuracy caused by the oversized numerical discrepancy between different parameters. Considering that each datum existed a certain extent of error from operation and instrument, a threshold was added to the output of each neuron to reduce the influence of this error. All initial weights and thresholds were generated randomly. An activation function was introduced between the hidden layer and output layer to improve the accuracy on account of most experimental parameters had a certain marginal benefit. The bipolar sigmoid function was used as the activation function between the input layer and the hidden layer and mathematically modelled as follows:\nf (s) = 2\n1 + e-2s -1 (12)\ns = ∑n\ni=1 wi⋅yi − b (13)\nWhere f(s) is the activation function, s is the weighted sum with threshold, y is the normalized datum, w is the weight, b is the threshold, and n is the number of input units.\nThe BP was designed as a feedforward network that all data only be transferred from the front layer to the next layer but the errors were back-propagation. Utilized the back-propagation error to correct the weight and threshold iteratively. A linear transfer function (purelin) was used between the hidden layer and the output layer. The LevenbergMarquardt algorithm was used to correct BP. The weight iteration function was expressed by the following relationship:\nFig. 3. The flow chart of GA-BP.\nH. Gan et al.\nMaterials Today Communications 26 (2021) 101950\nw∗ = w + ωδ df (s) ds y (14)\nWhere w* is the weight after correction, w is the weight before correction, ω is the learning efficiency, δ is the back-propagation error, f(s) is the activation function, s is the weighted sum, and y is the normalized datum.\nBesides, the learning rate, step length and termination criteria were set to 0.01, 500 and 10− 7, respectively."
+    }, {
+      "heading" : "2.5. Construction of genetic algorithm based on BP (GA-BP)",
+      "text" : "For GA-BP, the main part was also a BP; the genetic algorithm was moreover adopted to optimize the weights and thresholds of BP and its logical structure, as shown in Fig. 3. The main code of genetic algorithmwas shown in the Fig. 4.\nThe weights and thresholds of the BP were set as the initial population of the genetic algorithm. The generation was set to 10,000, the mutation probability was set to 0.09, and the fitness function was described as follows:\nffit = 1\n∑N i=1 (ti − xi)2\n(15)\nWhere ffit is the fitness function, t is the experimental value, x is the predicted value, and N is the number of samples in the training set."
+    }, {
+      "heading" : "2.6. Construction of extreme learning machine (ELM)",
+      "text" : "For ELM, the main structure was consistent with BP except the initial weights between the hidden layer and the output layer were not generated randomly but calculated and without iteration process. The calculation formula as follows [26]:"
+    }, {
+      "heading" : "HA = T (16)",
+      "text" : "H =\n⎡ ⎣ f (w1⋅x1 + b1) ⋯ f (wl⋅x1 + bl)\n⋮ ⋱ ⋮ f (w1⋅xN + b1) ⋯ f (wl⋅xN + bl)\n⎤\n⎦\nN×l\n(17)\nA =\n⎡\n⎢ ⎢ ⎣ AT1 ⋮\nATN\n⎤\n⎥ ⎥ ⎦\nN×m\nandT =\n⎡\n⎢ ⎢ ⎢ ⎢ ⎢ ⎢ ⎢ ⎢ ⎣\n∑l i=1 Aif (wi⋅x1 + bi)T ∑l i=1 Aif (wi⋅x2 + bi)T ⋮ ∑l i=1 Aif (wi⋅xN + bi)T ⎤ ⎥ ⎥ ⎥ ⎥ ⎥ ⎥ ⎥ ⎥ ⎥ ⎦ N×m\n(18)\nWhere Ai=(Ai1, Ai2, …, Ain)T is the weight between the ith hidden neuron and the output neurons, xi=(xi1, xi2, …, xin)T is the input data of the ith hidden neuron, wi=(wi1, wi2, …, win)T is the weight between the ith hidden neuron and the input neurons, l is the number of hidden units, N is the number of samples in the training set, m is the number of output units, f(s) refer to Eqs.12 and 13.\nFor ELM, l was set equal to N then ||HA-T|| = 0, which signify all samples can be learned without error [26]. When calculating A by Eq.16 need to calculate the inverse matrix of H, but H is not always invertible. In this paper, ridge regression was used to solve this problem, calculated the pseudo inverse matrix to replace inverse matrix by Eq.19.\nH*=(H+λI)− 1 (19)\nWhere H* is the pseudo inverse matrix of H, I is the identity matrix and λ is an arbitrary constant.\nH. Gan et al.\nMaterials Today Communications 26 (2021) 101950\nThe flow chart of ELM and the main code of ELM as shown in the Figs. 5 and 6."
+    }, {
+      "heading" : "3. Results and discussion",
+      "text" : "Before testing, all ANNs were trained to rely on the data of the training set or semi training set to improve the accuracy. The learning results of ANN to the training set and semi training set are given in Table 2.\nAs displayed in Table 2, all ANNs that showed good results in learning samples. Especially, ELM got an amazing error that less than 10− 14 and the values of R2 were equal to 1 due to l was set equal to N as mentioned above. For GA-BP, the values of AARE were less than 0.3 %, and the values of R2 were bigger or equal than 0.998, which indicated that GA-BP had exceptional the accuracy of learning process although was weaker than ELM. For BP, there had a value of AARE was more than\n1%, and all values of R2 were less than 0.99. Compared with GA-BP and ELM, BP’s MAPE, RMSE and AARE were larger. Besides, when the sample data increased, changed from semi training set to training set, it can be found that the AARE of GA-BP increases from 0.09 % and 0.06 % to 0.29 % and 0.07 %. The R2 of GA-BP also changes from double 0.999 to 0.998 and 0.999. Analogously, for BP, the learning effect was declining when the sample data increased. However, this situation does not occur for ELM since the study of is completed by one-step calculation. So, for the electrodeposition of nano-silver film, the order of the accuracy of learning process is ELM >GA-BP > BP.\nThe prediction results for the test set of ANNs that were trained by training set or semi training set are displayed in Figs. 7–8, and the corresponding characterization results are displayed in Table 3. As displayed in Table 3, when the training set samples become insufficient, the AARE of ELM changes from 3.95% and 0.49% to 21.80% and 6.81%, the R2 of ELM changes from 0.899 and 0.942 to 0.261 and 0.062. It can be seen from Fig. 8, the prediction results of ELM are distorted and greatly differ with the experimental values. It indicates that ELM has terrible analogical ability and needs an abundant number of samples to train for guarantee accuracy. On the contrary, GA-BP still maintains high accuracy, even the training set samples are insufficient. The value of R2 > 0.85 and AARE less than 5% for GA-BP when the training set samples are insufficient. It indicates that GA-BP has exceptional analogical ability and needs minor number of samples to train for guarantee accuracy. Similar to GA-BP, simple BP also shows a fair analogical ability. The AARE of BP changes from 5.57% and 0.70% to 5.77% and 1.09%, the R2 of BP changes from 0.829 and 0.847 to 0.827 and 0.790. So, for the electrodeposition of nano-silver film, the order of analogical ability is GA-BP ≈ BP > ELM.\nThe time required for training and test of ANNs is shown in Fig. 9. For different computer configuration, the specific time required may be slightly different, but the trend should be consistent. ELM displayed efficient learning rate and tiny time required that all less than one second since the weights were generated by one-step calculation and\nH. Gan et al.\nMaterials Today Communications 26 (2021) 101950\nwithout iteration. Compared with BP, the time required for GA-BP was greatly increased. For the semi training set, BP needs 11 min to learn while GA-BP needs 137 min. For the training set, BP needs 115 min to learn while GA-BP needs 632 min. The reason is GA-BP has one more optimization step that needs to iterate. So, for the electrodeposition of nano-silver film, the order of time required is GA-BP > BP > ELM.\nDuring the training, the fitness value and sum-squared error change in the iterative process of the genetic algorithm are shown in Fig.10. It was found that when the generation was close to 2000, the fitness function and the sum-squared error value reached the convergence value. It indicated that the generation set to 10,000 has a certain degree of excess. Therefore, the generation value could be reduced appropriately to abate the time required of GA-BP.\nFor different factors, MIV analysis was used to study the significance\nof each parameter to guide experiments and the results were presented in Tables 4–5.\nIt can be observed that the contribution rates obtained by ANNs are different. The order of contribution rate for each parameter cannot be manifestly distinguished. But the sum of the contributions of current density and substrate glossiness to silver film glossiness is more than 78.40 % (80.47 % for BP, 78.40 % for GA-BP, 81.66 % for ELM), and to η is more than 69.56 % (69.56 % for BP, 69.76 % for GA-BP, 74.92 % for ELM). So, could get a conclusion that glossiness and η are mainly controlled by current density with substrate glossiness and the influence of pH with stirring rate are relatively lower from the MIV analysis results, probably. However, it is not clear which parameters play a crucial role. For the sign of MIV value, the results of three ANNs are analogous. From the signs of MIV values in Table 4, it can be concluded that substrate glossiness has a positive impact on glossiness. On the contrary, stirring rate has a negative impact on glossiness. However, the influence of pH and current density on glossiness is uncertain. For current efficiency η, only stirring rate has a positive impact, while substrate glossiness, pH and current density have a positive impact on η."
+    }, {
+      "heading" : "4. Conclusions",
+      "text" : "For the electrodeposition of nano-silver, ELM demonstrates an efficient rate and extremely low time required due to the weight is calculated through one-step and without iteration but needs extreme sample data to ensure accuracy and reliability. This shows that ELM has a superb accuracy, but the ability of analogy is very poor, so ELM has a great demand for the number of samples. GA-BP exhibited a relatively higher accuracy than simple BP and approximate with ELM that has adequate samples. GA-BP only needs quite a few sample data as the basis to guarantee high accuracy and reveal mighty analogical ability. Nevertheless, the disadvantage of GA-BP is that needs extreme time to train for the double iterative processes of weight and genetic algorithm. The performance of BP in time required and accuracy is between GA-BP and\nH. Gan et al.\nMaterials Today Communications 26 (2021) 101950\nELM. Therefore, for the electrodeposition of nano-silver, ELM is an excellent choice when there are sufficient samples because it can provide a higher accuracy and cost less time than BP and GA-BP. In the case of only possess a finite number of samples, GA-BP is a relatively better choice because of its excellent analogical ability. BP is a compromise between the two ANNs. There is one more thing that should be noted that is the learning effect of BP and GA-BP will decrease with the increase of sample size.\nMIV analysis was used to explore the impact of each parameter for three kinds of ANNs. The order of contribution rate for each parameter cannot be manifestly distinguished from MIV results owing to the vast divergence of results that obtained by various ANNs. From the results of MIV analysis, probably display that glossiness with current efficiency η are mainly controlled by current density and substrate glossiness. And also, it can be concluded that substrate glossiness has a positive impact on glossiness while stirring rate has a negative impact on glossiness. However, the impact of pH and current density on glossiness is uncertain. And only stirring rate has a positive impact on current efficiency η. In contrast, substrate glossiness, pH and current density have a positive impact on η from MIV analysis.\nDeclaration of Competing Interest\nThe authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper"
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "This work was financially supported by the National Natural Science Foundation of China (No. 51961028) and Startup Foundation Program of Nanchang Hangkong University for Doctors (EA201901056)."
+    } ],
+    "references" : [ {
+      "title" : "Reversible Ag electroplating onto ITO electrode for smart window",
+      "author" : [ "A. Aoki", "A. Ito", "S. Watanabe" ],
+      "venue" : "Sol. Energy Mater. Sol. 200 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Electrodeposition of silver nanoparticle arrays on ITO coated glass and their application as reproducible surface-enhanced Raman scattering substrate",
+      "author" : [ "J.C. Bian", "Z. Li", "Z.D. Chen", "H.Y. He", "X.W. Zhang", "X. Li", "G.R. Han" ],
+      "venue" : "Appl. Surf. Sci. 258 (5) ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Electromagnetic energy transport via linear chains of silver nanoparticles",
+      "author" : [ "M. Quinten", "A. Leitner", "J.R. Krenn", "F.R. Aussenegg" ],
+      "venue" : "Opt. Lett. 23 (17) ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "Biosynthesis of silver and gold nanoparticles using Musa acuminata colla flower and its pharmaceutical activity against bacteria and anticancer efficacy",
+      "author" : [ "S. Valsalam", "P. Agastian", "G.A. Esmail", "A.M. Ghilan", "N.A. Al-Dhabi", "M.V. Arasu" ],
+      "venue" : "J. Photochem. Photobiol. B, Biol. 201 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Green synthesis of anisotropic silver nanoparticles from the aqueous leaf extract of Dodonaea viscosa with their antibacterial and anticancer activities",
+      "author" : [ "M. Anandan", "G. Poorani", "P. Boomi", "K. Varunkumar", "K. Anand", "A.A. Chuturgoon" ],
+      "venue" : "Process Biochem. 80 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Silverdecorated and palladium-coated copper-electroplated fibers derived from electrospun polymer nanofibers",
+      "author" : [ "S. An", "Y.I. Kim", "H.S. Jo", "M.W. Kim", "M.W. Lee", "A.L. Yarin", "S.S. Yoon" ],
+      "venue" : "Chem. Eng. J. 327 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Artificial neural network approach to predict the mechanical properties of Cu–Sn–Pb–Zn–Ni cast alloys",
+      "author" : [ "M.S. Ozerdem", "S. Kolukisa" ],
+      "venue" : "Mater. Des. 30 (3) ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "A neuro-based approach to designing a Wilkinson power divider",
+      "author" : [ "M.B. Jamshidi", "A. Lalbakhsh", "S. Lotfi", "H. Siahkamari", "B. Mohamadzade", "J. Jalilian" ],
+      "venue" : "Int. J. Rf Microw. C E 30 (3) ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "A dynamic artificial neural network approach to estimate thermal behaviors of Li-ion batteries",
+      "author" : [ "M.B. Jamshidi", "S. Rostami" ],
+      "venue" : "2017 IEEE 2nd International Conference on Automatic Control and Intelligent Systems ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Application of artificial neural networks to predict the grain size of nano-crystalline nickel coatings",
+      "author" : [ "A.M. Rashidi", "A.R. Eivani", "A. Amadeh" ],
+      "venue" : "Comput. Mater. Sci. 45 (2) ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Artificial neural network modelling of plating rate and phosphorus content in the coatings of electroless nickel plating",
+      "author" : [ "Y.T. Wu", "B. Shen", "L. Lui", "W.B. Hu" ],
+      "venue" : "J. Mater. Process. Technol. 205 (1-3) ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Application of artificial neural networks to predict the hardness of Ni–TiN nanocoatings fabricated by pulse electrodeposition",
+      "author" : [ "M.Z. Jiang", "C.Y. Ma", "F.F. Xia", "Y. Zhang" ],
+      "venue" : "Surf. Coat. Technol. 286 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Modeling of the prediction of densification behavior of powder metallurgy Al–Cu–Mg/B4C composites using artificial neural networks",
+      "author" : [ "T. Varol", "A. Canakci", "S. Ozsahin" ],
+      "venue" : "Acta Metall. Sin. Engl. Lett. 28 (2) ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Application of artificial neural networks to predict corrosion behavior of Ni–SiC composite coatings deposited by ultrasonic electrodeposition",
+      "author" : [ "Y.J. Xu", "Y.Y. Zhu", "G.R. Xiao", "C.Y. Ma" ],
+      "venue" : "Ceram. Int. 40 (4) ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Application of Artificial Neural Network (ANN) for the prediction of thermal conductivity of oxide–water  nanofluids",
+      "author" : [ "G.A. Longo", "C. Zilio", "E. Ceseracciu", "M. Reggiani" ],
+      "venue" : "Nano Energy 1 (2) ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Optimization of plating processing",
+      "author" : [ "W.C. Sun", "M.M. Tian", "P. Zhang", "H.J. Wei", "G.Q. Hou" ],
+      "venue" : "microstructure and properties of Ni–TiC coatings based on BP artificial neural networks, Trans. Indian Inst. Met. 69 (8) ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "An optimizing BP neural network algorithm based on genetic algorithm",
+      "author" : [ "S.F. Ding", "C.Y. Su", "J.Z. Yu" ],
+      "venue" : "Artif. Intell. Rev. 36 (2) ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Reliable classification using neural networks: a genetic algorithm and backpropagation comparison",
+      "author" : [ "R.S. Sexton", "R.E. Dorsey" ],
+      "venue" : "Decis. Support Syst. 30 (1) ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 1016
+    }, {
+      "title" : "Mutation-based genetic neural network",
+      "author" : [ "P.P. Palmes", "T. Hayasaka", "S. Usui" ],
+      "venue" : "IEEE Trans. Neural Netw. 16 (3) ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "A short-term load forecasting model of natural gas based on optimized genetic algorithm and improved BP neural network",
+      "author" : [ "F. Yu", "X.Z. Xu" ],
+      "venue" : "Appl. Energy 134 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Optimized scenario for rainfall forecasting using genetic algorithm coupled with artificial neural network",
+      "author" : [ "M. Nasseri", "K. Asghari", "M.J. Abedini" ],
+      "venue" : "Expert Syst. Appl. 35 (3) ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Adaptive filling modeling of butt joints using genetic algorithm and neural network for laser welding with filler wire",
+      "author" : [ "K. Zhang", "Y.X. Chen", "J. Zheng", "J. Huang", "X.H. Tang" ],
+      "venue" : "J. Manuf. Process. 30 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "A hybrid of back propagation neural network and genetic algorithm for optimization of injection molding process parameters",
+      "author" : [ "F. Yin", "H.J. Mao", "L. Hua" ],
+      "venue" : "Mater. Des. 32 (6) ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Hierarchical extreme learning machines",
+      "author" : [ "G.B. Huang", "J. Wu", "D.C. Wunsch" ],
+      "venue" : "Neurocomputing 277 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Extreme learning machine: theory and applications",
+      "author" : [ "G.B. Huang", "Q.Y. Zhu", "C.K. Siew" ],
+      "venue" : "Neurocomputing 70 (1-3) ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Predicting discharge coefficient of triangular labyrinth weir using extreme learning machine",
+      "author" : [ "H. Karami", "S. Karimi", "H. Bonakdari", "S. Shamshirband" ],
+      "venue" : "artificial neural network and genetic programming, Neural Comput. Appl. 29 (11) ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "On neural network modeling to maximize the power output of PEMFCs",
+      "author" : [ "F.S. Nanadegani", "E.N. Lay", "A. Iranzo", "J.A. Salva", "B. Sunden" ],
+      "venue" : "Electrochim. Acta 348 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2020
+    }, {
+      "title" : "Determining China’s CO2 emissions peak with a dynamic nonlinear artificial neural network approach and scenario analysis",
+      "author" : [ "G.Y. Xu", "P. Schwarz", "H.L. Yang" ],
+      "venue" : "Energy policy 128 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Prediction and analysis of high velocity oxy fuel (HVOF) sprayed coating using artificial neural network",
+      "author" : [ "M.M. Liu", "Z.X. Yu", "Y.C. Zhang", "H.J. Wu", "H.L. Liao", "S.H. Deng" ],
+      "venue" : "Surf. Coat. Technol. 378 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Therefore, nano-silver is attractive for applications in the fields of functional materials [1,2], optics [3,4], biology [5,6] and electron [7].",
+      "startOffset" : 92,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 1,
+      "context" : "Therefore, nano-silver is attractive for applications in the fields of functional materials [1,2], optics [3,4], biology [5,6] and electron [7].",
+      "startOffset" : 92,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 2,
+      "context" : "Therefore, nano-silver is attractive for applications in the fields of functional materials [1,2], optics [3,4], biology [5,6] and electron [7].",
+      "startOffset" : 106,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 3,
+      "context" : "Therefore, nano-silver is attractive for applications in the fields of functional materials [1,2], optics [3,4], biology [5,6] and electron [7].",
+      "startOffset" : 121,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 4,
+      "context" : "Therefore, nano-silver is attractive for applications in the fields of functional materials [1,2], optics [3,4], biology [5,6] and electron [7].",
+      "startOffset" : 121,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 5,
+      "context" : "Therefore, nano-silver is attractive for applications in the fields of functional materials [1,2], optics [3,4], biology [5,6] and electron [7].",
+      "startOffset" : 140,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 19,
+      "context" : "It is well known that genetic algorithm based on BP (GA-BP) is widely used in weather prediction [21,22].",
+      "startOffset" : 97,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 20,
+      "context" : "It is well known that genetic algorithm based on BP (GA-BP) is widely used in weather prediction [21,22].",
+      "startOffset" : 97,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 21,
+      "context" : "In the field of material, numerous researchers focused on GA-BP in recent years [23,24].",
+      "startOffset" : 80,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 22,
+      "context" : "In the field of material, numerous researchers focused on GA-BP in recent years [23,24].",
+      "startOffset" : 80,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 23,
+      "context" : "However, its application scope has been extended, including unsupervised learning problems represented by clustering in subsequent studies [25,26].",
+      "startOffset" : 139,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 24,
+      "context" : "However, its application scope has been extended, including unsupervised learning problems represented by clustering in subsequent studies [25,26].",
+      "startOffset" : 139,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 27,
+      "context" : "It has been extensively used in the analytical application of machine learning and the process of MIV analysis as follows [29,30]: Two new data sets are obtained by increasing or decreasing the value of the i-th parameter of the test set data proportionally by 10 %.",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 28,
+      "context" : "It has been extensively used in the analytical application of machine learning and the process of MIV analysis as follows [29,30]: Two new data sets are obtained by increasing or decreasing the value of the i-th parameter of the test set data proportionally by 10 %.",
+      "startOffset" : 122,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 24,
+      "context" : "The calculation formula as follows [26]:",
+      "startOffset" : 35,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 24,
+      "context" : "For ELM, l was set equal to N then ||HA-T|| = 0, which signify all samples can be learned without error [26].",
+      "startOffset" : 104,
+      "endOffset" : 108
+    } ],
+    "year" : 2020,
+    "abstractText" : "The back-propagation neural network (BP), genetic algorithm based on BP (GA-BP), and extreme learning machine (ELM) were established to predict the glossiness of silver film and current efficiency for the electrodeposition of nano-silver film in this paper. The artificial neural networks (ANNs) were built to predict the results and contrast with experimental results. The prediction results demonstrated that GA-BP exhibited a relatively higher accuracy than simple BP. ELM demonstrated an efficient rate and the time required was far less than BP and GA-BP, which also had a high accuracy if the sample data were sufficient. GA-BP only needs a few sample data as the basis to obtain high accuracy, which has a low demand for sample data. In conclusion, for the electrodeposition of nano-silver film, the order of the accuracy of learning process is ELM > GA-BP > BP, the order of analogical ability is GA-BP ≈ BP > ELM and the order of time required is GA-BP > BP > ELM. Mean impact value (MIV) analysis was utilized to explore the impact of each parameter for three kinds of ANNs. The results display that glossiness, and current efficiency are mainly controlled by current density and substrate glossiness, but which parameter plays the crucial role is not manifest.",
+    "creator" : "Elsevier"
+  }
+}

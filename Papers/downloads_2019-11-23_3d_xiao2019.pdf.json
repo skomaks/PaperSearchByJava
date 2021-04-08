@@ -1,0 +1,503 @@
+{
+  "name" : "downloads_2019-11-23_3d_xiao2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Modelling nano-indentation of ion-irradiated FCC single crystals by strain-gradient crystal plasticity theory",
+    "authors" : [ "Xiazi Xiaoa", "Lirong Chenb", "Long Yub", "Huiling Duanb" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nInternational Journal of Plasticity\njournal homepage: www.elsevier.com/locate/ijplas\nModelling nano-indentation of ion-irradiated FCC single crystals by strain-gradient crystal plasticity theory Xiazi Xiaoa,∗, Lirong Chenb,c, Long Yub, Huiling Duanb,c aDepartment of Mechanics, School of Civil Engineering, Central South University, Changsha, 410075, PR China b State Key Laboratory for Turbulence and Complex System, Department of Mechanics and Engineering Science, College of Engineering, Peking University, Beijing, 100871, PR China c CAPT, HEDPS and IFSA Collaborative Innovation Center of MoE, Peking University, Beijing, 100871, PR China\nA R T I C L E I N F O\nKeywords: Ion irradiation Nanoindentation Mechanical behavior Finite element simulation Constitutive equation\nA B S T R A C T\nIn this work, a strain-gradient crystal plasticity theory with irradiation effect is proposed for the surface nano-indentation of ion-irradiated FCC metals. In order to characterize the indentation size effect and irradiation hardening of ion-irradiated materials indented by the Berkovich indenter, the hardening contributions of geometrically necessary dislocations and non-uniformly distributed defects are incorporated into the classical crystal plasticity theory. The constitutive equations are implemented into ABAQUS through the user material subroutine VUMAT to numerically simulate the surface nano-indentation of ion-irradiated single crystal copper. The theoretical model is calibrated by comparing the numerical results with experimental data. Both the simulated force-depth relationship without irradiation effect and hardness-depth relationship with/without irradiation effect can match well with corresponding experimental data. The dominant features as observed in the nano-indentation of ion-irradiated materials can be effectively characterized by the proposed theoretical framework, which include the indentation size effect, depth-dependent irradiation hardening, and unirradiated substrate softening effect. Moreover, the evolution of different hardening mechanisms during the surface nano-indentation is systematically analyzed to help understand the macroscopic deformation behavior."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Over the past decade, the study of irradiation effect on the mechanical properties of metallic materials has drawn increasing attention due to the imperious demands for the development of novel irradiation-resistant materials that can be served in nextgeneration nuclear reactors (Saleh et al., 2016; Cui et al., 2018; Chen et al., 2018). The study of irradiation effect based on neutron irradiation is not an easy task because of the limited neutron irradiation sources, expensive experiment cost and long experiment period. As an alternative method, ion irradiation, which is not only convenient for the control of experimental conditions, but also economical and time saving, offers a valid way to study the fundamental mechanisms induced by irradiation defects (Duan et al., 2017; Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).\nConsidering the limited irradiation depth of ion-irradiated materials, surface nano-indentation may offer the most convenient method to characterize the localized mechanical properties within the shallow irradiated region (Hosemann et al., 2015; Hosemann, 2018; Xiao and Yu, 2018; Xiao et al., 2017). In recent years, numbers of ion irradiation experiments combining with the nano-\nhttps://doi.org/10.1016/j.ijplas.2019.01.005 Received 1 July 2018; Received in revised form 27 November 2018; Accepted 13 January 2019\n∗ Corresponding author. E-mail address: xxz2017@csu.edu.cn (X. Xiao).\nInternational Journal of Plasticity 116 (2019) 216–231\nAvailable online 21 January 2019 0749-6419/ © 2019 Elsevier Ltd. All rights reserved.\nT\nindentation technique have been performed to study the irradiation hardening of nuclear structural materials under various irradiation conditions (Hosemann et al., 2015; Hosemann, 2018; Duan et al., 2017; Fu et al., 2015; Heintze et al., 2016; Li et al., 2016). For instance, both Fe-9Cr and Fe-20Cr alloy were irradiated by Fe ions at room temperature and up to 5 displacement per atom (dpa). Then, the irradiation hardening of these alloys was investigated by nano-indentation with Berkovich indenters. The maximum indentation depth reached 2000 nm, which was about twice the irradiation depth (Li et al., 2016). Another typical experiment was performed on T91 steels (Heintze et al., 2016), which were irradiated by self-ions at 473 K and up to 3.5 dpa. The Berkovich indenter was applied to penetrate the irradiated sample, and the maximum indentation depth was smaller than the irradiation depth. Concerning the experimental work performed for single crystals, Kiener et al. (2012) applied a series of small-scale testing for ionirradiated single crystal copper. In their experiments, the [110] orientated copper was irradiated by proton beams under 353 K, and the irradiation depth was around 1000 nm. By performing surface nano-indentation with the maximum indentation depth of about 3500 nm, the hardening behavior within the irradiation layer and unirradiated substrate could be systematically characterized by analyzing the hardness-depth data at different indentation depths. One should note that in most of the related experiments, the Berkovich indenter is still the most widely applied indenter tip. As a promising alternative, the application of spherical indenters has drawn ones’ attention as it can effectively characterize the onset of plasticity transition at small indentation depths (Weaver et al., 2017), and address the heterogeneous characteristics of the radiation-induced-damage zone by analyzing the indentation stress-strain relationships at different irradiation doses (Pathak et al., 2017).\nAs a summary of the dominant mechanical features as observed in the above mentioned experiments, it can be seen that: (1) indentation size effect (ISE), i.e., the increase of hardness with the decrease of indentation depth (Pharr et al., 2010), exists for both the irradiated and unirradiated materials (Hosemann et al., 2015; Li et al., 2016; Heintze et al., 2016; Kiener et al., 2012). (ii) The irradiation hardening behavior as a function of indentation depth is related to both the irradiation depth and indentation depth. When the plasticity affected region (PAR) formed beneath the indenter tip does not exceed the boundary of the irradiated region, irradiation hardening can be obviously noticed; whereas, if the PAR penetrates through the irradiated region, the hardening behavior gradually weakens due to the softening effect of the unirradiated substrate (Fu et al., 2015; Heintze et al., 2016; Li et al., 2016). (iii) With the increase of irradiation dose, the hardening behavior becomes increasingly obvious until the defect density in the irradiated region gets saturated, which is similar to the situation of neutron irradiation (Li et al., 2016; Kiener et al., 2012).\nComparing with the direct experimental observation of the macroscopic mechanical behaviors, numerical simulation work can help us understand the fundamental mechanisms that result in irradiation effect, and facilitate the research and design of irradiationresistant materials. Among most of the simulation methods, crystal plasticity finite element method (CPFEM) offers a valid way to analyze the macroscopic deformation behavior of metallic materials (Narayanan et al., 2011; Li et al., 2013; Esque-de los Ojos et al., 2014; Yao and You, 2017; Liu et al., 2005; Patel and Kalidindi, 2017; Ha et al., 2017; Casals et al., 2007; Choudhury and Ladani, 2015; Petryk et al., 2017; Huang and Zhou, 2017; Liu et al., 2014; Renner et al., 2016). In order to analyze the mechanical properties of ion-irradiated materials, it is necessary to consider the depth-dependent irradiation hardening and ISE simultaneously as summarized above. However, there exists no intrinsic length scale within the framework of classical crystal plasticity theory, therefore, ISE cannot be characterized by the classical CPFEM. In order to encapsulate the distinct size effect under inhomogeneous deformation, the strain-gradient plasticity theory (SGPT) has been developed in the past decades (see, e.g. (Liu and Dunstan, 2017; Panteghini and Bardella, 2018; Song and Voyiadjis, 2018; Fleck et al., 2014; Bardella and Panteghini, 2015), and references therein) after the introduction of the concept of geometrically necessary dislocations (GNDs) by (Nye, 1953; Ashby, 1970; Kroner, 1958). Furthermore, the hardening contribution of GNDs has been implemented into the classical crystal plasticity theory, which renders the strain-gradient crystal plasticity theory (SGCPT) (see, e.g. (Gurtin and Ohno, 2011; Engels et al., 2012; Han et al., 2017; Demiral et al., 2014, 2013; Bittencourt, 2018) and references therein). Nowadays, it has been noticed that the SGCPT offers a promising method to study the ISE as observed in the field of nano-indentation. For instance, Han et al. (2005a,b) deduced an effective density of GNDs through the analysis of dislocation theory, and incorporated the expression of GNDs into the traditional Taylor relation to address the size-dependent plastic deformation at micro-scale. Lee and Chen (2010) simulated the indentation behavior of single crystal copper with the Berkovich indenter by implementing the SGCPT into ABAQUS with the user interface subroutine UMAT. The numerical results could match well with corresponding experimental data, which indicates that the dominant hardening mechanism comes from the contribution of GNDs when the indenter is close to the sample surface. Although the ISE can be effectively addressed by the SGCPT, the hardening mechanism induced by the irradiation-induced defects is not taken into account in this theory, therefore, the macroscopic mechanical behavior of ion-irradiated materials can hardly be characterized by the SGCPT without irradiation effect.\nSo far, simulation work based on CPFEM has been seldom reported in the published literature for the mechanical behavior of ionirradiated materials. Only recently, a preliminary work was performed by Saleh et al. (2016) that combined both experiments and simulation modelling to study the irradiation hardening of ion-irradiated SS316 stainless steels with the Berkovich indenter. In their proposed geometrical model, the irradiated layer was divided into several slices, and a phenomenological hardening sub-model, which directly characterized the irradiation hardening as a function of irradiation dose, was applied in each slice to address the hardening behavior of ion-irradiated materials with non-uniformly distributed defects. In this way, the increase of hardness as a function of indentation depth can be qualitatively compared with their experimental results. However, as no intrinsic material length is considered in the constitutive equations, the ISE can not be addressed in the numerical work, and the hardness-depth relationship with/without irradiation effect can hardly be quantitatively compared with experimental data.\nIn this work, a SGCPT with irradiation effect is proposed for ion-irradiated face-centered cubic (FCC) metals, where the effects of GNDs and non-uniformly distributed defects are both taken into account. The constitutive equations are implemented in ABAQUS/ standard using the user-defined subroutines VUMAT to numerically simulate the nano-indentation behavior with the Berkovich\nindenter. This paper is organized as follows: In Section 2, the constitutive equations are presented for the SGCPT involving the contribution of inhomogeneously distributed defects. In the following, a detailed introduction for the model calibration is given in Section 3, including the setup of the geometrical model, numerical implementation of SGCPT into VUMAT, and parameter calibration. In Section 4, the simulated results are compared with experimental data for the force-depth relationship and hardness-depth relationship under different loading directions and irradiation conditions. Moreover, detailed microstructure evolution behaviors are analyzed to help understand the macroscopic deformation mechanisms. Finally, we close with some discussions and conclusions in Section 5."
+    }, {
+      "heading" : "2. Strain-gradient crystal plasticity theory with irradiation effect",
+      "text" : "Following the framework of classical crystal plasticity theory (Hill, 1966; Hill and Rice, 1972), the deformation gradient F is decomposed multiplicatively into elastic and plastic parts as follows:\nF FF ,e p= (1)\nwhere the superscript “e” and “p” indicate, respectively, the elasticity and plasticity. With plastic deformation, Fp evolves in the following form\nF L F ,p p p= (2)\nwhere Lp is the plastic velocity gradient that is related to\nN s mL ,p s\n1 = = (3)\nwhere s and m denote, respectively, the slip direction and normal direction of slip system α. Ns is the number of slip systems for considered materials. For FCC metals, there are generally 12 slip systems characterized by the Miller indices {111} 110 . is the plastic shearing rate that can be expressed following the power-law relationship\nsgn( ), m\n0 R\nC\n1\nR= (4)\nwhere 0 and m are, respectively, the reference shearing rate and strain rate sensitivity (Peirce et al., 1982). The plastic deformation on slip system α can be activated when the resolved shear stress R (RSS) gets close to the critical resolved shear stress C (CRSS), i.e.\nR C . Thereinto, S:R = is determined by the second Piola-Kirchhoff stress and Schimid tensor S s m m s( ) 1 2= + .\nWith irradiation effect, the CRSS, which denotes the slip resistance of sliding dislocations on each slip system, is determined by not only the hardening contribution of network dislocations ( dis) and intrinsic lattice resistance ( 0), but also the influence of irradiationinduced defects ( def ). At the initial moment (i.e. t 0= ) when plastic deformation occurs, C can be expressed as\n| ,C t 0 def dis 0= + += (5)\nwhere the first two hardening terms (i.e. def and dis in Eq. (5)) for ion-irradiated materials tested by nano-indentation should be different from those for neutron-irradiated materials tested by axial tensile (Xiao et al., 2015a,b,c). The reasons mainly come from (1) the non-uniform and depth-limited distribution of irradiation-induced defects in the shallow region of ion-irradiated materials, and (2) the generation of GNDs within the indentation region where the plastic strain gradient exists. For the latter, both GNDs and statistically stored dislocations (SSDs) would contribute to the dislocation hardening term, therefore, the expression of dis in Eq. (5) can be recast as\n( ) ( ) ,dis SSD 2 GND 2= + (6)\nwhere SSD and GND are the hardening terms induced by SSDs and GNDs, respectively. With plastic deformation, the evolution of microstructures (e.g. defects, GNDs and SSDs) can result in the variation of CRSS on the activated slip systems, which affects the strain hardening behavior of ion-irradiated materials. Taken as a general form, the evolution of CRSS can be expressed as follows:\nN H | |,C\n1\ns =\n= (7)\nwhere H is a general hardening matrix that involves the contribution of irradiation-induced defects, GNDs and SSDs, and can be specified as\nH h h h ,def SSD GND= + + (8)\nwhere hdef , hSSD and hGND are, respectively, the hardening matrix for irradiation-induced defects, GNDs and SSDs. In the following subsections, the expression of def , GND and SSD as well as their hardening matrixes are presented in details.\n2.1. def and its evolution behavior\nUnder exposure to high energy particles, numbers of defects (e.g. stacking fault tetrahedra (SFTs) in FCC metals) are formed in irradiated materials, which impede the movement of sliding dislocations on dislocation slip planes, and result in irradiation hardening. Following the Taylor law, the irradiation hardening term is related to the numerical density Ndef and average size ddef of irradiation-induced defects, as well as the defect strength coefficient hdef , i.e.\nµbh N x d( ) ,def def def def= (9)\nwhere μ and b are the shear modulus and magnitude of Burgers vector, respectively. It has been indicated in experiments and simulations that the irradiation depth of ion-irradiated materials is usually limited up to a few micrometers (Hosemann, 2018). Moreover, the distribution of defects in the irradiated layer is non-uniform that tends to firstly increase with the indentation depth until it reaches the boundary of the irradiated region, and then decreases dramatically to be zero (Victoria et al., 2000; Yabuuchi et al., 2014). This inhomogeneous distribution of defect density for ion-irradiated materials (Xiao et al., 2017; Xiao and Yu, 2018) can be given as\n( )N x N x L x L ( ) 0 , x L\nn\ndef def 0\nd\nd d= > (10)\nwhere Ndef0 is the maximum defect number density at the boundary of irradiated region when x Ld= . Here, x is the distance from the irradiated sample surface, and Ld is the maximum irradiation depth. The distribution profile of defect density in the irradiated layer is characterized by the parameter n.\nCombining Eqs. (9) and (10), one can see that the defect hardening term def for ion-irradiated materials is a function of the distance x from the irradiated sample surface. In the irradiated layer, def increases with x; whereas, in the unirradiated substrate, def vanishes to be zero. In this way, it can be informed that the irradiation hardening behavior of ion-irradiated materials is not only influenced by the initial distribution of defect density, but also dependent on the relative size compared between the PAR and irradiated region. When the PAR does not exceed the irradiated region, irradiation hardening becomes increasingly obvious with the increase of indentation depth; whereas, once the PAR extends into the unirradiated region, the hardening behavior tends to be weakened due to the softening effect of the unirradiated substrate.\nFor irradiated FCC metals, the dislocation-SFT interaction plays a dominant role in affecting the plastic deformation of irradiated FCC metals. Once the plastic deformation occurs, SFTs can be annihilated through the interaction with sliding dislocations, which results in the decrease of defect density, and weakens the defect hardening strength. Moreover, some remanent defects would exist within the undeformed region around the defect-free channels. Therefore, a minimum defect hardening strength (or say defect density) is expected at the final loading stage. With this in mind, a phenomenological hardening matrix is proposed to characterize the influence of defect annihilation on the evolution of flow stress, i.e.\nh n| | ,ndef 0 def def\nmin\ndef max def min 1= (11)\nwhere 0 is the defect hardening coefficient. def max and mindef are, respectively, the maximum and minimum defect hardening strength when the defect density reaches the maximum and minimum value. n1 is the defect interaction sensitivity coefficient. n represents the interaction matrix for the interaction between dislocations on the α-th slip plane and SFTs on the β-th habit plane. One the one hand, it is indicated that the intersection area between dislocations and SFTs has a significant impact on the SFT strength (Osetsky et al., 2005; Marian et al., 2009). On the other hand, SFTs have a special three-dimensional structure that their habit planes are {111}, which coincide with the dislocation sliding planes of FCC materials, therefore, the interaction area between dislocations and SFTs is the same no matter the dislocation slip plane is parallel to the habit plane of SFTs or not. Consequently, the impediment strength of SFTs on the β-th habit plane is equivalent for the sliding dislocations on the α-th slip plane, i.e.\nn H[ ] [ ] ,, 1,12 0 , 1,12== = (12)\nwhere H0 is the impediment strength coefficient which is a constant for SFTs. α and β range from 1 to 12, which are characterized by the plane [111], [1̄11], [11̄1] and [111̄], respectively. According to Eq. (11), one can see that: (1) the hardening contribution induced by irradiation-induced defects tends to decrease once the dislocation-defect interaction process is activated, which mainly comes from the annihilation of defects by sliding dislocations. (2) The evolution rate of hdef gradually slows down with the decrease of def , and hdef finally vanishes to be zero when def defmin= .\n2.2. GND and its evolution behavior\nIn order to characterize the ISE as observed in micro- and nano-indentations, the SGCPT has been developed by incorporating the contribution of GNDs into the classical crystal plasticity theory (Demiral et al., 2013, 2014; Han et al., 2005a, b; Ma et al., 2006; Bittencourt, 2018; Gurtin, 2002, 2008; Kuroda and Tvergaard, 2008). In general, these theories can be categorized into two groups, i.e., the higher-order SGCPT (Bittencourt, 2018; Gurtin, 2002, 2008; Kuroda and Tvergaard, 2008) and lower-order SGCPT (Demiral et al., 2013, 2014; Han et al., 2005a, b; Ma et al., 2006), which depends on the addition of extra boundary conditions and governing\nequations in the classical crystal plasticity theory or not (Niordson and Hutchinson, 2003). In this work, the mechanism-based strain gradient theory developed by Han et al. (2005a,b) is adopted to characterize the hardening behavior induced by GNDs. Considering the classical Taylor relationship, GND yields as\nµh b ,GND dis GND= (13)\nwhere hdis is the dislocation strength coefficient. GND is the effective density of GNDs, which is determined by the plastic strain gradient (Han et al., 2005a; Lee and Chen, 2010), i.e.\nsm m| |,GND = × × (14)\nwhere denotes the gradient of the shear strain γ on the β-th slip system, and s s s= . Note that the definition of GNDs in the work of Han et al. (2005a) may not necessarily be the same as the one defined by Gurtin and Ohno (2011), which is decomposed into the edge and screw parts. However, the fundamental mechanism is the same for these definitions, i.e. to obtain the gradient of shear strain on the slip system. Therefore, the selection of either definition will not numerically affect the hardening behavior induced by GNDs in this work. According to Eq. (14), it can be indicated that the effective density of GNDs is mainly determined by the gradient of plastic shear in the localized region. For bulk materials under axial testing, the plastic deformation tends to be homogeneous, therefore, the hardening contribution of GNDs can be ignored. However, for ion-irradiated materials tested by nano-indentation, a non-uniformly distributed stress filed would be formed in the region beneath the indenter tip. Therefore, GNDs are generated accompanying the plastic strain gradient, which leads to the hardening behavior characterized by the macroscopic force-depth or hardness-depth relationship.\nThe generated GNDs would not only lead to the increase of CRSS, but also affect the hardening behavior of considered materials. Following the sub-model developed by Acharya and Beaudoin (2000), the hardening matrix hGND for GNDs yields as\nh k µ b ˆ\n2( ) ,GND\n0 2 2\nC 0 GND= (15)\nwhere k0 is the parameter indicating the generation rate of GND, and ˆ is a dimensionless material constant (Acharya and Beaudoin, 2000; Han et al., 2017). Eq. (15) indicates that hGND is in a non-linear form of GND as the increase of GND can also result in the increase of C . Moreover, hGND is affected by the stress field induced by irradiation-induced defects and SSDs as def and SSD are the components of C .\n2.3. SSD and its evolution behavior\nAs a contrary to the effect of GNDs, the hardening contribution induced by SSDs dose not depend on the loading method. In the initial stage, SSDs tend to be uniformly distributed throughout the whole materials. Therefore, based on the Taylor law, SSD can be given as\nµbh ,SSD dis SSD= (16)\nwhere SSD is the initial density of SSDs. When plastic deformation occurs, the generation and annihilation of dislocations could both influence the evolution of the density of SSDs. Thereinto, the former one plays a dominant role before the density of SSDs reaches a saturated value. In order to characterize this mechanism, the dislocation hardening matrix for SSDs is given as follows:\nh m|1 | ,nSSD 0 SSD\nSSD max 2= (17)\nwhere 0 and n2 are the dislocation hardening coefficient and dislocation interaction sensitivity coefficient (Arsenlis and Parks, 2002), respectively. SSDmax denotes the maximum SSD hardening strength when the density of SSDs gets saturated. Before SSD reaches the maximum value SSDmax, hSSD keeps increasing with a decelerated growth rate. m is the matrix indicating the interaction strength between dislocations of index α and β. Considering the symmetry of FCC crystals and the type of junctions formed between different dislocations, the component of m can be expressed as G g m l| |i i 0 0= with l0 the tangent line direction, and gi 0,5= are 6 independent coefficients. See Arsenlis and Parks (2002) for the detailed description of Gi .\nIn this section, the SGCPT with irradiation effect is proposed for ion-irradiated FCC metals, which involves the hardening contributions of irradiation-induced defects, GNDs and SSDs. Thereinto, the imhomogeneously distributed defects are responsible for the depth-dependent irradiation hardening, and the existence of GNDs could help explain the ISE. Moreover, different evolution laws with respect to the three hardening terms are proposed for the evolution of flow stress. Being different from the model proposed by Saleh et al. (2016), the hardening mechanisms of defects, GNDs and SSDs, as well as their evolution behaviors, are all addressed in this work, which can help analyze both the force-depth and hardness-depth relationship with and without irradiation effect, and deepen ones’ understanding of the contribution of the three hardening mechanisms to the hardness at different indentation depths. Moreover, one should note that the hardening models for defects (i.e. Eq. (11)) and SSDs (i.e. Eq. (17)) are taken in the phenomenological form, which makes it invalid to directly compare the evolution of microstructures with the ones observed in experiments.\nWhereas, it is still suitable to effectively characterize the hardening behavior of both unirradiated and irradiated materials (as shown in the following numerical results), and can dramatically facilitate the numerical simulation of nano-indentation. In the following section, the above mentioned constitutive equations are incorporated into the subroutine VUMAT to simulate the nano-indentation behavior of ion-irradiated single crystal copper with ABAQUS."
+    }, {
+      "heading" : "3. Model calibration",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Nano-indentation model and boundary conditions",
+      "text" : "In this work, the SGCPT with irradiation effect is applied to simulate the nano-indentation behavior of ion-irradiated single crystal copper with the Berkovich indenter. For the geometrical model, the indented single crystal is taken as a cylinder with the height of H 20t = μm and radius of R 20= μm (as shown in Fig. 1(a)). The depth of the irradiated layer is H 11 = μm, which is the same as experimental conditions (Kiener et al., 2012). In the irradiated layer, the distribution of defect density is non-uniform. A typical illustration of the defect density distribution is presented in Fig. 1(b) with N 8.5 10def0 22= × m 3, n 0.5= and L 1d = μm for N x N x L( ) ( / )ndef def0 d= . The 3D FE mesh for the cylinder and Berkovich indenter tip is shown respectively in Fig. 1 (c) and (d), where the cylinder is meshed with 22848 linear hexahedral elements of type C3D8R and 24344 nodes, and the Berkovich indenter tip is taken as a rigid body meshed with R3D4 and R3D3 elements. A circular arc (the radius is 100 nm) is around the tip region. Mesh is refined (the minimum size is 0.25 μm and 0.1 μm in the x-z plane and along the z axis direction, respectively) in the region beneath the indenter tip, which can help accurately characterize the localized deformation behavior and force-depth relationships. The bottom surface of the cylinder is fixed and all the other surfaces are free of constraints. The contact between the Berkovich indenter and indented sample is set to be the type of surface-to-surface contact (Explicit). Moreover, friction between the indenter and sample surface is ignored as it has little effect on the force-depth relationship (Wang et al., 2004; Liu et al., 2014)."
+    }, {
+      "heading" : "3.2. Numerical implementation of SGCPT with ion-irradiation effect",
+      "text" : "In order to implement the SGCPT with ion-irradiation effect in ABAQUS through VUMAT, two key steps should be considered seriously for numerical calculations. The first step is to initialize the inhomogeneously distributed defect density in the irradiated layer. To begin with, we mesh the sample with the 8-noded linear element of type C3D8R, and record the coordinates of the Gauss points for each element. The defect density for each element is obtained by substituting the z coordinate of each Gauss point into Eq. (10). In this way, the non-uniformly distributed defect density can be effectively incorporated into VUMAT.\nThe second step is to obtain GND for each element when localized plastic strain gradient occurs. Based on Eq. (14), it is indicated\nthat GND is mainly dominated by the gradient of shear strain for each slip system, i.e. . Following the method as proposed by Lee and Chen (2010), the shear strain at the 8 nodes of the linear element of type C3D8R is firstly collected. Then, the shear strain gradient at each Gauss point can be determined by calculating the spatial derivatives of the linear shape function (Busso et al., 2000). Finally, GND on the α-th slip system of each element is calculated following the expression as given in Eq. (14)."
+    }, {
+      "heading" : "3.3. Parameter calibration",
+      "text" : "The simulated material in this work is single crystal copper. Material constants and the parameters in constitutive equations are given as follows: C 16811 = GPa, C 121.412 = GPa and C 75.444 = GPa are the elastic constants for copper, based on which the shear modulus can be calculated as µ C C C( ) /2 41.911 12 44= = GPa (Wang et al., 2004). The intrinsic lattice resistance is only a few MPa, and is neglected (Xiao et al., 2015b). The length of Burger's vector b is 0.256 nm, 0.0010 = m 1 and m 0.05= (Wang et al., 2004), which can ensure that the numerical results are convergent under quasi-static loading. The minimum defect density is assumed to be one-tenth of the initial defect density. As observed in experiments, the average defect size is about 2.5 nm for SFTs (Ghoniem et al., 2001). As indicated in the ion-irradiation experiments, the irradiation depth is taken as 1 μm (Kiener et al., 2012). In Eq. (17), the strength interaction coefficient ofm can be characterized by g 0.10 = , g 0.251 = , g 0.62 = , g 0.83 = , g 0.64 = and g 0.85 = (Arsenlis and Parks, 2002). Moreover, k 20 = and ˆ 0.333= are adopted in Eq. (15) for the hardening behavior induced by GNDs (Acharya and Beaudoin, 2000).\nBesides the above mentioned parameters taking from either experiments or published literature, there are a few parameters that need to be fitted by comparing with the experimental data at different irradiation conditions. The stress-strain relationships of unirradiated single crystal copper loaded along [111] and [100] directions are firstly adopted to fit the parameters hdis, 0 and n2 by comparing the yield stress and evolution of flow stress. Then, the parameters hdef , 0, n1 and H0 are fitted by comparing the numerical results with the stress-strain curves of neutron-irradiated polycrystalline copper. Note that, for neutron-irradiated materials, the initial density of defects is homogeneously distributed throughout the irradiated sample. Therefore, N x( )def as expressed in Eq. (9) is taken as a constant for the case of neutron irradiation. As measured in experiments, the initial defect density is 2.4 1023× m 3 and 4.5 1023× m 3 for 0.01 dpa and 0.1 dpa, respectively (Singh et al., 2001). As shown in Fig. 2(c) and (d), the fitted results can match well with corresponding experimental data for unirradiated single crystal at different loading directions (Takeuchi, 1975) and for polycrystals at various irradiation doses (Singh et al., 2001). Corresponding geometrical models with meshed elements for single crystal and polycrystal are illustrated respectively in Fig. 2(a) and (b). Thereinto, the schematic model for polycrystalline copper is created by Neper (Quey et al., 2011), which consists of 400 randomly orientated grains. All the fitted parameters are listed in Table 1."
+    }, {
+      "heading" : "4. Results and discussions",
+      "text" : "In this section, the calibrated theoretical model is applied to simulate the nano-indentation of single crystal copper with/without ion-irradiation effect. Both the macroscopic mechanical behaviors, including the force-depth relationship and hardness-depth relationship, as well as the localized deformation mechanisms, containing the evolution of different hardening terms, equivalent plastic strain (PEEQ) and shear stress, are systematically analyzed. We also give some discussions concerning the dominant features as observed in the nano-indentation of ion-irradiated materials, i.e. ISE, indentation depth dependent irradiation hardening, and substrate softening effect."
+    }, {
+      "heading" : "4.1. F h and H h relationships of single crystal copper without irradiation effect",
+      "text" : "First of all, the proposed SGCPT with calibrated parameters is applied to simulate the nano-indentation behavior of unirradiated single crystal copper at different loading directions. To be consistent with experimental conditions, the maximum indentation depth is set as 750 nm. The initial and saturated densities of SSDs are, respectively, taken as 2 1012× m 2 and 5 1013× m 2 by comparing with experimental data. As illustrated in Fig. 3, the numerical results for the F h relationship match excellent well with corresponding experimental data (Kucharski and Jarzabek, 2014) when loaded respective along the [100], [110] and [111] directions. During the loading stage, the force applied on the Berkovich indenter increases with the indentation depth, which is mainly attributed to the increasing contact area and hardening behavior induced by both GNDs and SSDs (as presented in Eqs. (15) and (17)). Concerning the unloading part, it can be found that the unloading depth is quite small, which indicates that the elastic deformation is not\nobvious. This result is reasonable for unirradiated single crystal cooper as the initial value of CRSS is small with limited contribution of SSDs. It is also indicated that crystal anisotropy can not be obviously noticed through comparing the F h relationship of single crystal copper at different loading directions.\nIn order to analyze the hardening contribution of GNDs to the mechanical response of unirradiated single crystal copper, we make a comparison of the F h relationship by involving or not involving the influence of GNDs on the dislocation hardening term (Eq. (6)) and hardening matrix (Eq. (8)). The loading direction is [110]. As illustrated in Fig. 4, the numerical results are compared for the F h relationships with GND effect (solid line) and without GND effect (dashed line). It can be observed that: (1) the two F h curves are almost coincident during the initial loading stage and unloading stage. It is rational as no GNDs exist during these elastic deformation stages. (2) When the plastic deformation occurs, an obvious difference is noticed when comparing the force value at the same indentation depth, and this difference gradually increases with the indentation depth, which can effectively characterize the dominant hardening contribution induced by the evolution of GNDs.\nFollowing the definition as proposed by (Oliver and Pharr, 1992), the indentation hardness can be calculated as\nH F A ,= (18)\nwhere F and A are the indentation load at the maximum load and true contact area, respectively. During the nano-indentation process, material pileup or sinking-in usually occurs, which can result in the true contact area (A) deviating from the geometrical one (Ag), i.e.\nf A A , g = (19)\nwhere f is the surface deformation parameter (Casals et al., 2007). At the contact boundary, f 1> and f 1< indicate, respectively, the pileup and sinking-in behavior, which closely depends on the strain hardening behavior of the indented materials. For the Berkovich indenter, Ag is given as\nA h24.56 ,g ct2= (20)\nwith\nh h k F F hd /d ,ct = (21)\nwhere h is the indentation depth, and k 0.75= for the Berkovich indenter (Oliver and Pharr, 1992). Following Eqs. (18)–(21), the H-h relationship is calculated for unirradiated single crystal copper when the loading direction is along [110]. Thereinto, the force-depth curve is adopted as given in Fig. 4 f is fitted to be 0.8, which is consistent with the sinking-in behavior as observed in numerical results (see Fig. 7 for more details). As illustrated in Fig. 5, the simulated results are compared with experimental data (Kiener et al., 2012), and a good agreement is achieved. In the shallow indentation region (h 1000< nm), the hardness obviously increases with the decrease of indentation depth, which is known as the ISE. This phenomenon mainly comes from the existence of GNDs in the localized deformation region that results in material hardening. With the increase of indentation depth, the localized plastic deformation (or say the accumulation of GNDs around the indenter tip) can be alleviated because of the rapid expansion of the PAR that leads to the decrease of the density of GNDs (Nix and Gao, 1998). Therefore, the hardening contribution of GNDs gradually vanishes, and the hardness tends to be a constant in the deep indentation region."
+    }, {
+      "heading" : "4.2. F h and H h relationships of single crystal copper with ion-irradiation effect",
+      "text" : "With ion-irradiation effect, the irradiation-induced defects are inhomogeneously distributed within the irradiated layer. In order to characterize the irradiation hardening behavior, the parameters describing the defect density distribution (i.e. Ndef0 , Ld and n in Eq. (10)) should be firstly determined. Thereinto, the irradiation depth can be calculated by SRIM or measured by the cross-sectional TEM observation (Kiener et al., 2012). In this work, L 1d = μm is taken for ion-irradiated single crystal copper as indicated in the experimental work of (Kiener et al., 2012). The direct measurement of defect density in the shallow irradiated layer is not trivial. As another approach, the experimental data for the F h or H h relationship with irradiation effect can be adopted to fit Ndef0 and n. After a few times trials, N 8.5 10def0 22= × m 3 and n 0.5= are obtained by comparing the H h relationship of numerical results and experimental data (Kiener et al., 2012). It can be seen in Fig. 5 that: (1) the H h relationship with ion-irradiation effect can match well between the simulated results and experimental data. (2) Irradiation hardening can be obviously observed when h 1000< nm, which mainly comes from the impediment of sliding dislocations by irradiation-induced defects within the PAR. (3) With the increase of indentation depth, the irradiation hardening gradually vanishes due to the softening effect induced by the unirradiated substrate.\nFig. 6 illustrates the F h relationship corresponding to the H h relationship as given in Fig. 5. The solid line and dashed line are the simulated results with and without irradiation effect, respectively. During the initial loading (h 0.25< μm) and unloading (h 2.5 μm) stage, these two curves coincide indicating the elastic properties are not affected by irradiation-induced defects. When 0.25 µm h 1.5< < µm, the difference of force can be noticed, and it is this small difference of force in the shallow indentation region that results in the large difference of hardness as illustrated in Fig. 5. According to the definition as given in Eq. (18)), the hardness is proportional to force, but inversely proportional to the square of indentation depth. Therefore, in the shallow indentation region, the small difference of force can be magnified for the hardness as the proportional coefficient h1/ c2 can be very large. Once the indenter penetrates into the unirradiated region, the difference of F can be ignored as the hardening contribution mainly comes from the unirradiated substrate."
+    }, {
+      "heading" : "4.3. Effect of ion irradiation on the microstructure evolution of single crystal copper",
+      "text" : "Numerical distributions for the out-of-plane displacement are presented in Fig. 7. The indentation depth is h 750= nm. An obvious sinking-in behavior (marked with dashed circles) is observed for unirradiated single crystal copper when compared with the results with irradiation effect. Actually, it has been indicated that the indented region tends to sink-in for the materials with high strain-hardening behavior (e.g. copper) (Kucharski and Jarzabek, 2014), whereas, the behavior of pileup is usually observed in materials with low strain-hardening potential (Huang and Zhou, 2017). With irradiation effect, the shallow surface region contains irradiation-induced defects, which can result in the increase of yield stress and weakening of strain-hardening behavior. Therefore, the sink-in behavior of ion-irradiated copper is inhibited to a certain extent (see Fig. 7(c) and (d)). Moreover, there is no obvious difference between the loading and unloading results with and without irradiation effect. This is consistent with the small unloading displacement as presented in Fig. 6.\nNote that the evolution of macroscopic mechanical behavior is closely related to the variation of microstructures during the deformation process. In Fig. 8, the evolution of def1 , SSD1 and GND1 at different indentation depths is presented. The superscript “1” indicates the slip system (111)[11̄0]. It can be seen that: (1) When h 0= nm, the hardening terms of defects, SSDs and GNDs are initialized as the same as experimental conditions (see Fig. 8), i.e. def1 is non-uniformly distributed in the irradiated layer, SSD1 is a constant for the irradiated sample, and GND1 equals zero as no GNDs exist before indentation. (2) When h 90= nm, plastic deformation occurs around the indenter tip, which leads to the evolution of def1 , GND1 and SSD1 following the constitutive laws as given in Eq. (11), Eq. (15) and Eq. (17). Thereinto, def1 decreases because of the annihilation of defects, whereas SSD1 and GND1 gradually increase with the indentation depth due to the generation of dislocations. (3) When h 750= nm, the stress fields of both SSD1 and GND1 have dramatically exceeded the boundary of the irradiated layer. Moreover, the maximum value of GND1 ( 190 MPa) is almost an order of magnitude higher than that of SSD1 ( 30 MPa). As a comparison, the evolution of def1 is confined in the irradiated layer, and the decrease of def1 due to the annihilation of defects becomes increasingly obvious when getting close to the indenter tip.\nFig. 9 compares the distribution of PEEQ (in log scale) with/without irradiation effect. The indentation depth is h 750= nm. When taken a view from the indentation direction, a butterfly-shaped PEEQ is observed in both the unirradiated and irradiated samples (see Fig. 9(a) and (c)). Thereinto, the area of the PEEQ without irradiation effect is much larger than that with irradiation effect. The inhibited expansion of PEEQ in the irradiated layer mainly comes from the impediment of sliding dislocations within the PAR. Once the PAR passes through the boundary of the irradiated layer, the restriction for the expansion of PEEQ becomes released. As illustrated in the cross-sectional view of Fig. 9(b) and (d), the region of PEEQ in the unirradiated substrate is nearly the same for both the irradiated and unirradiated sample.\nFig. 10 illustrates the distribution of shear stress xz with and without irradiation effect. The indentation depth is h 750= nm. N 8.5 10def0 22= × m 3 and n 0.5= are specified for the irradiation condition. As one can see that the distribution of xz near the indentation print is in the form of butterfly for both the irradiated and unirradiated sample, which is similar with the results as\npresented in Fig. 9(a) and (c) for the PEEQ. Moreover, this butterfly-shaped distribution of shear stress can effectively reflect the anisotropic nature of plastic flow for single crystal copper (Han et al., 2017)."
+    }, {
+      "heading" : "4.4. Effect of defect density distribution on the irradiation hardening behavior",
+      "text" : "Last but not the least, the influence of the distribution of defect density on the F h relationship and irradiation hardening is systematically analyzed. Two cases are considered in this work, including: (1) Case I, Ndef0 varies from 0.5 1022× m 3 to 8.5 1022× m 3 when L 1000d = nm and n 0.5= are fixed. (2) Case II, n increases from 0 to 20 when L 1000d = nm and N 8.5 10def0 22= × m 3 are fixed. The loading direction is along [110]. As illustrated in Fig. 11(a), (b) and (c), the results are, respectively, presented for the defect density distribution in the irradiated layer, F h relationship, and the increase of hardness as a function of indentation depth, i.e. H -h. It can be seen that the increase of Ndef0 could lead to the increase of F and H at a given indentation depth. Whereas, the critical indentation depth hc, at which H reaches the maximum value, remains a constant. This is reasonable as the variation of Ndef0 only changes the quantity of defects but is not able to affect the distribution form of defects in the irradiated layer. The latter is dominated by the parameter n. In order to verify this conclusion, numerical results of Case II are given in Fig. 11(d), (e) and (f). As one can see that both the irradiation hardening behavior and hc depend on n. With the increase of n, the defect density gets concentrated around the maximum irradiation depth, which results in the increase of hc. Moreover, the irradiation hardening behavior gets weakened as the effective defect density within the PAR decreases. Consequently speaking, for a given irradiation depth, Ndef0 affects only the magnitude of H ; whereas, n influences both H and hc."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "In this paper, the surface nano-indentation of ion-irradiated FCC metals is studied by the strain-gradient crystal plasticity theory with irradiation effect. The constitutive equations are implemented in the finite-element code ABAQUS/standard to simulate the surface nano-indentation process. The macroscopic deformation behavior of ion-irradiated single crystal copper is analyzed with a detailed discussion of the microstructure evolution mechanisms. Some dominant contributions and conclusions are summarized as follows:\n(1) A strain-gradient crystal plasticity theory considering the effect of non-uniformly distributed defects is proposed for the surface nano-indentation of ion-irradiated materials. Within the framework of classical crystal plasticity theory, three dominant hardening mechanisms are involved, including the contribution of inhomogeneously distributed defects in the limited irradiation layer, GNDs within the highly gradient deformed region, and uniformly distributed SSDs existing throughout the whole sample. The model is capable of capturing the phenomena of ISE, depth-dependent irradiation hardening, and softening effect induced by the unirradiated substrate. (2) The proposed model is applied to study the macroscopic deformation behavior of ion-irradiated single crystal copper, including\nthe F h and H h relationships under different loading and irradiation conditions. Numerical simulations can match well with different sets of experimental data, involving the unirradiated F h results under different loading directions and H h relationships with/without irradiation effect loaded along the [110] direction. (3) Detailed evolution mechanisms of microstructures are analyzed to help understand the macroscopic deformation behavior: (i) the sinking-in behavior is observed for unirradiated single crystal copper; whereas, this phenomenon is inhibited for the situation with irradiation effect. (ii) During the indentation process, def decreases with the indentation depth, and the evolution region is limited in the irradiated layer. Both SSD and GND increase with the localized plastic deformation, and the latter one is the dominant hardening mechanism when the indentation depth is within the shallow indentation region. (iii) Irradiation-induced defects can effectively inhibit the expansion of the PAR in the irradiated layer."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "This work was supported by the National Nature Science foundation of China (NSFC) under Contract No. 11802344 and 11632001. X.Z. thanks the initial funding supported by Central South University."
+    }, {
+      "heading" : "Appendix A. Supplementary data",
+      "text" : "Supplementary data to this article can be found online at https://doi.org/10.1016/j.ijplas.2019.01.005."
+    } ],
+    "references" : [ {
+      "title" : "Grain-size effect in viscoplastic polycrystals at moderate strains",
+      "author" : [ "A. Acharya", "A.J. Beaudoin" ],
+      "venue" : "J. Mech. Phys. Solid",
+      "citeRegEx" : "Acharya and Beaudoin,? \\Q2000\\E",
+      "shortCiteRegEx" : "Acharya and Beaudoin",
+      "year" : 2000
+    }, {
+      "title" : "Gradient-dependent deformation of two-phase single crystals",
+      "author" : [ "E.P. 169–185. Busso", "F.T. Meissonnier", "N.P. O'Dowd" ],
+      "venue" : "J. Mech. Phys. Solid",
+      "citeRegEx" : "Busso et al\\.,? \\Q2000\\E",
+      "shortCiteRegEx" : "Busso et al\\.",
+      "year" : 2000
+    }, {
+      "title" : "Single crystal plasticity finite element analysis of Cu6Sn5 intermetallic",
+      "author" : [ "S.F. Sci. 474. Choudhury", "L. Ladani" ],
+      "venue" : "Metallurgical and Materials Transactions a-Physical",
+      "citeRegEx" : "Choudhury and Ladani,? \\Q2015\\E",
+      "shortCiteRegEx" : "Choudhury and Ladani",
+      "year" : 2015
+    }, {
+      "title" : "A coupled dislocation dynamics-continuum barrier field model with application to irradiated materials",
+      "author" : [ "G. Po", "N.M. Ghoniem" ],
+      "venue" : "Metallurgy and Materials Science",
+      "citeRegEx" : "Y. et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Y. et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Materials Science and Engineering a-Structural Materials Properties Microstructure and Processing",
+      "author" : [ "M. Demiral", "A. Roy", "V.V. Silberschmidt" ],
+      "venue" : "Comput. Mater. Sci",
+      "citeRegEx" : "Demiral et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Demiral et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "The effect of the initial microstructure in terms of sink",
+      "author" : [ "B. 896–902. Duan", "C. Heintze", "F. Bergner", "A. Ulbricht", "S. Akhmadaliev", "E. Onorbe", "Y. de Carlan", "T. Wang" ],
+      "venue" : null,
+      "citeRegEx" : "Duan et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Duan et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "strength on the ion-irradiation-induced hardening of ODS alloys studied by nanoindentation",
+      "author" : [ "P. Engels", "A. Ma", "A. Hartmaier" ],
+      "venue" : "J. Nucl. Mater",
+      "citeRegEx" : "Engels et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Engels et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "the mechanical response of thin fcc single crystalline films",
+      "author" : [ "N.A. Fleck", "J.W. Hutchinson", "J.R. Willis" ],
+      "venue" : "Comput. Mater. Sci",
+      "citeRegEx" : "Fleck et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Fleck et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Helium and hydrogen irradiation induced hardening in CLAM steel",
+      "author" : [ "Z.Y. Fu", "P.P. Liu", "F.R. Wan", "Q. Zhan" ],
+      "venue" : "Engineering Sciences",
+      "citeRegEx" : "Fu et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Fu et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Finite element implementation of dislocation-density-based crystal plasticity model and its application to pure aluminum crystalline",
+      "author" : [ "Jang", "J.-H", "K. Kim" ],
+      "venue" : "Mech. Phys. Solid",
+      "citeRegEx" : "S. et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "S. et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Mechanism-based strain gradient crystal plasticity - I",
+      "author" : [ "C.S. Han", "H.J. Gao", "Y.G. Huang", "W.D. Nix" ],
+      "venue" : "materials. Int. J. Mech. Sci",
+      "citeRegEx" : "Han et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Han et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "Metallurgical and Materials Transactions a-Physical Metallurgy and Materials Science 48A",
+      "author" : [ "C. Heintze", "F. Bergner", "S. Akhmadaliev", "E. Altstadt" ],
+      "venue" : null,
+      "citeRegEx" : "Heintze et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Heintze et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Generalized constitutive relations for incremental deformation of metal crystals by multislip",
+      "author" : [ "R. Hill" ],
+      "venue" : "Nucl. Mater",
+      "citeRegEx" : "Hill,? \\Q1966\\E",
+      "shortCiteRegEx" : "Hill",
+      "year" : 1966
+    }, {
+      "title" : "Modeling and simulation of nanoindentation",
+      "author" : [ "S. Huang", "C. Zhou" ],
+      "venue" : "JOM (J. Occup. Med.)",
+      "citeRegEx" : "Huang and Zhou,? \\Q2017\\E",
+      "shortCiteRegEx" : "Huang and Zhou",
+      "year" : 2017
+    }, {
+      "title" : "Kontinuumstheorie der versetzungen und eigenspannungen",
+      "author" : [ "S. Kucharski", "D. Jarzabek" ],
+      "venue" : "materials. J. Mater. Res",
+      "citeRegEx" : "Kucharski and Jarzabek,? \\Q1958\\E",
+      "shortCiteRegEx" : "Kucharski and Jarzabek",
+      "year" : 1958
+    }, {
+      "title" : "On the formulations of higher-order strain gradient crystal plasticity models",
+      "author" : [ "M. Kuroda", "V. Tvergaard" ],
+      "venue" : "Metallurgy and Materials Science 45A,",
+      "citeRegEx" : "Kuroda and Tvergaard,? \\Q2008\\E",
+      "shortCiteRegEx" : "Kuroda and Tvergaard",
+      "year" : 2008
+    }, {
+      "title" : "Three-dimensional crystal plasticity finite element simulation of nanoindentation on aluminium alloy 2024",
+      "author" : [ "L. 1527–1540. Li", "L. Shen", "G. Proust", "C.K.S. Moy", "G. Ranzi" ],
+      "venue" : null,
+      "citeRegEx" : "Li et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Li et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Materials Science and Engineering a-Structural Materials Properties Microstructure and Processing",
+      "author" : [ "Y. Wang", "X. Dai", "F. Liu", "J. Li", "X. Wang" ],
+      "venue" : null,
+      "citeRegEx" : "S. et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "S. et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Material length scale of strain gradient plasticity: a physical interpretation",
+      "author" : [ "D.J. Dunstan" ],
+      "venue" : "Nucl. Mater",
+      "citeRegEx" : "D. and Dunstan,? \\Q2017\\E",
+      "shortCiteRegEx" : "D. and Dunstan",
+      "year" : 2017
+    }, {
+      "title" : "indentation of an aluminium single crystal",
+      "author" : [ "B. Wang", "M. Yoshino", "S. Roy", "H. Lu", "R. Komanduri" ],
+      "venue" : "Comput. Mater. Sci",
+      "citeRegEx" : "Y. et al\\.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Y. et al\\.",
+      "year" : 2005
+    }, {
+      "title" : "Micro/meso-scale computational study of dislocation-stacking-fault tetrahedron interactions in copper",
+      "author" : [ "Mater", "J. 2169–2179. Marian", "E. Matinez", "H.J. Lee", "B.D. Wirth" ],
+      "venue" : "J. Mater",
+      "citeRegEx" : "54 et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "54 et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Indentation response of single-crystal copper using rate-independent crystal plasticity",
+      "author" : [ "Res", "K.R. 3628–3635. Narayanan", "S. Subbiah", "I. Sridhar" ],
+      "venue" : "Appl. Phys. Mater. Sci. Process",
+      "citeRegEx" : "24 et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "24 et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "On lower order strain gradient plasticity theories",
+      "author" : [ "C.F. Niordson", "J.W. Hutchinson" ],
+      "venue" : "Eur. J. Mech. A Solid",
+      "citeRegEx" : "Niordson and Hutchinson,? \\Q2003\\E",
+      "shortCiteRegEx" : "Niordson and Hutchinson",
+      "year" : 2003
+    }, {
+      "title" : "Atomic-scale details of dislocation-stacking fault tetrahedra interaction",
+      "author" : [ "Mater. Res" ],
+      "venue" : "Materials Science and Engineering",
+      "citeRegEx" : "Res.,? \\Q2005\\E",
+      "shortCiteRegEx" : "Res.",
+      "year" : 2005
+    }, {
+      "title" : "a-Structural Materials Properties Microstructure and Processing",
+      "author" : [ "A. 370–373. Panteghini", "L. Bardella" ],
+      "venue" : "J. Mech. Phys. Solid",
+      "citeRegEx" : "Panteghini and Bardella,? \\Q2018\\E",
+      "shortCiteRegEx" : "Panteghini and Bardella",
+      "year" : 2018
+    }, {
+      "title" : "Probing nanoscale damage gradients in ion-irradiated metals using spherical",
+      "author" : [ "S. Pathak", "S.R. Kalidindi", "J.S. Weaver", "Y. Wang", "R.P. Doerner", "N.A. Mara" ],
+      "venue" : "metals. Int. J. Plast",
+      "citeRegEx" : "Pathak et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Pathak et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "An analysis of nonuniform and localized deformation in ductile single crystals",
+      "author" : [ "D. Peirce", "R.J. Asaro", "A. Needleman" ],
+      "venue" : "nanoindentation. Sci. Rep. 17,",
+      "citeRegEx" : "Peirce et al\\.,? \\Q1982\\E",
+      "shortCiteRegEx" : "Peirce et al\\.",
+      "year" : 1982
+    }, {
+      "title" : "The indentation size effect: a critical examination of experimental observations and mechanistic interpretations",
+      "author" : [ "G.M. 209–221. Pharr", "E.G. Herbert", "Y. Gao" ],
+      "venue" : "Annu. Rev",
+      "citeRegEx" : "Pharr et al\\.,? \\Q2010\\E",
+      "shortCiteRegEx" : "Pharr et al\\.",
+      "year" : 2010
+    }, {
+      "title" : "Large-scale 3d random polycrystals for the finite element method: generation, meshing and remeshing",
+      "author" : [ "R. Quey", "P.R. Dawson", "F. Barbe" ],
+      "venue" : "Mater. Res",
+      "citeRegEx" : "Quey et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Quey et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Sensitivity of the residual topography to single crystal plasticity parameters in berkovich",
+      "author" : [ "E. Renner", "Y. Gaillard", "F. Richard", "F. Amiot", "P. Delobelle" ],
+      "venue" : null,
+      "citeRegEx" : "Renner et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Renner et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Relationship between damage and hardness profiles",
+      "author" : [ "Z. Zaidi", "M. Ionescu", "C. Hurt", "K. Short", "J. Daniels", "P. Munroe", "L. Edwards", "D. Bhattacharyya" ],
+      "venue" : "noindentation on FCC nickel. Int. J. Plast",
+      "citeRegEx" : "M. et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "M. et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "ss316 using nanoindentation - experiments and modelling",
+      "author" : [ "B.N. Singh", "D.J. Edwards", "P. Toft" ],
+      "venue" : "Int. J. Plast",
+      "citeRegEx" : "Singh et al\\.,? \\Q2001\\E",
+      "shortCiteRegEx" : "Singh et al\\.",
+      "year" : 2001
+    }, {
+      "title" : "Small scale volume formulation based on coupled thermo-mechanical gradient enhanced plasticity theory",
+      "author" : [ "Nucl. Mater" ],
+      "venue" : "Int. J. Solid Struct",
+      "citeRegEx" : "Mater.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Mater.",
+      "year" : 2018
+    }, {
+      "title" : "Work-hardening of copper single-crystals with multiple glide orientations. Mater",
+      "author" : [ "T. 195–215. Takeuchi" ],
+      "venue" : null,
+      "citeRegEx" : "Takeuchi,? \\Q1975\\E",
+      "shortCiteRegEx" : "Takeuchi",
+      "year" : 1975
+    }, {
+      "title" : "Orientation dependence of nanoindentation pile-up patterns and of nanoindentation microtextures in copper",
+      "author" : [ "D. Raabe", "C. Kluber", "F. Roters" ],
+      "venue" : "metals. J. Nucl. Mater",
+      "citeRegEx" : "Y. et al\\.,? \\Q2004\\E",
+      "shortCiteRegEx" : "Y. et al\\.",
+      "year" : 2004
+    }, {
+      "title" : "Spherical nanoindentation of proton irradiated 304 stainless steel",
+      "author" : [ "J.S. Weaver", "S. Pathak", "A. Reichardt", "H.T. Vo", "S.A. Maloy", "P. Hosemann", "N.A. Mara" ],
+      "venue" : "crystals. Acta Mater",
+      "citeRegEx" : "Weaver et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Weaver et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "acomparison of small scale mechanical test techniques for measuringirradiation hardening",
+      "author" : [ "Q. Chen", "H. Yang", "H. Duan", "J. Qu" ],
+      "venue" : "J. Nucl. Mater",
+      "citeRegEx" : "X. et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "X. et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "2015c. A size-dependent tensorial plasticity model for FCC single crystal with irradiation",
+      "author" : [ "D. Song", "J. Xue", "H. Chu", "H. Duan" ],
+      "venue" : "polycrystals. J. Mech. Phys. Solid",
+      "citeRegEx" : "X. et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "X. et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Evaluation of irradiation hardening of proton irradiated stainless steels by nanoindentation",
+      "author" : [ "K. 110–115. Yabuuchi", "Y. Kuribayashi", "S. Nogami", "R. Kasada", "A. Hasegawa" ],
+      "venue" : null,
+      "citeRegEx" : "Yabuuchi et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Yabuuchi et al\\.",
+      "year" : 2014
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 5,
+      "context" : "As an alternative method, ion irradiation, which is not only convenient for the control of experimental conditions, but also economical and time saving, offers a valid way to study the fundamental mechanisms induced by irradiation defects (Duan et al., 2017; Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).",
+      "startOffset" : 239,
+      "endOffset" : 314
+    }, {
+      "referenceID" : 8,
+      "context" : "As an alternative method, ion irradiation, which is not only convenient for the control of experimental conditions, but also economical and time saving, offers a valid way to study the fundamental mechanisms induced by irradiation defects (Duan et al., 2017; Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).",
+      "startOffset" : 239,
+      "endOffset" : 314
+    }, {
+      "referenceID" : 11,
+      "context" : "As an alternative method, ion irradiation, which is not only convenient for the control of experimental conditions, but also economical and time saving, offers a valid way to study the fundamental mechanisms induced by irradiation defects (Duan et al., 2017; Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).",
+      "startOffset" : 239,
+      "endOffset" : 314
+    }, {
+      "referenceID" : 5,
+      "context" : "indentation technique have been performed to study the irradiation hardening of nuclear structural materials under various irradiation conditions (Hosemann et al., 2015; Hosemann, 2018; Duan et al., 2017; Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).",
+      "startOffset" : 146,
+      "endOffset" : 260
+    }, {
+      "referenceID" : 8,
+      "context" : "indentation technique have been performed to study the irradiation hardening of nuclear structural materials under various irradiation conditions (Hosemann et al., 2015; Hosemann, 2018; Duan et al., 2017; Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).",
+      "startOffset" : 146,
+      "endOffset" : 260
+    }, {
+      "referenceID" : 11,
+      "context" : "indentation technique have been performed to study the irradiation hardening of nuclear structural materials under various irradiation conditions (Hosemann et al., 2015; Hosemann, 2018; Duan et al., 2017; Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).",
+      "startOffset" : 146,
+      "endOffset" : 260
+    }, {
+      "referenceID" : 11,
+      "context" : "Another typical experiment was performed on T91 steels (Heintze et al., 2016), which were irradiated by self-ions at 473 K and up to 3.",
+      "startOffset" : 55,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 35,
+      "context" : "As a promising alternative, the application of spherical indenters has drawn ones’ attention as it can effectively characterize the onset of plasticity transition at small indentation depths (Weaver et al., 2017), and address the heterogeneous characteristics of the radiation-induced-damage zone by analyzing the indentation stress-strain relationships at different irradiation doses (Pathak et al.",
+      "startOffset" : 191,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 25,
+      "context" : ", 2017), and address the heterogeneous characteristics of the radiation-induced-damage zone by analyzing the indentation stress-strain relationships at different irradiation doses (Pathak et al., 2017).",
+      "startOffset" : 180,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 27,
+      "context" : ", the increase of hardness with the decrease of indentation depth (Pharr et al., 2010), exists for both the irradiated and unirradiated materials (Hosemann et al.",
+      "startOffset" : 66,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 11,
+      "context" : ", 2010), exists for both the irradiated and unirradiated materials (Hosemann et al., 2015; Li et al., 2016; Heintze et al., 2016; Kiener et al., 2012).",
+      "startOffset" : 67,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 8,
+      "context" : "When the plasticity affected region (PAR) formed beneath the indenter tip does not exceed the boundary of the irradiated region, irradiation hardening can be obviously noticed; whereas, if the PAR penetrates through the irradiated region, the hardening behavior gradually weakens due to the softening effect of the unirradiated substrate (Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).",
+      "startOffset" : 338,
+      "endOffset" : 394
+    }, {
+      "referenceID" : 11,
+      "context" : "When the plasticity affected region (PAR) formed beneath the indenter tip does not exceed the boundary of the irradiated region, irradiation hardening can be obviously noticed; whereas, if the PAR penetrates through the irradiated region, the hardening behavior gradually weakens due to the softening effect of the unirradiated substrate (Fu et al., 2015; Heintze et al., 2016; Li et al., 2016).",
+      "startOffset" : 338,
+      "endOffset" : 394
+    }, {
+      "referenceID" : 16,
+      "context" : "Among most of the simulation methods, crystal plasticity finite element method (CPFEM) offers a valid way to analyze the macroscopic deformation behavior of metallic materials (Narayanan et al., 2011; Li et al., 2013; Esque-de los Ojos et al., 2014; Yao and You, 2017; Liu et al., 2005; Patel and Kalidindi, 2017; Ha et al., 2017; Casals et al., 2007; Choudhury and Ladani, 2015; Petryk et al., 2017; Huang and Zhou, 2017; Liu et al., 2014; Renner et al., 2016).",
+      "startOffset" : 176,
+      "endOffset" : 461
+    }, {
+      "referenceID" : 2,
+      "context" : "Among most of the simulation methods, crystal plasticity finite element method (CPFEM) offers a valid way to analyze the macroscopic deformation behavior of metallic materials (Narayanan et al., 2011; Li et al., 2013; Esque-de los Ojos et al., 2014; Yao and You, 2017; Liu et al., 2005; Patel and Kalidindi, 2017; Ha et al., 2017; Casals et al., 2007; Choudhury and Ladani, 2015; Petryk et al., 2017; Huang and Zhou, 2017; Liu et al., 2014; Renner et al., 2016).",
+      "startOffset" : 176,
+      "endOffset" : 461
+    }, {
+      "referenceID" : 13,
+      "context" : "Among most of the simulation methods, crystal plasticity finite element method (CPFEM) offers a valid way to analyze the macroscopic deformation behavior of metallic materials (Narayanan et al., 2011; Li et al., 2013; Esque-de los Ojos et al., 2014; Yao and You, 2017; Liu et al., 2005; Patel and Kalidindi, 2017; Ha et al., 2017; Casals et al., 2007; Choudhury and Ladani, 2015; Petryk et al., 2017; Huang and Zhou, 2017; Liu et al., 2014; Renner et al., 2016).",
+      "startOffset" : 176,
+      "endOffset" : 461
+    }, {
+      "referenceID" : 29,
+      "context" : "Among most of the simulation methods, crystal plasticity finite element method (CPFEM) offers a valid way to analyze the macroscopic deformation behavior of metallic materials (Narayanan et al., 2011; Li et al., 2013; Esque-de los Ojos et al., 2014; Yao and You, 2017; Liu et al., 2005; Patel and Kalidindi, 2017; Ha et al., 2017; Casals et al., 2007; Choudhury and Ladani, 2015; Petryk et al., 2017; Huang and Zhou, 2017; Liu et al., 2014; Renner et al., 2016).",
+      "startOffset" : 176,
+      "endOffset" : 461
+    }, {
+      "referenceID" : 24,
+      "context" : "(Liu and Dunstan, 2017; Panteghini and Bardella, 2018; Song and Voyiadjis, 2018; Fleck et al., 2014; Bardella and Panteghini, 2015), and references therein) after the introduction of the concept of geometrically necessary dislocations (GNDs) by (Nye, 1953; Ashby, 1970; Kroner, 1958).",
+      "startOffset" : 0,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 7,
+      "context" : "(Liu and Dunstan, 2017; Panteghini and Bardella, 2018; Song and Voyiadjis, 2018; Fleck et al., 2014; Bardella and Panteghini, 2015), and references therein) after the introduction of the concept of geometrically necessary dislocations (GNDs) by (Nye, 1953; Ashby, 1970; Kroner, 1958).",
+      "startOffset" : 0,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 12,
+      "context" : "Following the framework of classical crystal plasticity theory (Hill, 1966; Hill and Rice, 1972), the deformation gradient F is decomposed multiplicatively into elastic and plastic parts as follows:",
+      "startOffset" : 63,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 26,
+      "context" : "where 0 and m are, respectively, the reference shearing rate and strain rate sensitivity (Peirce et al., 1982).",
+      "startOffset" : 89,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 38,
+      "context" : "Moreover, the distribution of defects in the irradiated layer is non-uniform that tends to firstly increase with the indentation depth until it reaches the boundary of the irradiated region, and then decreases dramatically to be zero (Victoria et al., 2000; Yabuuchi et al., 2014).",
+      "startOffset" : 234,
+      "endOffset" : 280
+    }, {
+      "referenceID" : 15,
+      "context" : "In order to characterize the ISE as observed in micro- and nano-indentations, the SGCPT has been developed by incorporating the contribution of GNDs into the classical crystal plasticity theory (Demiral et al., 2013, 2014; Han et al., 2005a, b; Ma et al., 2006; Bittencourt, 2018; Gurtin, 2002, 2008; Kuroda and Tvergaard, 2008).",
+      "startOffset" : 194,
+      "endOffset" : 328
+    }, {
+      "referenceID" : 15,
+      "context" : ", the higher-order SGCPT (Bittencourt, 2018; Gurtin, 2002, 2008; Kuroda and Tvergaard, 2008) and lower-order SGCPT (Demiral et al.",
+      "startOffset" : 25,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 22,
+      "context" : "equations in the classical crystal plasticity theory or not (Niordson and Hutchinson, 2003).",
+      "startOffset" : 60,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 0,
+      "context" : "where k0 is the parameter indicating the generation rate of GND, and ˆ is a dimensionless material constant (Acharya and Beaudoin, 2000; Han et al., 2017).",
+      "startOffset" : 108,
+      "endOffset" : 154
+    }, {
+      "referenceID" : 1,
+      "context" : "Then, the shear strain gradient at each Gauss point can be determined by calculating the spatial derivatives of the linear shape function (Busso et al., 2000).",
+      "startOffset" : 138,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 0,
+      "context" : "(15) for the hardening behavior induced by GNDs (Acharya and Beaudoin, 2000).",
+      "startOffset" : 48,
+      "endOffset" : 76
+    }, {
+      "referenceID" : 33,
+      "context" : "2(c) and (d), the fitted results can match well with corresponding experimental data for unirradiated single crystal at different loading directions (Takeuchi, 1975) and for polycrystals at various irradiation doses (Singh et al.",
+      "startOffset" : 149,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 31,
+      "context" : "2(c) and (d), the fitted results can match well with corresponding experimental data for unirradiated single crystal at different loading directions (Takeuchi, 1975) and for polycrystals at various irradiation doses (Singh et al., 2001).",
+      "startOffset" : 216,
+      "endOffset" : 236
+    }, {
+      "referenceID" : 28,
+      "context" : "Thereinto, the schematic model for polycrystalline copper is created by Neper (Quey et al., 2011), which consists of 400 randomly orientated grains.",
+      "startOffset" : 78,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 33,
+      "context" : "Comparision of the stress-strain relationship between experimental data (symbols) and numerical simulation results (lines) for (c) unirradiated single crystal copper loaded along [111] and [100] directions (Takeuchi, 1975), and (d) polycrystalline copper at different neutron irradiation doses (Singh et al.",
+      "startOffset" : 206,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 31,
+      "context" : "Comparision of the stress-strain relationship between experimental data (symbols) and numerical simulation results (lines) for (c) unirradiated single crystal copper loaded along [111] and [100] directions (Takeuchi, 1975), and (d) polycrystalline copper at different neutron irradiation doses (Singh et al., 2001).",
+      "startOffset" : 294,
+      "endOffset" : 314
+    }, {
+      "referenceID" : 13,
+      "context" : "copper) (Kucharski and Jarzabek, 2014), whereas, the behavior of pileup is usually observed in materials with low strain-hardening potential (Huang and Zhou, 2017).",
+      "startOffset" : 141,
+      "endOffset" : 163
+    } ],
+    "year" : 2019,
+    "abstractText" : "In this work, a strain-gradient crystal plasticity theory with irradiation effect is proposed for the surface nano-indentation of ion-irradiated FCC metals. In order to characterize the indentation size effect and irradiation hardening of ion-irradiated materials indented by the Berkovich indenter, the hardening contributions of geometrically necessary dislocations and non-uniformly distributed defects are incorporated into the classical crystal plasticity theory. The constitutive equations are implemented into ABAQUS through the user material subroutine VUMAT to numerically simulate the surface nano-indentation of ion-irradiated single crystal copper. The theoretical model is calibrated by comparing the numerical results with experimental data. Both the simulated force-depth relationship without irradiation effect and hardness-depth relationship with/without irradiation effect can match well with corresponding experimental data. The dominant features as observed in the nano-indentation of ion-irradiated materials can be effectively characterized by the proposed theoretical framework, which include the indentation size effect, depth-dependent irradiation hardening, and unirradiated substrate softening effect. Moreover, the evolution of different hardening mechanisms during the surface nano-indentation is systematically analyzed to help understand the macroscopic deformation behavior.",
+    "creator" : "Elsevier"
+  }
+}

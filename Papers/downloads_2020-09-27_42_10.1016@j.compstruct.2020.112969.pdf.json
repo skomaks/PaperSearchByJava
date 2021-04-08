@@ -1,0 +1,937 @@
+{
+  "name" : "downloads_2020-09-27_42_10.1016@j.compstruct.2020.112969.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Isogeometric nonlinear oscillations of nonlocal strain gradient PFGM micro/nano-plates via NURBS-based formulation",
+    "authors" : [ "Fan Fan", "Saeid Sahmani", "Babak Safaei", "Fan Fana", "Saeid Sahmanib", "Babak Safaeic" ],
+    "emails" : [ "fanfan70111@gmail.com" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "The present investigation deals with the size-dependent analysis of the geometrically nonlinear vibration response of micro/nano-plates with and without a central cutout made of a porous functionally graded material (PFGM) in the presence of nonlocality and strain gradient size dependencies. In accordance with this purpose, a modified porosity-dependent power-law function is put to use to estimate the effective mechanical properties of PFGM micro/nano-plates with various porosity distribution patterns. To solve the constructed nonlinear nonlocal strain gradient problem, the nonuniform rational B-spline (NURBS)-based isogeometric analysis is utilized as an efficient discretization technique having the capability to satisfy C-1 continuity. It is seen that for specific values of the material property gradient index, porosity index and the plate deflection, the enhancement in the nonlinear frequency due to the strain gradient size effect is more than the reduction caused by the nonlocality. Furthermore, it is found that there is a specific value of the length to thickness ratio, corresponding to which the nonlocal strain gradient frequency ratio becomes minimum. This minimum value enhances by increasing the value of the porosity index of PFGM micro/nano-plates. Also, by increasing the value of the material property gradient index, the minimum point of the nonlocal strain gradient frequency ratio shifts to a higher ratio of the length to width ratio.\nKeywords: Nonlinear dynamics; Isogeometric analysis; porosity-dependent properties; Functionally graded materials; Non-classical continuum elasticity.\n*Corresponding author. Tel.: +86 151 23037398 E-mail address: fanfan70111@gmail.com (F. Fan)"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "New technologies using in fabrication of advanced materials have been resulted in to produce porous composite materials with a wide range of applications. Several studies have been performed to investigate different responses of structures made of such advanced materials. For instance, Parthasarathy et al. [1] proposed a design for the additive manufacture of functionally graded porous structures for using in biomedical applications. Bui et al. [2] introduced a finite element model based upon a new third-order shear deformation plate theory to analyze high temperature mechanical responses of heated plates made of a functionally graded material (FGM). Do et al. [3] carried out a numerical analysis for buckling and bending of bi-directional FGM plates modeled via a new thirdorder shear deformation plate theory. Han et al. [4] generated continuous graded porous scaffolds using Schwartz diamond unit cell using selective laser melting. Li et al. [5] employed the additive manufacturing method to fabricate functionally graded biodegradable porous metallic biomaterials containing a diamond unit cell. Xiong et al. [6] developed a novel technique to design radial functionally gradient porous architecture replicating the gradient structure of a bone. Opiela and Zielinski [7] manufactured a porous composite with modifiable micro-geometry with the ability to absorb noise with various frequency ranges. Yang et al. [8] introduced Schwartz diamond graded porous structures made of a triply-periodic-minimal until cell topology using laser powder bed fusion. Dastjerdi et al. [9,10] explored the static performance and buckling response of porous carbon nanotube-reinforced plates integrated between active piezoelectric facesheets.\nIn the last recent decade, several investigations have been carried out to analyze size-dependent mechanical responses of micro/nano-structures made of FGMs. Ke et al. [11] analyzed the sizedependent axisymmetric nonlinear free oscillations of FGM annular Mindlin microplates based on the modified couple stress elasticity. Sahmani et al. [12] studied the free vibration response of nanobeams within the both prebuckling and postbuckling domains including surface stress size effect. Tadi Beni et al. [13] developed a size-dependent shell for free vibrations of FGM cylindrical microshells. Daneshmehr et al. [14] obtained the natural frequencies of FGM nanoplates modeled via a nonlocal higher-order shear deformation plate theory. Nguyen et al. [15] employed an efficient computational technique to capture the nonlocal size effect on mechanical behavior of FGM nanoplates. Guo et al. [16] explored analytically the size-dependent analysis for modified couple stress-based FGM composite microplates. Sahmani and Aghdam [17] incorporated a developed refined truncated cubic lattice structure for size-dependent nonlinear bending response of nanoporous microbeams. Dane Awrejcewicz et al. [18] analyzed chaotic dynamics of size-dependent FGM Timoshenko microbeams coincided with the Ruelle-Takens-Newhouse scenario. Deng et al. [19] explored the size-dependent stability of multi-span viscoelastic FGM nanopipes conveying fluid on the basis of the nonlocal elasticity theory. Sahmani and Aghdam [20] presented a nonlocal elastic shell model for temperaturedependent postbuckling analysis of imperfect hybrid FGM cylindrical nanoshells. Liu et al. [21,22]\nconstructed a couple stress-based plate model to analyze static bending, free vibrations and buckling of FGM microplates using isogeometric analysis. Yang and He [23] developed a modified couple stressbased beam model for free vibration and buckling of axially FGM Euler-Bernoulli microbeams. Li and Hu [24] examined torsional vibration response of bi-directional FGM nanotubes on the basis of the nonlocal theory of elasticity. Sahmani and Aghdam [25] proposed a boundary layer modelling for axial buckling and postbuckling of FGM nanoshells on the basis of the surface stress theory of elasticity. Attia and Abdel Rahman [26] reported the surface elastic-based natural frequencies of FGM composite viscoelastic Euler-Bernoulli nanobeams. Trinh et al. [27] studied free vibration behavior of bidirectional FGM microbeams within the framework of the modified couple stress elasticity theory. Shafiei and She [28] predicted the free vibrations of bi-directional FGM nanotubes based upon the nonlocal strain gradient elasticity theory. Liu et al. [29] introduced an effective numerical technique based upon the extended isogeometric analysis to predict size-dependent vibrations and buckling of FGM microplates with cracks. Sahmani et al. [30-33] utilized the nonlocal strain gradient elasticity theory to predict size-dependent mechanical behaviors of multilayer FGM nanocomposite micro/nanostructures.\nRecently, Sheng and Wang [34] developed a modified couple stress-based beam model for nonlinear forced vibration behavior of FGM microbeams including damping effects. Yu et al. [35] introduced a quasi-3D isogeometric beam model based upon the modified couple stress theory for two-directional FGM microbeams. Liu et al. [36] proposed a computational approach based on the isogeometric analysis to analyze mechanical behaviors of nanoplates in the presence of couple stress and surface stress size effects. Zheng et al. [37] presented a nonlinear size-dependent finite element formulation for nonlinear free vibration behavior of axially FGM tapered Euler-Bernoulli microbeams. Thai et al. [38] performed a computational analysis for free vibrations of multilayer FGM microplates on the basis of the modified strain gradient elasticity theory. Karamanli and Aydogdu [39] studied the size-dependent free vibration response of bi-directional FGM porous sandwich microbeams using a transverse shearnormal deformation beams theory. Rajasekaran and Khaniki [40] employed the modified couple stress theory of elasticity for forced vibration analysis of bi-directional FGM microbeams including general forms of non-homogeneity and non-uniformity. Farzam and Hassani. [41] put the isogeometric method to use for analysis of size effects on mechanical characteristics of in-plane FGM porous microbeams. Yu et al. [42] employed an efficient computational methodology based on the isogeometric approach to capture size effect on mechanical behaviors of quasi-3D FGM microbeams. Sahmani et al. [43] examined the nonlinear torsional buckling and postbuckling behavior of silicon nanoshells in the presence of the surface stress effects. Fang et al. [44] proposed a size-dependent dynamic model for rotating FG Kirchhoff microplates incorporating Coriolis and dynamic stiffening effects. Pourasghar and Chen [45] combined the differential quadrature method with the Newton-Raphson method to analyze the effect of hyperbolic heat conduction on the linear and nonlinear vibrations of FGM Timoshenko microbeams. Thanh et al. [46] studied the nonlinear thermal stability of porous FGM\nmicroplates based on a seventh-order shear deformation plate theory and the modified couple stress continuum elasticity. Sahmani and Safaei [47-49] employed the nonlocal strain gradient continuum elasticity to analyze size-dependent nonlinear free and forced vibrations as well as postbuckling of bidirectional FGM composite micro/nano-beams. Karami et al. [50] indicated the influence of different homogenization models on the free vibrations of curved FGM microbeams. Fang et al. [51] examined the size-dependent thermal free vibration response of rotating FGM Euler-Bernoulli and Timoshenko microbeams with different end supports. Aria and Friswell [52] investigated the hygro-thermal vibration and buckling behaviors of FGM sandwich microbeams with temperature-dependent material properties. Simsek [53] employed the nonlocal strain gradient elasticity to analyze static bending, buckling, and vibrations of FGM Euler-Bernoulli nanobeams. Farzam and Hassani [54] explored bending, buckling and vibration characteristics of FGM porous microplates based upon the modified couple stress elasticity and using isogeometric technique. Phung-Van et al. [55] put the isogeometric method to use for nonlinear transient response of FGM nanoplates on the basis of the nonlocal theory of elasticity. Sahmani et al. [56] developed a size-dependent shell model for FGM porous micro/nano-shells. Yuan et al. [57,58] constructed different size-dependent conical shell models to analyze the nonlinear buckling and oscillations of FGM conical microshells. Sahmani et al. [59-62] investigated the nonlinear free vibration and primary resonance of FGM nanoshells modeled via the surface elasticity theory and incorporating modal interactions. Fan et al. [63] established a surface elastic skew plate model to anticipate the shear buckling behavior of skew nanoplates. Sahmani et al. [64] proposed a refined truncated cubic lattice structure to predict nonlinear large-amplitude oscillations of nanoporous microstructures. Yuan et al. [65] explored the shear buckling characteristics of nonlocal FGM skew nanoplates modeled via various homogenization schemes.\nThe prime objective of the present study is to investigate the porosity-dependent geometrically nonlinear oscillations of micro/nano-plates with and without a central cutout made of a porous functionally graded material (PFGM) incorporating nonlocality and strain gradient size dependencies. To this end, a new power-law function is employed which has the capability to take simultaneously the material gradient and porosity dependency into consideration. Within the framework of the nonlocal strain gradient third-order shear deformation plate mode, the size-dependent nonlinear governing differential equations of motion are achieved. Afterwards, to solve the problem, the non-uniform rational B-spline-based isogeometric analysis is put to use as an efficient discretization technique with the capability to satisfy C-1 continuity."
+    }, {
+      "heading" : "2. Nonlocal strain gradient PFGM plate model",
+      "text" : "In the present study, a PFGM micro/nano-plate with the length , width , and thickness is \uD835\uDC3F1 \uD835\uDC3F2 ℎ considered, the material properties of which are varies from ceramic phase on top surface to metal phase on down surface as shown in Figure 1. It is assumed that the micro/nano-plate has no geometrical\nimperfection. According to Figure 1, three different patterns of porosity distribution including uniform porosity (U-PFGM), decreased porosity from top and down surfaces to center (X-PFGM), and increased porosity from top and down surfaces to center (O-PFGM) are taken into account. On the basis of the porosity-dependent rule of mixture, the material properties can be given in the following form [66]\n\uD835\uDCAB(\uD835\uDC67) = \uD835\uDCAB\uD835\uDC50(\uD835\uDC49\uD835\uDC50 ― \uD835\uDEE4/2) + \uD835\uDCAB\uD835\uDC5A(\uD835\uDC49\uD835\uDC5A ― \uD835\uDEE4/2)\n(1)\nwhere represents the porosity index, and in order are the volume fractions associated with the \uD835\uDEE4 \uD835\uDC49\uD835\uDC50 \uD835\uDC49\uD835\uDC5A ceramic and metal phases in the following form\n\uD835\uDC49\uD835\uDC50 = (1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 , \uD835\uDC49\uD835\uDC50 + \uD835\uDC49\uD835\uDC5A = 1 (2) in which represents the material property gradient index. \uD835\uDC58\nOn the basis of the porosity-dependent rule of mixture, the Young’s modulus and Poisson’s ratio of\na PFGM microplate associated with each pattern of the porosity distribution can be written as For U-PFGM pattern:\n\uD835\uDC38(\uD835\uDC67) = (\uD835\uDC38\uD835\uDC50 ― \uD835\uDC38\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDC38\uD835\uDC5A ― (\uD835\uDC38\uD835\uDC50 + \uD835\uDC38\uD835\uDC5A)\uD835\uDEE4/2 (3\uD835\uDC4E)\n\uD835\uDF08(\uD835\uDC67) = (\uD835\uDF08\uD835\uDC50 ― \uD835\uDF08\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDF08\uD835\uDC5A ― (\uD835\uDF08\uD835\uDC50 + \uD835\uDF08\uD835\uDC5A)\uD835\uDEE4/2 (3\uD835\uDC4F)\n\uD835\uDF0C(\uD835\uDC67) = (\uD835\uDF0C\uD835\uDC50 ― \uD835\uDF0C\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDF0C\uD835\uDC5A ― (\uD835\uDF0C\uD835\uDC50 + \uD835\uDF0C\uD835\uDC5A)\uD835\uDEE4/2 (3\uD835\uDC50)\nFor X-PFGM pattern:\n\uD835\uDC38(\uD835\uDC67) = (\uD835\uDC38\uD835\uDC50 ― \uD835\uDC38\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDC38\uD835\uDC5A ― (\uD835\uDC38\uD835\uDC50 + \uD835\uDC38\uD835\uDC5A)(1/2 ― |\uD835\uDC67|/ℎ)\uD835\uDEE4 (4\uD835\uDC4E)\n\uD835\uDF08(\uD835\uDC67) = (\uD835\uDF08\uD835\uDC50 ― \uD835\uDF08\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDF08\uD835\uDC5A ― (\uD835\uDF08\uD835\uDC50 + \uD835\uDF08\uD835\uDC5A)(1/2 ― |\uD835\uDC67|/ℎ)\uD835\uDEE4 (4\uD835\uDC4F)\n\uD835\uDF0C(\uD835\uDC67) = (\uD835\uDF0C\uD835\uDC50 ― \uD835\uDF0C\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDF0C\uD835\uDC5A ― (\uD835\uDF0C\uD835\uDC50 + \uD835\uDF0C\uD835\uDC5A)(1/2 ― |\uD835\uDC67|/ℎ)\uD835\uDEE4 (4\uD835\uDC50)\nFor O-PFGM pattern:\n\uD835\uDC38(\uD835\uDC67) = (\uD835\uDC38\uD835\uDC50 ― \uD835\uDC38\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDC38\uD835\uDC5A ― (\uD835\uDC38\uD835\uDC50 + \uD835\uDC38\uD835\uDC5A)|\uD835\uDC67|\uD835\uDEE4/ℎ (5\uD835\uDC4E)\n\uD835\uDF08(\uD835\uDC67) = (\uD835\uDF08\uD835\uDC50 ― \uD835\uDF08\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDF08\uD835\uDC5A ― (\uD835\uDF08\uD835\uDC50 + \uD835\uDF08\uD835\uDC5A)|\uD835\uDC67|\uD835\uDEE4/ℎ (5\uD835\uDC4F)\n\uD835\uDF0C(\uD835\uDC67) = (\uD835\uDF0C\uD835\uDC50 ― \uD835\uDF0C\uD835\uDC5A)(1/2 + \uD835\uDC67/ℎ)\uD835\uDC58 + \uD835\uDF0C\uD835\uDC5A ― (\uD835\uDF0C\uD835\uDC50 + \uD835\uDF0C\uD835\uDC5A)|\uD835\uDC67|\uD835\uDEE4/ℎ (5\uD835\uDC4F)\nPlotted in Figures 2-4 are the variation of the Young’s modulus with the position along the plate thickness corresponding to each porosity distribution pattern. For U-PFGM pattern, it is found that the porosity index has a uniform influence on the value of the Young’s modulus at different positions along the plate thickness, according to which, by increasing the porosity index, the value of Young’s modulus decreases. However, for X-PFGM pattern, it can be seen that the influence of porosity index on the\nYoung’s modulus becomes maximum at the mid-plane, but it diminishes on top and down free surfaces. This observation is vice versa for O-PFGM pattern.\nWithin the framework of the higher-order shear deformation plate theory, the displacement field of\na PFGM micro/nano-plate is given by the following relationships\n\uD835\uDCB0\uD835\uDC65(\uD835\uDC65,\uD835\uDC66,\uD835\uDC67) = \uD835\uDC62(\uD835\uDC65,\uD835\uDC66) + \uD835\uDC67\uD835\uDF13\uD835\uDC65(\uD835\uDC65,\uD835\uDC66) ― (4\uD835\uDC673/3ℎ2)[\uD835\uDF13\uD835\uDC65(\uD835\uDC65,\uD835\uDC66) + \uD835\uDC64,\uD835\uDC65(\uD835\uDC65,\uD835\uDC66)]\n\uD835\uDCB0\uD835\uDC66(\uD835\uDC65,\uD835\uDC66,\uD835\uDC67) = \uD835\uDC63(\uD835\uDC65,\uD835\uDC66) + \uD835\uDC67\uD835\uDF13\uD835\uDC66(\uD835\uDC65,\uD835\uDC66) ― (4\uD835\uDC673/3ℎ2)[\uD835\uDF13\uD835\uDC66(\uD835\uDC65,\uD835\uDC66) + \uD835\uDC64,\uD835\uDC66(\uD835\uDC65,\uD835\uDC66)] (6)\n\uD835\uDCB0\uD835\uDC67(\uD835\uDC65,\uD835\uDC66,\uD835\uDC67) = \uD835\uDC64(\uD835\uDC65,\uD835\uDC66) where and denote the displacement components along x-axis, y-axis, and z-axis, respectively. \uD835\uDC62, \uD835\uDC63 \uD835\uDC64 Furthermore, and are, respectively, the rotations of the micro/nano-plate with respect to y-axis, \uD835\uDF13\uD835\uDC65 \uD835\uDF13\uD835\uDC66 and x-axis.\nThe advantages of using the third-order shear deformation plat theory are that in contrast to the classical theory, it has the capability to take the influence of shear deformation into account. Also, in contrast to the first-order shear deformation theory, it does not need a shear correction factor which is hard to find its value as it depends on various parameters.\nTherefore, within the framework of the von-Karman geometrical nonlinearity, the non-zero strain\ncomponents are achieved as \uD835\uDF00\uD835\uDC65\uD835\uDC65 = \uD835\uDC62,\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65)2/2 + \uD835\uDC67\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― (4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65)\n\uD835\uDF00\uD835\uDC66\uD835\uDC66 = \uD835\uDC63,\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66)2/2 + \uD835\uDC67\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― (4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66)\n\uD835\uDEFE\uD835\uDC65\uD835\uDC66 = \uD835\uDC62,\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66 + \uD835\uDC67(\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65) ― (4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66) (7)\n\uD835\uDEFE\uD835\uDC65\uD835\uDC67 = (1 ― 4\uD835\uDC672/ℎ2)(\uD835\uDF13\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65)\n\uD835\uDEFE\uD835\uDC66\uD835\uDC67 = (1 ― 4\uD835\uDC672/ℎ2)(\uD835\uDF13\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66)\nMoreover, based upon of the nonlocal strain gradient theory of elasticity [67], the total stress tensor\ncan be written as follows\n\uD835\uDEF7\uD835\uDC56\uD835\uDC57 = \uD835\uDF0E\uD835\uDC56\uD835\uDC57 ― \uD835\uDF0E ∗\uD835\uDC56\uD835\uDC57\uD835\uDC5A,\uD835\uDC65 (8)\nwhere the classical and higher-order stresses can be defined, respectively, as below\n\uD835\uDF0E\uD835\uDC56\uD835\uDC57 = ∫ \uD835\uDC49 \uD835\uDF121(\uD835\uDC65′,\uD835\uDC65,\uD835\uDC521)\uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59\uD835\uDF00\uD835\uDC58\uD835\uDC59\uD835\uDC51\uD835\uDC49 (9\uD835\uDC4E)\n\uD835\uDF0E ∗\uD835\uDC56\uD835\uDC57\uD835\uDC5A = \uD835\uDC592∫ \uD835\uDC49 \uD835\uDF122(\uD835\uDC65′,\uD835\uDC65,\uD835\uDC522)\uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59\uD835\uDF00\uD835\uDC58\uD835\uDC59,\uD835\uDC5A\uD835\uDC51\uD835\uDC49 (9\uD835\uDC4F) in which and represent the nonlocal parameters regarding the size effect of the nonlocal stress. \uD835\uDC521 \uD835\uDC522\nOn the basis of the nonlocal strain gradient elasticity theory [67], the diffused energies (long-range forces) are linked neighboring points together with the aid of convolution integrals over nonlocal kernel\nfunctions and takes micro-continua into consideration with internal displacement field via gradient forms [68]. Accordingly, the strain gradient parameter is employed to consider the coupled effects of \uD835\uDC59 nonlocality and strain gradient stress field, and the nonlocal parameter is put to use to take the nonlocal \uD835\uDF07 size dependency into account. Also , and in order are the strain components, strain gradient \uD835\uDF00\uD835\uDC58\uD835\uDC59 \uD835\uDF00\uD835\uDC58\uD835\uDC59,\uD835\uDC5A \uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59 components and elastic coefficients. In accordance with nonlocal strain gradient theory, it is assumed that the two kernel functions of and should satisfy the associated conditions \uD835\uDF121(\uD835\uDC65′,\uD835\uDC65,\uD835\uDC521) \uD835\uDF122(\uD835\uDC65′,\uD835\uDC65,\uD835\uDC522) introduced by Eringen [69] as follow\n\uD835\uDF0E\uD835\uDC56\uD835\uDC57 ― \uD835\uDC5221(\uD835\uDF0E\uD835\uDC56\uD835\uDC57,\uD835\uDC65\uD835\uDC65 + \uD835\uDF0E\uD835\uDC56\uD835\uDC57,\uD835\uDC66\uD835\uDC66) = \uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59\uD835\uDF00\uD835\uDC58\uD835\uDC59 (10\uD835\uDC4E)\n\uD835\uDF0E ∗\uD835\uDC56\uD835\uDC57\uD835\uDC5A ― \uD835\uDC5222(\uD835\uDF0E ∗\uD835\uDC56\uD835\uDC57\uD835\uDC5A,\uD835\uDC65\uD835\uDC65 + \uD835\uDF0E ∗\uD835\uDC56\uD835\uDC57\uD835\uDC5A,\uD835\uDC66\uD835\uDC66) = \uD835\uDC592\uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59\uD835\uDF00\uD835\uDC58\uD835\uDC59,\uD835\uDC5A (10\uD835\uDC4F)\nAs a result, the generalized constitutive equation on the basis of the nonlocal strain gradient\nelasticity can be written as\n[1 ― \uD835\uDC5221(,\uD835\uDC65\uD835\uDC65 + ,\uD835\uDC66\uD835\uDC66)][1 ― \uD835\uDC5222(,\uD835\uDC65\uD835\uDC65 + ,\uD835\uDC66\uD835\uDC66)]\uD835\uDEF7\uD835\uDC56\uD835\uDC57 = [1 ― \uD835\uDC5221(,\uD835\uDC65\uD835\uDC65 + ,\uD835\uDC66\uD835\uDC66)]\uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59\uD835\uDF00\uD835\uDC58\uD835\uDC59 ― \uD835\uDC592[1 ― \uD835\uDC5222(,\uD835\uDC65\uD835\uDC65 + ,\uD835\uDC66\uD835\uDC66)]\uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59\uD835\uDF00\uD835\uDC58\uD835\uDC59,\uD835\uDC65\uD835\uDC65 (11)\nThe significance of the nonlocal elastic stress field depends on the lattice structure and atomic distance of a material [69]. Therefore, it is assumed that the significance of the nonlocal elastic stress field is similar for the classical stress tensor, and strain gradient stress tensor associated with a unique material. So, it yields , and one will have\uD835\uDC521 = \uD835\uDC522 = \uD835\uDF07\n\uD835\uDEF7\uD835\uDC56\uD835\uDC57 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC56\uD835\uDC57,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC56\uD835\uDC57,\uD835\uDC66\uD835\uDC66) = \uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59\uD835\uDF00\uD835\uDC58\uD835\uDC59 ― \uD835\uDC592\uD835\uDC36\uD835\uDC56\uD835\uDC57\uD835\uDC58\uD835\uDC59(\uD835\uDF00\uD835\uDC58\uD835\uDC59,\uD835\uDC65\uD835\uDC65 + \uD835\uDF00\uD835\uDC58\uD835\uDC59,\uD835\uDC66\uD835\uDC66) (12)\nAs a consequence, the nonlocal strain gradient constitutive equations for a PFGM micro/nano-plate\nare derived as\n\uD835\uDEF7\uD835\uDC65\uD835\uDC65 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC65,\uD835\uDC66\uD835\uDC66) = [\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)]\uD835\uDC62,\uD835\uDC65 + [(\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67))/2](\uD835\uDC64,\uD835\uDC65)2 ― [4\uD835\uDC673(\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67))/3ℎ2]\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + [\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)](\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDF061(\uD835\uDC67)\uD835\uDC63,\uD835\uDC66 + \uD835\uDF061(\uD835\uDC67\n)(\uD835\uDC64,\uD835\uDC66)2/2 ― (4\uD835\uDC673\uD835\uDF06(\uD835\uDC67)/3ℎ2)\uD835\uDC64,\uD835\uDC66\uD835\uDC66 + \uD835\uDF061(\uD835\uDC67)(\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC592[\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)](\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592[\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)][\uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2] + [4\uD835\uDC673\uD835\uDC592[\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)]/3ℎ2](\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592[\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)](\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)(\uD835\uDF13 \uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF061(\uD835\uDC67)(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF061(\uD835\uDC67)[\uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2] + (4\uD835\uDC673\uD835\uDC592\uD835\uDF061(\uD835\uDC67)/3ℎ2)(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF061(\uD835\uDC67)(\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66)\n(13\uD835\uDC4E)\n\uD835\uDEF7\uD835\uDC66\uD835\uDC66 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC66\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC66\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = [\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)]\uD835\uDC63,\uD835\uDC66 + [(\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67))/2](\uD835\uDC64,\uD835\uDC66)2 ― [4\uD835\uDC673(\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67))/3ℎ2]\uD835\uDC64,\uD835\uDC66\uD835\uDC66 + [\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)](\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDF061(\uD835\uDC67)\uD835\uDC62,\uD835\uDC65 + \uD835\uDF061(\uD835\uDC67\n)(\uD835\uDC64,\uD835\uDC65)2/2 ― (4\uD835\uDC673\uD835\uDF061(\uD835\uDC67)/3ℎ2)\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + \uD835\uDF061(\uD835\uDC67)(\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC592[\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)](\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592[\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)][\uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2] + [4\uD835\uDC673\uD835\uDC592(\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67))/3ℎ2](\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592[\uD835\uDF061(\uD835\uDC67) + 2\uD835\uDF062(\uD835\uDC67)](\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)(\uD835\uDF13 \uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF061(\uD835\uDC67)(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF061(\uD835\uDC67)[\uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2] + (4\uD835\uDC673\uD835\uDC592\uD835\uDF061(\uD835\uDC67)/3ℎ2)(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF061(\uD835\uDC67)(\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66)\n(13\uD835\uDC4F) \uD835\uDEF7\uD835\uDC65\uD835\uDC66 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC66,\uD835\uDC66\uD835\uDC66)\n= \uD835\uDF062(\uD835\uDC67)\uD835\uDC62,\uD835\uDC66 + \uD835\uDF062(\uD835\uDC67)\uD835\uDC63,\uD835\uDC65 + \uD835\uDF062(\uD835\uDC67)\uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66 ― (8\uD835\uDC673\uD835\uDF062(\uD835\uDC67)/3ℎ2)\uD835\uDC64,\uD835\uDC65\uD835\uDC66 + \uD835\uDF062(\uD835\uDC67)(\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65) ― \uD835\uDC592\uD835\uDF062(\uD835\uDC67)(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC62,\uD835\uDC66\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF062(\uD835\uDC67)(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF062(\uD835\uDC67)[\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2\n\uD835\uDC64,\uD835\uDC65\uD835\uDC66(\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66) + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66] + (8\uD835\uDC673\uD835\uDC592\uD835\uDF062(\uD835\uDC67)/3ℎ2)(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66) ― \uD835\uDC592\uD835\uDF062(\uD835\uDC67)(\uD835\uDC67 ― 4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66) (13\uD835\uDC50)\n\uD835\uDEF7\uD835\uDC65\uD835\uDC67 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC67,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC67,\uD835\uDC66\uD835\uDC66) = \uD835\uDF062(\uD835\uDC67)(1 ― 4\uD835\uDC672/ℎ2)(\uD835\uDF13\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65) ― \uD835\uDC592\uD835\uDF062(\uD835\uDC67)(1 ― 4\uD835\uDC672/ℎ2)(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66)\n(13\uD835\uDC51)\n\uD835\uDEF7\uD835\uDC66\uD835\uDC67 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC66\uD835\uDC67,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC66\uD835\uDC67,\uD835\uDC66\uD835\uDC66) = \uD835\uDF062(\uD835\uDC67)(1 ― 4\uD835\uDC672/ℎ2)(\uD835\uDF13\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66) ― \uD835\uDC592\uD835\uDF062(\uD835\uDC67)(1 ― 4\uD835\uDC672/ℎ2)(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66)\n(13\uD835\uDC52)\nwhere \uD835\uDF061(\uD835\uDC67) = \uD835\uDF08(\uD835\uDC67)\uD835\uDC38(\uD835\uDC67)/[(1 + \uD835\uDF08(\uD835\uDC67))(1 ― 2\uD835\uDF08(\uD835\uDC67))] , \uD835\uDF062(\uD835\uDC67) = \uD835\uDC38(\uD835\uDC67)/[2(1 + \uD835\uDF08(\uD835\uDC67))] (14)\nConsequently, the variation of the strain energy for a nonlocal strain gradient a PFGM micro/nano-\nplate can be given as \uD835\uDD11\uD835\uDC60\n= 1 2∫\uD835\uDC34∫ 0.5ℎ ―0.5ℎ \uD835\uDEF7\uD835\uDC56\uD835\uDC57\uD835\uDF00\uD835\uDC56\uD835\uDC57\uD835\uDC51\uD835\uDC67\uD835\uDC51\uD835\uDC34 = 1 2∫\uD835\uDC34{\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC65[\uD835\uDC62,\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65)\n2/2] + \uD835\uDC40 ∗\uD835\uDC65\uD835\uDC65\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC45 ∗\uD835\uDC65\uD835\uDC65(\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65) + \uD835\uDC41 ∗\uD835\uDC66\uD835\uDC66 [\uD835\uDC63,\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66)2/2] + \uD835\uDC40 ∗\uD835\uDC66\uD835\uDC66\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC45 ∗\uD835\uDC66\uD835\uDC66(\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66) + \uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66(\uD835\uDC62,\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66) + \uD835\uDC40 ∗\uD835\uDC65\uD835\uDC66(\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65) ― \uD835\uDC45 ∗\uD835\uDC65\uD835\uDC66(\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66) + (\uD835\uDC44 ∗\uD835\uDC65 ― \uD835\uDC46 ∗\uD835\uDC65 )(\uD835\uDF13\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65) + (\uD835\uDC44 ∗\uD835\uDC66 ― \uD835\uDC46 ∗\uD835\uDC66 )(\uD835\uDF13\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66)}\n\uD835\uDC51\uD835\uDC34 (15) in which the non-classical stress resultants are given in Appendix A. Moreover, the kinetic energy of the PFGM micro/nano-plates can be expressed as below\n\uD835\uDEF1\uD835\uDC58\n= 1 2∫\uD835\uDC46∫\nℎ 2 ― ℎ 2 \uD835\uDF0C(\uD835\uDC67){(\uD835\uDCB0\uD835\uDC65,\uD835\uDC61)2 + (\uD835\uDCB0\uD835\uDC66,\uD835\uDC61)2 + (\uD835\uDCB0\uD835\uDC67,\uD835\uDC61)2}\uD835\uDC51\uD835\uDC67\uD835\uDC51\uD835\uDC46 = 1 2∫\uD835\uDC46∫ ℎ 2 ― ℎ 2 \uD835\uDF0C(\uD835\uDC67)\n{[\uD835\uDC62,\uD835\uDC61 + \uD835\uDC67\uD835\uDF13\uD835\uDC65,\uD835\uDC61 ― (4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC65,\uD835\uDC61 + \uD835\uDC64,\uD835\uDC65\uD835\uDC61)]2 + [\uD835\uDC63,\uD835\uDC61 + \uD835\uDC67\uD835\uDF13\uD835\uDF03,\uD835\uDC61 ― (4\uD835\uDC673/3ℎ2)(\uD835\uDF13\uD835\uDC66,\uD835\uDC61 + \uD835\uDC64,\uD835\uDC66\uD835\uDC61)]2 + (\uD835\uDC64,\uD835\uDC61)2} \uD835\uDC51\uD835\uDC67\uD835\uDC51\uD835\uDC46 (16)\nWith the aid of the Hamilton’s principle, the nonlocal strain gradient-based governing differential\nequations of motion based upon the stress resultants can be expressed as\n\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC65 + \uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC66 = \uD835\uDC3C0\uD835\uDC62,\uD835\uDC61\uD835\uDC61 + \uD835\uDC3C3\uD835\uDC64,\uD835\uDC65\uD835\uDC61\uD835\uDC61 ― (\uD835\uDC3C1 ― \uD835\uDC3C3)\uD835\uDF13\uD835\uDC65,\uD835\uDC61\uD835\uDC61 (17\uD835\uDC4E)\n\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC65 + \uD835\uDC41 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC66 = \uD835\uDC3C0\uD835\uDC63,\uD835\uDC61\uD835\uDC61 + \uD835\uDC3C3\uD835\uDC64,\uD835\uDC66\uD835\uDC61\uD835\uDC61 ― (\uD835\uDC3C1 ― \uD835\uDC3C3)\uD835\uDF13\uD835\uDC66,\uD835\uDC61\uD835\uDC61 (17\uD835\uDC4F)\n\uD835\uDC44 ∗\uD835\uDC65,\uD835\uDC65 + \uD835\uDC44 ∗\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC46 ∗\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC46 ∗\uD835\uDC66,\uD835\uDC66 + \uD835\uDC45 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDC45 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC45 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC65\uD835\uDC66 + (\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65),\uD835\uDC65 + (\uD835\uDC41 ∗\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC66),\uD835\uDC66 + (\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC66),\uD835\uDC65 + (\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65),\uD835\uDC66 = \uD835\uDC3C0\uD835\uDC64,\uD835\uDC61\uD835\uDC61 ― \uD835\uDC3C6(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61) + \uD835\uDC3C3(\uD835\uDC62,\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC63,\uD835\uDC66\uD835\uDC61\uD835\uDC61) + (\uD835\uDC3C4 ― \uD835\uDC3C6)(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC61\uD835\uDC61)(17\uD835\uDC50)\n\uD835\uDC40 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC65 + \uD835\uDC40 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC45 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC45 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC44 ∗\uD835\uDC65 + \uD835\uDC46 ∗\uD835\uDC65 = (\uD835\uDC3C2 ― \uD835\uDC3C4 + \uD835\uDC3C6)\uD835\uDF13\uD835\uDC65,\uD835\uDC61\uD835\uDC61 + (\uD835\uDC3C6 ― \uD835\uDC3C4)\uD835\uDC64,\uD835\uDC65\uD835\uDC61\uD835\uDC61 ― (\uD835\uDC3C1 ― \uD835\uDC3C3)\uD835\uDC62,\uD835\uDC61\uD835\uDC61 (17\uD835\uDC51)\n\uD835\uDC40 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC65 + \uD835\uDC40 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC45 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC65 ― \uD835\uDC45 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC44 ∗\uD835\uDC66 + \uD835\uDC46 ∗\uD835\uDC66 = (\uD835\uDC3C2 ― \uD835\uDC3C4 + \uD835\uDC3C6)\uD835\uDF13\uD835\uDC66,\uD835\uDC61\uD835\uDC61 + (\uD835\uDC3C6 ― \uD835\uDC3C4)\uD835\uDC64,\uD835\uDC66\uD835\uDC61\uD835\uDC61 ― (\uD835\uDC3C1 ― \uD835\uDC3C3)\uD835\uDC63,\uD835\uDC61\uD835\uDC61 (17\uD835\uDC52)\nBy inserting the counterparts of stress resultants in terms of the displacement components in the derived differential equations, the nonlocal strain gradient-based nonlinear differential equations associated with an axially loaded PFGM micro/nano-plate are acquired as given in Appendix B."
+    }, {
+      "heading" : "3. Isogeometric solution methodology",
+      "text" : "With the aid of the isogeometric analysis, it is possible to have a computational tool which has the capability of integrating finite element analysis into the conventional. Several investigations have been carried out to employ the isogeometric analysis to predict mechanical characteristics of structures. Thai et al. [70] analyzed static, dynamic and buckling analysis of FGM and isotropic sandwich plates using an inverse trigonometric shear deformation theory and the isogeometric approach. Nguyen et al. [71- 73] implemented the isogeometric technique for linear and nonlinear analysis of FGM plates using new shear deformation theory. Fang et al. [74] investigated mechanical characteristics of a quasi-3D modeled thick porous beam using isogeometric approach.\nIn Figure 5, the considered cubic element for square micro/nano-plates with and without a central cutout is represented (a square cutout with the side length of ). The knot vector associated with a one-\uD835\uDC4E dimensional domain can be written in a non-decreasing form as below B-spline basis function.\n\uD835\uDD42(\uD835\uDF09) = {\uD835\uDF091,\uD835\uDF092,\uD835\uDF093,…,\uD835\uDF09\uD835\uDC5A + \uD835\uDC5B + 1} (18)\nin which and represent, respectively, the number of basis function and the order of the B-spline \uD835\uDC5A \uD835\uDC5B basis function. Also, each ith knot satisfies the condition of . Accordingly, the B-spline basis 0 ≤ \uD835\uDF09\uD835\uDC56 ≤ 1 function can be expressed based upon recursive Cox-de Boor formula as follows\n\uD835\uDCB3\uD835\uDC56,0(\uD835\uDF09) = {1 \uD835\uDF09\uD835\uDC56 ≤ \uD835\uDF09 < \uD835\uDF09\uD835\uDC56 + 10 \uD835\uDC52\uD835\uDC59\uD835\uDC60\uD835\uDC52 \uD835\uDCB3\uD835\uDC56,\uD835\uDC5B(\uD835\uDF09)\n= \uD835\uDF09 ― \uD835\uDF09\uD835\uDC56\n\uD835\uDF09\uD835\uDC56 + \uD835\uDC5B ― \uD835\uDF09\uD835\uDC56 \uD835\uDCB3\uD835\uDC56,\uD835\uDC5B ― 1(\uD835\uDF09) + \uD835\uDF09\uD835\uDC56 + \uD835\uDC5B + 1 ― \uD835\uDF09 \uD835\uDF09\uD835\uDC56 + \uD835\uDC5B + 1 ― \uD835\uDF09\uD835\uDC56 + 1 \uD835\uDCB3\uD835\uDC56 + 1,\uD835\uDC5B ― 1(\uD835\uDF09)\n(19)\nNow, for a two-dimensional domain, the relevant B-spline basis function is introduced on the basis of the tensor product of two basis functions associated with the one-dimensional domain in the following form\nℱ\uD835\uDC5D,\uD835\uDC5E\uD835\uDC56,\uD835\uDC57 = \uD835\uDCB3\uD835\uDC56,\uD835\uDC5D(\uD835\uDF09)\uD835\uDCB3\uD835\uDC57,\uD835\uDC5E(\uD835\uDF02)\uD835\uDD1A\uD835\uDC56,\uD835\uDC57\n∑\uD835\uDC5A \uD835\uDC56 = 1 ∑\uD835\uDC5B \uD835\uDC57 = 1\uD835\uDCB3\uD835\uDC56,\uD835\uDC5D(\uD835\uDF09)\uD835\uDCB3\uD835\uDC57,\uD835\uDC5E(\uD835\uDF02)\uD835\uDD1A\uD835\uDC56,\uD835\uDC57\n(20)\nwhere and denote the shape functions of orders and along and directions, \uD835\uDCB3\uD835\uDC56,\uD835\uDC5D(\uD835\uDF09) \uD835\uDCB3\uD835\uDC57,\uD835\uDC5E(\uD835\uDF02) \uD835\uDC5D \uD835\uDC5E \uD835\uDF09 \uD835\uDF02 respectively. Also, stands for the weight coefficients. In order to obtain the derivation of the shape \uD835\uDD1A\uD835\uDC56,\uD835\uDC57 function of , the knot vector of is put to use. \uD835\uDCB3\uD835\uDC57,\uD835\uDC5E(\uD835\uDF02) \uD835\uDD42(\uD835\uDF02)\nWith the aid of the non-uniform rational B-spline (NURBS)-based isogeometric analysis, the\ndisplacement field of a plate-type domain can be approximated as below\n{\uD835\uDC62 ∗\uD835\uDC56 ,\uD835\uDC63 ∗\uD835\uDC56 ,\uD835\uDC64 ∗\uD835\uDC56 ,\uD835\uDF13 ∗\uD835\uDC65 \uD835\uDC56,\uD835\uDF13 ∗\uD835\uDC66 \uD835\uDC56} = \uD835\uDC5A\uD835\uDC5B\n∑ \uD835\uDC56 = 1 \uD835\uDD13\uD835\uDC56(\uD835\uDC65){\uD835\uDC62\uD835\uDC56,\uD835\uDC63\uD835\uDC56,\uD835\uDC64\uD835\uDC56,\uD835\uDF13\uD835\uDC65\uD835\uDC56,\uD835\uDF13\uD835\uDC66\uD835\uDC56} (21)\nThrough inserting the above equation in equation (6), the strain tensor as well as the symmetric rotation gradient tensor can be expressed in terms of nodal degrees of freedom relevant to the control point as follows\n\uD835\uDEC6 = (\uD835\uDD4A\uD835\uDC3F + 12\uD835\uDD4A\uD835\uDC41\uD835\uDC3F)\uD835\uDD3B (22) in which is the strain tensor, and is the displacement vector at the control node of in the form of \uD835\uDEC6 \uD835\uDD3B \uD835\uDC56 . Moreover, the infinitesimal strain and rotation at a node of can be introduced \uD835\uDD3B = {\uD835\uDC62\uD835\uDC56, \uD835\uDC63\uD835\uDC56,\uD835\uDC64\uD835\uDC56,\uD835\uDF13\uD835\uDC65\uD835\uDC56,\uD835\uDF13\uD835\uDC66\uD835\uDC56} \uD835\uDC58 as\n\uD835\uDD4A\uD835\uDC58\uD835\uDC3F = {(\uD835\uDD4A \uD835\uDC58 \uD835\uDC5A)\uD835\uDC47 (\uD835\uDD4A\uD835\uDC58\uD835\uDC4F1)\uD835\uDC47 (\uD835\uDD4A\uD835\uDC58\uD835\uDC4F2)\uD835\uDC47 (\uD835\uDD4A\uD835\uDC58\uD835\uDC601)\uD835\uDC47\n(\uD835\uDD4A\uD835\uDC58\uD835\uDC602)\uD835\uDC47 } (23)\nwhere\n\uD835\uDD4A\uD835\uDC58\uD835\uDC5A = [\uD835\uDD13\uD835\uDC58,\uD835\uDC65 0 0 0 00 \uD835\uDD13\uD835\uDC58,\uD835\uDC66 0 0 0\uD835\uDD13\uD835\uDC58,\uD835\uDC66 \uD835\uDD13\uD835\uDC58,\uD835\uDC65 0 0 0] , \uD835\uDD4A\uD835\uDC58\uD835\uDC4F1 = [ 0 0 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC65 0 0 0 0 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC66 0 0 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC66 \uD835\uDD13\uD835\uDC58,\uD835\uDC65 ]\n\uD835\uDD4A\uD835\uDC58\uD835\uDC4F2 = ― 4 3ℎ2[0 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC65\uD835\uDC65 \uD835\uDD13\uD835\uDC58,\uD835\uDC65 00 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC66\uD835\uDC66 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC660 0 2\uD835\uDD13\uD835\uDC58,\uD835\uDC65\uD835\uDC66 \uD835\uDD13\uD835\uDC58,\uD835\uDC66 \uD835\uDD13\uD835\uDC58,\uD835\uDC65] , \uD835\uDD4A\uD835\uDC58\uD835\uDC601 = [0 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC65 \uD835\uDD13\uD835\uDC58 00 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC66 0 \uD835\uDD13\uD835\uDC58] (24) \uD835\uDD4A\uD835\uDC58\uD835\uDC602 = ―\n4 ℎ2[0 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC65 \uD835\uDD13\uD835\uDC58 00 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC66 0 \uD835\uDD13\uD835\uDC58]\nIn a similar way, the nonlinear part of the strain tensor can be written as below\n\uD835\uDD4A\uD835\uDC58\uD835\uDC41\uD835\uDC3F = {\uD835\uDD110}\uD835\uDD4A\uD835\uDC58\uD835\uDC4F3 (25) in which \uD835\uDD11 = 1 2[\uD835\uDC640,\uD835\uDC65 00 \uD835\uDC640,\uD835\uDC66\uD835\uDC640,\uD835\uDC66 \uD835\uDC640,\uD835\uDC65] (26)\n\uD835\uDD4A\uD835\uDC58\uD835\uDC4F3 = [0 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC65 0 00 0 \uD835\uDD13\uD835\uDC58,\uD835\uDC66 0 0] Consequently, the variation of the strain tensor and the can be given by\n\uD835\uDEFF\uD835\uDEC6 = (\uD835\uDD4A\uD835\uDC3F + \uD835\uDD4A\uD835\uDC41\uD835\uDC3F)\uD835\uDEFF\uD835\uDD3B (27)\nBy substituting of equations (23) and (27) into the governing differential equations given in Appendix B, the matrix form of the nonlinear governing equations of motion can be achieved using the Hamilton’s principle together with the essential lemma of calculus of variations as below\nℳ\uD835\uDD3B + (\uD835\uDCA6\uD835\uDC3F + \uD835\uDCA6\uD835\uDC41\uD835\uDC3F)\uD835\uDD3B = 0 (28)\nwhere \uD835\uDCA6\uD835\uDC3F = ∫ \uD835\uDEFA {[\uD835\uDD4A\uD835\uDC58\uD835\uDC3F]\uD835\uDC47\uD835\uDD3C[\uD835\uDD4A\uD835\uDC58\uD835\uDC3F ― \uD835\uDC592∇2\uD835\uDD4A\uD835\uDC58\uD835\uDC3F]}\uD835\uDC51\uD835\uDEFA (29\uD835\uDC4E) \uD835\uDCA6\uD835\uDC41\uD835\uDC3F\n= 1 2∫\n\uD835\uDEFA {[\uD835\uDD4A\uD835\uDC58\uD835\uDC3F]\uD835\uDC47\uD835\uDD3C[\uD835\uDD4A\uD835\uDC58\uD835\uDC41\uD835\uDC3F ― \uD835\uDC592∇2\uD835\uDD4A\uD835\uDC58\uD835\uDC41\uD835\uDC3F]}\uD835\uDC51\uD835\uDEFA + 12∫ \uD835\uDEFA {[\uD835\uDD4A\uD835\uDC58\uD835\uDC41\uD835\uDC3F]\uD835\uDC47\uD835\uDD3C[\uD835\uDD4A\uD835\uDC58\uD835\uDC3F ― \uD835\uDC592∇2\uD835\uDD4A\uD835\uDC58\uD835\uDC3F]}\uD835\uDC51\uD835\uDEFA + 12 ∫\n\uD835\uDEFA\n{[\uD835\uDD4A\uD835\uDC58\uD835\uDC41\uD835\uDC3F]\uD835\uDC47\uD835\uDD3C[\uD835\uDD4A\uD835\uDC58\uD835\uDC41\uD835\uDC3F ― \uD835\uDC592∇2\uD835\uDD4A\uD835\uDC58\uD835\uDC41\uD835\uDC3F]}\uD835\uDC51\uD835\uDEFA (29\uD835\uDC4F)\nAdditionally, the inertia matrix can be written as\nℳ = ∫ \uD835\uDEFA {\uD835\uDEFF\uD835\uDD3B\uD835\uDC47[\uD835\uDD40 0 00 \uD835\uDD40 00 0 \uD835\uDD40]\uD835\uDD3B}\uD835\uDC51\uD835\uDEFA (30) in which\n\uD835\uDD40 = [\uD835\uDC3C0 \uD835\uDC3C1 \uD835\uDC3C3\uD835\uDC3C1 \uD835\uDC3C2 \uD835\uDC3C4\uD835\uDC3C3 \uD835\uDC3C4 \uD835\uDC3C6] (31) In order to solve the extracted nonlinear equation, ta linear counterpart should be obtained to use it as an initial guess to perform the solution methodology. Accordingly, the displacement vector is assumed in the following form \uD835\uDD3B = \uD835\uDD3B0\uD835\uDC52\uD835\uDC56\uD835\uDF14\uD835\uDC61 (32)\nConsequently, the nonlocal strain gradient linear natural frequency of the PFGM micro/nano-plate\ncan be evaluate based on an eigenvalue problem as follows\n(\uD835\uDCA6\uD835\uDC50\uD835\uDC3F + \uD835\uDCA6\uD835\uDC5B\uD835\uDC50\uD835\uDC3F )\uD835\uDD3B ― \uD835\uDF142ℳ = 0 (33)"
+    }, {
+      "heading" : "4. Numerical results and discussion",
+      "text" : "In this section, the dimensionless nonlocal strain gradient porosity-dependent geometrically nonlinear oscillations of PFGM micro/nano-plates are analyzed. It is assumed that the top and bottom surfaces of PFGM micro/nano-plates are ceramic-rich and metal-rich, respectively. The material properties are: \uD835\uDC38\uD835\uDC50\n, for the ceramic phase, , = 210 \uD835\uDC3A\uD835\uDC43\uD835\uDC4E \uD835\uDF08\uD835\uDC50 = 0.24, \uD835\uDF0C\uD835\uDC50 = 2400 \uD835\uDC3E\uD835\uDC54/\uD835\uDC5A3 \uD835\uDC38\uD835\uDC5A = 70 \uD835\uDC3A\uD835\uDC43\uD835\uDC4E \uD835\uDF08 = 0.35\uD835\uDC5A, \uD835\uDF0C\uD835\uDC5A for the metal phase [75]. Moreover, the geometric parameters are assumed as = 2700 \uD835\uDC3E\uD835\uDC54/\uD835\uDC5A3\n.ℎ = 50 \uD835\uDC5B\uD835\uDC5A, \uD835\uDC3F1 = 50ℎ\nIn order to check the validity and accuracy of the constructed size-dependent plate model, in Table 1, the dimensionless natural frequencies of a square isotropic micro/nano-plate are obtained corresponding to various values of the nonlocal and strain gradient parameters, and are compared with those reported by Thai et al. [76]. An excellent agreement is found which confirms the validity of present computational model.\nThe variation of the dimensionless nonlocal strain gradient nonlinear frequency with dimensionless deflection for U-PFGM micro/nano-plates is depicted in Figures 6 and 7 corresponding to various values of the nonlocal parameter, and strain gradient parameter, respectively. It is found that by taking the strain gradient the size dependency into account, the nonlinear frequency of a PFGM micro/nanoplate enhances, while the nonlocality plays an opposite role and it leads to decrease it. Moreover, these enhancement and reduction in the value of the nonlinear frequency are more prominent for a lower value of the plate deflection. So, by increasing the plate thickness, the gap between different curves reduces. The predicted results have similar pattern for the both simply supported (SSSS) and clamped (CCCC) edge supports.\nIn Tables 2 and 3, the classical and nonlocal strain gradient dimensionless nonlinear frequencies of PFGM micro/nano-plates are presented corresponding to different values of the nonlocal and strain\ngradient parameters, respectively. The percentages written in the parentheses indicates the difference between the size-dependent nonlinear frequency and its classical counterpart. It can be observed that among different porosity distribution patterns, the both nonlocal and strain gradient size dependencies have the minimum and maximum effects on the nonlinear frequency of O-PFGM and X-PFGM micro/nano-plates, respectively. In addition, it is seen that for specific values of the material property gradient index and plate deflection, the enhancement in the nonlinear frequency due to the strain gradient size effect is more than the reduction caused by the nonlocality. Furthermore, by increasing the value of the material property gradient index as well as the plate deflection, the both nonlocal and strain gradient size effects on the nonlinear oscillation response of PFGM micro/nano-plates decreases. Similar observations are achieved for the SSSS and CCCC types of boundary conditions.\nIn Figure 8, the variation of the dimensionless classical and nonlocal strain gradient nonlinear frequencies with dimensionless deflection corresponding to different values of the material property gradient index is illustrated for U-PFGM micro/nano-plates with SSSS and CCCC boundary conditions. It is found that by increasing the material property gradient index, the value of the classical and sizedependent nonlinear frequencies decreases, while the slope of the variation with the plate deflection enhances. Accordingly, for a high value of the plate deflection ( ) the influence of the material \uD835\uDC64/ℎ > 0.8 property gradient index becomes vice versa, as the nonlinear frequency of a PFGM micro/nano-plate with a higher material property gradient index becomes more than that of with a lower one. This pattern is similar for the both classical and nonlocal strain gradient cases.\nTabulated in Tables 4 and 5 are the classical and nonlocal strain gradient dimensionless nonlinear frequencies of PFGM micro/nano-plates corresponding to different values of the nonlocal parameter and strain gradient parameter, respectively. The percentages given in the parentheses indicates the difference between the nonlocal strain gradient nonlinear frequency and its classical counterpart. It is revealed that by increasing the value of the porosity index, the significance of the both nonlocality and strain gradient size dependencies on the nonlinear frequency of PFGM micro/nano-plates reduces. This reduction is somehow more considerable for a lower plate deflection. Additionally, it is indicated that for specific values of the porosity index and plate deflection, the enhancement in the nonlinear frequency due to the strain gradient size effect is somehow more than the reduction caused by the nonlocality. Furthermore, it is observed that the type of boundary conditions has no influence on the introduced predictions.\nIn Figure 9, the variation of the dimensionless classical and nonlocal strain gradient nonlinear frequencies with dimensionless deflection is plotted corresponding to various porosity distribution patterns. It is demonstrated that the values of the classical and size-dependent nonlinear frequency associated with the O-PFGM and X-PFGM micro/nano-plates are minimum and maximum, respectively. However, the slopes of the variation of nonlinear frequency with plate deflection associated with the U-PFGM and O-PFGM porosity distribution patterns are, respectively, minimum and maximum. Accordingly, for the porosity index of , by increasing the plate deflection ( \uD835\uDEE4 = 0.5\n), the nonlinear frequency of an O-PFGM micro/nano-plate becomes more than that of U-\uD835\uDC64/ℎ > 0.9 PFGM micro/nano-plate. These observations are approximately the same for the SSSS and CCCC edge supports.\nThe variation of the dimensionless nonlocal strain gradient nonlinear frequency with dimensionless deflection is represented in Figure 10 corresponding to different porosity indexes and porosity distribution patterns. It can be seen that the value of the porosity index plays more important role on the nonlinear oscillation response of an O-PFGM micro/nano-plate than that of X-PFGM one. Therefore, the gap between the curves associated with the O-PFGM micro/nano-plates having different porosity indexes is more significant.\nIn Figure 11, the influence of the central cutout on the nonlocal strain gradient nonlinear free oscillations of PFGM micro/nano-plates is depicted. It is found that the central cutout causes to increase nonlinear frequency of the micro/nano-plates, and this increment becomes more significant for a bigger size of the cutout (increasing the ratio of ). However, the value of the maximum deflection does not \uD835\uDC4E/\uD835\uDC3F change the significance of the influence of a central cutout. This anticipation is similar for the both CCCC and SSSS boundary conditions.\nIn Figure 12, the variation of the nonlocal strain gradient frequency ratio ( ) with the length \uD835\uDF14\uD835\uDC41\uD835\uDC3F/\uD835\uDF14\uD835\uDC3F to thickness ratio ( ) is depicted for PFGM micro/nano-plates with different values of the porosity \uD835\uDC3F1/\uD835\uDC3F2 index and various porosity distribution patterns. It is demonstrated that there is a specific value of the length to thickness ratio, corresponding to which the nonlocal strain gradient frequency ratio becomes minimum. This minimum value enhances by increasing the value of the porosity index of PFGM micro/nano-plates. Moreover, it is observed that by changing the porosity distribution from O-PFGM type to X-PFGM one, the minimum value of the nonlocal strain gradient frequency ratio reduces. The predictions are the same for the both SSSS and CCCC types of boundary conditions.\nThe variation of the nonlocal strain gradient frequency ratio with the length to thickness ratio is shown in Figure 13 for PFGM micro/nano-plates with various values of the porosity and material property gradient indexes. It is revealed that by increasing the value of the material property gradient index, the minimum point of the nonlocal strain gradient frequency ratio shifts to a higher ratio of the length to width ratio. In addition, it is found that by increasing the porosity index, the role of the material property gradient index on the frequency ratio associated with a specific value of the becomes \uD835\uDC3F1/\uD835\uDC3F2 more important, as the gap between the curves is more significant."
+    }, {
+      "heading" : "5. Concluding remarks",
+      "text" : "In the present work, the size-dependent geometrically nonlinear free oscillations of PFGM micro/nanoplates was investigated in the presence of nonlocality and strain gradient size dependencies. Accordingly, the nonlinear nonlocal strain gradient third-order shear deformable plate model was\nestablished based upon a new power-law function is employed which has the capability to take simultaneously the material gradient and porosity dependency into consideration. To solve the nonlinear problem, the non-uniform rational B-spline-based isogeometric analysis was put to use as an efficient discretization technique having the capability to satisfy C-1 continuity.\nIt was revealed that by taking the strain gradient the size dependency into account, the nonlinear frequency of a PFGM micro/nano-plate enhances, while the nonlocality plays an opposite role and it leads to decrease it. Moreover, these enhancement and reduction in the value of the nonlinear frequency are more prominent for a lower value of the plate deflection. Moreover, it was observed that among different porosity distribution patterns, the both nonlocal and strain gradient size dependencies have the minimum and maximum effects on the nonlinear frequency of O-PFGM and X-PFGM micro/nanoplates, respectively. In addition, it was revealed that for specific values of the material property gradient index and plate deflection, the enhancement in the nonlinear frequency due to the strain gradient size effect is more than the reduction caused by the nonlocality.\nIt was demonstrated that by increasing the value of the porosity index, the significance of the both nonlocality and strain gradient size dependencies on the nonlinear frequency of PFGM micro/nanoplates reduces. This reduction is somehow more considerable for a lower plate deflection. In addition, it was indicated that there is a specific value of the length to thickness ratio, corresponding to which the nonlocal strain gradient frequency ratio becomes minimum. This minimum value enhances by increasing the value of the porosity index of PFGM micro/nano-plates."
+    }, {
+      "heading" : "Appendix A",
+      "text" : "The nonlocal strain gradient stress resultants for a PFGM micro/nano-plates are as below\n\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC65 ― \uD835\uDF072(\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDC41 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC65\uD835\uDC65 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC65,\uD835\uDC66\uD835\uDC66)}\uD835\uDC51\uD835\uDC67 = \uD835\uDC34 ∗11\n[\uD835\uDC62,\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65)2/2 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC34 ∗12[\uD835\uDC63,\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66)2 /2 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC35 ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 )] + \uD835\uDC35 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC36 ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC36 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC41 ∗\uD835\uDC66\uD835\uDC66 ― \uD835\uDF072(\uD835\uDC41 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDC41 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC66\uD835\uDC66 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC66\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC66\uD835\uDC66,\uD835\uDC66\uD835\uDC66)}\uD835\uDC51\uD835\uDC67 = \uD835\uDC34 ∗22\n[\uD835\uDC63,\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66)2/2 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC34 ∗12[\uD835\uDC62,\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65)2 /2 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC35 ∗22[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 )] + \uD835\uDC35 ∗12[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC36 ∗22[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC36 ∗12[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66 ― \uD835\uDF072(\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC65\uD835\uDC66 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC66,\uD835\uDC66\uD835\uDC66)}\uD835\uDC51\uD835\uDC67 = \uD835\uDC34 ∗66[\uD835\uDC62,\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC62,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\n+ \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66(\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66))] + \uD835\uDC35 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + \uD835\uDC36 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC40 ∗\uD835\uDC65\uD835\uDC65 ― \uD835\uDF072(\uD835\uDC40 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDC40 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC65\uD835\uDC65 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC65,\uD835\uDC66\uD835\uDC66)}\uD835\uDC67\uD835\uDC51\uD835\uDC67 = \uD835\uDC35 ∗11\n[\uD835\uDC62,\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65)2/2 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC35 ∗12[\uD835\uDC63,\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66)2 /2 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC37 ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 )] + \uD835\uDC37 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC39 ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC39 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC40 ∗\uD835\uDC66\uD835\uDC66 ― \uD835\uDF072(\uD835\uDC40 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDC40 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC66\uD835\uDC66 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC66\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC66\uD835\uDC66,\uD835\uDC66\uD835\uDC66)}\uD835\uDC67\uD835\uDC51\uD835\uDC67 = \uD835\uDC35 ∗22\n[\uD835\uDC63,\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66)2/2 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC35 ∗12[\uD835\uDC62,\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65)2 /2 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC37 ∗22[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 )] + \uD835\uDC37 ∗12[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC39 ∗22[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC39 ∗12[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC40 ∗\uD835\uDC65\uD835\uDC66 ― \uD835\uDF072(\uD835\uDC40 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDC40 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC65\uD835\uDC66 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC66,\uD835\uDC66\uD835\uDC66)}\uD835\uDC67\uD835\uDC51\uD835\uDC67 = \uD835\uDC35 ∗66[\uD835\uDC62,\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC66\n+ \uD835\uDC62,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66(\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66))] + \uD835\uDC37 ∗66[ \uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + \uD835\uDC39 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC45 ∗\uD835\uDC65\uD835\uDC65 ― \uD835\uDF072(\uD835\uDC45 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDC45 ∗\uD835\uDC65\uD835\uDC65,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC65\uD835\uDC65 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC65,\uD835\uDC66\uD835\uDC66)}(4\uD835\uDC673/3ℎ2)\uD835\uDC51\uD835\uDC67 = \uD835\uDC36 ∗11\n[\uD835\uDC62,\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65)2/2 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC36 ∗12[\uD835\uDC63,\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66)2 /2 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC39 ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 )] + \uD835\uDC39 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC3B ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC3B ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC45 ∗\uD835\uDC66\uD835\uDC66 ― \uD835\uDF072(\uD835\uDC45 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDC45 ∗\uD835\uDC66\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC66\uD835\uDC66 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC66\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC66\uD835\uDC66,\uD835\uDC66\uD835\uDC66)}(4\uD835\uDC673/3ℎ2)\uD835\uDC51\uD835\uDC67 = \uD835\uDC36 ∗22\n[\uD835\uDC63,\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66)2/2 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC36 ∗12[\uD835\uDC62,\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65)2 /2 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2)] + \uD835\uDC39 ∗22[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 )] + \uD835\uDC39 ∗12[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC3B ∗22[\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC3B ∗12[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC45 ∗\uD835\uDC65\uD835\uDC66 ― \uD835\uDF072(\uD835\uDC45 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDC45 ∗\uD835\uDC65\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC65\uD835\uDC66 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC66,\uD835\uDC66\uD835\uDC66)}(4\uD835\uDC673/3ℎ2)\uD835\uDC51\uD835\uDC67 = \uD835\uDC36 ∗66[\uD835\uDC62,\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC62,\uD835\uDC66\uD835\uDC66\uD835\uDC66\n+ \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66) + \uD835\uDC64,\uD835\uDC66(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66) + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66(\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66))] + \uD835\uDC39 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + \uD835\uDC3B ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC44 ∗\uD835\uDC65 ― \uD835\uDF072(\uD835\uDC44 ∗\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDC44 ∗\uD835\uDC65,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC65\uD835\uDC67 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC67,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC67,\uD835\uDC66\uD835\uDC66)}\uD835\uDC51\uD835\uDC67 = (\uD835\uDC34 ∗44 ― \uD835\uDC37 ∗44)\n[\uD835\uDF13\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC44 ∗\uD835\uDC66 ― \uD835\uDF072(\uD835\uDC44 ∗\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDC44 ∗\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC66\uD835\uDC67 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC66\uD835\uDC67,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC66\uD835\uDC67,\uD835\uDC66\uD835\uDC66)}\uD835\uDC51\uD835\uDC67 = (\uD835\uDC34 ∗55 ― \uD835\uDC37 ∗55)\n[\uD835\uDF13\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC46 ∗\uD835\uDC65 ― \uD835\uDF072(\uD835\uDC46 ∗\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDC46 ∗\uD835\uDC65,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC65\uD835\uDC67 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC65\uD835\uDC67,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC65\uD835\uDC67,\uD835\uDC66\uD835\uDC66)}(4\uD835\uDC672/ℎ2)\uD835\uDC51\uD835\uDC67 = (\uD835\uDC36 ∗44 ― \uD835\uDC3B ∗44)\n[\uD835\uDF13\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66)]\n\uD835\uDC46 ∗\uD835\uDC66 ― \uD835\uDF072(\uD835\uDC46 ∗\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDC46 ∗\uD835\uDC66,\uD835\uDC66\uD835\uDC66) = ∫ 0.5ℎ\n―0.5ℎ {\uD835\uDEF7\uD835\uDC66\uD835\uDC67 ― \uD835\uDF072(\uD835\uDEF7\uD835\uDC66\uD835\uDC67,\uD835\uDC65\uD835\uDC65 + \uD835\uDEF7\uD835\uDC66\uD835\uDC67,\uD835\uDC66\uD835\uDC66)}(4\uD835\uDC672/ℎ2)\uD835\uDC51\uD835\uDC67 = (\uD835\uDC36 ∗55 ― \uD835\uDC3B ∗55)\n[\uD835\uDF13\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66)]"
+    }, {
+      "heading" : "Appendix B",
+      "text" : "\uD835\uDC34 ∗11[\uD835\uDC62,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF171)] + \uD835\uDC34 ∗12[\uD835\uDC63,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF172)] + \uD835\uDC35 ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + \uD835\uDC35 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC36 ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\n\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC36 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC34 ∗66[\uD835\uDC62,\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC62,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF173)] + \uD835\uDC35 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC36 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] = \uD835\uDC3C0(\uD835\uDC62,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC62,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) + \uD835\uDC3C3(\uD835\uDC64,\uD835\uDC65\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) ― (\uD835\uDC3C1 ― \uD835\uDC3C3)(\uD835\uDF13\uD835\uDC65,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDF13 \uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 ― \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) (\uD835\uDC351)\n\uD835\uDC34 ∗22[\uD835\uDC63,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF174)] + \uD835\uDC34 ∗12[\uD835\uDC62,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF175)] + \uD835\uDC35 ∗22[\uD835\uDF13 \uD835\uDC66,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC35 ∗12[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC36 ∗22[\uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592( \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC36 ∗12[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC34 ∗66[\uD835\uDC62,\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF176)] + \uD835\uDC35 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + \uD835\uDC36 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] = \uD835\uDC3C0(\uD835\uDC63,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) + \uD835\uDC3C3(\uD835\uDC64,\uD835\uDC66\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC61\uD835\uDC61 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) ― (\uD835\uDC3C1 ― \uD835\uDC3C3)(\uD835\uDF13\uD835\uDC66,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDF13\n\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) (\uD835\uDC352)\n(\uD835\uDC34 ∗44 ― \uD835\uDC36 ∗44 ― \uD835\uDC37 ∗44 + \uD835\uDC3B ∗44)[\uD835\uDF13\uD835\uDC65,\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + (\uD835\uDC34 ∗55 ― \uD835\uDC36 ∗55 ― \uD835\uDC37 ∗55 + \uD835\uDC3B ∗55) [\uD835\uDF13\uD835\uDC66,\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC36 ∗11[\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC65)2 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592( \uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF177)] + \uD835\uDC36 ∗12[\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF178)] + \uD835\uDC39 ∗11[ \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + \uD835\uDC39 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC3B ∗11[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC3B ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\n\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC36 ∗22[\uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC62 ,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF179)] + \uD835\uDC36 ∗12[\uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC66\uD835\uDC66)2 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF1710)] + \uD835\uDC39 ∗22[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC39 ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC3B ∗22[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― \uD835\uDC3B ∗12[\uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13 \uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + 2\uD835\uDC36 ∗66[\uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF1711 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF1712)] + \uD835\uDC39 ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC3B ∗66[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + \uD835\uDC41 ∗\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + \uD835\uDC41 ∗\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC41 ∗\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66 = \uD835\uDC3C0(\uD835\uDC64,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) ― \uD835\uDC3C6(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) + \uD835\uDC3C3(\uD835\uDC62,\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC63,\uD835\uDC66\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC61\uD835\uDC61 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) + (\uD835\uDC3C4 ― \uD835\uDC3C6)(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072( \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC61\uD835\uDC61 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) (\uD835\uDC353)\n(\uD835\uDC35 ∗11 ― \uD835\uDC36 ∗11)[\uD835\uDC62,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF171)] + (\uD835\uDC35 ∗12 ― \uD835\uDC36 ∗12)[\uD835\uDC63,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF172)] + (\uD835\uDC37 ∗11 ― \uD835\uDC39 ∗11)[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + (\uD835\uDC37 ∗12 ― \uD835\uDC39 ∗12)[\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\n\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― (\uD835\uDC39 ∗11 ― \uD835\uDC3B ∗11)[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] ― (\uD835\uDC39 ∗12 ― \uD835\uDC3B ∗12)[\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + (\uD835\uDC35 ∗66 ― \uD835\uDC36 ∗66)[\uD835\uDC62 ,\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC62,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF173)] + (\uD835\uDC37 ∗66 ― \uD835\uDC39 ∗66)[\uD835\uDF13 \uD835\uDC65,\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + (\uD835\uDC39 ∗66 ― \uD835\uDC3B ∗66)[\uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64 ,\uD835\uDC65\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― (\uD835\uDC34 ∗44 ― \uD835\uDC36 ∗44 ― \uD835\uDC37 ∗44 + \uD835\uDC3B ∗44)[\uD835\uDF13\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66)] = (\uD835\uDC3C2 ― \uD835\uDC3C4 + \uD835\uDC3C6)(\uD835\uDF13\uD835\uDC65,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDF13\uD835\uDC65,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) + (\uD835\uDC3C6 ― \uD835\uDC3C4)(\uD835\uDC64,\uD835\uDC65\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) ― (\uD835\uDC3C1 ― \uD835\uDC3C3)(\uD835\uDC62,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC62,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61))\n(B4)\n(\uD835\uDC35 ∗22 ― \uD835\uDC36 ∗22)[\uD835\uDC63,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF174)] + (\uD835\uDC35 ∗12 ― \uD835\uDC36 ∗12)[\uD835\uDC62,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF175)] + (\uD835\uDC37 ∗22 ― \uD835\uDC39 ∗22)[\uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + (\uD835\uDC37 ∗12 ― \uD835\uDC39 ∗12)[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\n\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― (\uD835\uDC39 ∗22 ― \uD835\uDC3B ∗22)[\uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― (\uD835\uDC39 ∗12 ― \uD835\uDC3B ∗12)[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] + (\uD835\uDC35 ∗66 ― \uD835\uDC36 ∗66)[\uD835\uDC62 ,\uD835\uDC65\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDC62,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC62,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDF176)] + (\uD835\uDC37 ∗66 ― \uD835\uDC39 ∗66)[\uD835\uDF13 \uD835\uDC65,\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66)] + (\uD835\uDC39 ∗66 ― \uD835\uDC3B ∗66)[\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + 2\uD835\uDC64 ,\uD835\uDC65\uD835\uDC65\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDF13\uD835\uDC65,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66)] ― (\uD835\uDC34 ∗55 ― \uD835\uDC36 ∗55 ― \uD835\uDC37 ∗55 + \uD835\uDC3B ∗55)[\uD835\uDF13\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66 ― \uD835\uDC592(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66)] = (\uD835\uDC3C2 ― \uD835\uDC3C4 + \uD835\uDC3C6)(\uD835\uDF13\uD835\uDC66,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDF13\uD835\uDC66,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDF13\uD835\uDC66,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) + (\uD835\uDC3C6 ― \uD835\uDC3C4)(\uD835\uDC64,\uD835\uDC66\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC61\uD835\uDC61 ― \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61)) ― (\uD835\uDC3C1 ― \uD835\uDC3C3)(\uD835\uDC63,\uD835\uDC61\uD835\uDC61 ― \uD835\uDF072(\uD835\uDC63,\uD835\uDC65\uD835\uDC65\uD835\uDC61\uD835\uDC61 + \uD835\uDC63,\uD835\uDC66\uD835\uDC66\uD835\uDC61\uD835\uDC61))\n(\uD835\uDC355)\nwhere the nonlinear expressions are introduced as\n\uD835\uDF171 = 3\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\n\uD835\uDF172 = 3\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\n\uD835\uDF173 = 3\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 3\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 3\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\n\uD835\uDF174 = 3\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\n\uD835\uDF175 = 3\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 (\uD835\uDC356)\n\uD835\uDF176 = 3\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 3\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + 3\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 \uD835\uDF177 = 3(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65)2 + 4\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66)2 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\n\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\n\uD835\uDF178 = 3(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66)2 + 4\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2(\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66)2 + 2\uD835\uDC64,\uD835\uDC66\uD835\uDC66\n\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\n\uD835\uDF179 = 3(\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66)2 + 4\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 2(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66)2 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC65\n\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\n\uD835\uDF1710 = 3(\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66)2 + 4\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 2\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 2(\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66)2 + 2\uD835\uDC64,\uD835\uDC65\uD835\uDC66\n\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\n\uD835\uDF1711 = \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC66\uD835\uDC66 + (\uD835\uDC64,\uD835\uDC65\uD835\uDC66)2\n\uD835\uDF1712 = 3\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66 + 3(\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66)2 + 3(\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66)2 + 3\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + 3\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 3\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + 3\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65 + 4\n\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66 + \uD835\uDC64,\uD835\uDC65\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC65\uD835\uDC66 + \uD835\uDC64,\uD835\uDC66\uD835\uDC64,\uD835\uDC65\uD835\uDC65\uD835\uDC66\uD835\uDC66\uD835\uDC66"
+    }, {
+      "heading" : "Acknowledgment",
+      "text" : "This work is supported by the launching research funds for doctors of Xi'an University of Posts and Telecommunications (No.104/205020021)."
+    }, {
+      "heading" : "Data availability",
+      "text" : "The raw/processed data required to reproduce these findings cannot be shared at this time due to legal or ethical reasons."
+    }, {
+      "heading" : "Author statement",
+      "text" : "Herewith, it is confirmed that the manuscript has not been submitted or published elsewhere.\nThank you for your kind consideration."
+    }, {
+      "heading" : "All the best,",
+      "text" : ""
+    }, {
+      "heading" : "Dr. Fan Fan",
+      "text" : ""
+    }, {
+      "heading" : "School of Automation",
+      "text" : "Xi'an University of Posts and Telecommunications"
+    } ],
+    "references" : [ {
+      "title" : "A design for the additive manufacture of functionally graded porous structures with tailored mechanical properties for biomedical applications",
+      "author" : [ "J. Parthasarathy", "B. Starly", "S. Raman" ],
+      "venue" : "Journal of Manufacturing Processes",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2011
+    }, {
+      "title" : "On the high temperature mechanical behaviors analysis of heated functionally graded plates using FEM and a new third-order shear deformation plate theory",
+      "author" : [ "T.Q. Bui", "T.V. Do", "L.H.T. Ton", "D.H. Doan" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2016
+    }, {
+      "title" : "Analysis of bi-directional functionally graded plates by FEM and a new third-order shear deformation plate theory",
+      "author" : [ "T.V. Do", "D.K. Nguyen", "N.D. Duc", "D.H. Doan", "T.Q. Bui" ],
+      "venue" : "Thin-Walled Structures",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2017
+    }, {
+      "title" : "Continuous functionally graded porous titanium scaffolds manufactured by selective laser melting for bone implants",
+      "author" : [ "C. Han", "Y. Li", "Q. Wang", "S. Wen", "Q. Wei", "C. Yan", "L. Hao", "J. Liu", "Y. Shi" ],
+      "venue" : "Journal of the Mechanical Behavior of Biomedical Materials",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2018
+    }, {
+      "title" : "Additively manufactured functionally graded biodegradable porous iron",
+      "author" : [ "Y. Li", "H. Jahr", "P. Pavanram", "F.S.L. Bobbert", "U. Puggi" ],
+      "venue" : "Acta Biomaterialia",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2019
+    }, {
+      "title" : "Rationally designed functionally graded porous Ti6Al4V scaffolds with high strength and toughness built via selective laser melting for load-bearing orthopedic applications",
+      "author" : [ "Y.-Z. Xiong", "R.-N. Gao", "H. Zhang", "L.-L. Dong", "J.-T. Li", "X. Li" ],
+      "venue" : "Journal of the Mechanical Behavior of Biomedical Materials",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2020
+    }, {
+      "title" : "Microstructural design, manufacturing and dual-scale modelling of an adaptable porous composite sound absorber",
+      "author" : [ "K.C. Opiela", "T.G. Zielinski" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2020
+    }, {
+      "title" : "Insights into unit cell size effect on mechanical responses and energy absorption capability of titanium graded porous structures manufactured by laser powder bed fusion",
+      "author" : [ "L. Yang", "C. Han", "H. Wu", "L. Hao", "Q. Wei", "C. Yan", "Y. Shi" ],
+      "venue" : "Journal of the Mechanical Behavior of Biomedical Materials",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2020
+    }, {
+      "title" : "Static performance of agglomerated CNTreinforced porous plates bonded with piezoceramic faces",
+      "author" : [ "R. Moradi-Dastjerdi", "K. Behdinan", "B. Safaei", "Z. Qin" ],
+      "venue" : "International Journal of Mechanical Sciences",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2020
+    }, {
+      "title" : "Buckling behavior of porous CNT-reinforced plates integrated between active piezoelectric layers",
+      "author" : [ "R. Moradi-Dastjerdi", "K. Behdinan", "B. Safaei", "Z. Qin" ],
+      "venue" : "Engineering Structures",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2020
+    }, {
+      "title" : "Axisymmetric nonlinear free vibration of size-dependent functionally graded annular microplates",
+      "author" : [ "L.L. Ke", "J. Yang", "S. Kitipornchai", "M.A. Bradford", "Y.S. Wang" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2013
+    }, {
+      "title" : "Surface energy effects on the free vibration characteristics of postbuckled third-order shear deformable nanobeams",
+      "author" : [ "S. Sahmani", "M. Bahrami", "R. Ansari" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2014
+    }, {
+      "title" : "Free vibration analysis of size-dependent shear deformable functionally graded cylindrical shell on the basis of modified couple stress theory",
+      "author" : [ "Y. Tadi Beni", "F. Mehralian", "H. Razavi" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2015
+    }, {
+      "title" : "Size dependent free vibration analysis of nanoplates made of functionally graded materials based on nonlocal elasticity theory with high order theories",
+      "author" : [ "A. Daneshmehr", "A. Rajabpoor", "A. Hadi" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2015
+    }, {
+      "title" : "An efficient computational approach for sizedependent analysis of functionally graded nanoplates",
+      "author" : [ "N.-T. Nguyen", "D. Hui", "J. Lee", "H. Nguyen-Xuan" ],
+      "venue" : "Computer Methods in Applied Mechanics and Engineering",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2015
+    }, {
+      "title" : "Size-dependent behavior of functionally graded anisotropic composite plates",
+      "author" : [ "J. Guo", "J. Chen", "E. Pan" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2016
+    }, {
+      "title" : "Size-dependent nonlinear bending of micro/nano-beams made of nanoporous biomaterials including a refined truncated cube cell",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Physics Letters A",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2017
+    }, {
+      "title" : "Chaotic dynamics of size dependent Timoshenko beams with functionally graded properties along their thickness",
+      "author" : [ "J. Awrejcewicz", "A.V. Krysko", "S.P. Pavlov", "M.V. Zhigalov", "V.A. Krysko" ],
+      "venue" : "Mechanical Systems and Signal Processing",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2017
+    }, {
+      "title" : "Size-dependent vibration and stability of multi-span viscoelastic functionally graded material nanopipes conveying fluid using a hybrid method",
+      "author" : [ "J. Deng", "Y. Liu", "Z. Zhang", "W. Liu" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2017
+    }, {
+      "title" : "Temperature-dependent nonlocal instability of hybrid FGM exponential shear deformable nanoshells including imperfection sensitivity",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "International Journal of Mechanical Sciences",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2017
+    }, {
+      "title" : "Size-dependent analysis of homogeneous and functionally graded microplates using IGA and a non-classical Kirchhoff plate theory",
+      "author" : [ "S. Liu", "T. Yu", "T.Q. Bui", "S. Xia" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2017
+    }, {
+      "title" : "Size effects of functionally graded moderately thick microplates: A novel non-classical simple-FSDT isogeometric analysis",
+      "author" : [ "S. Liu", "T. Yu", "T.Q. Bui" ],
+      "venue" : "European Journal of Mechanics – A/Solids",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2017
+    }, {
+      "title" : "Free vibration and buckling analyses of a size-dependent axially functionally graded beam incorporating transverse shear deformation",
+      "author" : [ "W. Yang", "D. He" ],
+      "venue" : "Results in Physics",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2017
+    }, {
+      "title" : "Torsional vibration of bi-directional functionally graded nanotubes based on nonlocal elasticity theory",
+      "author" : [ "L. Li", "Y. Hu" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2017
+    }, {
+      "title" : "Agawam. Boundary layer modeling of nonlinear axial buckling behavior of functionally graded cylindrical nanoshells based on the surface elasticity theory",
+      "author" : [ "M.M.S. Sahmani" ],
+      "venue" : "Iranian Journal of Science and Technology, Transactions of Mechanical Engineering",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2018
+    }, {
+      "title" : "On vibrations of functionally graded viscoelastic nanobeams with surface effects",
+      "author" : [ "M.A. Attia", "A.A. Abdel Rahman" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2018
+    }, {
+      "title" : "Size-dependent vibration of bi-directional functionally graded microbeams with arbitrary boundary conditions",
+      "author" : [ "L.C. Trinh", "T.P. Vo", "H.-T. Thai", "T.-K. Nguyen" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2018
+    }, {
+      "title" : "On vibration of functionally graded nano-tubes in the thermal environment",
+      "author" : [ "N. Shafiei", "G.-L. She" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2018
+    }, {
+      "title" : "Size effect on cracked functional composite microplates by an XIGA-based effective approach",
+      "author" : [ "S. Liu", "T. Yu", "L.V. Lich", "S. Yin", "T.Q. Bui" ],
+      "venue" : "Meccanica",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2018
+    }, {
+      "title" : "Axial postbuckling analysis of multilayer functionally graded composite nanoplates reinforced with GPLs based on nonlocal strain gradient theory",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "The European Physical Journal Plus",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2017
+    }, {
+      "title" : "Nonlocal strain gradient plate model for nonlinear largeamplitude vibrations of functionally graded porous micro/nano-plates reinforced with GPLs",
+      "author" : [ "S. Sahmani", "M.M. Aghdam", "T. Rabczuk" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2018
+    }, {
+      "title" : "A unified nonlocal strain gradient plate model for nonlinear axial instability of functionally graded porous micro/nano-plates reinforced with graphene platelets",
+      "author" : [ "S. Sahmani", "M.M. Aghdam", "T. Rabczuk" ],
+      "venue" : "Materials Research Express",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2018
+    }, {
+      "title" : "Nonlinear bending of functionally graded porous micro/nano-beams reinforced with graphene platelets based upon nonlocal strain gradient theory",
+      "author" : [ "S. Sahmani", "M.M. Aghdam", "T. Rabczuk" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2018
+    }, {
+      "title" : "Nonlinear forced vibration of size-dependent functionally graded microbeams with damping effects",
+      "author" : [ "G.G. Sheng", "X. Wang" ],
+      "venue" : "Applied Mathematical Modelling",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2019
+    }, {
+      "title" : "A novel size-dependent quasi-3D isogeometric beam model for two-directional FG microbeams analysis",
+      "author" : [ "T. Yu", "J. Zhang", "H. Hu", "T.Q. Bui" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2019
+    }, {
+      "title" : "Size and surface effects on mechanical behavior of thin nanoplates incorporating microstructures using isogeometric analysis",
+      "author" : [ "S. Liu", "T. Yu", "L.V. Lich", "S. Yin", "T.Q. Bui" ],
+      "venue" : "Computers & Structures",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2019
+    }, {
+      "title" : "Nonlinear torsional buckling and postbuckling analysis of cylindrical silicon nanoshells incorporating surface free energy effects",
+      "author" : [ "S. Sahmani", "A.M. Fattahi", "N.A. Ahmed" ],
+      "venue" : "Microsystem Technologies",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2019
+    }, {
+      "title" : "Size dependent nonlinear free vibration of axially functionally graded tapered microbeams using finite element method",
+      "author" : [ "S. Zheng", "D. Chen", "H. Wang" ],
+      "venue" : "Thin-Walled Structures",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2019
+    }, {
+      "title" : "Size dependent free vibration analysis of multilayer functionally graded GPLRC microplates based on modified strain gradient theory",
+      "author" : [ "C.H. Thai", "A.J.M. Ferreira", "P. Phung-Van" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2019
+    }, {
+      "title" : "Size dependent flapwise vibration analysis of rotating two-directional functionally graded sandwich porous microbeams based on a transverse shear and normal deformation theory",
+      "author" : [ "A. Karamanli", "M. Aydogdu" ],
+      "venue" : "International Journal of Mechanical Sciences",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2019
+    }, {
+      "title" : "Size-dependent forced vibration of non-uniform bi-directional functionally graded beams embedded in variable elastic environment carrying a moving harmonic mass",
+      "author" : [ "S. Rajasekaran", "H. Bakhshi Khaniki" ],
+      "venue" : "Applied Mathematical Modelling",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2019
+    }, {
+      "title" : "Isogeometric analysis of in-plane functionally graded porous microplates using modified couple stress theory",
+      "author" : [ "A. Farzam", "B. Hassani" ],
+      "venue" : "Aerospace Science and Technology",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2019
+    }, {
+      "title" : "Isogeometric analysis of size-dependent effects for functionally graded microbeams by a non-classical quasi-3D theory",
+      "author" : [ "T. Yu", "H. Hu", "J. Zhang", "T.Q. Bui" ],
+      "venue" : "Thin-Walled Structures",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2019
+    }, {
+      "title" : "On size-dependent dynamic behavior of rotating functionally graded Kirchhoff microplates",
+      "author" : [ "J. Fang", "H. Wang", "X. Zhang" ],
+      "venue" : "International Journal of Mechanical Sciences",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2019
+    }, {
+      "title" : "Effect of hyperbolic heat conduction on the linear and nonlinear vibration of CNT reinforced size-dependent functionally graded microbeams",
+      "author" : [ "A. Pourasghar", "Z. Chen" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2019
+    }, {
+      "title" : "Isogeometric analysis for sizedependent nonlinear thermal stability of porous FG microplates",
+      "author" : [ "C.-L. Thanh", "L.V. Tran", "T.Q. Bui", "H.X. Nguyen", "M. Abdel-Wahab" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2019
+    }, {
+      "title" : "Nonlinear free vibrations of bi-directional functionally graded micro/nanobeams including nonlocal stress and microstructural strain gradient size effects",
+      "author" : [ "S. Sahmani", "B. Safaei" ],
+      "venue" : "Thin-Walled Structures",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2019
+    }, {
+      "title" : "Nonlocal strain gradient nonlinear resonance of bi-directional functionally graded composite micro/nano-beams under periodic soft excitation",
+      "author" : [ "S. Sahmani", "B. Safaei" ],
+      "venue" : "Thin-Walled Structures",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2019
+    }, {
+      "title" : "Influence of homogenization models on size-dependent nonlinear bending and postbuckling of bi-directional functionally graded micro/nano-beams",
+      "author" : [ "S. Sahmani", "B. Safaei" ],
+      "venue" : "Applied Mathematical Modelling",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2020
+    }, {
+      "title" : "Influence of homogenization schemes on vibration of functionally graded curved microbeams",
+      "author" : [ "B. Karami", "D. Shahsavari", "M. Janghorban", "L. Li" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2019
+    }, {
+      "title" : "Thermal effect on vibrational behaviors of rotating functionally graded microbeams",
+      "author" : [ "J. Fang", "J. Gu", "H. Wang", "X. Zhang" ],
+      "venue" : "European Journal of Mechanics – A/Solids",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2019
+    }, {
+      "title" : "Computational hygro-thermal vibration and buckling analysis of functionally graded sandwich microbeams",
+      "author" : [ "A.I. Aria", "M.I. Friswell" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2019
+    }, {
+      "title" : "Some closed-form solutions for static, buckling, free and forced vibration of functionally graded (FG) nanobeams using nonlocal strain gradient theory",
+      "author" : [ "M. Simsek" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2019
+    }, {
+      "title" : "Isogeometric analysis of in-plane functionally graded porous microplates using modified couple stress theory",
+      "author" : [ "A. Farzam", "B. Hassani" ],
+      "venue" : "Aerospace Science and Technology",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2019
+    }, {
+      "title" : "Porosity-dependent nonlinear transient responses of functionally graded nanoplates using isogeometric analysis",
+      "author" : [ "P. Phung-Van", "C.H. Thai", "H. Nguyen-Xuan", "M. Abdel Wahab" ],
+      "venue" : "Composites Part B: Engineering",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2019
+    }, {
+      "title" : "Surface elastic shell model for nonlinear primary resonant dynamics of FG porous nanoshells incorporating modal interactions",
+      "author" : [ "S. Sahmani", "A.M. Fattahi", "N.A. Ahmed" ],
+      "venue" : "International Journal of Mechanical Sciences",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2020
+    }, {
+      "title" : "Couple stress-based nonlinear buckling analysis of hydrostatic pressurized functionally graded composite conical microshells",
+      "author" : [ "Y. Yuan", "K. Zhao", "Y. Zhao", "S. Sahmani", "B. Safaei" ],
+      "venue" : "Mechanics of Materials",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2020
+    }, {
+      "title" : "Nonlinear oscillations of composite conical microshells with in-plane heterogeneity based upon a couple stress-based shell model",
+      "author" : [ "Y. Yuan", "K. Zhao", "Y. Han", "S. Sahmani", "B. Safaei" ],
+      "venue" : "Thin-Walled Structures",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2020
+    }, {
+      "title" : "Surface elastic shell model for nonlinear primary resonant dynamics of FG porous nanoshells incorporating modal interactions",
+      "author" : [ "S. Sahmani", "A.M. Fattahi", "N.A. Ahmed" ],
+      "venue" : "International Journal of Mechanical Sciences",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2020
+    }, {
+      "title" : "Nonlinear primary resonance analysis of nanoshells including vibrational mode interactions based on the surface elasticity theory",
+      "author" : [ "A. Sarafraz", "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Applied Mathematics and Mechanics",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2020
+    }, {
+      "title" : "Surface stress effect on the nonlinear free vibrations of functionally graded composite nanoshells in the presence of modal interaction",
+      "author" : [ "Q. Li", "B. Xie", "S. Sahmani", "B. Safaei" ],
+      "venue" : "Journal of the Brazilian Society of Mechanical Sciences and Engineering",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2020
+    }, {
+      "title" : "On size-dependent large-amplitude free oscillations of FGPM nanoshells incorporating vibrational mode interactions",
+      "author" : [ "H. Yi", "S. Sahmani", "B. Safaei" ],
+      "venue" : "Archives of Civil and Mechanical Engineering",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2020
+    }, {
+      "title" : "On the surface elastic-based shear buckling characteristics of functionally graded composite skew nanoplates",
+      "author" : [ "F. Fan", "B. Lei", "S. Sahmani", "B. Safaei" ],
+      "venue" : "Thin-Walled Structures",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2020
+    }, {
+      "title" : "Develop a refined truncated cubic lattice structure for nonlinear large-amplitude vibrations of micro/nano-beams made of nanoporous materials",
+      "author" : [ "S. Sahmani", "A.M. Fattahi", "N.A. Ahmed" ],
+      "venue" : "Engineering with Computers",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2020
+    }, {
+      "title" : "Size-dependent shear buckling response of FGM skew nanoplates modeled via different homogenization schemes",
+      "author" : [ "Y. Yuan", "K. Zhao", "S. Sahmani", "B. Safaei" ],
+      "venue" : "Applied Mathematics and Mechanics",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2020
+    }, {
+      "title" : "An isogeometric approach of static and free vibration analyses for porous FG nanoplates",
+      "author" : [ "P. Phung-Van", "C.H. Thai", "H. Nguyen-Xuan", "M. Abdel-Wahab" ],
+      "venue" : "European Journal of Mechanics – A/Solids",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2019
+    }, {
+      "title" : "Couple stress based strain gradient theory for elasticity",
+      "author" : [ "F. Yang", "A.C.M. Chong", "D.C.C. Lam" ],
+      "venue" : "International Journal of Solids and Structures",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2002
+    }, {
+      "title" : "Closed form solution for a nonlocal strain gradient rod in tension",
+      "author" : [ "X. Zhu", "L. Li" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2017
+    }, {
+      "title" : "Linear theory of nonlocal elasticity and dispersion of plane waves",
+      "author" : [ "A.C. Eringen" ],
+      "venue" : "International Journal of Engineering Science",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 1972
+    }, {
+      "title" : "Generalized shear deformation theory for functionally graded isotropic and sandwich plates based on isogeometric approach",
+      "author" : [ "C.H. Thai", "S. Kulasegaram", "L.V. Tran", "H. Nguyen-Xuan" ],
+      "venue" : "Computers & Structures",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2014
+    }, {
+      "title" : "A refined quasi-3D isogeometric analysis for functionally graded microplates based on the modified couple stress theory",
+      "author" : [ "H.X. Nguyen", "T.N. Nguyen", "M. Abdel-Wahab", "S.P.A. Bordas", "H. Nguyen-Xuan", "T.P. Vo" ],
+      "venue" : "Computer Methods in Applied Mechanics and Engineering",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : "71",
+      "year" : 2017
+    }, {
+      "title" : "A novel three-variable shear deformation plate formulation: Theory and Isogeometric implementation",
+      "author" : [ "T.N. Nguyen", "T.D. Ngo", "H. Nguyen-Xuan" ],
+      "venue" : "Computer Methods in Applied Mechanics and Engineering",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2017
+    }, {
+      "title" : "A three-variable high order shear deformation theory for isogeometric free vibration, buckling and instability analysis of FG porous plates reinforced by graphene platelets",
+      "author" : [ "Q.H. Nguyen", "L.B. Nguyen", "H.B. Nguyen", "H. Nguyen-Xuan" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2020
+    }, {
+      "title" : "Analysis of thick porous beams by a quasi-3D theory and isogeometric analysis",
+      "author" : [ "W. Fang", "T. Yu", "L.V. Lich", "T.Q. Bui" ],
+      "venue" : "Composite Structures",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2019
+    }, {
+      "title" : "Size-dependent elastic properties of nanosized structural elements",
+      "author" : [ "R.E. Miller", "V.B. Shenoy" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2000
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "[1] proposed a design for the additive manufacture of functionally graded porous structures for using in biomedical applications.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 1,
+      "context" : "[2] introduced a finite element model based upon a new third-order shear deformation plate theory to analyze high temperature mechanical responses of heated plates made of a functionally graded material (FGM).",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 2,
+      "context" : "[3] carried out a numerical analysis for buckling and bending of bi-directional FGM plates modeled via a new thirdorder shear deformation plate theory.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 3,
+      "context" : "[4] generated continuous graded porous scaffolds using Schwartz diamond unit cell using selective laser melting.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 4,
+      "context" : "[5] employed the additive manufacturing method to fabricate functionally graded biodegradable porous metallic biomaterials containing a diamond unit cell.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 5,
+      "context" : "[6] developed a novel technique to design radial functionally gradient porous architecture replicating the gradient structure of a bone.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 6,
+      "context" : "Opiela and Zielinski [7] manufactured a porous composite with modifiable micro-geometry with the ability to absorb noise with various frequency ranges.",
+      "startOffset" : 21,
+      "endOffset" : 24
+    }, {
+      "referenceID" : 7,
+      "context" : "[8] introduced Schwartz diamond graded porous structures made of a triply-periodic-minimal until cell topology using laser powder bed fusion.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 8,
+      "context" : "[9,10] explored the static performance and buckling response of porous carbon nanotube-reinforced plates integrated between active piezoelectric facesheets.",
+      "startOffset" : 0,
+      "endOffset" : 6
+    }, {
+      "referenceID" : 9,
+      "context" : "[9,10] explored the static performance and buckling response of porous carbon nanotube-reinforced plates integrated between active piezoelectric facesheets.",
+      "startOffset" : 0,
+      "endOffset" : 6
+    }, {
+      "referenceID" : 10,
+      "context" : "[11] analyzed the sizedependent axisymmetric nonlinear free oscillations of FGM annular Mindlin microplates based on the modified couple stress elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 11,
+      "context" : "[12] studied the free vibration response of nanobeams within the both prebuckling and postbuckling domains including surface stress size effect.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 12,
+      "context" : "[13] developed a size-dependent shell for free vibrations of FGM cylindrical microshells.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 13,
+      "context" : "[14] obtained the natural frequencies of FGM nanoplates modeled via a nonlocal higher-order shear deformation plate theory.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 14,
+      "context" : "[15] employed an efficient computational technique to capture the nonlocal size effect on mechanical behavior of FGM nanoplates.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 15,
+      "context" : "[16] explored analytically the size-dependent analysis for modified couple stress-based FGM composite microplates.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 16,
+      "context" : "Sahmani and Aghdam [17] incorporated a developed refined truncated cubic lattice structure for size-dependent nonlinear bending response of nanoporous microbeams.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 17,
+      "context" : "[18] analyzed chaotic dynamics of size-dependent FGM Timoshenko microbeams coincided with the Ruelle-Takens-Newhouse scenario.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 18,
+      "context" : "[19] explored the size-dependent stability of multi-span viscoelastic FGM nanopipes conveying fluid on the basis of the nonlocal elasticity theory.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 19,
+      "context" : "Sahmani and Aghdam [20] presented a nonlocal elastic shell model for temperaturedependent postbuckling analysis of imperfect hybrid FGM cylindrical nanoshells.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 22,
+      "context" : "Yang and He [23] developed a modified couple stressbased beam model for free vibration and buckling of axially FGM Euler-Bernoulli microbeams.",
+      "startOffset" : 12,
+      "endOffset" : 16
+    }, {
+      "referenceID" : 23,
+      "context" : "Li and Hu [24] examined torsional vibration response of bi-directional FGM nanotubes on the basis of the nonlocal theory of elasticity.",
+      "startOffset" : 10,
+      "endOffset" : 14
+    }, {
+      "referenceID" : 24,
+      "context" : "Sahmani and Aghdam [25] proposed a boundary layer modelling for axial buckling and postbuckling of FGM nanoshells on the basis of the surface stress theory of elasticity.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 25,
+      "context" : "Attia and Abdel Rahman [26] reported the surface elastic-based natural frequencies of FGM composite viscoelastic Euler-Bernoulli nanobeams.",
+      "startOffset" : 23,
+      "endOffset" : 27
+    }, {
+      "referenceID" : 26,
+      "context" : "[27] studied free vibration behavior of bidirectional FGM microbeams within the framework of the modified couple stress elasticity theory.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 27,
+      "context" : "Shafiei and She [28] predicted the free vibrations of bi-directional FGM nanotubes based upon the nonlocal strain gradient elasticity theory.",
+      "startOffset" : 16,
+      "endOffset" : 20
+    }, {
+      "referenceID" : 28,
+      "context" : "[29] introduced an effective numerical technique based upon the extended isogeometric analysis to predict size-dependent vibrations and buckling of FGM microplates with cracks.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 29,
+      "context" : "[30-33] utilized the nonlocal strain gradient elasticity theory to predict size-dependent mechanical behaviors of multilayer FGM nanocomposite micro/nanostructures.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 30,
+      "context" : "[30-33] utilized the nonlocal strain gradient elasticity theory to predict size-dependent mechanical behaviors of multilayer FGM nanocomposite micro/nanostructures.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 31,
+      "context" : "[30-33] utilized the nonlocal strain gradient elasticity theory to predict size-dependent mechanical behaviors of multilayer FGM nanocomposite micro/nanostructures.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 32,
+      "context" : "[30-33] utilized the nonlocal strain gradient elasticity theory to predict size-dependent mechanical behaviors of multilayer FGM nanocomposite micro/nanostructures.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 33,
+      "context" : "Recently, Sheng and Wang [34] developed a modified couple stress-based beam model for nonlinear forced vibration behavior of FGM microbeams including damping effects.",
+      "startOffset" : 25,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 34,
+      "context" : "[35] introduced a quasi-3D isogeometric beam model based upon the modified couple stress theory for two-directional FGM microbeams.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 35,
+      "context" : "[36] proposed a computational approach based on the isogeometric analysis to analyze mechanical behaviors of nanoplates in the presence of couple stress and surface stress size effects.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 36,
+      "context" : "[37] presented a nonlinear size-dependent finite element formulation for nonlinear free vibration behavior of axially FGM tapered Euler-Bernoulli microbeams.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 37,
+      "context" : "[38] performed a computational analysis for free vibrations of multilayer FGM microplates on the basis of the modified strain gradient elasticity theory.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 38,
+      "context" : "Karamanli and Aydogdu [39] studied the size-dependent free vibration response of bi-directional FGM porous sandwich microbeams using a transverse shearnormal deformation beams theory.",
+      "startOffset" : 22,
+      "endOffset" : 26
+    }, {
+      "referenceID" : 39,
+      "context" : "Rajasekaran and Khaniki [40] employed the modified couple stress theory of elasticity for forced vibration analysis of bi-directional FGM microbeams including general forms of non-homogeneity and non-uniformity.",
+      "startOffset" : 24,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 40,
+      "context" : "[41] put the isogeometric method to use for analysis of size effects on mechanical characteristics of in-plane FGM porous microbeams.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 41,
+      "context" : "[42] employed an efficient computational methodology based on the isogeometric approach to capture size effect on mechanical behaviors of quasi-3D FGM microbeams.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 42,
+      "context" : "[43] examined the nonlinear torsional buckling and postbuckling behavior of silicon nanoshells in the presence of the surface stress effects.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 43,
+      "context" : "[44] proposed a size-dependent dynamic model for rotating FG Kirchhoff microplates incorporating Coriolis and dynamic stiffening effects.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 44,
+      "context" : "Pourasghar and Chen [45] combined the differential quadrature method with the Newton-Raphson method to analyze the effect of hyperbolic heat conduction on the linear and nonlinear vibrations of FGM Timoshenko microbeams.",
+      "startOffset" : 20,
+      "endOffset" : 24
+    }, {
+      "referenceID" : 45,
+      "context" : "[46] studied the nonlinear thermal stability of porous FGM",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 46,
+      "context" : "Sahmani and Safaei [47-49] employed the nonlocal strain gradient continuum elasticity to analyze size-dependent nonlinear free and forced vibrations as well as postbuckling of bidirectional FGM composite micro/nano-beams.",
+      "startOffset" : 19,
+      "endOffset" : 26
+    }, {
+      "referenceID" : 47,
+      "context" : "Sahmani and Safaei [47-49] employed the nonlocal strain gradient continuum elasticity to analyze size-dependent nonlinear free and forced vibrations as well as postbuckling of bidirectional FGM composite micro/nano-beams.",
+      "startOffset" : 19,
+      "endOffset" : 26
+    }, {
+      "referenceID" : 48,
+      "context" : "Sahmani and Safaei [47-49] employed the nonlocal strain gradient continuum elasticity to analyze size-dependent nonlinear free and forced vibrations as well as postbuckling of bidirectional FGM composite micro/nano-beams.",
+      "startOffset" : 19,
+      "endOffset" : 26
+    }, {
+      "referenceID" : 49,
+      "context" : "[50] indicated the influence of different homogenization models on the free vibrations of curved FGM microbeams.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 50,
+      "context" : "[51] examined the size-dependent thermal free vibration response of rotating FGM Euler-Bernoulli and Timoshenko microbeams with different end supports.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 51,
+      "context" : "Aria and Friswell [52] investigated the hygro-thermal vibration and buckling behaviors of FGM sandwich microbeams with temperature-dependent material properties.",
+      "startOffset" : 18,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 52,
+      "context" : "Simsek [53] employed the nonlocal strain gradient elasticity to analyze static bending, buckling, and vibrations of FGM Euler-Bernoulli nanobeams.",
+      "startOffset" : 7,
+      "endOffset" : 11
+    }, {
+      "referenceID" : 53,
+      "context" : "Farzam and Hassani [54] explored bending, buckling and vibration characteristics of FGM porous microplates based upon the modified couple stress elasticity and using isogeometric technique.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 54,
+      "context" : "[55] put the isogeometric method to use for nonlinear transient response of FGM nanoplates on the basis of the nonlocal theory of elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 55,
+      "context" : "[56] developed a size-dependent shell model for FGM porous micro/nano-shells.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 56,
+      "context" : "[57,58] constructed different size-dependent conical shell models to analyze the nonlinear buckling and oscillations of FGM conical microshells.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 57,
+      "context" : "[57,58] constructed different size-dependent conical shell models to analyze the nonlinear buckling and oscillations of FGM conical microshells.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 58,
+      "context" : "[59-62] investigated the nonlinear free vibration and primary resonance of FGM nanoshells modeled via the surface elasticity theory and incorporating modal interactions.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 59,
+      "context" : "[59-62] investigated the nonlinear free vibration and primary resonance of FGM nanoshells modeled via the surface elasticity theory and incorporating modal interactions.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 60,
+      "context" : "[59-62] investigated the nonlinear free vibration and primary resonance of FGM nanoshells modeled via the surface elasticity theory and incorporating modal interactions.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 61,
+      "context" : "[59-62] investigated the nonlinear free vibration and primary resonance of FGM nanoshells modeled via the surface elasticity theory and incorporating modal interactions.",
+      "startOffset" : 0,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 62,
+      "context" : "[63] established a surface elastic skew plate model to anticipate the shear buckling behavior of skew nanoplates.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 63,
+      "context" : "[64] proposed a refined truncated cubic lattice structure to predict nonlinear large-amplitude oscillations of nanoporous microstructures.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 64,
+      "context" : "[65] explored the shear buckling characteristics of nonlocal FGM skew nanoplates modeled via various homogenization schemes.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 65,
+      "context" : "On the basis of the porosity-dependent rule of mixture, the material properties can be given in the following form [66]",
+      "startOffset" : 115,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 66,
+      "context" : "Moreover, based upon of the nonlocal strain gradient theory of elasticity [67], the total stress tensor can be written as follows",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 66,
+      "context" : "e1 e2 On the basis of the nonlocal strain gradient elasticity theory [67], the diffused energies (long-range forces) are linked neighboring points together with the aid of convolution integrals over nonlocal kernel",
+      "startOffset" : 69,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 67,
+      "context" : "functions and takes micro-continua into consideration with internal displacement field via gradient forms [68].",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 68,
+      "context" : "In accordance with nonlocal strain gradient theory, it is assumed that the two kernel functions of and should satisfy the associated conditions χ1(x′,x,e1) χ2(x′,x,e2) introduced by Eringen [69] as follow",
+      "startOffset" : 190,
+      "endOffset" : 194
+    }, {
+      "referenceID" : 68,
+      "context" : "The significance of the nonlocal elastic stress field depends on the lattice structure and atomic distance of a material [69].",
+      "startOffset" : 121,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 69,
+      "context" : "[70] analyzed static, dynamic and buckling analysis of FGM and isotropic sandwich plates using an inverse trigonometric shear deformation theory and the isogeometric approach.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 73,
+      "context" : "[74] investigated mechanical characteristics of a quasi-3D modeled thick porous beam using isogeometric approach.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    } ],
+    "year" : 2020,
+    "abstractText" : "The present investigation deals with the size-dependent analysis of the geometrically nonlinear vibration response of micro/nano-plates with and without a central cutout made of a porous functionally graded material (PFGM) in the presence of nonlocality and strain gradient size dependencies. In accordance with this purpose, a modified porosity-dependent power-law function is put to use to estimate the effective mechanical properties of PFGM micro/nano-plates with various porosity distribution patterns. To solve the constructed nonlinear nonlocal strain gradient problem, the nonuniform rational B-spline (NURBS)-based isogeometric analysis is utilized as an efficient discretization technique having the capability to satisfy C-1 continuity. It is seen that for specific values of the material property gradient index, porosity index and the plate deflection, the enhancement in the nonlinear frequency due to the strain gradient size effect is more than the reduction caused by the nonlocality. Furthermore, it is found that there is a specific value of the length to thickness ratio, corresponding to which the nonlocal strain gradient frequency ratio becomes minimum. This minimum value enhances by increasing the value of the porosity index of PFGM micro/nano-plates. Also, by increasing the value of the material property gradient index, the minimum point of the nonlocal strain gradient frequency ratio shifts to a higher ratio of the length to width ratio.",
+    "creator" : "Elsevier"
+  }
+}

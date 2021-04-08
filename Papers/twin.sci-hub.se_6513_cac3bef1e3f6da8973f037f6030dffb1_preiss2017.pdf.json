@@ -1,0 +1,356 @@
+{
+  "name" : "twin.sci-hub.se_6513_cac3bef1e3f6da8973f037f6030dffb1_preiss2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Crazyswarm: A Large Nano-Quadcopter Swarm",
+    "authors" : [ "James A. Preiss", "Wolfgang Hönig", "Gaurav S. Sukhatme", "Nora Ayanian" ],
+    "emails" : [ "ayanian}@usc.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "I. INTRODUCTION\nQuadcopters are a popular robotic platform due to their agility, simplicity, and wide range of applications. Most research quadcopters are large enough to carry cameras and smartphone-grade computers, but they are also expensive and require a large space to operate safely. For very large swarms, smaller quadcopters are more attractive. The reduced size of these vehicles motivates different system design choices compared to a typical setup for larger vehicles in smaller numbers.\nHere we describe the system architecture for a swarm of 49 very small quadcopters operating indoors. The vehicles use a motion-capture system for localization and communicate over three shared radios. Our system uses off-theshelf hardware and performs most computation onboard. We publish the software as open-source1, making our work easily reusable for other researchers. To our knowledge, the system described here is the largest indoor quadcopter swarm to date, and the largest number of quadcopters controlled per radio."
+    }, {
+      "heading" : "II. RELATED WORK",
+      "text" : "Unmanned Aerial Vehicle (UAV) swarms have been used indoors for formation flight and collaborative behaviors, outdoors to demonstrate swarming algorithms, and in the media for artistic shows.\nKushleyev et al. describe the design, planning, and control of a custom micro quadcopter with experiments involving up to 20 vehicles [1]. The group’s infrastructure is described in [2]. While key aspects are similar, our work differs in the following ways: (a) our architecture is designed to reduce communication bandwidth and scales better to larger\n*Equal contributors. All authors are with the Department of Computer Science, University of Southern California, Los Angeles, CA, USA. Email: {japreiss, whoenig, gaurav, ayanian}@usc.edu This work was partially supported by the ONR grants N00014-16-1-2907 and N00014-14-1-0734, and the ARL grant W911NF-14-D-0005. 1https://github.com/USC-ACTLab/crazyswarm\nnumbers of quadcopters; (b) we demonstrate interactivity with the swarm; and (c) we use a commercially available platform and provide our source code online.\nThe Flying Machine Arena at ETH Zurich supports both single- and multi-robot experiments. An overview of the system architecture and applications is given in [3]. Unlike our work, the position controller runs offboard, making the system less robust to packet drops. The additional computational power is used for a latency compensation algorithm to improve accuracy for high-speed flights.\nUAVs have been used to demonstrate swarming algorithms outdoors on fixed wing [4], [5] and quadcopter [6] platforms with up to 50 vehicles. Our platform uses a smaller vehicle, allowing us to execute such experiments indoors in a laboratory environment.\nQuadcopter swarms have been featured in the media as well. A world record for the most UAVs airborne simultaneously was set in 2015 with 100 quadcopters flying outdoors [7]. In 2016, a TED talk featured about 35 nanoquadcopters flying without a net above a crowd indoors using an ultra-wideband localization system [8]. However, not many technical details about both solutions are publicly available. Our solution requires a motion-capture system, allows dense formations, and shows good scalability.\nIII. VEHICLE\nThe Crazyflie 2.0 quadcopter (Fig. 1). measures 92 millimeters between diagonally opposed motor shafts and weighs 27 grams with a battery. It contains a 32-bit, 168- MHz ARM microcontroller with floating-point unit that is capable of significant onboard computation. Software and hardware are both open-source. The Crazyflie communicates with a PC over the Crazyradio PA, a 2.4 GHz USB radio that transmits up to two megabits per second in 32-byte packets.\nOur payload of motion-capture markers and an LED light expansion board brings the Crazyflie’s mass to 33 grams.\n978-1-5090-4633-1/17/$31.00 ©2017 IEEE 3299\nThis reduces battery life from the listed seven minutes to six minutes, and results in a peak thrust-to-weight ratio of ∼1.8. The system’s dynamics and empirically determined parameters have been discussed in [9] and [10].\nThe Crazyflie’s small size makes it suitable for indoor flight in dense formations. It can survive high-speed crashes due to its low inertia and poses little risk to humans."
+    }, {
+      "heading" : "IV. ARCHITECTURE OVERVIEW",
+      "text" : "Our system architecture is outlined in Fig. 2. We track the vehicles with a VICON motion-capture system using passive spherical markers. While the motion-capture system creates a single point of failure, we chose it over alternatives due to its high performance: typical position errors are less than one millimeter [3]. In comparison, a state-of-the-art decentralized localization system using ultra-wideband radio triangulation [11] showed position errors of over 10 centimeters, too large for dense formations. While vision-based methods are both accurate and decentralized [12], the required cameras and computers necessitate a much larger vehicle.\nIn contrast to related systems [2], [3], we implement the majority of in-flight computation onboard. The base station sends complete trajectory descriptions to the vehicle in the form of polynomials, ellipses, etc. For external feedback, the base station broadcasts vehicle poses using three radios operating on separate channels.\nThe main onboard loop runs at 500 Hz. In each loop cycle, the vehicle reads its Inertial Measurement Unit (IMU) and runs the state estimator, trajectory evaluator, and position controller. Messages with external pose estimates arrive asynchronously and are fused into the state estimate on the next cycle.\nSince the full trajectory plan is stored onboard, the system is robust to significant radio packet loss. If a packet is dropped, the vehicle relies on its IMU to update the state estimate. We quantify our system’s stability against simulated packet loss in Section XI-C."
+    }, {
+      "heading" : "V. OBJECT TRACKING",
+      "text" : "Standard rigid-body motion-capture software such as Vicon Tracker requires a unique marker arrangement for each tracked object. The Crazyflie’s small size limits the\nnumber of locations to place a marker, making it impossible to form 49 unique arrangements that can be reliably distinguished. Therefore, we obtain only raw point clouds from the motion-capture system, and implement our own object tracker based on the Iterative Closest Point (ICP) algorithm [13] that handles identical marker arrangements. Our method is initialized with known positions, and subsequently updates the positions with frame-by-frame tracking.\nA. Initialization\nWith identical marker arrangements for each vehicle, the object tracker needs some additional source of information to establish the mapping between vehicle identities (radio addresses) and spatial locations. We currently supply this information with a configuration file containing a fixed initial location for each vehicle. However, it is not feasible to place each vehicle at its exact configured position before every flight. To allow for small deviations, we perform a nearest-neighbor search within a layout-dependent radius about the initial position, and try ICP with many different initial guesses for vehicle yaw. We accept the best guess only if its resulting alignment error is low (less than 1 mm mean squared Euclidean distance between aligned points).\nIn future work we plan to eliminate the configuration file, using either infrared LEDs or programmed small motions for vehicle self-identification via the motion-capture system."
+    }, {
+      "heading" : "B. Frame-to-frame Tracking",
+      "text" : "Each frame, we acquire a raw point cloud from the motioncapture system. For each object, we use ICP to register the marker positions corresponding to the object’s last known pose against the entire scene point cloud. This process is independent for each object, so it can be executed in parallel. This approach assumes that there are no prolonged occlusions during the duration of the flight. We limit ICP to five iterations, which allows operation at 75 Hz with 49 robots using our computer hardware.\nMotion-capture systems sometimes deliver a point cloud with spurious or missing points; if undetected, this may cause tracking errors. To mitigate these errors, we compute linear and angular velocities from the ICP alignments and reject physically implausible values as incorrect alignments. In combination with our on-board state estimation, a few missing frames do not cause significant instabilities, making tracking reliable in practice."
+    }, {
+      "heading" : "VI. STATE ESTIMATION",
+      "text" : "To reduce communication bandwidth requirements and maintain robustness against temporary communication loss, we fuse motion-capture and IMU measurements onboard in an Extended Kalman Filter (EKF). The filter is driven by IMU measurements at 500 Hz and estimates the states (p,v,q) where p ∈ R3 is the vehicle’s position, v ∈ R3 is its velocity, and q ∈ S3 is the unit quaternion transforming the vehicle’s local coordinate frame into world coordinates.\nThe system inputs are the accelerometer and gyroscope measurements, am and ωm, respectively. The dynamics are:\nṗ = v, v̇ = q am − g, q̇ = 12Ω(ωm)q, (1) where g is the gravity vector in world coordinates, Ω(ωm) is the quaternion multiplication matrix of ωm as defined in [14], and denotes quaternion-vector rotation. The motion-capture system directly measures p and q, resulting in a trivial measurement model.\nOur EKF implementation follows the indirect error-state approach [14], [15], where IMU measurements drive a dynamics integration and the filter estimates the error and covariance of this integration. This method avoids the problematic extra dimension when representing a 3-DOF unit quaternion by four numbers. Whereas [14], [15] estimate accelerometer and gyroscope bias in the EKF, we have found that these biases do not drift significantly during the Crazyflie’s battery life. During several six-minute test flights we found the maximum drift of any axis of the accelerometer to be 0.07 m/s2 and the maximum drift of any axis of the gyroscope to be 0.0018 rad/s. Therefore, we measure biases on a level floor at startup and subtract these measurements for the duration of the flight. We also omit higher-order dynamics approximation terms, as we have found their effect unmeasurable in experiments."
+    }, {
+      "heading" : "VII. PLANNING",
+      "text" : "We select a set of onboard trajectory planning methods that require a small amount of information exchange between the base station PC and the vehicles. Compared to architectures that evaluate trajectories on a PC and transmit attitude and thrust controls at a high rate [2], [3], we shift some planning effort onboard to reduce the needed radio bandwidth.\nQuadcopter dynamics are differentially flat in the outputs y = (p, ψ), where ψ is the yaw angle in world coordinates [16]. This means that the controls required to execute a trajectory in state space are functions of y and a finite number of its time derivatives. We take advantage of this fact and plan trajectories in y using functions that are at least four times differentiable."
+    }, {
+      "heading" : "A. Piecewise Polynomials",
+      "text" : "Piecewise polynomials are widely used to represent quadcopter trajectories. It is straightforward to construct a piecewise polynomial that satisfies given waypoint and continuity constraints. For a k-dimensional, q-piece, d-degree polynomial, the k · q · (d + 1) polynomial coefficients are concatenated into a single row vector c. Waypoint and continuity constraints are then expressed as linear systems:\ncTw = w, cTc = 0, (2)\nwhere w is a concatenated vector of waypoint values in both y and its derivatives, and Tw and Tc are both simple banded matrices obtained from the time values of the piece breaks. Constructions of Tw, Tc, and w are detailed in [17].\nWith a suitably high polynomial degree, the combined system (2) is underdetermined. The left null space of the system\nmatrix thus provides a space for optimizing the trajectory for objectives such as min-risk [18] or observability [17] while implicitly satisfying the waypoint and continuity constraints. Additional constraints, such as thrust or angular velocity limits, are expressed as nonlinear inequalities in a generalpurpose nonlinear optimization solver.\nOur framework supports piecewise polynomials uploaded from the base station or built into the firmware image."
+    }, {
+      "heading" : "B. Online Single-Piece Polynomials",
+      "text" : "For short trajectories, a single polynomial can be sufficient. We implement an online single-piece polynomial planner for tasks such as vertical takeoff/landing and linear movement between hover points. This planner computes a closed-form solution for a degree-7 polynomial starting at the current state in (p,v, p̈, ψ, ψ̇) and ending at a desired state in the same variables. For linear movements, we restrict ... p = 0 and ψ̈ = ... ψ = 0, which results in a closed-form solution for the polynomial coefficients."
+    }, {
+      "heading" : "C. Ellipses",
+      "text" : "Elliptical motion is useful for demonstrations because it can generate a range of visually appealing behaviors from few parameters. Ellipses are parameterized by their center, axes, period, and phase, and are infinitely differentiable, so the differentially flat transformation applies.\nCommanding a quadcopter to switch from hovering to elliptical motion produces a large step change in the controller setpoint, potentially causing instability. Our system overcomes this issue by using the single-piece polynomial planner to plan a trajectory that smoothly accelerates into the ellipse, iteratively replanning with longer time horizons until it achieves a trajectory that respects the vehicle’s dynamic limits. The procedure is general and can be used to plan a smooth start from hover for any periodic trajectory.\nD. Interactive Avoid-Obstacle Mode\nThe planners discussed so far can follow predefined paths, but are not suitable for dynamically changing environments. For the case of a single, moving obstacle at a known location, such as a human, we use a specialized avoid-obstacle mode. The planner is fully distributed and only needs to know the quadcopter’s position p, its assigned home position phome, and the obstacle’s position pobst. Let d be the vector between the current position and the obstacle to avoid:\nd = p− pobst, δ = ‖d‖2. (3) The new desired position pdes can be computed as a weighted displacement from the home position, where we move further away if the obstacle is close:\npdes = phome +max\n( f\nδ + δ2 , δmax\n) d\nδ , (4)\nwhere f is a scalar gain and δmax limits displacment, preventing collisions when appropriately small relative to the robot spacing. This is similar to a potential field approach. The attraction to the home position is encoded in (4) by\ndisplacing from phome rather than p. Instead of using the computed pdes directly as control input, we compute a smooth trajectory with bounded velocity and acceleration."
+    }, {
+      "heading" : "VIII. COMMUNICATION",
+      "text" : "We use two different kinds of communication: requestresponse and broadcasting. Request-response is primarily used for configuration while the Crazyflie is still on the ground. This includes uploading a trajectory, changing flight parameters such as controller gains, and assigning each Crazyflie to a group. Broadcasting is used during the flight to minimize latency for position feedback, and to achieve synchronized behavior for taking off, landing, starting a trajectory, etc. Broadcast commands can be restricted to subsets of the swarm by including a group ID number.\nOur communication does not use a standard transport layer and hence, we need to handle sporadic packet drops as part of our protocol. In order to achieve low latency, we do not aim for guaranteed packet delivery, but rather for a high probability of reliable communication. In our protocol, all commands are idempotent, so they can be received multiple times without any side effects. This allows us to repeat request-response commands until acknowledged or until a timeout occurs. Swarm-coordination commands, such as taking off, do not wait for an acknowledgement but are repeated several times for a high probability that all Crazyflies receive the command. Since external pose estimates are send at a high fixed rate every 10 ms, there is no need to explicitly repeat such messages.\nEmpirically, for repeated commands, the likelihood of packet loss depends on the rate at which the command is repeated. We show this effect in Table I. We count the number of consecutive packets dropped from 0 (no packet dropped) to 5+ (5 or more consecutive packets dropped) for 10000 packets sent to six Crazyflies. The results show that repeating messages 5 times every 3 ms for swarm coordination commands is likely to reach all Crazyflies. Furthermore, it is very unlikely to drop more than five consecutive position updates, which is sufficient for stable control.\nFor 49 vehicles we use three radios, with each vehicle permanently assigned to one radio. We broadcast positions p as 24-bit fixed-point numbers and compress quaternions q into 32 bits by transmitting the smallest three values in reduced precision and reconstructing the largest value from the unit quaternion property ‖q‖2 = 1. Compression allows us to fit two position updates in one 32-byte radio packet without degrading the measurements beyond their inherent noise level. Furthermore, we transmit two such radio packets per USB request to the Crazyradio PA, allowing us to broadcast the pose of up to four Crazyflies per USB request."
+    }, {
+      "heading" : "IX. CONTROL",
+      "text" : "Our controller is based on the nonlinear position controller of [16], augmented with integral terms for position and yaw error. The control input is the current state (p,v,q, ωm) and the setpoint in position pdes, velocity vdes, acceleration p̈des, yaw ψdes, and angular velocity ωdes.\nThe controller is a cascaded design with an outer loop for position and an inner loop for attitude. Both loops implement PID feedback terms; the outer position loop adds feedforward terms from the trajectory plan. We define position and velocity errors as\nep = pdes − p, ev = vdes − v respectively, and compute the desired force vector as follows:\nFdes = Kpep +Ki ∫ t 0 epdt+Kvev +mg +mp̈des, (5)\nwhere Kp,Ki, and Kv are positive diagonal gain matrices. The desired body rotation matrix Rdes is a function of Fdes and ψdes. The orientation error is computed as\neo = 1\n2\n( RTRdes −RTdesR )∨ ,\nwhere R is the matrix form of the attitude quaternion q and (·)∨ is the vee operator mapping SO(3) → R3. The desired moments are then computed with another PID controller:\nMdes = Koeo +Km ∫ t 0 eodt+Kω(ωdes − ω) (6)\nwith positive diagonal gain matrices Ko, Km, and Kω . A simple linear transformation can compute the desired squared rotor speeds from Mdes and the projection of Fdes to the body z axis, as shown in [16].\nThis controller is identical to the one presented in [16] except for the added integral terms. The position error integral in (5) compensates for battery voltage drop over time (z-part) and unbalanced center of mass due to asymmetries (x, y-parts). From the attitude error integral in (6), we only use the z-component, which compensates for inaccuracies in yaw due to uneven wear on propellers and motors. Manual trimming and part replacement can compensate for such issues on a single vehicle, but is not feasible on a large fleet."
+    }, {
+      "heading" : "X. SOFTWARE TOOLS",
+      "text" : "Many routine tasks become non-trivial when working with 49 robots. We have developed command-line tools for mass rebooting, firmware updates, firmware version query, and battery voltage checks over the radio. A power-save mode turns off the main microcontroller and LED ring while leaving the radio active, permitting powering on the Crazyflie remotely. We can execute such commands and disable or enable subsets of the swarm using a graphical user interface. A Python scripting layer supports development of complex multi-stage formation flight plans.\nOur decision to perform significant computation onboard complicates in-flight debugging due to constrained radio telemetry bandwidth and limited permanent storage for logs.\nTo ease this problem, we structure major onboard procedures as platform-independent modules. We use the SWIG package to generate Python bindings to these modules, allowing firmware-in-the-loop testing in simulation via Python scripts."
+    }, {
+      "heading" : "XI. EXPERIMENTS",
+      "text" : "Our experiments quantify system performance and demonstrate the overall capabilities of our architecture. All experiments are conducted in a 6 m × 6 m × 3 m motion-capture space using a VICON Vantage system with 24 cameras. Vicon Tracker obtains the marker point clouds on a PC with Windows 7, Xeon E5-2630 2.2 GHz, and 16 GB RAM. Our software is written in C++ using ROS Kinetic for visualization and scripting and is running on a PC with Ubuntu 16.04, Xeon E5-2630 2.2 GHz, and 32 GB RAM. To reduce latency, we do not use any ROS messages in the critical path between receiving data from the motion-capture system and broadcasting estimated poses to the Crazyflies. Sample flight videos are part of the supplemental material."
+    }, {
+      "heading" : "A. Latency",
+      "text" : "The total time delay between physical movement and arrival of the corresponding position feedback message to the firmware significantly affects overall system performance [3]. Latency increases with swarm size due to both computational and communication overhead. We estimate the latency in two ways: first, we use the Vicon DataStream SDK to query an estimate of the motion-capture system latency, and instrument our code to estimate the runtime of our own software components. Second, we verify those numbers in the physical setup by inducing a sudden change in yaw to the Crazyflie. The delay between the immediate onboard IMU response and the corresponding change in external position measurement captures the full system latency. We read these values in real time via a JTAG debug adapter.\nThe estimated latencies from the base station software are shown in Fig. 3. The latency grows roughly linearly with the number of objects to track, with the largest portion caused by the motion-capture system (up to 14 ms for the 49-robot case). Object tracking and communication using the Crazyradio is done in separate threads, reducing the\noverall runtime. The communication latency increases in increments of four added Crazyflies per radio because of our compression algorithm (see section VIII.) Estimated total latency ranges from 8 ms to 23 ms.\nThe physical measurements show that the actual latency is a fixed 3 ms longer than the estimated numbers, resulting in an actual latency of 26 ms for the full 49-vehicle swarm."
+    }, {
+      "heading" : "B. Tracking performance",
+      "text" : "We estimate the tracking performance by integrating the overall Euclidean position error for a flight, excluding takeoff and landing. The flight path for each Crazyflie is a figure-8 repeated three times, with 0.76 m/s average speed and 1.5 m/s maximum speed. This trajectory is moderately fast for a small quadcopter, reaching a maximum roll angle of 20 deg. We try different square swarm sizes, ranging from 1 to 7×7, in a grid layout with 0.5 m spacing, flying at the same height. This tight formation causes additional aerodynamic disturbances, which affect the controller performance.\nOur average error is shown in Fig. 4. The error is below 2 cm per quadcopter even when the whole swarm is flying. However, as visible in the supplemental video, the attitude controller starts to oscillate more to compensate for the additional airflow."
+    }, {
+      "heading" : "C. Effect of Position Update Rate on Hover Stability",
+      "text" : "We quantify the effect of position update rate on stability by varying the update rate from the maximal 100 Hz down to 2 Hz and measuring the mean Euclidean position error at hover state. Results are shown in Table II. The range between 100 Hz and 10 Hz shows virtually no change. At 2 Hz, the system is still stable but shows significant oscillations. This demonstrates our system’s robustness against communication loss during operation."
+    }, {
+      "heading" : "D. Coordinated Formation Flight",
+      "text" : "To demonstrate our scripting layer, we use a formation of 49 Crazyflies flying in a rotating pyramid as shown in Fig 5. The Crazyflies are initially placed in a 7×7 grid with 0.5 m spacing. The takeoff is done in four different layers, with the user triggering the next action using a joystick or keyboard. The script initially assigns each Crazyflie a group number, according to its layer, and uploads the parameters for its ellipse to execute later. Because of the grouping, the takeoff of a whole layer can be achieved at the same time with broadcast messages. After all Crazyflies are in the air, the online planner plans a trajectory to smoothly enter the ellipse. The user can decide when to end the rotation, which causes another replanning onboard to reach a hover state above the initial takeoff location. Finally, landing is done using the same groups, minimizing aerodynamic disturbances during landing."
+    }, {
+      "heading" : "E. Swarm Interaction",
+      "text" : "A human operator is holding (or wearing) an object with motion-capture markers. We track the position of that object and broadcast its position alongside the positions of all quadcopters over the radio. Using the onboard planner described in section VII-D, each Crazyflie computes its desired position, which avoids collisions with the obstacle or other quadcopters."
+    }, {
+      "heading" : "XII. CONCLUSIONS",
+      "text" : "We have described a system architecture for robust, synchronized, dynamic control of the largest indoor quadcopter swarm to date. Our system fully utilizes the vehicles’ onboard computation, allowing for robustness against unreliable communication and a rich set of trajectory planning methods requiring little radio bandwidth. Tests show good scalability for both latency and tracking performance with respect to the swarm size. For a swarm of 49 vehicles, only 3 radios are required and we obtain a latency below 30 ms, allowing moderately aggressive flight maneuvers using onboard state estimation with mean tracking errors below 2 cm. Our full source code, including tuned parameters\nsuch as EKF variances and controller gains, is available at https://github.com/USC-ACTLab/crazyswarm.\nIn future work, we plan to improve reliability by detecting controller failures, improving object tracking failure recovery, and including better planning methods which take aerodynamic effects such as downwash into account explicitly. We have made all software components available as opensource, and hope that our work will have a significant impact as a testbed for experimental verification of existing and new UAV swarming algorithms. In general, our system can serve as a foundation for a wide range of future work in multirobot planning, coordination, and control."
+    } ],
+    "references" : [ {
+      "title" : "Towards a swarm of agile micro quadrotors",
+      "author" : [ "A. Kushleyev", "D. Mellinger", "C. Powers", "V. Kumar" ],
+      "venue" : "Autonomous Robots, vol. 35, no. 4, pp. 287–300, 2013.",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "The grasp multiple micro-uav testbed",
+      "author" : [ "N. Michael", "D. Mellinger", "Q. Lindsey", "V. Kumar" ],
+      "venue" : "IEEE Robotics & Automation Magazine, vol. 17, no. 3, pp. 56–65, 2010.",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "A platform for aerial robotics research and demonstration: The flying machine arena",
+      "author" : [ "S. Lupashin", "M. Hehn", "M.W. Mueller", "A.P. Schoellig", "M. Sherback", "R. D’Andrea" ],
+      "venue" : "Mechatronics, vol. 24, no. 1, pp. 41–54, 2014.",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Reynolds flocking in reality with fixed-wing robots: Communication range vs. maximum turning rate",
+      "author" : [ "S. Hauert", "S. Leven", "M. Varga", "F. Ruini", "A. Cangelosi", "J. Zufferey", "D. Floreano" ],
+      "venue" : "IEEE/RSJ Int. Conf. on Intelligent Robots and Systems (IROS), 2011, pp. 5015–5020.",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Live-fly, large-scale field experimentation for large numbers of fixed-wing UAVs",
+      "author" : [ "T.H. Chung", "M.R. Clement", "M.A. Day", "K.D. Jones", "D. Davis", "M. Jones" ],
+      "venue" : "IEEE Int. Conf. on Robotics and Automation (ICRA), 2016, pp. 1255–1262.",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Outdoor flocking and formation flight with autonomous aerial robots",
+      "author" : [ "G. Vásárhelyi", "C. Virágh", "G. Somorjai", "N. Tarcai", "T. Szörényi", "T. Nepusz", "T. Vicsek" ],
+      "venue" : "IEEE/RSJ Int. Conf. on Intelligent Robots and Systems (IROS), 2014, pp. 3866–3873.",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Drone 100",
+      "author" : [ "Intel", "Ars Electronica Futurelab" ],
+      "venue" : "world record for the most UAVs airborne simultaneously, http://www.spaxels.at/show drone100.html, 2015.",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Meet the dazzling flying machines of the future",
+      "author" : [ "R. D’Andrea" ],
+      "venue" : "TED Talk, 2016.",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Planning and control for quadrotor flight through cluttered environments",
+      "author" : [ "B. Landry" ],
+      "venue" : "Master’s thesis, MIT, 2015.",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "System identification of the crazyflie 2.0 nano quadrocopter",
+      "author" : [ "J. Förster" ],
+      "venue" : "Bachelor’s Thesis, ETH Zurich, 2015.",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A robot selflocalization system using one-way ultra-wideband communication",
+      "author" : [ "A. Ledergerber", "M. Hamer", "R. D’Andrea" ],
+      "venue" : "IEEE/RSJ Int. Conf. on Intelligent Robots and Systems (IROS), 2015, pp. 3131–3137.",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Autonomous, vision-based flight and live dense 3d mapping with a quadrotor micro aerial vehicle",
+      "author" : [ "M. Faessler", "F. Fontana", "C. Forster", "E. Mueggler", "M. Pizzoli", "D. Scaramuzza" ],
+      "venue" : "Journal of Field Robotics, vol. 1, 2015.",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A method for registration of 3-d shapes",
+      "author" : [ "P.J. Besl", "N.D. McKay" ],
+      "venue" : "Trans. Pattern Anal. Mach. Intell., vol. 14, no. 2, pp. 239–256, 1992.",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 1992
+    }, {
+      "title" : "Indirect Kalman filter for 3D attitude estimation",
+      "author" : [ "N. Trawny", "S.I. Roumeliotis" ],
+      "venue" : "University of Minnesota, Dept. of Comp. Sci. & Eng., Tech. Rep. 2005-002, 2005.",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Real-time metric state estimation for modular vision-inertial systems",
+      "author" : [ "S. Weiss", "R. Siegwart" ],
+      "venue" : "IEEE Int. Conf. on Robotics and Automation (ICRA), 2011, pp. 4531–4537.",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Minimum snap trajectory generation and control for quadrotors",
+      "author" : [ "D. Mellinger", "V. Kumar" ],
+      "venue" : "IEEE Int. Conf. on Robotics and Automation (ICRA), 2011, pp. 2520–2525.",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Observabilityaware trajectory optimization for self-calibration with application to UAVs",
+      "author" : [ "K. Hausman", "J. Preiss", "G.S. Sukhatme", "S. Weiss" ],
+      "venue" : "IEEE Robotics and Automation Letters, 2017.",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Risk-aware trajectory generation with application to safe quadrotor landing",
+      "author" : [ "J. Müller", "G.S. Sukhatme" ],
+      "venue" : "IEEE/RSJ Int. Conf. on Intelligent Robots and Systems (IROS), 2014, pp. 3642–3648. 3304",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "describe the design, planning, and control of a custom micro quadcopter with experiments involving up to 20 vehicles [1].",
+      "startOffset" : 117,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 1,
+      "context" : "The group’s infrastructure is described in [2].",
+      "startOffset" : 43,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 2,
+      "context" : "An overview of the system architecture and applications is given in [3].",
+      "startOffset" : 68,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 3,
+      "context" : "UAVs have been used to demonstrate swarming algorithms outdoors on fixed wing [4], [5] and quadcopter [6] platforms with up to 50 vehicles.",
+      "startOffset" : 78,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 4,
+      "context" : "UAVs have been used to demonstrate swarming algorithms outdoors on fixed wing [4], [5] and quadcopter [6] platforms with up to 50 vehicles.",
+      "startOffset" : 83,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 5,
+      "context" : "UAVs have been used to demonstrate swarming algorithms outdoors on fixed wing [4], [5] and quadcopter [6] platforms with up to 50 vehicles.",
+      "startOffset" : 102,
+      "endOffset" : 105
+    }, {
+      "referenceID" : 6,
+      "context" : "A world record for the most UAVs airborne simultaneously was set in 2015 with 100 quadcopters flying outdoors [7].",
+      "startOffset" : 110,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 7,
+      "context" : "In 2016, a TED talk featured about 35 nanoquadcopters flying without a net above a crowd indoors using an ultra-wideband localization system [8].",
+      "startOffset" : 141,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 8,
+      "context" : "The system’s dynamics and empirically determined parameters have been discussed in [9] and [10].",
+      "startOffset" : 83,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 9,
+      "context" : "The system’s dynamics and empirically determined parameters have been discussed in [9] and [10].",
+      "startOffset" : 91,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 2,
+      "context" : "While the motion-capture system creates a single point of failure, we chose it over alternatives due to its high performance: typical position errors are less than one millimeter [3].",
+      "startOffset" : 179,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 10,
+      "context" : "In comparison, a state-of-the-art decentralized localization system using ultra-wideband radio triangulation [11] showed position errors of over 10 centimeters, too large for dense formations.",
+      "startOffset" : 109,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 11,
+      "context" : "While vision-based methods are both accurate and decentralized [12], the required cameras and computers necessitate a much larger vehicle.",
+      "startOffset" : 63,
+      "endOffset" : 67
+    }, {
+      "referenceID" : 1,
+      "context" : "In contrast to related systems [2], [3], we implement the majority of in-flight computation onboard.",
+      "startOffset" : 31,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 2,
+      "context" : "In contrast to related systems [2], [3], we implement the majority of in-flight computation onboard.",
+      "startOffset" : 36,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 12,
+      "context" : "Therefore, we obtain only raw point clouds from the motion-capture system, and implement our own object tracker based on the Iterative Closest Point (ICP) algorithm [13] that handles identical marker arrangements.",
+      "startOffset" : 165,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 13,
+      "context" : "where g is the gravity vector in world coordinates, Ω(ωm) is the quaternion multiplication matrix of ωm as defined in [14], and denotes quaternion-vector rotation.",
+      "startOffset" : 118,
+      "endOffset" : 122
+    }, {
+      "referenceID" : 13,
+      "context" : "Our EKF implementation follows the indirect error-state approach [14], [15], where IMU measurements drive a dynamics integration and the filter estimates the error and covariance of this integration.",
+      "startOffset" : 65,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 14,
+      "context" : "Our EKF implementation follows the indirect error-state approach [14], [15], where IMU measurements drive a dynamics integration and the filter estimates the error and covariance of this integration.",
+      "startOffset" : 71,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 13,
+      "context" : "Whereas [14], [15] estimate accelerometer and gyroscope bias in the EKF, we have found that these biases do not drift significantly during the Crazyflie’s battery life.",
+      "startOffset" : 8,
+      "endOffset" : 12
+    }, {
+      "referenceID" : 14,
+      "context" : "Whereas [14], [15] estimate accelerometer and gyroscope bias in the EKF, we have found that these biases do not drift significantly during the Crazyflie’s battery life.",
+      "startOffset" : 14,
+      "endOffset" : 18
+    }, {
+      "referenceID" : 1,
+      "context" : "Compared to architectures that evaluate trajectories on a PC and transmit attitude and thrust controls at a high rate [2], [3], we shift some planning effort onboard to reduce the needed radio bandwidth.",
+      "startOffset" : 118,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 2,
+      "context" : "Compared to architectures that evaluate trajectories on a PC and transmit attitude and thrust controls at a high rate [2], [3], we shift some planning effort onboard to reduce the needed radio bandwidth.",
+      "startOffset" : 123,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 15,
+      "context" : "Quadcopter dynamics are differentially flat in the outputs y = (p, ψ), where ψ is the yaw angle in world coordinates [16].",
+      "startOffset" : 117,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 16,
+      "context" : "Constructions of Tw, Tc, and w are detailed in [17].",
+      "startOffset" : 47,
+      "endOffset" : 51
+    }, {
+      "referenceID" : 17,
+      "context" : "The left null space of the system matrix thus provides a space for optimizing the trajectory for objectives such as min-risk [18] or observability [17] while implicitly satisfying the waypoint and continuity constraints.",
+      "startOffset" : 125,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 16,
+      "context" : "The left null space of the system matrix thus provides a space for optimizing the trajectory for objectives such as min-risk [18] or observability [17] while implicitly satisfying the waypoint and continuity constraints.",
+      "startOffset" : 147,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 15,
+      "context" : "Our controller is based on the nonlinear position controller of [16], augmented with integral terms for position and yaw error.",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 15,
+      "context" : "A simple linear transformation can compute the desired squared rotor speeds from Mdes and the projection of Fdes to the body z axis, as shown in [16].",
+      "startOffset" : 145,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 15,
+      "context" : "This controller is identical to the one presented in [16] except for the added integral terms.",
+      "startOffset" : 53,
+      "endOffset" : 57
+    }, {
+      "referenceID" : 2,
+      "context" : "The total time delay between physical movement and arrival of the corresponding position feedback message to the firmware significantly affects overall system performance [3].",
+      "startOffset" : 171,
+      "endOffset" : 174
+    } ],
+    "year" : 2017,
+    "abstractText" : "We define a system architecture for a large swarm of miniature quadcopters flying in dense formation indoors. The large number of small vehicles motivates novel design choices for state estimation and communication. For state estimation, we develop a method to reliably track many small rigid bodies with identical motion-capture marker arrangements. Our communication infrastructure uses compressed one-way data flow and supports a large number of vehicles per radio. We achieve reliable flight with accurate tracking (< 2 cm mean position error) by implementing the majority of computation onboard, including sensor fusion, control, and some trajectory planning. We provide various examples and empirically determine latency and tracking performance for swarms with up to 49 vehicles.",
+    "creator" : "The PaperPlaza Conference/Journal Management System"
+  }
+}

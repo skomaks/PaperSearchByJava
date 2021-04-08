@@ -1,0 +1,655 @@
+{
+  "name" : "twin.sci-hub.se_6479_531714d1bbda17b25cb381f263ddef8f_romano2017.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "On nonlocal integral models for elastic nano-beams",
+    "authors" : [ "Giovanni Romano", "Raffaele Barretta", "Marina Diaco", "Marina Diacoa" ],
+    "emails" : [ "romano@unina.it", "rabarret@unina.it", "diaco@unina.it" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "AC CE\nPT ED\nM AN\nUS CR\nIP T\nNonlocal integral constitutive laws, for application to nano-beams, are investigated in a general setting. Both purely nonlocal and mixture models involving convolutions with averaging kernels are taken into account. Evidence of boundary effects is enlightened by theoretical analysis and numerical computations. Proposed compensation procedures are analyzed, relevant new results are evidenced and confirmed by computations. The strain-driven model and related local-nonlocal mixtures are addressed, with singular phenomena foreseen and numerically quantified. Effectiveness of the recently proposed stress-driven nonlocal elastic model is discussed and illustrated by description of a general solution procedure for nonlocal elastic beams. Comparisons between straindriven models, stress-driven models and local/nonlocal mixtures are considered from theoretical and computational perspectives. Examples of statically determinate and indeterminate beams are elaborated to show that an effective simulation of scale effects in nano-structures, ensuring existence and uniqueness of solution for any data, is provided by the stress-driven model.\nKey words: Nonlocal elasticity, Integral elastic law, Boundary effects, Local/nonlocal mixtures, Nano-beams, CNT"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Nano-structures such as carbon nanotubes (CNTs) exhibit size effects, whose evaluation is conveniently simulated by a continuum mechanics approach in which nonlocal constitutive models are adopted.\nIn a paper on screw dislocations and Rayleigh surface waves [1] Eringen was the first to introduce strain-driven nonlocal elastic laws in which the stress field was expressed by convolution of the local elastic stress with averaging kernels consisting in fundamental solutions of differential problems.\nIn dealing with unbounded domains, integral convolutions with smoothing kernels were replaced with equivalent differential equations with boundary condition of vanishing at infinity.\nEringen’s differential nonlocal elastic equations were improperly later applied in [2] for investigating size effects in bounded nano-beams. Accordingly, in modelling cantilevers under end-point loading, used as actuators in nanotechnology, paradoxical results were detected in [3, 4].\nThis notwithstanding, differential formulations were thenceforth adopted as reference constitutive schemes in simulating the structural behaviour of devices at nanoscale. Modifications of the differential formulation were examined in [5, 6].\nIt is to be underlined that, on a bounded interval, the integral convolution problem, involved in Eringen’s integral constitutive law with the bi-exponential kernel, implies the fulfilment of homogeneous boundary conditions [7].\nWhat is more, equivalence between the integral constitutive law and the differential equation holds if and only if corresponding constitutive boundary conditions (see Eq.(9)) are imposed. These topics were first addressed in [8] with reference to extensional behaviour of nano-bars.\nA list of recent contributions can be found in [9]. A definite explanation of paradoxical result has been finally contributed in [10] with reference to flexural behaviour of nanobeams. The conclusion was that the strain-driven nonlocal integral elastic law and equilibrium requirements on the bending field are mutually incompatible for structural models of engineering interest, thus leading to formulation of unsolvable elastostatic problems.\nTo overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].\nProposals originally made in [19, 20, 21] with reference to nonlocal damage mechanics, were applied to nonlocal elasticity of nano-beams to compensate for boundary layer effects and adopted in numerical computations [22].\nInconsistencies in nonlocal structural problems, formulated according to the strain-driven integral elastic law, can be bypassed by the proposal of a new nonlocal stress-driven integral elastic relation contributed in [23, 24].\nAs foreseen by a general reasoning, in applying the stressdriven model to bending of nano-beams and stretching of nanobars, all shortcomings, inherent to nonlocal models defined by a strain-driven integral convolution, are eliminated from the root.\nThe distinctive characteristic of the new theory consists in setting the stress field as input of the integral nonlocal law, the nonlocal elastic strain being the output.\nA comparison with Eringen’s strain-driven nonlocal law, reveals that input and output are swapped, the two integral laws being not one the inverse of the other.\nThis feature is decisive since, in elastostatic problems based\nPreprint submitted to Elsevier August 1, 2017\nAC CE\nPT ED\nM AN\nUS CR\nIP T\non a strain-driven nonlocal convolution, the source of illposedness relies in the fact that stress fields in the range of the constitutive law, are unable to fulfil also boundary and differential conditions of equilibrium [25, 10, 23].\nObstruction against the strain-driven model is therefore of a general character and applies to two- or three-dimensional structural models as well.\nThe simpler discussion for one-dimensional problems is however enlightening and permits to reveal essential properties of the involved models.\nThe possibility of another approach to nonlocal elasticity should not be surprising. Indeed, contrary to the local theory in which the point-wise constitutive relation is algebraic and invertible, the nonlocal theory is formulated by a functional law relating source and output fields which can be respectively identified with kinematic and static fields or vice versa.\nThe former alternative, labeled strain-driven, was proposed by Eringen, while the latter, labeled stress-driven, was assumed in the new approach introduced in [23, 24].\nWhichever choice is made, discussion of nonlocal constitutive laws requires, in general, tools and results of functional analysis which are usually out of the range of interest of scholars in structural mechanics.\nThe treatment is especially simplified when, in formulating a nonlocal constitutive law for one-dimensional structural models, a bi-exponential kernel is adopted, since then an explicit inversion of the integral convolution is available.\nClarification of basic facts became possible when the treatment of integral equations in [7] was evidenced by [8, 10].\nThe formulation of nonlocal integral constitutive laws, will be firstly addressed from an abstract point of view in terms of convolutions to investigate on general features applicable both to strain-driven and stress-driven models.\nRegularisation properties of mixture models are investigated and singular behaviours are discussed.\nMethods for compensating boundary effects by means of modified kernels, proposed in [19, 20, 21], are also addressed with further findings.\nApplications to simple schemes of bars and beams, even statically indeterminate ones are elaborated to provide examples of essential features.\nComputational examples of simple bars and beams and relevant plots are developed with the aid of the Mathematica software [26] to illustrate the theory.\nThe plan of the treatment is the following. General properties of convolutions and special equivalence result are provided in §2 and §3. Boundary layer effects with the phenomenon of halved Dirac delta are addressed in §4. Equilibrium and kinematic compatibility conditions for bars and beams are briefly recalled in §5. Items from linear local elastic beam theory are recalled in §6 and the strain-driven integral nonlocal model for BernoulliEuler nano-beams is discussed in §7.\nEvidence and motivation of obstructions to the adoption of the strain-driven model is addressed in §8\nComputational issues are dealt with in §9.\nFigure 1: Error kernel φerrλ Eq.(5) λ = 1/4 : Up φerrλ – Down (φ err λ ) ′\nThe stress-driven integral nonlocal constitutive model is described in §10.\nThe elastic equilibrium problem for bars and beams is formulated in §11 and an effective solution procedure is illustrated.\nExamples of nonlocal elastostatic problems for beams are exposed in §12. Concluding remarks are exposed in §15."
+    }, {
+      "heading" : "2. Convolutions",
+      "text" : "Convolution of a source field s ∈ H2(a, b) 1 with a smooth averaging kernel φλ over an interval [a, b] ⊆ < is defined by:2\n(φλ ∗ s)(x) := ∫ b\na φλ(x − y) · s(y) dy . (1)\nIn nonlocal models, the family φλ of scalar averaging kernels depends on a positive nonlocal parameter λ > 0 and is assumed to fulfil the following characteristic properties [1]:\na) Positivity and symmetry on the whole real axis:\nφλ(x − y) = φλ(y − x) ≥ 0 . (2) b) Normalisation on the real axis:\n∫ +∞\n−∞ φλ(x) dx = 1 . (3)\nc) Impulsivity:\nlim λ→0\n∫ ∞\n−∞ φλ(x − y) · s(y) dy = s(x) , (4)\nfor any continuous test field s on the real axis.\n1 The Hilbert space Hk(a, b) for k = 0, 1, ... is made of square integrable fields with square integrable distributional derivatives up to order k [27].\n2 The dot · denotes linear dependence on the subsequent item.\nAC CE\nPT ED\nM AN\nUS CR\nIP T"
+    }, {
+      "heading" : "2.1. Averaging kernels",
+      "text" : "In providing an analytical expression of the averaging kernel Eq.(1) it is convenient to fix a non-dimensional abscissa x ∈ [a, b] so that L := b − a = 1 .\nA common choice for the kernel is the error function depicted in Fig.1:\nφerrλ (x) := 1 λ · √π exp ( − ( x λ )2) . (5)\nFor theoretical purposes and for the simplifying properties it enjoys, the bi-exponential kernel depicted in Fig.2 is especially valuable:\nφλ(x) := 1\n2 λ exp ( − |x| λ ) . (6)\nAdoption of the bi-exponential kernel is enlightening since then discussion concerning existence and uniqueness of the integral equation is direct and simple, due to the basic equivalence property proven in [10] and adapted hereafter in Lemma 1 to the adopted abstract context. An apex denotes differentiation and ∗ stands for convolution, as in Eq.(1).\nLemma 1 (Convolution equivalence). The relation between a source field s ∈ H2(a, b) and an output field f ∈ H2(a, b) , expressed for x ∈ [a, b] and λ > 0 by the convolution:\nf = φλ ∗ s , (7) is equivalent to the differential equation in [a, b] :\nf λ2 − f ′′ = s λ2 , (8)\nwith the boundary conditions:  f ′(a) = 1 λ · f (a) ,\n− f ′(b) = 1 λ · f (b) .\n(9)\nThe relation in Eq.(7) for given f is a Fredholm integral equation of the first kind in the unknown source field s ∈ H2(a, b) and existence and uniqueness of a solution is assured for λ > 0 if and only if the data f ∈ H2(a, b) fulfil Eq.(9).\nThe choice of a compact domain [a, b] is preliminary to the formulation of the nonlocal problem. Consequently, it is important to remember that, the output field f in [a, b] , is generated only from the source field with domain in [a, b] itself. This leads to peculiar phenomena in a boundary layer, for any finite value of the nonlocal parameter λ > 0 , and even in the limit of a vanishing nonlocal parameter, as will be shown in §4."
+    }, {
+      "heading" : "3. Local-nonlocal mixtures",
+      "text" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.\nA local-nonlocal mixture model consists in considering the nonlocal response as generated by the convex combination of the local response and the convolution in Eq.(7):\nf (x) = m · s(x) + (1 − m) · ∫ b\na φλ(x − y) · s(y) dy . (10)\nwith 0 ≤ m ≤ 1 mixture parameter. The discussion of the local-nonlocal mixture problem with the bi-exponential kernel given by Eq.(6), is based on the following result [10, 14].\nLemma 2 (Mixture equivalence). The relation between a source field s ∈ H2(a, b) and an output field f ∈ H2(a, b) , expressed, for x ∈ [a, b] , λ > 0 and 0 ≤ m ≤ 1 , by the convex combination:\nf = m · s + (1 − m) · (φλ ∗ s) , (11)\nis equivalent to the differential equation:\nf λ2 − f ′′ = s λ2 − m · s′′ , (12)\nwith the boundary conditions:\n f ′(a) − 1 λ · f (a) = m · ( s′(a) − 1 λ · s(a) ) ,\nf ′(b) + 1 λ · f (b) = m ·\n( s′(b) +\n1 λ · s(b)\n) .\n(13)\nDue to the presence of the term m·s(x) the relation in Eq.(11) for given f is a Fredholm integral equation of the second kind in the unknown source field s and existence and uniqueness of the solution is assured for any 1 ≥ m ≥ 0 and λ > 0 .\nExistence and uniqueness do in fact hold for the differential problem Eq.(12) with the boundary conditions Eq.(13).\nThe mixture model in Eq.(10) is named purely nonlocal when m = 0 and purely local when m = 1 .\nAC CE\nPT ED\nM AN\nUS CR\nIP T"
+    }, {
+      "heading" : "4. Boundary layer effects",
+      "text" : "Considerable attention was recently devoted to boundary layer effects consequent to the fact that averaging kernels are normalised by integrating over a conventional unbounded domain, independently of the special boundary value problem under investigation.\nThis assumption is in accord with the physical requirement that the averaging kernel, involved in the convolution expressing a nonlocal constitutive relations, is independent of the geometric features of the body under investigation, as any material property should be.\nIn most applications the problem at hand is defined on a bounded domain and therefore integral of the averaging kernels will not be still unitary when the intersection between the kernel support and the complement of the bounded structural domain is not empty.\nAs a consequence, nonlocal responses expressed by convolution of a source field and an averaging kernel, will manifest peculiar effects in proximity of the boundary of the structural domain under investigation.\nFor specific problems this feature was deemed to be undesirable and hence proposals to compensate boundary layer effects were made.\nMethods for compensation were introduced in [19, 20, 21] with reference to nonlocal models of plasticity and of damage mechanics to avoid development of singular bands causing softening of the constitutive law and pathological mesh dependence in computations with finite element codes."
+    }, {
+      "heading" : "4.1. Compensation of boundary effects",
+      "text" : "As told above, proposals were made in order to modify the kernel φλ so that the normalisation to a probability density with a unit integral over the relevant bounded domain was recovered. To illustrate the treatment, in the contest of one-dimensional structural models of straight beams, it is useful to introduce the function:\nΘ(x) :=  1 , x ∈ (a, b) , 1 2 , x = a, b .\n(14)\nThe limit boundary layer effect, arising for vanishing values of the nonlocal parameter λ > 0 of a family of convolutions involving averaging kernels φλ , is the object of Lemma 3.\nA hint for the proof is given hereafter.\nLemma 3 (Halved Dirac unit impulse at boundaries). The convolution between a family of kernels φλ and a test field s , tends for λ→ 0 to the value of the field or to the halved value, depending on whether the point of evaluation belongs to the interior or to the boundary of [a, b] .\nlim λ→0\n∫ b\na φλ(x − y) · s(y) dy = (Θ · s)(x) . (15)\nProof. In a bounded domain the convolutions of the family can be definitively approximated to any extent in the limit λ → 0 by considering test functions with a compact support contained in a sphere of suitably small radius. At regular boundary points\nonly one-half of this sphere will be definitely included in the integration domain and therefore the limit generates an halved Dirac impulse.\nThe following notation for simple functions is convenient:\n0(x) = 0 , x ∈ [a, b] , 1(x) = 1 , x ∈ [a, b] , x(x) = x , x ∈ [a, b] .\n(16)\nFrom Eq.(15) we get that on [a, b] :\nlim λ→0\n∫ b\na φλ(x − y) dy = Θ(x) . (17)\nIn the context of nonlocal damage theory a proposal to compensate the boundary effects was made in [19]. According to our abstract treatment this proposal amounta in assuming the modified kernel:\nψλ(x, y) := φλ(x − y)\n(φλ ∗ 1)(x) , (18)\nwhere\n(φλ ∗ 1)(x) = ∫ b\na φλ(x − y) dy ≤ 1 . (19)\nThe nonlocal law proposed in [19] is expressed by the convolution:\nf (x) = ∫ b\na ψλ(x, y) · s(y) dy . (20)\nAccording to Eq.(20), a constant source field s will generate a constant nonlocal field equal to s since:\n∫ b\na ψλ(x, y) dy = (φλ ∗ 1)(x) (φλ ∗ 1)(x) = 1 . (21)\nLack of symmetry of the modified kernel Eq.(18) was noticed in [21, 28, 29] and there expressed by the statement that\nψλ(x, y) , ψλ(y, x) . (22)\nThe modification proposed in [19] can be conveniently interpreted as a convolution, still governed by the symmetric kernel φλ , multiplied by a field not less than unity:\nf = 1\nφλ ∗ 1 · (φλ ∗ s) . (23)\nTaking the limλ→0 in Eq.(23), from Eq.(15) and Eq.(17) we infer validity of the impulsivity property:\nlim λ→0 f = lim λ→0 1 φλ ∗ 1 · (φλ ∗ s) = (Θ · s) Θ = s , (24)\nwhich states that the nonlocal response Eq.(23) collapses for λ→ 0 to the local response.\nA different strategy for compensation of boundary layer effects was proposed in [21] with the output field defined by\nf (x) = ( 1 − (φλ ∗ 1)(x) ) · s(x) +\n∫ b\na φλ(x − y) · s(y) dy ,\n(25)\nAC CE\nPT\nED\nM AN\nUS CR\nIP T\nwhich can be synthetically expressed as\nf = ( 1 − (φλ ∗ 1) ) · s + (φλ ∗ s) . (26)\nA formulation equivalent to Eq.(25) was independently proposed in [20] by expressing the nonlocal response as sum of the local response and of a convolution between the averaging kernel and the excess of source field over the evaluation-point value, according to the formula:\nf (x) = s(x) + ∫ b\na φλ(x − y) ·\n( s(y) − s(x) ) dy . (27)\nEquivalence between Eq.(25) and Eq.(27) is evident. Table 1 displays a comparison between limit behaviours of modified nonlocal expressions proposed to compensate boundary effects and of the convolution\nf = φλ ∗ s . (28)\nThe mean value of the field s over the unit interval [a, b] is by definition equal to 1 ∗ s .\nProof of Table 1 is inferred from Lemma 3, from the sketch in Fig.3, which is typical of all averaging kernels, and from a direct inspection of the involved formulae Eq.(23), (26), (28). The results are independent of the choice of a kernel.\nlimλ→0 f limλ→+∞ f\nPijaudier–Cabot & Bazánt s 1 ∗ s\nPolizzotto & Borino s s\nConvolution f = φλ ∗ s Θ · s 0\nTable 1: Limit behaviours\nA comparison between the proposals for compensation of boundary effects is further discussed in §11 and §12. The properties displayed in Table 1 are confirmed by significant examples in Table 2, as illustrated in §14.2."
+    }, {
+      "heading" : "5. Bernoulli-Euler beams: kinematics and equilibrium",
+      "text" : "The kinematics of a straight, plane Bernoulli-Euler beam is described by the axial displacement field u ∈ H1(a, b) and the transversal displacement field v ∈ H2(a, b) of the beam axis.\nIn the geometrically linearised theory, the geometric extension ε ∈ H0(a, b) and the geometric bending curvature χ ∈ H0(a, b) are related to axial and transversal displacement fields by differential conditions of kinematic compatibility:\nεu = u ′ , χv = v′′ . (29)\nKinematic boundary conditions prescribe boundary values of the axial displacement and of the transversal displacement and its derivative.\nFigure 3: Kernel φλ Eq.(6). λ = 0.001, 0.10, 0.50, 100 .\nRigid body displacements are assumed to be controlled by these conditions.\nEquilibrium is imposed by the virtual work principle expressed in terms of axial interaction field N ∈ H0(a, b) and bending interaction field M ∈ H0(a, b) :\n∫ b\na N · εδu · dx = 〈`ax, δu〉 ,\n∫ b\na M · χδv · dx = 〈`tr, δv〉 ,\n(30)\nfor any virtual axial and transversal displacement fields δu ∈ H1(a, b) and δv ∈ H2(a, b) fulfilling homogeneous kinematic boundary conditions.\nThe loading system ` is defined by a field p ∈ H0(a, b) of axial loads, a field q ∈ H0(a, b) of transverse loads and by prescribed axial forces N , shearing forces F and couples M at the boundary (end points) of the beam:\n〈`ax, δu〉 + 〈`tr, δv〉 = ∫ b\na p · δu · dx +\n∮ b\na N · δu\n+\n∫ b\na q · δv · dx +\n∮ b\na F · δv +\n∮ b\na M · δv′ .\n(31)\nIntegration by parts yields differential and boundary conditions: \nN′(x) = −p(x) , for x ∈ [a, b] , N(x) · δu(x) = N(x) · δu(x) , at x = a and x = b ,\n(32)\nand  M′′(x) = q(x) , for x ∈ [a, b] , M′(x) · δv(x) = −F(x) · δv(x) , at x = a and x = b , M(x) · δv′(x) = M(x) · δv′(x) , at x = a and x = b . (33)"
+    }, {
+      "heading" : "6. Local elasticity",
+      "text" : "A straight beam is assumed to undergo extension and inflection in a plane, with a ≤ x ≤ b non-dimensional axial abscissa, and L = b − a = 1 .\nAC CE\nPT ED\nM AN\nUS CR\nIP T\nThe field of elastic moduli of longitudinal fibers is denoted by E : Ω 7→ < and assumed to be square integrable in the cross-section Ω .\nPositive definite extensional and flexural stiffnesses are evaluated by the zeroth and second moments of the elasticity modulus field E : Ω 7→ < , according to the position vector r ∈ Ω of the longitudinal fibre from the elastic barycentric origin:\nAE := ∫\nΩ\nE(r) dA ,\nIE := ∫\nΩ\nE(r) · (r ⊗ r) dA . (34)\nFor definiteness, reference will be made mainly to flexural behaviour of beams.\nThe field of principal stiffness in the bending direction is denoted by K ∈ H0(a, b) and, by local inversion, the field C = K−1 ∈ H0(a, b) is the positive definite elastic bending compliance.\nActing on the bending field M ∈ H0(a, b) , the elastic compliance provides the local elastic curvature C · M ∈ H0(a, b) ."
+    }, {
+      "heading" : "7. Strain-driven nonlocal elasticity",
+      "text" : "In the purely nonlocal strain-driven integral elastic law [1], it is assumed that the bending interaction field is the outcome of an integral convolution, over the beam length, between an averaging kernel φλ and the local bending K · χel ∈ H0(a, b) associated with the elastic curvature field χel ∈ H0(a, b) :\nM(x) = ∫ b\na φλ(x − y) · (K · χel)(y) dy . (35)\nThe purely nonlocal strain-driven model in Eq.(35) can be deduced from the abstract relation Eq.(7) by setting\nf = M , s = K · χel . (36)\nRemark 1. Let us recall from Lemma 1 that, if the relation Eq.(7) is formulated as a Fredholm integral equation of the first kind in the unknown source field s ∈ H2(a, b) , convoluted with the bi-exponential kernel for given f ∈ H2(a, b) , the solution can be computed by means of Eq.(8) if and only if the boundary conditions Eq.(9) are met by the output field f ∈ H2(a, b) . In the nonlocal strain-driven integral elastic law, f is the bending field M and is therefore subject to the equilibrium conditions. For this reason a solution to the problem fails to exist.\nRemark 2. From Lemma 2 we infer that, if the local-nonlocal mixture in Eq.(11) is formulated as a Fredholm integral equation of the second kind in the unknown source field s ∈ H2(a, b) , convoluted with the bi-exponential kernel for given f ∈ H2(a, b) , the solution can be computed for any m > 0 by means of Eq.(12) with the boundary conditions Eq.(13). Singularities will occur for m → 0 since the case of Remark 1 is recovered. The family of solutions for m > 0 will have no limit as m→ 0 ."
+    }, {
+      "heading" : "8. Obstruction to a purely nonlocal strain-driven model",
+      "text" : "Motivation of obstruction of the purely nonlocal strain-driven model is of a general nature, not limited to one-dimensional structures and is independent of the choice of a kernel.\nTo see why, let us denote by Σ` the affine variety of stress fields fulfilling equilibrium with the loading ` and by Σel the range of stress fields generated, through the nonlocal elastic law, by square integrable kinematically compatible elastic strain fields.\nThe obstruction is due to occurrence of an empty intersection:\nΣ` ∩ Σel = ∅ . (37) This means that no solution of the elastostatic problem exists. A direct check of this occurrence is available for onedimensional problems when the bi-exponential kernel Eq.(6) is adopted, since an explicit inversion of the convolution operator is provided by an equivalent differential problem, as stated by Lemma 1 and Lemma 2.\nEvidence of obstruction in applying Eringen’s integral law to nanobars was first reported in [8].\nThere reference was made to treatment of Fredholm integral equations of the first kind in [7] and adoption of a local/nonlocal mixture, early contributed in [16, 17], was proposed to overcome the obstacle.\nFurther investigations about applicability of Eringen’s integral model to nano-beams were recently contributed in [10, 23, 24] where the stress-driven model for nonlocal elasticity was first proposed.\nEvaluation of the elastic curvature by Eq.(35) requires the solution of a Fredholm integral equation of the first kind.\nIt is known [30] that this task is challenging, that it leads generally to ill-posed problems and that, more than often, it is simply impossible to be fulfilled.\nProperties (most often bad properties) of existence and uniqueness of the solution of the integral equation Eq.(35) are highly dependent on the adopted kernel and on the functional spaces in which solution is sought.\nAdoption of the bi-exponential kernel is enlightening since it leads to a Fredholm integral equation of the first kind whose discussion concerning existence and uniqueness is direct and simple, as illustrated in §2.1.\nExistence of a solution χel ∈ H0(a, b) of Eq.(35), with the bi-exponential kernel Eq.(6), by virtue of Lemma 1, is equivalent to fulfilment of the constitutive differential equation:\nM λ2 − M′′ = K · χel λ2 , (38)\nand of the homogeneous constitutive boundary conditions:\n M′(a) = 1 λ · M(a) ,\n−M′(b) = 1 λ · M(b) .\n(39)\nThe elastic curvature χel , associated with an equilibrated bending field M according to Eq.(35), can then be computed\nAC CE\nPT ED\nM AN\nUS CR\nIP T\nby means of Eq.(38) if (and only if) the boundary conditions Eq.(39) are met by the field M .\nIn other words, the following alternative must be faced:\n1. either the equilibrated bending field fulfils the constitutive boundary conditions Eq.(39) for any value of the nonlocal parameter λ > 0 , so that a unique solution of the integral equation Eq.(1) is provided by Eq.(38),\n2. or, on the contrary, the constitutive boundary conditions are in contrast with the equilibrium boundary conditions on bending fields and so no solution to Eq.(1) exists.\nThe second unfavourable realisation occurs as a rule in applications. Failure was witnessed by simple beam problems in [8, 10, 24] and will be exemplified in §12.\nThe obstruction involved in adopting the strain-driven purely nonlocal model persists also when the compensation of boundary layer effects is performed according to the proposal made in [19] and expressed by Eq.(23). Indeed, adopting in Eq.(23) the bi-exponential kernel φλ Eq.(6), failure of the homogeneous constitutive boundary conditions Eq.(9) with f = (φλ ∗ 1) · M is directly checked."
+    }, {
+      "heading" : "9. Computational issues",
+      "text" : "To get around the obstruction encountered in solving even simplest problems, formulated by the strain-driven nonlocal elastic model, numerical approaches were proposed in [13, 9].\nAlthough computational methods are most often the only effective tool for complex problems in structural mechanics, the recourse to this strategy is not expedient for the matter at hand.\nExistence or non existence of a solution are in fact highly dependent on the functional spaces in which solutions are sought. In numerical methods discrete spaces, isomorphic to some <n , for suitable n ∈ N , are considered but finite dimensionality of involved spaces generates by duality large classes of equivalent stress fields and loadings.\nAs a consequence, equilibrium problems that were impossible to be fulfilled in the continuum context may become solvable in the discrete context but the interpolating field so found may well have no relation with the solution of the original problem (possibly non-existent) and the data emerging from the discrete solution may be quite different from the original ones, when measured in an appropriate norm.\nPrior to perform numerical computations it is therefore compelling to get evidence of existence and uniqueness of the continuum solution in order to consider the resulting discrete field as an approximation for the continuum field, in a suitable functional sense.\nMoreover, when no solution exists for the continuum problem, numerical computations are likely to manifest illposedness and singular behaviours."
+    }, {
+      "heading" : "10. Well-posedness: stress-driven nonlocal elasticity",
+      "text" : "According to the stress-driven nonlocal model, non-local elastic constitutive laws are expressed, by assuming that the\nelastic curvature field χel ∈ H0(a, b) is the output of a convolution.\nThe local elastic curvature field is the source C · M ∈ H0(a, b) while the convolution with an averaging kernel φλ ∈ H0(a, b) depending on a nonlocal scalar parameter λ > 0 , yields the nonlocal elastic curvature field as output:\nχel(x) = ∫ b\na φλ(x − y) · (C · M)(y) dy . (40)\nThe stress-driven model in Eq.(40) can be deduced from Fredholm integral Eq.(7) by setting\nf = χel , s = C · M . (41) From Lemma 1 it follows that, adopting the bi-exponential kernel Eq.(6), the integral relation Eq.(40) is equivalent to the constitutive differential equation:\nχel\nλ2 − χ′′el = C · M λ2 , (42)\nwith the homogeneous constitutive boundary conditions:  χ′el(a) = 1 λ · χel(a) ,\n−χ′el(b) = 1 λ · χel(b) .\n(43)\nContrary to what occurs for the strain-driven model, equilibrium conditions are now imposed on the source field and hence no conflict arises with the output of the integral convolution. This key property assures well-posedness of elastostatic problems formulated with the stress-driven model."
+    }, {
+      "heading" : "11. Solution procedure",
+      "text" : "The following procedure can be adopted for the solution of the nonlocal elastic problem for bars or beams. Reference will be made to beams, just for definiteness.\nIn the general case of a statically indeterminate beam assembly, the linear space Σ of self-equilibrated bending interactions will be of dimension n , degree of statical indeterminacy.\nKinematic compatibility requires that the total curvature, sum of the elastic curvature χel ∈ H0(a, b) and of the nonelastic (i.e. thermal) curvature χth ∈ H0(a, b) :\nχtot = χel + χth , (44)\nmust be equal to the geometric curvature defined by\nχ(v) := v′′ . (45)\nA fundamental theorem of structural analysis assures that the kinematic compatibility requirement\nχtot = χ(v) , (46)\nis equivalent to fulfilment of the variational condition: ∫ b\na δM · χtot dx = 〈δR,w〉 , ∀ δM ∈ Σ . (47)\nAC CE\nPT ED\nM AN\nUS CR\nIP T\nHere w ∈ H2(a, b) is an imposed displacement field and δR is the reaction force in equilibrium with the bending field δM ∈ H0(a, b) , so that:\n〈δR,w〉 = ∫ b\na δM · χ(w) dx (48)\nIf the set Mi , i = 1, . . . , n , (49)\nis a basis of Σ , the variational condition Eq.(47) can be written as a finite set of n linear conditions:\n∫ b\na Mi · χtot dx = 〈Ri,w〉 , i = 1, . . . , n . (50)\nIn linear elasticity (local or nonlocal) the elastic curvature χel in Eq.(44) is a linear function of the bending field M .\nDenoting by M0 ∈ Σ` a bending field in equilibrium with the loading ` , any equilibrated bending field M ∈ Σ` will be expressed by the affine combination:\nM = M0 + n∑\ni=1\nαi · Mi . (51)\nThe bending fields Mk , k = 0, 1, . . . , n will generate, by means of the assumed nonlocal constitutive law, elastic curvature fields χkel , k = 0, 1, . . . , n , and the total curvature will then be expressed by the affine combination:\nχtot = χ 0 el +\nn∑\ni=1\nαi · χiel + χth . (52)\nKinematic compatibility is imposed by Eq.(50) and is expressed by a linear system of n equations for j = 1, . . . , n , in the n unknowns parameters αi , i = 1, . . . , n :\n∫ b\na M j ·\n( χ0el + n∑\ni=1\nαi · χiel + χth − χ(w) ) dx = 0 . (53)\nThe unique solution of this system provides the kinematically compatible curvature χtot by means of Eq.(52).\nThe unique transversal displacement field v ∈ H2(a, b) , solution of the elastostatic problem, is got by solving the differential problem χtot = v′′ with the prescribed kinematic boundary conditions.\nLet us now consider the distinctive features of the nonlocal elastic models at hand.\ni) If a purely nonlocal strain-driven elastic model is assumed, the elastic curvature fields χkel , k = 0, 1, . . . , n should be evaluated by solving a family of n + 1 Fredholm integral equations of the first kind with the data output fields given by the bending fields Mk , k = 0, 1, . . . , n . This procedure leads to unsolvable problems due to conflicting requirements between constitutive and equilibrium conditions. The same conclusion is got if the modified expression Eq.(23), proposed in [19] for compensating boundary effects, is assumed in a strain-driven elastic model.\nii) On the contrary, the proposal made in [20, 21] to compensate boundary effects, expressed by Eq.(26), leads to well-posed elastostatic problems. In the nonlocal response so evaluated, the modification induced by nonlocality appears however to be significantly reduced with respect to the purely nonlocal case if the stress-driven model is assumed, as exemplified in Fig.7 (Bottom plot).\niii) If the mixture strain-driven elastic model is assumed, the elastic curvature fields χkel , k = 0, 1, . . . , n can be evaluated either by solving a set of n + 1 Fredholm integral equations of the second kind as in Eq.(10) or differential problems as in Eq.(12) and Eq.(13), with data output fields f given by the set of n + 1 bending fields Mk , k = 0, 1, . . . , n .\nThis procedure leads to solvable problems if m > 0 , with unique solutions for the source field [14]. Singularities are however experienced for m → 0 . This occurrence is evaluable by means of an asymptotic formula which provides the ratio of boundary values of input and output fields of the convolution Eq.(7) as λ→ +∞ :\nlim λ→+∞ s(a) f (a) = lim λ→+∞ s(b) f (b) = 1 m . (54)\nIn evaluating the elastic curvature by Eq.(35), a divergence occurs as m→ 0 . An example is provided in Fig.4.\niv) The solution of the purely nonlocal stress-driven elastic model can be evaluated in terms of the elastic curvature fields χkel , k = 0, 1, . . . , n either by computing a family of n + 1 convolutions Eq.(40) with M given by Eq.(51) or by solving the corresponding differential problems Eq.(42) and Eq.(43). No Fredholm integral equation is involved.\nThe procedure for solving the nonlocal extensional elastostatic problem follows the same lines, in evaluating the total axial dilation εtot .\nThe axial displacement u ∈ H1(a, b) at solution is got by solving the differential problem εtot = u′ with the prescribed kinematic boundary condition.\nIn general, for structural two- or three-dimensional models, a parametric representation (either continuous or discrete) of the variety of equilibrated stress fields is usually not available.\nFor this reason, treatments in literature addressed a displacement solution by discretising the affine variety of admissible displacements [31, 13, 22].\nThe equilibrium condition is there imposed on the elastically corresponding stress fields, thus leading to variational formulations akin to the standard displacement principle in linear local elasticity.\nThis procedure might hide essential difficulties that arise when a purely nonlocal strain-driven model is assumed to express the stress fields in terms of elastic strain fields, since equilibrium is then impossible at the continuum level.\nOn the other hand, when a stress-driven model is assumed, the inverse constitutive expression of stress-fields in terms of elastic strain fields is not available.\nAC CE\nPT ED\nM\nAN\nUS CR\nIP T\nA variational approach must then be necessarily formulated in mixed form, by assuming displacement-stress pairs as basic unknowns, with only kinematic compatibility of displacements imposed a priori. This topic will be addressed in detail in a forthcoming study.\nExamples are developed by expressing the source field s and the output field f in terms of the functions 0, 1, x introduced in Eq.(16)."
+    }, {
+      "heading" : "12. Examples",
+      "text" : "All examples displayed below were programmed by the procedure illustrated in §11 and put into operation by means of the symbolic software Mathematica due to Stephen Wolfram [26].\nAnalytical expressions of the solutions are not displayed since the resulting lengthy formulae would just be copies from the outputs of the Mathematica notebook.\nWe collect hereafter simple schemes to provide evidence of general features of the methods described above."
+    }, {
+      "heading" : "13. Mixture strain-driven elasticity",
+      "text" : "We consider a local-nonlocal strain-driven mixture model Eq.(10) for various values of the mixture parameter 0 < m ≤ 1 and of the nonlocal parameter λ > 0 . The value m = 0 corresponding to a purely nonlocal model is not achievable since no solution to the elastostatic problem exists in this case.\nThis occurrence is confirmed by computational evaluations since the symbolic software gives no answer to the required solution."
+    }, {
+      "heading" : "13.1. Free bar under uniform tension",
+      "text" : "Fig.4 reports, for a unitary output field f = N = 1 , the source field s = AE · evaluated by the differential problem Eqs.(12),(13). Here L = 1 with a = 0 , b = 1 . Also AE = 1 .\nThe top plot shows a singular behaviour in a boundary layer for λ = 0.1 and small values of the mixture parameter m = 0.01, 0.2, 0.5, 1.0 .\nMiddle and bottom plots display the integral u of the source field s for small values of the mixture parameter m and the wide range of λ = 0.001, 1, 2, 3, 4, 5, 6, 10, 15, 1000 .\nThe asymptotic estimate of Eq.(54) is confirmed by the slope of the diagram for λ = 1000 in the middle plot where m = 0.1 .\nIn the bottom plot, where m = 0.001 the maximum value at x = 1 would be u = 1000 . These evaluations provide evidence of a singular behaviour as m→ 0 ."
+    }, {
+      "heading" : "13.2. Cantilever under uniform bending",
+      "text" : "The results in Fig.4 could as well be expressive of the nonlocal elastic curvature and of cross sectional rotation fields in an elastic cantilever under unitary bending interaction by setting f = M = 1 and s = K · χel . A further integration yields the deflection of the cantilever of Fig.5. Again a singular behaviour as m→ 0 is detected.\nFigure 4: Strain-driven mixture. Free bar under uniform tension f = N = 1 . Top: s from Eq.(12), (13) for λ = 0.10 , m = 0.01→ 1 . Middle: u = from u′ = s, u(0) = 0 m = 0.10 , λ = 0.001→ 1000 . Bottom: u = from u′ = s, u(0) = 0 . m = 0.001 , λ = 0.01→ 100 ."
+    }, {
+      "heading" : "14. Stress-driven elasticity",
+      "text" : ""
+    }, {
+      "heading" : "14.1. Uniformly loaded clamped beam",
+      "text" : "The first application of the stress-driven model is to the scheme of a straight beam of length L = 1 with a unitary axial stiffness K = 1 , clamped at the ends and subject to a unitary transversal loading. Setting a = 0 and b = L , an equilibrated bending field is given by M0 = x·(1−x)/2 and self-equilibrated bending fields are proportional to M1 = 1 .\nDiagrams of elastic curvature and of the max deflection are plotted in Fig.6 for nonlocal parameter λ ranging in the list\n{ 0.0001, 0.03, 0.05, 0.07, 0.10, 0.15, 0.25, 0.50, 0.75, 1.00 } . A progressive vanishing of the elastic curvature and of the maximal deflection is clearly shown for increasing values of the nonlocal parameter."
+    }, {
+      "heading" : "14.2. Cantilever beam: end point loading",
+      "text" : "The curvature field of a cantilever under end point loading are depicted in Table 2. This scheme is useful in simulating for NEMS actuators.\nAC CE\nPT ED\nM\nAN\nUS\nCR\nIP T\nAdopting the stress-driven nonlocal model, contrary to outcomes of differential formulations based on the strain-driven integral model no paradoxical behaviour is detected.\nIn Table 2 (Top row) Left and Center figures show the input unitary function s = C ·M = 1 and the output field f = χel for λ = 0.001, 0.10, 0.50, 100 . The progressive vanishing of χel under increasing values of the nonlocal parameter λ is evident. The Right figure reproduce the input field C · M = 1 − x .\nIn Table 2 (Bottom row) output fields f = χel corresponding to the models of Eq.(7), Eq.(20), Eq.(27) are plotted and show a perfect agreement with the limit theoretical results in Table 1.\nIn particular, the compensated response of Eq.(27) confirms that the local response is recovered both for λ → 0 and for λ → +∞ . The possibility of swaying from the local behaviour is accordingly quite limited."
+    }, {
+      "heading" : "14.3. Clamped beam subject to transversal end displacements",
+      "text" : "A straight beam of length L = 1 , with clamped ends at a = −L/2 and b = L/2 , unitary bending stiffness K = 1 subject to a unitary relative transversal displacement between the end cross-sections is considered.\nThe curvature field associated according to the stress-driven models Eq.(7), Eq.(20), Eq.(27) are depicted in Fig.7.\nIn agreement with the theoretical results in Table 1, Middle and Bottom plots reveal that compensation of boundary effects is achieved at the cost of rendering the nonlocal behaviour less significant, as was observed also from the plots in Table 2.\nRemark 3. The peculiar boundary behaviour of dilation and curvature solutions at the end-points in figg.6,7 is a consequence of the result in Lemma 3.\nFigure 6: Stress-driven Eq.(7). Clamped beam under constant loading. Up: Elastic curvature for λ = 0.0001, 0.03, 0.05, 0.07, 0.10, 0.15, 0.25, 0.50, 0.75, 1.00 . Down: Max deflection for 0 ≤ λ ≤ 1 ."
+    }, {
+      "heading" : "15. Conclusions",
+      "text" : "Contributed discussions and results may be summarised as follows.\n1. Nonlocal elasticity is formulated in two ways, declared as strain-driven and stress-driven laws. Both stem from an abstract convolution law by swapping the interpretation of source and output fields and lead to distinct constitutive laws with distinct features.\n2. Obstructions to adoption of a purely strain-driven model are evidenced, motivated by general considerations about elastostatic problems, and confirmed by computations. Well-posedness of problems based on the stress-driven model is illustrated and tested by computations.\n3. Boundary effects are examined with an abstract approach and a comparison between proposed compensations is performed, with new statements.\n4. Mixtures of local and strain-driven nonlocal laws and modified laws proposed to compensate boundary effects are revisited and involved computational issues are discussed.\n5. New results concerning the evaluation of limit behaviours for extreme values of the nonlocal parameter are provided and shown to be helpful in interpreting computational outcomes.\n6. A general solution procedure for nonlocal elastic beams is described and its application to the various nonlocal laws is discussed.\nAC CE\nPT ED\nM AN\nUS CR\nIP T\nTable 2: Stress-driven. Top row: Left: Source field s = 1 . Center: Output f for source s = 1 ; λ = 0.001, 0.10, 0.50, 100 . Right: Source field s = 1 − x . Bottom row: Output fields f for the source s = 1 − x ; λ = 0.001, 0.10, 0.50, 100 . Left: Eq.(7), Center: Eq.(20), Right: Eq.(27).\nFigure 7: Stress driven. Clamped beam with transversal end displacement. Top: Convolution: no compensation Eq.(7). Middle: Boundary effects compensated Eq.(20). Bottom: Boundary effects compensated Eq.(27).\n7. The stress-driven nonlocal integral elastic model is illustrated by showing that resulting elastostatic problems are well-posed and provide efficient simulations of small-scale effects in Bernoulli-Euler nano-beams. An increasing elastic stiffness is predicted by the theory for increasing values of the nonlocal parameter and this behaviour is confirmed by computations. This statement should however be suitably modified in cases where both larger and smaller curvatures may be exhibited at different points along the beam axis, such as in the Left-Bottom plot of Table 2.\n8. A sampling of simple beam problems, including both statically determinate and indeterminate schemes, modelled by the illustrated nonlocal laws, is displayed and discussed by comparison with the theoretical results contributed in the paper."
+    } ],
+    "references" : [ {
+      "title" : "On differential equations of nonlocal elasticity and solutions of screw dislocation and surface waves",
+      "author" : [ "Eringen AC" ],
+      "venue" : "J Appl Phys 1983;54:4703-4710",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 1983
+    }, {
+      "title" : "Application of nonlocal continuum models to nanotechnology",
+      "author" : [ "J Peddieson", "GR Buchanan", "RP. McNitt" ],
+      "venue" : "Int J Eng Sci",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2003
+    }, {
+      "title" : "The small length scale effect for a non-local cantilever beam: a paradox solved",
+      "author" : [ "Challamel N", "Wang CM" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2008
+    }, {
+      "title" : "Comments on nonlocal effects in nanocantilever beams",
+      "author" : [ "C Li", "L Yao", "W Chen", "S. Li" ],
+      "venue" : "Int J Eng Sci 2015;87:47-57",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2015
+    }, {
+      "title" : "Application of an enhanced version of the Eringen differential model to nanotechnology",
+      "author" : [ "R Barretta", "L Feo", "R Luciano", "F. Marotti de Sciarra" ],
+      "venue" : "Composites Part B",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2016
+    }, {
+      "title" : "Eringen’s Stress Gradient Model for Bending of Nonlocal Beams",
+      "author" : [ "N Challamel", "JN Reddy", "CM. Wang" ],
+      "venue" : "J Eng Mech",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2016
+    }, {
+      "title" : "Bending of Euler- Bernoulli beams using Eringen’s integral formulation: A paradox resolved",
+      "author" : [ "J Fernández-Sáez", "R Zaera", "JA Loya", "JN. Reddy" ],
+      "venue" : "Int J Eng Sci 2016;99:107-116",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2016
+    }, {
+      "title" : "Constitutive boundary conditions and paradoxes in nonlocal elastic nano-beams",
+      "author" : [ "G Romano", "R Barretta", "M Diaco", "F. Marotti de Sciarra" ],
+      "venue" : "Int J Mech Sciences",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2017
+    }, {
+      "title" : "Closed form solution for a nonlocal elastic bar in tension",
+      "author" : [ "AA Pisano", "P. Fuschi" ],
+      "venue" : "Int J Solids Struct 2003;40:13-23",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2003
+    }, {
+      "title" : "One-dimensional nonlocal elasticity for tensile single-walled carbon nanotubes: A molecular structural mechanics characterization",
+      "author" : [ "M Malagù", "E Benvenuti", "A. Simone" ],
+      "venue" : "European J Mech A/Solids",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2015
+    }, {
+      "title" : "A unified integro-differential nonlocal model",
+      "author" : [ "Khodabakhshi P", "Reddy JN" ],
+      "venue" : "Int J Eng Sci 2015;95.60-75",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2015
+    }, {
+      "title" : "Exact solutions for the static bending of Euler-Bernoulli beams using Eringen’s two-phase local/nonlocal model",
+      "author" : [ "YB Wang", "XW Zu", "HH. Dai" ],
+      "venue" : "AIP Advances 2016;6:085114",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2016
+    }, {
+      "title" : "Nonlocal integral approach to the dynamical response of nano-beams",
+      "author" : [ "KG Eptaimeros", "CC Koutsoumaris", "GJ. Tsamasphyros" ],
+      "venue" : "Int J Mech Sciences",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2016
+    }, {
+      "title" : "Linear theory of nonlocal elasticity and dispersion of plane waves",
+      "author" : [ "Eringen AC" ],
+      "venue" : "Int J Eng Sci",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 1972
+    }, {
+      "title" : "Theory of nonlocal elasticity and some applications",
+      "author" : [ "Eringen AC" ],
+      "venue" : "Res Mechanica",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 1987
+    }, {
+      "title" : "Nonlocal Continuum Field Theories",
+      "author" : [ "Eringen AC" ],
+      "venue" : "New York: Springer Verlag;",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2002
+    }, {
+      "title" : "Nonlocal damage theory",
+      "author" : [ "Pijaudier-Cabot G", "Bazánt ZP" ],
+      "venue" : "J Eng Mech 1987;113:1512-1533",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 1987
+    }, {
+      "title" : "Remarks on some aspects of nonlocal theories in solid me-  chanics",
+      "author" : [ "C. Polizzotto" ],
+      "venue" : "Proc. of the 6th Congress of Italian Society for Applied and Industrial Mathematics (SIMAI),",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2002
+    }, {
+      "title" : "A symmetric nonlocal damage theory",
+      "author" : [ "G Borino", "B Failla", "F. Parrinello" ],
+      "venue" : "Int J Solids Struct",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2003
+    }, {
+      "title" : "A different approach to Eringen’s nonlocal integral stress model with applications for beams",
+      "author" : [ "CC Koutsoumaris", "KG Eptaimeros", "GJ. Tsamasphyros" ],
+      "venue" : "Int J Solids Struct 2017;112:222-238",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2017
+    }, {
+      "title" : "Stress-driven versus strain-driven nonlocal integral model for elastic nano-beams. Composites Part B 2017;114:184-188",
+      "author" : [ "G Romano", "R. Barretta" ],
+      "venue" : null,
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2017
+    }, {
+      "title" : "Nonlocal elasticity in nanobeams: the stressdriven integral model",
+      "author" : [ "G Romano", "R. Barretta" ],
+      "venue" : "Int J Eng Sci 2017;115:14-27",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2017
+    }, {
+      "title" : "Comment on the paper ”Exact solution of Eringen’s nonlocal integral model for bending of Euler-Bernoulli and Timoshenko beams",
+      "author" : [ "G Romano", "R. Barretta" ],
+      "venue" : "Int J Eng Sci 2016;109:240-242",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2016
+    }, {
+      "title" : "Mathematica: A System for Doing Mathematics by Computer",
+      "author" : [ "S. Wolfram" ],
+      "venue" : "Addison-Wesley Publishing Company;",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 1988
+    }, {
+      "title" : "Comparison of integral-type nonlocal plasticity models for strain-softening materials",
+      "author" : [ "M Jirásek", "S. Rolshoven" ],
+      "venue" : "Int J Eng Sci 2003;41:1553-1602",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2003
+    }, {
+      "title" : "A strain-difference-based nonlocal elasticity model",
+      "author" : [ "C Polizzotto", "P Fuschi", "AA. Pisano" ],
+      "venue" : "Int J Solids Struct",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2004
+    }, {
+      "title" : "A Primer on Integral Equations of the first kind: the problem of deconvolution and unfolding",
+      "author" : [ "Wing GM" ],
+      "venue" : "With the assistance of J.D. Zahrt. Society for Industrial and Applied Mathematics, Philadelphia,",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 1991
+    }, {
+      "title" : "Nonlocal elasticity and related variational principles",
+      "author" : [ "C. Polizzotto" ],
+      "venue" : "Int J Solids Struct 2001;38:7359-7380",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2001
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "In a paper on screw dislocations and Rayleigh surface waves [1] Eringen was the first to introduce strain-driven nonlocal elastic laws in which the stress field was expressed by convolution of the local elastic stress with averaging kernels consisting in fundamental solutions of differential problems.",
+      "startOffset" : 60,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 1,
+      "context" : "Eringen’s differential nonlocal elastic equations were improperly later applied in [2] for investigating size effects in bounded nano-beams.",
+      "startOffset" : 83,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 2,
+      "context" : "Accordingly, in modelling cantilevers under end-point loading, used as actuators in nanotechnology, paradoxical results were detected in [3, 4].",
+      "startOffset" : 137,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 3,
+      "context" : "Accordingly, in modelling cantilevers under end-point loading, used as actuators in nanotechnology, paradoxical results were detected in [3, 4].",
+      "startOffset" : 137,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 4,
+      "context" : "Modifications of the differential formulation were examined in [5, 6].",
+      "startOffset" : 63,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 5,
+      "context" : "Modifications of the differential formulation were examined in [5, 6].",
+      "startOffset" : 63,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 6,
+      "context" : "A list of recent contributions can be found in [9].",
+      "startOffset" : 47,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 7,
+      "context" : "A definite explanation of paradoxical result has been finally contributed in [10] with reference to flexural behaviour of nanobeams.",
+      "startOffset" : 77,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 8,
+      "context" : "To overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].",
+      "startOffset" : 124,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 9,
+      "context" : "To overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].",
+      "startOffset" : 124,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 10,
+      "context" : "To overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].",
+      "startOffset" : 124,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 11,
+      "context" : "To overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].",
+      "startOffset" : 124,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 12,
+      "context" : "To overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].",
+      "startOffset" : 124,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 13,
+      "context" : "To overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].",
+      "startOffset" : 200,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 14,
+      "context" : "To overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].",
+      "startOffset" : 200,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 15,
+      "context" : "To overcome ill-posedness of strain-driven nonlocal elastic problems, a mixture of local-nonlocal elasticity was adopted in [11, 8, 12, 13, 14, 15] on the basis of the original proposal by Eringen in [16, 17, 18].",
+      "startOffset" : 200,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 16,
+      "context" : "Proposals originally made in [19, 20, 21] with reference to nonlocal damage mechanics, were applied to nonlocal elasticity of nano-beams to compensate for boundary layer effects and adopted in numerical computations [22].",
+      "startOffset" : 29,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 17,
+      "context" : "Proposals originally made in [19, 20, 21] with reference to nonlocal damage mechanics, were applied to nonlocal elasticity of nano-beams to compensate for boundary layer effects and adopted in numerical computations [22].",
+      "startOffset" : 29,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 18,
+      "context" : "Proposals originally made in [19, 20, 21] with reference to nonlocal damage mechanics, were applied to nonlocal elasticity of nano-beams to compensate for boundary layer effects and adopted in numerical computations [22].",
+      "startOffset" : 29,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 19,
+      "context" : "Proposals originally made in [19, 20, 21] with reference to nonlocal damage mechanics, were applied to nonlocal elasticity of nano-beams to compensate for boundary layer effects and adopted in numerical computations [22].",
+      "startOffset" : 216,
+      "endOffset" : 220
+    }, {
+      "referenceID" : 20,
+      "context" : "Inconsistencies in nonlocal structural problems, formulated according to the strain-driven integral elastic law, can be bypassed by the proposal of a new nonlocal stress-driven integral elastic relation contributed in [23, 24].",
+      "startOffset" : 218,
+      "endOffset" : 226
+    }, {
+      "referenceID" : 21,
+      "context" : "Inconsistencies in nonlocal structural problems, formulated according to the strain-driven integral elastic law, can be bypassed by the proposal of a new nonlocal stress-driven integral elastic relation contributed in [23, 24].",
+      "startOffset" : 218,
+      "endOffset" : 226
+    }, {
+      "referenceID" : 22,
+      "context" : "AC CE PT ED M AN US CR IP T on a strain-driven nonlocal convolution, the source of illposedness relies in the fact that stress fields in the range of the constitutive law, are unable to fulfil also boundary and differential conditions of equilibrium [25, 10, 23].",
+      "startOffset" : 250,
+      "endOffset" : 262
+    }, {
+      "referenceID" : 7,
+      "context" : "AC CE PT ED M AN US CR IP T on a strain-driven nonlocal convolution, the source of illposedness relies in the fact that stress fields in the range of the constitutive law, are unable to fulfil also boundary and differential conditions of equilibrium [25, 10, 23].",
+      "startOffset" : 250,
+      "endOffset" : 262
+    }, {
+      "referenceID" : 20,
+      "context" : "AC CE PT ED M AN US CR IP T on a strain-driven nonlocal convolution, the source of illposedness relies in the fact that stress fields in the range of the constitutive law, are unable to fulfil also boundary and differential conditions of equilibrium [25, 10, 23].",
+      "startOffset" : 250,
+      "endOffset" : 262
+    }, {
+      "referenceID" : 20,
+      "context" : "The former alternative, labeled strain-driven, was proposed by Eringen, while the latter, labeled stress-driven, was assumed in the new approach introduced in [23, 24].",
+      "startOffset" : 159,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 21,
+      "context" : "The former alternative, labeled strain-driven, was proposed by Eringen, while the latter, labeled stress-driven, was assumed in the new approach introduced in [23, 24].",
+      "startOffset" : 159,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 7,
+      "context" : "Clarification of basic facts became possible when the treatment of integral equations in [7] was evidenced by [8, 10].",
+      "startOffset" : 110,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 16,
+      "context" : "Methods for compensating boundary effects by means of modified kernels, proposed in [19, 20, 21], are also addressed with further findings.",
+      "startOffset" : 84,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 17,
+      "context" : "Methods for compensating boundary effects by means of modified kernels, proposed in [19, 20, 21], are also addressed with further findings.",
+      "startOffset" : 84,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 18,
+      "context" : "Methods for compensating boundary effects by means of modified kernels, proposed in [19, 20, 21], are also addressed with further findings.",
+      "startOffset" : 84,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 23,
+      "context" : "Computational examples of simple bars and beams and relevant plots are developed with the aid of the Mathematica software [26] to illustrate the theory.",
+      "startOffset" : 122,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 0,
+      "context" : "In nonlocal models, the family φλ of scalar averaging kernels depends on a positive nonlocal parameter λ > 0 and is assumed to fulfil the following characteristic properties [1]:",
+      "startOffset" : 174,
+      "endOffset" : 177
+    }, {
+      "referenceID" : 7,
+      "context" : "Adoption of the bi-exponential kernel is enlightening since then discussion concerning existence and uniqueness of the integral equation is direct and simple, due to the basic equivalence property proven in [10] and adapted hereafter in Lemma 1 to the adopted abstract context.",
+      "startOffset" : 207,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 13,
+      "context" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.",
+      "startOffset" : 72,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 14,
+      "context" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.",
+      "startOffset" : 72,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 15,
+      "context" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.",
+      "startOffset" : 72,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 8,
+      "context" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.",
+      "startOffset" : 105,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 9,
+      "context" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.",
+      "startOffset" : 105,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 10,
+      "context" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.",
+      "startOffset" : 105,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 11,
+      "context" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.",
+      "startOffset" : 105,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 12,
+      "context" : "The proposal of considering local-nonlocal mixtures, made by Eringen in [16, 17, 18], was resorted to in [11, 8, 12, 13, 14, 15], with reference to nano-rods and nano-beams.",
+      "startOffset" : 105,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 7,
+      "context" : "(6), is based on the following result [10, 14].",
+      "startOffset" : 38,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 11,
+      "context" : "(6), is based on the following result [10, 14].",
+      "startOffset" : 38,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 16,
+      "context" : "Methods for compensation were introduced in [19, 20, 21] with reference to nonlocal models of plasticity and of damage mechanics to avoid development of singular bands causing softening of the constitutive law and pathological mesh dependence in computations with finite element codes.",
+      "startOffset" : 44,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 17,
+      "context" : "Methods for compensation were introduced in [19, 20, 21] with reference to nonlocal models of plasticity and of damage mechanics to avoid development of singular bands causing softening of the constitutive law and pathological mesh dependence in computations with finite element codes.",
+      "startOffset" : 44,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 18,
+      "context" : "Methods for compensation were introduced in [19, 20, 21] with reference to nonlocal models of plasticity and of damage mechanics to avoid development of singular bands causing softening of the constitutive law and pathological mesh dependence in computations with finite element codes.",
+      "startOffset" : 44,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 16,
+      "context" : "In the context of nonlocal damage theory a proposal to compensate the boundary effects was made in [19].",
+      "startOffset" : 99,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 16,
+      "context" : "The nonlocal law proposed in [19] is expressed by the convolution: f (x) = ∫ b",
+      "startOffset" : 29,
+      "endOffset" : 33
+    }, {
+      "referenceID" : 18,
+      "context" : "(18) was noticed in [21, 28, 29] and there expressed by the statement that",
+      "startOffset" : 20,
+      "endOffset" : 32
+    }, {
+      "referenceID" : 24,
+      "context" : "(18) was noticed in [21, 28, 29] and there expressed by the statement that",
+      "startOffset" : 20,
+      "endOffset" : 32
+    }, {
+      "referenceID" : 25,
+      "context" : "(18) was noticed in [21, 28, 29] and there expressed by the statement that",
+      "startOffset" : 20,
+      "endOffset" : 32
+    }, {
+      "referenceID" : 16,
+      "context" : "The modification proposed in [19] can be conveniently interpreted as a convolution, still governed by the symmetric kernel φλ , multiplied by a field not less than unity:",
+      "startOffset" : 29,
+      "endOffset" : 33
+    }, {
+      "referenceID" : 18,
+      "context" : "A different strategy for compensation of boundary layer effects was proposed in [21] with the output field defined by",
+      "startOffset" : 80,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 17,
+      "context" : "(25) was independently proposed in [20] by expressing the nonlocal response as sum of the local response and of a convolution between the averaging kernel and the excess of source field over the evaluation-point value, according to the formula:",
+      "startOffset" : 35,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 0,
+      "context" : "In the purely nonlocal strain-driven integral elastic law [1], it is assumed that the bending interaction field is the outcome of an integral convolution, over the beam length, between an averaging kernel φλ and the local bending K · χel ∈ H0(a, b) associated with the elastic curvature field χel ∈ H0(a, b) :",
+      "startOffset" : 58,
+      "endOffset" : 61
+    }, {
+      "referenceID" : 13,
+      "context" : "There reference was made to treatment of Fredholm integral equations of the first kind in [7] and adoption of a local/nonlocal mixture, early contributed in [16, 17], was proposed to overcome the obstacle.",
+      "startOffset" : 157,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 14,
+      "context" : "There reference was made to treatment of Fredholm integral equations of the first kind in [7] and adoption of a local/nonlocal mixture, early contributed in [16, 17], was proposed to overcome the obstacle.",
+      "startOffset" : 157,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 7,
+      "context" : "Further investigations about applicability of Eringen’s integral model to nano-beams were recently contributed in [10, 23, 24] where the stress-driven model for nonlocal elasticity was first proposed.",
+      "startOffset" : 114,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 20,
+      "context" : "Further investigations about applicability of Eringen’s integral model to nano-beams were recently contributed in [10, 23, 24] where the stress-driven model for nonlocal elasticity was first proposed.",
+      "startOffset" : 114,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 21,
+      "context" : "Further investigations about applicability of Eringen’s integral model to nano-beams were recently contributed in [10, 23, 24] where the stress-driven model for nonlocal elasticity was first proposed.",
+      "startOffset" : 114,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 26,
+      "context" : "It is known [30] that this task is challenging, that it leads generally to ill-posed problems and that, more than often, it is simply impossible to be fulfilled.",
+      "startOffset" : 12,
+      "endOffset" : 16
+    }, {
+      "referenceID" : 7,
+      "context" : "Failure was witnessed by simple beam problems in [8, 10, 24] and will be exemplified in §12.",
+      "startOffset" : 49,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 21,
+      "context" : "Failure was witnessed by simple beam problems in [8, 10, 24] and will be exemplified in §12.",
+      "startOffset" : 49,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 16,
+      "context" : "The obstruction involved in adopting the strain-driven purely nonlocal model persists also when the compensation of boundary layer effects is performed according to the proposal made in [19] and expressed by Eq.",
+      "startOffset" : 186,
+      "endOffset" : 190
+    }, {
+      "referenceID" : 10,
+      "context" : "To get around the obstruction encountered in solving even simplest problems, formulated by the strain-driven nonlocal elastic model, numerical approaches were proposed in [13, 9].",
+      "startOffset" : 171,
+      "endOffset" : 178
+    }, {
+      "referenceID" : 6,
+      "context" : "To get around the obstruction encountered in solving even simplest problems, formulated by the strain-driven nonlocal elastic model, numerical approaches were proposed in [13, 9].",
+      "startOffset" : 171,
+      "endOffset" : 178
+    }, {
+      "referenceID" : 16,
+      "context" : "(23), proposed in [19] for compensating boundary effects, is assumed in a strain-driven elastic model.",
+      "startOffset" : 18,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 17,
+      "context" : "ii) On the contrary, the proposal made in [20, 21] to compensate boundary effects, expressed by Eq.",
+      "startOffset" : 42,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 18,
+      "context" : "ii) On the contrary, the proposal made in [20, 21] to compensate boundary effects, expressed by Eq.",
+      "startOffset" : 42,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 11,
+      "context" : "This procedure leads to solvable problems if m > 0 , with unique solutions for the source field [14].",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 27,
+      "context" : "For this reason, treatments in literature addressed a displacement solution by discretising the affine variety of admissible displacements [31, 13, 22].",
+      "startOffset" : 139,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 10,
+      "context" : "For this reason, treatments in literature addressed a displacement solution by discretising the affine variety of admissible displacements [31, 13, 22].",
+      "startOffset" : 139,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 19,
+      "context" : "For this reason, treatments in literature addressed a displacement solution by discretising the affine variety of admissible displacements [31, 13, 22].",
+      "startOffset" : 139,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 23,
+      "context" : "All examples displayed below were programmed by the procedure illustrated in §11 and put into operation by means of the symbolic software Mathematica due to Stephen Wolfram [26].",
+      "startOffset" : 173,
+      "endOffset" : 177
+    } ],
+    "year" : 2017,
+    "abstractText" : "Nonlocal integral constitutive laws, for application to nano-beams, are investigated in a general setting. Both purely nonlocal and mixture models involving convolutions with averaging kernels are taken into account. Evidence of boundary effects is enlightened by theoretical analysis and numerical computations. Proposed compensation procedures are analyzed, relevant new results are evidenced and confirmed by computations. The strain-driven model and related local-nonlocal mixtures are addressed, with singular phenomena foreseen and numerically quantified. Effectiveness of the recently proposed stress-driven nonlocal elastic model is discussed and illustrated by description of a general solution procedure for nonlocal elastic beams. Comparisons between straindriven models, stress-driven models and local/nonlocal mixtures are considered from theoretical and computational perspectives. Examples of statically determinate and indeterminate beams are elaborated to show that an effective simulation of scale effects in nano-structures, ensuring existence and uniqueness of solution for any data, is provided by the stress-driven model.",
+    "creator" : "Elsevier"
+  }
+}

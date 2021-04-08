@@ -1,0 +1,1809 @@
+{
+  "name" : "2020-06-23__56_10.3390@nano10061198.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Unconventional Applications of Superconducting Nanowire Single Photon Detectors",
+    "authors" : [ "Tomas Polakovic", "Whitney Armstrong", "Goran Karapetrov", "Zein-Eddine Meziani", "Valentine Novosad" ],
+    "emails" : [ "tpolakovic@anl.gov", "warmstrong@anl.gov", "zmeziani@anl.gov", "goran@drexel.edu", "novosad@anl.gov" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Keywords: superconductivity; nanowires; particle detectors; photon detectors; quantum detectors"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Superconducting nanowire single photon detectors (SNSPD) have, since their initial discovery [1], found many applications in fields of nanophotonics and quantum communication. Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10]. Many, if not all, of these applications leverage the unique capability of detecting individual photons with unprecedented timing resolution and low noise, but that doesn’t mean that this is the only area where SNSPDs can be used in. One of the interesting potential applications of SNSPDs is in nuclear physics (NP) and high energy physics (HEP), where there is demand for new detector technologies for particle identification, calorimetry, and particle trajectory reconstruction. Currently, this area is dominated by semiconductor-based detectors but there is demand for new technologies at the intensity frontier [11], where the detectors need to operate at high rates and in harsh environments [12–18]. Superconducting nanowire detectors have already demonstrated superior timing characteristics and detection rates as photodetectors, they naturally operate in cryogenic conditions and there has been rapid progress in their capability to operate in strong magnetic fields [19], and they are capable of detecting more than just individual photon signals. In this work, we review the additional capabilities of these devices in attempt to show that they can be a very attractive choice as a complementary or replacement technology for many of experiments outside their usual niche. In Section 2, a brief introduction to the detection principles in the conventional\nNanomaterials 2020, 10, 1198; doi:10.3390/nano10061198 www.mdpi.com/journal/nanomaterials\nschemes is presented. Detection of multi-photon signals and photon counting in strong magnetic fields is discussed in Section 3. Section 4 will then focus on detection of signals from massive particles, beginning with keV-range energy ions and electrons, then MeV charged particles and will conclude with proposals on detection of neutrons."
+    }, {
+      "heading" : "2. SNSPD Concept Origins, Operation and Metrics",
+      "text" : "The basic principle behind the photo-detection in SNSPDs is excitation of quasi-electrons out of the superconducting ground state, an effect that has been first observed almost five decades ago in thin films of lead [20]. As was shown it the lead film experiments, the formation of the normal resistive state in the material cannot be explained purely by thermal effects. To fully account for the experimental results, one has to consider the non-equilibrium dynamics of the superconducting excited state, with hot quasi-particles at higher temperature than the Cooper pairs of the superconducting ground state. A more thorough analysis of physics of these processes not limited to applications of detectors can be found in review of Shklovskij [21], while in this work, we restrict ourselves just to a quick review of the body of work related to detectors. One of the first attempts at quantitative description of this phenomenon was using a two-temperature model [22], which describes the photoresponse of the superconductor hit by a (not necessarily a single photon) pulse of light. This model assumes that the photoresponse, which is macroscopically equivalent to change of the kinetic inductance of the film (inversely proportional to Cooper pair density), has time constant that is dominated by that of the quasi-particle relaxation time [23–25]. The electron temperature Te and phonon temperature Tp is then described by a pair of linearized coupled heat-balance equations [26,27]:\nce dTe dt = − ce τe−p\n( Te − Tp ) + P(t),\ncp dTp dt = ce\nτe−p\n( Te − Tp ) −\ncp τes\n( Tp − T0 ) ,\n(1)\nwhere ce and cp are electron and phonon specific heat, T0 the heatsink (substrate) temperature, τe−p the average electron-phonon interaction time, P(t) the absorbed radiation power and τes the time of phonon escape from superconductor to substrate. The solutions to these equations can be further related to the film resistance as [22]:\nR(Te) = Rn ( 1 + exp ( −4 Te − Tc\n∆Tc\n))−1 , (2)\nwhere Rn is the normal state resistance and ∆Tc the transition width at a given biasing current. This model predicts characteristic time constants on the order of 20–30 picoseconds, which is agreement with experiments carried out on, e.g., NbN microbridges [28,29]. The spatial dependence of this process was originally studied in context of non-ideal quasi-onedimensional superconductors by Skocpol, et al. [30], where the concept of a hot-spot, was first introduced into the topic. Hot-spot is a region of suppressed order parameter in the superconductor that can form and persist at temperatures lower than the superconducting critical temperature and was studied in context of cryotrons (bi-stable superconducting switching devices) [31–34]. This concept was further elaborated by Kadin, et al. [35] who approximated the Equation (1) by a diffusion equation:\nCd ∂T ∂t = κd∇2T + α (T0 − T) , (3)\nwhere C = ce + cp is the superconductor specific heat, κ total thermal conductivity of the quasi-particles, α the superconductor-substrate boundary thermal conductance and Te = Tp = T is the temperature of the superconductor. Solution to this equation predict single photon-induced hotspots with sizes on the order of 10–100 nm, which lead to one of the first proposals of the SNSPD devices [36].\nThese models are enough to qualitatively describe the detection process, which can be divided into multiple stages, that are roughly sketched in Figure 1: A very thin and narrow nanowire is maintained well below the superconducting critical temperature TC and is constant-current biased at current values close to critical currents (Figure 1a). Absorption of a single photon with energy much higher than the superconducting energy gap h̄ω 2∆ ≈ 2 meV will lead to excitation of two quasi-electrons with high kinetic energies, and those will begin to inelastically scatter with other quasi-particles in the system. This forms the initial hot-spot [36–40] (Figure 1b). The approximate time-scales associated with this process are on the order of 10 ps [22] (dictated by the electron-phonon scattering times). The next stage of the detection process is the expansion of the hot-spot (Figure 1c). First, the quasi-particles further multiply due to inelastic scattering and move diffusively outwards [41], towards the edges of the nanowire. The depletion of Cooper pairs leads to local reduction of the order parameter and redistribution of the current in the region [36]. If the nanowire is biased close to critical currents, the current density in the hotspot region rises above the critical values and the superconducting state vanishes completely creating a normal state region that bisects the superconducting wire (Figure 1d).\nMore recent experiments [42] and calculations [43–46] show that this process is also aided by Abrikosov vortices—While the potential barrier for a vortex entry might be too high in the equilibrium state, reduction of the order parameter also reduces the nucleation energy and individual vortices might enter from the wire edges, or vortex-anti-vortex pairs can form and separate. These vortices move across the wire width due to Lorentz force caused by the flowing current and cause voltage transients, further reduce the order parameter or cause phase slips [47–51] that can contribute to the device dark counts. As the section of the wire turns normal, a voltage drop is generated across the wire and this voltage spike is registered as a resistance spike which corresponds to a single photon detection event. In the last stage, the current bias is reduced, either passively through a parallel resistive shunt, or actively using electronically controlled current source and the hot spot shrinks and vanishes, preparing the nanowire for the next detection event (Figure 1e). The time constant associated with this last step could, in principle, be determined by how fast the electronic system can cool down to substrate temperature through interaction with the phonon subsystem—this would be then on the order of the phonon escape\ntime τes, which can have values from roughly τe−p to a few nanoseconds [22]. However, in reality this is primarily determined by the inductance of the device. Many superconductors used in SNSPD devices have sheet kinetic inductances as high as ∼50 pH/ [52], so a typical ∼100 µm2 area device can have kinetic inductance around 0.5 µH that leads to the observed time scales of the reset time on the order of 10 ns. While the time from photon absorption to registration of a voltage pulse is approximately 10 ps, the important metric is the timing jitter, which is the statistical variation of this time delay (typically reported as FWHM of the distribution). The variation has two contributions: an extrinsic variation due to geometry of the wire, where there’s a different time delay depending on where along the length of the wire does the photon get absorbed (in a typical meander geometry, the wire length can reach a few mm) and jitter associated with the timing of the readout electronics [2]. Then there is the intrinsic variation that’s due to the probabilistic nature of the processes that lead to the detection event. Typical values of timing jitter of SNSPD detectors are around 15 ps and are dominated by the noise jitter of the readout [53], which can reduced down to 7 ps, a value due to geometric jitter [54]. On a short nano-bridge geometry, the intrinsic timing jitter of 2.7 ps [55] is reported, which is thought as the current fundamental limit to timing of the SNSPD devices. As many of the applications proposed in this work will demand larger pixel sizes than ∼100 µm2, it might be worth elaborating on the current trends on this front: While not as common, detectors with pixel sizes of the order of 10,000 µm2 are being fabricated [56,57]. Alternatively, one can connect multiple small SNSPD pixel in parallel to create a large-area “superpixel” [58–62]. An additional benefit of constructing a detector pixel in this configuration is a better detection rate, because the total inductance of the superpixel is the harmonic mean of inductances of individual detectors. The tradeoff is in reduction of SNR of the detector (the voltage drop in inversely proportional to the number of pixels connected in parallel), but typical signals are on the order of a few mV, so this is not a fundamental problem unless the number of parallel pixels becomes too large. Lastly, the engineering problems associated with many-pixel readout are being focused on by many groups working on superconducting electronics and working arrays of as many as 64 pixels have existed for some time [63–66] and ,coupled with various switching readout and multiplexing techniques [65,67–72], a kilopixel SNSPD array has been recently developed [73]. Specifically in the context of particle detection, the covered area can be further increased by increasing the dimensions wire itself—while this is generally not possible with photons, charged particles can create hotspots an order of magnitude larger (as will be discussed in Section 4). This would put nanowire-based particle detector (super)pixels comfortably in the mm-scale and make them competitive with conventional technologies also in this aspect. While most of the previous exposition was not specific to any particular superconducting material, it might be worth closing the introductory section with a short discussion about materials commonly used in fabrication of the detectors. The first reported SNSPD was fabricated out of NbN [1], which is still a popular material to use because of ease of fabrication and comparatively high TC and robustness against chemical damage during fabrication or operation. Another commonly used materials from the family of nitrides are TaN [74,75] and NbTiN [52,76,77]. All three of these materials have similar properties in context of photon detection and decision is usually based on practical factors: Materials with smaller superconducting gap will have higher relative sensitivity to long wavelength photons. The tradeoff for better sensitivity in infra-red is lower critical current density and TC, which translates into worse signal-to-noise ratio and need for better cryogenics. The main drawbacks of this family of materials is their sensitivity to chemical and physical conditions during thin film deposition, where substantial efforts have been made to achieve better consistency and process compatibility [78–80], and high reflectivity [81–83] that makes anti-reflective coatings or integration into photonic cavities necessary to achieve high quantum efficiency [4,84]. The second common class of SNSPD materials is that of amorphous superconductors, mostly popular for long wavelength photon detection. The amorphous nature of the materials allows for fabrication of extremely narrow and thin nanowires and they generally have smaller superconducting gaps than nitrides, which greatly enhances their IR sensitivity,\nas demonstrated with WSi [3], MoSi [85] or MoGe [86], with MoSi also having demonstrated good performance in UV [87]. The decision between the various amorphous materials is based on the balance of sensitivity, noise, temperature and jitter, as with the crystalline materials. An interesting alternative to conventionally used materials are the high-TC superconductors (specifically cuprates), where alternative detection models are also proposed [88]. The obvious benefits of using this material the high critical temperature and upper critical magnetic field. The tradeoff in this case comes mostly from the side of technology, where growth of high-quality superconducting oxides is a complicated process. YBCO films, which are commonly proposed for high-TC SNSPDs, require highly specific substrates and growth at excessive temperatures [89–92] and have to be capped by a passivation layer to prevent degradation [89]. This limits application in detectors that need on-chip integration with other devices, but one should not discredit their use in detector concepts that do not require such degree of integration. The highest TC material has been demonstrated in use for SNSPDs is MgB2[93,94], however, the material suffers from high sensitivity to oxygen and epitaxy [95], and single-photon detection has been observed only at temperatures lower than 20 K [96]. When deciding between the whole range of materials, it is important to consider the demands of the experiment. Nitrides have higher critical temperatures, which allows them operate even at liquid helium temperatures and they have smaller timing jitter [54,55] but they have lower sensitivity to long wavelength photons and are limited to smaller number of possible substrates. In context of NP and HEP experiments, there is also the additional consideration of effects of the environment. High magnetic fields will favor the polycrystalline materials with high vortex pinning, and devices made out of these materials currently perform better in these conditions [19,97]. Another option for magnetic field-tolerant devices would also be to fabricate them out of high-TC materials. Experiments expecting high radiation fields or high-energy particle bombardment should also tend towards use of the crystalline materials, specifically NbN, because Nb has comparatively low neutron capture [98] and scattering [98,99] cross-sections and the short screening length [100,101] makes it more robust against lattice defects."
+    }, {
+      "heading" : "3. Non-Standard Photo-Detection Techniques",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Multi-Photon Detection and Multi-Layer Broadband SNSPDs",
+      "text" : "Most of the applications of SNSPDs are in single photon counting of faint signals in narrow spectral range and are discussed thoroughly in literature [10,102]. In this review, we want to highlight techniques that use these devices in different scenarios or configurations, and we start with the less known applications that still focus on detection of light, which is still of importance to NP and HEP experiments (e.g., detection of broadband light from Cherenkov radiation, scintillation or ionization) First such application is number-resolved detection of multi-photon signals, which is commonly facilitated by visible light photon counters [103,104], transition edge sensors [105], or even Si avalanche photodiodes [106]. The benefit of using SNSPDs over the other technologies is the superior timing jitter and rate characteristics and simple readout scheme, while not suffering from the drawbacks of being confined to narrow temperature regions around room temperature or in the mK range. Typically, multi-photon resolution is achieved by having arrays of multiple SNSPDs connected in parallel and use a readout that sums inputs from this array, as demonstrated, e.g., in work of Mattioli, et al. [107]. However, one doesn’t need to limit themselves to SNSPD arrays to achieve multi-photon resolution, as individual SNSPD devices also have this capability in certain circumstances. These detection capabilities have been demonstrated by Cahal, et al. [108] in 2017 on standard meander devices made out of amorphous superconductors. Phenomenological models describing the electro-thermal feedback during the hot-spot formation [109,110] show that the voltage pulse signal due to multiple nearly simultaneous detection events (formation of multiple hot-spots within the time-span of nucleation and expansion stages of the detection process) has a rise time that is inversely proportional to the square root of total number of hot-spots. Using a simple inductor-resistor differentiating circuit, Cahal, et al.\nwere able to demonstrate photon number resolution at 1550 nm wavelength using approximately 80 ps attenuated laser pulses, as shown in Figure 2.\nAnother technique, which is not yet standard in SNSPD applications, and could find another uses in the future is using multi-layer devices, with patterned superconducting layers separated by dielectric spacing layers [111–114] as shown in Figure 3. As the most popular superconductors used for SNSPD fabrication have reflectivity of more than 0.5 in most of the interesting wavelength range [115], one requires to integrate them into photonic cavities or integrate anti-reflective coatings, which turn them into inherently narrowband detectors. This can be alleviated by tuning the thickness of the dielectric spacing layers to increase absorption for different wavelengths in different superconducting layers and effectively making a broadband detector device, as was successfully demonstrated in NbN-based detectors [111,113]. Similar attempts were made using amorphous WSi as the superconducting material [112], but they didn’t achieve increase of detection efficiency as with the crystalline materials— something that is argued in the work to be due to fabrication defects and insufficiently low reduced working temperature T/TC."
+    }, {
+      "heading" : "3.2. Detection in Strong Magnetic Fields",
+      "text" : "Before we move on to detection of particles, we should discuss the detection capabilities of SNSPDs in strong magnetic fields. There exist experiments which require high-rate and high-speed detection of photons that cannot be covered by conventional technologies. One example from nuclear physics is the active polarized proton target [116] where an experiment measure the proton spin-polarizabilities through Compton scattering off a polarized proton target. The proton spin polarization is achieved via the dynamic nuclear polarization technique of a solid target held at cryogenic temperatures and in fields as high as 6 T. Within the solid target material the presence of nuclei, other than the polarized protons, causes a significant background, which can be eliminated by detecting the recoil proton within the target material. At the required cryogenic temperatures, charge carrier freeze-out depletes Si-based photomultipliers and causes serious performance degradation [117], often requiring a complicated optical photon collection scheme and scintillator doping of the target material [118]. Also, the presence of strong magnetic fields also leads to decrease of detection efficiency, especially when using photomultiplier tubes. The inefficiency is mitigated by placing the photodetectors outside of the cryogenic and high-field environment, either by increasing the physical distance [119], by including magnetic shielding [120], and by guiding the light towards the detector with optical waveguides or systems of mirrors. Doing this puts a strain on the material budget, induces insertion losses or attenuation in the medium, and increases timing uncertainty due to dispersion. Considerable R&D efforts are spent to achieve photon detection performance in at least 1 T [121]. Having detectors in close proximity of the active volume of the experiment, in many cases, would alleviate these problems. As SNSPDs are superconducting, operation in cryogenic environments doesn’t cause any degradation in their performance, the only open question was their performance in magnetic fields. Low-dimensional superconductors (such as superconducting nanowires) can persist in a Meissner state at fields higher than those for bulk superconductors [122,123], but large transport currents and the reduction of order parameter during the detection events will lead to reduction of the Abrikosov vortex nucleation energy barrier [124,125]. These vortices, whether they entered from the sample surface or formed by unbinding of vortex/anti-vortex pairs (the basic topological excitation in the 2D superconductors) will move across the sample under action of the Lorentz force from the transport current and dissipate heat on the order of ∼100 meV per vortex crossing [125,126]. This can lead to excess dark counts in magnetic fields but also enhance detection of photons that would be too low-energy to trigger a detection event in a vortex-free superconductor [46,127]. Because of this direct impact of magnetic fields on the detection mechanism of SNSPDs, considerable work has been done on studying the effects of small fields, usually not more than 200 mT [128–130], which is not enough to meet the demands of many potential experiments. However, efforts in geometry optimization of SNSPD pixels [97,131] and progress in superconductor film deposition technology [78] allows SNSPDs to operate in fields as high as 0.5 T when applied perpendicular to pixel plane and 5 T for fields parallel to the pixels [19]. If needed, this values could be potentially increased, if geometry and material optimization were to be combined [131]."
+    }, {
+      "heading" : "4. Particle Detection",
+      "text" : "Detection of energetic charged particles can be facilitated by two mechanisms, both of them sharing the underlying physics of energy loss through interaction with the electron gas or lattice of the detector material. These interactions are theoretically described by theory of Bethe [132], it’s modifications by Barkas [133] and Bloch [134] or theory of Firsov [135]. While parameterizations that use analytical formulas for scattering cross sections exist [136,137] and could be used to determine energy loss approximately, it is more common to employ numerical methods for this purpose.\nThe first mechanism is scattering on the superconducting electrons directly, or indirectly through lattice phonons. The effect is no different from the photon absorption process described in Section 2— if the scattered particle deposits enough energy to break apart a Cooper pair, the excited quasi-particles will behave the same as those excited by photons. The second mechanism is a thermal process, first proposed for detector purposes by Scherman [138]. In this thermal process, the hotspot in the nanowire is not created by diffusion and multiplication of quasi-particles, but by direct heat exchange with the microplasma in the particle track. In these tracks, the radius of a (locally) cylindrical region at temperature at least Tm is approximately [138–140]\nrhs ≈ √\nQ eπcρ (Tm − T0) , (4)\nwhere Q is the energy loss per unit length (assumed here to stay constant through the thin film), c the superconductor specific heat, ρ the density and T0 is the temperature of the substrate. By setting the temperature Tm equal to superconducting critical temperature Tc and carrying out a Monte-Carlo simulation [141] for values of Q, we can determine that the thermal hotspot radius in NbN detectors is of the order of 50–100 nm (see Figure 4). This number is only for the thermal hotspot “core”, where superconductivity is suppressed completely. Area of the region with suppressed order parameter and increased thermal fluctuations is larger than that, as the temperature increase is ∆T ∝ 1r2 .\nThis result demonstrates that SNSPDs should work not only as high efficiency single photon detectors, but also as detectors of single charged particles. There are, however, differences: In the few eV energy ranges of photonics experiments, the size of the hotspot is a monotonously increasing function of the photon energy [36,142]. With high energy particles, this is not necessarily true and one has to expect a rolloff at high energies, because the stopping power S (the retarding force that slows the particles in physical media) begins decreasing [143]. Because of this, Q (that is effectively equal to work done by stopping power S) is mostly independent on the particle energy only for E . 1 keV, after which there is a non-monotonic dependence on energy, as can be seen in Figure 4. can have on the detection process of particles: In case of photons, the detection process relies on scattering of a photon into a highly energetic quasi-electron pair in the volume of the superconductor. With charged particles, there is the possibility that they penetrate through the SNSPD material with minimal energy loss and interact deeper in the substrate, causing knockoff reactions or they can emit a large amount of photons and phonons as they stop due to rapid scattering at the Bragg peak—these can be energetic enough to\nstill trigger a detection event, but the probability also has a high-energy rolloff as the particle range increases with energy and the Bragg peak moves deeper into the substrate [144]."
+    }, {
+      "heading" : "4.1. Low Energy Ion Detection",
+      "text" : "The concept of detecting low energy molecules has already found a limited use in high-performance time-of-flight mass spectrometry [145], particularly in the form of micron-sized superconducting stripline detectors [146–149], which demonstrate that parallel superconducting wires provide both, high mass resolution and limited charge state discrimination of ions [150] or lysozyme molecules—this technology is discussed in greater detail in a review by Cristiano, et al. [151]. It is also worth mentioning that it is here, where MgB2-based devices found applications as biomolecular detectors [152]. On the other hand, the idea of using . 100 nm wide SNSPDs for light particle detection purposes is a relatively unexplored concept. Several successful attempts have already been made in detecting positive ions. The first is by Sclafani, et al. [153], where it has been demonstrated that SNSPDs are capable of detection of He+ ions with energies up to 1 keV with 100% detection efficiency, as shown in the device bias sweeps in Figure 5a. One of the important takeaways of their analysis, based on that of Verevkin et al. [142], is that the initial hot-spot caused by a He+ ion is 10–20 times bigger than that of a photon with equivalent energy, which would support the model of thermal hotspots discussed in the previous paragraphs. Another important result is that surface adsorbates, which are usually ignored in the context of photon detection, start to play an important role in detection of low energy ions, where the detection efficiency can drop by more than three orders of magnitude as the density of surface contaminants increases, as seen in Figure 5b. This is an important consideration for application in mass spectrometry, however, it might become unimportant for detection of high energy particles in NP and HEP applications, where the penetration depth of MeV and higher energy particles is easily more than 10 µm [144]."
+    }, {
+      "heading" : "4.2. Low Energy Electron Detection",
+      "text" : "Following in the vein of detection of particles in the keV-range, another important results were shown by Rosticher, et al. [154], who achieve nearly 100% detection efficiency for electrons with kinetic energies up to 20 keV. In their work, Rosticher, et al. show that a SNSPD device is capable of detecting an incoming electron even if the collision doesn’t happen in the superconducting film (Figure 6a). This supports the notion that the detection does not happen just in the superconducting nanowire,\nbut that the substrate plays an active role in the process, which explains why the detection efficiencies in particle detection can reach 100% even though the active area covered by the superconducting meander is only ≈50% and has been confirmed by the authors through a Monte-Carlo simulation of the electron kinematics. Further, these results demonstrate the previously discussed importance of stopping power of the superconducting material and the substrate, as can be clearly seen in the loss of detection efficiency at high electron kinetic energies in Figure 6b: The energy loss of an electron in certain materials is approximately inversely proportional to the kinetic energy [155], which means that it penetrates deeper into the material before meaningful amounts of energy are transferred into the substrate. If not enough energy is lost while in proximity of the nanowire, any meaningful energy transfer to the superconducting system cannot happen and the electron will not get detected. This effects leads to degradation of detection efficiency in bare SNSPD devices, however by adding a stopping layer on top of the device, one could exploit this effect and design a detector of particles only within a certain energy range that can be tuned by varying the thickness or density of the additional material."
+    }, {
+      "heading" : "4.3. High Energy Particle Detection",
+      "text" : "In the scope of NP and HEP experiments, it is important to determine if SNSPDs are capable of detection of particles not in the few keV energy range, but particles with kinetic energies from a few MeV and up to relativistic cases, where energies will go as high as few GeV. Detection of relativistic particles with SNSPDs has not been studied in literature, but the lower end of the range was explored by Azzouz, et al. [156], who demonstrated detection of MeV α and β− particles from 210Po and 42K or 31Si sources, respectively. The detection efficiency was lowest for the 5 MeV α-particles, reported to be 78± 18% and over the timespan of 4 days, Azzouz, et al. have not seen any degradation in noise, timing or efficiency, demonstrating good radiation hardness of NbTiN SNSPDs in this radiation environment. By using an 241Am source covered by thin aluminum foil, Azzouz, et al. were also able to show that their devices are insensitive to nominally 5.95 keV γ and X-ray photons (efficiency reported as 0± 10%). This is an interesting result, especially in context of the previously mentioned comparison of effects of ions and photons of equivalent energies by Sclafani, et al., that deserves future study. It also has immediate positive implications on certain experiments. For example in cases of nuclear recoil and photodisintegration measurements, one uses high-energy photons [157,158] to drive this process but, for the detectors, this γ-ray beam is a considerable source of noise, especially if scattered. Having sensitivity only to lower energy photons or charged particles would greatly benefit statistics of these experiments."
+    }, {
+      "heading" : "4.4. Neutron and Dark Matter Detection",
+      "text" : "Detection of charged particles is relatively straightforward because of comparatively high scattering cross sections with the lattice and electrons of the superconductor and substrate. There might be, however, desire to use SNSPDs to detect neutral or weakly interacting particles such as neutrons or potential dark matter candidates. Working detection schemes utilizing SNSPDs are not yet developed but, for detection of neutrons, there exists a related technology that was used to demonstrate this capability: current biased kinetic inductance detectors (CBKID) [159–161]. The operation of CBKIDs is slightly different from SNSPDs, where one detects changes of kinetic inductance due to partial suppression of superconductivity in a large meandering superconducting stripline instead of change of DC resistance of a nanoscale meander, but the main operation principle can be transferred between the two technologies. In the works of Iizawa et al. [160] and Shishido et al. [161], a separate layer of 10B, while in work of Yoshioka, et al. [162] a more direct approach was used when detectors were fabricated out of superconducting MgB2. 10B in the devices converts neutrons into energetic 4He and 7Li ions detected using a differential readout of the CBKID delay line, which allowed for a spatially-resolved measurement of neutron flux. Because the main neutron detection mechanism is through the conversion into charged particles, one can, in principle, substitute the CBKID devices with SNSPDs and construct a high-rate and high-speed detector of neutron flux with the same characteristics as discussed in the previous sections. The last application mentioned here is in detection of dark matter. As attempts to detect dark matter with mass above the GeV scale are so far fruitless, researchers are coming up with proposals of detection of MeV-scale dark matter in semiconductors [163,164], or even lower energies, where superconductors can be used for direct detection through dark matter-electron scattering [165,166]. As of the time of writing of this review, there is no concrete realization SNSPD dark matter search experiment, but Hochberg et al. propose use of NbN-based SNSPDs as target and sensor for ultra-light dark matter [167], citing high sensitivity and very low dark counts when compared to existing experiments."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "Many experiments in nuclear, high energy and astrophysics have demands that can be uniquely met by the capabilities of superconducting nanowire detectors. We discussed applications of SNSPDs that go beyond just detection of low-energy photons in low-background environments and show that there exist demonstrations of the technology being robust enough for development of detectors based on SNSPDs, especially in small to medium-scale experiments. Further work needs to be done, especially on the front of systematic characterization of performance of high energy particle detection and integration into large-scale experiments, however, this effort represents opportunity for experiments that are currently near impossible with conventional technologies.\nAuthor Contributions: Writing—original draft, T.P.; Investigaton, T.P. and W.A.; Writing—review & editing, W.A., G.K., Z.-E.M. and V.N.; Visualization, T.P.; Project administration, Z.-E.M.; Supervision, G.K. and V.N. All authors have read and agreed to the published version of the manuscript.\nFunding: This work was supported by the U. S. Department of Energy (DOE), Office of Science, Offices of Nuclear Physics, Basic Energy Sciences, Materials Sciences and Engineering Division under Contract # DE-AC02-06CH11357.\nConflicts of Interest: The authors declare no conflict of interest."
+    } ],
+    "references" : [ {
+      "title" : "Picosecond superconducting single-photon optical detector",
+      "author" : [ "G. Gol’Tsman", "O. Okunev", "G. Chulkova", "A. Lipatov", "A. Semenov", "K. Smirnov", "B. Voronov", "A. Dzardanov", "C. Williams", "R. Sobolewski" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2001
+    }, {
+      "title" : "Improving the timing jitter of a superconducting nanowire single-photon detection system",
+      "author" : [ "J. Wu", "L. You", "S. Chen", "H. Li", "Y. He", "C. Lv", "Z. Wang", "X. Xie" ],
+      "venue" : "Appl. Opt",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2017
+    }, {
+      "title" : "Detecting single infrared photons with 93% system efficiency",
+      "author" : [ "F. Marsili", "V.B. Verma", "J.A. Stern", "S. Harrington", "A.E. Lita", "T. Gerrits", "I. Vayshenker", "B. Baek", "M.D. Shaw", "R.P Mirin" ],
+      "venue" : "Nat. Photonics",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2013
+    }, {
+      "title" : "NbN superconducting nanowire single photon detector with efficiency over 90% at 1550 nm wavelength operational at compact cryocooler temperature",
+      "author" : [ "W. Zhang", "L. You", "H. Li", "J. Huang", "C. Lv", "L. Zhang", "X. Liu", "J. Wu", "Z. Wang", "X. Xie" ],
+      "venue" : "Sci. China Phys. Mech. Astron. 2017,",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 1203
+    }, {
+      "title" : "Ultimate low system dark-count rate for superconducting nanowire single-photon detector",
+      "author" : [ "H. Shibata", "K. Shimizu", "H. Takesue", "Y. Tokura" ],
+      "venue" : null,
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2015
+    }, {
+      "title" : "Quantum teleportation over 100 km of fiber using highly efficient superconducting nanowire single-photon detectors",
+      "author" : [ "H. Takesue", "S.D. Dyer", "M.J. Stevens", "V. Verma", "R.P. Mirin", "S.W. Nam" ],
+      "venue" : "Optica 2015,",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2015
+    }, {
+      "title" : "Quantum key distribution over a 40-dB channel loss using superconducting single-photon detectors",
+      "author" : [ "H. Takesue", "S.W. Nam", "Q. Zhang", "R.H. Hadfield", "T. Honjo", "K. Tamaki", "Y. Yamamoto" ],
+      "venue" : "Nat. Photonics 2007,",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2007
+    }, {
+      "title" : "Demonstration of a quantum controlled-NOT gate in the telecommunications",
+      "author" : [ "J. Chen", "J.B. Altepeter", "M. Medic", "K.F. Lee", "B. Gokden", "R.H. Hadfield", "S.W. Nam", "P. Kumar" ],
+      "venue" : "band. Phys. Rev. Lett",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2008
+    }, {
+      "title" : "Superconducting nanowire single-photon detectors: Physics and applications",
+      "author" : [ "C.M. Natarajan", "M.G. Tanner", "R.H. Hadfield" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2012
+    }, {
+      "title" : "Fundamental physics at the intensity frontier",
+      "author" : [ "J. Hewett", "H. Weerts", "R. Brock", "J. Butler", "B. Casey", "J. Collar", "A. de Gouvea", "R. Essig", "Y. Grossman", "W Haxton" ],
+      "venue" : null,
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2012
+    }, {
+      "title" : "Design and Assembly of Fast and Lightweight Barrel and Forward Tracking Prototype Systems for an EIC",
+      "author" : [ "P. Bull", "J. Fitzgerald", "R. Harris", "D. Gunarathne", "E. Kaczanowics", "A. Kraishan", "X. Li", "M. McCormick", "Z. Meziani", "G Miller" ],
+      "venue" : "Available online: https://wiki.bnl.gov/conferences/images/7/78/EICRD2013-3-Status-Proposal-Saclay-TU.pdf (accessed on",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2020
+    }, {
+      "title" : "Low-temperature tracking detectors",
+      "author" : [ "T. Niinikoski", "M. Abreu", "P. Anbinderis", "T. Anbinderis", "N. D’Ambrosio", "W. De Boer", "E. Borchi", "K. Borer", "M. Bruzzi", "S Buontempo" ],
+      "venue" : "Nuclear Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2004
+    }, {
+      "title" : "Technical design report for the upgrade of the ALICE inner tracking system",
+      "author" : [ "B. Abelev", "J. Adam", "D. Adamová", "M. Aggarwal", "G.A. Rinella", "M. Agnello", "A. Agostinelli", "N. Agrawal", "Z. Ahammed", "N Ahmad" ],
+      "venue" : "J. Phys. G Nucl. Part. Phys",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2014
+    }, {
+      "title" : "Concept for an Electron Ion Collider (EIC) detector built around the BaBar solenoid",
+      "author" : [ "A. Adare", "C. Aidala", "N. Ajitanand", "Y. Akiba", "R. Akimoto", "M. Alfred", "N. Apadula", "Y. Aramaki", "H. Asano", "E Atomssa" ],
+      "venue" : null,
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2014
+    }, {
+      "title" : "The ALFA roman pot detectors of ATLAS",
+      "author" : [ "S.A. Khalek", "B. Allongue", "F. Anghinolfi", "P. Barrillon", "G. Blanchot", "S. Blin-Bondil", "A. Braem", "L. Chytka", "P.C. Muino", "M Düren" ],
+      "venue" : "J. Instrum",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2016
+    }, {
+      "title" : "The PP2PP experiment at RHIC: Silicon detectors installed in Roman Pots for forward proton detection close to the beam",
+      "author" : [ "S. Bültmann", "W. Chen", "I. Chiang", "R. Chrien", "A. Drees", "R. Gill", "W. Guryn", "J. Landgraf", "Z. Li", "T Ljubicic" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2004
+    }, {
+      "title" : "Characteristics of edgeless silicon detectors for the Roman Pots of the TOTEM experiment at the LHC",
+      "author" : [ "G. Ruggiero", "V. Avati", "G. Antchev", "M. Deile", "K. Eggert", "V. Eremin", "J. Kaspar", "H. Niewiadomski", "J. Petäjäjärvi", "E Radicioni" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2009
+    }, {
+      "title" : "Superconducting nanowires as high-rate photon detectors in strong magnetic fields",
+      "author" : [ "T. Polakovic", "W. Armstrong", "V. Yefremenko", "J. Pearson", "K. Hafidi", "G. Karapetrov", "Z.E. Meziani", "V. Novosad" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2020
+    }, {
+      "title" : "Destruction of superconductivity by laser light",
+      "author" : [ "L. Testardi" ],
+      "venue" : "Phys. Rev. B 1971,",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 1971
+    }, {
+      "title" : "Hot electrons in metal films at low temperatures",
+      "author" : [ "V. Shklovskij" ],
+      "venue" : "Low Temp. Phys. 2018,",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2018
+    }, {
+      "title" : "Analysis of the nonequilibrium photoresponse of superconducting films to pulsed radiation by use of a two-temperature model",
+      "author" : [ "A. Semenov", "R. Nebosis", "Y.P. Gousev", "M. Heusinger", "K. Renk" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 1995
+    }, {
+      "title" : "Mechanism of picosecond response of granular YBaCuO films to electromagnetic radiation",
+      "author" : [ "E. Gershenzon", "G. Gol’tsman", "A. Semenov", "A. Sergeev" ],
+      "venue" : "Solid State Commun",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 1990
+    }, {
+      "title" : "Nonselective effect of electromagnetic radiation on a superconducting film in the resistive state",
+      "author" : [ "A. Sergeev" ],
+      "venue" : "JETP Lett. 1982,",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 1982
+    }, {
+      "title" : "Electron-phonon decoupling in the photoresponse of YBaCuO granular films at low temperature",
+      "author" : [ "J.P. Maneval", "F. Chibane", "R. Bland" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 1992
+    }, {
+      "title" : "Response of superconducting films to a periodic optical irradiation",
+      "author" : [ "N. Perrin", "C. Vanneste" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 1983
+    }, {
+      "title" : "Mechanism of nonequilibrium optical response of high-temperature superconductors",
+      "author" : [ "A. Frenkel" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 1993
+    }, {
+      "title" : "Sensitive picosecond NbN detector for radiation from millimetre wavelengths to visible light",
+      "author" : [ "G. Gol’Tsman", "A. Semenov", "Y.P. Gousev", "M. Zorin", "I. Godidze", "E. Gershenzon", "P. Lang", "W. Knott", "K. Renk" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 1991
+    }, {
+      "title" : "Picosecond response of a superconducting hot-electron NbN photodetector",
+      "author" : [ "M. Lindgren", "M. Currie", "W.S. Zeng", "R. Sobolewski", "S. Cherednichenko", "B. Voronov", "G. Gol’tsman" ],
+      "venue" : "Appl. Supercond",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 1998
+    }, {
+      "title" : "Self-heating hotspots in superconducting thin-film microbridges",
+      "author" : [ "W. Skocpol", "M. Beasley", "M. Tinkham" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 1974
+    }, {
+      "title" : "Thermal propagation effect in thin superconducting films",
+      "author" : [ "J.W. Bremer", "V. Newhouse" ],
+      "venue" : "Phys. Rev. Lett. 1958,",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 1958
+    }, {
+      "title" : "A New Type of Bistable Element Involving Thermal Propagation of a Normal Region in a Thin Superconducting Film",
+      "author" : [ "R. Broom", "E. Rhoderick" ],
+      "venue" : "Office of Naval Research, Department of the Navy: Arlington, VA,",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 1960
+    }, {
+      "title" : "Thermal propagation of a normal region in a thin superconducting film and its application to a new type of bistable element",
+      "author" : [ "R. Broom", "E. Rhoderick" ],
+      "venue" : "Br. J. Appl. Phys",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 1960
+    }, {
+      "title" : "Thermal and electrodynamic aspects of the superconductive transition process",
+      "author" : [ "W. Cherry", "J. Gittleman" ],
+      "venue" : "Solid-State Electron. 1960,",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 1960
+    }, {
+      "title" : "Nonequilibrium photon-induced hotspot: A new mechanism for photodetection in ultrathin metallic films",
+      "author" : [ "A. Kadin", "M. Johnson" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 1996
+    }, {
+      "title" : "Quantum detection by current carrying superconducting film",
+      "author" : [ "A.D. Semenov", "G.N. Gol’tsman", "A.A. Korneev" ],
+      "venue" : "Phys. C Supercond",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2001
+    }, {
+      "title" : "Picosecond hot-electron energy relaxation in NbN superconducting photodetectors",
+      "author" : [ "K. Il’in", "M. Lindgren", "M. Currie", "A. Semenov", "G. Gol’Tsman", "R. Sobolewski", "S. Cherednichenko", "E. Gershenzon" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2000
+    }, {
+      "title" : "Single-photon detection by a dirty current-carrying superconducting strip based on the kinetic-equation approach",
+      "author" : [ "D.Y. Vodolazov" ],
+      "venue" : "Phys. Rev. Appl. 2017,",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2017
+    }, {
+      "title" : "Photon detection by current-carrying superconducting film: A time-dependent Ginzburg-Landau approach",
+      "author" : [ "A. Zotova", "D.Y. Vodolazov" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2012
+    }, {
+      "title" : "Numerical analysis of detection-mechanism models of superconducting nanowire single-photon detector",
+      "author" : [ "A. Engel", "A. Schilling" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2013
+    }, {
+      "title" : "Nonthermal mixing mechanism in a diffusion-cooled hot-electron detector",
+      "author" : [ "A.D. Semenov", "G.N. Gol’tsman" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2000
+    }, {
+      "title" : "Experimental evidence of photoinduced vortex crossing in current carrying superconducting strips",
+      "author" : [ "A. Casaburi", "R. Heath", "M. Ejrnaes", "C. Nappi", "R. Cristiano", "R. Hadfield" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2015
+    }, {
+      "title" : "Vortex-assisted mechanism of photon counting in a superconducting nanowire single-photon detector revealed by external magnetic field",
+      "author" : [ "D.Y. Vodolazov", "Y.P. Korneeva", "A. Semenov", "A. Korneev", "G. Goltsman" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2015
+    }, {
+      "title" : "Intrinsic detection efficiency of superconducting nanowire single photon detector in the modified hot spot model",
+      "author" : [ "A. Zotova", "D.Y. Vodolazov" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2014
+    }, {
+      "title" : "Timing jitter in photon detection by straight superconducting nanowires: Effect of magnetic field and photon flux",
+      "author" : [ "M. Sidorova", "A. Semenov", "H.W. Hübers", "A. Kuzmin", "S. Doerner", "K. Ilin", "M. Siegel", "I. Charaev", "D. Vodolazov" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2018
+    }, {
+      "title" : "Vortex-assisted photon counts and their magnetic field dependence in single-photon superconducting detectors",
+      "author" : [ "L.N. Bulaevskii", "M.J. Graf", "V.G. Kogan" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2012
+    }, {
+      "title" : "Quantum suppression of superconductivity in ultrathin nanowires",
+      "author" : [ "A. Bezryadin", "C. Lau", "M. Tinkham" ],
+      "venue" : "Nature",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2000
+    }, {
+      "title" : "Kinematic vortices and phase slip lines in the dynamics of the resistive state of narrow superconductive thin film channels",
+      "author" : [ "A. Andronov", "I. Gordion", "V. Kurin", "I. Nefedov", "I. Shereshevsky" ],
+      "venue" : "Phys. C Supercond. Its Appl",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 1993
+    }, {
+      "title" : "Condition for the occurrence of phase slip centers in superconducting nanowires under applied current or voltage",
+      "author" : [ "S. Michotte", "S. Mátéfi-Tempfli", "L. Piraux", "D. Vodolazov", "F. Peeters" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2004
+    }, {
+      "title" : "Negative magnetoresistance and phase slip process in superconducting nanowires",
+      "author" : [ "D.Y. Vodolazov" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2007
+    }, {
+      "title" : "Phase-slip phenomena in NbN superconducting nanowires with leads",
+      "author" : [ "A. Elmurodov", "F. Peeters", "D. Vodolazov", "S. Michotte", "S. Adam", "F.d.M. de Horne", "L. Piraux", "D. Lucot", "D. Mailly" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2008
+    }, {
+      "title" : "Superconducting NbTiN nanowire single photon detectors with low kinetic inductance",
+      "author" : [ "S. Miki", "M. Takeda", "M. Fujiwara", "M. Sasaki", "A. Otomo", "Z. Wang" ],
+      "venue" : "Appl. Phys. Express 2009,",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2009
+    }, {
+      "title" : "Intrinsic timing jitter of superconducting nanowire single-photon detectors",
+      "author" : [ "Q. Zhao", "L. Zhang", "T. Jia", "L. Kang", "W. Xu", "J. Chen", "P. Wu" ],
+      "venue" : "Appl. Phys. B",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2011
+    }, {
+      "title" : "Superconducting nanowire detector jitter limited by detector geometry",
+      "author" : [ "N. Calandri", "Q.Y. Zhao", "D. Zhu", "A. Dane", "K.K. Berggren" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2016
+    }, {
+      "title" : "Demonstrating sub-3 ps temporal resolution in a superconducting nanowire single-photon detector",
+      "author" : [ "B. Korzh", "Q.Y. Zhao", "S. Frasca", "J. Allmaras", "T. Autry", "E.A. Bersin", "M. Colangelo", "G. Crouch", "A. Dane", "T Gerrits" ],
+      "venue" : "arXiv 2018,",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2018
+    }, {
+      "title" : "Large active area superconducting single-nanowire photon detector with a 100 μm diameter",
+      "author" : [ "C. Lv", "H. Zhou", "H. Li", "L. You", "X. Liu", "Y. Wang", "W. Zhang", "S. Chen", "Z. Wang", "X. Xie" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2017
+    }, {
+      "title" : "Large-sensitive-area superconducting nanowire single-photon detector at 850 nm with high detection efficiency",
+      "author" : [ "H. Li", "L. Zhang", "L. You", "X. Yang", "W. Zhang", "X. Liu", "S. Chen", "Z. Wang", "X. Xie" ],
+      "venue" : "Opt. Express",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2015
+    }, {
+      "title" : "Gol’Tsman, G. A cascade switching superconducting single photon detector",
+      "author" : [ "M. Ejrnaes", "R. Cristiano", "O. Quaranta", "S. Pagano", "A. Gaggero", "F. Mattioli", "R. Leoni", "B. Voronov" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2007
+    }, {
+      "title" : "Characterization of parallel superconducting nanowire single photon detectors",
+      "author" : [ "M. Ejrnaes", "A. Casaburi", "O. Quaranta", "S. Marchetti", "A. Gaggero", "F. Mattioli", "R. Leoni", "S. Pagano", "R. Cristiano" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2009
+    }, {
+      "title" : "Superconducting nanowire avalanche photodetectors",
+      "author" : [ "S. Nam", "B. Calkins", "T. Gerritts", "S. Harrington", "A. Lita", "F. Marsili", "V. Verma", "I. Vayshenker", "R. Mirin", "M Shaw" ],
+      "venue" : "In Proceedings of the 2013 IEEE Photonics Conference, Bellevue, WA, USA,",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2013
+    }, {
+      "title" : "Nano-optical observation of cascade switching in a parallel superconducting nanowire single photon detector",
+      "author" : [ "R.M. Heath", "M.G. Tanner", "A. Casaburi", "M.G. Webster", "L. San Emeterio Alvarez", "W. Jiang", "Z.H. Barber", "R.J. Warburton", "R.H. Hadfield" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2014
+    }, {
+      "title" : "Large-area superconducting nanowire single-photon detector with double-stage avalanche structure",
+      "author" : [ "R. Cheng", "M. Poot", "X. Guo", "L. Fan", "H.X. Tang" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2016
+    }, {
+      "title" : "A 64-pixel NbTiN superconducting nanowire single-photon detector array for spatially resolved photon detection",
+      "author" : [ "S. Miki", "T. Yamashita", "Z. Wang", "H. Terai" ],
+      "venue" : "Opt. Express",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2014
+    }, {
+      "title" : "Arrays of WSi superconducting nanowire single photon detectors for deep-space optical communications",
+      "author" : [ "M. Shaw", "F. Marsili", "A. Beyer", "J. Stern", "G. Resta", "P. Ravindran", "S. Chang", "J. Bardin", "D. Russell", "J Gin" ],
+      "venue" : "In Proceedings of the 2015 Conference on Lasers and Electro-Optics (CLEO), San Jose, CA, USA,",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2015
+    }, {
+      "title" : "A near-infrared 64-pixel superconducting nanowire single photon detector array with integrated multiplexed readout",
+      "author" : [ "M.S. Allman", "V.B. Verma", "M. Stevens", "T. Gerrits", "R.D. Horansky", "A.E. Lita", "F. Marsili", "A. Beyer", "M. Shaw", "D Kumor" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2015
+    }, {
+      "title" : "Large-area 64-pixel array of WSi superconducting nanowire single photon detectors. In CLEO: QELS_Fundamental Science; Optical Society of America",
+      "author" : [ "J. Allmaras", "A. Beyer", "R. Briggs", "F. Marsili", "M. Shaw", "G. Resta", "J. Stern", "V. Verma", "R. Mirin", "S Nam" ],
+      "venue" : null,
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2017
+    }, {
+      "title" : "Mathematical analysis of multiplexing techniques for SNSPD arrays",
+      "author" : [ "S. Engert", "O. Wetzstein", "M. Hofherr", "K. Ilin", "M. Siegel", "H.G. Meyer", "H. Toepfer" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2013
+    }, {
+      "title" : "Timetagged multiplexing of serially biased superconducting nanowire single-photon detectors",
+      "author" : [ "M. Hofherr", "M. Arndt", "K. Il’In", "D. Henrich", "M. Siegel", "J. Toussaint", "T. May", "H.G. Meyer" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2013
+    }, {
+      "title" : "High-time-resolved 64-channel single-flux quantum-based address encoder integrated with a multi-pixel superconducting nanowire single-photon detector",
+      "author" : [ "S. Miyajima", "M. Yabuno", "S. Miki", "T. Yamashita", "H. Terai" ],
+      "venue" : "Opt. Express 2018,",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 2018
+    }, {
+      "title" : "Amplitude-multiplexed readout of single photon detectors based on superconducting nanowires",
+      "author" : [ "A. Gaggero", "F. Martini", "F. Mattioli", "F. Chiarello", "R. Cernansky", "A. Politi", "R. Leoni" ],
+      "venue" : "Optica 2019,",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2019
+    }, {
+      "title" : "Demonstration of microwave multiplexed readout of DC-biased superconducting nanowire detectors",
+      "author" : [ "A. Sinclair", "E. Schroeder", "D. Zhu", "M. Colangelo", "J. Glasby", "P. Mauskopf", "H. Mani", "K. Berggren" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : "71",
+      "year" : 2019
+    }, {
+      "title" : "Demonstration of a Thermally Coupled Row-Column SNSPD Imaging Array",
+      "author" : [ "J.P. Allmaras", "E.E. Wollman", "A.D. Beyer", "R.M. Briggs", "B.A. Korzh", "B. Bumble", "M.D. Shaw" ],
+      "venue" : "Nano Lett",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2020
+    }, {
+      "title" : "Kilopixel array of superconducting nanowire single-photon detectors",
+      "author" : [ "E.E. Wollman", "V.B. Verma", "A.E. Lita", "W.H. Farr", "M.D. Shaw", "R.P. Mirin", "S.W. Nam" ],
+      "venue" : "Opt. Express",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2019
+    }, {
+      "title" : "Tantalum nitride superconducting single-photon detectors with low cut-off energy",
+      "author" : [ "A. Engel", "A. Aeschbacher", "K. Inderbitzin", "A. Schilling", "K. Il’in", "M. Hofherr", "M. Siegel", "A. Semenov", "H.W. Hübers" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2012
+    }, {
+      "title" : "Ultra-thin TaN films for superconducting nanowire single-photon detectors",
+      "author" : [ "K. Il’in", "M. Hofherr", "D. Rall", "M. Siegel", "A. Semenov", "A. Engel", "K. Inderbitzin", "A. Aeschbacher", "A. Schilling" ],
+      "venue" : "J. Low Temp. Phys",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2012
+    }, {
+      "title" : "Enhanced telecom wavelength single-photon detection with NbTiN superconducting nanowires on oxidized silicon",
+      "author" : [ "M.G. Tanner", "C. Natarajan", "V. Pottapenjara", "J. O’Connor", "R. Warburton", "R. Hadfield", "B. Baek", "S. Nam", "S. Dorenbos", "E.B Ureña" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 2010
+    }, {
+      "title" : "High performance fiber-coupled NbTiN superconducting nanowire single photon detectors with Gifford-McMahon cryocooler",
+      "author" : [ "S. Miki", "T. Yamashita", "H. Terai", "Z. Wang" ],
+      "venue" : "Opt. Express",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : "77",
+      "year" : 2013
+    }, {
+      "title" : "Room temperature deposition of superconducting niobium nitride films by ion beam assisted sputtering",
+      "author" : [ "T. Polakovic", "S. Lendinez", "J.E. Pearson", "A. Hoffmann", "V. Yefremenko", "C.L. Chang", "W. Armstrong", "K. Hafidi", "G. Karapetrov", "V. Novosad" ],
+      "venue" : "APL Mater. 2018,",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : "78",
+      "year" : 2018
+    }, {
+      "title" : "Bias sputtered NbN and superconducting nanowire",
+      "author" : [ "A.E. Dane", "A.N. McCaughan", "D. Zhu", "Q. Zhao", "C.S. Kim", "N. Calandri", "A. Agarwal", "F. Bellei", "K.K. Berggren" ],
+      "venue" : "devices. Appl. Phys. Lett. 2017,",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : "79",
+      "year" : 2020
+    }, {
+      "title" : "Fabrication process yielding saturated nanowire single-photon detectors with 24-ps jitter",
+      "author" : [ "F. Najafi", "A. Dane", "F. Bellei", "Q. Zhao", "K.A. Sunter", "A.N. McCaughan", "K.K. Berggren" ],
+      "venue" : "IEEE J. Sel. Top. Quantum Electron",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : "80",
+      "year" : 2014
+    }, {
+      "title" : "Drude’s model optical parameters and the color of TiN x films obtained through reflectivity measurements",
+      "author" : [ "L. Alves", "J. Sagás", "A. Damião", "L. Fontana" ],
+      "venue" : "Braz. J. Phys",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : "81",
+      "year" : 2015
+    }, {
+      "title" : "Non-stoichiometric niobium nitrides: Structure and properties",
+      "author" : [ "M. Torche", "G. Schmerber", "M. Guemmaz", "A. Mosser", "J. Parlebas" ],
+      "venue" : "Thin Solid Films",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : "82",
+      "year" : 2003
+    }, {
+      "title" : "Ellipsometric and optical reflectivity studies of reactively sputtered NbN thin films",
+      "author" : [ "K. Tanabe", "H. Asano", "Y. Katoh", "O. Michikami" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : "83",
+      "year" : 1988
+    }, {
+      "title" : "Nanowire single-photon detector with an integrated optical cavity and anti-reflection coating",
+      "author" : [ "K.M. Rosfjord", "J.K. Yang", "E.A. Dauler", "A.J. Kerman", "V. Anant", "B.M. Voronov", "G.N. Gol’Tsman", "K.K. Berggren" ],
+      "venue" : "Opt. Express",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : "84",
+      "year" : 2006
+    }, {
+      "title" : "High-efficiency superconducting nanowire single-photon detectors fabricated from MoSi thin-films",
+      "author" : [ "V.B. Verma", "B. Korzh", "F. Bussieres", "R.D. Horansky", "S.D. Dyer", "A.E. Lita", "I. Vayshenker", "F. Marsili", "M.D. Shaw", "H Zbinden" ],
+      "venue" : "Opt. Express",
+      "citeRegEx" : "85",
+      "shortCiteRegEx" : "85",
+      "year" : 2015
+    }, {
+      "title" : "Superconducting nanowire single photon detectors fabricated from an amorphous Mo0.75Ge0.25 thin film",
+      "author" : [ "V.B. Verma", "A.E. Lita", "M.R. Vissers", "F. Marsili", "D.P. Pappas", "R.P. Mirin", "S.W. Nam" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "86",
+      "shortCiteRegEx" : "86",
+      "year" : 2014
+    }, {
+      "title" : "High-efficiency UV superconducting nanowire single-photon detectors from amorphous MoSi",
+      "author" : [ "E.E. Wollman", "V.B. Verma", "R.M. Briggs", "A.D. Beyer", "R.P. Mirin", "S.W. Nam", "F. Marsili", "M.D. Shaw" ],
+      "venue" : "In Proceedings of the 2016 Conference on Lasers and Electro-Optics (CLEO), San Jose, CA, USA,",
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : "87",
+      "year" : 2016
+    }, {
+      "title" : "Effect of heating on critical current of YBCO nanowires",
+      "author" : [ "D. Golubev", "F. Lombardi", "T. Bauch" ],
+      "venue" : "Phys. C Supercond. Its Appl",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : "88",
+      "year" : 2014
+    }, {
+      "title" : "Improved nanopatterning for YBCO nanowires approaching the depairing current",
+      "author" : [ "R. Arpaia", "S. Nawaz", "F. Lombardi", "T. Bauch" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : "89",
+      "year" : 2013
+    }, {
+      "title" : "Transport properties of ultrathin YBa2Cu3O7-δ nanowires: A route to single-photon detection",
+      "author" : [ "R. Arpaia", "D. Golubev", "R. Baghdadi", "R. Ciancio", "G. Dražić", "P. Orgiani", "D. Montemurro", "T. Bauch", "F. Lombardi" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "90",
+      "shortCiteRegEx" : "90",
+      "year" : 2017
+    }, {
+      "title" : "Patterning of ultrathin YBCO nanowires using a new focused-ion-beam process",
+      "author" : [ "N. Curtz", "E. Koller", "H. Zbinden", "M. Decroux", "L. Antognazza", "Ø. Fischer", "N. Gisin" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "91",
+      "shortCiteRegEx" : "91",
+      "year" : 2010
+    }, {
+      "title" : "Ultra-thin YBa2Cu3O7−x films with high critical current density",
+      "author" : [ "M. Lyatti", "A. Savenko", "U. Poppe" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "92",
+      "shortCiteRegEx" : "92",
+      "year" : 2016
+    }, {
+      "title" : "Single-photon detection using magnesium diboride superconducting nanowires",
+      "author" : [ "H. Shibata", "H. Takesue", "T. Honjo", "T. Akazaki", "Y. Tokura" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "93",
+      "shortCiteRegEx" : "93",
+      "year" : 2010
+    }, {
+      "title" : "Fabrication of MgB2 nanowire single-photon detector with meander structure",
+      "author" : [ "H. Shibata", "T. Akazaki", "Y. Tokura" ],
+      "venue" : "Appl. Phys. Express 2013,",
+      "citeRegEx" : "94",
+      "shortCiteRegEx" : "94",
+      "year" : 2013
+    }, {
+      "title" : "Surface morphology and thickness dependence of the properties of MgB2 thin films by hybrid physical–chemical vapor deposition",
+      "author" : [ "C. Zhuang", "K. Chen", "J.M. Redwing", "Q. Li", "X. Xi" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "95",
+      "shortCiteRegEx" : "95",
+      "year" : 2010
+    }, {
+      "title" : "Superconducting Nanowire Single Photon Detectors Based on MgB2; Optical Society of America: Washington, DC, USA, 2016",
+      "author" : [ "F. Marsili", "A. Velasco", "D. Cunnane", "R. Briggs", "A. Beyer", "M. Shaw", "B. Karasik", "M. Wolak", "T. Melbourne", "N Acharya" ],
+      "venue" : null,
+      "citeRegEx" : "96",
+      "shortCiteRegEx" : "96",
+      "year" : 2016
+    }, {
+      "title" : "Enhancement of critical currents and photon count rates by magnetic field in spiral superconducting nanowire single-photon detectors",
+      "author" : [ "I. Charaev", "A. Semenov", "R. Lusche", "K. Ilin", "H.W. Huebers", "M. Siegel" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "97",
+      "shortCiteRegEx" : "97",
+      "year" : 2016
+    }, {
+      "title" : "Fast neutron capture cross sections and related Gamma-Ray spectra of Niobium-93, Rhodium-103, and Tantalum-181",
+      "author" : [ "G. Reffo", "F. Fabbri", "K. Wisshak", "F. Käppeler" ],
+      "venue" : "Nucl. Sci. Eng",
+      "citeRegEx" : "98",
+      "shortCiteRegEx" : "98",
+      "year" : 1982
+    }, {
+      "title" : "Neutron total and scattering cross sections of niobium in the continuum region",
+      "author" : [ "A. Smith", "P. Guenther", "J. Whalen" ],
+      "venue" : "Zeitschrift für Physik",
+      "citeRegEx" : "99",
+      "shortCiteRegEx" : "99",
+      "year" : 1973
+    }, {
+      "title" : "Tunneling studies in a homogeneously disordered s-wave superconductor: NbN",
+      "author" : [ "S. Chockalingam", "M. Chand", "A. Kamlapure", "J. Jesudasan", "A. Mishra", "V. Tripathi", "P. Raychaudhuri" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "100",
+      "shortCiteRegEx" : "100",
+      "year" : 2009
+    }, {
+      "title" : "Superconducting transition temperature modulation in NbN via EDL gating",
+      "author" : [ "E. Piatti", "A. Sola", "D. Daghero", "G. Ummarino", "F. Laviano", "J. Nair", "C. Gerbaldi", "R. Cristiano", "A. Casaburi", "R. Gonnelli" ],
+      "venue" : "J. Supercond. Novel Magn",
+      "citeRegEx" : "101",
+      "shortCiteRegEx" : "101",
+      "year" : 2016
+    }, {
+      "title" : "The potential and challenges of time-resolved single-photon detection based on current-carrying superconducting nanowires",
+      "author" : [ "H. Zhang", "L. Xiao", "B. Luo", "J. Guo", "L. Zhang", "J. Xie" ],
+      "venue" : "J. Phys. D Appl. Phys",
+      "citeRegEx" : "102",
+      "shortCiteRegEx" : "102",
+      "year" : 2019
+    }, {
+      "title" : "Scintillating fiber tracking for the SSC using visible light photon counters",
+      "author" : [ "M. Atac", "J. Park", "D. Cline", "D. Chrisman", "M. Petroff", "E. Anderson" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. A",
+      "citeRegEx" : "103",
+      "shortCiteRegEx" : "103",
+      "year" : 1992
+    }, {
+      "title" : "Multiphoton detection using visible light photon counter",
+      "author" : [ "J. Kim", "S. Takeuchi", "Y. Yamamoto", "H.H. Hogue" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "104",
+      "shortCiteRegEx" : "104",
+      "year" : 1999
+    }, {
+      "title" : "Demonstration of a low-noise near-infrared photon counter with multiphoton discrimination",
+      "author" : [ "A.J. Miller", "S.W. Nam", "J.M. Martinis", "A.V. Sergienko" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "105",
+      "shortCiteRegEx" : "105",
+      "year" : 2003
+    }, {
+      "title" : "Photon counting techniques with silicon avalanche photodiodes",
+      "author" : [ "H. Dautet", "P. Deschamps", "B. Dion", "A.D. MacGregor", "D. MacSween", "R.J. McIntyre", "C. Trottier", "P.P. Webb" ],
+      "venue" : "Appl. Opt",
+      "citeRegEx" : "106",
+      "shortCiteRegEx" : "106",
+      "year" : 1993
+    }, {
+      "title" : "Photon-number-resolving superconducting nanowire detectors",
+      "author" : [ "F. Mattioli", "Z. Zhou", "A. Gaggero", "R. Gaudio", "S. Jahanmirinejad", "D. Sahin", "F. Marsili", "R. Leoni", "A. Fiore" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "107",
+      "shortCiteRegEx" : "107",
+      "year" : 2015
+    }, {
+      "title" : "Multi-photon detection using a conventional superconducting nanowire single-photon detector",
+      "author" : [ "C. Cahall", "K.L. Nicolich", "N.T. Islam", "G.P. Lafyatis", "A.J. Miller", "D.J. Gauthier", "J. Kim" ],
+      "venue" : "Optica 2017,",
+      "citeRegEx" : "108",
+      "shortCiteRegEx" : "108",
+      "year" : 2017
+    }, {
+      "title" : "Modeling the electrical and thermal response of superconducting nanowire single-photon detectors",
+      "author" : [ "J.K. Yang", "A.J. Kerman", "E.A. Dauler", "V. Anant", "K.M. Rosfjord", "K.K. Berggren" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "109",
+      "shortCiteRegEx" : "109",
+      "year" : 2007
+    }, {
+      "title" : "Electrothermal feedback in superconducting nanowire single-photon detectors",
+      "author" : [ "A.J. Kerman", "J.K. Yang", "R.J. Molnar", "E.A. Dauler", "K.K. Berggren" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "110",
+      "shortCiteRegEx" : "110",
+      "year" : 2009
+    }, {
+      "title" : "Supercontinuum single-photon detector using multilayer superconducting nanowires",
+      "author" : [ "H. Li", "Y. Wang", "L. You", "H. Wang", "H. Zhou", "P. Hu", "W. Zhang", "X. Liu", "X. Yang", "L Zhang" ],
+      "venue" : "Photonics Res",
+      "citeRegEx" : "111",
+      "shortCiteRegEx" : "111",
+      "year" : 2019
+    }, {
+      "title" : "Photon counting statistics of superconducting single-photon detectors made of a three-layer WSi film",
+      "author" : [ "I. Florya", "Y.P. Korneeva", "M.Y. Mikhailov", "A.Y. Devizenko", "A. Korneev", "G. Goltsman" ],
+      "venue" : "Low Temp. Phys",
+      "citeRegEx" : "112",
+      "shortCiteRegEx" : "112",
+      "year" : 2018
+    }, {
+      "title" : "High quantum efficiency and low dark count rate in multi-layer superconducting nanowire single-photon detectors",
+      "author" : [ "A. Jafari Salim", "A. Eftekharian", "A. Hamed Majedi" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "113",
+      "shortCiteRegEx" : "113",
+      "year" : 2014
+    }, {
+      "title" : "Athermal avalanche in bilayer superconducting nanowire single-photon detectors",
+      "author" : [ "V.B. Verma", "A. Lita", "M. Stevens", "R. Mirin", "S. Nam" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "114",
+      "shortCiteRegEx" : "114",
+      "year" : 2016
+    }, {
+      "title" : "Optical constants of reactively-sputtered NbN films",
+      "author" : [ "M. Konevecki", "K. Westra", "B. Sullivan", "K. Kornelson", "M. Brett" ],
+      "venue" : "Thin Solid Films",
+      "citeRegEx" : "115",
+      "shortCiteRegEx" : "115",
+      "year" : 1993
+    }, {
+      "title" : "Design of the mainz active polarized target",
+      "author" : [ "M. Biroth", "A. Thomas", "P. Achenbach", "E. Downie" ],
+      "venue" : "PoS 2016,",
+      "citeRegEx" : "116",
+      "shortCiteRegEx" : "116",
+      "year" : 2016
+    }, {
+      "title" : "Silicon photomultiplier properties at cryogenic temperatures",
+      "author" : [ "M. Biroth", "P. Achenbach", "E. Downie", "A. Thomas" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "117",
+      "shortCiteRegEx" : "117",
+      "year" : 2015
+    }, {
+      "title" : "Polarized scintillator targets",
+      "author" : [ "B. van den Brandt", "E. Bunyatova", "P. Hautle", "J. Konter", "S. Mango" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "118",
+      "shortCiteRegEx" : "118",
+      "year" : 2000
+    }, {
+      "title" : "An active electron polarized scintillating GSO target for neutrino physics",
+      "author" : [ "B. Baiboussinov", "C. Braggio", "A. Cardini", "G. Carugno", "F. Congiu", "S. Gain", "G. Galeazzi", "A. Lai", "A. Lehman", "P Mocci" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "119",
+      "shortCiteRegEx" : "119",
+      "year" : 2012
+    }, {
+      "title" : "A threshold gas Cherenkov detector for the Spin Asymmetries of the Nucleon Experiment",
+      "author" : [ "W.R. Armstrong", "S. Choi", "E. Kaczanowicz", "A. Lukhanin", "Z.E. Meziani", "B. Sawatzky" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "120",
+      "shortCiteRegEx" : "120",
+      "year" : 2015
+    }, {
+      "title" : "Rate capability and magnetic field tolerance measurements of fast timing microchannel plate photodetectors",
+      "author" : [ "J. Xie", "M. Hattawy", "M. Chiu", "K. Hafidi", "E. May", "J. Repond", "R. Wagner", "L. Xia" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "121",
+      "shortCiteRegEx" : "121",
+      "year" : 2018
+    }, {
+      "title" : "Mixed state and critical current in narrow semiconducting films",
+      "author" : [ "G. Maksimova" ],
+      "venue" : "Phys. Solid State",
+      "citeRegEx" : "122",
+      "shortCiteRegEx" : "122",
+      "year" : 1998
+    }, {
+      "title" : "Critical field for complete vortex expulsion from narrow superconducting strips",
+      "author" : [ "G. Stan", "S.B. Field", "J.M. Martinis" ],
+      "venue" : "Phys. Rev. Lett",
+      "citeRegEx" : "123",
+      "shortCiteRegEx" : "123",
+      "year" : 2004
+    }, {
+      "title" : "Pinning of flux vortices in type II superconductors",
+      "author" : [ "A. Campbell", "J. Evetts", "D. Dew-Hughes" ],
+      "venue" : "Philos. Mag",
+      "citeRegEx" : "124",
+      "shortCiteRegEx" : "124",
+      "year" : 1968
+    }, {
+      "title" : "Current-assisted thermally activated flux liberation in ultrathin nanopatterned NbN superconducting meander structures",
+      "author" : [ "H. Bartolf", "A. Engel", "A. Schilling", "K. Il’in", "M. Siegel", "H.W. Hübers", "A. Semenov" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "125",
+      "shortCiteRegEx" : "125",
+      "year" : 2010
+    }, {
+      "title" : "Vortex-induced dissipation in narrow current-biased thin-film superconducting strips",
+      "author" : [ "L. Bulaevskii", "M. Graf", "C. Batista", "V. Kogan" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "126",
+      "shortCiteRegEx" : "126",
+      "year" : 2011
+    }, {
+      "title" : "Intrinsic detection efficiency of superconducting nanowire single-photon detectors with different thicknesses",
+      "author" : [ "M. Hofherr", "D. Rall", "K. Ilin", "M. Siegel", "A. Semenov", "H.W. Hübers", "N. Gippius" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "127",
+      "shortCiteRegEx" : "127",
+      "year" : 2010
+    }, {
+      "title" : "Characterization of MoSi superconducting single-photon detectors in the magnetic field",
+      "author" : [ "A.A. Korneev", "Y.P. Korneeva", "M.Y. Mikhailov", "Y.P. Pershin", "A.V. Semenov", "D.Y. Vodolazov", "A.V. Divochiy", "Y.B. Vakhtomin", "K.V. Smirnov", "A.G Sivakov" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "128",
+      "shortCiteRegEx" : "128",
+      "year" : 2014
+    }, {
+      "title" : "Dependence of count rate on magnetic field in superconducting thin-film TaN single-photon detectors",
+      "author" : [ "A. Engel", "A. Schilling", "K. Il’in", "M. Siegel" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "129",
+      "shortCiteRegEx" : "129",
+      "year" : 2012
+    }, {
+      "title" : "Effect of the wire width and magnetic field on the intrinsic detection efficiency of superconducting nanowire single-photon detectors",
+      "author" : [ "R. Lusche", "A. Semenov", "K. Il’in", "Y. Korneeva", "A. Trifonov", "A. Korneev", "H.W. Hübers", "M. Siegel", "G. Gol’tsman" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "130",
+      "shortCiteRegEx" : "130",
+      "year" : 2012
+    }, {
+      "title" : "Current dependence of the hot-spot response spectrum of superconducting single-photon detectors with different layouts",
+      "author" : [ "I. Charaev", "A. Semenov", "S. Doerner", "G. Gomard", "K. Ilin", "M. Siegel" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "131",
+      "shortCiteRegEx" : "131",
+      "year" : 2016
+    }, {
+      "title" : "Zur theorie des durchgangs schneller korpuskularstrahlen durch materie",
+      "author" : [ "H. Bethe" ],
+      "venue" : "Annalen der Physik",
+      "citeRegEx" : "132",
+      "shortCiteRegEx" : "132",
+      "year" : 1930
+    }, {
+      "title" : "Zur bremsung rasch bewegter teilchen beim durchgang durch materie",
+      "author" : [ "F. Bloch" ],
+      "venue" : "Annalen der Physik",
+      "citeRegEx" : "134",
+      "shortCiteRegEx" : "134",
+      "year" : 1933
+    }, {
+      "title" : "A qualitative interpretation of the mean electron excitation energy in atomic collisions",
+      "author" : [ "O. Firsov" ],
+      "venue" : "Zhur. Eksptl’. i Teoret. Fiz. 1959,",
+      "citeRegEx" : "135",
+      "shortCiteRegEx" : "135",
+      "year" : 1959
+    }, {
+      "title" : "Three-parameter formula for the electronic stopping cross section at nonrelativistic velocities",
+      "author" : [ "D.K. Brice" ],
+      "venue" : "Phys. Rev. A 1972,",
+      "citeRegEx" : "136",
+      "shortCiteRegEx" : "136",
+      "year" : 1972
+    }, {
+      "title" : "A universal equation for the electronic stopping of ions in solids",
+      "author" : [ "E. Montenegro", "S. Cruz", "C. Vargas-Aburto" ],
+      "venue" : "Phys. Lett. A",
+      "citeRegEx" : "137",
+      "shortCiteRegEx" : "137",
+      "year" : 1982
+    }, {
+      "title" : "Superconducting nuclear particle detector",
+      "author" : [ "N. Sherman" ],
+      "venue" : "Phys. Rev. Lett. 1962,",
+      "citeRegEx" : "138",
+      "shortCiteRegEx" : "138",
+      "year" : 1962
+    }, {
+      "title" : "Nuclear Radiation Effects in Solids",
+      "author" : [ "H. Brooks" ],
+      "venue" : "Ann. Rev. Nucl. Sci. 1956,",
+      "citeRegEx" : "139",
+      "shortCiteRegEx" : "139",
+      "year" : 1956
+    }, {
+      "title" : "Observation of fission fragment damage in thin films of metals",
+      "author" : [ "J. Kelsch", "O. Kammerer", "A. Goland", "P. Buhl" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "140",
+      "shortCiteRegEx" : "140",
+      "year" : 1962
+    }, {
+      "title" : "SRIM–The stopping and range of ions in matter",
+      "author" : [ "J.F. Ziegler", "M.D. Ziegler", "J.P. Biersack" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. B Beam Interact. Mater. Atoms",
+      "citeRegEx" : "141",
+      "shortCiteRegEx" : "141",
+      "year" : 2010
+    }, {
+      "title" : "Detection efficiency of large-active-area NbN single-photon superconducting detectors in the ultraviolet to near-infrared",
+      "author" : [ "A. Verevkin", "J. Zhang", "R. Sobolewski", "A. Lipatov", "O. Okunev", "G. Chulkova", "A. Korneev", "K. Smirnov", "G. Gol’tsman", "A. Semenov" ],
+      "venue" : "range. Appl. Phys. Lett",
+      "citeRegEx" : "142",
+      "shortCiteRegEx" : "142",
+      "year" : 2002
+    }, {
+      "title" : "Experimental Nuclear Physics",
+      "author" : [ "H.A. Bethe", "J. Ashkin" ],
+      "venue" : null,
+      "citeRegEx" : "143",
+      "shortCiteRegEx" : "143",
+      "year" : 1953
+    }, {
+      "title" : "Report CEA-R 3042",
+      "author" : [ "C.F. Williamson", "J. Boujot", "J. Picard" ],
+      "venue" : "Available online: https://inis.iaea.org/collection/ NCLCollectionStore/_Public/35/044/35044298.pdf (accessed on",
+      "citeRegEx" : "144",
+      "shortCiteRegEx" : "144",
+      "year" : 2020
+    }, {
+      "title" : "Development of superconducting strip line detectors (SSLDs) for time-of-flight mass spectrometers (TOF-MS)",
+      "author" : [ "N. Zen", "Y. Chen", "K. Suzuki", "M. Ohkubo", "S. Miki", "Z. Wang" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "145",
+      "shortCiteRegEx" : "145",
+      "year" : 2009
+    }, {
+      "title" : "A 2 × 2 mm2 superconducting strip-line detector for high-performance time-of-flight mass spectrometry",
+      "author" : [ "A. Casaburi", "E. Esposito", "M. Ejrnaes", "K. Suzuki", "M. Ohkubo", "S. Pagano", "R. Cristiano" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "146",
+      "shortCiteRegEx" : "146",
+      "year" : 2012
+    }, {
+      "title" : "Superconducting detectors for particles from atoms to proteins",
+      "author" : [ "M. Ohkubo" ],
+      "venue" : "Phys. C Supercond",
+      "citeRegEx" : "147",
+      "shortCiteRegEx" : "147",
+      "year" : 2008
+    }, {
+      "title" : "Ultrafast ion detection by superconducting NbN thin-film nanowire detectors for time-of-flight mass spectrometry",
+      "author" : [ "K. Suzuki", "S. Miki", "S. Shiki", "Y. Kobayashi", "K. Chiba", "Z. Wang", "M. Ohkubo" ],
+      "venue" : "Phys. C Supercond",
+      "citeRegEx" : "148",
+      "shortCiteRegEx" : "148",
+      "year" : 2008
+    }, {
+      "title" : "Demonstration of singleflux-quantum readout circuits for time-of-flight mass spectrometry systems using superconducting strip ion detectors",
+      "author" : [ "K. Sano", "Y. Takahashi", "Y. Yamanashi", "N. Yoshikawa", "N. Zen", "M. Ohkubo" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "149",
+      "shortCiteRegEx" : "149",
+      "year" : 2015
+    }, {
+      "title" : "Hot-spot detection model in superconducting nano-stripline detector for keV ions",
+      "author" : [ "K. Suzuki", "S. Shiki", "M. Ukibe", "M. Koike", "S. Miki", "Z. Wang", "M. Ohkubo" ],
+      "venue" : "Appl. Phys. Express 2011,",
+      "citeRegEx" : "150",
+      "shortCiteRegEx" : "150",
+      "year" : 2011
+    }, {
+      "title" : "Superconducting nano-strip particle detectors",
+      "author" : [ "R. Cristiano", "M. Ejrnaes", "A. Casaburi", "N. Zen", "M. Ohkubo" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "151",
+      "shortCiteRegEx" : "151",
+      "year" : 2015
+    }, {
+      "title" : "Biomolecular ion detection using high-temperature superconducting MgB2 strips",
+      "author" : [ "N. Zen", "H. Shibata", "Y. Mawatari", "M. Koike", "M. Ohkubo" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "152",
+      "shortCiteRegEx" : "152",
+      "year" : 2015
+    }, {
+      "title" : "Sensitivity of a superconducting nanowire detector for single ions at low energy",
+      "author" : [ "M. Sclafani", "M. Marksteiner", "F.M. Keir", "A. Divochiy", "A. Korneev", "A. Semenov", "G. Gol’tsman", "M. Arndt" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "153",
+      "shortCiteRegEx" : "153",
+      "year" : 2012
+    }, {
+      "title" : "A high efficiency superconducting nanowire single electron detector",
+      "author" : [ "M. Rosticher", "F. Ladan", "J. Maneval", "S. Dorenbos", "T. Zijlstra", "T. Klapwijk", "V. Zwiller", "A. Lupaşcu", "G. Nogues" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "154",
+      "shortCiteRegEx" : "154",
+      "year" : 2010
+    }, {
+      "title" : "New universal expression for the electron stopping power for energies between 200 eV and 30 keV",
+      "author" : [ "A. Jablonski", "S. Tanuma", "C.J. Powell" ],
+      "venue" : "Surf. Interface Anal. Int. J. Devoted Dev. Appl. Tech. Anal. Surf. Interfaces Thin Films",
+      "citeRegEx" : "155",
+      "shortCiteRegEx" : "155",
+      "year" : 2006
+    }, {
+      "title" : "Efficient single particle detection with a superconducting nanowire",
+      "author" : [ "H. Azzouz", "S.N. Dorenbos", "D. De Vries", "E.B. Ureña", "V. Zwiller" ],
+      "venue" : "AIP Adv. 2012,",
+      "citeRegEx" : "156",
+      "shortCiteRegEx" : "156",
+      "year" : 2012
+    }, {
+      "title" : "Deuteron photodisintegration by polarized photons in the region of the d∗(2380)",
+      "author" : [ "M. Bashkanov", "S. Kay", "D. Watts", "C. Mullen", "S. Abt", "P. Achenbach", "P. Adlarson", "F. Afzal", "Z. Ahmed", "C Akondi" ],
+      "venue" : "Phys. Lett. B",
+      "citeRegEx" : "157",
+      "shortCiteRegEx" : "157",
+      "year" : 2019
+    }, {
+      "title" : "Measurement of 4He Photodisintegration with the MAIKo Active Target",
+      "author" : [ "M. Murata", "S. Adachi", "H. Akimune", "T. Furuno", "T. Kawabata", "M. Tsumura" ],
+      "venue" : "In Proceedings of the 14th International Symposium on Nuclei in the Cosmos (NIC2016), Niigata,",
+      "citeRegEx" : "158",
+      "shortCiteRegEx" : "158",
+      "year" : 2016
+    }, {
+      "title" : "Monte Carlo radiation transport modelling of the current-biased kinetic inductance detector",
+      "author" : [ "A. Malins", "M. Machida", "T.D. Vu", "K. Aizawa", "T. Ishida" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. A Accel. Spectrom. Detect. Assoc. Equip",
+      "citeRegEx" : "159",
+      "shortCiteRegEx" : "159",
+      "year" : 2020
+    }, {
+      "title" : "Energy-resolved neutron imaging with high spatial resolution using a superconducting delay-line kinetic inductance detector",
+      "author" : [ "Y. Iizawa", "H. Shishido", "K. Nishimura", "K.M. Kojima", "T. Koyama", "K. Oikawa", "M. Harada", "S. Miyajima", "M. Hidaka", "T Oku" ],
+      "venue" : "Supercond. Sci. Technol",
+      "citeRegEx" : "160",
+      "shortCiteRegEx" : "160",
+      "year" : 2019
+    }, {
+      "title" : "High-Speed Neutron Imaging Using a Current-Biased Delay-Line Detector of Kinetic Inductance",
+      "author" : [ "H. Shishido", "Y. Miki", "H. Yamaguchi", "Y. Iizawa", "K.M. Kojima", "T. Koyama", "K. Oikawa", "M. Harada", "S. Miyajima", "M Hidaka" ],
+      "venue" : "Phys. Rev. Appl. 2018,",
+      "citeRegEx" : "161",
+      "shortCiteRegEx" : "161",
+      "year" : 2018
+    }, {
+      "title" : "Current-Biased Kinetic Inductance Detector Using  MgB2 Nanowires for Detecting Neutrons",
+      "author" : [ "N. Yoshioka", "I. Yagi", "H. Shishido", "T. Yotsuya", "S. Miyajima", "A. Fujimaki", "S. Miki", "Z. Wang", "T. Ishida" ],
+      "venue" : "IEEE Trans. Appl. Supercond",
+      "citeRegEx" : "162",
+      "shortCiteRegEx" : "162",
+      "year" : 2013
+    }, {
+      "title" : "Direct detection of sub-GeV dark matter",
+      "author" : [ "R. Essig", "J. Mardon", "T. Volansky" ],
+      "venue" : "Phys. Rev. D",
+      "citeRegEx" : "163",
+      "shortCiteRegEx" : "163",
+      "year" : 2012
+    }, {
+      "title" : "Semiconductor probes of light dark matter",
+      "author" : [ "P.W. Graham", "D.E. Kaplan", "S. Rajendran", "M.T. Walters" ],
+      "venue" : "Phys. Dark Universe 2012,",
+      "citeRegEx" : "164",
+      "shortCiteRegEx" : "164",
+      "year" : 2012
+    }, {
+      "title" : "Superconducting detectors for superlight dark matter",
+      "author" : [ "Y. Hochberg", "Y. Zhao", "K.M. Zurek" ],
+      "venue" : "Phys. Rev. Lett",
+      "citeRegEx" : "165",
+      "shortCiteRegEx" : "165",
+      "year" : 2016
+    }, {
+      "title" : "Detecting ultralight bosonic dark matter via absorption in superconductors",
+      "author" : [ "Y. Hochberg", "T. Lin", "K.M. Zurek" ],
+      "venue" : "Phys. Rev. D",
+      "citeRegEx" : "166",
+      "shortCiteRegEx" : "166",
+      "year" : 2016
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Superconducting nanowire single photon detectors (SNSPD) have, since their initial discovery [1], found many applications in fields of nanophotonics and quantum communication.",
+      "startOffset" : 93,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 1,
+      "context" : "Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10].",
+      "startOffset" : 37,
+      "endOffset" : 40
+    }, {
+      "referenceID" : 2,
+      "context" : "Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10].",
+      "startOffset" : 93,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 3,
+      "context" : "Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10].",
+      "startOffset" : 93,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 4,
+      "context" : "Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10].",
+      "startOffset" : 173,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 5,
+      "context" : "Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10].",
+      "startOffset" : 277,
+      "endOffset" : 280
+    }, {
+      "referenceID" : 6,
+      "context" : "Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10].",
+      "startOffset" : 307,
+      "endOffset" : 310
+    }, {
+      "referenceID" : 7,
+      "context" : "Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10].",
+      "startOffset" : 338,
+      "endOffset" : 341
+    }, {
+      "referenceID" : 8,
+      "context" : "Metrics like sub-20 ps timing jitter [2], nearly 100% quantum efficiency up to IR wavelength [3,4] and count rates as high as 109 counts/s with effectively zero dark counts [5] make them the go-to choice in many applications, including LIDAR systems [6], quantum teleportation [7], quantum key distribution [8], optical quantum computing [9], and many others [10].",
+      "startOffset" : 359,
+      "endOffset" : 363
+    }, {
+      "referenceID" : 9,
+      "context" : "Currently, this area is dominated by semiconductor-based detectors but there is demand for new technologies at the intensity frontier [11], where the detectors need to operate at high rates and in harsh environments [12–18].",
+      "startOffset" : 134,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 17,
+      "context" : "Superconducting nanowire detectors have already demonstrated superior timing characteristics and detection rates as photodetectors, they naturally operate in cryogenic conditions and there has been rapid progress in their capability to operate in strong magnetic fields [19], and they are capable of detecting more than just individual photon signals.",
+      "startOffset" : 270,
+      "endOffset" : 274
+    }, {
+      "referenceID" : 18,
+      "context" : "The basic principle behind the photo-detection in SNSPDs is excitation of quasi-electrons out of the superconducting ground state, an effect that has been first observed almost five decades ago in thin films of lead [20].",
+      "startOffset" : 216,
+      "endOffset" : 220
+    }, {
+      "referenceID" : 19,
+      "context" : "A more thorough analysis of physics of these processes not limited to applications of detectors can be found in review of Shklovskij [21], while in this work, we restrict ourselves just to a quick review of the body of work related to detectors.",
+      "startOffset" : 133,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 20,
+      "context" : "One of the first attempts at quantitative description of this phenomenon was using a two-temperature model [22], which describes the photoresponse of the superconductor hit by a (not necessarily a single photon) pulse of light.",
+      "startOffset" : 107,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 24,
+      "context" : "The electron temperature Te and phonon temperature Tp is then described by a pair of linearized coupled heat-balance equations [26,27]:",
+      "startOffset" : 127,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 25,
+      "context" : "The electron temperature Te and phonon temperature Tp is then described by a pair of linearized coupled heat-balance equations [26,27]:",
+      "startOffset" : 127,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 20,
+      "context" : "The solutions to these equations can be further related to the film resistance as [22]:",
+      "startOffset" : 82,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 28,
+      "context" : "[30], where the concept of a hot-spot, was first introduced into the topic.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 33,
+      "context" : "[35] who approximated the Equation (1) by a diffusion equation:",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 34,
+      "context" : "Solution to this equation predict single photon-induced hotspots with sizes on the order of 10–100 nm, which lead to one of the first proposals of the SNSPD devices [36].",
+      "startOffset" : 165,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 20,
+      "context" : "The approximate time-scales associated with this process are on the order of 10 ps [22] (dictated by the electron-phonon scattering times).",
+      "startOffset" : 83,
+      "endOffset" : 87
+    }, {
+      "referenceID" : 39,
+      "context" : "First, the quasi-particles further multiply due to inelastic scattering and move diffusively outwards [41], towards the edges of the nanowire.",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 34,
+      "context" : "The depletion of Cooper pairs leads to local reduction of the order parameter and redistribution of the current in the region [36].",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 40,
+      "context" : "More recent experiments [42] and calculations [43–46] show that this process is also aided by Abrikosov vortices—While the potential barrier for a vortex entry might be too high in the equilibrium state, reduction of the order parameter also reduces the nucleation energy and individual vortices might enter from the wire edges, or vortex-anti-vortex pairs can form and separate.",
+      "startOffset" : 24,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 20,
+      "context" : "time τes, which can have values from roughly τe−p to a few nanoseconds [22].",
+      "startOffset" : 71,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 50,
+      "context" : "Many superconductors used in SNSPD devices have sheet kinetic inductances as high as ∼50 pH/ [52], so a typical ∼100 μm2 area device can have kinetic inductance around 0.",
+      "startOffset" : 93,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 1,
+      "context" : "The variation has two contributions: an extrinsic variation due to geometry of the wire, where there’s a different time delay depending on where along the length of the wire does the photon get absorbed (in a typical meander geometry, the wire length can reach a few mm) and jitter associated with the timing of the readout electronics [2].",
+      "startOffset" : 336,
+      "endOffset" : 339
+    }, {
+      "referenceID" : 51,
+      "context" : "Typical values of timing jitter of SNSPD detectors are around 15 ps and are dominated by the noise jitter of the readout [53], which can reduced down to 7 ps, a value due to geometric jitter [54].",
+      "startOffset" : 121,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 52,
+      "context" : "Typical values of timing jitter of SNSPD detectors are around 15 ps and are dominated by the noise jitter of the readout [53], which can reduced down to 7 ps, a value due to geometric jitter [54].",
+      "startOffset" : 191,
+      "endOffset" : 195
+    }, {
+      "referenceID" : 53,
+      "context" : "7 ps [55] is reported, which is thought as the current fundamental limit to timing of the SNSPD devices.",
+      "startOffset" : 5,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 54,
+      "context" : "As many of the applications proposed in this work will demand larger pixel sizes than ∼100 μm2, it might be worth elaborating on the current trends on this front: While not as common, detectors with pixel sizes of the order of 10,000 μm2 are being fabricated [56,57].",
+      "startOffset" : 259,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 55,
+      "context" : "As many of the applications proposed in this work will demand larger pixel sizes than ∼100 μm2, it might be worth elaborating on the current trends on this front: While not as common, detectors with pixel sizes of the order of 10,000 μm2 are being fabricated [56,57].",
+      "startOffset" : 259,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 71,
+      "context" : "Lastly, the engineering problems associated with many-pixel readout are being focused on by many groups working on superconducting electronics and working arrays of as many as 64 pixels have existed for some time [63–66] and ,coupled with various switching readout and multiplexing techniques [65,67–72], a kilopixel SNSPD array has been recently developed [73].",
+      "startOffset" : 357,
+      "endOffset" : 361
+    }, {
+      "referenceID" : 0,
+      "context" : "The first reported SNSPD was fabricated out of NbN [1], which is still a popular material to use because of ease of fabrication and comparatively high TC and robustness against chemical damage during fabrication or operation.",
+      "startOffset" : 51,
+      "endOffset" : 54
+    }, {
+      "referenceID" : 72,
+      "context" : "Another commonly used materials from the family of nitrides are TaN [74,75] and NbTiN [52,76,77].",
+      "startOffset" : 68,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 73,
+      "context" : "Another commonly used materials from the family of nitrides are TaN [74,75] and NbTiN [52,76,77].",
+      "startOffset" : 68,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 50,
+      "context" : "Another commonly used materials from the family of nitrides are TaN [74,75] and NbTiN [52,76,77].",
+      "startOffset" : 86,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 74,
+      "context" : "Another commonly used materials from the family of nitrides are TaN [74,75] and NbTiN [52,76,77].",
+      "startOffset" : 86,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 75,
+      "context" : "Another commonly used materials from the family of nitrides are TaN [74,75] and NbTiN [52,76,77].",
+      "startOffset" : 86,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 3,
+      "context" : "The main drawbacks of this family of materials is their sensitivity to chemical and physical conditions during thin film deposition, where substantial efforts have been made to achieve better consistency and process compatibility [78–80], and high reflectivity [81–83] that makes anti-reflective coatings or integration into photonic cavities necessary to achieve high quantum efficiency [4,84].",
+      "startOffset" : 388,
+      "endOffset" : 394
+    }, {
+      "referenceID" : 82,
+      "context" : "The main drawbacks of this family of materials is their sensitivity to chemical and physical conditions during thin film deposition, where substantial efforts have been made to achieve better consistency and process compatibility [78–80], and high reflectivity [81–83] that makes anti-reflective coatings or integration into photonic cavities necessary to achieve high quantum efficiency [4,84].",
+      "startOffset" : 388,
+      "endOffset" : 394
+    }, {
+      "referenceID" : 2,
+      "context" : "as demonstrated with WSi [3], MoSi [85] or MoGe [86], with MoSi also having demonstrated good performance in UV [87].",
+      "startOffset" : 25,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 83,
+      "context" : "as demonstrated with WSi [3], MoSi [85] or MoGe [86], with MoSi also having demonstrated good performance in UV [87].",
+      "startOffset" : 35,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 84,
+      "context" : "as demonstrated with WSi [3], MoSi [85] or MoGe [86], with MoSi also having demonstrated good performance in UV [87].",
+      "startOffset" : 48,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 85,
+      "context" : "as demonstrated with WSi [3], MoSi [85] or MoGe [86], with MoSi also having demonstrated good performance in UV [87].",
+      "startOffset" : 112,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 86,
+      "context" : "An interesting alternative to conventionally used materials are the high-TC superconductors (specifically cuprates), where alternative detection models are also proposed [88].",
+      "startOffset" : 170,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 87,
+      "context" : "YBCO films, which are commonly proposed for high-TC SNSPDs, require highly specific substrates and growth at excessive temperatures [89–92] and have to be capped by a passivation layer to prevent degradation [89].",
+      "startOffset" : 208,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 91,
+      "context" : "The highest TC material has been demonstrated in use for SNSPDs is MgB2[93,94], however, the material suffers from high sensitivity to oxygen and epitaxy [95], and single-photon detection has been observed only at temperatures lower than 20 K [96].",
+      "startOffset" : 71,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 92,
+      "context" : "The highest TC material has been demonstrated in use for SNSPDs is MgB2[93,94], however, the material suffers from high sensitivity to oxygen and epitaxy [95], and single-photon detection has been observed only at temperatures lower than 20 K [96].",
+      "startOffset" : 71,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 93,
+      "context" : "The highest TC material has been demonstrated in use for SNSPDs is MgB2[93,94], however, the material suffers from high sensitivity to oxygen and epitaxy [95], and single-photon detection has been observed only at temperatures lower than 20 K [96].",
+      "startOffset" : 154,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 94,
+      "context" : "The highest TC material has been demonstrated in use for SNSPDs is MgB2[93,94], however, the material suffers from high sensitivity to oxygen and epitaxy [95], and single-photon detection has been observed only at temperatures lower than 20 K [96].",
+      "startOffset" : 243,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 52,
+      "context" : "Nitrides have higher critical temperatures, which allows them operate even at liquid helium temperatures and they have smaller timing jitter [54,55] but they have lower sensitivity to long wavelength photons and are limited to smaller number of possible substrates.",
+      "startOffset" : 141,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 53,
+      "context" : "Nitrides have higher critical temperatures, which allows them operate even at liquid helium temperatures and they have smaller timing jitter [54,55] but they have lower sensitivity to long wavelength photons and are limited to smaller number of possible substrates.",
+      "startOffset" : 141,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 17,
+      "context" : "High magnetic fields will favor the polycrystalline materials with high vortex pinning, and devices made out of these materials currently perform better in these conditions [19,97].",
+      "startOffset" : 173,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 95,
+      "context" : "High magnetic fields will favor the polycrystalline materials with high vortex pinning, and devices made out of these materials currently perform better in these conditions [19,97].",
+      "startOffset" : 173,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 96,
+      "context" : "Experiments expecting high radiation fields or high-energy particle bombardment should also tend towards use of the crystalline materials, specifically NbN, because Nb has comparatively low neutron capture [98] and scattering [98,99] cross-sections and the short screening length [100,101] makes it more robust against lattice defects.",
+      "startOffset" : 206,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 96,
+      "context" : "Experiments expecting high radiation fields or high-energy particle bombardment should also tend towards use of the crystalline materials, specifically NbN, because Nb has comparatively low neutron capture [98] and scattering [98,99] cross-sections and the short screening length [100,101] makes it more robust against lattice defects.",
+      "startOffset" : 226,
+      "endOffset" : 233
+    }, {
+      "referenceID" : 97,
+      "context" : "Experiments expecting high radiation fields or high-energy particle bombardment should also tend towards use of the crystalline materials, specifically NbN, because Nb has comparatively low neutron capture [98] and scattering [98,99] cross-sections and the short screening length [100,101] makes it more robust against lattice defects.",
+      "startOffset" : 226,
+      "endOffset" : 233
+    }, {
+      "referenceID" : 98,
+      "context" : "Experiments expecting high radiation fields or high-energy particle bombardment should also tend towards use of the crystalline materials, specifically NbN, because Nb has comparatively low neutron capture [98] and scattering [98,99] cross-sections and the short screening length [100,101] makes it more robust against lattice defects.",
+      "startOffset" : 280,
+      "endOffset" : 289
+    }, {
+      "referenceID" : 99,
+      "context" : "Experiments expecting high radiation fields or high-energy particle bombardment should also tend towards use of the crystalline materials, specifically NbN, because Nb has comparatively low neutron capture [98] and scattering [98,99] cross-sections and the short screening length [100,101] makes it more robust against lattice defects.",
+      "startOffset" : 280,
+      "endOffset" : 289
+    }, {
+      "referenceID" : 8,
+      "context" : "Most of the applications of SNSPDs are in single photon counting of faint signals in narrow spectral range and are discussed thoroughly in literature [10,102].",
+      "startOffset" : 150,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 100,
+      "context" : "Most of the applications of SNSPDs are in single photon counting of faint signals in narrow spectral range and are discussed thoroughly in literature [10,102].",
+      "startOffset" : 150,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 101,
+      "context" : ", detection of broadband light from Cherenkov radiation, scintillation or ionization) First such application is number-resolved detection of multi-photon signals, which is commonly facilitated by visible light photon counters [103,104], transition edge sensors [105], or even Si avalanche photodiodes [106].",
+      "startOffset" : 226,
+      "endOffset" : 235
+    }, {
+      "referenceID" : 102,
+      "context" : ", detection of broadband light from Cherenkov radiation, scintillation or ionization) First such application is number-resolved detection of multi-photon signals, which is commonly facilitated by visible light photon counters [103,104], transition edge sensors [105], or even Si avalanche photodiodes [106].",
+      "startOffset" : 226,
+      "endOffset" : 235
+    }, {
+      "referenceID" : 103,
+      "context" : ", detection of broadband light from Cherenkov radiation, scintillation or ionization) First such application is number-resolved detection of multi-photon signals, which is commonly facilitated by visible light photon counters [103,104], transition edge sensors [105], or even Si avalanche photodiodes [106].",
+      "startOffset" : 261,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 104,
+      "context" : ", detection of broadband light from Cherenkov radiation, scintillation or ionization) First such application is number-resolved detection of multi-photon signals, which is commonly facilitated by visible light photon counters [103,104], transition edge sensors [105], or even Si avalanche photodiodes [106].",
+      "startOffset" : 301,
+      "endOffset" : 306
+    }, {
+      "referenceID" : 106,
+      "context" : "[108] in 2017 on standard meander devices made out of amorphous superconductors.",
+      "startOffset" : 0,
+      "endOffset" : 5
+    }, {
+      "referenceID" : 107,
+      "context" : "Phenomenological models describing the electro-thermal feedback during the hot-spot formation [109,110] show that the voltage pulse signal due to multiple nearly simultaneous detection events (formation of multiple hot-spots within the time-span of nucleation and expansion stages of the detection process) has a rise time that is inversely proportional to the square root of total number of hot-spots.",
+      "startOffset" : 94,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 108,
+      "context" : "Phenomenological models describing the electro-thermal feedback during the hot-spot formation [109,110] show that the voltage pulse signal due to multiple nearly simultaneous detection events (formation of multiple hot-spots within the time-span of nucleation and expansion stages of the detection process) has a rise time that is inversely proportional to the square root of total number of hot-spots.",
+      "startOffset" : 94,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 113,
+      "context" : "5 in most of the interesting wavelength range [115], one requires to integrate them into photonic cavities or integrate anti-reflective coatings, which turn them into inherently narrowband detectors.",
+      "startOffset" : 46,
+      "endOffset" : 51
+    }, {
+      "referenceID" : 109,
+      "context" : "This can be alleviated by tuning the thickness of the dielectric spacing layers to increase absorption for different wavelengths in different superconducting layers and effectively making a broadband detector device, as was successfully demonstrated in NbN-based detectors [111,113].",
+      "startOffset" : 273,
+      "endOffset" : 282
+    }, {
+      "referenceID" : 111,
+      "context" : "This can be alleviated by tuning the thickness of the dielectric spacing layers to increase absorption for different wavelengths in different superconducting layers and effectively making a broadband detector device, as was successfully demonstrated in NbN-based detectors [111,113].",
+      "startOffset" : 273,
+      "endOffset" : 282
+    }, {
+      "referenceID" : 110,
+      "context" : "Similar attempts were made using amorphous WSi as the superconducting material [112], but they didn’t achieve increase of detection efficiency as with the crystalline materials— something that is argued in the work to be due to fabrication defects and insufficiently low reduced working temperature T/TC.",
+      "startOffset" : 79,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 110,
+      "context" : ", Low Temperature Physics 44, 221–225 (2018) [112].",
+      "startOffset" : 45,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 114,
+      "context" : "One example from nuclear physics is the active polarized proton target [116] where an experiment measure the proton spin-polarizabilities through Compton scattering off a polarized proton target.",
+      "startOffset" : 71,
+      "endOffset" : 76
+    }, {
+      "referenceID" : 115,
+      "context" : "At the required cryogenic temperatures, charge carrier freeze-out depletes Si-based photomultipliers and causes serious performance degradation [117], often requiring a complicated optical photon collection scheme and scintillator doping of the target material [118].",
+      "startOffset" : 144,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 116,
+      "context" : "At the required cryogenic temperatures, charge carrier freeze-out depletes Si-based photomultipliers and causes serious performance degradation [117], often requiring a complicated optical photon collection scheme and scintillator doping of the target material [118].",
+      "startOffset" : 261,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 117,
+      "context" : "The inefficiency is mitigated by placing the photodetectors outside of the cryogenic and high-field environment, either by increasing the physical distance [119], by including magnetic shielding [120], and by guiding the light towards the detector with optical waveguides or systems of mirrors.",
+      "startOffset" : 156,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 118,
+      "context" : "The inefficiency is mitigated by placing the photodetectors outside of the cryogenic and high-field environment, either by increasing the physical distance [119], by including magnetic shielding [120], and by guiding the light towards the detector with optical waveguides or systems of mirrors.",
+      "startOffset" : 195,
+      "endOffset" : 200
+    }, {
+      "referenceID" : 119,
+      "context" : "Considerable R&D efforts are spent to achieve photon detection performance in at least 1 T [121].",
+      "startOffset" : 91,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 120,
+      "context" : "Low-dimensional superconductors (such as superconducting nanowires) can persist in a Meissner state at fields higher than those for bulk superconductors [122,123], but large transport currents and the reduction of order parameter during the detection events will lead to reduction of the Abrikosov vortex nucleation energy barrier [124,125].",
+      "startOffset" : 153,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 121,
+      "context" : "Low-dimensional superconductors (such as superconducting nanowires) can persist in a Meissner state at fields higher than those for bulk superconductors [122,123], but large transport currents and the reduction of order parameter during the detection events will lead to reduction of the Abrikosov vortex nucleation energy barrier [124,125].",
+      "startOffset" : 153,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 122,
+      "context" : "Low-dimensional superconductors (such as superconducting nanowires) can persist in a Meissner state at fields higher than those for bulk superconductors [122,123], but large transport currents and the reduction of order parameter during the detection events will lead to reduction of the Abrikosov vortex nucleation energy barrier [124,125].",
+      "startOffset" : 331,
+      "endOffset" : 340
+    }, {
+      "referenceID" : 123,
+      "context" : "Low-dimensional superconductors (such as superconducting nanowires) can persist in a Meissner state at fields higher than those for bulk superconductors [122,123], but large transport currents and the reduction of order parameter during the detection events will lead to reduction of the Abrikosov vortex nucleation energy barrier [124,125].",
+      "startOffset" : 331,
+      "endOffset" : 340
+    }, {
+      "referenceID" : 123,
+      "context" : "These vortices, whether they entered from the sample surface or formed by unbinding of vortex/anti-vortex pairs (the basic topological excitation in the 2D superconductors) will move across the sample under action of the Lorentz force from the transport current and dissipate heat on the order of ∼100 meV per vortex crossing [125,126].",
+      "startOffset" : 326,
+      "endOffset" : 335
+    }, {
+      "referenceID" : 124,
+      "context" : "These vortices, whether they entered from the sample surface or formed by unbinding of vortex/anti-vortex pairs (the basic topological excitation in the 2D superconductors) will move across the sample under action of the Lorentz force from the transport current and dissipate heat on the order of ∼100 meV per vortex crossing [125,126].",
+      "startOffset" : 326,
+      "endOffset" : 335
+    }, {
+      "referenceID" : 44,
+      "context" : "This can lead to excess dark counts in magnetic fields but also enhance detection of photons that would be too low-energy to trigger a detection event in a vortex-free superconductor [46,127].",
+      "startOffset" : 183,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 125,
+      "context" : "This can lead to excess dark counts in magnetic fields but also enhance detection of photons that would be too low-energy to trigger a detection event in a vortex-free superconductor [46,127].",
+      "startOffset" : 183,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 95,
+      "context" : "However, efforts in geometry optimization of SNSPD pixels [97,131] and progress in superconductor film deposition technology [78] allows SNSPDs to operate in fields as high as 0.",
+      "startOffset" : 58,
+      "endOffset" : 66
+    }, {
+      "referenceID" : 129,
+      "context" : "However, efforts in geometry optimization of SNSPD pixels [97,131] and progress in superconductor film deposition technology [78] allows SNSPDs to operate in fields as high as 0.",
+      "startOffset" : 58,
+      "endOffset" : 66
+    }, {
+      "referenceID" : 76,
+      "context" : "However, efforts in geometry optimization of SNSPD pixels [97,131] and progress in superconductor film deposition technology [78] allows SNSPDs to operate in fields as high as 0.",
+      "startOffset" : 125,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 17,
+      "context" : "5 T when applied perpendicular to pixel plane and 5 T for fields parallel to the pixels [19].",
+      "startOffset" : 88,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 129,
+      "context" : "If needed, this values could be potentially increased, if geometry and material optimization were to be combined [131].",
+      "startOffset" : 113,
+      "endOffset" : 118
+    }, {
+      "referenceID" : 130,
+      "context" : "These interactions are theoretically described by theory of Bethe [132], it’s modifications by Barkas [133] and Bloch [134] or theory of Firsov [135].",
+      "startOffset" : 66,
+      "endOffset" : 71
+    }, {
+      "referenceID" : 131,
+      "context" : "These interactions are theoretically described by theory of Bethe [132], it’s modifications by Barkas [133] and Bloch [134] or theory of Firsov [135].",
+      "startOffset" : 118,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 132,
+      "context" : "These interactions are theoretically described by theory of Bethe [132], it’s modifications by Barkas [133] and Bloch [134] or theory of Firsov [135].",
+      "startOffset" : 144,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 133,
+      "context" : "While parameterizations that use analytical formulas for scattering cross sections exist [136,137] and could be used to determine energy loss approximately, it is more common to employ numerical methods for this purpose.",
+      "startOffset" : 89,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 134,
+      "context" : "While parameterizations that use analytical formulas for scattering cross sections exist [136,137] and could be used to determine energy loss approximately, it is more common to employ numerical methods for this purpose.",
+      "startOffset" : 89,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 135,
+      "context" : "The second mechanism is a thermal process, first proposed for detector purposes by Scherman [138].",
+      "startOffset" : 92,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 138,
+      "context" : "By setting the temperature Tm equal to superconducting critical temperature Tc and carrying out a Monte-Carlo simulation [141] for values of Q, we can determine that the thermal hotspot radius in NbN detectors is of the order of 50–100 nm (see Figure 4).",
+      "startOffset" : 121,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 34,
+      "context" : "There are, however, differences: In the few eV energy ranges of photonics experiments, the size of the hotspot is a monotonously increasing function of the photon energy [36,142].",
+      "startOffset" : 170,
+      "endOffset" : 178
+    }, {
+      "referenceID" : 139,
+      "context" : "There are, however, differences: In the few eV energy ranges of photonics experiments, the size of the hotspot is a monotonously increasing function of the photon energy [36,142].",
+      "startOffset" : 170,
+      "endOffset" : 178
+    }, {
+      "referenceID" : 140,
+      "context" : "With high energy particles, this is not necessarily true and one has to expect a rolloff at high energies, because the stopping power S (the retarding force that slows the particles in physical media) begins decreasing [143].",
+      "startOffset" : 219,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 141,
+      "context" : "still trigger a detection event, but the probability also has a high-energy rolloff as the particle range increases with energy and the Bragg peak moves deeper into the substrate [144].",
+      "startOffset" : 179,
+      "endOffset" : 184
+    }, {
+      "referenceID" : 142,
+      "context" : "The concept of detecting low energy molecules has already found a limited use in high-performance time-of-flight mass spectrometry [145], particularly in the form of micron-sized superconducting stripline detectors [146–149], which demonstrate that parallel superconducting wires provide both, high mass resolution and limited charge state discrimination of ions [150] or lysozyme molecules—this technology is discussed in greater detail in a review by Cristiano, et al.",
+      "startOffset" : 131,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 147,
+      "context" : "The concept of detecting low energy molecules has already found a limited use in high-performance time-of-flight mass spectrometry [145], particularly in the form of micron-sized superconducting stripline detectors [146–149], which demonstrate that parallel superconducting wires provide both, high mass resolution and limited charge state discrimination of ions [150] or lysozyme molecules—this technology is discussed in greater detail in a review by Cristiano, et al.",
+      "startOffset" : 363,
+      "endOffset" : 368
+    }, {
+      "referenceID" : 149,
+      "context" : "It is also worth mentioning that it is here, where MgB2-based devices found applications as biomolecular detectors [152].",
+      "startOffset" : 115,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 150,
+      "context" : "[153], where it has been demonstrated that SNSPDs are capable of detection of He+ ions with energies up to 1 keV with 100% detection efficiency, as shown in the device bias sweeps in Figure 5a.",
+      "startOffset" : 0,
+      "endOffset" : 5
+    }, {
+      "referenceID" : 139,
+      "context" : "[142], is that the initial hot-spot caused by a He+ ion is 10–20 times bigger than that of a photon with equivalent energy, which would support the model of thermal hotspots discussed in the previous paragraphs.",
+      "startOffset" : 0,
+      "endOffset" : 5
+    }, {
+      "referenceID" : 141,
+      "context" : "This is an important consideration for application in mass spectrometry, however, it might become unimportant for detection of high energy particles in NP and HEP applications, where the penetration depth of MeV and higher energy particles is easily more than 10 μm [144].",
+      "startOffset" : 266,
+      "endOffset" : 271
+    }, {
+      "referenceID" : 150,
+      "context" : ", Nanotechnology 23, 065501 (2012) [153].",
+      "startOffset" : 35,
+      "endOffset" : 40
+    }, {
+      "referenceID" : 151,
+      "context" : "[154], who achieve nearly 100% detection efficiency for electrons with kinetic energies up to 20 keV.",
+      "startOffset" : 0,
+      "endOffset" : 5
+    }, {
+      "referenceID" : 152,
+      "context" : "Further, these results demonstrate the previously discussed importance of stopping power of the superconducting material and the substrate, as can be clearly seen in the loss of detection efficiency at high electron kinetic energies in Figure 6b: The energy loss of an electron in certain materials is approximately inversely proportional to the kinetic energy [155], which means that it penetrates deeper into the material before meaningful amounts of energy are transferred into the substrate.",
+      "startOffset" : 361,
+      "endOffset" : 366
+    }, {
+      "referenceID" : 153,
+      "context" : "[156], who demonstrated detection of MeV α and β− particles from 210Po and 42K or 31Si sources, respectively.",
+      "startOffset" : 0,
+      "endOffset" : 5
+    }, {
+      "referenceID" : 154,
+      "context" : "For example in cases of nuclear recoil and photodisintegration measurements, one uses high-energy photons [157,158] to drive this process but, for the detectors, this γ-ray beam is a considerable source of noise, especially if scattered.",
+      "startOffset" : 106,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 155,
+      "context" : "For example in cases of nuclear recoil and photodisintegration measurements, one uses high-energy photons [157,158] to drive this process but, for the detectors, this γ-ray beam is a considerable source of noise, especially if scattered.",
+      "startOffset" : 106,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 158,
+      "context" : "[161], a separate layer of 10B, while in work of Yoshioka, et al.",
+      "startOffset" : 0,
+      "endOffset" : 5
+    }, {
+      "referenceID" : 159,
+      "context" : "[162] a more direct approach was used when detectors were fabricated out of superconducting MgB2.",
+      "startOffset" : 0,
+      "endOffset" : 5
+    }, {
+      "referenceID" : 160,
+      "context" : "As attempts to detect dark matter with mass above the GeV scale are so far fruitless, researchers are coming up with proposals of detection of MeV-scale dark matter in semiconductors [163,164], or even lower energies, where superconductors can be used for direct detection through dark matter-electron scattering [165,166].",
+      "startOffset" : 183,
+      "endOffset" : 192
+    }, {
+      "referenceID" : 161,
+      "context" : "As attempts to detect dark matter with mass above the GeV scale are so far fruitless, researchers are coming up with proposals of detection of MeV-scale dark matter in semiconductors [163,164], or even lower energies, where superconductors can be used for direct detection through dark matter-electron scattering [165,166].",
+      "startOffset" : 183,
+      "endOffset" : 192
+    }, {
+      "referenceID" : 162,
+      "context" : "As attempts to detect dark matter with mass above the GeV scale are so far fruitless, researchers are coming up with proposals of detection of MeV-scale dark matter in semiconductors [163,164], or even lower energies, where superconductors can be used for direct detection through dark matter-electron scattering [165,166].",
+      "startOffset" : 313,
+      "endOffset" : 322
+    }, {
+      "referenceID" : 163,
+      "context" : "As attempts to detect dark matter with mass above the GeV scale are so far fruitless, researchers are coming up with proposals of detection of MeV-scale dark matter in semiconductors [163,164], or even lower energies, where superconductors can be used for direct detection through dark matter-electron scattering [165,166].",
+      "startOffset" : 313,
+      "endOffset" : 322
+    } ],
+    "year" : 2020,
+    "abstractText" : "Superconducting nanowire single photon detectors are becoming a dominant technology in quantum optics and quantum communication, primarily because of their low timing jitter and capability to detect individual low-energy photons with high quantum efficiencies. However, other desirable characteristics, such as high detection rates, operation in cryogenic and high magnetic field environments, or high-efficiency detection of charged particles, are underrepresented in literature, potentially leading to a lack of interest in other fields that might benefit from this technology. We review the progress in use of superconducting nanowire technology in photon and particle detection outside of the usual areas of physics, with emphasis on the potential use in ongoing and future experiments in nuclear and high energy physics.",
+    "creator" : "LaTeX with hyperref package"
+  }
+}

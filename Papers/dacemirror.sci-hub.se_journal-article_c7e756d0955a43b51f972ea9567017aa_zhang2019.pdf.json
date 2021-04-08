@@ -1,0 +1,1058 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_c7e756d0955a43b51f972ea9567017aa_zhang2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Interaction between nano-voids and migrating grain boundary by molecular dynamics simulation",
+    "authors" : [ "Liang Zhang", "Yasushi Shibuta", "Cheng Lu", "Xiaoxu Huang" ],
+    "emails" : [ "liang@mse.mm.t.u-tokyo.ac.jp" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "lable at ScienceDirect\nContents lists avai\nActa Materialia\njournal homepage: www.elsevier .com/locate/actamat\nFull length article\nInteraction between nano-voids and migrating grain boundary by molecular dynamics simulation\nLiang Zhang a, *, Yasushi Shibuta a, Cheng Lu b, Xiaoxu Huang c\na Department of Materials Engineering, The University of Tokyo, Bunkyo-ku, Tokyo 113-8656, Japan b Faculty of Engineering and Information Science, University of Wollongong, Wollongong, NSW 2522, Australia c College of Materials Science and Engineering, Chongqing University, Chongqing, 400044, China\na r t i c l e i n f o\nArticle history: Received 7 January 2019 Received in revised form 6 May 2019 Accepted 9 May 2019 Available online 14 May 2019\nKeywords: Molecular dynamics Grain boundary migration Dislocation nucleation Void-drag Structural unit\n* Corresponding author. E-mail address: liang@mse.mm.t.u-tokyo.ac.jp (L.\nhttps://doi.org/10.1016/j.actamat.2019.05.020 1359-6454/© 2019 Acta Materialia Inc. Published by\na b s t r a c t\nUnderstanding the interaction between void and grain boundary (GB) is important to the design of radiation resistant materials by GB engineering and to achieve high quality metallurgical diffusion joining. In this study, the interaction between nano-voids and GBs has been systematically investigated by molecular dynamics simulations. The bicrystal Cu sample was used throughout the work, and the dynamic GB-void interaction was achieved by GB migration under shear deformation. Both high-angle GBs (S5 (310) GB, S5 (210) GB) and low-angle GBs (S37 (750) GB, S61 (650) GB) were investigated, and the effect of void size and temperature on the simulation result was examined. The transition of the deformation mechanism from GB migration to dislocation propagation was observed during the interaction between voids and high-angle GBs at low temperature (T¼ 10 K). At higher temperature (T¼ 300 and 600 K), the migrating GB can be pinned to voids, freely traversed voids, or dissolved voids in the process of their interaction. The void-drag effect on GB motion was analyzed based on the Zener-like equation, which indicates that the retarding pressure applied to the migrating GB by a void is closely related to the surface area of the void, the degree of contact between GB and void, and GB energy. By investigating the thermal stability of a void at the stationary GB, it was found that the dissolution of voids at a moving GB cannot be attributed solely to the thermal diffusion mechanism. The dynamic migration of high-angle GBs can significantly accelerate the dissolution time of the void. Atomistic analysis indicated that the migrating GB rearranged the atoms on the void surface by the collective motion of structural units, and the GB structural phase transformation provided an efficient diffusion channel for transporting the vacancies. The low-angle GBs show a reduced ability to dissolve the voids than the highangle GBs, which can be ascribed to their low GB energy and diffusion coefficient, the fast GB migration velocity, and the discrete GB structure.\n© 2019 Acta Materialia Inc. Published by Elsevier Ltd. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Metallic materials will develop a large number of point defects under irradiation environment, including vacancies and interstitial atoms [1]. The point defects may subsequently evolve into microstructural flaws, such as voids, stacking fault tetrahedra (SFT), dislocation loops, etc. [2e8], resulting in deterioration of the physical properties of materials and their direct structural failure [9]. Nanocrystalline materials exhibit improved radiation resistance than the coarse-grained materials due to the significant\nZhang).\nElsevier Ltd. All rights reserved.\nreduction of grain size and the increase of the grain boundary (GB) volume fraction [10e13]. The absorption of point defects and their clusters by GBs was confirmed by experimental observations. For examples, the point defects under irradiation were thermally unstable because of the existence of a large volume fraction of GBs in nanocrystalline Au [14]. The microstructure of Ni and Cu consists a large number of vacancy clusters under irradiation, and GB could be amajor sink for the point defects and their clusters which resulted in a much lower density of vacancies in grains of nanostructured specimens than their coarse-grained counterparts [15]. A study in UO2 reported that vacancies emitted from a void can be trapped by the nearby GB leading to void dissolution [16]. In particular, if a sufficient amount of free volume from a void dissolved into a GB, the local structure of GB will be changed and the\noverall properties of materials can be affected subsequently [17,18]. On the other hand, computational simulations revealed that the absorption of vacancies and their clusters can be realized by vacancy-interstitial recombination mechanism via GB [4] and GB migration mechanism [19], and the absorption efficiency varies with the GB structures [20]. The previous studies suggest a possibility of the design and fabrication of radiation tolerant materials via GB engineering [21e24]. Therefore, it is of great importance to understand the mechanisms of how point defects and their clusters (such as voids) interact with GBs at the atomic scale.\nThe evolution of void and GB migration are two critical processes and play significant roles to achieve metallurgical joining during diffusion bonding [25]. In the process of diffusion bonding of Ti and its alloy, the voids in the bonding zone were found decreased evidently or disappeared gradually with the increase of bonding time [26,27]. In the experiments of the annealing of CueCu joints [28] and the diffusion bonding of the superplastic Al alloy [29], it was found that the GBmigration can cause the change of local microstructural, and the strength of bonding depends on the extent of GB migration. Also, experimental studies implied that there exists the interaction between voids and migrating GB during diffusion bonding [30,31]. Two negative effects were found during the interaction due to the incomplete absorption of voids. For one thing, voids imposed a drag force on the GB, thereby influencing its motion and caused a weak bonding and strength. For another thing, some residual voids were trapped inside the grains after the interaction. The elimination of voids by volume diffusion is much slower than GB diffusion, once the voids are separated from GB and trapped inside the grains, they will weaken the mechanical properties of the joint. Since the elimination of voids in the bonding zone is the necessary condition of achieving high quality joint, it is necessary to understand the interaction mechanism between void and migrating GB to fabricate highquality joints without defects.\nSince the importance of voids on GB motion and its subsequent influence on microstructure and macro-mechanical properties of materials, the GB-void interaction has been studied theoretically and experimentally before [25,32e35]. However, due to the limitation of experimental conditions, the evolution of GB microstructure during interactions and the associated mechanisms cannot be elucidated. We therefore focus the present study on examining the interaction between GB and void using molecular dynamics (MD) simulations. MD simulation has been widely used to understand the GB structure and its associated deformation mechanisms [36e39]. Also, recent post-processing technologies such as visualization tools [40,41] and the structure identification methods [42,43] provide more information on the atomic scale. To achieve the interaction between GB and voids, the migration of one or both defects is required. Previous studies have shown that while GB can provide a large energetic driving force for interstitial atoms to segregate on GBs, vacancies and their clusters (e.g., voids and SFTs) usually show very slow mobility [4,44e46]. MD simulation indicates that the mobility of vacancy cluster decreases exponentially fast with the increasing size of the cluster [46]. In some irradiation experiments, the vacancy clusters became nearly immobile under a low-temperature condition [14,47,48]. On the other hand, experiments [49e52] and atomistic simulations [53e55] on various materials have shown that external stress or temperature gradient can lead to GB migration. Therefore, to observe a full interaction between void and GB, and to ensure the timescale available to the MD simulations, the GB-void interaction was achieved by GB migration under applied shear stress in this study. The modeling and simulation methods are introduced in section 2. In section 3, we show the effect of void size, temperature,\nand GB structure on GB-void interaction. The simulation results are discussed in section 4, and themain conclusions are summarized in section 5."
+    }, {
+      "heading" : "2. Simulation methods",
+      "text" : "Simulations were carried out using the parallel molecular dynamics code LAMMPS [56] with the embedded-atom method (EAM) potential of Cu [57]. The selected potential can accurately reflect some important structural and physical characteristics of Cu, including lattice constant (3.615 Å), cohesive energy (3.54 eV), and elastic modulus (C11¼169.93 GPa, C12¼122.65 GPa, C44¼76.41 GPa), both of which can match the experimental data very well [57]. Also, the calculated intrinsic stacking fault energy and unstable stacking fault energy of Cu by MD simulation using the present EAM potential are 44.6mJm 2 and 173.4 mJ/m2, respectively [58], which are comparable with the first-principle calculation and experimental measurement 45mJm 2 and 162mJm 2 [57,59]. The bicrystal model was used to study the interaction between void and GBs because it enables a wellcontrolled investigation of specific GB properties. The dimensions of the simulation model along X, Y, and Z directions were set to about 220 Å, 240 Å, and 220 Å, respectively. The specific size was adjusted according to the periodical structure of each GB. The total number of atoms of the simulation sample was approximately one million. The [001] crystallographic direction is parallel to the Z axis, and it was set as the tilt axis. The GBs were constructed by rotating grain A and grain B along the [001] tilt axis. According to the previous experiments and MD simulations, the <001> family GBs tend to exhibit shear-coupledmigration under external stress [53,60,61], which is conducive to the dynamic interaction between GB and void in this study. Four voids with the same size were placed in grain A to show the generality of the simulation results. The results of GB-void interaction can be evaluated comprehensively by the status of the four voids after the interaction. The initial distance\nbetween GB and the void center was about 25 Å. The schematic of the simulation sample is shown in Fig. 1.\nFour symmetric tilt GBs were investigated in this study, namely S5 (310) (q¼ 36.9 ) GB, S5 (210) (q¼ 53.1 ) GB, S37 (750) (q¼ 71.1 ) GB, and S61 (650) (q¼ 79.6 ) GB. Due to the symmetry of the fcc lattice, themisorientation angles from 0 to 90 corresponds to a structural period and thus covers all the distinct boundary structures of <100> tilt GBs, any GB that with the misorientation angle close to 0 or 90 is referred to the low-angle GB [53]. Here, we tentatively defined the S37 GB and S61 GB as the low-angle GBs, while the two S5 GBs were regarded as the high-angle ones. An energy minimization procedure with a standard conjugategradient algorithm was used to obtain the local stable GB configuration, and different starting positions of grain A and grain B were tested to determine the global minimum-energy structure of each GB. The final equilibrium structures of the GBs are shown in Fig. 2. Structural units are used to describe the GB structure, as outlined by the yellow lines. The four GBs contain topologically identical structural units, they only differ at a distance separating the structural units and by their positions relative to the GB plane, consisting either a flat (S5, S61) or a zigzag (S37) boundary plane. The four GBs were intentionally selected, where the two S5 GBs are the high-angle GBs which consist of the continuous structural units. The S37 GB and S61 GB represent the structure of low-angle GBs which are organized by an array of discrete structural units. The voids were generated by removing atoms in a spherical region in grain A, and the void size was determined by the radius of the spherical region. To investigate the effect of void size and temperature on the simulation result, we constructed the voids with a diameter of D¼ 12, 18, and 24 Å, and the simulations were performed at extremely low temperature (T¼ 10 K), ambient temperature (T¼ 300 K), and the elevated temperature (T¼ 600 K), respectively. Before the external loading was applied, the simulation sample was relaxed using MD at a target temperature and constant pressure of 0 bar in all directions for 100 ps. During system relaxation, periodic boundary conditions were applied in the X, Y and Z axes, so that the isobaric-isothermal (NPT) ensemble could be applied in all directions.\nFig. 2. Atomic images of the equilibrium structure of (a) S5 (310) (q¼ 36.9 ) GB, (b) S5 (21 structures are viewed along the [001] tilt axis. Atoms are colored according to the common atoms at GB are colored in red. The GB angle is indicated by the white line and the structu characteristic, and the distance between the neighbor structural units of S37 (750) GB an references to color in this figure legend, the reader is referred to the Web version of this a\nA shear deformation was applied to the bicrystal sample to initiate the GBmotion. As in Fig. 1, there was a slab of fixed atoms at the top of grain A and at the bottom of grain B. The slab width was approximate twice the cutoff radius of atomic interactions along Y direction [53]. During the simulation, the fixed atoms were frozen in their perfect lattice positions while all the other atoms in the bicrystal sample were set as free. A constant shear velocity of Vs¼ 2m/s parallel to the boundary plane was applied to the fixed area of grain A, while the fixed atoms in grain B remained stationary. The applied shear deformation on the simulation sample is much higher than the experimental conditions since it is necessary to perform the nanosecond-scale MD simulation under the current model dimensions. Stress and temperature calculations were performed on the dynamic atoms between the two fixed slabs. Once the dynamic shear loading was applied, the boundary condition along Y direction was changed to non-periodic, and simulations were performed in the canonical NVT ensemble. The time increment of the simulations was fixed at 2 fs throughout the work."
+    }, {
+      "heading" : "3. Results",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Shear response of high-angle GBs at low temperature",
+      "text" : "The stress-driven GB motion was observed in all studied cases, and the interaction between GB and voids was realized by GB migration. Fig. 3 shows the shear responses of the bicrystal sample containing S5 (310) GB and different sizes of voids at 10 K. For simplicity, we index the study cases as D12, D18, and D24 below, corresponding to the voids with a diameter of 12, 18, and 24 Å, respectively. The snapshots in Fig. 4 are the atomic images of the bicrystal sample at select simulation steps. Atoms are colored according to their centrosymmetry values, and the atoms within the fcc structure are removed to assist view of the GB structure and the voids. To better understand the effect of voids on GB motion, we firstly performed a simulation on a bicrystal sample without voids. The S5 (310) GB motion exhibited a “stick-slip” behavior characterized by a saw-tooth time dependence of the stress, as shown in the enlarged segment of the stress curve in Fig. 3(a). Specifically,\n0) (q¼ 53.1 ) GB, (c) S37 (750) (q¼ 71.1 ) GB, and (d) S61 (650) (q¼ 79.6 ) GB. The GB\nneighbor analysis (CNA) parameter; atoms with fcc structure are colored in blue and\nral units are outlined by the yellow line. The low-angle GBs show a discrete structural\nd S61 (650) GB are about 7.85 Å and 14.05 Å, respectively. (For interpretation of the\nrticle.)\nthe system stress built up until it reached a critical value, the GB jumped upwards abruptly from its original place to the next equilibrium position, accompanied by the release of local stress. The GB kept stationary until the accumulated stress was large enough to trigger the next jump of GB. The periodic process keeps driving the motion of the boundary, leading to the GB migration upwards, as shown in Fig. 4(a). The moving distance of the fixed atoms in grain A along the horizontal direction is 160 Å in 8 ns simulation. At the same time, the migration distance of the S5 (310) GB along the vertical direction is 159 Å, so the coupling factor (b¼Vs/Vn) is calculated as 1.006. The value is consistent with the ideal <110> coupling mode based on the geometrical consideration [62], where b<110>¼ 2tan [(p/4)-(q/2)]. Also, the coupling factor agrees with the\nexperimental measurement of GB with the same misorientation (q¼ 36.9 ) at room temperature [52].\nWhen voids were introduced, the shear response of the bicrystal sample shows a radically different scenario compared to the voidfree sample. Fig. 3(b) shows the shear stress as a function of simulation time in D12 case, and the selected steps of interaction between GB and voids are shown in Fig. 4(b). The GBmotion and its associated deformation mechanisms can be divided into three stages. Firstly, a similar stress response as the void-free case was observed in the first 3.5 ns. GB showed a fast migration under shear stress and it played the dominant role to accommodate the system stress. GB moved upwards and subsequently interacted with the voids in grain A. When GB passed, the voids were retained in grain\nB, and the sizewas slightly reduced than the initial configuration, as shown in Fig. 4(b2). In the second stage, GB migration was still in progress but the movement of GB slowed down and the system stress increased gradually. Visual inspection of the simulation sample, it was found that the boundary plane became less ordered after its traversing of the voids, and the embryo nucleation of dislocation from GB was observed at about 4 ns, as shown in Fig. 4(b3). Finally, the dislocation nucleated and multiplied rapidly from GB and their propagation in grains became the primary deformation mechanism, corresponding to the third stage of the stress curve. Meanwhile, GB migration was less significant at this stage, as in Fig. 4(b4) and (b5). The shear response of bicrystal sample in the cases of D18 and D24 are shown in Fig. 3(c) and (d). Again, three distinct stages were observed on the stress curves, namely the stage of fast GB migration, the stage of slow GB migration with dislocation nucleation, and the stage of dislocation propagation. The snapshots in Fig. 4(c) show the transition of the deformation mechanism in D24 case at 10 K. It was found that the boundary plane became highly disordered after its interactionwith the D24 voids at about 4 ns. After that, the migration behavior of GB can be hardly observed but dislocation nucleation from GB became prevalent. Similar shear responses to the S5 (310) GB were observed in the study of S5 (210) GB, as shown in Fig. S1.\nPrevious MD studies indicate that GB migration was realized by the collective motion of the structural units [53,63,64]. In Fig. 4(a),\nthe uniform GB structure has not changed during its motion in the simulation case without void. However, when voids were introduced, the local structure of GB became less ordered after their interaction, leading to the subsequent heterogeneous nucleation of dislocation from GB. To clarify this, Fig. 5 shows the bottom view of the interaction process between S5 (310) GB and D12 voids. When traversing the voids, four disordered regions were generated at the positions where GB interacts the voids, as shown in Fig. 5(d), which are indicated by the yellow dotted circles. The disordered regions are mainly caused by two aspects. On the one hand, some vacancies initially located in the voids were incorporated into GB after their interaction. These vacancies altered the local structure of GB, thereby destroying the collective motion of the boundary plane. On the other hand, the voids can exert a drag force on themigrating GB in the process of GB-void interaction [65], which hindered the movement of local GB structure and caused the inconsistentmotion of the whole boundary plane. The effect of “void-drag” on the GB motion was discussed theoretically [66e68] and was directly observed during diffusion bonding [25] and sintering [69,70]. When GB was separated from the voids, the disordered regions were preserved on the boundary plane due to the absence of effective diffusion mechanism of vacancies at low temperature. The disordered regions expanded on GB along the shear direction and combined each other as the shear deformation progressed, as shown in Fig. 5(e) and (f). Subsequently, the first dislocation\nnucleation event was observed in the disordered region in Fig. 5(g). When the disordered regions covered most of the boundary plane, dislocation nucleation occurred at more places on GB, as shown in Fig. 5(h).\nIn order to further characterize the transition of deformation mechanism during the interaction between GB and voids, we quantified the movement of GB and the dislocation activities. The common neighbor analysis (CNA) pattern was calculated for all atoms at each storing interval, where the atoms in a perfect fcc structure have a CNA value of 1, and the atoms at GB region have a CNA value of 5. The GB atoms were then separated from fcc atoms, and GB position was traced by calculating the mean value of coordinates in the Y direction of GB atoms over a number of simulation time steps. Fig. 6(a)-(c) show the GB displacement as a function of simulation time in the case of D12, D18, and D24, respectively. The results clearly reflect the three stages of GB movement, which are characterized by the three segments of the curve with different slopes, as fitted by the red dotted lines and indexed by the numbers. The slope of the GB positions quantitatively indicates the coupling factor of GBmigration. The ideal shearcoupling motion of GB (stage-1) slowed down after its interaction with voids (stage-2), and it becomes less significant as the shear deformation progressed (stage-3). The dislocation activities were quantified by the statistics of dislocation length using the dislocation extraction algorithm (DXA) [42,43]. In addition, when a partial dislocation nucleated from GB, it was followed by a stacking fault which is characterized by two layers of hcp atoms behind the dislocation core. Since the nucleation of leading partial dislocation is the primary mechanism for the metals with low stacking fault energy (e.g., Cu), the dislocation activities can also be characterized by the number of hcp atoms. The evolution of dislocation length and the number of hcp atoms in different simulation cases are shown in Fig. 6(d)-(f). The two curves show the same trend, the dislocation density increases rapidly after the first nucleation event, which corresponds to the beginning of the third stage of the shear stress curve, indicating that the GB migration mechanism is changing to the dislocation slip mechanism. The slight deviation of the two curves after the peak value is mainly due to the nucleation of the trailing partial dislocations from GB at higher strain, which\nincreased the total length of dislocation line while removed the stacking fault that created by the leading partials. The inserted images in Fig. 6 are the extracted profile of crystal defects by DXA, including GB plane, voids, and dislocation lines. The obvious voiddrag effect was observed in D18 and D24 cases. The straight GB plane heavily bent after its interaction with voids, as the ‘W’ shape of the boundary plane in Fig. 6(b) and (c). The drag force caused by the larger voids hindered the separation of GB fromvoids and produced large stress concentration at the junction, which eventually led to dislocation nucleation at the junction. The results of the interaction between S5 (210) GB and different sizes of voids are shown in Fig. S2-S4, where the transition of the deformation mechanismwas observed in all simulated cases."
+    }, {
+      "heading" : "3.2. Effect of void size and temperature",
+      "text" : "Fig. 7(a) and (b) show the displacement of S5 (310) GB as a function of simulation time at 300 K and 600 K with different sizes of voids. In D12 case, the displacement of GB shows a linear relationship with a nearly constant slope (bz 1) throughout the simulation at both 300 K and 600 K, indicating the GB motion with ideal <110> coupling mode has not been affected by the existence of voids. Visual inspection of the simulation sample, it was found that the voids were partially dissolved at 300 K and they were completely dissolved at 600 K after their interaction with GB. In contrast to the D12 case at 10 K, the transition of deformation mechanism has not been observed during the GB motion, which means that the vacancies have higher diffusivity along GB at the higher temperature and avoid the formation of disordered regions and stress concentration at GB. We have previously shown that the GB can keep the collective motion of structural units when point defects are involved via the thermally assisted diffusionmechanism [64]. When the void size increases to 18 Å and 24 Å, the migration velocity of GB slowed down after its interactionwith voids, and the decrease of velocity was more evident with larger voids. The final configuration of S5 (310) GB after its interactionwith voids at 300 K and 600 K are shown in Fig. S5. The similar result was observed in the case of S5 (210) GB, as in Fig. 7(c) and (d), the migration distance of GB decreases as the void size increases. The S5 (210) GB\nshowed an ideal <110> coupling mode with coupling factor b¼ 0.667 in D12 case at 300 K. However, in the D12 case at 600 K, dislocations were nucleated from GB after its interaction with voids, resulting in a less migration distance of GB. The transition of deformation mechanism from GB migration to dislocations nucleation was more prone to occur at S5 (210) GB than S5 (310) GB, where a high density of dislocationswas observed after the GB-void interaction, as shown in Fig. S6.\nTo clearly show the interaction process between GB and voids, the cross-sectional viewof the void was presented by extracting the continuous four layers of atoms along Z direction near the center of the void. Fig. 8 shows the selected steps of the interaction between S5 (310) GB and D18 voids at different temperatures. The snapshots of Fig. 8(a1), (b1) and (c1) show the GB position and the configuration of the void before their interaction. After 0.6 ns simulation, the distance between the boundary plane and the void are the same at all temperatures, which means that the GB velocity was not affected by the temperature in the fast GB migration stage. Three situations are occurring during the GB-void interaction. At T¼ 10 K, the GB moved through the void, and the movement of GB was hindered when it was detaching the voids, as shown in Fig. 8(a2) and (a3). While the contacted segment of GB was pinned at the void, the unpinned GB segment continue to move driven by the shear stress, resulting in the curvature of the boundary plane. Subsequently, the void attached to the GB and it was elongated by\nthe migrating GB, as shown in Fig. 8(a4). The pinning structure was also observed in Fig. 8(b3) when GB was passing through the void at 300 K, but the GB gradually separated from the void after their interaction, and the cross-sectional view of the void has changed from an initial circle shape to the final triangle shape, as shown in Fig. 8(b4). Afterward, the void was trapped inside the grain and no longer be affected by the migrating GB. The GB pinned at void or separated from void are common occurrences in the experimental observations [25,71,72]. In the simulation at 600 K, the void dissolved into the GB once the migrating GB reached the void due to the fast diffusion of atoms at high temperature, as in Fig. 8(c2) and (c3). The size of the void decreased rapidly in a short time, and eventually, the void was dissolved by the migrating GB. The dissolution of the void removes the drag force on GB so that the GB migration mechanism has not been essentially changed. The interactions between S5 (210) GB and D24 voids at different temperatures are shown in Fig. S7. The similar results are observed, i.e. GB pinned to the void at 10 K, GB traversed the void at 300 K, and GB completely dissolved the void at 600 K; but it is noteworthy that the void-drag effect on migrating GB is more significant when the void size increased from 18 Å to 24 Å. The results of GB-void interaction under different simulation conditions are summarized in Table .1, and selected simulation cases are shown in the supplementary movies."
+    }, {
+      "heading" : "3.3. Interaction of void with low-angle GBs",
+      "text" : "The interaction between voids and high-angle GBs has been extensively studied above. In this section, we investigate the interaction between voids and low-angle GBs. The low-angle GB can be described as an array of discrete structural units, and each structural unit corresponds to the dislocation core of a perfect dislocation with b¼ 1/2<110>, as shown in Fig. 9 and Fig. 10. Fig. 9(b) shows the snapshot of the interactions between S37 (750) GB and D12 voids at 10 K. The voids remained in their original position, and their configuration did not change substantially as GB traversed. However, a few vacancies have been absorbed by the migrating GB as it passed the voids, which can be evidenced by the slightly reduced size of the residual voids and the minor structural change that occurred at GB dislocations which participated in the interaction with the voids. It was found that a short segment of the perfect dislocations (blue lines) dissociated into b¼ 1/6<112> Shockley partial dislocations (green lines) to accommodate the local structure change after its absorption of the vacancies. At the temperature of 600 K, three D12 voids were disappeared after their interaction with GB, and the size of the residual void-1 was reduced, as shown in Fig. 9(c).\nWhen the void size increased to 24 Å, the contact area between voids and GB is larger so that the dissociation of perfect dislocations into Shockley partial dislocations has been observed more frequent at the boundary plane, as shown in Fig. 9(e) and (f). Although the void size decreased to some extent, the migrating GB did not eliminate any void even at the temperature of 600 K. Moreover, it is interesting to see that a structural transformation was observed for void-3 and void-4 after their interaction with GB dislocations at 600 K. As in Fig. 10(f), part of the void structure was converted to an\nSFT structure, represented by a group of interconnected stair-rod dislocations (purple lines). The atomic configurations of the transformed void-3 and void-4 are shown in the enlarged pictures (f3) and (f4). Since SFT is a common vacancy-type defect in fcc metals, and it can be easily generated from a planar vacancy cluster in the material with low stacking fault energy (e.g. Cu) [73], it is not surprising to observe the void-SFT structural transformation during the interaction process. A recent MD study [74] has shown that the voids and SFTs can transform to each other under cyclic strain, and this transformation is remarkably affected by temperature while high temperature can advance the strain of the transformation. This is qualitatively consistent with our simulation results, the void-SFT transformation was observed only at the higher temperature. However, to form a perfect SFT structure, a certain number of vacancies and a specific geometry are required [73]. Therefore the void-SFT transformation is usually incomplete in this study, and the transformed SFT generally has an imperfect structure. For the S61 (650) GB, a similar result was observed as the S37 (750) GB, where the migrating GB passed the voids freely and did not substantially change the void structure at 10 K, as shown in Fig. 10(b) and (e). When the temperature increased to 600 K, void-3 and void-4 were completely dissolved by GB after their interaction in the case of D12 voids, as in Fig. 10(c), and the remaining two voids transformed to SFT structure with different sizes. In the case of D24 voids, part of void-1 and void-2were transformed to SFT structure, as in Fig.10(f), while void-3 and void-4 kept their initial configurations and became smaller after the interaction with the migrating GB. The atomic images of S37 (750) GB and S61 (650) GB after their interaction with voids are shown in Fig. S8 and Fig. S9.\nFigs. 9 and 10 demonstrate the effect of temperature on the dissolution of voids on the low-angle GBs. Similar to the high-angle\nGBs, the low-angle GBs exhibit improved dissolve ability for the voids at the higher temperature. However, the low-angle GBs show apparent less ability to dissolve the voids than the high-angle ones. For examples, the size of the D12 voids decreased considerably after their interaction with the high-angle GBs at 300 K, and they were completely dissolved at 600 K. In contrast, the low-angle GBs had little effect on the D12 voids at 300 K, and there were still residual voids trapped in the grain even the temperature increased to 600 K. Moreover, the low-angle GBs played a little role on changing the D18 voids after their interaction at 600 K, but all the voids were dissolved by the high-angle GBs when they swept up the voids at the same temperature. The difference may be related to the free volume associated with the structural units at the boundary plane [75]. For the high-angle GBs, the large number of structural units can provide high free volume to accommodate vacancies that dissociated from the voids. More importantly, the connected structural units can provide a continuous diffusion path along the\nboundary plane under shear deformation, which helped to release local vacancies concentration and improves its dissolve ability accordingly. On the other hand, each dislocation line of the lowangle GBs corresponds to a single column of structural units along the Z axis. Therefore, the discrete structural features of lowangle GB cannot provided a continuous diffusion channel to transport the vacancies along the shear direction as the high-angle ones. The different results of the interaction between voids and high-angle or low-angle GBs in return signify the important role of GB structure on the absorption of the void."
+    }, {
+      "heading" : "4. Discussion",
+      "text" : ""
+    }, {
+      "heading" : "4.1. Void-drag effect on GB motion",
+      "text" : "The driving force for grain growth during recovery and recrystallization is the decrease of surface energy caused by GBmigration\nand the reduction of GB volume fraction. Voids and second-phase particles are obstacles to the moving GBs and may hinder grain growth. In this study, although an ideal straight GB in the bicrystal sample was considered and the GB migration was realized under a pure shear stress, different scenarios of the interaction between GB and voids have been well demonstrated, including the attachment or separation of GB to the voids. The result depends on void size, simulation temperature, and GB structure. During the GB-voids interaction, voids act mainly as pinning phase for GB migration, and the attachment of GB to voids reduces the total boundary energy. The amount of the reduced GB energy equals to the specific GB energy times the GB area occupied by the voids [76]. If the void is relatively immobile, which is the case in the present simulations, an attached GB can move only if the driving pressure is sufficient for\nthe creation of the missing boundary area [33]. This retarding energy of materials Er is given by\nEr ¼ g$ Sgb\nm\n(1)\nwhere g is GB energy, (Sgb)m is the missing GB surface due to the contact between GB and voids.\nThe effect of voids and second-phase particles on GB motion is usually described by a Zener-like equation [77]. The general consideration of the equation is “the retarding force for each void of radius r is 2prg$sinq$cosq, where q is the angle between the average surface of the GB and the surfaces at the point where it joins the void, as illustrated in Fig. 11. For a maximum restraining effect, q is\n45 and sinq$cosq, 1/2.” Therefore, the drag force exerted by void on GB reaches the maximum value at one-half of the mean linear intercept of the void, l/2 (l¼ 2pr is the mean linear intercept of the void). The retarding pressure Pr is the retarding force divided by the total extended area of GB (Sgb)ex, which is the sum of missing GB area (Sgb)m and real GB area (Sgb)r. Thus, the maximum retarding pressure is given by\nðPrÞmax ¼ Er\nðl=2Þ$ Sgb\nex\n¼ 2g$ Sgb m\nl$ Sgb\nex\n(2)\nSince the area fraction of the GB that is missing from the intersection with voids yield an apparent volume fraction of voids adjacent to the boundary plane [33], it can be defined\nSgb\nm\nSgb ex\n¼\nSgb\nm\nSgb m þ Sgb r\n¼ R$Vf (3)\nWhere Vf is the volume fraction of voids throughout the material, R is the degree of contact between GB and voids, which is defined as the ratio of the actual contact area to the ideal contact area between GB and void. For high-angle GBs with a continuous boundary plane, the degree of contact R¼ 1. For low-angle GBs, the actual contact area with void depends on the discreteness of GB structure, which can be evaluated by the number of structural units within a certain GB length. In this study, the density of structural units of S5 (310) GB can be regarded as the lower limit of the ideal contact (see Fig. 2). Therefore, the contact degree of S37 (750) GB and S61 (650) GB are about 0.8 and 0.4, respectively. Rearranging equation (4), (Sgb)m can be written as\nSgb\nm\n¼\nSgb r $R$Vf\n1 R$Vf (4)\nThe mean intercept through void l is given by the basic stereological relationship [78] as,\nl ¼ 4$Vf Sv\n(5)\nwhere Sv is the surface area of void. The extended GB area has been derived previously [79] as\nSgb\nex\n¼\nSgb\nr\n1 R$Vf (6)\nSubstituting equations (4)e(6) into equation (2) gives\nðPrÞmax ¼ SV$R$g\n2 (7)\nEquation (7) indicates that the retarding pressure applied to the migrating GB by a void depends mainly on the surface area of void (Sv), the degree of contact between GB and void (R), and GB energy (g).\nThe relationship expressed by equation (7) has been well confirmed in the present simulation work. In the case of S5 (310) GB at low temperature (see Fig. 6), the migrating GB can easily separate from the D12 voids after their interaction, but the GB was pinned at D18 and D24 voids due to the higher retarding pressure on the boundary that exerted by the larger surface area of void (Sv). Also, the dragging effect became more evident with the increase of void size in the case of S5 (210) GB at 10 K, as shown in Figs. S2eS4. On the other hand, when considering the influence of temperature, GB diffusion occurs much faster than the bulk diffusion, and the increased temperature can facilitate the vacancies to overcome the activation energy barrier at GB due to the improved atomic thermal motion. Therefore, the surface area of void (Sv) contacted GB decreases at higher temperatures, which reduces the retarding pressure on the boundary surface and leads to the subsequent separation of GB from the void; this is the case of the high-angle GBs at 300 K. The relationship between the void surface area and the void-drag effect have also been demonstrated for severalmetals and ceramics in the earlier works [33]. The degree of contact (R) between GB and void can be understood by the density of the structural units that consist of GB. As introduced, the high-angle GBs are composed of continuous structural units, so that GB can fully contact with the voids. In contrast, for a given size of void, the effective contact area between low-angle GB and void is significantly reduced due to its discrete structural characteristic, i.e. the lower degree of contact (R). Therefore, the retarding pressure applied by the void on low-angle GBs is much lower than the highangle GBs. In fact, no obvious void-drag effect was observed in the low-angle GBs simulation in this study. Particularly, the dispersion of structural units characterized by the interval distance between adjacent GB dislocations depends on the orientation angle of the low-angle GB (see Figs. 9 and 10). The boundary with lower orientation has higher structural dispersion, which results in a smaller contact area between GB and voids, thus reducing the force exerted by voids on the migrating GB. Besides, after the energy minimization procedure at 0 K, the GB energy was calculated as 925mJm 2 for S5 (310) GB, 955mJm 2 for S5 (210) GB, 742mJm 2 for S37 (750) GB, and 549mJm 2 for S61 (650) GB. From equation (7), the lower retarding pressure exerted by the void on low-angle GB may also be ascribed to its lower GB energy (g)."
+    }, {
+      "heading" : "4.2. Thermal diffusion-induced void dissolution",
+      "text" : "The simulations show that the increased temperature can facilitate dissolution of the voids at GB, and the dissolution degree depends on the size of voids. For example, the D12 voids were retained in the grain after their interactionwith S5 (310) GB and S5 (210) GB at 10 K, but they shrunk or were dissolved by the migrating GBs when the temperature increased to 300 K and 600 K. Moreover, the D18 and D24 voids remained there after their interactions with the GBs at 300 K, but they were partially or completely dissolved when the high-angle S5 GBs traversed them\nat 600 K. The effect of void size and temperature on the result of GBvoid interaction has a close relationship with the thermal diffusion mechanism, that is, the increased temperature enhanced the diffusion of atoms at GB (GB diffusion) as well as the thermal instability on the void surface in the grain (lattice diffusion), leading to the eventual dissolution of the void.\nAtoms in GBs are known to be much more mobile than in the lattice, and GB diffusion is highly sensitive to GB structure [80]. To explore the differences in the lattice diffusion and GB diffusion as well as the diffusion ability of different GBs, the mean-squared displacement (MSD) of atoms within the GB-void core region was computed. Here, we investigated a D18 void with and without GB at 600 K and defined the GB-void core region as 30 Å. The schematics of the calculation for lattice diffusion and GB diffusion are shown in Fig. 12(a) and (b), respectively. The GB-void core region was indicated between the two dotted lines. The MSD value as a function of simulation time of different GBs are plotted in Fig. 13, and the slope of the plots determine the diffusion coefficient. We have the following two conclusions. Firstly, GB diffusion is sensitive to GB structure. The diffusion coefficients of different GBs at the given temperature varied over two orders of magnitude depending on the GB structure. The diffusion coefficient of S61 (650) GB is the lowest among the four studied GBs, while the value of S5 (210) GB is the highest. Noticed that although the S5 (310) GB and S5 (210) GB have the similar structural characteristics, the diffusion coefficient of S5 (310) GB is an order of magnitude lower. The result is consistent with the diffusion measurement of symmetric [001] tilt GBs of Au under experimental conditions [81]. Secondly, GB diffusion is profoundly different from lattice diffusion. At the present simulation time and temperature, the lattice diffusion can be neglected compared with GB diffusion. In fcc metals, the difference between the respective diffusion coefficients is about 10 orders of magnitude at about half of the melting temperature [82]. Although there is a considerable difference between the diffusivity in the grain and at the boundary, it is not clear whether the void dissolution was attributed solely to the thermal-induced GB diffusion mechanism. Does the dynamic GB migration affect the void dissolution? To this end, we further investigated the thermal stability of a void in a stationary GB.\nThe S5 (310) GB was taken as an example to examine the void dissolution process in a stationary GB. The ‘stationary’ defined here denotes the GB does not move substantially around its initial position during system annealing, which is to distinguish between the previous dynamic GB migration under shear deformation. The simulations were carried out in two steps using a smaller bicrystal sample (about 160 000 atoms) with different void sizes and\nFig. 12. Schematic for calculating mean-squared displacement (MSD) of atoms within the stationary GB diffusion, (c) dynamic lattice diffusion, and (d) dynamic GB diffusion.\ntemperatures. Firstly, periodical boundary conditions were applied in all directions of the bicrystal sample, and the simulation system was equilibrated using Nose-Hoover algorithm in the isobaricisothermal (NPT) ensemble at 0 bar pressure environment and the desired annealing temperature for 100 ps. Then, a void was created at the center of GB, and the boundary condition along Y directionwas changed to non-periodic. A few layers of atoms on the top and at the bottomwere fixed, and simulations were performed at a desired temperature in the canonical NVT ensemble until the void was dissolved by GB. The time step was set as 1 fs throughout the simulation. We controlled the simulation time in 100 ns, corresponding to 108 simulation steps, which is enough long time in MD time scale. The further simulation was not conducted by considering the computing capability and efficiency. For one simulation case running 100 ns with the current EAM potential, the computational time is about one week on a 128 CPU cores.\nFig. 14 shows the process of void dissolution on S5 (310) GB at different temperatures. To trace the dissolution of the void at GB, a cubic region which includes the void was defined (as denoted by the yellow dotted lines), and the number of atoms in this region was counted at a certain interval during annealing. When the total number of atoms in the region reaches saturation, the corresponding timewas considered to be the dissolution time of the void at GB, and it was also determined by the visual inspection of the GB structure. Again, the continuous four layers of atoms along Z direction at the void center were extracted. In Fig. 14(a), it takes considerable time (in MD time scale) for the D12 void to dissolve into GB even at 500 K. The void became smaller with the simulation time but it still existed in the GB region after 28 ns of annealing, and it was finally dissolved at 30.4 ns. A similar dissolution behavior was observed for D18 void at 650 K, but the process has clearly accelerated at the elevated temperature. As shown in Fig. 14(b), the D18 void was completely dissolved by the GB at 19.2 ns. When the temperature was raised to 900 K, the diffusion of atoms was greatly enhanced, especially in the region where GB intersects with the void. The D24 void shrunk rapidly as the GB atoms continuously flow into it, and the void was completely dissolved into the GB in just 1.6 ns, as shown in Fig. 14(c).\nTo quantify the effect of void size and temperature on the void dissolution, the dissolution time in different simulated cases was recorded. Fig. 15 shows the dependence of the dissolution time on void size and temperature in S5 (310) GB. For each size of the void, the higher temperature resulted in faster dynamics and correspondingly faster void dissolution. The fitting curve indicates that this dependence shows somewhat exponential behavior, and the fitting equations are given. The dissolution time which exceeds\nGB-void core region in different simulation cases. (a) Stationary lattice diffusion, (b)\n100 ns at a lower temperature was not computed but extrapolated by the fitting equation for each size of the void, and the results are shown in Table .2. Obviously, the dissolution time of a void in a\nstationary GB is much longer than that in a migrating GB at the same temperature. For example, the predicted dissolution time of a D12 void in the stationary S5 (310) GB is about 4097 ns at 300 K,\nwhich is far beyond the computational time of the present simulation. However, the D12 voids were considerably dissolved in a limited simulation time during the interaction between the dynamic S5 (310) GB and void at 300 K (see Movie.2). Also, MD simulation shows that the time required for the dissolution of a D18 void in the stationary S5 (310) GB is 62.4 ns at 600 K, while at the same temperature, the four D18 voids were completely dissolved after their interaction with the migrating high-angle GBs (see Movie.3). Since the process of GB-void interaction lasted only a few nanoseconds, we may safely conclude that the thermal diffusion mechanism, mainly the GB diffusion, is not the only inducement for the void dissolution at a migrating GB. The shear deformation and its associated dynamic GB movement also play an important role in void dissolution."
+    }, {
+      "heading" : "4.3. GB migration-assisted void dissolution",
+      "text" : "To simulate the dynamic interaction between GB and voids, a constant shear velocity was applied to the bicrystal sample in this study. The shear deformation can play two major roles in the simulation system which promote the dissolution of voids. On the one hand, the shear deformation resulted in high-rate deformation and the strain gradient of the lattice in the bicrystal sample. On the other hand, the shear deformation parallel to the boundary plane\ninduced the dynamic GB migration. The applied external strainwas expected to expedite lattice diffusion as well as the diffusion of atoms on the surface of the voids [83e85]. Also, the straingradient-based mechanism may be considered in combination with the effect of stress on void diffusion. It was found that the mobility of diffusion species increases linearly with the stresses [86]. Moreover, under high-rate dynamic mechanical loading, the heat generated by the mechanical work may not have sufficient time to be dissipated, and the local or global temperature rise could have somewhat influence on the diffusivity of the void [87]. Therefore, we first studied the effect of shear strain on the void dissolution with the exclusion of the GB influence, as illustrated in Fig. 12(c).\nFig. 16(a) shows the shear response of a single crystal sample containing a D12 void at 600 K, and the inserted snapshots show the evolution of the void at different simulation time. The size of the void did not change substantially in the elastic stage. The first decrease of void size was observed after the yield point accompanied by the dislocation nucleation from the void. Subsequently, the void size decreased gradually in the stage of flow stress, and it was eventually dissolved in the lattice at about 2 ns. Compared to the stationary lattice diffusion, the ability to dissolve the void has been improved significantly during dynamic lattice diffusion under shear strain. Although the results are not presented here, the nucleation and propagation of dislocations from the void and the resulting stacking faults have been found to play an important role in the fast diffusion and the decrease of void size in all simulated cases. The result is consistent with the experimental observations of the microstructural evolution of nanocrystalline cobalt [87]. It is noteworthy that the critical shear stress for activating the\nnucleation of dislocation from the void is about 4 GPa (this value increases with the decrease of temperature and decreases with the increase of void size, see Fig. 16(b)), which is much higher than the stress required to initiate the migration of GB. Thus, in all simulated cases in this study, GB migration occurred before dislocations nucleation from the voids and played a leading role in accommodating the system strain and stress. In addition, the GB-void interaction resulted in the local stress concentration at the voids and the overall increase of system stress, but the rise of stress value was not significant (see Fig. 3). Also, the embryo dislocation nucleated from void may suppressed by the migrating GB. Therefore, the dynamic lattice diffusion mechanism under shear strain played a limited role on the void dissolution in the presence of GB.\nAnother important effect of shear strain on the bicrystal sample is the stress-driven GB migration, which facilitated the local diffusion of GB atoms as well as the atoms on the void surface when contacting with the moving boundary. Since the diffusion measurements can be used as a tool to study the kinetics of GB migration [88], the MSD value of atoms within the GB-void core regionwas computed during their interaction to evaluate the effect of GB migration on void dissolution, as illustrated in Fig. 12(d). The shear deformation caused simultaneous lattice displacement parallel to the boundary plane and dynamic GB migration perpendicular to the boundary plane. To exclude the influence of the former one on the simulation result, the MSD value of the dynamic lattice diffusion was also computed, as illustrated in Fig. 12(c). Therefore, the atoms diffusion caused by GBmigration can be estimated by the difference between the MSD value of dynamic GB diffusion and dynamic lattice diffusion. The results of different GBs are shown in Fig. 17, where the MSD values during GB-void interaction were extracted for calculating the diffusion coefficients. It was found that the atoms diffusion caused by GB migration is sensitive to GB structure, from 0.1055Å2/ps of S61 (650) GB to 0.3609Å2/ps of S5 (310) GB. The values of the diffusion coefficients indicate that the diffusion induced by dynamic GB migration is two to four orders higher than that of stationary GB diffusion depending on GB\nstructure. The significant difference between stationary and dynamic GB diffusion highlight the essential role of GB migration on the void dissolution during their interaction.\nThe atomistic mechanism of the void dissolution at the migrating GB was then investigated. MD simulations have revealed that the GBmigration can be realized by the collectivemotion of GB structural units, i.e., the uniform and regular movement of atoms that make up the structural units at GB [53,63,64]. For example, the atomistic mechanism ofmigration forS5 (310) GBwas illustrated in Fig. 18. The structural units are outlined by the yellow lines and the atoms in four structural units are rendered in yellow and indexed with numbers to highlight the structure evolution during the migration process. Compared to the compact arrangement of atoms in the perfect lattice structure, there is free volume involved in the structural units at the GB core region [75]. For the equilibrium structure of S5 (310) GB in Fig. 18(a), atoms 1 to 6 and atoms 7 to 12 consist of a stable structure unit indexed by a. Also, there is another free volume located between the two stable structure units, as outlined by the red lines and it is indexed as a’. We tentatively named a’ as the transitional structural unit since it will become either a stable structure unit or a lattice structure in the next migration step. In Fig. 18(b), when GB migrated one atomic layer upward, the atoms which originally located in the stable structural unit a transformed to the unstable structural unit a’. Meanwhile, atoms 1, 2, 9, 10, 25 and 26 which originally consist of a’ structure transformed to the a structure, and they further transformed to the a’ structure in the next migration step, as shown in Fig. 18(c). The collective motion of GB atoms under shear strain resulted in the continuous structural transformation between a and a’ and led to themigration of GB. Note that, there were only two yellow atoms in the structural unit a in Fig. 18(c) after two migration steps, and all the yellow atoms were arranged in a perfect lattice structure after three migration steps, as shown in Fig. 18(d). The snapshots clearly show the collective motion of atoms in the structural unit and how the free volume involved in these atoms closed during GB migration. The other three GBs in this study consist of the same structural\ntime for different GBs. (III) dynamic lattice diffusion, (IV) dynamic GB diffusion, (IV-III)\nunits, and the migration mechanism of these GBs is similar to that in Fig. 18.\nFig. 19 illustrates the dissolution mechanism of a D12 void at the migrating S5 (310) GB during their interaction at 400 K. The continuous four layers of atoms including the void central region were presented to show the interaction process. The structural units at GB were outlined and the atoms on the void surface were highlighted in yellow and indexed with numbers from 1 to 31, as shown in Fig. 19(a). According to the GB migration mechanism described above, two key issues need to be addressed to understand the dissolution of voids at themigrating GB. That is, how does the migrated GB close the void or free volume surrounded by yellow atoms, and where do the vacancies inside the free volume go after the void dissolves? In Fig. 19(a), the configuration of the void remained unchanged before its interaction with the GB, and this moment was recorded as the referenced starting time (t¼ 0 ns). Once the GB moved into the void, the atoms on the void surface which contacted with the GB rearranged following the similar way as that in Fig. 18. For example, the atoms 3, 4, and 5 were contained in the stable structural unit a, while the atoms 6, 7 and 8, as well as atoms 13 and 14, were contained in the transitional structural unit a’, as shown in Fig. 19(b). These atoms were located in a lattice structure after the GB passed due to the local rearrangement of the yellow atoms, and the void size decreased correspondingly, as shown in Fig. 19(c). Importantly, the structural phase transformation was observed at GB during its interaction with the void. The new atomic configuration, which is indexed as b, has higher energy than the stable structural unit a [64], so we tentatively named it as the unstable structural unit to show the difference. MD simulations have shown that the unstable structural unit b is a new equilibrium structure when vacancies were introduced to the stable structural unit a [64,89]. Therefore, the ‘a-b’ structural phase transformation on the boundary plane provides clear evidence that\nthe GB served as a diffusion channel to accommodate the vacancies that escaped from the shrinking void.\nThe decrease of void size caused by GB migration can be further illustrated in Fig. 19(d), where the free volume in the upper half of the void (indexed as A) surrounded by atoms 17 to 29 decreased significantly from 0.676 ns to 1.04 ns. This is due to the fact that the scattered atoms on the void surface became the compact lattice atoms when the GB passed. The similar process occurred in the lower half of the void (indexed as B), and the free volume surrounded by the yellow atoms was finally closed by the migrating GB, as shown in Fig. 19(e). The structural units description of the yellow atoms highlights the significant role of GB migration in the local atomic rearrangement. Note that, when a considerable number of vacancies entered the GB in a short time, the GB structure near the void became highly disordered, the structural units were difficult to identify and local GB slidingwas observed. Finally, all the yellow atoms on the void surface were arranged as a lattice structure when the GB traversed the void, as shown in Fig. 19(f). The GB kept its migration under shear strain with a mixed structural feature containing both structural units a and b. The migration mechanism of S5 (310) GB with multiple structural units at elevated temperature was presented in our previous study [64]. The whole process lasted only about 1 ns from the interaction between void and GB to the eventual dissolution of the void at GB, indicating that the migrating GB can substantially reduce the time of atoms filling up the free volume and thus accelerate the dissolution of voids. It should be emphasized that GB migration mechanism alone cannot be the sufficient condition for the void dissolution, as demonstrated in the simulations at low temperature, thermal diffusion must work as an auxiliary mechanism to accommodate the vacancies dissociated from the void and transport them along the GB under shear strain. The similar result as Fig. 19 was also observed in the simulation cases of interaction\nbetween a D18 void and high-angle GBs at 600 K (see Figs. S10 and S11), where the migrating GB dissolved the void surrounded by the yellow atoms after their interaction. However, the GB migration mechanism played a limited role in dissolving the void in the cases of low-angle GBs due to the reduced number of structural units on GB and the discontinuous channel for transporting the vacancies (see Figs. S12 and S13). Moreover, for a given size of the void, the dynamic interaction time between GB and void depends on the migration velocity of the GB. The theoretical values of coupling factor for each GB are bS5(310)¼ 1, bS5(210)¼ 0.667, bS37(750)¼ 0.333, and bS61(650)¼ 0.182 [53,62], where the lower coupling factor represents the faster migration velocity of GB and the shorter GB-void interaction time. Therefore, the fast GB migration velocity, the low\nGB energy and diffusion coefficient, and the discrete GB structure of the low-angle GB all determine its reduced ability to dissolve the voids than the high-angle GB."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "MD simulations were carried out in this study to investigate the dynamic interaction between voids and migrating GB in bicrystal Cu. The effects of different factors on the simulation results were considered, including void size, temperature, and GB structure. The main results are summarized as follows.\n(1) The transition of the deformation mechanism was observed during the interaction between voids and high-angle GBs at low temperature (T¼ 10 K). The S5 (310) GB and S5 (210) GB exhibited a perfect shear-coupling migration throughout the simulation in a void-free sample. However, when the voids were introduced, the shear response of the two high-angle GBs can be divided into three stages, including the fast GB migration, the slow GB migration with dislocation nucleation, and dislocation propagation. The dislocation nucleation occurred at the disordered region on GB which caused by the GB-voids interaction. (2) The effect of void size and temperature on GB motion was investigated, the migrating GB can be pinned to voids, or freely traversed the voids, or completely dissolved the voids after their interaction. The noticeable void-drag effect on GB motion was observed in the simulation cases of high-angle GB with the large size of voids. According to the Zener-like equation analysis, the retarding pressure exerted by a void on the migrating GB depends mainly on the surface area of the void, the degree of contact between GB and void, and GB energy. (3) Simulations performed at higher temperatures (T¼ 300 and 600 K) can significantly improve the ability of high-angle GBs to dissolve the voids. By studying the thermal stability of a void in the stationary GB, we have shown that the dissolution of the void at a migrating GB cannot be attributed solely to the thermal diffusion mechanism. The collective motion of atoms in the structural units during GB migration can substantially accelerate the dissolution of voids. Atomistic analysis indicates that structural unit transformation rearranged the scattered atoms on the void surface to the compact lattice structure, and the GB structural phase transformation provided an efficient diffusion channel for transporting the vacancies that dissociated from the void. The dynamic GB migration mechanism to dissolve the void is also benefit to understand the process of other kinds of point defect that absorbed by the moving GB. (4) The GB structure has a significant influence on the dissolution of the voids. Although increasing temperature can improve the dissolution of the void at low-angle GBs, they show apparent reduced ability to dissolve the voids than the high-angle GBs. The difference can be ascribed to the low GB energy and diffusion coefficient, the fast GB migration velocity, and the discrete GB structure of the low-angle GB."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "Liang Zhang would like to acknowledge the Postdoctoral Fellowship Program (P17711) awarded by Japan Society for the Promotion of Science (JSPS) and Australian Academy of Science (AAS). This work was supported by the Grand-in-Aid for JSPS Fellows (17F17711) and the Australian Research Council Discovery Project (DP170103092)."
+    }, {
+      "heading" : "Appendix A. Supplementary data",
+      "text" : "Supplementary data to this article can be found online at https://doi.org/10.1016/j.actamat.2019.05.020."
+    } ],
+    "references" : [ {
+      "title" : "Radiation damage in nanostructured materials",
+      "author" : [ "X. Zhang", "K. Hattar", "Y. Chen", "L. Shao", "J. Li", "C. Sun", "K. Yu", "N. Li", "M.L. Taheri", "H. Wang", "J. Wang", "M. Nastasi" ],
+      "venue" : "Prog. Mater. Sci. 96 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Greater tolerance for nuclear materials",
+      "author" : [ "R.W. Grimes", "R.J.M. Konings", "L. Edwards" ],
+      "venue" : "Nat. Mater. 7 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Controlling radiation damage",
+      "author" : [ "G. Ackland" ],
+      "venue" : "Science 327 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Efficient annealing of radiation damage near grain boundaries via interstitial emission",
+      "author" : [ "X.M. Bai", "A.F. Voter", "R.G. Hoagland", "M. Nastasi", "B.P. Uberuaga" ],
+      "venue" : "Science 327 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Intra granular precipitation and grain boundary segregation under neutron irradiation in a low purity Fe-Cr based alloy",
+      "author" : [ "V. Kuksenko", "C. Pareige", "P. Pareige" ],
+      "venue" : "J. Nucl. Mater. 425 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Removal of stacking-fault tetrahedra by twin boundaries in nanotwinned metals",
+      "author" : [ "K.Y. Yu", "D. Bufford", "C. Sun", "Y. Liu", "H. Wang", "M.A. Kirk", "M. Li", "X. Zhang" ],
+      "venue" : "Nat. Commun. 4 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Stacking fault tetrahedron induced plasticity in copper single crystal",
+      "author" : [ "L. Zhang", "C. Lu", "K. Tieu", "L. Su", "X. Zhao", "L. Pei" ],
+      "venue" : "Mater. Sci. Eng. A 680 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Evaluation of mechanical properties of S5(210)/[001] tilt grain boundary with self-interstitial atoms by molecular dynamics simulation",
+      "author" : [ "L. Zhang", "C. Lu", "L. Pei", "X. Zhao", "J. Zhang", "K. Tieu" ],
+      "venue" : "J. Nanomater. 2017 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "How does radiation damage",
+      "author" : [ "B.D. Wirth" ],
+      "venue" : "materials? Science",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2007
+    }, {
+      "title" : "Interface structure and radiation damage resistance in Cu-Nb multilayer nanocomposites",
+      "author" : [ "M.J. Demkowicz", "R.G. Hoagland", "J.P. Hirth" ],
+      "venue" : "Phys. Rev. Lett. 100 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Radiation effects in bulk nanocrystalline FeAl alloy",
+      "author" : [ "A. Kilmametov", "A. Balogh", "M. Ghafari", "C. Gammer", "C. Mangler", "C. Rentenberger", "R. Valiev", "H. Hahn" ],
+      "venue" : "Radiat. Eff. Defect Solid 167 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Radiation damage in helium ion irradiated nanocrystalline Fe",
+      "author" : [ "K.Y. Yu", "Y. Liu", "C. Sun", "H. Wang", "L. Shao", "E.G. Fu", "X. Zhang" ],
+      "venue" : "J. Nucl. Mater. 425 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Interfacedriven microstructure development and ultra high strength of bulk nanostructured Cu-Nb multilayers fabricated by severe plastic deformation",
+      "author" : [ "I.J. Beyerlein", "N.A. Mara", "J.S. Carpenter", "T. Nizolek", "W.M. Mook", "T.A. Wynn", "R.J. McCabe", "J.R. Mayeur", "K. Kang", "S. Zheng", "J. Wang", "T.M. Pollock" ],
+      "venue" : "J. Mater. Res. 28 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Accumulation and recovery of defects in ion-irradiated nanocrystalline gold",
+      "author" : [ "Y. Chimi", "A. Iwase", "N. Ishikawa", "M. Kobiyama", "T. Inami", "S. Okuda" ],
+      "venue" : "J. Nucl. Mater. 297 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Impact of irradiation on the microstructure of nanocrystalline materials",
+      "author" : [ "N. Nita", "R. Schaeublin", "M. Victoria" ],
+      "venue" : "J. Nucl. Mater. 329e333 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Fission-induced densification of UO2",
+      "author" : [ "A.A. Solomon" ],
+      "venue" : "J. Nucl. Mater. 102 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 1981
+    }, {
+      "title" : "A new fission-gas release model",
+      "author" : [ "R.J. White", "M.O. Tucker" ],
+      "venue" : "J. Nucl. Mater. 118 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 1983
+    }, {
+      "title" : "An alternative explanation for evidence that xenon depletion",
+      "author" : [ "J. Rest", "G.L. Hofman" ],
+      "venue" : "pore formation, and grain subdivision begin at different local burnups, J. Nucl. Mater. 277 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2000
+    }, {
+      "title" : "Dynamic interaction between grain boundary and stacking fault tetrahedron",
+      "author" : [ "L. Zhang", "C. Lu", "K. Tieu", "Y. Shibuta" ],
+      "venue" : "Scripta Mater. 144 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effect of grain boundary character on sink efficiency",
+      "author" : [ "W.Z. Han", "M.J. Demkowicz", "E.G. Fu", "Y.Q. Wang", "A. Misra" ],
+      "venue" : "Acta Mater. 60 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Defect-interface interactions",
+      "author" : [ "I.J. Beyerlein", "M.J. Demkowicz", "A. Misra", "B.P. Uberuaga" ],
+      "venue" : "Prog. Mater. Sci. 74 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Coupled motion of grain boundaries in bcc tungsten as a possible radiation-damage healing mechanism under fusion reactor conditions",
+      "author" : [ "V. Borovikov", "X.Z. Tang", "D. Perez", "X.M. Bai", "B.P. Uberuaga", "A.F. Voter" ],
+      "venue" : "Nucl. Fusion 53 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Interaction of small mobile stacking fault tetrahedra with free surfaces",
+      "author" : [ "E. Martínez", "B.P. Uberuaga", "I.J. Beyerlein" ],
+      "venue" : "dislocations, and interfaces in Cu and Cu- Nb, Phys. Rev. B 93 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "The influence of grain boundaries on radiationinduced point defect production in materials: a review of atomistic studies",
+      "author" : [ "X.M. Bai", "B.P. Uberuaga" ],
+      "venue" : "J. Occup. Med. 65 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Interaction mechanism between void and interface grain boundary in diffusion bonding",
+      "author" : [ "C. Zhang", "H. Li", "M.Q. Li" ],
+      "venue" : "Sci. Technol. Weld. Join. 20 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effect of hydrogen on diffusion bonding of commercially pure titanium and hydrogenated Ti6Al4V alloys",
+      "author" : [ "H. Liu", "J. Cao", "P. He", "J.C. Feng" ],
+      "venue" : "Int. J. Hydrogen Energy 34 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Fabrication of high strength bond of Ti-17 alloy using press bonding under a high bonding pressure",
+      "author" : [ "H. Li", "H.B. Liu", "W.X. Yu", "M.Q. Li" ],
+      "venue" : "Mater. Lett. 108 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Mechanisms of copper direct bonding observed by in-situ and quantitative transmission electron microscopy",
+      "author" : [ "M. Martinez", "M. Legros", "T. Signamarcheix", "L. Bally", "S. Verrun", "L. Di Cioccio", "C. Deguet" ],
+      "venue" : "Thin Solid Films 530 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Diffusion bonding of superplastic 7075 aluminium alloy",
+      "author" : [ "Y. Huang", "N. Ridley", "F.J. Humphreys", "J.Z. Cui" ],
+      "venue" : "Mater. Sci. Eng. A 266 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "An examination of diffusion bonded interfaces in a mild steel",
+      "author" : [ "S. Elliot", "I.A. Bucklow", "E.R. Wallach" ],
+      "venue" : "J. Mater. Sci. 15 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 1980
+    }, {
+      "title" : "Optimization of solid-state diffusion bonding of Hastelloy C-22 for micro heat exchanger applications by coupling of experiments and simulations",
+      "author" : [ "W.W. Basuki", "O. Kraft", "J. Aktaa" ],
+      "venue" : "Mater. Sci. Eng. A 538 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Inhibition of grain growth by second-phase particles",
+      "author" : [ "M. Hillert" ],
+      "venue" : "Acta Metall. 36 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 1988
+    }, {
+      "title" : "Grain growth inhibition by porosity",
+      "author" : [ "Y. Liu", "B.R. Patterson" ],
+      "venue" : "Acta Metall. Mater. 41 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 1993
+    }, {
+      "title" : "Two-dimensional analysis of pore drag and drop",
+      "author" : [ "E. Petrishcheva", "J. Renner" ],
+      "venue" : "Acta Mater. 53 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Grain growth inhibition by  L",
+      "author" : [ "K.D. Zilnyk", "G.S. Leite", "H.R.Z. Sandim", "P.R. Rios" ],
+      "venue" : "Zhang et al. / Acta Materialia 173 (2019) 206e224 224 connected porosity in sintered niobium, Acta Mater. 61 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Atomistic modeling of interfaces and their impact on microstructure and properties",
+      "author" : [ "Y. Mishin", "M. Asta", "J. Li" ],
+      "venue" : "Acta Mater. 58 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Atomistic simulations of metallic microstructures",
+      "author" : [ "D. Farkas" ],
+      "venue" : "Curr. Opin. Solid State Mater. Sci. 17 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "A review on atomistic simulation of grain boundary behaviors in face-centered cubic metals",
+      "author" : [ "L. Zhang", "C. Lu", "K. Tieu" ],
+      "venue" : "Comput. Mater. Sci. 118 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Grain boundary induced deformation mechanisms in nanocrystalline Al by molecular dynamics simulation: from interatomic potential perspective",
+      "author" : [ "L. Zhang", "Y. Shibuta", "X. Huang", "C. Lu", "M. Liu" ],
+      "venue" : "Comput. Mater. Sci. 156 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "AtomEye: an efficient atomistic configuration viewer",
+      "author" : [ "J. Li" ],
+      "venue" : "Model. Simul. Mater. Sci. Eng. 11 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Visualization and analysis of atomistic simulation data with OVITOethe Open Visualization Tool",
+      "author" : [ "A. Stukowski" ],
+      "venue" : "Model. Simul. Mater. Sci. Eng. 18 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Structure identification methods for atomistic simulations of crystalline materials",
+      "author" : [ "A. Stukowski" ],
+      "venue" : "Model. Simul. Mater. Sci. Eng. 20 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Dislocation detection algorithm for atomistic simulations",
+      "author" : [ "A. Stukowski", "K. Albe" ],
+      "venue" : "Model. Simul. Mater. Sci. Eng. 18 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Probing grain boundary sink strength at the nanoscale: energetics and length scales of vacancy and interstitial absorption by grain boundaries in a-Fe",
+      "author" : [ "M.A. Tschopp", "K.N. Solanki", "F. Gao", "X. Sun", "M.A. Khaleel", "M.F. Horstemeyer" ],
+      "venue" : "Phys. Rev. B 85 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Radiation resistance of nano-crystalline iron: coupling of the fundamental segregation process and the annihilation of interstitials and vacancies near the grain boundaries",
+      "author" : [ "X. Li", "W. Liu", "Y. Xu", "C.S. Liu", "B.C. Pan", "Y. Liang", "Q.F. Fang", "J.L. Chen", "G.N. Luo", "G.H. Lu", "Z. Wang" ],
+      "venue" : "Acta Mater. 109 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Mobility and coalescence of stacking fault tetrahedra in Cu",
+      "author" : [ "E. Martinez", "B.P. Uberuaga" ],
+      "venue" : "Sci. Rep. 5 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Instability of irradiation induced defects in nanostructured materials",
+      "author" : [ "M. Rose", "A.G. Balogh", "H. Hahn" ],
+      "venue" : "Nucl. Instrum. Methods Phys. Res. Sect. B Beam Interact. Mater. Atoms 127e128 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Enhanced radiation tolerance in nanocrystalline Mg Ga2 O4",
+      "author" : [ "T.D. Shen", "S. Feng", "M. Tang", "J.A. Valdez", "Y. Wang", "K.E. Sickafus" ],
+      "venue" : "Appl. Phys. Lett. 90 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Direct observation and quantification of grain boundary shear-migration coupling in polycrystalline Al",
+      "author" : [ "F. Mompiou", "M. Legros", "D. Caillard" ],
+      "venue" : "J. Mater. Sci. 46 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Experimental observations of stress-driven grain boundary migration",
+      "author" : [ "T.J. Rupert", "D.S. Gianola", "Y. Gan", "K.J. Hemker" ],
+      "venue" : "Science 326 ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Revealing extraordinary intrinsic tensile plasticity in gradient nano-grained copper",
+      "author" : [ "T.H. Fang", "W.L. Li", "N.R. Tao", "K. Lu" ],
+      "venue" : "Science 331 ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Stress-driven migration of symmetrical <100> tilt grain boundaries in Al bicrystals",
+      "author" : [ "T. Gorkaya", "D.A. Molodov", "G. Gottstein" ],
+      "venue" : "Acta Mater. 57 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Coupling grain boundary motion to shear deformation",
+      "author" : [ "J.W. Cahn", "Y. Mishin", "A. Suzuki" ],
+      "venue" : "Acta Mater. 54 ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "A dual deformation mechanism of grain boundary at different stress stages",
+      "author" : [ "L. Zhang", "C. Lu", "J. Zhang", "K. Tieu" ],
+      "venue" : "Mater. Lett. 167 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Coupled grain boundary motion in aluminium: the effect of structural multiplicity",
+      "author" : [ "K. Cheng", "L. Zhang", "C. Lu", "K. Tieu" ],
+      "venue" : "Sci. Rep. 6 ",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Fast parallel algorithms for short-range molecular dynamics",
+      "author" : [ "S. Plimpton" ],
+      "venue" : "J. Comput. Phys. 117 ",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "Structural stability and lattice defects in copper: ab initio",
+      "author" : [ "Y. Mishin", "M.J. Mehl", "D.A. Papaconstantopoulos", "A.F. Voter", "J.D. Kress" ],
+      "venue" : "tight-binding, and embedded-atom calculations, Phys. Rev. B 63 ",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Molecular dynamics simulation on generalized stacking fault energies of FCC metals under preloading stress",
+      "author" : [ "L. Zhang", "C. Lu", "K. Tieu", "X. Zhao", "L. Pei", "G. Michal" ],
+      "venue" : "Chin. Phys. B 24 ",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Interatomic potentials for monoatomic metals from experimental data and ab initio calculations",
+      "author" : [ "Y. Mishin", "D. Farkas", "M.J. Mehl", "D.A. Papaconstantopoulos" ],
+      "venue" : "Phys. Rev. B 59 ",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Experimental method for true in situ measurements of shear-coupled grain boundary migration",
+      "author" : [ "T. Gorkaya", "T. Burlet", "D.A. Molodov", "G. Gottstein" ],
+      "venue" : "Scripta Mater. 63 ",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Stress-driven migration of symmetrical <100> tilt grain boundaries in Al bicrystals",
+      "author" : [ "T. Gorkaya", "D.A. Molodov", "G. Gottstein" ],
+      "venue" : "Acta Mater. 57 ",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Duality of dislocation content of grain boundaries",
+      "author" : [ "J.W. Cahn", "Y. Mishin", "A. Suzuki" ],
+      "venue" : "Phil. Mag. 86 ",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Influence of temperature and local structure on the shear-coupled grain boundary migration",
+      "author" : [ "L. Zhang", "C. Lu", "G. Michal", "K. Tieu", "X. Zhao", "G. Deng" ],
+      "venue" : "Phys. Status Solidi B 254 ",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Shear response of grain boundaries with metastable structures by molecular dynamics simulations",
+      "author" : [ "L. Zhang", "C. Lu", "Y. Shibuta" ],
+      "venue" : "Model. Simul. Mater. Sci. Eng. 26 ",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Vacancy dragdthe generation of vacancies by interface migration",
+      "author" : [ "H. Gleiter" ],
+      "venue" : "Acta Metall. 27 ",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : null,
+      "year" : 1979
+    }, {
+      "title" : "Grain boundary motiondI",
+      "author" : [ "K. Lücke", "G. Gottstein" ],
+      "venue" : "Theory of vacancy production and vacancy drag during grain boundary motion, Acta Metall. 29 ",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : null,
+      "year" : 1981
+    }, {
+      "title" : "Grain boundary motiondII",
+      "author" : [ "Y. Estrin", "K. Lücke" ],
+      "venue" : "The effect of vacancy production on steady state grain boundary motion, Acta Metall. 29 ",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : null,
+      "year" : 1981
+    }, {
+      "title" : "Theory of vacancy-controlled grain boundary motion",
+      "author" : [ "Y. Estrin", "K. Lücke" ],
+      "venue" : "Acta Metall. 30 ",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : null,
+      "year" : 1982
+    }, {
+      "title" : "Microstructure development during final/ intermediate stage sinteringdI",
+      "author" : [ "C.H. Hsueh", "A.G. Evans", "R.L. Coble" ],
+      "venue" : "Pore/grain boundary separation, Acta Metall. 30 ",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : null,
+      "year" : 1982
+    }, {
+      "title" : "Pore-boundary interactions and evolution equations for the porosity and the grain size during sintering",
+      "author" : [ "J. Svoboda", "H. Riedel" ],
+      "venue" : "Acta Metall. Mater. 40 ",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : null,
+      "year" : 1992
+    }, {
+      "title" : "Formation and growth of intragranular fission gas bubbles in UO2 fuels with burnup of 6e83 GWd/t",
+      "author" : [ "S. Kashibe", "K. Une", "K. Nogita" ],
+      "venue" : "J. Nucl. Mater. 206 ",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : null,
+      "year" : 1993
+    }, {
+      "title" : "Dynamics of irradiation-induced grain subdivision and swelling in U3Si2 and UO2 fuels",
+      "author" : [ "J. Rest", "G.L. Hofman" ],
+      "venue" : "J. Nucl. Mater. 210 ",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "The formation and destruction of stacking fault tetrahedron in fcc metals: a molecular dynamics study",
+      "author" : [ "L. Zhang", "C. Lu", "G. Michal", "G. Deng", "K. Tieu" ],
+      "venue" : "Scripta Mater. 136 ",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Strain-induced transformation between vacancy voids and stacking fault tetrahedra in Cu",
+      "author" : [ "H. Xv", "J. Zhao", "F. Ye", "K. Tong" ],
+      "venue" : "Comput. Mater. Sci. 158 ",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Evolution of structure and free volume in symmetric tilt grain boundaries during dislocation nucleation",
+      "author" : [ "G.J. Tucker", "M.A. Tschopp", "D.L. McDowell" ],
+      "venue" : "Acta Mater. 58 ",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Recrystallization and grain growth of multi-phase and particle containing materials",
+      "author" : [ "M.F. Ashby" ],
+      "venue" : "in: N. Hansen, et al. (Eds.), Proceedings of the 1st Risø International Symposium on Metallurgy and Materials Science, Risø National lab, Danmarks Tekniske Universitet, Denmark",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : null,
+      "year" : 1980
+    }, {
+      "title" : "On the Zener drag",
+      "author" : [ "E. Nes", "N. Ryum", "O. Hunderi" ],
+      "venue" : "Acta Metall. 33 ",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : null,
+      "year" : 1985
+    }, {
+      "title" : "Degree of pore-grain boundary contact during sintering",
+      "author" : [ "B.R. Patterson", "Y. Liu", "J.A. Griffin" ],
+      "venue" : "Metall. Trans. A 21 ",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : null,
+      "year" : 1990
+    }, {
+      "title" : "Fundamentals of Grain and Interphase Boundary Diffusion",
+      "author" : [ "I. Kaur", "Y. Mishin", "W. Gust" ],
+      "venue" : "Wiley, Chichester,West Sussex",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "Orientation dependence of 195Au and 64Cu diffusion along symmetric [001] tilt grain boundaries in Cu",
+      "author" : [ "E. Budke", "C. Herzig", "S.I. Prokofjev", "L.S. Shvindlerman" ],
+      "venue" : "Mater. Sci. Forum 207e209 ",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "Atomic mechanisms of grain boundary diffusion: low versus high temperatures",
+      "author" : [ "A. Suzuki", "Y. Mishin" ],
+      "venue" : "J. Mater. Sci. 40 ",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Mechanical alloying of Cu and Fe induced by severe plastic deformation of a CueFe composite",
+      "author" : [ "X. Sauvage", "F. Wetscher", "P. Pareige" ],
+      "venue" : "Acta Mater. 53 ",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "In-situ nuclear magnetic resonance investigation of strain",
+      "author" : [ "K.L. Murty", "K. Detemple", "O. Kanert", "J.T.M. Dehosson" ],
+      "venue" : "temperature, and strain-rate variations of deformation-induced vacancy concentration in aluminum, Metall. Mater. Trans. A 29 ",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : null,
+      "year" : 1998
+    }, {
+      "title" : "Modelling the effect of deformation-induced vacancies on segregation and precipitation",
+      "author" : [ "M. Militzer", "W.P. Sun", "J.J. Jonas" ],
+      "venue" : "Acta Metall. Mater. 42 ",
+      "citeRegEx" : "85",
+      "shortCiteRegEx" : null,
+      "year" : 1994
+    }, {
+      "title" : "Diffusion and stresses: basic thermodynamics, Defect Diffusion Forum 129e130",
+      "author" : [ "F.C. Larch e", "P.W. Voorhees" ],
+      "venue" : null,
+      "citeRegEx" : "86",
+      "shortCiteRegEx" : "86",
+      "year" : 1996
+    }, {
+      "title" : "Microstructural evolution and formation of nanocrystalline intermetallic compound during surface mechanical attrition treatment of cobalt",
+      "author" : [ "X.L. Wu", "N.R. Tao", "Q.M. Wei", "P. Jiang", "J. Lu", "K. Lu" ],
+      "venue" : "Acta Mater. 55 ",
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "M",
+      "author" : [ "Y.M. Mishin" ],
+      "venue" : "K€  oppers, C. Herzig, Diffusion in stationary and moving grain boundaries in metals, Solid State Phenom. 41 ",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "Structural phase transformations in metallic grain boundaries",
+      "author" : [ "T. Frolov", "D.L. Olmsted", "M. Asta", "Y. Mishin" ],
+      "venue" : "Nat. Commun. 4 ",
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Metallic materials will develop a large number of point defects under irradiation environment, including vacancies and interstitial atoms [1].",
+      "startOffset" : 138,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 8,
+      "context" : "[2e8], resulting in deterioration of the physical properties of materials and their direct structural failure [9].",
+      "startOffset" : 110,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 13,
+      "context" : "For examples, the point defects under irradiation were thermally unstable because of the existence of a large volume fraction of GBs in nanocrystalline Au [14].",
+      "startOffset" : 155,
+      "endOffset" : 159
+    }, {
+      "referenceID" : 14,
+      "context" : "The microstructure of Ni and Cu consists a large number of vacancy clusters under irradiation, and GB could be amajor sink for the point defects and their clusters which resulted in a much lower density of vacancies in grains of nanostructured specimens than their coarse-grained counterparts [15].",
+      "startOffset" : 293,
+      "endOffset" : 297
+    }, {
+      "referenceID" : 15,
+      "context" : "A study in UO2 reported that vacancies emitted from a void can be trapped by the nearby GB leading to void dissolution [16].",
+      "startOffset" : 119,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 16,
+      "context" : "overall properties of materials can be affected subsequently [17,18].",
+      "startOffset" : 61,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 17,
+      "context" : "overall properties of materials can be affected subsequently [17,18].",
+      "startOffset" : 61,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 3,
+      "context" : "On the other hand, computational simulations revealed that the absorption of vacancies and their clusters can be realized by vacancy-interstitial recombination mechanism via GB [4] and GB migration mechanism [19], and the absorption efficiency varies with the GB structures [20].",
+      "startOffset" : 177,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 18,
+      "context" : "On the other hand, computational simulations revealed that the absorption of vacancies and their clusters can be realized by vacancy-interstitial recombination mechanism via GB [4] and GB migration mechanism [19], and the absorption efficiency varies with the GB structures [20].",
+      "startOffset" : 208,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 19,
+      "context" : "On the other hand, computational simulations revealed that the absorption of vacancies and their clusters can be realized by vacancy-interstitial recombination mechanism via GB [4] and GB migration mechanism [19], and the absorption efficiency varies with the GB structures [20].",
+      "startOffset" : 274,
+      "endOffset" : 278
+    }, {
+      "referenceID" : 24,
+      "context" : "The evolution of void and GB migration are two critical processes and play significant roles to achieve metallurgical joining during diffusion bonding [25].",
+      "startOffset" : 151,
+      "endOffset" : 155
+    }, {
+      "referenceID" : 25,
+      "context" : "In the process of diffusion bonding of Ti and its alloy, the voids in the bonding zone were found decreased evidently or disappeared gradually with the increase of bonding time [26,27].",
+      "startOffset" : 177,
+      "endOffset" : 184
+    }, {
+      "referenceID" : 26,
+      "context" : "In the process of diffusion bonding of Ti and its alloy, the voids in the bonding zone were found decreased evidently or disappeared gradually with the increase of bonding time [26,27].",
+      "startOffset" : 177,
+      "endOffset" : 184
+    }, {
+      "referenceID" : 27,
+      "context" : "In the experiments of the annealing of CueCu joints [28] and the diffusion bonding of the superplastic Al alloy [29], it was found that the GBmigration can cause the change of local microstructural, and the strength of bonding depends on the extent of GB migration.",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 28,
+      "context" : "In the experiments of the annealing of CueCu joints [28] and the diffusion bonding of the superplastic Al alloy [29], it was found that the GBmigration can cause the change of local microstructural, and the strength of bonding depends on the extent of GB migration.",
+      "startOffset" : 112,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 29,
+      "context" : "Also, experimental studies implied that there exists the interaction between voids and migrating GB during diffusion bonding [30,31].",
+      "startOffset" : 125,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 30,
+      "context" : "Also, experimental studies implied that there exists the interaction between voids and migrating GB during diffusion bonding [30,31].",
+      "startOffset" : 125,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 39,
+      "context" : "Also, recent post-processing technologies such as visualization tools [40,41] and the structure identification methods [42,43] provide more information on the atomic scale.",
+      "startOffset" : 70,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 40,
+      "context" : "Also, recent post-processing technologies such as visualization tools [40,41] and the structure identification methods [42,43] provide more information on the atomic scale.",
+      "startOffset" : 70,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 41,
+      "context" : "Also, recent post-processing technologies such as visualization tools [40,41] and the structure identification methods [42,43] provide more information on the atomic scale.",
+      "startOffset" : 119,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 42,
+      "context" : "Also, recent post-processing technologies such as visualization tools [40,41] and the structure identification methods [42,43] provide more information on the atomic scale.",
+      "startOffset" : 119,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 45,
+      "context" : "MD simulation indicates that the mobility of vacancy cluster decreases exponentially fast with the increasing size of the cluster [46].",
+      "startOffset" : 130,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 13,
+      "context" : "In some irradiation experiments, the vacancy clusters became nearly immobile under a low-temperature condition [14,47,48].",
+      "startOffset" : 111,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 46,
+      "context" : "In some irradiation experiments, the vacancy clusters became nearly immobile under a low-temperature condition [14,47,48].",
+      "startOffset" : 111,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 47,
+      "context" : "In some irradiation experiments, the vacancy clusters became nearly immobile under a low-temperature condition [14,47,48].",
+      "startOffset" : 111,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 55,
+      "context" : "Simulations were carried out using the parallel molecular dynamics code LAMMPS [56] with the embedded-atom method (EAM) potential of Cu [57].",
+      "startOffset" : 79,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 56,
+      "context" : "Simulations were carried out using the parallel molecular dynamics code LAMMPS [56] with the embedded-atom method (EAM) potential of Cu [57].",
+      "startOffset" : 136,
+      "endOffset" : 140
+    }, {
+      "referenceID" : 56,
+      "context" : "41 GPa), both of which can match the experimental data very well [57].",
+      "startOffset" : 65,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 57,
+      "context" : "4 mJ/m2, respectively [58], which are comparable with the first-principle calculation and experimental measurement 45mJm 2 and 162mJm 2 [57,59].",
+      "startOffset" : 22,
+      "endOffset" : 26
+    }, {
+      "referenceID" : 56,
+      "context" : "4 mJ/m2, respectively [58], which are comparable with the first-principle calculation and experimental measurement 45mJm 2 and 162mJm 2 [57,59].",
+      "startOffset" : 136,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 58,
+      "context" : "4 mJ/m2, respectively [58], which are comparable with the first-principle calculation and experimental measurement 45mJm 2 and 162mJm 2 [57,59].",
+      "startOffset" : 136,
+      "endOffset" : 143
+    }, {
+      "referenceID" : 52,
+      "context" : "According to the previous experiments and MD simulations, the <001> family GBs tend to exhibit shear-coupledmigration under external stress [53,60,61], which is conducive to the dynamic interaction between GB and void in this study.",
+      "startOffset" : 140,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 59,
+      "context" : "According to the previous experiments and MD simulations, the <001> family GBs tend to exhibit shear-coupledmigration under external stress [53,60,61], which is conducive to the dynamic interaction between GB and void in this study.",
+      "startOffset" : 140,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 60,
+      "context" : "According to the previous experiments and MD simulations, the <001> family GBs tend to exhibit shear-coupledmigration under external stress [53,60,61], which is conducive to the dynamic interaction between GB and void in this study.",
+      "startOffset" : 140,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 52,
+      "context" : "Due to the symmetry of the fcc lattice, themisorientation angles from 0 to 90 corresponds to a structural period and thus covers all the distinct boundary structures of <100> tilt GBs, any GB that with the misorientation angle close to 0 or 90 is referred to the low-angle GB [53].",
+      "startOffset" : 276,
+      "endOffset" : 280
+    }, {
+      "referenceID" : 52,
+      "context" : "The slab width was approximate twice the cutoff radius of atomic interactions along Y direction [53].",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 61,
+      "context" : "The value is consistent with the ideal <110> coupling mode based on the geometrical consideration [62], where b<110>1⁄4 2tan [(p/4)-(q/2)].",
+      "startOffset" : 98,
+      "endOffset" : 102
+    }, {
+      "referenceID" : 52,
+      "context" : "Previous MD studies indicate that GB migration was realized by the collective motion of the structural units [53,63,64].",
+      "startOffset" : 109,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 62,
+      "context" : "Previous MD studies indicate that GB migration was realized by the collective motion of the structural units [53,63,64].",
+      "startOffset" : 109,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 63,
+      "context" : "Previous MD studies indicate that GB migration was realized by the collective motion of the structural units [53,63,64].",
+      "startOffset" : 109,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 64,
+      "context" : "On the other hand, the voids can exert a drag force on themigrating GB in the process of GB-void interaction [65], which hindered the movement of local GB structure and caused the inconsistentmotion of the whole boundary plane.",
+      "startOffset" : 109,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 24,
+      "context" : "The effect of “void-drag” on the GB motion was discussed theoretically [66e68] and was directly observed during diffusion bonding [25] and sintering [69,70].",
+      "startOffset" : 130,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 68,
+      "context" : "The effect of “void-drag” on the GB motion was discussed theoretically [66e68] and was directly observed during diffusion bonding [25] and sintering [69,70].",
+      "startOffset" : 149,
+      "endOffset" : 156
+    }, {
+      "referenceID" : 69,
+      "context" : "The effect of “void-drag” on the GB motion was discussed theoretically [66e68] and was directly observed during diffusion bonding [25] and sintering [69,70].",
+      "startOffset" : 149,
+      "endOffset" : 156
+    }, {
+      "referenceID" : 41,
+      "context" : "The dislocation activities were quantified by the statistics of dislocation length using the dislocation extraction algorithm (DXA) [42,43].",
+      "startOffset" : 132,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 42,
+      "context" : "The dislocation activities were quantified by the statistics of dislocation length using the dislocation extraction algorithm (DXA) [42,43].",
+      "startOffset" : 132,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 63,
+      "context" : "We have previously shown that the GB can keep the collective motion of structural units when point defects are involved via the thermally assisted diffusionmechanism [64].",
+      "startOffset" : 166,
+      "endOffset" : 170
+    }, {
+      "referenceID" : 24,
+      "context" : "The GB pinned at void or separated from void are common occurrences in the experimental observations [25,71,72].",
+      "startOffset" : 101,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 70,
+      "context" : "The GB pinned at void or separated from void are common occurrences in the experimental observations [25,71,72].",
+      "startOffset" : 101,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 71,
+      "context" : "The GB pinned at void or separated from void are common occurrences in the experimental observations [25,71,72].",
+      "startOffset" : 101,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 72,
+      "context" : "Cu) [73], it is not surprising to observe the void-SFT structural transformation during the interaction process.",
+      "startOffset" : 4,
+      "endOffset" : 8
+    }, {
+      "referenceID" : 73,
+      "context" : "A recent MD study [74] has shown that the voids and SFTs can transform to each other under cyclic strain, and this transformation is remarkably affected by temperature while high temperature can advance the strain of the transformation.",
+      "startOffset" : 18,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 72,
+      "context" : "However, to form a perfect SFT structure, a certain number of vacancies and a specific geometry are required [73].",
+      "startOffset" : 109,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 74,
+      "context" : "The difference may be related to the free volume associated with the structural units at the boundary plane [75].",
+      "startOffset" : 108,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 75,
+      "context" : "The amount of the reduced GB energy equals to the specific GB energy times the GB area occupied by the voids [76].",
+      "startOffset" : 109,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 32,
+      "context" : "If the void is relatively immobile, which is the case in the present simulations, an attached GB can move only if the driving pressure is sufficient for the creation of the missing boundary area [33].",
+      "startOffset" : 195,
+      "endOffset" : 199
+    }, {
+      "referenceID" : 76,
+      "context" : "The effect of voids and second-phase particles on GB motion is usually described by a Zener-like equation [77].",
+      "startOffset" : 106,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 32,
+      "context" : "Since the area fraction of the GB that is missing from the intersection with voids yield an apparent volume fraction of voids adjacent to the boundary plane [33], it can be defined",
+      "startOffset" : 157,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 77,
+      "context" : "The extended GB area has been derived previously [79] as Sgb ex 1⁄4 Sgb r 1 R$Vf (6)",
+      "startOffset" : 49,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 32,
+      "context" : "The relationship between the void surface area and the void-drag effect have also been demonstrated for severalmetals and ceramics in the earlier works [33].",
+      "startOffset" : 152,
+      "endOffset" : 156
+    }, {
+      "referenceID" : 78,
+      "context" : "Atoms in GBs are known to be much more mobile than in the lattice, and GB diffusion is highly sensitive to GB structure [80].",
+      "startOffset" : 120,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 79,
+      "context" : "The result is consistent with the diffusion measurement of symmetric [001] tilt GBs of Au under experimental conditions [81].",
+      "startOffset" : 120,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 80,
+      "context" : "In fcc metals, the difference between the respective diffusion coefficients is about 10 orders of magnitude at about half of the melting temperature [82].",
+      "startOffset" : 149,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 84,
+      "context" : "It was found that the mobility of diffusion species increases linearly with the stresses [86].",
+      "startOffset" : 89,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 85,
+      "context" : "Moreover, under high-rate dynamic mechanical loading, the heat generated by the mechanical work may not have sufficient time to be dissipated, and the local or global temperature rise could have somewhat influence on the diffusivity of the void [87].",
+      "startOffset" : 245,
+      "endOffset" : 249
+    }, {
+      "referenceID" : 85,
+      "context" : "The result is consistent with the experimental observations of the microstructural evolution of nanocrystalline cobalt [87].",
+      "startOffset" : 119,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 86,
+      "context" : "Since the diffusion measurements can be used as a tool to study the kinetics of GB migration [88], the MSD value of atoms within the GB-void core regionwas computed during their interaction to evaluate the effect of GB migration on void dissolution, as illustrated in Fig.",
+      "startOffset" : 93,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 52,
+      "context" : ", the uniform and regular movement of atoms that make up the structural units at GB [53,63,64].",
+      "startOffset" : 84,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 62,
+      "context" : ", the uniform and regular movement of atoms that make up the structural units at GB [53,63,64].",
+      "startOffset" : 84,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 63,
+      "context" : ", the uniform and regular movement of atoms that make up the structural units at GB [53,63,64].",
+      "startOffset" : 84,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 74,
+      "context" : "Compared to the compact arrangement of atoms in the perfect lattice structure, there is free volume involved in the structural units at the GB core region [75].",
+      "startOffset" : 155,
+      "endOffset" : 159
+    }, {
+      "referenceID" : 63,
+      "context" : "The new atomic configuration, which is indexed as b, has higher energy than the stable structural unit a [64], so we tentatively named it as the unstable structural unit to show the difference.",
+      "startOffset" : 105,
+      "endOffset" : 109
+    }, {
+      "referenceID" : 63,
+      "context" : "MD simulations have shown that the unstable structural unit b is a new equilibrium structure when vacancies were introduced to the stable structural unit a [64,89].",
+      "startOffset" : 156,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 87,
+      "context" : "MD simulations have shown that the unstable structural unit b is a new equilibrium structure when vacancies were introduced to the stable structural unit a [64,89].",
+      "startOffset" : 156,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 63,
+      "context" : "The migration mechanism of S5 (310) GB with multiple structural units at elevated temperature was presented in our previous study [64].",
+      "startOffset" : 130,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 52,
+      "context" : "182 [53,62], where the lower coupling factor represents the faster migration velocity of GB and the shorter GB-void interaction time.",
+      "startOffset" : 4,
+      "endOffset" : 11
+    }, {
+      "referenceID" : 61,
+      "context" : "182 [53,62], where the lower coupling factor represents the faster migration velocity of GB and the shorter GB-void interaction time.",
+      "startOffset" : 4,
+      "endOffset" : 11
+    } ],
+    "year" : 2019,
+    "abstractText" : "Understanding the interaction between void and grain boundary (GB) is important to the design of radiation resistant materials by GB engineering and to achieve high quality metallurgical diffusion joining. In this study, the interaction between nano-voids and GBs has been systematically investigated by molecular dynamics simulations. The bicrystal Cu sample was used throughout the work, and the dynamic GB-void interaction was achieved by GB migration under shear deformation. Both high-angle GBs (S5 (310) GB, S5 (210) GB) and low-angle GBs (S37 (750) GB, S61 (650) GB) were investigated, and the effect of void size and temperature on the simulation result was examined. The transition of the deformation mechanism from GB migration to dislocation propagation was observed during the interaction between voids and high-angle GBs at low temperature (T1⁄4 10 K). At higher temperature (T1⁄4 300 and 600 K), the migrating GB can be pinned to voids, freely traversed voids, or dissolved voids in the process of their interaction. The void-drag effect on GB motion was analyzed based on the Zener-like equation, which indicates that the retarding pressure applied to the migrating GB by a void is closely related to the surface area of the void, the degree of contact between GB and void, and GB energy. By investigating the thermal stability of a void at the stationary GB, it was found that the dissolution of voids at a moving GB cannot be attributed solely to the thermal diffusion mechanism. The dynamic migration of high-angle GBs can significantly accelerate the dissolution time of the void. Atomistic analysis indicated that the migrating GB rearranged the atoms on the void surface by the collective motion of structural units, and the GB structural phase transformation provided an efficient diffusion channel for transporting the vacancies. The low-angle GBs show a reduced ability to dissolve the voids than the highangle GBs, which can be ascribed to their low GB energy and diffusion coefficient, the fast GB migration velocity, and the discrete GB structure. © 2019 Acta Materialia Inc. Published by Elsevier Ltd. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

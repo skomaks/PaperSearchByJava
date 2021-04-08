@@ -1,0 +1,873 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_91dcba8fac081cfde31b16595196a6bd_sahmani2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Nonlocal strain gradient nonlinear resonance of bi-directional functionally graded composite micro/nano-beams under periodic soft excitation",
+    "authors" : [ "Saeid Sahmania", "Babak Safaeib" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nThin-Walled Structures\njournal homepage: www.elsevier.com/locate/tws\nFull length article\nNonlocal strain gradient nonlinear resonance of bi-directional functionally graded composite micro/nano-beams under periodic soft excitation Saeid Sahmania, Babak Safaeib,* aMechanical Rotating Equipment Department, Niroo Research Institute (NRI), Tehran 14665-517, Iran bMechanical Engineering Department, Tsinghua University, Beijing 100084, China\nA R T I C L E I N F O\nKeywords: Microstructures Inhomogeneous materials Nonlinear resonance Functionally graded composites Numerical analysis\nA B S T R A C T\nWith the aid of advanced design techniques, functionally graded materials as promising new materials can be fabricated into various micro/nano-structures to acquire stronger mechanical performance. In this work, the size-dependent nonlinear primary resonance of periodic soft excited micro/nano-beams made of bi-directional functionally graded materials (2D-FGMs) is studied. To accomplish this end, the nonlocal strain gradient theory of elasticity is utilized within the framework of the refined hyperbolic shear deformation beam theory to construct a size-dependent beam model. On the basis of the variational approach using the principle of Hamilton, the non-classical differential equations of motion are achieved. Thereafter, a discretization scheme based numerical solving process via generalized differential quadrature method (GDQM) together with the pseudo-arclength continuation technique, the nonlocal strain gradient frequency response and amplitude response associated with the nonlinear primary resonance of 2D-FGM micro/nano-beams with different boundary conditions are obtained. It is displayed that the nonlocal size dependency makes a reduction in the oscillation amplitudes associated with both of the bifurcation points, but the strain gradient size effect causes to increase them. These patterns are more significant for the second bifurcation point and for the simply supported-simply supported boundary conditions in comparison with the clamped-clamped ones. Also, it is observed that by increasing the value of both of the axial and lateral material property gradient indexes, the peak of the oscillation amplitude and its associated excitation frequency increase.\n1. Introduction\nBased upon the inception of manufacturing functionally graded composite materials, it is possible to replace the sharp interfaces existed in traditional composites with gradually changing ones. The growing interest in using this type of composite materials has led to several studies about mechanical responses of structures made of various types of functionally graded materials (FGMs). Liu et al. [1] proposed an integrated strategy to fabricate FGMs via additive manufacturing technology for design of porous structures exploiting topology optimization and stereolithography. Bahreinizad et al. [2] reported a numerical analysis on the application of FGMs for reduction of dogboning in bioabsorbable stents. El-Hadad et al. [3] developed an innovative technique of casting for FGM biomaterials for dental implantology using centrifugal casting method. Safaei et al. [4] anticipated the influence of thermal gradient load on the thermos-elastic natural frequencies of FGM nanocomposite plates. Malakooti et al. [5] enhanced durability and structural integrity of nanogenerators and nanosensors\nusing nanowire based FGM interfaces. Safaei et al. [6] investigated the influence of loading frequency on the dynamic behavior of FGM nanocomposite plates subjected to periodic thermos-mechanical loading conditions. Zuback et al. [7] investigated the performance of piezoelectric energy harvesters which utilize a FGM nanowire interface rather than a discrete film interface.\nSeveral biological and engineering applications of bi-directional functionally graded materials (2D-FGMs) have been proposed in recent years. For example, Shariyat and Jafari [8] analyzed the nonlinear lowvelocity impact of 2D-FGM circular plates subjected to radial preloads. In order to provide structures with synthetic biomaterials, which can resemble the natural biomaterials, Enab [9] investigated the performance improvement of total knee replacement joint with the aid of using 2D-FGM. Shah and Panda [10] studied the influence of bimodulus behavior of adhesive and curing stresses on interface delamination fracture characteristics of tee joints made of 2D-FGMs.\nIn recent years, with the aid of rapid advancements in materials science and technology, several investigation have been carried out to\nhttps://doi.org/10.1016/j.tws.2019.106226 Received 17 March 2019; Received in revised form 15 May 2019; Accepted 29 May 2019\n* Corresponding author. E-mail address: saf16@mails.tsignhua.edu.cn (B. Safaei).\nThin-Walled Structures 143 (2019) 106226\nAvailable online 14 June 2019 0263-8231/ © 2019 Elsevier Ltd. All rights reserved.\nT\npredict the size-dependent mechanical behavior of micro/nano-structures made of FGMs. For instance, Ke et al. [11] predicted bending, buckling and free vibrations of FGM annular microplates using the modified couple stress elasticity theory within the framework of the Mindlin plate theory. Zhang et al. [12] proposed a novel size-dependent FGM curved microbeam model based on the strain gradient theory of elasticity. Ke et al. [13] constructed a modified couple stress plate model for axisymmetric postbuckling analysis of FGM annular microplates considering the physical neutral plane. Rahaeifard [14] reported the size-dependent torsion of FGM microbars with the aid of the modified couple stress elasticity theory. Akgoz and Civalek [15] constructed a non-classical sinusoidal plate model based upon the strain gradient theory of elasticity without any shear correction factor. Shojaeian and Tadi Beni [16] investigated the electromechanical buckling behavior of FGM electrostatic nano-bridges on the basis of the modified couple stress theory. Ashoori et al. [17] analyzed the size-dependent nonlinear bending and snap-through phenomenon in FGM piezoelectric plates using modified couple stress theory of elasticity. Canadija et al. [18] extended the Euler-Bernoulli beam formulation using the nonlocal strain gradient theory within the nonhomogenous temperature field setting. Sahmani and Aghdam [19–22] adopted the surface elasticity theory with the classical shell theory to capture surface stress effect on the nonlinear instability of hybrid FGM nanoshells. Thai et al. [23] introduced a robust numerical model to take size effect into mechanical properties of FGM microplates via the modified strain gradient elasticity theory and isogeometric analysis. Maleki et al. [24] examined the size-dependent strain energy rate release rate for FGM Euler-Bernoulli nanobeams modeled via the modified couple stress theory of elasticity. Acierno et al. [25] studied polypropylene fibers containing singlewalled carbon nanotubes in terms of the experimental mechanical properties as well as numerical nonlocal models. Sahmani and Aghdam [26], Sahmani and Fattahi [27,28] studied the effect of surface stress size dependency on the buckling and postbuckling of FGM nanoshells including the geometrical imperfection. Deng et al. [29] employed the nonlocal theory of elasticity for the size-dependent analysis of free vibrations of multi-span viscoelastic FGM nanopipes conveying fluid. Liu et al. [30] investigated the nonlocal vibration and biaxial buckling characteristics of double-viscoelastic-FGM-nanoplate system based on the Eringen's nonlocality and Kelvin model. Fang et al. [31] explored the size-dependent wave propagation in viscoelastic cylindrical nanoshells. Sahmani and Fattahi [32–35] developed nonlocal models with calibrated value of the nonlocal parameter for size-dependent mechanical behavior of nanostructures. Trinh et al. [36] analyzed the sizedependent buckling and free vibration responses of FGM sandwich microplates based upon the modified couple stress theory of elasticity. Yang et al. [37] developed a nonlocal Euler-Bernoulli beam model for nonlinear bending, buckling and vibration behaviors of nanobeams made of 2D-FGM. Sarafraz et al. [38] introduced a surface elastic beam model to analyze the nonlinear secondary resonance of nanobeams under hard excitations.\nThrough several studies applying the nonlocal theory of elasticity, misleading information because of only accounting for softening mechanical behaviors of nanostructures led to suffer researchers. On the contrary, the strain gradient elasticity theory only takes hardening mechanical responses of small scale structures. As a result, Lim et al. [39] concluded that the nonlocal parameter and strain gradient length scale parameter describe different features of material properties at micro/nano-scale. So, they were motivated to combine the two elasticity theories in a unified theory namely as the nonlocal strain gradient elasticity.\nAfterwards, several investigations have been performed in which the nonlocal strain gradient elasticity has put to use to capture size dependency in mechanical responses of micro/nano-structures. For instance, Li and Hu [40] employed the nonlocal strain gradient theory of elasticity to analyze the nonlinear buckling characteristics of EulerBernoulli nanobeams. Additionally, they predicted the nonlocal strain\ngradient frequency of wave motion on nanotubes conveying fluid [41]. Yang et al. [42] anticipated the critical nonlocal strain gradient voltages associated with the pull-in instability of functionally graded nano-actuators. Simsek [43] constructed a nonlocal strain gradient beam model for nonlinear vibrations of functionally graded Euler-Bernoulli nanobeams. Farajpour et al. [44] examined buckling behavior of orthotropic nonlocal strain gradient plates using a new size-dependent plate model. Tang et al. [45] analyzed the nonlocal strain gradient wave propagation in a viscoelastic nanotube. With the aid of the strain gradient elasticity theory, Sahmani and Aghdam [46–49] studied the linear and nonlinear vibrations of supramolecular lipid micro/nano-tubules within the both prebuckling and postbuckling domains. Li et al. [50] anticipated the size-dependent bending, buckling and free vibration characteristics of axially functionally graded nonlocal strain gradient beams. Radwan and Sobhy [51] explored the influences of nonlocality and strain gradient size dependency on the dynamic deformation of orthotropic viscoelastic graphene sheets subjected to a time harmonic thermal loading condition. Sahmani and Aghdam [52–54] reported analytical expressions for the nonlocal strain gradient nonlinear buckling and postbuckling behavior of hydrostatic pressurized multilayer FGM nanoshells. Lu et al. [55] proposed a unified size-dependent beam model including various higher-order shear deformation beam theories to analyze the simultaneous effects of nonlocal stress and strain gradient. Apuzzo et al. [56] predicted the size-dependent axial and flexural free vibrations of Bernoulli-Euler nanobeams on the basis of the modified nonlocal strain gradient model of elasticity. Sahmani et al. [57] used the nonlocal strain gradient elasticity to capture size effects on the nonlinear secondary resonance of micro/nano-beams made of nanoporous biomaterials. Wang et al. [58] introduced a nonlocal strain gradient beam model for complex modal analysis for vibrational response of axially moving beams at nanoscale. Sahmani and Safaei [59] introduced a nonlocal strain gradient beam model for nonlinear free vibration response of 2D-FGM micro/nano-beams. Apuzzo et al. [60] examined the nonlinear bending behavior of FGM inflected nanobeams on the basis of the modified nonlocal strain gradient theory of elasticity. Hu et al. [61] anticipated the nonlocal strain gradient nonlinear vibrations of imperfect FGM sandwich micro/nano-beams. Sahmani et al. [62–64] put the nonlocal strain gradient elasticity to use for nonlinear free and forced vibrations of micro/nano-beams made of FGM or porous materials.\nThe main aim of the current work is to analyze the nonlinear primary resonance of a periodic soft excited 2D-FGM micro/nano-beam in the presence of the nonlocality and strain gradient size dependencies. For this end, the nonlocal strain gradient theory of elasticity is applied to the refined hyperbolic shear deformation beam theory to construct an efficient size-dependent beam model. The Hamilton's principle is put to use to derive the non-classical differential equations of motion. After that, a discretization scheme based numerical solution methodology via the generalized differential quadrature method (GDQM) together with the pseudo-arclength continuation technique is employed to solve the size-dependent nonlinear problem.\n2. Nonlocal strain gradient 2D-FGM beam model\nIn Fig. 1, a micro/nano-beam made of the 2D-FGM with length L, width b, and thickness h is represented schematically. Due to the continuous grading of the material properties of a 2D-FGM along both of the axial and lateral directions, the Young modulus (E), Poisson's ratio ( ), and mass density ( ) of the micro/nano-beam can be defined as\nE x z E V x z E V x z( , ) ( , ) (1 ( , ))c c m c= + (1a)\nx z V x z V x z( , ) ( , ) (1 ( , ))c c m c= + (1b)\nx z V x z V x z( , ) ( , ) (1 ( , ))c c m c= + (1c)\nwhereVc is the ceramic constituent volume fraction, and the subscripts c\nandm represent, respectively, the ceramic phase and metal phase of the 2D-FGM. In the current investigation, it is assumed that the ceramic constituent volume fraction of the 2D-FGM is distributed as below\nV x z x z x L\nz h ( , ) ( ) ( ) 1 2c 1 2 = = +F G\n(2)\nin which 1 and 2 stand for the functionally graded material property gradient index in the axial and lateral directions, respectively. In Fig. 2, the distribution of the Young modulus is depicted corresponding to different values of the material property gradient indexes.\nIt is obvious that the material combination and properties for a 2D-\nFGM are non-symmetric about the geometric mid-plane of the structure. Consequently, the associated physical neutral plane deviates from the mid-plane counterpart. So, it is defined that z z z= in which z denotes the value of deviation of the physical neutral plane from z-axis that can be extracted as below [65].\nz E x z zdz\nE x z dz\n( , ) ( , ) h h\nh h\n/2 /2 /2 /2 f f f f = (3)\nOn the basis of the hyperbolic shear deformation beam theory, the displacement components of a 2D-FGM micro/nano-beam can be given\nas\nx z t u x t z w x t x\nz h z h x t( , , ) ( , ) ( , ) cosh 1 2 sinh ( , )x = +B\n(4a)\nx z t w x t( , , ) ( , )z =B (4b)\nwhere u and w are, respectively, the displacement components of the 2D-FGM micro/nano-beam along x- and z-axis. Additionally, denotes the rotation with respect to the cross section of the micro/nano-beam at the physical neutral plane normal about y-axis.\nAs a result, the non-zero strain components can be achieved as\n( )( ) ( ) ( ) ( ) ( ) z z hcosh sinh cosh cosh xx xz u x w x w x z h x z h 1 2 2 1 2 1 2 2 2 = + +\n(5)\nAccording to the previous investigations, each of the nonlocal elasticity theory and strain gradient elasticity theory has no capability to take size effects into consideration comprehensively. The nonlocal theory cannot take the higher-order stresses into account. Also, the strain gradient theory has the capability to consider only local higher order strain gradients. Motivated by this fact, Lim et al. [39] proposed a combination of these theories namely as nonlocal strain gradient elasticity theory which assess small scale effects more reasonably. Accordingly, the total nonlocal strain gradient stress tensor for a beamtype structure can be defined as below [39].\nx * xx xx xx= (6a)\nx * xz xz xz= (6b)\nwhere and * represent the stress and higher-order stress tensors, respectively.\nIn accordance with the method of Eringen, the constitutive equation relevant to the total nonlocal strain gradient stress tensor of a 2D-FGM micro/nano-beam can be expressed as\nµ\nµ\nQ x z Q x z\nl\nl\n( , ) 0 0 ( , ) xx x xz x xx x xz x\n2\n2\n11\n44\n2\n2\nxx\nxz\nxx\nxz\n2 2 2 2\n2 2 2 2 = (7)\nin which\nQ x z E x z x z Q x z E x z x z ( , ) ( , ) 1 ( , ) , ( , ) ( , ) 2(1 ( , ))11 2 44 = = + (8)\nand µ and l in order are the nonlocal parameter and strain gradient parameter. Thereafter, the nonlocal strain gradient constitutive relations for a hyperbolic shear deformable 2D-FGM micro/nano-beam can be written as\nTherefore, within the framework of the nonlocal strain gradient hyperbolic shear deformable beam model, the total strain energy of a 2D-FGM micro/nano-beam can be given as\nx dSdx\nN u x\nw x\nM w x R x Q dx\n1 2\n*\n1 2\n1 2\ns\nL\nS ij ij ij\nij\nL\nxx xx xx x\n0\n0\n2 2\n2\n= +\n= + + +\n(10)\nwhere, S denotes the cross-sectional area of the 2D-FGM micro/nanobeam. Also, the stress resultants can be achieved in the following forms\n( ) ( ) ( )( )\nN µ\nA l B l\nC l\nxx N x\nu x\nw x\nu x\nw x w x\nw x\nw x\nw x\nx x\n2\n11 1 2\n2 2 2\n11 2\n11 2\nxx2 2\n3 3\n3 3\n2 2\n2 2\n4 4\n3 3\n=\n+ + + + +\n+\n( )\n( ) ( )\n( ) M µ B l D\nl\nF l\nxx M x\nu x\nw x\nu x\nw x w x\nw x\nw x\nw x\nx x\n2\n11 1 2\n2 2 2\n11\n2\n11 2\nxx2 2\n3 3\n3 3\n2 2\n2 2\n4 4\n3 3\n= + + + +\n+ +\n(11)\n( )\n( ) ( ) ( )R µ C l F l\nG l\nxx R x\nu x\nw x\nu x\nw x w x\nw x\nw x\nw x\nx x\n2 11\n1 2\n2 2 2\n11\n2\n11 2\nxx2 2\n3 3\n3 3\n2 2\n2 2\n4 4\n3 3\n= + + + +\n+\n+\nQ µ Q x A l xx x2 2 2 44 2 2 2=\nin which\nN M R b z z h z h dz{ , , } 1, , cosh 1 2 sinhxx xx xx h\nh\nxx\n2\n2 =\n(12)\nQ b z h dzcosh 1 2\ncoshx z\nz\nxz k\nk\n1\n=\nand\nA x B x C x\nb Q x z z z h z h dz\n{ ( ), ( ), ( )}\n( , ) 1, , cosh 1 2 sinh h\nh 11 11 11\n2\n2\n11=\n( ) ( ) ( )\n( ) ( )\n( ) ( )\n( ) ( )\nµ\nµ\nQ x z Q x z\nz z h\nl z z h\n( , ) 0 0 ( , )\ncosh sinh\ncosh cosh\ncosh sinh\ncosh cosh\nxx xx\nx\nxz xz\nx\nu x\nw x\nw x\nz h x\nz h\nu x w x w x\nw x\nw x\nz h x\nz h x\n2 2 2 2 2 2\n11 44\n1 2\n2 2 2\n1 2\n1 2\n2\n3 3\n3 3\n2 2 2 4 4\n1 2\n3 3\n1 2\n2 2\n= + +\n+ + +\n(9)\nD x F x G x\nb Q x z z z z h\nz h z h z h\ndz\n{ ( ), ( ), ( )}\n( , ) , cosh 1 2\nsinh , cosh 1 2\nsinh\nh\nh 11 11 11\n2\n2\n11 2 2\n2\n=\nA x b Q x z z h dz( ) ( , ) cosh 1 2 cosh h\nh\n44\n2\n2\n44= (13)\nFurthermore, the kinetic energy of a 2D-FGM micro/nano-beam modeled via the nonlocal strain gradient hyperbolic shear deformable beam model can be presented as\n{ } ( ) ( )\n( )\n( ) ( )\n( )\nx z dSdx\nI I I I I I I dx\n( , )\n2 2 2\nT\nL\nS t t\nL u t\nu t w x t\nu t t\nw x t\nw x t t\nt w t\n1 2\n0\n2 2\n1 2\n0\n0 2\n1 2 3 2\n4\n5 2 0 2\nx z\n2 2 2\n= +\n= + + +\n+\nB B\n(14)\nwhere\nI x I x I x b x z z z h z h dz{ ( ), ( ), ( )} ( , ) 1, , cosh 1 2 sinh h\nh\n0 1 2\n2\n2 =\n(15)\nI x I x I x\nb x z z z z h\nz h z h z h\ndz\n{ ( ), ( ), ( )}\n( , ) , cosh 1 2\nsinh , cosh 1 2\nsinh\nh\nh 3 4 5\n2\n2 2 2\n2\n=\nAdditionally, the work done by the transverse force q can be defined as follows\nq x t wdx( , )P L\n0\n= (16)\nThereby, by using the Hamilton's principle, the non-classical governing differential equations of motion in terms of the stress resultants can be derived as\nN x\nI u t I w x t I t xx 0\n2 2 1 3 2 2 2 2= + (17a)\n( )N q I I I I I I I M x x xx w x\nw t\nu x t\nu t\nw x t w x t x t t0 1 1 3 3 4 4\nxx2 2\n2 2\n3 2\n2 2\n4 2 2\n3 2\n3 2\n2 2\n+ +\n= + + + + (17b)\nR x\nQ I u t I w x t\nI t\nxx x 2\n2 2 4 3 2 5 2 2= + (17c)\nwhere the superscript denotes the x-derivative. The immovable boundary conditions are considered at the ends of the 2D-FGM micro/nano-beam. As a result, one will have\nu w0 , 0at x L at x L0, 0,= == =\nu N0 0xx= =\nw M x\nN w x 0 0xx xx= + = (18)\nR0 0xx= =\nAlso, for simply supported-simply supported 2D-FGM micro/nanobeam, one will have\nu w M R x L0 at 0,xx xx= = = = =\nFor clamped-clamped 2D-FGM micro/nano-beam, one will have\nu w w x x L0 at 0,= = = = =\nIt should be noted that the integral strain gradient theory can be formulated in differential form by introducing suitable constitutive boundary conditions, as introduced by Barretta et al. [66].\nAfterwards, substitution of equation (11) in equation (16) leads to the nonlinear size-dependent equations of motion as follows\n( ) ( )\n( ) ( )\n( ) ( )\n( )A l A l\nB l B l C l\nC l\nI µ I µ I I µ I µ I\nI µ I µ I\n3\nu x\nw x\nu x\nw x w x\nw x\nu x\nw x w x\nu x\nw x w x\nw x w x\nw x\nw x\nw x\nw x x x\nx x\nu t\nu x t\nu t\nw x t\nw x t\nw x t\nt x t t\n11 1 2\n2 2 2\n11 2\n11 2\n11 2\n11 2\n11 2\n0 2 0 2 0 1 2 1 2 1\n2 2 2 2 2\n3 3\n3 3\n2 2\n2 2\n2 2\n4 4\n2 2 3 3\n4 4\n2 2\n4 4\n3 3\n5 5\n3 3\n2 2\n4 4\n2 2\n4 2 2\n2 2\n3 2\n5 3 2\n3 2\n2 2\n4 2 2\n2 2\n+ + +\n+ + + +\n+ + + + +\n+\n= + +\n+ (19a)\n( ) ( )\n( ) ( ) ( )\n( ) ( )\n( )B l B l\nD l D l F l\nF l A l A l A µ A µ A\nµ l A µ l A B l B l B µ B µ B µ l B µ l B C l C l C µ C µ C µ l C µ l C\nI µ I µ I I µ I µ I\nI µ I µ I I µ I µ I\nI µ I µ I I µ I µ I\nI µ I µ I q µ\n3 4\nu x\nw x\nu x w x w x\nw x\nu x\nw x\nw x w x\nu x\nw x\nw x w x w x w x\nw x\nw x\nw x\nw x x x\nx x\nw t\nw x t\nw t\nu x t\nu x t\nu x t\nu t\nu x t\nu t\nw x t\nw x t\nw x t\nw x t\nw x t\nw x t x t x t x t\nt x t t q x\n11 1 2\n2 2 3 3\n3 3\n2 2\n2\n11 3 3 2 2 3 3 2 5 5 3 3 2 2 2 4 4\n5 5\n11 2 2 2 4 4 11 4 4 2 6 6 11 2 3 3\n11 3 3 2 5 5 11 1 2 11 2 2 11 1 2 11 3 2 11 2\n2 2 11 4 2 2 11 3 11 5 2 11 6 2 11 5 2 11 7 2 11 6 2 2 11 8 2 2 11 7 11 9 2 11 10 2 11 9 2 11 11 2 11 10 2 2 11 12 2 2 11 11 0 2 2 2 0 4 2 2 2 0 2 2 1 3 2 2 1 5 3 2 2 1 3 2\n1 2 2 2 1 4 2 2 2 1 2 2 3 4 2 2 2 3 6 4 2 2 3 4 2 2 3 3 2 2 3 5 3 2 2 3 3 2 4 3 2 2 4 5 3 2 2 4 3 2 4 2 2 2 4 4 2 2 2 4 2 2 2 2 2\n+ + +\n+ + + + + +\n+ + + + +\n+ +\n+ + + + + + +\n+ +\n= +\n+ + +\n+ +\n+ +\n(19b)\n( ) ( ) ( )\n( ) ( )\n( ) ( )\n( )C l C l\nF l F l G l\nG l A l\nI µ I µ I I µ I µ I\nI µ I µ I\n3\nu x\nw x\nu x\nw x w x\nw x\nu x\nw x w x\nu x\nw x w x\nw x w x\nw x\nw x\nw x\nw x x x\nx x x\nu t\nu x t\nu t\nw x t\nw x t\nw x t\nt x t t\n11 1 2\n2 2 2\n11 2\n11 2\n11 2\n11 2\n11 2\n44 2\n2 2 2 2 2 4 2 4 2 4\n5 2 5 2 5\n3 3\n3 3\n2 2\n2 2\n2 2\n4 4\n2 2 3 3\n4 4\n2 2\n4 4\n3 3\n5 5\n3 3\n2 2\n4 4\n2 2\n2 2\n4 2 2\n2 2\n3 2\n5 3 2\n3 2\n2 2\n4 2 2\n2 2\n+ + +\n+ + + +\n+ + + + +\n+\n= + +\n+ (19c)\nin which , , ,1 2 12… are defined in Appendix A.\n3. Numerical solution methodology based on an efficient discretization scheme\nIn order to perform the numerical solving process in a more general form, the following dimensionless parameters are taken into consideration\nX x L U u h W w h\nl L\nµ L\nh L , , , , , ,1 2= = = = = = =\nT t L A I\na a b c d f g\nA A A A B A h C A h D A h F A h G A h\n, { , , , , , , }\n, , , , , ,\n00 00 11 44 11 11 11 11 11\n11\n00\n44\n00\n11\n00\n11\n00\n11\n00 2\n11\n00 2\n11\n00 2\n=\n=\nI I I I I I I I I I h I I h I I h I I h I I h\nqL A h { , , , , , } , , , , , ,0 1 2 3 4 5 0 00 1 00 2 00 3 00 2 4 00 2 5 00 2\n2\n00 = =Q\n(20)\nwhere A E bhc00 = and I bhc00 = . As a consequence, the size-dependent nonlinear governing differential equations of motion can be rewritten in dimensionless form as below\n( ) ( )\n( ) ( ) ( ) ( )\n( )a a\nb b c\nc\nI I I I I I\nI I I\n3\nU X\nW X\nU X\nW X W X\nW X\nU X\nW X W X\nU X\nW X W X\nW X W X\nW X\nW X\nW X\nW X X X\nX X\nU T\nU X T\nU T\nW X T\nW X T\nW X T\nT X T T\n11 2 2 1 2 2\n11 1 2\n11 1 2\n11 1 2\n11 1 2\n11 1 2\n0 2 2 0 2 2 0 1 2 2 1 2 2 1\n2 2 2 2 2 2 2\n3 3\n3 3\n2 2\n2 2\n2 2\n4 4\n2 2 3 3\n4 4\n2 2\n4 4\n3 3\n5 5\n3 3\n2 2\n4 4\n2 2\n4 2 2\n2 2\n3 2\n5 3 2\n3 2\n2 2\n4 2 2\n2 2\n+ + +\n+ + + +\n+\n+\n= + +\n+\n(2a)\n( ) ( ) ( )\n( ) ( ) ( ) ( )\n( )b b\nd d f\nf a a a a a\na a b b b b\nb b b c c c c\nc c c\nI I I I I I\nI I I I I\nI I I I I\nI I I I I\n3 4\n˜ ˜ ˜ ˜ ˜\n˜ ˜ ˜ ˜ ˜ ˜\n˜ ˜ ˜ ˜ ˜ ˜\n˜ ˜ ˜ ˜\nU X\nW X\nU X\nW X W X\nW X\nU X\nW X\nW X W X\nU X\nW X\nW X W X\nW X W X\nW X\nW X\nW X\nW X X X\nX X\nW T\nW X T\nW T\nU X T\nU X T\nU X T\nU T\nU X T\nU T\nW X T\nW X T\nW X T\nW X T\nW X T\nW X T X T\nX T X T T X T T\nX\n11 2 2 1 2\n2\n11 2\n1 2\n2\n11 1 2\n11 1 2\n11 1 2\n11 1 2\n11 1 1 2 11 2 1 2 11 1 2 2 11 3 2 2 11 2\n2 2 1 2 11 4 2 2 1 2 11 3 11 5 1 2 11 6 1 2 11 5 2 2 11 7 2 2\n11 6 2 2 1 2 11 8 2 2 1 2 11 7 11 9 1 2 11 10 1 2 11 9 2 2 11 11 2 2 11 10 2 2 1 2 11 12 2 2 1 2 11 11\n0 2 2 0 2 2 0 1 2 2 1 2 2 1\n1 2 2 1 2 2 1 3 2 2 3\n2 2 3 3 2 2 3 2 2 3 4\n2 2 4 2 2 4 4 2 2 4 2 2 4\n2 2\n3 3\n3 3\n2 2\n3 3\n2 2\n3 3\n5 5\n3 3\n2 2 4 4\n5 5\n2 2\n4 4\n4 4\n6 6\n3 3\n3 3\n5 5\n2 2\n4 2 2\n2 2\n3 2\n5 3 2\n3 2\n2 2\n4 2 2\n2 2\n4 2 2\n6 4 2\n4 2 2\n3 2\n5 3 2\n3 2\n3 2\n5 3 2\n3 2\n2 2\n4 2 2\n2 2\n2 2\n+ + +\n+ + + + + +\n+\n+ +\n+ + + + + +\n+\n+ +\n= +\n+ +\n+ + +\n+\n+\nQ\nQ\n21b\nwhere ˜ , ˜ , , ˜1 2 12… are defined in Appendix A. In recent years, various solution methodologies have been employed to analyze mechanical behavior of structures such as perturbation technique [67–70], isogeometric analysis [71–73] and non-uniform rational B-spline [74–78]. Herein, in order to capture the nonlinear nonlocal strain gradient resonance characteristics of a 2D-FGM micro/ nano-beam, a solving process on the basis of the GDQM in conjunction with the Galerkin technique is put to use [79–82]. Accordingly, based upon the Chebyshev-Gauss-Lobatto scheme, a set of mesh points within\nX domain can be obtained as\nX i n i n1 2 1 cos 1 , 1,2,3, ,i = = … (22)\nin which n represents the total number of the mesh points. Within the framework of the GDQM, the rth order derivative of a continues function s X( ) associated with a given point Xi can be introduced as below\nd dX s X s X( ) ( ) r\nr i j\nn\nij r\nj 1 ( )= = D (23)\nwhere ij r( )D stands for the weighting coefficients which can be derived as\nr i j n\ni r n i j n\nr n i j n\n1 , , 1,2,3, ,\n2,3,4, , 1 , , 1,2,3, ,\n1,2,3, , 1 , , 1,2,3, ,\nij r\nX X\nX X X X\nij ii r\nX X\ni i j n ij r\n( )\n( )\n( ) ( )\n(1) ( 1) ( )\n1, ( )\nj j i n i j\ni j i i j n j i\nij r i j\n1,\n1,\n( 1) =\n= = …\n= … = …\n= … = …= =\n=\n=\nD D D\nD\nD\n(24)\nMoreover, the following vectors are taken into consideration\nU U U\nU\nW W W\nW\nU W, ,\nn n n\n1\n2\n3\n1\n2\n3\n1\n2\n3= = =\n(25)\nAs a result, the discretized for of the size-dependent nonlinear governing equations of motion can be written as given in Appendix B.\nIn a similar way, the boundary conditions at the two immovable ends of a 2D-FGM micro/nano-beam can be discretized. For example, the clamped boundary conditions can be expressed as\nU U W W W W0 , 0 , 0 , 0n n i in n n1 1 1(1) 1 (1) 1= = = = = = = =D D (26)\nHowever, this point should be noted that, Zaera et al. [83] uncovered recently that in general form, it is not possible to satisfy simultaneously the required boundary conditions for the nonlocal strain gradient theory of elasticity, the formulated problem via this theory has no solution.\nAlso, the unknown dynamic displacement vector P is supposed in the following form\nP U W\nn\nT\nT\nT 3 = × (27)\nIn order to continue the solution methodology, the variable matrix P is expressed separately as below\nX T X TP g( , ) ( ) ( )= (28)\nBy inserting equation (28) in the discretized governing differential equations given in Appendix B, one will have\nTM g g g¨ cos( )L N+ + + = (29)\nwhere M, , L and N in order denote the mass, damping, linear and nonlinear matrices. Also, is the vectorized form of the distributed load.\nThereafter, with the aid of the Galerkin technique, the Duffing type equation of motion relevant to the forced oscillations of a 2D-FGM micro/nano-beam can be extracted as\nTMg g g gˆ ¨ ˆ ˆ ˆ ( ) ˆ cos( )L N 3+ + + = (30)\nin which\nM Mˆ , ˆ , ˆ L Ldiagonal diagonal diagonal T T T= = =\nˆ , ˆN Ndiagonal diagonal T T= = (31)\nIt should be noted that the expressions for X( ) corresponding to different boundary conditions are actually represent the associated linear vibrational mode shapes (eigenvectors) which can be obtained numerically for each type of boundary conditions.\nThrough definition of T T˜ = , equation (30) can be rewritten as\nTMg g g gˆ ¨ ˆ ˆ ˆ ( ) ˆ cos( ˜)L N2 3+ + + = (32)\nNow, in order to discretize the time domain, it is assumed that\nT i n i n˜ / 1,2,3, ,i t t= = … (33)\nwhere nt denotes the number of discrete points on the time domain, and is an even number.\nConsequently, it yields\nM G G G G Sˆ ( ) ˆ ( ) ˆ ˆ ( ) ˆL NT T2 (2) T (1) T 3+ + + =D D (34)\nin which G includes the first m discretized mode shapes (eigenvectors) relevant to the Galerkin technique as and\n[ ]T T TS cos( ˜ ) cos( ˜ ) cos( ˜ )nt1 2= (35)\nAlso, the time derivative operator corresponding to each order can be introduced explicitly in the following matrix forms\n( ) ( )where i j n\n0\n( 1) cot\n( 1) cot , 2,3, ,T ij\ni i i\nn\nij n j n j\nn\ni j ij\nt (1) (1)\n11 (1) 1 (1) 1 ( 1)\n(1) 1 ( 1 )\n( 1)( 1) (1) (1)\nt\nt t t\n=\n=\n=\n=\n=\n= … + +\n+ +\nD G\nG\nG\nG\nG G\n(36)\n( ) ( )\n( ) where\ni j n\n( 1) / 2 sin\n( 1) / 2 sin\n, 2,3, ,\nT ij\nn\ni i i\nn\nij n j n j\nn\ni j ij\nt\n(2) (2)\n11 (2) 1\n6 12\n1 (2) 1 2 ( 1)\n(2) 1 2 ( 1 )\n( 1)( 1) (2) (2)\nt\nt\nt t t\n2\n=\n= +\n=\n=\n=\n= …\n+ +\n+ +\nD G\nG\nG\nG\nG G\n(37)\nNow, by vectorization of matrices G and ˆ N [79–82], and using Kronecker product, the vectorized definition of equation (34) can be expressed as\nI I vec vecM G G S ( ( ˆ ) ( ˆ ) ( ˆ )) ( ) ( ˆ ( )) ( ˆ ) 0 t L N\nt\nT T 2 (2) (1) 3+ + +\n= D D\n(38)\nwhere It represents the identity matrix (zero order of the time derivative).\nFinally, the pseudo arc-length continuation technique [84] is utilized to solve equation (38) as a set of nonlinear equations.\n4. Numerical results and discussion\nIn this section, the size-dependent frequency response and amplitude response associated with the nonlinear forced oscillations of 2DFGM micro/nano-beams are presented corresponding to different\nvalues of the nonlocal and strain gradient parameters as well as various longitudinal and lateral material property indexes. The two phases of the 2D-FGM are selected as silicon for the ceramic part with E GPa210c = , 0.35c = , Kg m2400 /c 3= , and aluminum for the metallic part with E GPa70 ,m = 0.24m = , Kg m2700 /m 3= . Also, in all of the preceding numerical results, the geometrical properties of the micro/nano-beam are assumed as b h nm20= = and L h20 .=\nAt first, in order to check the validity of the presented numerical results, the terms related to the strain gradient size dependency are ignored and the fundamental linear natural frequency of an isotropic nonlocal nanobeam with simply supported boundary conditions are obtained and compared with those given by Reddy [85] using an exact solution corresponding to various values of the nonlocal parameter as given in Table 1. An excellent agreement is found which confirms the validity as well as the accuracy of developed numerical solution methodology.\nFigs. 3 and 4 illustrate the size-dependent frequency response of a harmonic excited 2D-FGM micro/nano-beam with different boundary conditions corresponding to various values of the nonlocal and strain gradient parameters, respectively. It can be observed that the nonlocality causes to increase the peak of the oscillation amplitude as well as the associated excitation frequency. However, the strain gradient size effect plays an opposite role and leads to reduce them. These observations may be related to this fact that the nonlocal size effect makes a reduction in the stiffness of a 2D-FGM micro/nano-beam which results in higher geometrical nonlinearity. On the other hand, the strain gradient size effect causes an increment in the stiffness of a 2D-FGM micro/nano-beam, so the associated nonlinear deformation decreases.\nIn Figs. 5 and 6, the size-dependent amplitude response of a harmonic excited 2D-FGM micro/nano-beam with different boundary conditions is shown corresponding to various values of the nonlocal and strain gradient parameters, respectively. It is demonstrated that the nonlocal size dependency makes a reduction in the oscillation amplitudes associated with both of the bifurcation points, but the strain gradient size effect causes to increase them. These patterns are more significant for the second bifurcation point and for the simply supported-simply supported (SS-SS) boundary conditions in comparison with the clamped-clamped (C-C) ones. Moreover, it is seen that the nonlocal and strain gradient size effects leads to, respectively, decrease and increase the value of the excitation frequency associated with the bifurcation points, but these patterns are more considerable for the first bifurcation point.\nIn Table 2, the nonlocal strain gradient natural frequencies of 2DFGM micro/nano-beams are given corresponding to different values of\nthe small scale parameter and various end supports. It is found that in the absence of the nonlocality, the increment in the natural frequency caused by the strain gradient size dependency is more than the\nq q q q q q q q qG [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]u nt u nt m u nt w nt w nt m w nt nt nt m nt1 1 2 1 1 1 1 2 1 1 1 1 2 1 1= × × × × × × × × ×\nreduction in the value of the natural frequency caused by the nonlocal size effect in the absence of the strain gradient size dependency. This prediction becomes more significant by changing the boundary conditions from SS-SS ones to C-C ones.\nFigs. 7 and 8 depict, respectively, the influence of the axial and lateral material property gradient indexes on the frequency response associated with the nonlinear primary resonance of 2D-FGM micro/ nano-beams. It is revealed that in the both cases, by moving from the\nceramic rich micro/nano-beam to the metal rich one, the peak of the oscillation amplitude and its associated excitation frequency increase. This anticipations are the same for SS-SS and C-C boundary conditions.\nIn Figs. 9 and 10, in order the influence of the axial and lateral property gradient indexes on the amplitude response associated with the nonlinear primary resonance of 2D-FGM micro/nano-beams is displayed. It can be seen that increasing the value of the axial or lateral material property gradient index leads to reduce the excitation amplitudes associated with the first and second bifurcation points, but this reduction is more prominent for the first one. Furthermore, an increment in the value of the axial or lateral material property gradient index, the oscillation amplitude at both of the bifurcation points decrease, but for the second one, the significance of this reduction is more than that of the first one.\nTabulated in Table 3 are the nonlocal strain gradient natural frequencies of 2D-FGM micro/nano-beams corresponding to various values of the axial and lateral material property gradient indexes and different boundary conditions. It is indicated that for lower values of 1 and 2, the reduction in the natural frequency caused by the lateral material property gradient index is more than that caused by the axial\nmaterial property gradient index. However, for higher values of 1 and 2, this pattern becomes vice versa. Also, it is observed that the type of the boundary conditions has no considerable effect on the significance of the influence of the axial and lateral material property gradient indexes on the vibrational response of 2D-FGM micro/nano-beams.\n5. Conclusion\nIn this investigation, the size-dependent nonlinear resonant dynamics response of harmonic excited 2D-FGM micro/nano-beams was studied. Accordingly, the nonlocal strain gradient theory of elasticity together with the von-Karman geometrical nonlinearity was implemented into the refined hyperbolic shear deformation beam theory. The variational principle of Hamilton was put to use to derive the nonclassical governing differential equations of motion. Thereafter, a numerical solution methodology using GDQM in conjunction with the pseudo-arclength continuation technique was employed to solve the size-dependent nonlinear problem.\nIt was seen that the nonlocality causes to increase the peak of the oscillation amplitude as well as the associated excitation frequency.\nHowever, the strain gradient size effect plays an opposite role and leads to reduce them. Additionally, it was revealed that the nonlocal size dependency makes a reduction in the oscillation amplitudes associated with both of the bifurcation points, but the strain gradient size effect causes to increase them. These patterns are more significant for the second bifurcation point and for SS-SS boundary conditions in comparison with the C-C ones. It was indicated that in the absence of the nonlocality, the increment in the natural frequency caused by the strain gradient size dependency is more than the reduction in the value of the natural frequency caused by the nonlocal size effect in the absence of the strain gradient size dependency.\nIt was observed, by moving from the ceramic rich micro/nano-beam to the metal rich one, the peak of the oscillation amplitude and its\nassociated excitation frequency increase. It was demonstrated that increasing the value of the axial or lateral material property gradient index leads to reduce the excitation amplitudes associated with the first and second bifurcation points, but this reduction is more prominent for the first one. Furthermore, an increment in the value of the axial or lateral material property gradient index, the oscillation amplitude at both of the bifurcation points decrease, but for the second one, the significance of this reduction is more than that of the first one. It was found that for lower values of 1 and 2, the reduction in the natural frequency caused by the lateral material property gradient index is more than that caused by the axial material property gradient index. However, for higher values of 1 and 2, this pattern becomes vice versa.\nAppendix A\nu x w x\nu x w x\nw x w x 3 21\n2\n2\n2\n2\n2\n2\n2 = + +\nu x w x\nu x w x\nw x w x w x\nw x\nw x w x 42 4 4 3 3 2 2 2 2 3 3 2 2 4 4 2 = + + + +\nu x w x\nu x w x\nu x w x\nu x w x\nw x\nw x w x w x\nw x w x 3 3 3 9 3 23\n4\n4\n3\n3\n2\n2\n2\n2\n3\n3\n4\n4\n2\n2\n3 2\n2\n3\n3\n4\n4\n2 = + + + + + +\nu x w x\nu x w x\nu x w x\nu x w x\nw x w x\nw x w x\nw x w x w x\nw x w x w x\nw x w x w x\nw x\nw x w x\nw x\n3 3 10 12 14 8 6\n2\n4 6\n6\n5\n5\n2\n2\n4\n4\n3\n3\n3\n3\n4\n4\n4\n4\n2\n2\n2 2\n2\n3\n3\n2 3\n3\n4\n4\n2\n2\n5\n5\n2\n2\n3\n3\n4\n4\n5\n5\n2 2\n2\n3\n= + + + + + + + +\n+ + +\nw x w x w x5\n3\n3\n2\n2\n2 = +\n(A1)\nw x w x\nw x w x6\n2\n2\n4\n4\n5\n5= +\nw x\nw x w x\nw x w x 3 47 3 3\n2 2\n2\n4\n4\n5\n5= + +\nw x\nw x w x\nw x w x\nw x w x 3 38 4 4\n2 3\n3\n5\n5\n2\n2\n6\n6\n7\n7= + + +\nw x x w x x9\n2\n2\n2\n2= +\nw x x w x x10\n2\n2\n3\n3\n4\n4= +\nw x x\nw x x\nw x x\nw x x 3 311 4 4 3 3 2 2 2 2 3 3 4 4= + + +\nw x x\nw x x\nw x x\nw x x 3 312 4 4 3 3 3 3 4 4 2 2 5 5 6 6= + + +\nThe dimensionless forms are as below:\nU X W X\nU X W X\nW X W X ˜ 3 21\n2\n2\n2\n2 2\n2\n2\n2 = + +\nU X W X\nU X W X\nW X W X W X\nW X\nW X W X ˜ 42 4 4 3 3 2 2 2 2 2 3 3 2 2 2 4 4 2 = + + + +\n( ) ( ) ˜ 3 3 3 9 U X W X U X W X U X W X U X W X W X W X W X W X W X W X 3 2 3 3 2 2 4 4 3 3 2 2 2 2 3 3 4 4 2 2 2 2 3 3 4 4 = + + +\n+ + + (A2)\n( ) ( ) ( ) ( )( )\n˜ 3 3\n10 12 14 8\n6 2\nU X W X\nU X W X\nU X W X\nU X W X\nW X W X\nW X W X\nW X W X W X\nW X W X W X\nW X W X W X\nW X\nW X W X\nW X\n4\n2\n2 2\n2 3\n6 6\n5 5 2 2\n4 4 3 3\n3 3 4 4\n4 4 2 2\n2 2 3 3\n3 3 4 4\n2 2 5 5\n2 2 3 3\n4 4\n5 5\n2 2\n= + + + +\n+ + + +\n+ + +\nW X W X\nW X ˜5 3 3 2 2 2 = +\nW X W X\nW X W X ˜6 2 2 4 4 5 5= +\nW X\nW X W X\nW X W X ˜ 3 47 3 3\n2 2\n2\n4\n4\n5\n5= + +\nW X\nW X W X\nW X W X\nW X W X ˜ 3 38 4 4\n2 3\n3\n5\n5\n2\n2\n6\n6\n7\n7= + + +\nW X X\nW X X ˜9 2 2 2 2= +\nW X X\nW X X ˜10 2 2 3 3 4 4= +\nW X X\nW X X\nW X X\nW X X ˜ 3 311 4 4 3 3 2 2 2 2 3 3 4 4= + + +\nW X X\nW X X\nW X X\nW X X ˜ 3 312 4 4 3 3 3 3 4 4 2 2 5 5 6 6= + + +\nAppendix B\nThe discretized form of the size-dependent nonlinear governing differential equations of motion can be expressed as below\na X U W W U W W W\nW\na X U W W U W W W W\nb X W W b X W W\nc X c X\nI X U I X U I X U I X W\nI X W I X W I X I X\nI X\n( )\n( ) 3\n( ) ( )\n( ) ( )\n( ) ¨ ( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨\nj n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j\ni j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j j n ij j j n ij j i j n ij j j n ij j\nj n ij j j n ij j j n ij j i j n ij j j n ij j\ni i i j n ij j j n ij j i i j n ij j\ni j n ij j j n ij j j n ij j i i i j n ij j\nj n ij j i\n1 (1) 11 1 (1)\n2 1 (1)\n1 (1)\n1 2\n1 (3)\n1 (1)\n1 (3)\n1 (2)\n1 (2)\n11 1 (2)\n1 (1)\n1 (2)\n1 2\n1 (4)\n1 (2)\n1 (3)\n1 (1)\n1 (4)\n1 (1) 11 1 (2)\n1 2\n1 (4)\n11 1 (3)\n1 2\n1 (5)\n1 (1) 11 1 (1)\n1 2\n1 (3)\n11 1 (2)\n1 2\n1 (4)\n0 2 2 0 1 (2)\n2 2\n1 (2) 0 1 1 (1)\n2 2 1 1 (3)\n2 2\n1 (2) 1 1 (1)\n1 2 2 1 1 (2)\n2 2\n1 (2) 0\n° + ° + ° +\n°\n+ ° + ° + ° + °\n° °\n+ ° + °\n= ° ° ° °\n+ ° + ° + ° °\n°\n= = = = = = = =\n=\n= = = = = = = =\n= = = = =\n= = = = =\n= = =\n= = = =\n=\nD D D D D D D D\nD\nD D D D D D D D\nD D D D D\nD D D D D\nD D D\nD D D D\nD\n(B1)\nb X U W W U W W W\nW\nb X U W W W W\nU W W W W W W\nd X W W\nd X W W f X\nf\na a a a a\na a b b b b b b b c c c c c c c\nI X W I X W I X W I X U\nI X U I X U I X U\nI X U I X U I X W\nI X W I X W I X W\nI X W I X W\nI X I X I X\nI X I X I X\n( )\n( )\n3 4\n( )\n( ) ( )\n*\n( ) ¨ ( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨ ( ) ¨\nj n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j\ni j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j j n ij j j n ij j\ni j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j j n ij j\ni i i j n ij j j n ij j i i j n ij j\ni j n ij j j n ij j j n ij j j n ij j i\nj n ij j j n ij j j n ij j i i j n ij j\ni j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j j n ij j j n ij j j n ij j\ni j n ij j i j n ij j j n ij j j n ij j\nj n ij j i j n ij j j n ij j j n ij j i\n1 (2) 11 1 (1)\n2 1 (1)\n1 (1)\n1 2\n1 (3)\n1 (1)\n1 (3)\n1 (2)\n1 (2)\n11 1 (2)\n1 (2)\n1 (2)\n1 (1)\n1 (3)\n1 2\n1 (5)\n1 (3)\n1 (3)\n1 (2)\n1 (4)\n1 (1)\n1 (5)\n1 (2) 11 1 (2)\n1 2\n1 (4)\n11 1 (4)\n1 2\n1 (6)\n1 (2) 11 1 (1)\n1 2\n1 (3)\n11 1 (3)\n1 2\n1 (5)\n11 1 1 2 11 2 1 2 11 1 2 2 11 3 2 2 11 2 2 2 1 2 11 4 2 2 1 2 11 3 11 5 1 2 11 6 1 2 11 5 2 2 11 7 2 2 11 6 2 2 1 2 11 8 2 2 1 2 11 7 11 9 1 2 11 10 1 2 11 9 2 2 11 11 2 2 11 10 2 2 1 2 11 12 2 2 1 2 11 11\n0 2 2 0 1 (2)\n2 2\n1 (2) 0 1 1 (1)\n2 2 1 1 (3)\n2 2\n1 (2) 1 1 (1)\n1 (1) 1\n2 2\n1 (1) 1 1 (2)\n2 2\n1 (3) 1 3 1 (2)\n2 2 3 1 (4)\n2 2\n1 (2) 3 1 (2)\n1 (1) 3 1 (1)\n2 2\n1 (1) 3 1 (3)\n2 2\n1 (3) 3 1 (1)\n4 1 (1)\n2 2 4 1 (3)\n2 2\n1 (2) 4 1 (1)\n1 (1) 4 2 2\n1 (1) 4 1 (2)\n2 2\n1 (3) 4\n° + ° + ° +\n°\n+ ° + ° + °\n+ ° + ° + °\n°\n° + °\n+\n+\n+ + + + + + + + +\n= ° ° ° + °\n° ° + °\n° ° °\n+ ° + ° + °\n° °\n+ ° ° °\n+ ° ° °\n= = = = = = = =\n=\n= = = = =\n= = = = = = =\n= = =\n= = = = =\n= =\n= = =\n= = = =\n= = = =\n= = = = =\n= = = =\n= = = =\n= = = =\nD D D D D D D D\nD\nD D D D D\nD D D D D D D\nD D D\nD D D D D\nD D\nD D D\nD D D D\nD D D D\nD D D D D\nD D D D\nD D D D\nD D D D (B2)\nwhere ∘ represents the Hadamard product, and\nU W U W W W W3 2j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j1 1\n(2)\n1\n(1)\n1\n(1)\n1\n(2) 2\n1\n(2)\n1\n(1)\n1 (1)= ° + ° + ° ° = = = = = = = D D D D D D D\nU W U W W W W\nW W W W\n4 j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j\nj\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j\n2 1\n(4)\n1\n(1)\n1\n(3)\n1\n(2) 2\n1\n(1)\n1\n(2)\n1\n(3)\n2\n1\n(2)\n1\n(4)\n1\n(1)\n1\n(1)\n= ° + ° + ° °\n+ + ° °\n= = = = = = =\n= = = =\nD D D D D D D\nD D D D\nc X U W W U W W W\nW\nc X U W W U W W W W\nf X W W f X W W\ng X g X\na X\nI X U I X U I X U I X W\nI X W I X W I X\nI X I X\n( )\n( ) 3\n( ) ( )\n( ) ( )\n( )\n( ) ¨ ( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨ ( ) ¨\n( ) ¨ ( ) ¨\nj n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j\ni j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j j n ij j\nj n ij j j n ij j j n ij j i j n ij j j n ij j\nj n ij j j n ij j j n ij j i j n ij j j n ij j\ni i j n ij j\ni i i j n ij j j n ij j i i j n ij j\ni j n ij j j n ij j j n ij j i i\ni j n ij j j n ij j i\n1 (1) 11 1 (1)\n2 1 (1)\n1 (1)\n1 2\n1 (3)\n1 (1)\n1 (3)\n1 (2)\n1 (2)\n11 1 (2)\n1 (1)\n1 (2)\n1 2\n1 (4)\n1 (2)\n1 (3)\n1 (1)\n1 (4)\n1 (1) 11 1 (2)\n1 2\n1 (4)\n11 1 (3)\n1 2\n1 (5)\n1 (1) 11 1 (1)\n1 2\n1 (3)\n11 1 (2)\n1 2\n1 (4)\n44 1 2\n1 (2)\n2 2 2 2 1 (2)\n2 2\n1 (2) 2 4 1 (1)\n2 2 4 1 (3)\n2 2\n1 (2) 4 1 (1)\n5\n2 2 5 1 (2)\n2 2\n1 (2) 5\n° + ° + ° +\n°\n+ ° + ° + ° + °\n° °\n+ ° + °\n°\n= ° ° ° °\n+ ° + ° + °\n° °\n= = = = = = = =\n=\n= = = = = = = =\n= = = = =\n= = = = =\n=\n= = =\n= = =\n= =\nD D D D D D D D\nD\nD D D D D D D D\nD D D D D\nD D D D D\nD\nD D D\nD D D\nD D\n(B3)\nW W W W j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j5 1\n(1)\n1\n(3)\n1\n(2)\n1 (2)= ° + ° = = = = D D D D\n(B4)\nW W W W j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j6 1\n(2)\n1\n(4)\n1\n(1)\n1 (5)= ° + ° = = = = D D D D\nW W W W W W3 4 j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j7 1\n(3)\n1\n(3)\n1\n(2)\n1\n(4)\n1\n(1)\n1 (5)= ° + ° + ° = = = = = = D D D D D D\nW W W W W W W W3 3 j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j8 1\n(4)\n1\n(4)\n1\n(3)\n1\n(5)\n1\n(2)\n1\n(6)\n1\n(1)\n1 (7)= ° + ° + ° + ° = = = = = = = = D D D D D D D D\nW W j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j9 1\n(2)\n1\n(1)\n1\n(1)\n1 (2)= ° + ° = = = = D D D D\nW W j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j10 1\n(2)\n1\n(3)\n1\n(1)\n1 (4)= ° + ° = = = = D D D D\nW W W W3 3 j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j11 1\n(4)\n1\n(1)\n1\n(3)\n1\n(2)\n1\n(2)\n1\n(3)\n1\n(1)\n1 (4)= ° + ° + ° + ° = = = = = = = = D D D D D D D D\nW W W W˜ 3 3 j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j j\nn\nij j12 1\n(4)\n1\n(3)\n1\n(3)\n1\n(4)\n1\n(2)\n1\n(5)\n1\n(1)\n1 (6)= ° + ° + ° + ° = = = = = = = = D D D D D D D D\nData availability\nThe raw/processed data required to reproduce these findings cannot be shared at this time due to legal or ethical reasons.\nReferences\n[1] T. Liu, S. Guessasma, J. Zhu, W. Zhang, S. Belhabib, Functionally graded materials from topology optimisation and stereolithography, Eur. Polym. J. 108 (2018) 199–211. [2] H. Bahreinizad, M. Salimi Bani, A. Khosravi, A. Karimi, A numerical study on the application of the functionally graded bioabsorbable materials in the stent design, Artery Res. 24 (2018) 1–8.\n[3] S. El-Hadad, E.M. Safwat, N.F. Sharaf, In-vitro and in-vivo, cytotoxicity evaluation of cast functionally graded biomaterials for dental implantology, Mater. Sci. Eng. C 93 (2018) 987–995. [4] B. Safaei, R. Moradi-Dastjerdi, F. Chu, Effect of thermal gradient load on thermoelastic vibrational behavior of sandwich plates reinforced by carbon nanotube agglomerations, Compos. Struct. 192 (2018) 28–37. [5] M.H. Malakooti, Z. Zhou, H.A. Sodano, Enhanced energy harvesting through nanowire based functionally graded interfaces, Nano Energy 52 (2018) 171–182. [6] B. Safaei, R. Moradi-Dastjerdi, Z. Qin, F. Chu, Frequency-dependent forced\nvibration analysis of nanocomposite sandwich plate under thermo-mechanical loads, Compos. Part B Eng. 161 (2019) 44–54.\n[7] J.S. Zuback, T.A. Palmer, T. DebRoy, Additive manufacturing of functionally graded transition joints between ferritic and austenitic alloys, J. Alloys Compd. 770 (2019) 995–1003. [8] M. Shariyat, R. Jafari, Nonlinear low-velocity impact response analysis of a radially preloaded two-directional-functionally graded circular plate: a refined contact stiffness approach, Compos. Part B Eng. 45 (2013) 981–994. [9] T.A. Enab, Performance improvement of total knee replacement joint through bidirectional functionally graded material, Int. J. Mech. Mechatron. Eng. 14 (2014) 104–113. [10] S. Shah, S.K. Panda, Bimodularity of interface layer and curing stress coupling effects on mixed mode fracture behavior of functionally graded tee joint, Int. J. Adhesion Adhes. 75 (2017) 74–87. [11] L.-L. Ke, J. Yang, S. Kitipornchai, M.A. Bradford, Bending, buckling and vibration of size-dependent functionally graded annular microplates, Compos. Struct. 94 (2012) 3250–3257. [12] B. Zhang, Y. He, D. Liu, Z. Gan, L. Shen, A novel size-dependent functionally graded curved mircobeam model based on the strain gradient elasticity theory, Compos. Struct. 106 (2013) 374–392. [13] L.-L. Ke, J. Yang, S. Kitipornchai, Y.-S. Wang, Size-dependant behaviour of functionally graded microplates based on the modified strain gradient elasticity theory and isogeometric analysis, Int. J. Eng. Sci. 81 (2014) 66–81. [14] M. Rahaeifard, Size-dependent torsion of functionally graded bars, Compos. Part B Eng. 82 (2015) 205–211. [15] B. Akgoz, O. Civalek, A microstructure-dependent sinusoidal plate model based on the strain gradient elasticity theory, Acta Mech. 226 (2015) 2277–2294. [16] M. Shojaeian, Y. Tadi Beni, Size-dependent electromechanical buckling of functionally graded electrostatic nano-bridges, Sens. Actuators A Phys. 232 (2015) 49–62. [17] A.R. Ashoori, S.A. Sadough Vanini, Nonlinear bending, postbuckling and snapthrough of circular size-dependent functionally graded piezoelectric plates, ThinWalled Struct. 111 (2016) 19–28. [18] M. Canadiji, R. Barretta, F. Marotti de Sciarra, A gradient elasticity model of Bernoulli–Euler nanobeams in non-isothermal environments, Eur. J. Mech. A Solid. 55 (2016) 243–255. [19] S. Sahmani, M.M. Aghdam, Temperature-dependent nonlocal instability of hybrid FGM exponential shear deformable nanoshells including imperfection sensitivity, Int. J. Mech. Sci. 122 (2017) 129–142. [20] S. Sahmani, M.M. Aghdam, Size dependency in axial postbuckling behavior of hybrid FGM exponential shear deformable nanoshells based on the nonlocal elasticity theory, Compos. Struct. 166 (2017) 104–113. [21] S. Sahmani, M.M. Aghdam, Nonlinear instability of hydrostatic pressurized hybrid FGM exponential shear deformable nanoshells based on nonlocal continuum elasticity, Compos. Part B Eng. 114 (2017) 404–417. [22] S. Sahmani, M.M. Aghdam, Nonlinear Size-dependent Instability of Hybrid FGM Nanoshells, Nonlinear Approaches in Engineering Applications, Springer, 2018, pp. 107–143. [23] S. Thai, H.-T. Thai, T.P. Vo, V.I. Patel, Size-dependant behaviour of functionally graded microplates based on the modified strain gradient elasticity theory and isogeometric analysis, Comput. Struct. 190 (2017) 219–241. [24] E. Maleki, K. Sherafatnia, G.H. Farrahi, Size dependent energy release rate of notched FGM beams based on a modified couple stress theory, Mater. Today 3 (2016) 2662–2671. [25] S. Acierno, R. Barretta, R. Luciano, F. Marotti de Sciarra, P. Russo, Experimental evaluations and modeling of the tensile behavior of polypropylene/single-walled carbon nanotubes fibers, Compos. Struct. 174 (2017) 12–18. [26] S. Sahmani, M.M. Aghdam, Imperfection sensitivity of the size-dependent postbuckling response of pressurized FGM nanoshells in thermal environments, Arch. Civil Mech. Eng. 17 (2017) 623–638. [27] S. Sahmani, A.M. Fattahi, Imperfection sensitivity of the size-dependent nonlinear instability of axially loaded FGM nanopanels in thermal environments, Acta Mech. 228 (2017) 3789–3810. [28] A.M. Fattahi, S. Sahmani, Size dependency in the axial postbuckling behavior of nanopanels made of functionally graded material considering surface elasticity, Arabian J. Sci. Eng. 42 (2017) 4617–4633. [29] J. Deng, Y. Liu, Z. Zhang, W. Liu, Size-dependent vibration and stability of multispan viscoelastic functionally graded material nanopipes conveying fluid using a hybrid method, Compos. Struct. 179 (2017) 590–600. [30] J.C. Liu, Y.Q. Zhang, L.F. Fan, Nonlocal vibration and biaxial buckling of doubleviscoelastic-FGM-nanoplate system with viscoelastic Pasternak medium in between, Phys. Lett. A 381 (2017) 1228–1235. [31] H. Zeighampour, Y. Tadi Beni, M. Botshekanan Dekhordi, Wave propagation in viscoelastic thin cylindrical nanoshell resting on a visco-Pasternak foundation based on nonlocal strain gradient theory, Thin-Walled Struct. 122 (2018) 378–386. [32] S. Sahmani, A.M. Fattahi, Thermo-electro-mechanical size-dependent postbuckling response of axially loaded piezoelectric shear deformable nanoshells via nonlocal elasticity theory, Microsyst. Technol. 23 (2017) 5105–5119. [33] S. Sahmani, A.M. Fattahi, Calibration of developed nonlocal anisotropic shear deformable plate model for uniaxial instability of 3D metallic carbon nanosheets using MD simulations, Comput. Methods Appl. Mech. Eng. 322 (2017) 187–207. [34] A.M. Fattahi, S. Sahmani, Nonlocal temperature-dependent postbuckling behavior of FG-CNT reinforced nanoshells under hydrostatic pressure combined with heat conduction, Microsyst. Technol. 23 (2017) 5121–5137. [35] S. Sahmani, A.M. Fattahi, Development an efficient calibrated nonlocal plate model for nonlinear axial instability of zirconia nanosheets using molecular dynamics\nsimulation, J. Mol. Graph. Model. 75 (2017) 20–31. [36] L.C. Trinh, T.P. Vo, H.-T. Thai, T.-K. Nguyen, P. Keerthan, State-space Levy solution\nfor size-dependent static, free vibration and buckling behaviours of functionally graded sandwich plates, Compos. Part B Eng. 149 (2018) 144–164.\n[37] T. Yang, Y. Tang, Q. Li, X.-D. Yang, Nonlinear bending, buckling and vibration of bidirectional functionally graded nanobeams, Compos. Struct. 204 (2018) 313–319. [38] A. Sarafraz, S. Sahmani, M.M. Aghdam, Nonlinear secondary resonance of nanobeams under subharmonic and superharmonic excitations including surface free energy effects, Appl. Math. Model. 66 (2019) 195–226. [39] C.W. Lim, G. Zhang, J.N. Reddy, A higher-order nonlocal elasticity and strain gradient theory and its applications in wave propagation, J. Mech. Phys. Solids 78 (2015) 298–313. [40] L. Li, Y. Hu, Buckling analysis of size-dependent nonlinear beams based on a nonlocal strain gradient theory, Int. J. Eng. Sci. 97 (2015) 84–94. [41] L. Li, Y. Hu, Wave propagation in fluid-conveying viscoelastic carbon nanotubes based on nonlocal strain gradient theory, Comput. Mater. Sci. 112 (2016) 282–288. [42] W.D. Yang, F.P. Yang, X. Wang, Coupling influences of nonlocal stress and strain gradients on dynamic pull-in of functionally graded nanotubes reinforced nanoactuator with damping effects, Sens. Actuators A Phys. 248 (2016) 10–21. [43] M. Simsek, Nonlinear free vibration of a functionally graded nanobeam using nonlocal strain gradient theory and a novel Hamiltonian approach, Int. J. Eng. Sci. 105 (2016) 10–21. [44] A. Farajpour, M.H. Ghayesh, H. Farokhi, Nonlocal nonlinear plate model for large amplitude vibration of magneto-electro-elastic nanoplates, Compos. Struct. 140 (2016) 323-226. [45] Y. Tang, Y. Liu, D. Zhao, Wave dispersion in viscoelastic single walled carbon nanotubes based on the nonlocal strain gradient Timoshenko beam model, Physica E 87 (2017) 301–307. [46] S. Sahmani, M.M. Aghdam, Size-dependent axial instability of microtubules surrounded by cytoplasm of a living cell based on nonlocal strain gradient elasticity theory, J. Theor. Biol. 422 (2017) 59–71. [47] S. Sahmani, M.M. Aghdam, Nonlinear vibrations of pre-and post-buckled lipid supramolecular micro/nano-tubules via nonlocal strain gradient elasticity theory, J. Biomech. 65 (2017) 49–60. [48] S. Sahmani, M.M. Aghdam, Nonlinear instability of hydrostatic pressurized microtubules surrounded by cytoplasm of a living cell including nonlocality and strain gradient microsize dependency, Acta Mech. 229 (2018) 403–420. [49] S. Sahmani, M.M. Aghdam, Nonlocal strain gradient beam model for postbuckling and associated vibrational response of lipid supramolecular protein micro/nanotubules, Math. Biosci. 295 (2018) 24–35. [50] L. Li, H. Tang, Y. Hu, Size-dependent nonlinear vibration of beam-type porous materials with an initial geometrical curvature, Compos. Struct. 184 (2018) 1177–1188. [51] A.F. Radwan, M. Sobhy, Nonlocal strain gradient model for dynamic deformation of orthotropic viscoelastic graphene sheets under time harmonic thermal load, Physica B 538 (2018) 74–84. [52] S. Sahmani, M.M. Aghdam, A nonlocal strain gradient hyperbolic shear deformable shell model for radial postbuckling analysis of functionally graded multilayer GPLRC nanoshells, Compos. Struct. 178 (2017) 97–109. [53] S. Sahmani, M.M. Aghdam, Nonlinear instability of axially loaded functionally graded multilayer graphene platelet-reinforced nanoshells based on nonlocal strain gradient elasticity theory, Int. J. Mech. Sci. 131 (2017) 95–106. [54] S. Sahmani, M.M. Aghdam, Nonlocal strain gradient beam model for nonlinear vibration of prebuckled and postbuckled multilayer functionally graded GPLRC nanobeams, Compos. Struct. 179 (2017) 77–88. [55] L. Lu, X. Guo, J. Zhao, A unified nonlocal strain gradient model for nanobeams and the importance of higher order terms, Int. J. Eng. Sci. 119 (2017) 265–277. [56] A. Apuzzo, R. Barretta, S.A. Faghidian, R. Luciano, F. Marotti de Sciarra, Free vibrations of elastic beams by modified nonlocal strain gradient theory, Int. J. Eng. Sci. 133 (2018) 99–108. [57] S. Sahmani, M. Fotouhi, M.M. Aghdam, Size-dependent nonlinear secondary resonance of micro-/nano-beams made of nano-porous biomaterials including truncated cube cells, Acta Mech. 230 (2019) 1077–1103. [58] J. Wang, H. Shen, B. Zhang, J. Liu, Y. Zhang, Complex modal analysis of transverse free vibrations for axially moving nanobeams based on the nonlocal strain gradient theory, Physica E 101 (2018) 85–93. [59] S. Sahmani, B. Safaei, Nonlinear free vibrations of bi-directional functionally graded micro/nano-beams including nonlocal stress and microstructural strain gradient size effects, Thin-Walled Struct. 140 (2019) 342–356. [60] A. Apuzzo, R. Barretta, S.A. Faghidian, R. Luciano, F. Marotti de Sciarra, Nonlocal strain gradient exact solutions for functionally graded inflected nano-beams, Compos. Part B Eng. 164 (2019) 667–674. [61] L. Hu, L. Zheng, W. Han, Nonlinear free vibration of geometrically imperfect functionally graded sandwich nanobeams based on nonlocal strain gradient theory, Compos. Struct. 214 (2019) 47–61. [62] S. Sahmani, A.M. Fattahi, N.A. Ahmed, Size-dependent nonlinear forced oscillation of self-assembled nanotubules based on the nonlocal strain gradient beam model, J. Braz. Soc. Mech. Sci. Eng. 41 (2019) 239. [63] S. Sahmani, A.M. Fattahi, N.A. Ahmed, Develop a refined truncated cubic lattice structure for nonlinear large-amplitude vibrations of micro/nano-beams made of nanoporous materials, Eng. Comput. (2019), https://doi.org/10.1007/s00366-01900703-6. [64] S. Sahmani, A.M. Fattahi, N.A. Ahmed, Analytical mathematical solution for vibrational response of postbuckled laminated FG-GPLRC nonlocal strain gradient micro-/nanobeams, Eng. Comput. (2019), https://doi.org/10.1007/s00366-0180657-8.\n[65] C.W. Wang, L.L. Ke, A.N. Roy Chowdhury, J. Yang, S. Kitipornchai, D. Fernando, Critical examination of midplane and neutral plane formulations for vibration analysis of FGM beams, Eng. Struct. 130 (2017) 275–281. [66] R. Barretta, F. Marotti de Sciarra, Constitutive boundary conditions for nonlocal strain gradient elastic nano-beams, Int. J. Eng. Sci. 130 (2018) 187–198. [67] S. Sahmani, M.M. Aghdam, A. Akbarzadeh, Surface stress effect on nonlinear instability of imperfect piezoelectric nanoshells under combination of hydrostatic pressure and lateral electric field, AUT J. Mech. Eng. 2 (2018) 177–190. [68] S. Sahmani, M.M. Aghdam, Size-dependent Nonlinear Mechanics of Biological Nanoporous Microbeams, Nanomaterials for Advanced Biological Applications, Springer, 2019, pp. 181–207. [69] S. Sahmani, M. Shahali, M. Ghadiri Nejad, A. Khandan, M.M. Aghdam, S. SaberSamandari, Effect of copper oxide nanoparticles on electrical conductivity and cell viability of calcium phosphate scaffolds with improved mechanical strength for bone tissue engineering, Eur. Phys. J. Plus 134 (2019) 7. [70] S. Sahmani, S. Saber-Samandari, A. Khandan, M.M. Aghdam, Influence of MgO nanoparticles on the mechanical properties of coated hydroxyapatite nanocomposite scaffolds produced via space holder technique: fabrication, characterization and simulation, J. Mech. Behav. Biomed. Mater. 95 (2019) 76–88. [71] N.-T. Nguyen, D. Hui, J. Lee, H. Nguyen-Xuan, An efficient computational approach for size-dependent analysis of functionally graded nanoplates, Comput. Methods Appl. Mech. Eng. 297 (2015) 191–218. [72] H.X. Nguyen, T.N. Nguyen, M. Abdel-Wahab, S.P.A. Bordas, H. Nguyen-Xuan, T.P. Vo, A refined quasi-3D isogeometric analysis for functionally graded microplates based on the modified couple stress theory, Comput. Methods Appl. Mech. Eng. 313 (2017) 904–940. [73] N.-T. Nguyen, T.D. Ngo, H. Nguyen-Xuan, A novel three-variable shear deformation plate formulation: theory and isogeometric implementation, Comput. Methods Appl. Mech. Eng. 326 (2017) 376–401. [74] S. Yin, T. Yu, T.Q. Bui, P. Liu, S. Hirose, Buckling and vibration extended isogeometric analysis of imperfect graded Reissner-Mindlin plates with internal defects using NURBS and level sets, Comput. Struct. 177 (2016) 23–38.\n[75] T.A. Huynh, X.Q. Lieu, J. Lee, NURBS-based modeling of bidirectional functionally graded Timoshenko beams for free vibration problem, Compos. Struct. 160 (2017) 1178–1190. [76] Z. Qin, X. Pang, B. Safaei, F. Chu, Free vibration analysis of rotating functionally graded CNT reinforced composite cylindrical shells with arbitrary boundary conditions, Compos. Struct. 220 (2019) 847–860. [77] C.H. Thai, A.J.M. Ferreira, T.D. Tran, P. Phung-Van, Free vibration, buckling and bending analyses of multilayer functionally graded graphene nanoplatelets reinforced composite plates using the NURBS formulation, Compos. Struct. 220 (2019) 749–759. [78] T.N. Nguyen, C.H. Thai, A.-T. Luu, H. Nguyen-Xuan, J. Lee, NURBS-based postbuckling analysis of functionally graded carbon nanotube-reinforced composite shells, Comput. Methods Appl. Mech. Eng. 347 (2019) 983–1003. [79] M. Faghih Shojaei, R. Ansari, V. Mohammadi, H. Rouhi, Nonlinear forced vibration analysis of postbuckled beams, Arch. Appl. Mech. 84 (2014) 421–440. [80] S. Sahmani, M. Bahrami, R. Ansari, Nonlinear free vibration analysis of functionally graded third-order shear deformable microbeams based on the modified strain gradient elasticity theory, Compos. Struct. 110 (2014) 219–230. [81] S. Sahmani, M. Bahrami, M.M. Aghdam, R. Ansari, Surface effects on the nonlinear forced vibration response of third-order shear deformable nanobeams, Compos. Struct. 118 (2014) 149–158. [82] S. Sahmani, M.M. Aghdam, M. Bahrami, On the free vibration characteristics of postbuckled third-order shear deformable FGM nanobeams including surface effects, Compos. Struct. 121 (2015) 377–385. [83] R. Zaera, O. Serrano, J. Fernandez-Saez, On the consistency of the nonlocal strain gradient elasticity, Int. J. Eng. Sci. 138 (2019) 65–81. [84] B.H. Keller, Numerical Solution of Bifurcation and Nonlinear Eigenvalue Problems, Applications of Bifurcation Theory, University of Wisconsin, Madison, New York, 1977. [85] J.N. Reddy, Nonlocal theories for bending, buckling and vibration of beams, Int. J. Eng. Sci. 45 (2007) 288–307."
+    } ],
+    "references" : [ {
+      "title" : "Functionally graded materials from topology optimisation and stereolithography",
+      "author" : [ "T. Liu", "S. Guessasma", "J. Zhu", "W. Zhang", "S. Belhabib" ],
+      "venue" : "Eur. Polym. J. 108 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A numerical study on the application of the functionally graded bioabsorbable materials in the stent design",
+      "author" : [ "H. Bahreinizad", "M. Salimi Bani", "A. Khosravi", "A. Karimi" ],
+      "venue" : "Artery Res. 24 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "In-vitro and in-vivo",
+      "author" : [ "S. El-Hadad", "E.M. Safwat", "N.F. Sharaf" ],
+      "venue" : "cytotoxicity evaluation of cast functionally graded biomaterials for dental implantology, Mater. Sci. Eng. C 93 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effect of thermal gradient load on thermoelastic vibrational behavior of sandwich plates reinforced by carbon nanotube agglomerations",
+      "author" : [ "B. Safaei", "R. Moradi-Dastjerdi", "F. Chu" ],
+      "venue" : "Compos. Struct. 192 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Enhanced energy harvesting through nanowire based functionally graded interfaces",
+      "author" : [ "M.H. Malakooti", "Z. Zhou", "H.A. Sodano" ],
+      "venue" : "Nano Energy 52 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Frequency-dependent forced  S",
+      "author" : [ "B. Safaei", "R. Moradi-Dastjerdi", "Z. Qin", "F. Chu" ],
+      "venue" : "Sahmani and B. Safaei Thin-Walled Structures 143 (2019) 106226 16  vibration analysis of nanocomposite sandwich plate under thermo-mechanical loads, Compos. Part B Eng. 161 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Additive manufacturing of functionally graded transition joints between ferritic and austenitic alloys",
+      "author" : [ "J.S. Zuback", "T.A. Palmer", "T. DebRoy" ],
+      "venue" : "J. Alloys Compd. 770 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Nonlinear low-velocity impact response analysis of a radially preloaded two-directional-functionally graded circular plate: a refined contact stiffness approach",
+      "author" : [ "M. Shariyat", "R. Jafari" ],
+      "venue" : "Compos. Part B Eng. 45 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Performance improvement of total knee replacement joint through bidirectional functionally graded material",
+      "author" : [ "T.A. Enab" ],
+      "venue" : "Int. J. Mech. Mechatron. Eng. 14 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Bimodularity of interface layer and curing stress coupling effects on mixed mode fracture behavior of functionally graded tee joint",
+      "author" : [ "S. Shah", "S.K. Panda" ],
+      "venue" : "Int. J. Adhesion Adhes. 75 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Bending",
+      "author" : [ "L.-L. Ke", "J. Yang", "S. Kitipornchai", "M.A. Bradford" ],
+      "venue" : "buckling and vibration of size-dependent functionally graded annular microplates, Compos. Struct. 94 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "A novel size-dependent functionally graded curved mircobeam model based on the strain gradient elasticity theory",
+      "author" : [ "B. Zhang", "Y. He", "D. Liu", "Z. Gan", "L. Shen" ],
+      "venue" : "Compos. Struct. 106 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Size-dependant behaviour of functionally graded microplates based on the modified strain gradient elasticity theory and isogeometric analysis",
+      "author" : [ "L.-L. Ke", "J. Yang", "S. Kitipornchai", "Y.-S. Wang" ],
+      "venue" : "Int. J. Eng. Sci. 81 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Size-dependent torsion of functionally graded bars",
+      "author" : [ "M. Rahaeifard" ],
+      "venue" : "Compos. Part B Eng. 82 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A microstructure-dependent sinusoidal plate model based on the strain gradient elasticity theory",
+      "author" : [ "B. Akgoz", "O. Civalek" ],
+      "venue" : "Acta Mech. 226 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Size-dependent electromechanical buckling of functionally graded electrostatic nano-bridges",
+      "author" : [ "M. Shojaeian", "Y. Tadi Beni" ],
+      "venue" : "Sens. Actuators A Phys. 232 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Nonlinear bending",
+      "author" : [ "A.R. Ashoori", "S.A. Sadough Vanini" ],
+      "venue" : "postbuckling and snapthrough of circular size-dependent functionally graded piezoelectric plates, Thin- Walled Struct. 111 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "F",
+      "author" : [ "M. Canadiji", "R. Barretta" ],
+      "venue" : "Marotti de Sciarra, A gradient elasticity model of Bernoulli–Euler nanobeams in non-isothermal environments, Eur. J. Mech. A Solid. 55 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Temperature-dependent nonlocal instability of hybrid FGM exponential shear deformable nanoshells including imperfection sensitivity",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Int. J. Mech. Sci. 122 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Size dependency in axial postbuckling behavior of hybrid FGM exponential shear deformable nanoshells based on the nonlocal elasticity theory",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Compos. Struct. 166 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonlinear instability of hydrostatic pressurized hybrid FGM exponential shear deformable nanoshells based on nonlocal continuum elasticity",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Compos. Part B Eng. 114 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonlinear Size-dependent Instability of Hybrid FGM Nanoshells",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Nonlinear Approaches in Engineering Applications, Springer",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Size-dependant behaviour of functionally graded microplates based on the modified strain gradient elasticity theory and isogeometric analysis",
+      "author" : [ "S. Thai", "H.-T. Thai", "T.P. Vo", "V.I. Patel" ],
+      "venue" : "Comput. Struct. 190 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Size dependent energy release rate of notched FGM beams based on a modified couple stress theory",
+      "author" : [ "E. Maleki", "K. Sherafatnia", "G.H. Farrahi" ],
+      "venue" : "Mater. Today 3 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "F",
+      "author" : [ "S. Acierno", "R. Barretta", "R. Luciano" ],
+      "venue" : "Marotti de Sciarra, P. Russo, Experimental evaluations and modeling of the tensile behavior of polypropylene/single-walled carbon nanotubes fibers, Compos. Struct. 174 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Imperfection sensitivity of the size-dependent postbuckling response of pressurized FGM nanoshells in thermal environments",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Arch. Civil Mech. Eng. 17 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Imperfection sensitivity of the size-dependent nonlinear instability of axially loaded FGM nanopanels in thermal environments",
+      "author" : [ "S. Sahmani", "A.M. Fattahi" ],
+      "venue" : "Acta Mech. 228 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Size dependency in the axial postbuckling behavior of nanopanels made of functionally graded material considering surface elasticity",
+      "author" : [ "A.M. Fattahi", "S. Sahmani" ],
+      "venue" : "Arabian J. Sci. Eng. 42 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Size-dependent vibration and stability of multispan viscoelastic functionally graded material nanopipes conveying fluid using a hybrid method",
+      "author" : [ "J. Deng", "Y. Liu", "Z. Zhang", "W. Liu" ],
+      "venue" : "Compos. Struct. 179 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonlocal vibration and biaxial buckling of doubleviscoelastic-FGM-nanoplate system with viscoelastic Pasternak medium in between",
+      "author" : [ "J.C. Liu", "Y.Q. Zhang", "L.F. Fan" ],
+      "venue" : "Phys. Lett. A 381 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Wave propagation in viscoelastic thin cylindrical nanoshell resting on a visco-Pasternak foundation based on nonlocal strain gradient theory",
+      "author" : [ "H. Zeighampour", "Y. Tadi Beni", "M. Botshekanan Dekhordi" ],
+      "venue" : "Thin-Walled Struct. 122 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Thermo-electro-mechanical size-dependent postbuckling response of axially loaded piezoelectric shear deformable nanoshells via nonlocal elasticity theory",
+      "author" : [ "S. Sahmani", "A.M. Fattahi" ],
+      "venue" : "Microsyst. Technol. 23 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Calibration of developed nonlocal anisotropic shear deformable plate model for uniaxial instability of 3D metallic carbon nanosheets using MD simulations",
+      "author" : [ "S. Sahmani", "A.M. Fattahi" ],
+      "venue" : "Comput. Methods Appl. Mech. Eng. 322 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonlocal temperature-dependent postbuckling behavior of FG-CNT reinforced nanoshells under hydrostatic pressure combined with heat conduction",
+      "author" : [ "A.M. Fattahi", "S. Sahmani" ],
+      "venue" : "Microsyst. Technol. 23 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Development an efficient calibrated nonlocal plate model for nonlinear axial instability of zirconia nanosheets using molecular dynamics  simulation",
+      "author" : [ "S. Sahmani", "A.M. Fattahi" ],
+      "venue" : "J. Mol. Graph. Model. 75 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "State-space Levy solution for size-dependent static",
+      "author" : [ "L.C. Trinh", "T.P. Vo", "H.-T. Thai", "T.-K. Nguyen", "P. Keerthan" ],
+      "venue" : "free vibration and buckling behaviours of functionally graded sandwich plates, Compos. Part B Eng. 149 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Nonlinear bending",
+      "author" : [ "T. Yang", "Y. Tang", "Q. Li", "X.-D. Yang" ],
+      "venue" : "buckling and vibration of bidirectional functionally graded nanobeams, Compos. Struct. 204 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Nonlinear secondary resonance of nanobeams under subharmonic and superharmonic excitations including surface free energy effects",
+      "author" : [ "A. Sarafraz", "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Appl. Math. Model. 66 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "A higher-order nonlocal elasticity and strain gradient theory and its applications in wave propagation",
+      "author" : [ "C.W. Lim", "G. Zhang", "J.N. Reddy" ],
+      "venue" : "J. Mech. Phys. Solids 78 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Buckling analysis of size-dependent nonlinear beams based on a nonlocal strain gradient theory",
+      "author" : [ "L. Li", "Y. Hu" ],
+      "venue" : "Int. J. Eng. Sci. 97 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Wave propagation in fluid-conveying viscoelastic carbon nanotubes based on nonlocal strain gradient theory",
+      "author" : [ "L. Li", "Y. Hu" ],
+      "venue" : "Comput. Mater. Sci. 112 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Coupling influences of nonlocal stress and strain gradients on dynamic pull-in of functionally graded nanotubes reinforced nanoactuator with damping effects",
+      "author" : [ "W.D. Yang", "F.P. Yang", "X. Wang" ],
+      "venue" : "Sens. Actuators A Phys. 248 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Nonlinear free vibration of a functionally graded nanobeam using nonlocal strain gradient theory and a novel Hamiltonian approach",
+      "author" : [ "M. Simsek" ],
+      "venue" : "Int. J. Eng. Sci. 105 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Nonlocal nonlinear plate model for large amplitude vibration of magneto-electro-elastic nanoplates",
+      "author" : [ "A. Farajpour", "M.H. Ghayesh", "H. Farokhi" ],
+      "venue" : "Compos. Struct. 140 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Wave dispersion in viscoelastic single walled carbon nanotubes based on the nonlocal strain gradient Timoshenko beam model",
+      "author" : [ "Y. Tang", "Y. Liu", "D. Zhao" ],
+      "venue" : "Physica E 87 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Size-dependent axial instability of microtubules surrounded by cytoplasm of a living cell based on nonlocal strain gradient elasticity theory",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "J. Theor. Biol. 422 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonlinear vibrations of pre-and post-buckled lipid supramolecular micro/nano-tubules via nonlocal strain gradient elasticity theory",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "J. Biomech. 65 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonlinear instability of hydrostatic pressurized microtubules surrounded by cytoplasm of a living cell including nonlocality and strain gradient microsize dependency",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Acta Mech. 229 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Nonlocal strain gradient beam model for postbuckling and associated vibrational response of lipid supramolecular protein micro/nanotubules",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Math. Biosci. 295 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Size-dependent nonlinear vibration of beam-type porous materials with an initial geometrical curvature",
+      "author" : [ "L. Li", "H. Tang", "Y. Hu" ],
+      "venue" : "Compos. Struct. 184 ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Nonlocal strain gradient model for dynamic deformation of orthotropic viscoelastic graphene sheets under time harmonic thermal load",
+      "author" : [ "A.F. Radwan", "M. Sobhy" ],
+      "venue" : "Physica B 538 ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "A nonlocal strain gradient hyperbolic shear deformable shell model for radial postbuckling analysis of functionally graded multilayer GPLRC nanoshells",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Compos. Struct. 178 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonlinear instability of axially loaded functionally graded multilayer graphene platelet-reinforced nanoshells based on nonlocal strain gradient elasticity theory",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Int. J. Mech. Sci. 131 ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Nonlocal strain gradient beam model for nonlinear vibration of prebuckled and postbuckled multilayer functionally graded GPLRC nanobeams",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Compos. Struct. 179 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "A unified nonlocal strain gradient model for nanobeams and the importance of higher order terms",
+      "author" : [ "L. Lu", "X. Guo", "J. Zhao" ],
+      "venue" : "Int. J. Eng. Sci. 119 ",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "F",
+      "author" : [ "A. Apuzzo", "R. Barretta", "S.A. Faghidian", "R. Luciano" ],
+      "venue" : "Marotti de Sciarra, Free vibrations of elastic beams by modified nonlocal strain gradient theory, Int. J. Eng. Sci. 133 ",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Size-dependent nonlinear secondary resonance of micro-/nano-beams made of nano-porous biomaterials including truncated cube cells",
+      "author" : [ "S. Sahmani", "M. Fotouhi", "M.M. Aghdam" ],
+      "venue" : "Acta Mech. 230 ",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Complex modal analysis of transverse free vibrations for axially moving nanobeams based on the nonlocal strain gradient theory",
+      "author" : [ "J. Wang", "H. Shen", "B. Zhang", "J. Liu", "Y. Zhang" ],
+      "venue" : "Physica E 101 ",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Nonlinear free vibrations of bi-directional functionally graded micro/nano-beams including nonlocal stress and microstructural strain gradient size effects",
+      "author" : [ "S. Sahmani", "B. Safaei" ],
+      "venue" : "Thin-Walled Struct. 140 ",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "F",
+      "author" : [ "A. Apuzzo", "R. Barretta", "S.A. Faghidian", "R. Luciano" ],
+      "venue" : "Marotti de Sciarra, Nonlocal strain gradient exact solutions for functionally graded inflected nano-beams, Compos. Part B Eng. 164 ",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Nonlinear free vibration of geometrically imperfect functionally graded sandwich nanobeams based on nonlocal strain gradient theory",
+      "author" : [ "L. Hu", "L. Zheng", "W. Han" ],
+      "venue" : "Compos. Struct. 214 ",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Size-dependent nonlinear forced oscillation of self-assembled nanotubules based on the nonlocal strain gradient beam model",
+      "author" : [ "S. Sahmani", "A.M. Fattahi", "N.A. Ahmed" ],
+      "venue" : "J. Braz. Soc. Mech. Sci. Eng. 41 ",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Develop a refined truncated cubic lattice structure for nonlinear large-amplitude vibrations of micro/nano-beams made of nanoporous materials",
+      "author" : [ "S. Sahmani", "A.M. Fattahi", "N.A. Ahmed" ],
+      "venue" : "Eng. Comput. ",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Analytical mathematical solution for vibrational response of postbuckled laminated FG-GPLRC nonlocal strain gradient micro-/nanobeams",
+      "author" : [ "S. Sahmani", "A.M. Fattahi", "N.A. Ahmed" ],
+      "venue" : "Eng. Comput. (2019), https://doi.org/10.1007/s00366-018- 0657-8.  S. Sahmani and B. Safaei Thin-Walled Structures 143 ",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Critical examination of midplane and neutral plane formulations for vibration analysis of FGM beams",
+      "author" : [ "C.W. Wang", "L.L. Ke", "A.N. Roy Chowdhury", "J. Yang", "S. Kitipornchai", "D. Fernando" ],
+      "venue" : "Eng. Struct. 130 ",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "F",
+      "author" : [ "R. Barretta" ],
+      "venue" : "Marotti de Sciarra, Constitutive boundary conditions for nonlocal strain gradient elastic nano-beams, Int. J. Eng. Sci. 130 ",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Surface stress effect on nonlinear instability of imperfect piezoelectric nanoshells under combination of hydrostatic pressure and lateral electric field",
+      "author" : [ "S. Sahmani", "M.M. Aghdam", "A. Akbarzadeh" ],
+      "venue" : "AUT J. Mech. Eng. 2 ",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Size-dependent Nonlinear Mechanics of Biological Nanoporous Microbeams",
+      "author" : [ "S. Sahmani", "M.M. Aghdam" ],
+      "venue" : "Nanomaterials for Advanced Biological Applications, Springer",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Effect of copper oxide nanoparticles on electrical conductivity and cell viability of calcium phosphate scaffolds with improved mechanical strength for bone tissue engineering",
+      "author" : [ "S. Sahmani", "M. Shahali", "M. Ghadiri Nejad", "A. Khandan", "M.M. Aghdam", "S. Saber- Samandari" ],
+      "venue" : "Eur. Phys. J. Plus 134 ",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Influence of MgO nanoparticles on the mechanical properties of coated hydroxyapatite nanocomposite scaffolds produced via space holder technique: fabrication",
+      "author" : [ "S. Sahmani", "S. Saber-Samandari", "A. Khandan", "M.M. Aghdam" ],
+      "venue" : "characterization and simulation, J. Mech. Behav. Biomed. Mater. 95 ",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "An efficient computational approach for size-dependent analysis of functionally graded nanoplates",
+      "author" : [ "N.-T. Nguyen", "D. Hui", "J. Lee", "H. Nguyen-Xuan" ],
+      "venue" : "Comput. Methods Appl. Mech. Eng. 297 ",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A refined quasi-3D isogeometric analysis for functionally graded microplates based on the modified couple stress theory",
+      "author" : [ "H.X. Nguyen", "T.N. Nguyen", "M. Abdel-Wahab", "S.P.A. Bordas", "H. Nguyen-Xuan", "T.P. Vo" ],
+      "venue" : "Comput. Methods Appl. Mech. Eng. 313 ",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "A novel three-variable shear deformation plate formulation: theory and isogeometric implementation",
+      "author" : [ "N.-T. Nguyen", "T.D. Ngo", "H. Nguyen-Xuan" ],
+      "venue" : "Comput. Methods Appl. Mech. Eng. 326 ",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Buckling and vibration extended isogeometric analysis of imperfect graded Reissner-Mindlin plates with internal defects using NURBS and level sets",
+      "author" : [ "S. Yin", "T. Yu", "T.Q. Bui", "P. Liu", "S. Hirose" ],
+      "venue" : "Comput. Struct. 177 ",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "NURBS-based modeling of bidirectional functionally graded Timoshenko beams for free vibration problem",
+      "author" : [ "T.A. Huynh", "X.Q. Lieu", "J. Lee" ],
+      "venue" : "Compos. Struct. 160 ",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Free vibration analysis of rotating functionally graded CNT reinforced composite cylindrical shells with arbitrary boundary conditions",
+      "author" : [ "Z. Qin", "X. Pang", "B. Safaei", "F. Chu" ],
+      "venue" : "Compos. Struct. 220 ",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Free vibration",
+      "author" : [ "C.H. Thai", "A.J.M. Ferreira", "T.D. Tran", "P. Phung-Van" ],
+      "venue" : "buckling and bending analyses of multilayer functionally graded graphene nanoplatelets reinforced composite plates using the NURBS formulation, Compos. Struct. 220 ",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "NURBS-based postbuckling analysis of functionally graded carbon nanotube-reinforced composite shells",
+      "author" : [ "T.N. Nguyen", "C.H. Thai", "A.-T. Luu", "H. Nguyen-Xuan", "J. Lee" ],
+      "venue" : "Comput. Methods Appl. Mech. Eng. 347 ",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Nonlinear forced vibration analysis of postbuckled beams",
+      "author" : [ "M. Faghih Shojaei", "R. Ansari", "V. Mohammadi", "H. Rouhi" ],
+      "venue" : "Arch. Appl. Mech. 84 ",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Nonlinear free vibration analysis of functionally graded third-order shear deformable microbeams based on the modified strain gradient elasticity theory",
+      "author" : [ "S. Sahmani", "M. Bahrami", "R. Ansari" ],
+      "venue" : "Compos. Struct. 110 ",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Surface effects on the nonlinear forced vibration response of third-order shear deformable nanobeams",
+      "author" : [ "S. Sahmani", "M. Bahrami", "M.M. Aghdam", "R. Ansari" ],
+      "venue" : "Compos. Struct. 118 ",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "On the free vibration characteristics of postbuckled third-order shear deformable FGM nanobeams including surface effects",
+      "author" : [ "S. Sahmani", "M.M. Aghdam", "M. Bahrami" ],
+      "venue" : "Compos. Struct. 121 ",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "On the consistency of the nonlocal strain gradient elasticity",
+      "author" : [ "R. Zaera", "O. Serrano", "J. Fernandez-Saez" ],
+      "venue" : "Int. J. Eng. Sci. 138 ",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Numerical Solution of Bifurcation and Nonlinear Eigenvalue Problems",
+      "author" : [ "B.H. Keller" ],
+      "venue" : "Applications of Bifurcation Theory, University of Wisconsin, Madison, New York",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : null,
+      "year" : 1977
+    }, {
+      "title" : "Nonlocal theories for bending",
+      "author" : [ "J.N. Reddy" ],
+      "venue" : "buckling and vibration of beams, Int. J. Eng. Sci. 45 (2007) 288–307.  S. Sahmani and B. Safaei Thin-Walled Structures 143 ",
+      "citeRegEx" : "85",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "[1] proposed an integrated strategy to fabricate FGMs via additive manufacturing technology for design of porous structures exploiting topology optimization and stereolithography.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 1,
+      "context" : "[2] reported a numerical analysis on the application of FGMs for reduction of dogboning in bioabsorbable stents.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 2,
+      "context" : "[3] developed an innovative technique of casting for FGM biomaterials for dental implantology using centrifugal casting method.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 3,
+      "context" : "[4] anticipated the influence of thermal gradient load on the thermos-elastic natural frequencies of FGM nanocomposite plates.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 4,
+      "context" : "[5] enhanced durability and structural integrity of nanogenerators and nanosensors using nanowire based FGM interfaces.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 5,
+      "context" : "[6] investigated the influence of loading frequency on the dynamic behavior of FGM nanocomposite plates subjected to periodic thermos-mechanical loading conditions.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 6,
+      "context" : "[7] investigated the performance of piezoelectric energy harvesters which utilize a FGM nanowire interface rather than a discrete film interface.",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 7,
+      "context" : "For example, Shariyat and Jafari [8] analyzed the nonlinear lowvelocity impact of 2D-FGM circular plates subjected to radial preloads.",
+      "startOffset" : 33,
+      "endOffset" : 36
+    }, {
+      "referenceID" : 8,
+      "context" : "In order to provide structures with synthetic biomaterials, which can resemble the natural biomaterials, Enab [9] investigated the performance improvement of total knee replacement joint with the aid of using 2D-FGM.",
+      "startOffset" : 110,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 9,
+      "context" : "Shah and Panda [10] studied the influence of bimodulus behavior of adhesive and curing stresses on interface delamination fracture characteristics of tee joints made of 2D-FGMs.",
+      "startOffset" : 15,
+      "endOffset" : 19
+    }, {
+      "referenceID" : 10,
+      "context" : "[11] predicted bending, buckling and free vibrations of FGM annular microplates using the modified couple stress elasticity theory within the framework of the Mindlin plate theory.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 11,
+      "context" : "[12] proposed a novel size-dependent FGM curved microbeam model based on the strain gradient theory of elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 12,
+      "context" : "[13] constructed a modified couple stress plate model for axisymmetric postbuckling analysis of FGM annular microplates considering the physical neutral plane.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 13,
+      "context" : "Rahaeifard [14] reported the size-dependent torsion of FGM microbars with the aid of the modified couple stress elasticity theory.",
+      "startOffset" : 11,
+      "endOffset" : 15
+    }, {
+      "referenceID" : 14,
+      "context" : "Akgoz and Civalek [15] constructed a non-classical sinusoidal plate model based upon the strain gradient theory of elasticity without any shear correction factor.",
+      "startOffset" : 18,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 15,
+      "context" : "Shojaeian and Tadi Beni [16] investigated the electromechanical buckling behavior of FGM electrostatic nano-bridges on the basis of the modified couple stress theory.",
+      "startOffset" : 24,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 16,
+      "context" : "[17] analyzed the size-dependent nonlinear bending and snap-through phenomenon in FGM piezoelectric plates using modified couple stress theory of elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 17,
+      "context" : "[18] extended the Euler-Bernoulli beam formulation using the nonlocal strain gradient theory within the nonhomogenous temperature field setting.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 22,
+      "context" : "[23] introduced a robust numerical model to take size effect into mechanical properties of FGM microplates via the modified strain gradient elasticity theory and isogeometric analysis.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 23,
+      "context" : "[24] examined the size-dependent strain energy rate release rate for FGM Euler-Bernoulli nanobeams modeled via the modified couple stress theory of elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 24,
+      "context" : "[25] studied polypropylene fibers containing singlewalled carbon nanotubes in terms of the experimental mechanical properties as well as numerical nonlocal models.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 25,
+      "context" : "Sahmani and Aghdam [26], Sahmani and Fattahi [27,28] studied the effect of surface stress size dependency on the buckling and postbuckling of FGM nanoshells including the geometrical imperfection.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 26,
+      "context" : "Sahmani and Aghdam [26], Sahmani and Fattahi [27,28] studied the effect of surface stress size dependency on the buckling and postbuckling of FGM nanoshells including the geometrical imperfection.",
+      "startOffset" : 45,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 27,
+      "context" : "Sahmani and Aghdam [26], Sahmani and Fattahi [27,28] studied the effect of surface stress size dependency on the buckling and postbuckling of FGM nanoshells including the geometrical imperfection.",
+      "startOffset" : 45,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 28,
+      "context" : "[29] employed the nonlocal theory of elasticity for the size-dependent analysis of free vibrations of multi-span viscoelastic FGM nanopipes conveying fluid.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 29,
+      "context" : "[30] investigated the nonlocal vibration and biaxial buckling characteristics of double-viscoelastic-FGM-nanoplate system based on the Eringen's nonlocality and Kelvin model.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 30,
+      "context" : "[31] explored the size-dependent wave propagation in viscoelastic cylindrical nanoshells.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 35,
+      "context" : "[36] analyzed the sizedependent buckling and free vibration responses of FGM sandwich microplates based upon the modified couple stress theory of elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 36,
+      "context" : "[37] developed a nonlocal Euler-Bernoulli beam model for nonlinear bending, buckling and vibration behaviors of nanobeams made of 2D-FGM.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 37,
+      "context" : "[38] introduced a surface elastic beam model to analyze the nonlinear secondary resonance of nanobeams under hard excitations.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 38,
+      "context" : "[39] concluded that the nonlocal parameter and strain gradient length scale parameter describe different features of material properties at micro/nano-scale.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 39,
+      "context" : "For instance, Li and Hu [40] employed the nonlocal strain gradient theory of elasticity to analyze the nonlinear buckling characteristics of EulerBernoulli nanobeams.",
+      "startOffset" : 24,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 40,
+      "context" : "Additionally, they predicted the nonlocal strain gradient frequency of wave motion on nanotubes conveying fluid [41].",
+      "startOffset" : 112,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 41,
+      "context" : "[42] anticipated the critical nonlocal strain gradient voltages associated with the pull-in instability of functionally graded nano-actuators.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 42,
+      "context" : "Simsek [43] constructed a nonlocal strain gradient beam model for nonlinear vibrations of functionally graded Euler-Bernoulli nanobeams.",
+      "startOffset" : 7,
+      "endOffset" : 11
+    }, {
+      "referenceID" : 43,
+      "context" : "[44] examined buckling behavior of orthotropic nonlocal strain gradient plates using a new size-dependent plate model.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 44,
+      "context" : "[45] analyzed the nonlocal strain gradient wave propagation in a viscoelastic nanotube.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 49,
+      "context" : "[50] anticipated the size-dependent bending, buckling and free vibration characteristics of axially functionally graded nonlocal strain gradient beams.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 50,
+      "context" : "Radwan and Sobhy [51] explored the influences of nonlocality and strain gradient size dependency on the dynamic deformation of orthotropic viscoelastic graphene sheets subjected to a time harmonic thermal loading condition.",
+      "startOffset" : 17,
+      "endOffset" : 21
+    }, {
+      "referenceID" : 54,
+      "context" : "[55] proposed a unified size-dependent beam model including various higher-order shear deformation beam theories to analyze the simultaneous effects of nonlocal stress and strain gradient.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 55,
+      "context" : "[56] predicted the size-dependent axial and flexural free vibrations of Bernoulli-Euler nanobeams on the basis of the modified nonlocal strain gradient model of elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 56,
+      "context" : "[57] used the nonlocal strain gradient elasticity to capture size effects on the nonlinear secondary resonance of micro/nano-beams made of nanoporous biomaterials.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 57,
+      "context" : "[58] introduced a nonlocal strain gradient beam model for complex modal analysis for vibrational response of axially moving beams at nanoscale.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 58,
+      "context" : "Sahmani and Safaei [59] introduced a nonlocal strain gradient beam model for nonlinear free vibration response of 2D-FGM micro/nano-beams.",
+      "startOffset" : 19,
+      "endOffset" : 23
+    }, {
+      "referenceID" : 59,
+      "context" : "[60] examined the nonlinear bending behavior of FGM inflected nanobeams on the basis of the modified nonlocal strain gradient theory of elasticity.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 60,
+      "context" : "[61] anticipated the nonlocal strain gradient nonlinear vibrations of imperfect FGM sandwich micro/nano-beams.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 64,
+      "context" : "So, it is defined that z z z = in which z denotes the value of deviation of the physical neutral plane from z-axis that can be extracted as below [65].",
+      "startOffset" : 146,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 38,
+      "context" : "[39] proposed a combination of these theories namely as nonlocal strain gradient elasticity theory which assess small scale effects more reasonably.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 38,
+      "context" : "Accordingly, the total nonlocal strain gradient stress tensor for a beamtype structure can be defined as below [39].",
+      "startOffset" : 111,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 82,
+      "context" : "[83] uncovered recently that in general form, it is not possible to satisfy simultaneously the required boundary conditions for the nonlocal strain gradient theory of elasticity, the formulated problem via this theory has no solution.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 83,
+      "context" : "Finally, the pseudo arc-length continuation technique [84] is utilized to solve equation (38) as a set of nonlinear equations.",
+      "startOffset" : 54,
+      "endOffset" : 58
+    }, {
+      "referenceID" : 84,
+      "context" : "= At first, in order to check the validity of the presented numerical results, the terms related to the strain gradient size dependency are ignored and the fundamental linear natural frequency of an isotropic nonlocal nanobeam with simply supported boundary conditions are obtained and compared with those given by Reddy [85] using an exact solution corresponding to various values of the nonlocal parameter as given in Table 1.",
+      "startOffset" : 321,
+      "endOffset" : 325
+    } ],
+    "year" : 2019,
+    "abstractText" : "With the aid of advanced design techniques, functionally graded materials as promising new materials can be fabricated into various micro/nano-structures to acquire stronger mechanical performance. In this work, the size-dependent nonlinear primary resonance of periodic soft excited micro/nano-beams made of bi-directional functionally graded materials (2D-FGMs) is studied. To accomplish this end, the nonlocal strain gradient theory of elasticity is utilized within the framework of the refined hyperbolic shear deformation beam theory to construct a size-dependent beam model. On the basis of the variational approach using the principle of Hamilton, the non-classical differential equations of motion are achieved. Thereafter, a discretization scheme based numerical solving process via generalized differential quadrature method (GDQM) together with the pseudo-arclength continuation technique, the nonlocal strain gradient frequency response and amplitude response associated with the nonlinear primary resonance of 2D-FGM micro/nano-beams with different boundary conditions are obtained. It is displayed that the nonlocal size dependency makes a reduction in the oscillation amplitudes associated with both of the bifurcation points, but the strain gradient size effect causes to increase them. These patterns are more significant for the second bifurcation point and for the simply supported-simply supported boundary conditions in comparison with the clamped-clamped ones. Also, it is observed that by increasing the value of both of the axial and lateral material property gradient indexes, the peak of the oscillation amplitude and its associated excitation frequency increase.",
+    "creator" : "Elsevier"
+  }
+}

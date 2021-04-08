@@ -1,0 +1,1646 @@
+{
+  "name" : "twin.sci-hub.se_5999_4470bd9d9ab0c598b660a2a9b307543f_abbasi2016.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Nano-Communication for Biomedical Applications: A Review on the State-of-the-Art From Physical Layers to Novel Networking Concepts",
+    "authors" : [ "QAMMER H. ABBASI", "KE YANG", "KHALID A. QARAQE" ],
+    "emails" : [ "(majorqam@hotmail.com)" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "INDEX TERMS Nano communication, terahertz, body area network, channel modeling, network modeling.\nI. INTRODUCTION In this era of envisioned unprecedented nanotechnology role in multidisciplinary domains such as environmental, industrial, biomedical and military; one of the emerging social and scientific impact of such technology would be in healthcare and bioengineering applications. As a promising alternative to current medical technologies like catheters and endoscopes, the nano enabled devices could reach to delicate body sites such as the spinal cord, gastrointestinal or inside the human eye, non invasively, which have not been possible yet with current technologies [1]. Due to the characteristics of iniquitousness and variety of the nano-devices, different kinds of information can be sensed and gathered together to complete complicated tasks. The connectivity and links between nano devices leads to the idea of nano-networks followed by the nano-communication proposal, which will\nexpand the capabilities of these devices in terms of enhancement in features and range of operations [2]. Among many types of communication between nano devices, one of the promising technique for the data exchange is Electromagnetic based communication at terahertz band [3]. This under utilised spectrum at the terahertz (THz) would significantly contribute to potential future medical technologies because of its less susceptibility to propagation effects such as scattering and its safety advantage for biological tissues i.e., non ionization [4]. By using bio-nano-sensors in medicine, e-health monitoring system [5] can be realized, so is e-drug delivery systems [2] with the aid of nano-robots. The ultimate goal is to connect nano-network to the internet, bywhich and e-living and e-health can be fulfilled [6].\nThe evolution of novel materials such as graphene and carbon nano tubes (CNT) [7], which can work\n3920 2169-3536 2016 IEEE. Translations and content mining are permitted for academic research only.\nPersonal use is also permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.\nVOLUME 4, 2016\nat THz frequencies opens up new opportunities of applying these nano-devices inside the body. In recent years, bodycentric communication has been studied for a wide range of frequencies [8], [9], however the size reduction requirements make nano-scale technologies an attractive choice for future applications of body-centric communication. Due to short wavelength, even a minute variations in water contents and biomaterial tissues can be detected by terahertz radiations due to existence of molecular resonances at such frequencies. Consequently, one of the emerging areas of research is analysing the propagation of terahertz electromagnetic waves through the tissues to develop diagnostic tools for early detection and treatment such as abnormalities in skin tissues as a sign of skin cancer [10]. Although there are some limited studies in open literature with regards to nanocommunication and applicability of THz communication in the biomedical domain [1], [5], [11]–[16]. All published studies are scattered with none encompassing all aforementioned issues. In this paper, we are presenting a comprehensive stateof-the-art review of nano-communication with emphasis on biomedical applications and discussion on several research challenges by considering various communication methods, antenna design considerations, channel modeling aspects, while highlighting various simulation issues and measurement techniques in addition to network and system models.\nThe rest of the paper is organized as follows. Section II highlights the envisioned applications for nano communication and proposed network architecture for healthcare applications. Section III details brief discussion about various paradigms of communication among nano devices. Section IV presents an overview of different types of nano antennas while Section V details some of the state-of-art in nano devices from biomedical prospective. Section VI highlights the channel characterization at nano scale based on simulation and measurements at terahertz frequencies. Section VII presents the network and system model while open research areas are presented in Section VIII. Finally, conclusions are drawn in Section IX.\nII. ENVISIONED APPLICATIONS AND THE NETWORK STRUCTURE Nanonetworks have broad range of applications and can be mainly divided into four groups: environmental, biomedical, military and industrial [2], [5] as shown in Fig. 1.\nDetailed description of the envisioned applications have been summarised and classified in [2], as shown in Tab. 1.\nThe table clearly shows that one of the most attractive application of nano-networks is in the biomedical fields due to its advantages of size, bio-compatibility and bio-stability. Nano devices spreading over the human body can monitor the human physical movement. For example, nano pressuresensors distributed in the human eyes can detect the intraocular pressure (IOP) for the early diagnosis and treatment of glaucoma to prevent vision loss [1]. At the same time, the nano devices deployed in the bones can monitor the bonegrowth in young diabetes patients to protect them from osteoporosis [1]. Furthermore, nano-robots inside the biological tissues can detect and then eliminate malicious agents or cells, such as viruses or cancer cells, hence making the treatment less invasive and real time [17]. Moreover, networked nano-devices will be used for organ, nervous track, or tissue replacements, i.e., bio-hybrid implants.\nSimilar to the traditional body-centric communication, the nano network can also be divided into three parts: in-body, on-body and off-body. An overview of the structure of nanonetwork for healthcare domain as shown in Fig. 2 can be summarized as [6]:\n• Nano-nodes: These are the smallest and simplest nanodevices. Due to the limited energy, limited memory and reduced communication capabilities, they can only perform simple computation task and can transmit over very short distances. The nodes could be composed of sensor and communication units. • Nano-routers: These are the nano-devices with slightly larger computational resources than nano-nodes and can\naggregate information from limited nano-machines and also can control the behaviour of nano-nodes by sending extremely simple order (such as on/off, sleep, read value, etc.). However, this would increase their size; thus, their deployment would be more invasive. • Nano-micro interface: They are used to collect the information forwarded by nano-routers and send the information to the micro-scale devices. At the same time, they can send the information from micro-scale to nanoscale. Nano-micro interfaces are hybrid devices not only able to communicate in the nano-scale using the nano-communication techniques shown in Section III but also can use classical communication paradigms in micro/macro communication networks. • Gateway: It makes the users to control or monitor the entire system remotely over the Internet.\nIII. VARIOUS PARADIGMS OF NANO-COMMUNICATION According to Akyildiz et al. [2], nano-communication can be divided into two scenarios: (i) Communication between a nano-machine and a larger system such as micro/ macro-system, and (ii) Communication between two or more nano-devices. These devices can communicate by different mechanism like electromagnetic, acoustic, nanomechanical or molecular [50] etc, which will be briefly discussed in this section.\nA. MOLECULAR PARADIGMS Molecular communication are considered as themost promising paradigm in the start of nano era to achieve the nanocommunication because there are numerous examples present in nature to learn and study. In molecular communication, an engineered miniature transmitter releases small particles into a propagation medium, while the molecules are applied to encode, transmit, and receive information [51]. Molecular communication can be classified into several categories such as walkway-based: molecules propagate along a predefined pathway via molecular motors; flow-based: molecules propagate in a guided fluidic medium; diffusion-based: where molecules propagate in a fluidic medium via spontaneous diffusion and etc. [5]. The diffusion-based molecular communication (DMC), the most general and widespread scheme\nfound in nature is most widely investigated in the literature. Some of the most prominent works include mathematical framework for a physical end-to-end channel model for DMC [52], development of an energy model for DMC [53], modeling of diffusion noise [54], channel codes for reliability enhancement [55], and relaying-based solutions for increasing the range of DMC [56], [57]. On the other hand, the flow-based molecular communication (FMC) is also studied, especially the one of communication in the circulatory system [58], [59].\nB. ACOUSTIC PARADIGM Acoustic propagation introduces slight pressure variations in the fluid or solid medium, which satisfy the wave equation. The behaviour of the nano robots is relevant to their physical properties, surrounding medium and the working frequency. The feasibility of in vivo ultrasonic communication is evaluated by Hogg and Freitas [60], where communication effectiveness, power requirements and effects on nearby tissue were examined on the basis of discussion on the principles. Later, the nanoscale opto-ultrasonic communications in biological tissues was discussed in [17] and [61], where the generation, propagation model were studied and in line with [60] the hazards and design challenges were investigated.\nC. TOUCH COMMUNICATION PARADIGM Based on the development of the nanotechnology, a new paradigm of touch communication (TouchCom)1 was also proposed in [58], which use a swarm of nano-robots as message carrier for information exchange. In TouchCom, transiet microbots (TMs) [62]–[64] were applied to carry the drug particles, which can be controlled and tracked by the external macro-unit (MAU) with a guiding force [59], [65]. These TMs would survive some time in body and their pathway would be the channel for the information exchange while the process of loading and unloading is the corresponding transmitting and receiving process. A specific application, illustrated in [58], was shown in Fig. 3 while the structure of the applied nano-robots was shown in Fig. 4. The channel model of TouchComwas derived by defining the propagation delay, path loss with the angular/delay spectra of the signal strength. Meanwhile, a simulation tool was proposed to characterize the movement of the nano-robot swarm in the blood vessel.\nD. ELECTROMAGNETIC PARADIGM As the name indicates, electromagnetic methods use the electromagnetic wave as the carrier and its properties like amplitude, phase, delay etc. are used to encode or decode the information. The possibility of EM communication is first discussed in [5] on the basis of the fact that terahertz band can be used as the operational frequency range for future EM nano-transceivers because of the emerging new\n1Here, touch means the communication (i.e., drug delivery) process is controllable and trackable.\n3922 VOLUME 4, 2016\nmaterials like Carbon Nano-Tube (CNT) and Graphene [66]. In [67] the theoretical model of the nano-network whose nodes are made of CNT was presented. Later, the channel model for THz wave propagating in the air with different concentration of the water vapor was presented in [15] and the corresponding channel capacity was also studied. Based on the characteristics of the channel, a new physicallayer aware medium access control (MAC) protocol, Time Spread On-Off Keying (TS-OOK), was proposed in [68]. Meanwhile, the applications of THz technology in imaging and medical field [11], [12] has also achieved great development and the biological effects of THz radiation are reviewed in [16] showing minimum effect on the human body and no strong evidence of hazardous side effects [51]. The focus of this review paper is on EM paradigm and in next sections, the paper will be confined only to discussions related to this paradigm.\nIV. RECENT DEVELOPMENT IN NANO-ANTENNAS Despite numerous studies on nano-technology are being published every year, however enabling the communication between nano-devices is still a major challenge, which is mainly related to the development of nano-antennas and the corresponding electromagnetic transceiver. Reducing the size of the traditional antenna down to a few hundreds of nanometers would lead to extremely high operating frequencies,\nwhich compromises the feasibility of electromagnetic wireless communication among nano-devices. Nano-antenna can be made of either conventional material i.e. metal or novel materials like carbon nanotube and graphene. This section is dedicated to give brief description about these two types of nano-antennas.\nA. METALLIC MATERIAL BASED NANO-ANTENNAS There are different types of metal based nano antennas available in literature. Metallic plasmonic nano-antenna is one of the metallic material based nano-antennas presented in [69] for intra-body nano-networks. A unifiedmathematical framework was developed in this work to investigate the performance in reception of gold-based nano-dipole antennas. The analytical model shown in Fig. 5 was validated by COMSOL Multi-physics simulations.\nAnother kind of metallic material antenna is the optical metallic nano dipole antenna as presented in [70]. Five metals (silver, aluminium, chromium, gold, and copper) were compared, where the correspondence of the antenna length to the working band was studied. Also, an in-house developed Method of Moments (MoM) based electromagnetic solver was developed to conduct this study. The results show that it is much more crucial to choose the proper metal in terms of operational frequency band for nano-antenna than the traditional ones. Besides the above general metallic nanoantennas, metal oxide metal (MOM) techniques was also applied for nano-antenna array [71] because of the excellent tunnelling characteristics.\nB. NANO-ANTENNAS MADE OF NOVEL MATERIALS The new materials like carbon nanotube and graphene are attractive choice for nano-antennas. It has been proved that above mentioned limitation like size and communication constraints, can be overcome by using the graphene to fabricate the antennas because the wave propagation velocity in CNTs and graphene nanoribboons (GNRs) can be up to one hundred times below the speed of light in vacuum depending on the structure geometry, temperature and fermi energy [72],\nVOLUME 4, 2016 3923\nleading to the fact that the resonant frequency of nanoantennas based on graphene can be up to two orders of magnitude below that of nano-antennas fabricated with other materials. Recent studies has already proved that CNT/graphene antenna can work at the THz band (i.e., 0.1 - 10 THz); thus, the band of interest is the most promising candidate for the EM communication [5], [66], [73]. The CNT antenna was compared with classical dipoles by numerical analysis [74], while the possibility of CNT as dipole antenna was discussed, giving a mathematical framework [75]. Reference [76] first demonstrated the performance of the propagation of EM waves on a graphene sheet. GNR-based nano patch antenna and CNT-based nano dipole antenna were compared in [77], showing that graphene-based antenna with the length of 1 µm can radiate EM wave at THz band, which agreed with the prediction in [78].\nA beam reconfigurable multiple input multiple output (MIMO) antenna system based on graphene nano-patch antenna is proposed in [79], the radiation directions of which can be programmed dynamically, leading to different channel state matrices. For the short range communication, the proposedMIMOantenna design can enlarge the channel capacity by both increasing the number of antennas and choosing the best channel state matrices. An equilateral triangular patch antenna and rectangular patch antenna were designed using graphene as the patch conductor in [80] and [81]. A log-periodic toothed nano-antenna based on graphene was proposed in [82]. Large modulation of resonance intensity in log-periodic toothed nano-antenna can be achieved via turning the chemical potential of graphene.\nA novel graphene-based nano-antenna as shown in Fig. 6, which exploits the behaviour of Surface Plasmon Polariton (SPP) waves in semi-finite size Graphene Nanoribbons (GNRs) was proposed in [83]. By exploiting the high mode compression factor of SPP waves in GNRs, graphenebased plasmonic nano-antennas are able to operate at much lower frequencies than their metallic counterparts.\nV. CURRENT DEVELOPMENT OF NANO-SCALE DEVICES This section details about some of the state-of-the-art for nano devices in biomedical domain. Due to the developments in micro-fabrication and nano-technologies, the limits of the sizes and capabilities of devices have been pushed further. A cheap Integrated Chip (IC), whose cost would be less\nthan one dollar, was designed by National Applied Research Laboratories, Taiwan using sensor fusion technologies, shown in Fig. 7a, which is smaller than a grain of rice. A fullduplex transceiver IC, shown in Fig. 7b was presented from Clumnia High-Speed and mm-wave IC Lab (CoSMIC) [84] in 2015, which was even further smaller.\nThe initial goal of developing small-scale devices is to replace the existing tethered medical devices such as flexible endoscopes and catheters because such devices could access complex and small regions of the human body like gastrointestinal (GI), spinal cord, blood capillaries and at the same time the discomfort and the tissue loss because of sedation would be hugely decreased. The micro-robots voyaging around human body were developed recently according to same principles [51]. For example, a tiny permanent magnet, guided inside the human body by a magnetic stereotaxis system was proposed in [86] while a magnetically driven screw were made to move through tissues [87]. Micro-mechanical flying insect robots were first created in University of California, Berkeley [88] and then later a solar-powered crawling robot was realized in [89]. The first medical-used capsule endoscopes, to replace the traditional ones, were applied clinically in 2001 with the FDA’s approval. Later the introduction of a crawlingmechanism [90] and on-board drug delivery mechanism [91] were marked as another milestone for the development of the capsule endoscopy. A nano-scallop capable of swimming in biomedical fluids whose size is only a fraction of a millimetre has been developed at the Max Planck Institute for Intelligent Systems [92], shown in Fig. 8a and at the same time a tiny bio-bot powered by skeletal muscle cells, shown in Fig. 8b was reported in [93]. Amagnetic helical micro-swimmer was successfully targeted\n3924 VOLUME 4, 2016\nin a wireless way to deliver a single-cell gene to human embryonic kidneywhose SEM image is shown in Fig. 8c [94].\nBesides the research activities on tiny robots, there are also investigations on other applications. A wireless radiation detector was designed to inject into the tumour to detect the level of the therapeutic radiation the tumour gets [95]. Applying micro-machining techniques, this dosimeter was shrunk to 2 cm long and 2 mm wide in diameter.\nVI. CHANNEL MODELING FOR NANO SCALE COMMUNICATION AT TERAHERTZ FREQUENCIES In order to fully exploit and increase further the potential of nano devices in biomedical applications, the EM waveforms propagation and accurate channel models knowledge inside the body is necessary, which are vital to build efficient,\nreliable and optimized high performances systems. It is essentially important to create and access such a models for achieving target link budgets, high data rates and designing efficient transceivers and antennas including digital baseband algorithms. Because of the limitations such as size, complexity and energy consumption, EM communication between nano-devices have been considered very challenging initially [96]. However, with the advent of the carbon-based materials like graphene and CNT, attention has been moved to the EM communication [5], [67] slowly.\nWith consideration that the communication is at nanoscale, the study of the communication between very short range is essential [15], [97]. Jornet et al. presented a modified Friis formula for pathloss calculation [15] in water vapor at THz, which has two parts: the absorption path loss and the spread path loss. Later, a more detailed model of THz communication is proposed with the consideration of multi-ray scenario; thus, the propagation models for reflection, scattering and diffraction is considered [98]. At the same time, the scattering effects of small particles was discussed with the frequency analysis and the impulse responses [99]. Also the noise power of the channel was obtained as [15]:\nPn(f , d) = ∫ B N (f , d)df = kB ∫ B Tnoise(f , d)df\n' kB ∫ B Tmol(f , d)df (1)\nwhere, Tmol = To(1 − e−4π fdκ/c) is the equivalent noise temperature due to molecular absorption; kB is the Boltzmann constant; To is the reference temperature. The capacity of the channel was also studied to evaluate the potential of the EM paradigm. Four different power spectral densities (p.s.d) were studied by [15] i.e, optimal p.s.d., flat p.s.d., the Gaussian pulse and the p.s.d. for the case of the transmission window at 350 GHz, which concluded that for the very short communication range, quite high transmission bit-rates can be supported, up to Terabits per second indicating the promising future of the application of the EM mechanism for nano-communication. In the next subsections the modeling of human tissues at these frequencies are presented both numerically and experimentally."
+    }, {
+      "heading" : "A. NUMERICAL MODELING AT TERAHERTZ FREQUENCIES",
+      "text" : "In this section a modeling of homogenous and layered model to investigate thewave propagation at THz band inside human tissues is presented [100], [101], while comparing the results with theoretical model as mentioned above."
+    }, {
+      "heading" : "1) HOMOGENEOUS MODEL",
+      "text" : "In [102], absorption path loss in tissues was calculated by setting up a simple model, shown in Fig. 9, using CST Microwave Studio [103]. As plane wave attenuates in lossy materials, hence absorption path loss was calculated by studying plane wave in tissues. In this study a tissue cube was modeled by dielectric cube as shown in the Fig. 9, since the tissue size (7mm× 7mm× 7mm) is comparable to THz wavelength.\nVOLUME 4, 2016 3925\nTab. 2 shows the permittivity of the human tissues used in this study, which are calculated from the optical parameters given in [13] and [14]. The variation of E-filed for a plane wave propagating in +z direction is monitored by equally spaced probes, while considering a perfect matched layer boundary condition. The comparison of analytically and numerically calculated absorption path loss (as shown in Fig. 10) validates the numerical model accuracy, thus paving a way forward for more studies."
+    }, {
+      "heading" : "2) LAYERED MODEL",
+      "text" : "In addition to simple model mentioned above, studies were also performed numerically in CST on layered structures as well (Fig. 11) by authors of this paper. A three layered model with the thickness of 1.5 mm (skin), 5 mm (fat) and 1.9mm (muscle) was developed with perfectly matched layer boundary condition. Two dipoles were used in this simulation, where one was in skin and the other one was in fat. Two different scenarios i.e., vertical and horizontal orientation of dipoles was considered. The comparison of power loss showed the minimum effect of the layered structure.\nB. MEASUREMENT TECHNIQUES AT TERAHERTZ FREQUENCIES The studies on the EM/Optical parameters of human tissues are quite limited in the THz band of interest [13], [14], [104]. Initially, pulsed base THz time domain spectroscopy (THz-TDS) was used to measure the absorbance of DNA, at the band of 0.06 to 2.0 THz [105]. Later, power absorption and far-infrared signal transmission at THz band inside animal tissues were measured using THz-TDS in [106]. Because the performance of the cancer is different from the healthy tissue at THz band, more and more studies are conducted on the characterisation of the human tissues at these bands.\nRecently, spectroscopy measurements of normal and cancer breast tissue in the range 0.1 to 4 THz were conducted by Bowman et. al. [107], demonstrating the potential of THz spectroscopy for the recognisation of the cancer cell. However, most of the researches are still restricted to KHz or GHz of range [108], [109] because the biological material in this range is believed to have little scattering and the study of the tissue parameters at THz band is still in its early phase. In [13] and [14], authors show the importance of THz pulse imaging system for characterizing biological tissues such as skin, muscle and veins. Thework done in these papers was preliminary while considering very simple model. The authors did not consider skin type, specific layer and complexity of the tissue in their studies. It should be noted that freshly excised tissue are expected to have high water content but the comparison of dehydated skin is missing in these references. The only plot to account for skin behavior is absorption coefficient, which is indeed high for a fresh tissue.\nTo enrich the database of the parameters for biological tissues at THz band, the human tissue samples obtained form Blizard Institute are measured with the THz-TDS system (shown in Fig. 12) at Queen Mary University of London [110], [111]. A novel channel model was presented by Abbasi et al. in [110] (authors of this paper) as a parameter of frequency, distance and sweat ducts. Results are validated by THz-TDSmeasurements of real skin with reasonably good\n3926 VOLUME 4, 2016\nagreement as shown in Fig. 14. The THZ-TDSmeasurements of artificial skin (collagen) (Fig. 13), the main constitute of epidermis was performed in [111], to investigate if it is enough to use the parameters of collagen as the epidermis at the band of interest by studying both dielectric constants and channel parameters.\nVII. NETWORK AND SYSTEM MODELS Due to the very high path-loss introduced by the intra-body channel (Sec. VI) and in light of the very limited power of nano-devices (Sec. V), nanonetworks or networks of nanodevices will be needed to realize many of the aforementioned applications (Sec. II). In this section, the state of the art and open challenges at the network or system level are presented. Traditional TCP/IP protocol stack model is not feasible for implementation in nanonetworks since the TCP/IPmodel was originally designed for the high processing of general purpose\nnetwork nodes. Conversely, nanomachines nodes are limited in power supply, processing, and communication range due to high pathloss as mentioned above. Currently, introducing an innovative protocol stack model that captures the specific characteristics of nanonetworks is still in its early stages and an active area of research. Several proposals in current literature address the nanonetworks protocol stack as the proposals can be categorized into twomain categories: No-layer models and Layer-based models, and .\nA. NO-LAYER-BASED MODELS Layer-based protocol stack assumes that nanonetworks maintain a multi-tiered, dynamic, and opportunistic hierarchical architecture that comprise nanomachines, nano-router, and gateway. Nanomachines can be further clustered so that each group that serves a certain body area or a certain purpose is managed by a cluster head that will handle data propagation to the nano-router [6]. The hierarchy tree from nanomachines to back-end servers needs to be dynamic; connectivity from nanomachines to cluster heads and from cluster heads to gateways can change according to context and availability. Thus, nano-routers can opportunistically connect to the nearest gateway in order to send data. Nano-routers and cluster heads are assumed to have relatively higher processing power and larger bulks. Sizeable nano-routers may not feasibly reside within nanonetworks for some applications or environments under monitoring due to several factors, such as the environment structure, scalability and placement issues. Hence, these concerns can be addressed by assuming one-tiered nanonetworks, which consider identical network nodeswith low processing and power capabilities, and simplified networking models. Specifically, no-layer-based models enforced by the limitations of the nanomachine nodes motivate the single layer paradigms, where the function of the Datalink, Network, Transport, and Application layer is combined in the Physical layer mainly through signal flooding communication. Signal flooding abolishes the requirements for node addressing, identification, routing and forwarding schemes. The work in [112] proposed a no-layer-based networking paradigm and flooding data dissemination scheme. The proposed scheme, though simplifying the communication model, overlooks the cost of classification and real time signal processing of each packet. Additionally, it assumes fixed structure and static node deployment. The nanonodes typically display random behavior. Nanonetworks can move around the human body for certain health applications, and therefore may need to be associated with different neighbors and thus may not always acquire fixed structure. Comparatively, nanonetworks deployed for environment monitoring may get affected by wind movement, which will affect their location, and thereforemay associate with different neighbors along their path.\nB. LAYER-BASED MODELS Some proposals attempted to implement a minor form of TCP/IP model regardless of the constraints of the employment of TCP/IP model in nanonetworks, while other\nVOLUME 4, 2016 3927\nproposals suggested the use of layer-based models specifically designed for nanonetworks. In the next section, a networking layer-based technique is presented, by following a bottom-up approach."
+    }, {
+      "heading" : "1) LINK LAYER",
+      "text" : "• Synchronization: The transmission of low-power signals at very high frequencies, and potentially using very high data-rates, leads to many synchronization challenges. Tight synchronization between the transmitter and the receiver is needed to guarantee the proper detection of individual symbols. Unfortunately, we cannot simply reuse existing solutions for high-frequency communication schemes, such as Impulse Radio Ultra-wideband (IR-UWB), Millimeter Wave (mm-wave) or Free Space Optical (FSO) systems, mainly because these rely on the use of high-speed Analog-to-Digital (ADCs). The fastest existing ADC to date can only sample at rates below 100Giga-Samples-per-second (GSas) [113], much below the Nyquist rate for THz signals. Furthermore, its size and power consumption make it inadequate for nano-devices. In addition to the lack of ADCs, the local clock [114] at different nano-devices might oscillate at slightly different frequencies, which can result in a significant clock skew between the transmitter and the receiver. To overcome these limitations, new time and frequency synchronization algorithms are needed. On the other hand, fully analog synchronization schemes can be developed to overcome the need for faster and smaller ADCs. For example, in [115], a synchronization scheme for pulse-based THz-band communications is designed and analyzed. The proposed scheme is aimed at iteratively estimating the symbol start time and reducing the observation window length for the symbol detector, and it can be implemented with a combination of voltagecontrolled delay (VCD) lines [116] and ContinuousTimeMoving-Average (CTMA) symbol detectors [117]. Another option could be to take advantage of subNyquist sampling strategies, which could then be implemented with existing low-power slower ADCs. For example, in [118], a low-sampling-rate (LSR) synchronization algorithm is developed, by extending the theory of sampling signals with finite rate of innovation in the communication context and exploiting the annihilating filter method.\n• Error Control: The combination of low transmission power, molecular absorption noise and multi-user interference in nanonetworks lead to error-prone wireless links. Traditional error control schemes, such as Automatic Repeat reQuest (ARQ) or Forward Error Correction (FEC) techniques, need to be analyzed in light of the peculiarities of nanonetworks. For example, on the one hand, Automatic Repeat reQuest (ARQ) mechanisms might not be suited for nanonetworks due to the energy limitations of nano-\ndevices, which require nanoscale energy harvesting mechanisms to operate [119], [120]. The very long time needed to harvest enough energy to retransmit a packet make render the data useless. On the other hand, the majority of Forward Error Correction (FEC) mechanisms are just too complex for the expected capabilities of the nano-devices. As described in [5], the number of nano-transistors in a nano-processor limits the complexity of the operations that it can complete. Even with current processing technologies, the time needed to encode and decode a packet can be much longer than the packet transmission time. To overcome these limitations, new error control strategies are needed. On the one hand, much simpler coding schemes tailored both to the capabilities of nano-devices and the peculiarities of the THz-band channel can be developed. In this direction, the use of low-weight Error Prevention Codes (EPCs) has been proposed [121]. More specifically, it has been shown that the reduction of the average number of logic ones transmitted per packet results in a decrease in the overall molecularabsorption noise and interference powers. However, the reduction of the coding weight requires the transmission of longer data packets, which results in a higher energy consumption both at the transmitter and the receiver when compared to that of uncoded transmission [122]–[124]. For this, on the other hand, there is a need for a unified cross-layer error-control analysis, tailored to the peculiarities of nanonetworks both on the nanodevice side and the communication side. For example, in [125], a mathematical framework is developed and used to analyze the tradeoffs between Bit Error Rate (BER), Packet Error Rate (PER), energy consumption and latency, for different error-control strategies, namely, ARQ, FEC, EPC and a hybrid EPC. • Medium Access Control: New Medium Access Control (MAC) protocols are needed to regulate the channel access in nanonetworks. In traditional wireless communication networks, themain bottleneck at the link layer is posed by the limited available bandwidth, which forces nodes to either aggressively contend for the channel or follow tight time scheduling schemes. In nanonetworks, the THz-band channel provides nano-devices with a huge bandwidth and relaxes the need to ‘‘fight’’ or wait for the channel. In addition, such very large bandwidth results in very high bit-rates and, consequently, very short transmission times, which further minimize the collision probability. However, the low transmission power of THz nano-transceivers, the high path-loss at THz-band frequencies and the limited and fluctuating energy of nano-devices, still require the use of MAC protocols to regulate the link behavior. In this direction, several new protocols have been recently proposed. In [68], the Physical-layer Aware MAC Protocol for Electromagnetic Nanonetworks (PHLAME) was proposed, effectively becoming the\n3928 VOLUME 4, 2016\nfirst MAC protocol for ad-hoc nanonetworks. In this protocol, nano-devices are able to dynamically choose different physical layer parameters based on the channel conditions and the energy of the nano-devices. Similarly, in [126], the first centralized MAC protocol for nanonetworks was proposed, in which a nano-controller would determine the best communication parameters for the nano-devices. In both cases, a transmitter-initiated hand-shake was required, which would eventually result into a low channel utilization. In [127], a receiver-initiated MAC protocol for nanosensor networks was proposed. The developed protocol is based on a distributed scheduling scheme, which requires the nodes to perform a distributed edge coloring algorithm. However, due to the very limited computational resources of individual nano-devices, it seems more plausible to leverage the pulse-based physical layer to interleave users in time, rather than performing distributed scheduling algorithms. More recently, in [128], a joinit link-layer synchronization andMACprotocol for THz communication networks has been presented. The protocol relies on a receiver-initiated handshake as away to guarantee synchronization between transmitter and receiver. In addition, it incorporates a sliding window flow control mechanism, which combined with the oneway handshake, maximizes the channel utilization.\nC. NETWORK AND TRANSPORT LAYERS • Relaying:At THz-band frequencies, the very large available bandwidth comes at the cost of a much higher path-loss than that of lower frequency bands. Because of the very limited transmission power of nano-devices, this results into very short transmission distances (much below one meter). However, in the aforementioned applications, very large node densities are needed and, thus, intensive relaying is expected. Traditional analysis of optimal relaying studies [129], [130] are not applicable to nanonetworks, because they do not take into account the peculiarities of the THz-band channel. At THz-band frequencies, the benefit of relaying is twofold. As in any wireless communication system, the transmission power and, thus, the energy consumption can be reduced by having several intermediate hops between the transmitter and the receiver. In addition, due to the unique distance-dependent behavior of the bandwidth in the THz band, the reduction of the transmission distance results into the availability of a wider transmission band because fewer absorbing molecules are found along the path. Larger bandwidths result in faster data rates and, thus, can help to further reduce the energy-per-bit consumption, the packet transmission time, and the collision probability. However, by increasing the number of hops, the overhead in the network increases. All these motivate the development of new relaying strategies, which take into account both the possibility to utilize active nodes as well as novel passive\nrelaying nodes based on dielectric mirrors [131]. • Routing: New routing protocols for multi-hop communication in nanonetworks need to be developed by taking into account the nano-device capabilities and the behavior of the the lower layers in the protocol stack. Routing information acrossmultiple links with unknown relaying nano-nodes is a non-trivial task. First, as just discussed, the distance and actual molecular composition of the channel needs to be taken into account when making routing decisions. Taking the channel conditions into account at the routing metric is not new, but rather common in cross-layer routing solutions. The difference in this case is the origin of such channel change, i.e., molecular absorption, which results in higher energy consumption and longer transmission delays. In this direction, in [132], a new routing framework was developed, based on three main tasks, namely, the evaluation of the probability of saving energy through a multi-hop transmission, the tuning of the transmission power of each nanosensor for throughput and hop distance optimization, and the selection of the next hop nanosensor on the basis of their available energy and current load. Still, however, an additional challenge comes from the very limited computational resources of nano-devices. This requires the development of novel strategies different from the traditional ‘‘store and forward’’ protocols. For example, as in Networks-onChip (NoC) [133], [134] or optical core networks [135], [136], it might not be worth to ‘‘wait’’ until identifying the best route for a packet, but rather keep forwarding it even if it might not follow the optimal path to the destination. • Reliable Transport: Last but not least, the interconnection of intra-body nanomachines with wearable devices and ultimately the Internet will require the development of end-to-end solutions that can guarantee the reliable transport. On the one hand, new extensions to the Transport Control Protocol (TCP) protocol need to be developed. It is a fact that the majority of traffic over the Internet is transported by TCP. Therefore, it seems reasonable to modify and improve the performance of TCP while keeping backwards compatibility, rather than directly proposing radically new protocols. New algorithms to control the behavior of the congestion window size in TCP are needed, which take into account the huge available bandwidth in the THz-band and the nearzero memory of the nano-devices along the path. These could be estimated in a cross-layer fashion, following a similar approach as in ultra-high-speed wired optical communication networks [137]. On the other hand, in the applications in which the use of classical transport layer solutions is not required, fundamentally different protocols can be developed. In nanonetworks, robust transport layer solutions are necessary to deal with frequent device failures, disconnections due to energy fluctuations, or molecular channel composition transient\nVOLUME 4, 2016 3929\neffects. All thesemotivate also the development of crosslayer solutions [138], which can jointly capture the device, communication and networking peculiarities.\nVIII. OPEN RESEARCH CHALLENGES With the growing interest in nano-technology especially in biomedical domain and their advantage to provide substantial flexibility and improvement in healthcare for diagnostics and treatment of more diseases will likely increase their usage in time. Some of the most important open research topics in this domain are given as follows: • Human tissue parameters extraction at terahertz frequencies: Although some optical parameters are provided at such frequencies but the study of the tissue parameters at THz band is still in its infancy. Hence a thorough database of tissue properties is needed at such frequencies based on the large number of samples to better understand and model the electromagnetic wave behavior inside these materials, which is very important for developing efficient and accurate nano based health system.\n• Safety constraints, Heating problems at THz frequencies: Safety issue is always the main consideration about nano-network, especially when the nano-devices are applied to the in-body scenario. Hence, the study of the THz wave heating effects on the human tissue should be conducted to make the standard and requirement for communicating or sensing. • Interaction between the nano-devices and the surrounding environment: From the study of the models of nerve system and skin, it seems dispensable to study the detailed model when the size of the functional devices goes down to milli/nano-scale. The interaction between the environment and the devices should be study tomake sure the devices work in a desired manner. • Hybrid nano-communication systems: Since there are lots of communication paradigms for nanocommunication, the study on interaction between two different communications paradigm is still missing. It is generally believed that by merging all the communications together the nano-network would be much more flexible and powerful. Hence studies on hybrid communication mechanism and their feasibility is much needed future direction. • Architecture and protocols:Different challenges against protocols design are still being investigated with no currently fully developed solutions. Currently, introducing an innovative protocol stack model that captures the specific characteristics of nanonetworks is still in its early stages and an active area of research. • Antenna design and propagation models: In order to support high data rates and overcome very high pathloss at such frequencies, a compact large antenna array with multi-band and ultra-broadband characteristics is needed. Also, in such networks, molecular noise, nano-particle scattering and multipath fading are addi-\ntional parameters on top of high pathloss, which affect signal propagation. Hence an accurate channel model, taking into account all propagation effects still need to be developed, which are very important for accurate link budget calculation needed to develop highly efficent and reliable systems. • Massive MIMO and cooperative communication: To overcome the high pathloss issues and other propagation hurdles like scattering and multipath fading, massive MIMO and cooperative communication based methods are very promising. However, the knowledge of spatial correlation inside the body medium should be investigated for facilitating the implementation of these techniques and understanding the maximum achievable channel capacity. • Security: Security of health related information is very critical and ensuring the secure transmission especially between nano- and micro-device interface and gateway is very crucial. Therefore, robust, security (including authentication and privacy) ensuring algorithms are essential for confidently using these devices. • Nano sensor integration: Several nano-devices are developed and tested under strict laboratory condition, but integrating all nano components including sensor, battery, memory etc is still an open challenge, which needs great attention.\nIX. CONCLUSION In this paper, the state-of-the-art and comprehensive review in the domain of nano-scale electromagnetic communication specifically for biomedical applications is presented. Various studies have been analysed and discussed covering the theoretical basis of communication mechanisms among nano devices, state-of-the-art in antenna design, human tissue and the channel modeling based on numerical and experimental settings. In addition, we highlighted in the paper the current state of network and system modeling specifically aimed at nano-scale communications and linked those to future directions and needed research solutions to overcome current challenges. Considering the expected future growth of nano technologies and their potential use for the detection and diagnosis of various health related issues, the open research challenges for these potential networks (in the medium to long term) are highlighted and presented to clearly demonstrate the necessary steps the scientific, engineering andwider community needs to take to further enhance the current status and ensure applicability not only in the biomedical domain but a broader range of deployments.\nREFERENCES [1] M. Sitti et al., ‘‘Biomedical applications of untethered mobile\nmilli/microrobots,’’ Proc. IEEE, vol. 103, no. 2, pp. 205–224, Feb. 2015. [2] I. F. Akyildiz, F. Brunetti, and C. Blázquez, ‘‘Nanonetworks:\nA new communication paradigm,’’ Comput. Netw., vol. 52, no. 12, pp. 2260–2279, 2008. [3] S. Balasubramaniam and J. Kangasharju, ‘‘Realizing the Internet of Nano Things: Challenges, solutions, and applications,’’ Computer, vol. 46, no. 2, pp. 62–68, Feb. 2013.\n3930 VOLUME 4, 2016\n[4] G. Piro, K. Yang, G. Boggia, N. Chopra, L. Grieco, and A. Alomainy, ‘‘Terahertz communications in human tissues at the nanoscale for healthcare applications,’’ IEEETrans. Nanotechnol., vol. 14, no. 3, pp. 404–406, May 2015. [5] I. F. Akyildiz and J. M. Jornet, ‘‘Electromagnetic wireless nanosensor networks,’’ Nano Commun. Netw., vol. 1, no. 1, pp. 3–19, Mar. 2010. [6] I. F. Akyildiz and J. M. Jornet, ‘‘The Internet of Nano-Things,’’ IEEE Wireless Commun., vol. 17, no. 6, pp. 58–63, Dec. 2010. [7] S. Luryi, J. Xu, and A. Zaslavsky, Future Trends in Microelectronics: Frontiers and Innovations. New York, NY, USA: Wiley, 2013. [8] Q. H. Abbasi, M. Ur Rehman, K. Qaraqe, and A. Alomainy, Advances in Body-Centric Wireless Communications: Applications and Stateof-theArt. London, U.K.: The Institution of Engineering and Technolog (IET), Jul. 2016. [9] Q. H. Abbasi, A. Sani, A. Alomainy, and Y. Hao, ‘‘Numerical characterization and modeling of subject-specific ultrawideband body-centric radio channels and systems for healthcare applications,’’ IEEE Trans. Inf. Technol. Biomed., vol. 16, no. 2, pp. 221–227, Mar. 2012. [10] T. Binzoni, A. Vogel, A. H. Gandjbakhche, andR.Marchesini, ‘‘Detection limits of multi-spectral optical imaging under the skin surface,’’ Phys. Med. Biol., vol. 53, no. 3, pp. 617–636, 2008. [11] C. S. Joseph, A. N. Yaroslavsky, V. A. Neel, T. M. Goyette, and R. H. Giles, ‘‘Continuous wave terahertz transmission imaging of nonsmelanoma skin cancers,’’ Lasers Surgery Med., vol. 43, no. 6, pp. 457– 462, 2011. [12] E. Jung et al., ‘‘Thz time-domain spectroscopic imaging of human articular cartilage,’’ J. Infr., Millim., THz Waves, vol. 33, no. 6, pp. 593–598, 2012. [13] E. Berry et al., ‘‘Optical properties of tissue measured using terahertzpulsed imaging,’’ Proc. SPIE, vol. 5030, pp. 459–470, Jun. 2003. [14] A. J. Fitzgerald et al., ‘‘Catalogue of human tissue optical properties at terahertz frequencies,’’ J. Biol. Phys., vol. 29, nos. 2–3, pp. 123–128, 2003. [15] J. M. Jornet and I. F. Akyildiz, ‘‘Channel modeling and capacity analysis for electromagnetic wireless nanonetworks in the terahertz band,’’ IEEE Trans. Wireless Commun., vol. 10, no. 10, pp. 3211–3221, Oct. 2011. [16] G. J. Wilmink and J. E. Grundt, ‘‘Invited review article: Current state of research on biological effects of terahertz radiation,’’ J. Infr., Millim., THz Waves, vol. 32, no. 10, pp. 1074–1122, Oct. 2011. [17] G. E. Santagati and T. Melodia, ‘‘Opto-ultrasonic communications for wireless intra-body nanonetworks,’’ Nano Commun. Netw., vol. 5, no. 1, pp. 3–14, 2014. [18] R. A. Freitas, Jr., ‘‘Nanotechnology, nanomedicine and nanosurgery,’’ Int. J. Surgery, vol. 3, no. 4, pp. 243–246, 2005. [19] Z. Liao, R. Gao, C. Xu, and Z.-S. Li, ‘‘Indications and detection, completion, and retention rates of small-bowel capsule endoscopy: A systematic review,’’ Gastrointestinal Endosc., vol. 71, no. 2, pp. 280–286, 2010. [20] T. Nakamura and A. Terano, ‘‘Capsule endoscopy: Past, present, and future,’’ J. Gastroenterol., vol. 43, no. 2, pp. 93–99, 2008. [21] G. Pan and L. Wang, ‘‘Swallowable wireless capsule endoscopy: Progress and technical challenges,’’Gastroenterol. Res. Pract., vol. 2012, Oct. 2011, Art. no. 841691. [22] M. Fluckiger and B. J. Nelson, ‘‘Ultrasound emitter localization in heterogeneous media,’’ in Proc. 29th Annu. Int. Conf. IEEE Eng. Med. Biol. Soc. (EMBS), Aug. 2007, pp. 2867–2870. [23] K. Kim et al., ‘‘Noninvasive ultrasound elasticity imaging (UEI) of Crohn’s disease: Animal model,’’ Ultrasound Med. Biol., vol. 34, no. 6, pp. 902–912, 2008. [24] O. Ergeneman, G. Dogangil, M. P. Kummer, J. J. Abbott, M. K. Nazeeruddin, and B. J. Nelson, ‘‘A magnetically controlled wireless optical oxygen sensor for intraocular measurements,’’ IEEE Sensors J., vol. 8, no. 1, pp. 29–37, Jan. 2008. [25] J. M. Dubach, D. I. Harjes, and H. A. Clark, ‘‘Fluorescent ion-selective nanosensors for intracellular analysis with improved lifetime and size,’’ Nano Lett., vol. 7, no. 6, pp. 1827–1831, 2007. [26] J. Li, T. Peng, and Y. Peng, ‘‘A cholesterol biosensor based on entrapment of cholesterol oxidase in a silicic sol-gel matrix at a prussian blue modified electrode,’’ Electroanalysis, vol. 15, no. 12, pp. 1031–1037, 2003. [27] P. Tallury, A. Malhotra, L. M. Byrne, and S. Santra, ‘‘Nanobioimaging and sensing of infectious diseases,’’ Adv. Drug Del. Rev., vol. 62, no. 4, pp. 424–437, 2010. [28] J. W. Aylott, ‘‘Optical nanosensors—An enabling technology for intracellular measurements,’’ Analyst, vol. 128, no. 4, pp. 309–312, 2003. [29] P. Avouris, G. Dresselhaus, and M. Dresselhaus, Carbon Nanotubes: Synthesis, Structure, Properties, and Applications (Topics in Applied Physics). Berlin, Germany: Springer-Verlag, 2000.\n[30] S. Tasoglu, E. Diller, S. Guven, M. Sitti, and U. Demirci, ‘‘Untethered micro-robotic coding of three-dimensional material composition,’’ Nature Commun., vol. 5, Jan. 2014, Art. no. 3124. [31] I. J. Fox, G. Q. Daley, S. A. Goldman, J. Huard, T. J. Kamp, and M. Trucco, ‘‘Use of differentiated pluripotent stem cells as replacement therapy for treating disease,’’ Science, vol. 345, no. 6199, p. 1247391, 2014. [32] S. Kim et al., ‘‘Fabrication and characterization of magnetic microrobots for three-dimensional cell culture and targeted transportation,’’ Adv. Mater., vol. 25, no. 41, pp. 5863–5868, 2013. [33] K. E. Drexler, Nanosystems: Molecular Machinery, Manufacturing, and Computation. New York, NY, USA: Wiley, 1992. [34] R. A. Freitas, Jr., ‘‘What is nanomedicine?’’ Nanomed., Nanotechnol., Biol. Med., vol. 1, no. 1, pp. 2–9, 2005. [35] R. Fernández-Pacheco et al., ‘‘Magnetic nanoparticles for local drug delivery using magnetic implants,’’ J. Magn. Magn. Mater., vol. 311, no. 1, pp. 318–322, 2007. [36] R. A. Freitas, Jr., ‘‘Pharmacytes: An ideal vehicle for targeted drug delivery,’’ J. Nanosci. Nanotechnol., vol. 6, nos. 9–10, pp. 2769–2775, 2006. [37] B. P. Timko, T. Dvir, and D. S. Kohane, ‘‘Remotely triggerable drug delivery systems,’’ Adv. Mater., vol. 22, no. 44, pp. 4925–4943, 2010. [38] S. Yim and M. Sitti, ‘‘Shape-programmable soft capsule robots for semi-implantable drug delivery,’’ IEEE Trans. Robot., vol. 28, no. 5, pp. 1198–1202, Oct. 2012. [39] R.W.Carlsen andM. Sitti, ‘‘Bio-hybrid cell-based actuators formicrosystems,’’ Small, vol. 10, no. 19, pp. 3831–3851, 2014. [40] C.-J. Chen, D. Y. Haik, and J. Chatterjee, ‘‘Development of nanotechnology for biomedical applications,’’ in Proc. Conf. Emerg. Inf. Technol., 2005, p. 4. [41] E. B. Steager, M. S. Sakar, C. Magee, M. Kennedy, A. Cowley, and V. Kumar, ‘‘Automated biomanipulation of single cells using magnetic microrobots,’’ Int. J. Robot. Res., vol. 32, no. 3, pp. 346–359, 2013. [42] T. Kawahara et al., ‘‘On-chip microrobot for investigating the response of aquatic microorganisms to mechanical stimulation,’’ Lab Chip, vol. 13, no. 6, pp. 1070–1078, 2013. [43] D.-H. Kim, P. K. Wong, J. Park, A. Levchenko, and Y. Sun, ‘‘Microengineered platforms for cell mechanobiology,’’ Annu. Rev. Biomed. Eng., vol. 11, pp. 203–233, Aug. 2009. [44] K.-C. Kong, J. Cha, D. Jeon, and D.-I. D. Cho, ‘‘A rotational micro biopsy device for the capsule endoscope,’’ in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst. (IROS, Aug. 2005, pp. 1839–1843. [45] P. Miloro, E. Sinibaldi, A. Menciassi, and P. Dario, ‘‘Removing vascular obstructions: A challenge, yet an opportunity for interventional microdevices,’’ Biomed. Microdevices, vol. 14, no. 3, pp. 511–532, 2012. [46] S. Yim, E. Gultepe, D. H. Gracias, and M. Sitti, ‘‘Biopsy using a magnetic capsule endoscope carrying, releasing, and retrieving untethered microgrippers,’’ IEEE Trans. Biomed. Eng., vol. 61, no. 2, pp. 513–521, Sep. 2013. [47] M. Heil and J. Ton, ‘‘Long-distance signalling in plant defence,’’ Trends Plant Sci., vol. 13, no. 6, pp. 264–272, 2008. [48] C. M. Pieterse and M. Dicke, ‘‘Plant interactions with microbes and insects: From molecular mechanisms to ecology,’’ Trends Plant Sci., vol. 12, no. 12, pp. 564–569, 2007. [49] J. Han, J. Fu, and R. B. Schoch, ‘‘Molecular sieving using nanofilters: Past, present and future,’’ Lab Chip, vol. 8, no. 1, pp. 23–33, 2008. [50] C. J. Harwood, ‘‘Efficient C++: Performance programming techniques,’’ Kybernetes, vol. 29, nos. 9–10, pp. 1333–1340, 2000. [51] K. Yang, ‘‘Characterisation of the in-vivo terahertz communication channel within the human body tissues for future nano-communication networks,’’ Ph.D. dissertation, School Electron. Eng. Comput. Sci., Queen Mary Univ. London, London, U.K., Jan. 2016. [52] M. Pierobon and I. F. Akyildiz, ‘‘A physical end-to-end model for molecular communication in nanonetworks,’’ IEEE J. Sel. Areas Commun., vol. 28, no. 4, pp. 602–611, May 2010. [53] M. Ş. Kuran, H. B. Yilmaz, T. Tugcu, and B. Özerman, ‘‘Energymodel for communication via diffusion in nanonetworks,’’ J. Nano Commun. Netw., vol. 1, no. 2, pp. 86–95, 2010. [54] M. Pierobon and I. F. Akyildiz, ‘‘Diffusion-based noise analysis for molecular communication in nanonetworks,’’ IEEE Trans. Signal Process., vol. 59, no. 6, pp. 2532–2547, Jun. 2011. [55] P.-J. Shih, C.-H. Lee, P.-C. Yeh, and K.-C. Chen, ‘‘Channel codes for reliability enhancement in molecular communication,’’ IEEE J. Sel. Areas Commun., vol. 31, no. 12, pp. 857–867, Dec. 2013.\nVOLUME 4, 2016 3931\n[56] A. Einolghozati, M. Sardari, and F. Fekri, ‘‘Relaying in diffusion-based molecular communication,’’ in Proc. IEEE Int. Symp. Inf. Theory (ISIT), Jul. 2013, pp. 1844–1848. [57] T. Nakano and J.-Q. Liu, ‘‘Design and analysis of molecular relay channels: An information theoretic approach,’’ IEEE Trans. Nanobiosci., vol. 9, no. 3, pp. 213–221, Sep. 2010. [58] Y. Chen, P. Kosmas, P. S. Anwar, and L. Huang, ‘‘A touch-communication framework for drug delivery based on a transient microbot system,’’ IEEE Trans. Nanobiosci., vol. 14, no. 4, pp. 397–408, Jun. 2015. [59] I. S. M. Khalil, V. Magdanz, S. Sanchez, O. G. Schmidt, L. Abelmann, and S. Misra, ‘‘Magnetic control of potential microrobotic drug delivery systems: Nanoparticles, magnetotactic bacteria and self-propelled microjets,’’ in Proc. 35th Annu. Int. Conf. IEEE Eng. Med. Biol. Soc. (EMBC), Jul. 2013, pp. 5299–5302. [60] T. Hogg and R. A. Freitas, Jr., ‘‘Acoustic communication for medical nanorobots,’’ Nano Commun. Netw., vol. 3, no. 2, pp. 83–102, 2012. [61] G. E. Santagati and T. Melodia, ‘‘Opto-ultrasonic communications in wireless body area nanonetworks,’’ in Proc. Asilomar Conf. Signals, Syst. Comput., 2013, pp. 1066–1070. [62] S.-W. Hwang et al., ‘‘A physically transient form of silicon electronics,’’ Science, vol. 337, no. 6102, pp. 1640–1644, Sep. 2012. [63] S. Martel, M. Mohammadi, O. Felfoul, Z. Lu, and P. Pouponneau, ‘‘Flagellated magnetotactic bacteria as controlled MRI-trackable propulsion and steering systems for medical nanorobots operating in the human microvasculature,’’ Int. J. Robot. Res., vol. 28, no. 4, pp. 571–582, 2009. [64] S.Martel et al., ‘‘MRI-basedmedical nanorobotic platform for the control of magnetic nanoparticles and flagellated bacteria for target interventions in human capillaries,’’ Int. J. Robot. Res., vol. 28, no. 9, pp. 1169–1182, 2009. [65] Y. Chen, P. Kosmas, and R. Wang, ‘‘Conceptual design and simulations of a nano-communication model for drug delivery based on a transient microbot system,’’ in Proc. 8th Eur. Conf. Antennas Propag. (EuCAP), 2014, pp. 63–67. [66] M. R. da Costa, O. V. Kibis, and M. E. Portnoi, ‘‘Carbon nanotubes as a basis for terahertz emitters and detectors,’’ Microelectron. J., vol. 40, no. 4, pp. 776–778, 2009. [67] C. E. Koksal and E. Ekici, ‘‘A nanoradio architecture for interacting nanonetworking tasks,’’ Nano Commun. Netw., vol. 1, no. 1, pp. 63–75, 2010. [68] J. M. Jornet, J. C. Pujol, and J. S. Pareta, ‘‘PHLAME: A physical layer aware MAC protocol for electromagnetic nanonetworks in the terahertz band,’’ Nano Commun. Netw., vol. 3, no. 1, pp. 74–81, 2012. [69] M. Nafari and J. M. Jornet, ‘‘Metallic plasmonic nano-antenna for wireless optical communication in intra-body nanonetworks,’’ in Proc. 10th EAI Int. Conf. Body Area Netw. (BodyNets), Sydney, NSW, Australia, 2015, pp. 287–293. [70] Z. Ma and G. A. E. Vandenbosch, ‘‘Systematic full-wave characterization of real-metal nano dipole antennas,’’ IEEE Trans. Antennas Propag., vol. 61, no. 10, pp. 4990–4999, Oct. 2013. [71] M. Bareiß et al., ‘‘Nano antenna array for terahertz detection,’’ IEEE Trans. Microw. Theory Techn., vol. 59, no. 10, pp. 2751–2757, Oct. 2011. [72] S. Datta, Electronic Transport in Mesoscopic Systems. Cambridge, U.K.: Cambridge Univ. Press, 1997. [73] G. Zhou, M. Yang, X. Xiao, and Y. Li, ‘‘Electronic transport in a quantum wire under external terahertz electromagnetic irradiation,’’ Phys. Rev. B, vol. 68, no. 15, p. 155309, 2003. [74] G. W. Hanson, ‘‘Fundamental transmitting properties of carbon nanotube antennas,’’ IEEE Trans. Antennas Propag., vol. 53, no. 11, pp. 3426–3435, Nov. 2005. [75] P. J. Burke, S. Li, and Z. Yu, ‘‘Quantitative theory of nanowire and nanotube antenna performance,’’ IEEE Trans. Nanotechnol., vol. 5, no. 4, pp. 314–334, Jul. 2006. [76] G. W. Hanson, ‘‘Dyadic Green’s functions and guided surface waves for a surface conductivity model of graphene,’’ J. Appl. Phys., vol. 103, no. 6, pp. 064302-1–064302-8, Mar. 2008. [77] J. M. Jornet and I. F. Akyildiz, ‘‘Graphene-based nano-antennas for electromagnetic nanocommunications in the terahertz band,’’ in Proc. 4th Eur. Conf. Antennas Propag. (EUCAP), Apr. 2010, pp. 1–5. [78] Y.-M. Lin et al., ‘‘100-GHz transistors from wafer-scale epitaxial graphene,’’ Science, vol. 327, no. 5966, p. 662, 2010. [79] Z. Xu, X. Dong, and J. Bornemann, ‘‘Design of a reconfigurable MIMO system for THz communications based on graphene antennas,’’ IEEE Trans. THz Sci. Technol., vol. 4, no. 5, pp. 609–617, Sep. 2014.\n[80] R. Bala and A. Marwaha, ‘‘Development of computational model for tunable characteristics of graphene based triangular patch antenna in THz regime,’’ J. Comput. Electron., vol. 15, no. 1, pp. 222–227, 2015. [81] R. Bala and A. Marwaha, ‘‘Investigation of graphene based miniaturized terahertz antenna for novel substrate materials,’’ Eng. Sci. Technol., Int. J., vol. 19, no. 1, pp. 531–537, Mar. 2016. [82] J. Yang, F. Kong, and K. Li, ‘‘Broad tunable nanoantenna based on graphene log-periodic toothed structure,’’ Plasmonics, vol. 11, no. 4, pp. 981–986, 2015. [83] J. M. Jornet and I. F. Akyildiz, ‘‘Graphene-based plasmonic nano-antenna for terahertz band communication in nanonetworks,’’ IEEE J. Sel. Areas Commun., vol. 31, no. 12, pp. 685–694, Dec. 2013. [84] J. Zhou, T.-H. Chuang, T. Dinc, and H. Krishnaswamy, ‘‘Receiver with >20 MHz bandwidth self-interference cancellation suitable for FDD, coexistence and full-duplex applications,’’ in Proc. IEEE Int. Solid-State Circuits Conf. (ISSCC), Feb. 2015, pp. 1–3. [85] Multi-Sensing IC for Internet of Things Produced in Taiwai, accessed on Apr. 2015. [Online]. Available: http://www.tiplo.com.tw /en/tn_in.aspx?mnuid=1284&nid=45628 [86] D. C. Meeker, E. H. Maslen, R. C. Ritter, and F. M. Creighton, ‘‘Optimal realization of arbitrary forces in a magnetic stereotaxis system,’’ IEEE Trans. Magn., vol. 32, no. 2, pp. 320–328, Mar. 1996. [87] K. Ishiyama,M. Sendoh, A. Yamazaki, andK. I. Arai, ‘‘Swimmingmicromachine driven by magnetic torque,’’ Sens. Actuators A, Phys., vol. 91, nos. 1–2, pp. 141–144, Jun. 2001. [88] J. Yan et al., ‘‘Wing transmission for a micromechanical flying insect,’’ J. Micromechatron., vol. 1, no. 3, pp. 221–237, 2001. [89] S. Hollar, A. Flynn, C. Bellew, and K. S. J. Pister, ‘‘Solar powered 10 mg silicon robot,’’ in Proc. IEEE 16th Annu. Int. Conf. Micro Electro Mech. Syst. (MEMS), Kyoto, Japan, 2003, pp. 706–711. [90] M. Quirini, A. Menciassi, S. Scapellato, C. Stefanini, and P. Dario, ‘‘Design and fabrication of a motor legged capsule for the active exploration of the gastrointestinal tract,’’ IEEE/ASME Trans. Mechatronics, vol. 13, no. 2, pp. 169–179, Apr. 2008. [91] S. Yim and M. Sitti, ‘‘Design and rolling locomotion of a magnetically actuated soft capsule endoscope,’’ IEEE Trans. Robot., vol. 28, no. 1, pp. 183–194, Feb. 2012. [92] T. Qiu et al., ‘‘Swimming by reciprocal motion at low Reynolds number,’’ Nature Commun., vol. 5, Nov. 2014, Art. no. 5119. [93] C. Cvetkovic et al., ‘‘Three-dimensionally printed biological machines powered by skeletal muscle,’’ Proc. Nat. Acad. Sci. USA, vol. 111, no. 28, pp. 10125–10130, 2014. [94] F. Qiu, S. Fujita, R. Mhanna, L. Zhang, B. R. Simona, and B. J. Nelson, ‘‘Magnetic helical microswimmers functionalized with lipoplexes for targeted gene delivery,’’ Adv. Funct. Mater., vol. 25, no. 11, pp. 1666–1671, 2015. [95] C. Son and B. Ziaie, ‘‘A wireless implantable passive microdosimeter for radiation oncology,’’ IEEE Trans. Biomed. Eng., vol. 55, no. 6, pp. 1772–1775, Jun. 2008. [96] S. Luryi, J. Xu, and A. Zaslavsky, Future Trends in Microelectronics: Up the Nano Creek. New York, NY, USA: Wiley, 2007. [97] J. M. Jornet and I. F. Akyildiz, ‘‘Channel capacity of electromagnetic nanonetworks in the terahertz band,’’ in Proc. IEEE Int. Conf. Commun. (ICC), May 2010, pp. 1–6. [98] C. Han, A. O. Bicen, and I. F. Akyildiz, ‘‘Multi-ray channel modeling and wideband characterization for wireless communications in the terahertz band,’’ IEEE Trans. Wireless Commun., vol. 14, no. 5, pp. 2402–2412, May 2015. [99] J. Kokkoniemi, J. Lehtomäki, K. Umebayashi, and M. Juntti, ‘‘Frequency and time domain channel models for nanonetworks in terahertz band,’’ IEEE Trans. Antennas Propag., vol. 63, no. 2, pp. 678–691, Feb. 2015. [100] K. Yang, A. Pellegrini, M. Munoz, A. Brizzi, A. Alomainy, and Y. Hao, ‘‘Numerical analysis and characterization of THz propagation channel for body-centric nano-communications,’’ IEEE Trans. Terahertz Sci. Technol., vol. 5, no. 3, pp. 419–426, May 2015. [101] K. Yang, Q. H. Abbasi, N. Chopra, M. Munoz, Y. Hao, and A. Alomainy, ‘‘Effects of non-flat interfaces in human skin tissues on the in-vivo terahertz communication channel,’’ Nano Commun. Netw., vol. 8, pp. 16–24, Nov. 2015. [102] K. Yang, A. Pellegrini, A. Brizzi, A. Alomainy, and Y. Hao, ‘‘Numerical analysis of the communication channel path loss at the THz band inside the fat tissue,’’ in Proc. IEEE MTT-S Int. Microw. Workshop Ser. RF Wireless Technol. Biomed. Healthcare Appl. (IMWS-BIO), Dec. 2013, pp. 1–3.\n3932 VOLUME 4, 2016\n[103] CST Microwave Studio. [Online]. Available: https://www.cst.com/ products/cstmws [104] D. Lipscomb, I. Echchgadda, X. G. Peralta, and G. J. Wilmink, ‘‘Determination of the optical properties of melanin-pigmented human skin equivalents using terahertz time-domain spectroscopy,’’ Proc. SPIE, pp. 85850F-1–85850F-6, Feb. 2013. [105] A. G. Markelz, A. Roitberg, and E. J. Heilweil, ‘‘Pulsed terahertz spectroscopy of DNA, bovine serum albumin and collagen between 0.1 and 2.0 THz,’’ Chem. Phys. Lett., vol. 320, nos. 1–2, pp. 42–48, Mar. 2000. [106] M. He, A. K. Azad, S. Ye, and W. Zhang, ‘‘Far-infrared signature of animal tissues characterized by terahertz time-domain spectroscopy,’’ Opt. Commun., vol. 259, no. 1, pp. 389–392, 2006. [107] T. Bowman,M. El-Shenawee, and S. G. Sharma, ‘‘Terahertz spectroscopy for the characterization of excised human breast tissue,’’ in Proc. IEEE MTT-S Int. Microw. Symp. (IMS), Jun. 2014, pp. 1–4. [108] R. Pethig, ‘‘Dielectric properties of biological materials: Biophysical and medical applications,’’ IEEE Trans. Elect. Insul., vol. EI-19, no. 5, pp. 453–474, Oct. 1984. [109] S. Gabriel, R. Lau, and C. Gabriel, ‘‘The dielectric properties of biological tissues: III. Parametric models for the dielectric spectrum of tissues,’’ Phys. Med. Biol., vol. 41, no. 11, p. 2271, 1996. [110] Q. H. Abbasi, H. E. Sallabi, N. Chopra, K. Yang, K. A. Qaraqe, and A. Alomainy, ‘‘Terahertz channel characterization inside the human skin for nano-scale body-centric networks,’’ IEEE Trans. THz Sci. Technol., vol. 6, no. 3, pp. 427–434, May 2016. [111] N. Chopra, A. Alomainy, and M. Philpot, ‘‘Investigating electromagnetic material properties of collagen at THz for health monitoring applications,’’ in Proc. MOBIHEALTH, 2015, pp. 170–173. [112] C. Liaskos and A. Tsioliaridou, ‘‘A promise of realizable, ultra-scalable communications at nano-scale: A multi-modal nano-machine architecture,’’ IEEE Trans. Comput., vol. 64, no. 5, pp. 1282–1295, May 2015. [113] 56 GSa/s 8-Bit Analog-to-Digital Converter, Fujitsu. [Online]. Available: http://www.fujitsu.com/downloads/MICRO/fma/pdf/56G_ADC _FactSheet.pdf [114] F. Rana, ‘‘Graphene terahertz plasmon oscillators,’’ IEEE Trans. Nanotechnol., vol. 7, no. 1, pp. 91–99, Jan. 2008. [115] A. Gupta, M. Medley, and J. M. Jornet, ‘‘Joint synchronization and symbol detection design for pulse-based communications in the THz band,’’ in Proc. IEEE Global Commun. Conf., Dec. 2015, pp. 1–7. [116] J. T. Kim and S.-Y. Choi, ‘‘Graphene-based plasmonic waveguides for photonic integrated circuits,’’Opt. Exp., vol. 19, no. 24, pp. 24557–24562, 2011. [117] R. G. Cid-Fuentes, J. M. Jornet, E. Alarcon, and I. F. Akyildiz, ‘‘A receiver architecture for pulse-based electromagnetic nanonetworks in the terahertz band,’’ in Proc. IEEE Int. Conf. Commun. (ICC), Jun. 2012, pp. 4937–4942. [118] C. Han, I. F. Akyildiz, and W. H. Gerstacker, ‘‘Timing acquisition for pulse-based wireless systems in the terahertz band,’’ in Proc. 2nd ACM Int. Conf. Nanosc. Comput. Commun. (NANOCOM), 2015, Art. no. 7. [119] S. Xu, Y. Qin, C. Xu, Y. Wei, R. Yang, and Z. L. Wang, ‘‘Self-powered nanowire devices,’’ Nature Nanotechnol., vol. 5, no. 5, pp. 366–373, 2010. [120] J. M. Jornet and I. F. Akyildiz, ‘‘Joint energy harvesting and communication analysis for perpetual wireless nanosensor networks in the terahertz band,’’ IEEE Trans. Nanotechnol., vol. 11, no. 3, pp. 570–580, May 2012. [121] J. M. Jornet and I. F. Akyildiz, ‘‘Low-weight channel coding for interference mitigation in electromagnetic nanonetworks in the terahertz band,’’ in Proc. IEEE Int. Conf. Commun. (ICC), Jun. 2011, pp. 1–6. [122] M. Kocaoglu and O. B. Akan, ‘‘Minimum energy channel codes for nanoscale wireless communications,’’ IEEE Trans. Wireless Commun., vol. 12, no. 4, pp. 1492–1500, Apr. 2013. [123] K. Chi, Y.-H. Zhu, X. Jiang, and X. Tian, ‘‘Optimal coding for transmission energy minimization in wireless nanosensor networks,’’ Nano Commun. Netw., vol. 4, no. 3, pp. 120–130, 2013. [124] K. Chi, Y.-H. Zhu, X. Jiang, and V. C. M. Leung, ‘‘Energy-efficient prefix-free codes for wireless nano-sensor networks using OOK modulation,’’ IEEE Trans. Wireless Commun., vol. 13, no. 5, pp. 2670–2682, May 2014. [125] N. Akkari et al., ‘‘Joint physical and link layer error control analysis for nanonetworks in the terahertz band,’’ Wireless Netw., vol. 22, no. 4, pp. 1221–1233, 2015. [126] P. Wang, J. M. Jornet, M. G. A. Malik, N. Akkari, and I. F. Akyildiz, ‘‘Energy and spectrum-aware mac protocol for perpetual wireless nanosensor networks in the terahertz band,’’ Ad Hoc Netw., vol. 11, no. 8, pp. 2541–2555, 2013.\n[127] S. Mohrehkesh and M. C. Weigle, ‘‘RIH-MAC: Receiver-initiated harvesting-aware MAC for NanoNetworks,’’ in Proc. ACM 1st Annu. Int. Conf. Nanosc. Comput. Commun., 2014, Art. no. 6. [128] Q. Xia, Z. Hossain, M. Medley, and J. M. Jornet, ‘‘A link-layer synchronization and medium access control protocol for terahertz-band communication networks,’’ in Proc. IEEE GLOBECOM, Dec. 2015, pp. 1–7. [129] A. Nosratinia, T. E. Hunter, and A. Hedayat, ‘‘Cooperative communication in wireless networks,’’ IEEE Commun. Mag., vol. 42, no. 10, pp. 74–80, Oct. 2004. [130] A. Bletsas, H. Shin, and M. Z. Win, ‘‘Cooperative communications with outage-optimal opportunistic relaying,’’ IEEE Trans. Wireless Commun., vol. 6, no. 9, pp. 3450–3460, Sep. 2007. [131] I. F. Akyildiz, J. M. Jornet, and C. Han, ‘‘Terahertz band: Next frontier for wireless communications,’’ Phys. Commun., vol. 12, pp. 16–32, Sep. 2014. [132] M. Pierobon, J. M. Jornet, N. Akkari, S. Almasri, and I. F. Akyildiz, ‘‘A routing framework for energy harvesting wireless nanosensor networks in the terahertz band,’’ Wireless Netw., vol. 20, no. 5, pp. 1169–1183, 2013. [133] J. Lin, X. Lin, and L. Tang, ‘‘Making-a-stop: A new bufferless routing algorithm for on-chip network,’’ J. Parallel Distrib. Comput., vol. 72, no. 4, pp. 515–524, Apr. 2012. [134] Z. Zhang, Z. Guo, and Y. Yang, ‘‘Bufferless routing in optical Gaussian macrochip interconnect,’’ in Proc. IEEE 20th Annu. Symp. High-Perform. Interconnects (HOTI), 2012, pp. 56–63. [135] A. Vishwanath, V. Sivaraman, M. Thottan, and C. Dovrolis, ‘‘Enabling a bufferless core optical network using edge-to-edge packet-level FEC,’’ IEEE Trans. Commun., vol. 61, no. 2, pp. 690–699, Feb. 2013. [136] A.G. P. Rahbar andO.W.W.Yang, ‘‘Contention avoidance and resolution schemes in bufferless all-optical packet-switched networks: A survey,’’ IEEECommun. Surveys Tuts., vol. 10, no. 4, pp. 94–107, 4th Quart., 2008. [137] V. V. Mai, T. C. Thang, and A. T. Pham, ‘‘Performance of TCP over free-space optical atmospheric turbulence channels,’’ IEEE/OSA J. Opt. Commun. Netw., vol. 5, no. 11, pp. 1168–1177, Nov. 2013. [138] C. Han, J. M. Jornet, E. Fadel, and I. F. Akyildiz, ‘‘A cross-layer communication module for the Internet of Things,’’ Comput. Netw., vol. 57, no. 3, pp. 622–633, 2013.\nQAMMER H. ABBASI (S’08–M’12–SM’16) received the B.Sc. and M.Sc. degrees (Hons.) in electronics and telecommunication engineering from the University of Engineering and Technology, Lahore, Pakistan, and the Ph.D. degree in electronic and electrical engineering from the QueenMaryUniversity of London (QMUL), U.K., in 2012. In 2012, he was a Post-Doctoral Research Assistant with the Antenna and Electromagnetics Group, QMUL, U.K. From 2012 to 2013, he was\nan International Young Scientist with the National Science Foundation China (NSFC), and an Assistant Professor with the University of Engineering and Technology, KSK, Lahore. Since 2013, he has been with the Center for Remote Healthcare Technology and Wireless Research Group, Department of Electrical and Computer Engineering, Texas A&MUniversity, where he is currently an Assistant Research Scientist and a Visiting Lecture, leading two of the Qatar national research foundation grants (worth 1.8 M). He has been a Visiting Research Fellow with Queen Mary, QMUL, since 2013. He has been mentoring several undergraduate, graduate students and post-doctoral studies. He has contributed to a patent, over 100 leading international technical journal and peer-reviewed conference papers and five books and received several recognitions for his research. His research interests include compact antenna design, RF design and radio propagation, nano communication, biomedical applications of Terahertz communication, Antenna interaction with human body, implants, body centric wireless communication issues, wireless body sensor networks, non-invasive health care solutions, cognitive and cooperative network, and multiple-input-multiple-output systems. He is a member of IET in 2012. He has been a member of the technical program committees of several IEEEflagship conferences and the Technical Reviewer of several IEEE and top notch journals. He contributed in organizing several IEEE conferences, workshop, and special sessions in addition to European school of antenna course.\nVOLUME 4, 2016 3933\nKE YANG (S’13) received the bachelor’s degree in electronic information engineering, and the master’s degree in electromagnetics engineering from Xidian University, China, in 2009 and 2011, and the Ph.D. degree from EECS, QMUL, in 2016. He is currently a Research Assistant with the Queen Mary University of London funded by Qatar National Research Fund. His research interests are mainly on the study of nano-communication, THz technology, and\nbody-centric communication.\nNISHTHA CHOPRA (S’07) received the bachelor’s degree in electrical engineering from SRM University, India, in 2010, and the master’s degree in nanoelectronics from the University of Manchester, U.K., in 2012, and the Ph.D. degree in electronics engineering from the School of Electronics Engineering and Computer Science, Queen Mary University of London in 2013. Her researchmainly focuses on THz Technology, skin modeling and characterization, and nano-communication.\nJOSEP MIQUEL JORNET (S’08–M’13) received the B.S. degree in telecommunication engineering and the M.Sc. degree in information and communication technologies from the Universitat Politècnica de Catalunya, Barcelona, Spain, in 2008, and the Ph.D. degree in electrical and computer engineering from the Georgia Institute of Technology (Georgia Tech), Atlanta, GA, USA, in 2013. Since 2013, he has been an Assistant Professor with the Department of Electrical Engineering, University\nat Buffalo, The State University of New York. From 2007 to 2008, he was a Visiting Researcher with the Massachusetts Institute of Technology (MIT), Cambridge, under the MIT Sea Grant program. He has authored over 50 peer-reviewed scientific publications, one book, and two patents, and his work has been cited near 1800 times within the last six years (h-index of 21, according to Google Scholar in 2016). He has given more than 20 seminars, tutorials, and invited talks in USA and Europe. His current research interests are in Terahertz-band communication networks, nano-photonic wireless communication, graphene-enabled wireless communication, electromagnetic nanonetworks, intra-body wireless nanosensor networks and the Internet of Nano-Things. He was a fellow from la Caixa from 2009 to 2010 and Fundación Caja Madrid from 2011 to 2012. He was a recipient of the Oscar P. Cleaver Award for outstanding graduate students in the School of Electrical and Computer Engineering at Georgia Tech in 2009. He also received the Broadband Wireless Networking Lab Researcher of the Year Award in 2010. He is currently a Guest-Editor for special issues on THz communications in the IEEE TRANSACTIONS on VEHICULAR TECHNOLOGY and the Nano CommunicationNetworks Journal (Elsevier). He was a GuestEditor of the special issues on electromagnetic nanonetworks for the IEEE INTERNET of THINGS JOURNAL and the NANOCOMMUNICATIONNETWORKS JOURNAL (Elsevier). He is a TPC Co-Chair of the ACM NanoCom 2016, and served as a TPC Vice-Co-Chair of the ACM NanoCom 2015. He has organized and chaired special sessions on nanoscale and THz communications at several venues, including 47th ASILOMAR Conference (2013), the IEEE BlackSeaCom 2014 and the BODYNETS Conference (2014, 2015). He has been a TPC member in multiple conferences, including IEEE INFOCOM (2016), the IEEE VTC (2015, 2016), the IEEE Globecom (2014, 2015), the EuCAP (2015), the ACM NanoCom (2014, 2015), and the BODYNETS (2014, 2015). He is a Reviewer for multiple IEEE, ACM, and Elsevier journals. He is a member of the ACM.\nNAJAH ABED ABUALI (M’07) received the B.Sc. and M.Sc. degrees in electrical engineering from the University of Jordan, and the Ph.D. degree from the Department of Electrical and Computer Engineering, Queen’s University, Kingston, Canada with a focus on resource management in computer networks. He is currently an Associate Professor with the Faculty of Information Technology, United Arab Emirates University (UAEU). Her general research interest includes modeling\nwireless communications, resource management in wired and wireless networks, and reducing the energy requirements in wireless sensor networks. She has strengthened her focus on the Internet of Things, particularly at the nano-scale communications, in addition vehicle-to-vehicle networking. Her work has been consistently published in key publications venues for journals and conference. She has co-authored a Wiley book on 4G and beyond cellular communication networks. She has also delivered various seminar and tutorials at both esteemed institutions and flagship gatherings. Dr. Najah has received research fund grants, particularly from the Emirati NRF/UAEU funds and the Qatar National Research Foundation.\nKHALID A. QARAQE (SM’00) was born in Bethlehem. He received the B.S. degree (Hons.) in electrical engineering from the University of Technology, Bagdad, Iraq, in 1986, and the M.S. degree in electrical engineering from the University of Jordan, Jordan, Amman, Jordan, in 1989, and the Ph.D. degree in electrical engineering from Texas A&MUniversity, College Station, TX, USA, in 1997. From 1989 to 2004, he has held a variety positions in many companies and he has\nover 12 years of experience in the telecommunication industry. He has involved in numerous GSM, CDMA, and WCDMA projects and has experience in product development, design, deployments, testing and integration. He joined the Department of Electrical and Computer Engineering, Texas A&M University at Qatar, in 2004, where he is currently a Professor.\nDr. Qaraqe’s received the 15 research projects consisting of more than USD 9 M from local industries in Qatar and the Qatar National Research Foundation (QNRF). He has authored 90 journal papers in top IEEE journals, and published and presented 194 papers at prestigious international conferences. He has 13 book chapters published, two books slated to appear in 2015, four patents, and presented five tutorials and talks. His research interests include communication theory and its application to design and performance, analysis of cellular systems and indoor communication systems. Particular interests are in mobile networks, broadband wireless access, cooperative networks, cognitive radio, diversity techniques and beyond 4G systems. He received the Itochu Professorship Award from 2013 to 2015, Best Researcher Award, QNRF 2013, best paper award, the IEEE First workshop On Smart Grid And Renewable Energy, in 2015. The best paper award the IEEE Globecom 2014, Best Poster Award the IEEE Dyspan Conference 2012, the TAMUQResearch Excellence Award in 2010, the best paper Award, the ComNet in 2010, the best paper award, the CROWNCOM in 2009, and best paper award, and the ICSPC’0 in 2007.\n3934 VOLUME 4, 2016\nAKRAM ALOMAINY (S’04–M’07–SM’13) received the M.Eng. degree in communication engineering and the Ph.D. degree in electrical and electronic engineering with a focus on antennas and radio propagation from Queen Mary University of London (QMUL), U.K., in 2003 and 2007, respectively. He joined the School of Electronic Engineering and Computer Science, QMUL, in 2007, where he is currently an Associate Professor (Senior Lecturer) with the Antennas and\nElectromagnetics Research Group. He is a member of the Institute of Bioengineering and Centre for Intelligent Sensing, QMUL. His current research interests include small and compact antennas for wireless body area networks, radio propagation characterization and modeling, antenna interactions with human body, computational electromagnetic, advanced antenna enhancement techniques for mobile and personal wireless communications, and advanced algorithm for smart and intelligent antenna and cognitive radio system. He has managed to secure various research projects funded by research councils, charities and industrial partners on projects ranging from fundamental electromagnetic to wearable technologies. He is also the\nlead of Wearable Creativity Research with the Queen Mary University of London. He has been invited to participate at the Wearable Technology Show 2015, Innovate U.K. 2015 and also in the recent Wearable Challenge organised by Innovate U.K. IC Tomorrow as a leading challenge partner to support SMEs and industrial innovation. He has authored or co-authored a book, five book chapters and over 150 technical papers (2800 citations and H-index 25) in leading journals and peer-reviewed conferences.\nDr. Alomainy received the Isambard Brunel KingdomAward, in 2011, for being an outstanding young science and engineering communicator. He was selected to deliver a TEDx talk about the science of electromagnetic and also participated in many public engagement initiatives and festivals. He is a member of the IET, fellow of the Higher Education Academy (U.K.) and also a College Member for Engineering and Physical Sciences Research (EPSRC, U.K.) and its ICT prioritisation panels. He is also a Reviewer for many funding agencies around the world, including Expert Swiss National Science Foundation Research, the EPSRC, U.K., and the Medical Research Council, U.K. He is an elected member of U.K. International Union of Radio Science panel to represent the U.K. interests of URSI Commission B from 2014 to 2017.\nVOLUME 4, 2016 3935"
+    } ],
+    "references" : [ {
+      "title" : "Biomedical applications of untethered mobile milli/microrobots",
+      "author" : [ "M. Sitti" ],
+      "venue" : "Proc. IEEE, vol. 103, no. 2, pp. 205–224, Feb. 2015.",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Nanonetworks: A new communication paradigm",
+      "author" : [ "I.F. Akyildiz", "F. Brunetti", "C. Blázquez" ],
+      "venue" : "Comput. Netw., vol. 52, no. 12, pp. 2260–2279, 2008.",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Realizing the Internet of Nano Things: Challenges, solutions, and applications",
+      "author" : [ "S. Balasubramaniam", "J. Kangasharju" ],
+      "venue" : "Computer, vol. 46, no. 2, pp. 62–68, Feb. 2013. 3930  VOLUME 4, 2016  Q. H. Abbasi et al.: Nano-Communication for Biomedical Applications",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Terahertz communications in human tissues at the nanoscale for healthcare applications",
+      "author" : [ "G. Piro", "K. Yang", "G. Boggia", "N. Chopra", "L. Grieco", "A. Alomainy" ],
+      "venue" : "IEEETrans. Nanotechnol., vol. 14, no. 3, pp. 404–406, May 2015.",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Electromagnetic wireless nanosensor networks",
+      "author" : [ "I.F. Akyildiz", "J.M. Jornet" ],
+      "venue" : "Nano Commun. Netw., vol. 1, no. 1, pp. 3–19, Mar. 2010.",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "The Internet of Nano-Things",
+      "author" : [ "I.F. Akyildiz", "J.M. Jornet" ],
+      "venue" : "IEEE Wireless Commun., vol. 17, no. 6, pp. 58–63, Dec. 2010.",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Future Trends in Microelectronics: Frontiers and Innovations",
+      "author" : [ "S. Luryi", "J. Xu", "A. Zaslavsky" ],
+      "venue" : null,
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2013
+    }, {
+      "title" : "Numerical characterization and modeling of subject-specific ultrawideband body-centric radio channels and systems for healthcare applications",
+      "author" : [ "Q.H. Abbasi", "A. Sani", "A. Alomainy", "Y. Hao" ],
+      "venue" : "IEEE Trans. Inf. Technol. Biomed., vol. 16, no. 2, pp. 221–227, Mar. 2012.",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Detection limits of multi-spectral optical imaging under the skin surface",
+      "author" : [ "T. Binzoni", "A. Vogel", "A.H. Gandjbakhche", "andR.Marchesini" ],
+      "venue" : "Phys. Med. Biol., vol. 53, no. 3, pp. 617–636, 2008.",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Continuous wave terahertz transmission imaging of nonsmelanoma skin cancers",
+      "author" : [ "C.S. Joseph", "A.N. Yaroslavsky", "V.A. Neel", "T.M. Goyette", "R.H. Giles" ],
+      "venue" : "Lasers Surgery Med., vol. 43, no. 6, pp. 457– 462, 2011.",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Thz time-domain spectroscopic imaging of human articular cartilage",
+      "author" : [ "E. Jung" ],
+      "venue" : "J. Infr., Millim., THz Waves, vol. 33, no. 6, pp. 593–598, 2012.",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Optical properties of tissue measured using terahertzpulsed imaging",
+      "author" : [ "E. Berry" ],
+      "venue" : "Proc. SPIE, vol. 5030, pp. 459–470, Jun. 2003.",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Catalogue of human tissue optical properties at terahertz frequencies",
+      "author" : [ "A.J. Fitzgerald" ],
+      "venue" : "J. Biol. Phys., vol. 29, nos. 2–3, pp. 123–128, 2003.",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Channel modeling and capacity analysis for electromagnetic wireless nanonetworks in the terahertz band",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "IEEE Trans. Wireless Commun., vol. 10, no. 10, pp. 3211–3221, Oct. 2011.",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Invited review article: Current state of research on biological effects of terahertz radiation",
+      "author" : [ "G.J. Wilmink", "J.E. Grundt" ],
+      "venue" : "J. Infr., Millim., THz Waves, vol. 32, no. 10, pp. 1074–1122, Oct. 2011.",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Opto-ultrasonic communications for wireless intra-body nanonetworks",
+      "author" : [ "G.E. Santagati", "T. Melodia" ],
+      "venue" : "Nano Commun. Netw., vol. 5, no. 1, pp. 3–14, 2014.",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Nanotechnology, nanomedicine and nanosurgery",
+      "author" : [ "R.A. Freitas", "Jr." ],
+      "venue" : "Int. J. Surgery, vol. 3, no. 4, pp. 243–246, 2005.",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Indications and detection, completion, and retention rates of small-bowel capsule endoscopy: A systematic review",
+      "author" : [ "Z. Liao", "R. Gao", "C. Xu", "Z.-S. Li" ],
+      "venue" : "Gastrointestinal Endosc., vol. 71, no. 2, pp. 280–286, 2010.",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Capsule endoscopy: Past, present, and future",
+      "author" : [ "T. Nakamura", "A. Terano" ],
+      "venue" : "J. Gastroenterol., vol. 43, no. 2, pp. 93–99, 2008.",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Swallowable wireless capsule endoscopy: Progress and technical challenges,’’Gastroenterol",
+      "author" : [ "G. Pan", "L. Wang" ],
+      "venue" : "Res. Pract.,",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2011
+    }, {
+      "title" : "Ultrasound emitter localization in heterogeneous media",
+      "author" : [ "M. Fluckiger", "B.J. Nelson" ],
+      "venue" : "Proc. 29th Annu. Int. Conf. IEEE Eng. Med. Biol. Soc. (EMBS), Aug. 2007, pp. 2867–2870.",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Noninvasive ultrasound elasticity imaging (UEI) of Crohn’s disease: Animal model",
+      "author" : [ "K. Kim" ],
+      "venue" : "Ultrasound Med. Biol., vol. 34, no. 6, pp. 902–912, 2008.",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "A magnetically controlled wireless optical oxygen sensor for intraocular measurements",
+      "author" : [ "O. Ergeneman", "G. Dogangil", "M.P. Kummer", "J.J. Abbott", "M.K. Nazeeruddin", "B.J. Nelson" ],
+      "venue" : "IEEE Sensors J., vol. 8, no. 1, pp. 29–37, Jan. 2008.",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Fluorescent ion-selective nanosensors for intracellular analysis with improved lifetime and size",
+      "author" : [ "J.M. Dubach", "D.I. Harjes", "H.A. Clark" ],
+      "venue" : "Nano Lett., vol. 7, no. 6, pp. 1827–1831, 2007.",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 1827
+    }, {
+      "title" : "A cholesterol biosensor based on entrapment of cholesterol oxidase in a silicic sol-gel matrix at a prussian blue modified electrode",
+      "author" : [ "J. Li", "T. Peng", "Y. Peng" ],
+      "venue" : "Electroanalysis, vol. 15, no. 12, pp. 1031–1037, 2003.",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Nanobioimaging and sensing of infectious diseases",
+      "author" : [ "P. Tallury", "A. Malhotra", "L.M. Byrne", "S. Santra" ],
+      "venue" : "Adv. Drug Del. Rev., vol. 62, no. 4, pp. 424–437, 2010.",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Optical nanosensors—An enabling technology for intracellular measurements",
+      "author" : [ "J.W. Aylott" ],
+      "venue" : "Analyst, vol. 128, no. 4, pp. 309–312, 2003.",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Carbon Nanotubes: Synthesis, Structure, Properties, and Applications (Topics in Applied Physics)",
+      "author" : [ "P. Avouris", "G. Dresselhaus", "M. Dresselhaus" ],
+      "venue" : null,
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2000
+    }, {
+      "title" : "Untethered micro-robotic coding of three-dimensional material composition",
+      "author" : [ "S. Tasoglu", "E. Diller", "S. Guven", "M. Sitti", "U. Demirci" ],
+      "venue" : "Nature Commun., vol. 5, Jan. 2014, Art. no. 3124.",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Use of differentiated pluripotent stem cells as replacement therapy for treating disease",
+      "author" : [ "I.J. Fox", "G.Q. Daley", "S.A. Goldman", "J. Huard", "T.J. Kamp", "M. Trucco" ],
+      "venue" : "Science, vol. 345, no. 6199, p. 1247391, 2014.",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Fabrication and characterization of magnetic microrobots for three-dimensional cell culture and targeted transportation",
+      "author" : [ "S. Kim" ],
+      "venue" : "Adv. Mater., vol. 25, no. 41, pp. 5863–5868, 2013.",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Nanosystems: Molecular Machinery, Manufacturing, and Computation",
+      "author" : [ "K.E. Drexler" ],
+      "venue" : null,
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 1992
+    }, {
+      "title" : "What is nanomedicine?’",
+      "author" : [ "R.A. Freitas", "Jr." ],
+      "venue" : "Nanomed., Nanotechnol., Biol. Med.,",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2005
+    }, {
+      "title" : "Magnetic nanoparticles for local drug delivery using magnetic implants",
+      "author" : [ "R. Fernández-Pacheco" ],
+      "venue" : "J. Magn. Magn. Mater., vol. 311, no. 1, pp. 318–322, 2007.",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Pharmacytes: An ideal vehicle for targeted drug delivery",
+      "author" : [ "R.A. Freitas", "Jr." ],
+      "venue" : "J. Nanosci. Nanotechnol., vol. 6, nos. 9–10, pp. 2769–2775, 2006.",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Remotely triggerable drug delivery systems",
+      "author" : [ "B.P. Timko", "T. Dvir", "D.S. Kohane" ],
+      "venue" : "Adv. Mater., vol. 22, no. 44, pp. 4925–4943, 2010.",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Shape-programmable soft capsule robots for semi-implantable drug delivery",
+      "author" : [ "S. Yim", "M. Sitti" ],
+      "venue" : "IEEE Trans. Robot., vol. 28, no. 5, pp. 1198–1202, Oct. 2012.",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Bio-hybrid cell-based actuators formicrosystems",
+      "author" : [ "R.W.Carlsen andM. Sitti" ],
+      "venue" : "Small, vol. 10, no. 19, pp. 3831–3851, 2014.",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Development of nanotechnology for biomedical applications",
+      "author" : [ "C.-J. Chen", "D.Y. Haik", "J. Chatterjee" ],
+      "venue" : "Proc. Conf. Emerg. Inf. Technol., 2005, p. 4.",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Automated biomanipulation of single cells using magnetic microrobots",
+      "author" : [ "E.B. Steager", "M.S. Sakar", "C. Magee", "M. Kennedy", "A. Cowley", "V. Kumar" ],
+      "venue" : "Int. J. Robot. Res., vol. 32, no. 3, pp. 346–359, 2013.",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "On-chip microrobot for investigating the response of aquatic microorganisms to mechanical stimulation",
+      "author" : [ "T. Kawahara" ],
+      "venue" : "Lab Chip, vol. 13, no. 6, pp. 1070–1078, 2013.",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Microengineered platforms for cell mechanobiology",
+      "author" : [ "D.-H. Kim", "P.K. Wong", "J. Park", "A. Levchenko", "Y. Sun" ],
+      "venue" : "Annu. Rev. Biomed. Eng., vol. 11, pp. 203–233, Aug. 2009.",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "A rotational micro biopsy device for the capsule endoscope",
+      "author" : [ "K.-C. Kong", "J. Cha", "D. Jeon", "D.-I.D. Cho" ],
+      "venue" : "Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst. (IROS, Aug. 2005, pp. 1839–1843.",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Removing vascular obstructions: A challenge, yet an opportunity for interventional microdevices",
+      "author" : [ "P. Miloro", "E. Sinibaldi", "A. Menciassi", "P. Dario" ],
+      "venue" : "Biomed. Microdevices, vol. 14, no. 3, pp. 511–532, 2012.",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Biopsy using a magnetic capsule endoscope carrying, releasing, and retrieving untethered microgrippers",
+      "author" : [ "S. Yim", "E. Gultepe", "D.H. Gracias", "M. Sitti" ],
+      "venue" : "IEEE Trans. Biomed. Eng., vol. 61, no. 2, pp. 513–521, Sep. 2013.",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Long-distance signalling in plant defence",
+      "author" : [ "M. Heil", "J. Ton" ],
+      "venue" : "Trends Plant Sci., vol. 13, no. 6, pp. 264–272, 2008.",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Plant interactions with microbes and insects: From molecular mechanisms to ecology",
+      "author" : [ "C.M. Pieterse", "M. Dicke" ],
+      "venue" : "Trends Plant Sci., vol. 12, no. 12, pp. 564–569, 2007.",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Molecular sieving using nanofilters: Past, present and future",
+      "author" : [ "J. Han", "J. Fu", "R.B. Schoch" ],
+      "venue" : "Lab Chip, vol. 8, no. 1, pp. 23–33, 2008.",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Efficient C++: Performance programming techniques",
+      "author" : [ "C.J. Harwood" ],
+      "venue" : "Kybernetes, vol. 29, nos. 9–10, pp. 1333–1340, 2000.",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2000
+    }, {
+      "title" : "Characterisation of the in-vivo terahertz communication channel within the human body tissues for future nano-communication networks",
+      "author" : [ "K. Yang" ],
+      "venue" : "Ph.D. dissertation, School Electron. Eng. Comput. Sci., Queen Mary Univ. London, London, U.K., Jan. 2016.",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A physical end-to-end model for molecular communication in nanonetworks",
+      "author" : [ "M. Pierobon", "I.F. Akyildiz" ],
+      "venue" : "IEEE J. Sel. Areas Commun., vol. 28, no. 4, pp. 602–611, May 2010.",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Energymodel for communication via diffusion in nanonetworks",
+      "author" : [ "M.Ş. Kuran", "H.B. Yilmaz", "T. Tugcu", "B. Özerman" ],
+      "venue" : "J. Nano Commun. Netw., vol. 1, no. 2, pp. 86–95, 2010.",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Diffusion-based noise analysis for molecular communication in nanonetworks",
+      "author" : [ "M. Pierobon", "I.F. Akyildiz" ],
+      "venue" : "IEEE Trans. Signal Process., vol. 59, no. 6, pp. 2532–2547, Jun. 2011.",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Channel codes for reliability enhancement in molecular communication",
+      "author" : [ "P.-J. Shih", "C.-H. Lee", "P.-C. Yeh", "K.-C. Chen" ],
+      "venue" : "IEEE J. Sel. Areas Commun., vol. 31, no. 12, pp. 857–867, Dec. 2013. VOLUME 4, 2016  3931  Q. H. Abbasi et al.: Nano-Communication for Biomedical Applications",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Relaying in diffusion-based molecular communication",
+      "author" : [ "A. Einolghozati", "M. Sardari", "F. Fekri" ],
+      "venue" : "Proc. IEEE Int. Symp. Inf. Theory (ISIT), Jul. 2013, pp. 1844–1848.",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Design and analysis of molecular relay channels: An information theoretic approach",
+      "author" : [ "T. Nakano", "J.-Q. Liu" ],
+      "venue" : "IEEE Trans. Nanobiosci., vol. 9, no. 3, pp. 213–221, Sep. 2010.",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "A touch-communication framework for drug delivery based on a transient microbot system",
+      "author" : [ "Y. Chen", "P. Kosmas", "P.S. Anwar", "L. Huang" ],
+      "venue" : "IEEE Trans. Nanobiosci., vol. 14, no. 4, pp. 397–408, Jun. 2015.",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Magnetic control of potential microrobotic drug delivery systems: Nanoparticles, magnetotactic bacteria and self-propelled microjets",
+      "author" : [ "I.S.M. Khalil", "V. Magdanz", "S. Sanchez", "O.G. Schmidt", "L. Abelmann", "S. Misra" ],
+      "venue" : "Proc. 35th Annu. Int. Conf. IEEE Eng. Med. Biol. Soc. (EMBC), Jul. 2013, pp. 5299–5302.",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Acoustic communication for medical nanorobots",
+      "author" : [ "T. Hogg", "R.A. Freitas", "Jr." ],
+      "venue" : "Nano Commun. Netw., vol. 3, no. 2, pp. 83–102, 2012.",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Opto-ultrasonic communications in wireless body area nanonetworks",
+      "author" : [ "G.E. Santagati", "T. Melodia" ],
+      "venue" : "Proc. Asilomar Conf. Signals, Syst. Comput., 2013, pp. 1066–1070.",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "A physically transient form of silicon electronics",
+      "author" : [ "S.-W. Hwang" ],
+      "venue" : "Science, vol. 337, no. 6102, pp. 1640–1644, Sep. 2012.",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Flagellated magnetotactic bacteria as controlled MRI-trackable propulsion and steering systems for medical nanorobots operating in the human microvasculature",
+      "author" : [ "S. Martel", "M. Mohammadi", "O. Felfoul", "Z. Lu", "P. Pouponneau" ],
+      "venue" : "Int. J. Robot. Res., vol. 28, no. 4, pp. 571–582, 2009.",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "MRI-basedmedical nanorobotic platform for the control of magnetic nanoparticles and flagellated bacteria for target interventions in human capillaries",
+      "author" : [ "S.Martel" ],
+      "venue" : "Int. J. Robot. Res., vol. 28, no. 9, pp. 1169–1182, 2009.",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Conceptual design and simulations of a nano-communication model for drug delivery based on a transient microbot system",
+      "author" : [ "Y. Chen", "P. Kosmas", "R. Wang" ],
+      "venue" : "Proc. 8th Eur. Conf. Antennas Propag. (EuCAP), 2014, pp. 63–67.",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Carbon nanotubes as a basis for terahertz emitters and detectors",
+      "author" : [ "M.R. da Costa", "O.V. Kibis", "M.E. Portnoi" ],
+      "venue" : "Microelectron. J., vol. 40, no. 4, pp. 776–778, 2009.",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "A nanoradio architecture for interacting nanonetworking tasks",
+      "author" : [ "C.E. Koksal", "E. Ekici" ],
+      "venue" : "Nano Commun. Netw., vol. 1, no. 1, pp. 63–75, 2010.",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "PHLAME: A physical layer aware MAC protocol for electromagnetic nanonetworks in the terahertz band",
+      "author" : [ "J.M. Jornet", "J.C. Pujol", "J.S. Pareta" ],
+      "venue" : "Nano Commun. Netw., vol. 3, no. 1, pp. 74–81, 2012.",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Metallic plasmonic nano-antenna for wireless optical communication in intra-body nanonetworks",
+      "author" : [ "M. Nafari", "J.M. Jornet" ],
+      "venue" : "Proc. 10th EAI Int. Conf. Body Area Netw. (BodyNets), Sydney, NSW, Australia, 2015, pp. 287–293.",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Systematic full-wave characterization of real-metal nano dipole antennas",
+      "author" : [ "Z. Ma", "G.A.E. Vandenbosch" ],
+      "venue" : "IEEE Trans. Antennas Propag., vol. 61, no. 10, pp. 4990–4999, Oct. 2013.",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Nano antenna array for terahertz detection",
+      "author" : [ "M. Bareiß" ],
+      "venue" : "IEEE Trans. Microw. Theory Techn., vol. 59, no. 10, pp. 2751–2757, Oct. 2011.",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Electronic Transport in Mesoscopic Systems",
+      "author" : [ "S. Datta" ],
+      "venue" : null,
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 1997
+    }, {
+      "title" : "Electronic transport in a quantum wire under external terahertz electromagnetic irradiation",
+      "author" : [ "G. Zhou", "M. Yang", "X. Xiao", "Y. Li" ],
+      "venue" : "Phys. Rev. B, vol. 68, no. 15, p. 155309, 2003.",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Fundamental transmitting properties of carbon nanotube antennas",
+      "author" : [ "G.W. Hanson" ],
+      "venue" : "IEEE Trans. Antennas Propag., vol. 53, no. 11, pp. 3426–3435, Nov. 2005.",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    }, {
+      "title" : "Quantitative theory of nanowire and nanotube antenna performance",
+      "author" : [ "P.J. Burke", "S. Li", "Z. Yu" ],
+      "venue" : "IEEE Trans. Nanotechnol., vol. 5, no. 4, pp. 314–334, Jul. 2006.",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Dyadic Green’s functions and guided surface waves for a surface conductivity model of graphene",
+      "author" : [ "G.W. Hanson" ],
+      "venue" : "J. Appl. Phys., vol. 103, no. 6, pp. 064302-1–064302-8, Mar. 2008.",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Graphene-based nano-antennas for electromagnetic nanocommunications in the terahertz band",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "Proc. 4th Eur. Conf. Antennas Propag. (EUCAP), Apr. 2010, pp. 1–5.",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "100-GHz transistors from wafer-scale epitaxial graphene",
+      "author" : [ "Y.-M. Lin" ],
+      "venue" : "Science, vol. 327, no. 5966, p. 662, 2010.",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Design of a reconfigurable MIMO system for THz communications based on graphene antennas",
+      "author" : [ "Z. Xu", "X. Dong", "J. Bornemann" ],
+      "venue" : "IEEE Trans. THz Sci. Technol., vol. 4, no. 5, pp. 609–617, Sep. 2014.",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Development of computational model for tunable characteristics of graphene based triangular patch antenna in THz regime",
+      "author" : [ "R. Bala", "A. Marwaha" ],
+      "venue" : "J. Comput. Electron., vol. 15, no. 1, pp. 222–227, 2015.",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Investigation of graphene based miniaturized terahertz antenna for novel substrate materials",
+      "author" : [ "R. Bala", "A. Marwaha" ],
+      "venue" : "Eng. Sci. Technol., Int. J., vol. 19, no. 1, pp. 531–537, Mar. 2016.",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Broad tunable nanoantenna based on graphene log-periodic toothed structure",
+      "author" : [ "J. Yang", "F. Kong", "K. Li" ],
+      "venue" : "Plasmonics, vol. 11, no. 4, pp. 981–986, 2015.",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Graphene-based plasmonic nano-antenna for terahertz band communication in nanonetworks",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "IEEE J. Sel. Areas Commun., vol. 31, no. 12, pp. 685–694, Dec. 2013.",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Receiver with >20 MHz bandwidth self-interference cancellation suitable for FDD, coexistence and full-duplex applications",
+      "author" : [ "J. Zhou", "T.-H. Chuang", "T. Dinc", "H. Krishnaswamy" ],
+      "venue" : "Proc. IEEE Int. Solid-State Circuits Conf. (ISSCC), Feb. 2015, pp. 1–3.",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Optimal realization of arbitrary forces in a magnetic stereotaxis system",
+      "author" : [ "D.C. Meeker", "E.H. Maslen", "R.C. Ritter", "F.M. Creighton" ],
+      "venue" : "IEEE Trans. Magn., vol. 32, no. 2, pp. 320–328, Mar. 1996.",
+      "citeRegEx" : "86",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "Swimmingmicromachine driven by magnetic torque",
+      "author" : [ "K. Ishiyama", "M. Sendoh", "A. Yamazaki", "andK.I. Arai" ],
+      "venue" : "Sens. Actuators A, Phys., vol. 91, nos. 1–2, pp. 141–144, Jun. 2001.",
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Wing transmission for a micromechanical flying insect",
+      "author" : [ "J. Yan" ],
+      "venue" : "J. Micromechatron., vol. 1, no. 3, pp. 221–237, 2001.",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Solar powered 10 mg silicon robot",
+      "author" : [ "S. Hollar", "A. Flynn", "C. Bellew", "K.S.J. Pister" ],
+      "venue" : "Proc. IEEE 16th Annu. Int. Conf. Micro Electro Mech. Syst. (MEMS), Kyoto, Japan, 2003, pp. 706–711.",
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Design and fabrication of a motor legged capsule for the active exploration of the gastrointestinal tract",
+      "author" : [ "M. Quirini", "A. Menciassi", "S. Scapellato", "C. Stefanini", "P. Dario" ],
+      "venue" : "IEEE/ASME Trans. Mechatronics, vol. 13, no. 2, pp. 169–179, Apr. 2008.",
+      "citeRegEx" : "90",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Design and rolling locomotion of a magnetically actuated soft capsule endoscope",
+      "author" : [ "S. Yim", "M. Sitti" ],
+      "venue" : "IEEE Trans. Robot., vol. 28, no. 1, pp. 183–194, Feb. 2012.",
+      "citeRegEx" : "91",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Swimming by reciprocal motion at low Reynolds number",
+      "author" : [ "T. Qiu" ],
+      "venue" : "Nature Commun., vol. 5, Nov. 2014, Art. no. 5119.",
+      "citeRegEx" : "92",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Three-dimensionally printed biological machines powered by skeletal muscle",
+      "author" : [ "C. Cvetkovic" ],
+      "venue" : "Proc. Nat. Acad. Sci. USA, vol. 111, no. 28, pp. 10125–10130, 2014.",
+      "citeRegEx" : "93",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Magnetic helical microswimmers functionalized with lipoplexes for targeted gene delivery",
+      "author" : [ "F. Qiu", "S. Fujita", "R. Mhanna", "L. Zhang", "B.R. Simona", "B.J. Nelson" ],
+      "venue" : "Adv. Funct. Mater., vol. 25, no. 11, pp. 1666–1671, 2015.",
+      "citeRegEx" : "94",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A wireless implantable passive microdosimeter for radiation oncology",
+      "author" : [ "C. Son", "B. Ziaie" ],
+      "venue" : "IEEE Trans. Biomed. Eng., vol. 55, no. 6, pp. 1772–1775, Jun. 2008.",
+      "citeRegEx" : "95",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Future Trends in Microelectronics: Up the Nano Creek",
+      "author" : [ "S. Luryi", "J. Xu", "A. Zaslavsky" ],
+      "venue" : null,
+      "citeRegEx" : "96",
+      "shortCiteRegEx" : "96",
+      "year" : 2007
+    }, {
+      "title" : "Channel capacity of electromagnetic nanonetworks in the terahertz band",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "Proc. IEEE Int. Conf. Commun. (ICC), May 2010, pp. 1–6.",
+      "citeRegEx" : "97",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Multi-ray channel modeling and wideband characterization for wireless communications in the terahertz band",
+      "author" : [ "C. Han", "A.O. Bicen", "I.F. Akyildiz" ],
+      "venue" : "IEEE Trans. Wireless Commun., vol. 14, no. 5, pp. 2402–2412, May 2015.",
+      "citeRegEx" : "98",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Frequency and time domain channel models for nanonetworks in terahertz band",
+      "author" : [ "J. Kokkoniemi", "J. Lehtomäki", "K. Umebayashi", "M. Juntti" ],
+      "venue" : "IEEE Trans. Antennas Propag., vol. 63, no. 2, pp. 678–691, Feb. 2015.",
+      "citeRegEx" : "99",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Numerical analysis and characterization of THz propagation channel for body-centric nano-communications",
+      "author" : [ "K. Yang", "A. Pellegrini", "M. Munoz", "A. Brizzi", "A. Alomainy", "Y. Hao" ],
+      "venue" : "IEEE Trans. Terahertz Sci. Technol., vol. 5, no. 3, pp. 419–426, May 2015.",
+      "citeRegEx" : "100",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effects of non-flat interfaces in human skin tissues on the in-vivo terahertz communication channel",
+      "author" : [ "K. Yang", "Q.H. Abbasi", "N. Chopra", "M. Munoz", "Y. Hao", "A. Alomainy" ],
+      "venue" : "Nano Commun. Netw., vol. 8, pp. 16–24, Nov. 2015.",
+      "citeRegEx" : "101",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Numerical analysis of the communication channel path loss at the THz band inside the fat tissue",
+      "author" : [ "K. Yang", "A. Pellegrini", "A. Brizzi", "A. Alomainy", "Y. Hao" ],
+      "venue" : "Proc. IEEE MTT-S Int. Microw. Workshop Ser. RF Wireless Technol. Biomed. Healthcare Appl. (IMWS-BIO), Dec. 2013, pp. 1–3. 3932  VOLUME 4, 2016 Q. H. Abbasi et al.: Nano-Communication for Biomedical Applications",
+      "citeRegEx" : "102",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Determination of the optical properties of melanin-pigmented human skin equivalents using terahertz time-domain spectroscopy",
+      "author" : [ "D. Lipscomb", "I. Echchgadda", "X.G. Peralta", "G.J. Wilmink" ],
+      "venue" : "Proc. SPIE, pp. 85850F-1–85850F-6, Feb. 2013.",
+      "citeRegEx" : "104",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Pulsed terahertz spectroscopy of DNA, bovine serum albumin and collagen between 0.1 and 2.0 THz",
+      "author" : [ "A.G. Markelz", "A. Roitberg", "E.J. Heilweil" ],
+      "venue" : "Chem. Phys. Lett., vol. 320, nos. 1–2, pp. 42–48, Mar. 2000.",
+      "citeRegEx" : "105",
+      "shortCiteRegEx" : null,
+      "year" : 2000
+    }, {
+      "title" : "Far-infrared signature of animal tissues characterized by terahertz time-domain spectroscopy",
+      "author" : [ "M. He", "A.K. Azad", "S. Ye", "W. Zhang" ],
+      "venue" : "Opt. Commun., vol. 259, no. 1, pp. 389–392, 2006.",
+      "citeRegEx" : "106",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Terahertz spectroscopy for the characterization of excised human breast tissue",
+      "author" : [ "T. Bowman", "M. El-Shenawee", "S.G. Sharma" ],
+      "venue" : "Proc. IEEE MTT-S Int. Microw. Symp. (IMS), Jun. 2014, pp. 1–4.",
+      "citeRegEx" : "107",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Dielectric properties of biological materials: Biophysical and medical applications",
+      "author" : [ "R. Pethig" ],
+      "venue" : "IEEE Trans. Elect. Insul., vol. EI-19, no. 5, pp. 453–474, Oct. 1984.",
+      "citeRegEx" : "108",
+      "shortCiteRegEx" : null,
+      "year" : 1984
+    }, {
+      "title" : "The dielectric properties of biological tissues: III. Parametric models for the dielectric spectrum of tissues",
+      "author" : [ "S. Gabriel", "R. Lau", "C. Gabriel" ],
+      "venue" : "Phys. Med. Biol., vol. 41, no. 11, p. 2271, 1996.",
+      "citeRegEx" : "109",
+      "shortCiteRegEx" : null,
+      "year" : 1996
+    }, {
+      "title" : "Terahertz channel characterization inside the human skin for nano-scale body-centric networks",
+      "author" : [ "Q.H. Abbasi", "H.E. Sallabi", "N. Chopra", "K. Yang", "K.A. Qaraqe", "A. Alomainy" ],
+      "venue" : "IEEE Trans. THz Sci. Technol., vol. 6, no. 3, pp. 427–434, May 2016.",
+      "citeRegEx" : "110",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Investigating electromagnetic material properties of collagen at THz for health monitoring applications",
+      "author" : [ "N. Chopra", "A. Alomainy", "M. Philpot" ],
+      "venue" : "Proc. MOBIHEALTH, 2015, pp. 170–173.",
+      "citeRegEx" : "111",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A promise of realizable, ultra-scalable communications at nano-scale: A multi-modal nano-machine architecture",
+      "author" : [ "C. Liaskos", "A. Tsioliaridou" ],
+      "venue" : "IEEE Trans. Comput., vol. 64, no. 5, pp. 1282–1295, May 2015.",
+      "citeRegEx" : "112",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Graphene terahertz plasmon oscillators",
+      "author" : [ "F. Rana" ],
+      "venue" : "IEEE Trans. Nanotechnol., vol. 7, no. 1, pp. 91–99, Jan. 2008.",
+      "citeRegEx" : "114",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Joint synchronization and symbol detection design for pulse-based communications in the THz band",
+      "author" : [ "A. Gupta", "M. Medley", "J.M. Jornet" ],
+      "venue" : "Proc. IEEE Global Commun. Conf., Dec. 2015, pp. 1–7.",
+      "citeRegEx" : "115",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Graphene-based plasmonic waveguides for photonic integrated circuits,’’Opt",
+      "author" : [ "J.T. Kim", "S.-Y. Choi" ],
+      "venue" : "Exp., vol. 19,",
+      "citeRegEx" : "116",
+      "shortCiteRegEx" : "116",
+      "year" : 2011
+    }, {
+      "title" : "A receiver architecture for pulse-based electromagnetic nanonetworks in the terahertz band",
+      "author" : [ "R.G. Cid-Fuentes", "J.M. Jornet", "E. Alarcon", "I.F. Akyildiz" ],
+      "venue" : "Proc. IEEE Int. Conf. Commun. (ICC), Jun. 2012, pp. 4937–4942.",
+      "citeRegEx" : "117",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Timing acquisition for pulse-based wireless systems in the terahertz band",
+      "author" : [ "C. Han", "I.F. Akyildiz", "W.H. Gerstacker" ],
+      "venue" : "Proc. 2nd ACM Int. Conf. Nanosc. Comput. Commun. (NANOCOM), 2015, Art. no. 7.",
+      "citeRegEx" : "118",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Self-powered nanowire devices",
+      "author" : [ "S. Xu", "Y. Qin", "C. Xu", "Y. Wei", "R. Yang", "Z.L. Wang" ],
+      "venue" : "Nature Nanotechnol., vol. 5, no. 5, pp. 366–373, 2010.",
+      "citeRegEx" : "119",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Joint energy harvesting and communication analysis for perpetual wireless nanosensor networks in the terahertz band",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "IEEE Trans. Nanotechnol., vol. 11, no. 3, pp. 570–580, May 2012.",
+      "citeRegEx" : "120",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Low-weight channel coding for interference mitigation in electromagnetic nanonetworks in the terahertz band",
+      "author" : [ "J.M. Jornet", "I.F. Akyildiz" ],
+      "venue" : "Proc. IEEE Int. Conf. Commun. (ICC), Jun. 2011, pp. 1–6.",
+      "citeRegEx" : "121",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Minimum energy channel codes for nanoscale wireless communications",
+      "author" : [ "M. Kocaoglu", "O.B. Akan" ],
+      "venue" : "IEEE Trans. Wireless Commun., vol. 12, no. 4, pp. 1492–1500, Apr. 2013.",
+      "citeRegEx" : "122",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Optimal coding for transmission energy minimization in wireless nanosensor networks",
+      "author" : [ "K. Chi", "Y.-H. Zhu", "X. Jiang", "X. Tian" ],
+      "venue" : "Nano Commun. Netw., vol. 4, no. 3, pp. 120–130, 2013.",
+      "citeRegEx" : "123",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Energy-efficient prefix-free codes for wireless nano-sensor networks using OOK modulation",
+      "author" : [ "K. Chi", "Y.-H. Zhu", "X. Jiang", "V.C.M. Leung" ],
+      "venue" : "IEEE Trans. Wireless Commun., vol. 13, no. 5, pp. 2670–2682, May 2014.",
+      "citeRegEx" : "124",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Joint physical and link layer error control analysis for nanonetworks in the terahertz band",
+      "author" : [ "N. Akkari" ],
+      "venue" : "Wireless Netw., vol. 22, no. 4, pp. 1221–1233, 2015.",
+      "citeRegEx" : "125",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Energy and spectrum-aware mac protocol for perpetual wireless nanosensor networks in the terahertz band",
+      "author" : [ "P. Wang", "J.M. Jornet", "M.G.A. Malik", "N. Akkari", "I.F. Akyildiz" ],
+      "venue" : "Ad Hoc Netw., vol. 11, no. 8, pp. 2541–2555, 2013.",
+      "citeRegEx" : "126",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "RIH-MAC: Receiver-initiated harvesting-aware MAC for NanoNetworks",
+      "author" : [ "S. Mohrehkesh", "M.C. Weigle" ],
+      "venue" : "Proc. ACM 1st Annu. Int. Conf. Nanosc. Comput. Commun., 2014, Art. no. 6.",
+      "citeRegEx" : "127",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "A link-layer synchronization and medium access control protocol for terahertz-band communication networks",
+      "author" : [ "Q. Xia", "Z. Hossain", "M. Medley", "J.M. Jornet" ],
+      "venue" : "Proc. IEEE GLOBECOM, Dec. 2015, pp. 1–7.",
+      "citeRegEx" : "128",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Cooperative communication in wireless networks",
+      "author" : [ "A. Nosratinia", "T.E. Hunter", "A. Hedayat" ],
+      "venue" : "IEEE Commun. Mag., vol. 42, no. 10, pp. 74–80, Oct. 2004.",
+      "citeRegEx" : "129",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Cooperative communications with outage-optimal opportunistic relaying",
+      "author" : [ "A. Bletsas", "H. Shin", "M.Z. Win" ],
+      "venue" : "IEEE Trans. Wireless Commun., vol. 6, no. 9, pp. 3450–3460, Sep. 2007.",
+      "citeRegEx" : "130",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Terahertz band: Next frontier for wireless communications",
+      "author" : [ "I.F. Akyildiz", "J.M. Jornet", "C. Han" ],
+      "venue" : "Phys. Commun., vol. 12, pp. 16–32, Sep. 2014.",
+      "citeRegEx" : "131",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "A routing framework for energy harvesting wireless nanosensor networks in the terahertz band",
+      "author" : [ "M. Pierobon", "J.M. Jornet", "N. Akkari", "S. Almasri", "I.F. Akyildiz" ],
+      "venue" : "Wireless Netw., vol. 20, no. 5, pp. 1169–1183, 2013.",
+      "citeRegEx" : "132",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Making-a-stop: A new bufferless routing algorithm for on-chip network",
+      "author" : [ "J. Lin", "X. Lin", "L. Tang" ],
+      "venue" : "J. Parallel Distrib. Comput., vol. 72, no. 4, pp. 515–524, Apr. 2012.",
+      "citeRegEx" : "133",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Bufferless routing in optical Gaussian macrochip interconnect",
+      "author" : [ "Z. Zhang", "Z. Guo", "Y. Yang" ],
+      "venue" : "Proc. IEEE 20th Annu. Symp. High-Perform. Interconnects (HOTI), 2012, pp. 56–63.",
+      "citeRegEx" : "134",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Enabling a bufferless core optical network using edge-to-edge packet-level FEC",
+      "author" : [ "A. Vishwanath", "V. Sivaraman", "M. Thottan", "C. Dovrolis" ],
+      "venue" : "IEEE Trans. Commun., vol. 61, no. 2, pp. 690–699, Feb. 2013.",
+      "citeRegEx" : "135",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Contention avoidance and resolution schemes in bufferless all-optical packet-switched networks: A survey",
+      "author" : [ "A.G.P. Rahbar andO.W.W.Yang" ],
+      "venue" : "IEEECommun. Surveys Tuts., vol. 10, no. 4, pp. 94–107, 4th Quart., 2008.",
+      "citeRegEx" : "136",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Performance of TCP over free-space optical atmospheric turbulence channels",
+      "author" : [ "V.V. Mai", "T.C. Thang", "A.T. Pham" ],
+      "venue" : "IEEE/OSA J. Opt. Commun. Netw., vol. 5, no. 11, pp. 1168–1177, Nov. 2013.",
+      "citeRegEx" : "137",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "sites such as the spinal cord, gastrointestinal or inside the human eye, non invasively, which have not been possible yet with current technologies [1].",
+      "startOffset" : 148,
+      "endOffset" : 151
+    }, {
+      "referenceID" : 1,
+      "context" : "ment in features and range of operations [2].",
+      "startOffset" : 41,
+      "endOffset" : 44
+    }, {
+      "referenceID" : 2,
+      "context" : "Among many types of communication between nano devices, one of the promising technique for the data exchange is Electromagnetic based communication at terahertz band [3].",
+      "startOffset" : 166,
+      "endOffset" : 169
+    }, {
+      "referenceID" : 4,
+      "context" : "By using bio-nano-sensors in medicine, e-health monitoring system [5] can be realized, so is e-drug delivery systems [2] with the aid of nano-robots.",
+      "startOffset" : 66,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 1,
+      "context" : "By using bio-nano-sensors in medicine, e-health monitoring system [5] can be realized, so is e-drug delivery systems [2] with the aid of nano-robots.",
+      "startOffset" : 117,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 6,
+      "context" : "The evolution of novel materials such as graphene and carbon nano tubes (CNT) [7], which can work",
+      "startOffset" : 78,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 7,
+      "context" : "centric communication has been studied for a wide range of frequencies [8], [9], however the size reduction requirements make nano-scale technologies an attractive choice for future applications of body-centric communication.",
+      "startOffset" : 76,
+      "endOffset" : 79
+    }, {
+      "referenceID" : 0,
+      "context" : "Although there are some limited studies in open literature with regards to nanocommunication and applicability of THz communication in the biomedical domain [1], [5], [11]–[16].",
+      "startOffset" : 157,
+      "endOffset" : 160
+    }, {
+      "referenceID" : 4,
+      "context" : "Although there are some limited studies in open literature with regards to nanocommunication and applicability of THz communication in the biomedical domain [1], [5], [11]–[16].",
+      "startOffset" : 162,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 9,
+      "context" : "Although there are some limited studies in open literature with regards to nanocommunication and applicability of THz communication in the biomedical domain [1], [5], [11]–[16].",
+      "startOffset" : 167,
+      "endOffset" : 171
+    }, {
+      "referenceID" : 14,
+      "context" : "Although there are some limited studies in open literature with regards to nanocommunication and applicability of THz communication in the biomedical domain [1], [5], [11]–[16].",
+      "startOffset" : 172,
+      "endOffset" : 176
+    }, {
+      "referenceID" : 1,
+      "context" : "Nanonetworks have broad range of applications and can be mainly divided into four groups: environmental, biomedical, military and industrial [2], [5] as shown in Fig.",
+      "startOffset" : 141,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 4,
+      "context" : "Nanonetworks have broad range of applications and can be mainly divided into four groups: environmental, biomedical, military and industrial [2], [5] as shown in Fig.",
+      "startOffset" : 146,
+      "endOffset" : 149
+    }, {
+      "referenceID" : 1,
+      "context" : "been summarised and classified in [2], as shown in Tab.",
+      "startOffset" : 34,
+      "endOffset" : 37
+    }, {
+      "referenceID" : 4,
+      "context" : "Envisioned applications for nano communication (reproduced from [5]).",
+      "startOffset" : 64,
+      "endOffset" : 67
+    }, {
+      "referenceID" : 0,
+      "context" : "For example, nano pressuresensors distributed in the human eyes can detect the intraocular pressure (IOP) for the early diagnosis and treatment of glaucoma to prevent vision loss [1].",
+      "startOffset" : 179,
+      "endOffset" : 182
+    }, {
+      "referenceID" : 0,
+      "context" : "nano devices deployed in the bones can monitor the bonegrowth in young diabetes patients to protect them from osteoporosis [1].",
+      "startOffset" : 123,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 15,
+      "context" : "Furthermore, nano-robots inside the biological tissues can detect and then eliminate malicious agents or cells, such as viruses or cancer cells, hence making the treatment less invasive and real time [17].",
+      "startOffset" : 200,
+      "endOffset" : 204
+    }, {
+      "referenceID" : 0,
+      "context" : "Overview of the envisioned applications [1], [2].",
+      "startOffset" : 40,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 1,
+      "context" : "Overview of the envisioned applications [1], [2].",
+      "startOffset" : 45,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 1,
+      "context" : "[2], nano-communication can be divided into two scenarios: (i) Communication",
+      "startOffset" : 0,
+      "endOffset" : 3
+    }, {
+      "referenceID" : 48,
+      "context" : "These devices can communicate by different mechanism like electromagnetic, acoustic, nanomechanical or molecular [50] etc, which will be briefly discussed in this",
+      "startOffset" : 113,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 49,
+      "context" : "In molecular communication, an engineered miniature transmitter releases small particles into a propagation medium, while the molecules are applied to encode, transmit, and receive information [51].",
+      "startOffset" : 193,
+      "endOffset" : 197
+    }, {
+      "referenceID" : 50,
+      "context" : "Some of the most prominent works include mathematical framework for a physical end-to-end channel model for DMC [52], development of an energy model for DMC [53], modeling of diffusion noise [54], channel codes for reliability enhancement [55], and relaying-based solutions for increasing the range of DMC [56], [57].",
+      "startOffset" : 112,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 51,
+      "context" : "Some of the most prominent works include mathematical framework for a physical end-to-end channel model for DMC [52], development of an energy model for DMC [53], modeling of diffusion noise [54], channel codes for reliability enhancement [55], and relaying-based solutions for increasing the range of DMC [56], [57].",
+      "startOffset" : 157,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 52,
+      "context" : "Some of the most prominent works include mathematical framework for a physical end-to-end channel model for DMC [52], development of an energy model for DMC [53], modeling of diffusion noise [54], channel codes for reliability enhancement [55], and relaying-based solutions for increasing the range of DMC [56], [57].",
+      "startOffset" : 191,
+      "endOffset" : 195
+    }, {
+      "referenceID" : 53,
+      "context" : "Some of the most prominent works include mathematical framework for a physical end-to-end channel model for DMC [52], development of an energy model for DMC [53], modeling of diffusion noise [54], channel codes for reliability enhancement [55], and relaying-based solutions for increasing the range of DMC [56], [57].",
+      "startOffset" : 239,
+      "endOffset" : 243
+    }, {
+      "referenceID" : 54,
+      "context" : "Some of the most prominent works include mathematical framework for a physical end-to-end channel model for DMC [52], development of an energy model for DMC [53], modeling of diffusion noise [54], channel codes for reliability enhancement [55], and relaying-based solutions for increasing the range of DMC [56], [57].",
+      "startOffset" : 306,
+      "endOffset" : 310
+    }, {
+      "referenceID" : 55,
+      "context" : "Some of the most prominent works include mathematical framework for a physical end-to-end channel model for DMC [52], development of an energy model for DMC [53], modeling of diffusion noise [54], channel codes for reliability enhancement [55], and relaying-based solutions for increasing the range of DMC [56], [57].",
+      "startOffset" : 312,
+      "endOffset" : 316
+    }, {
+      "referenceID" : 56,
+      "context" : "flow-based molecular communication (FMC) is also studied, especially the one of communication in the circulatory system [58], [59].",
+      "startOffset" : 120,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 57,
+      "context" : "flow-based molecular communication (FMC) is also studied, especially the one of communication in the circulatory system [58], [59].",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 58,
+      "context" : "The feasibility of in vivo ultrasonic communication is evaluated by Hogg and Freitas [60], where communication effec-",
+      "startOffset" : 85,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 15,
+      "context" : "Later, the nanoscale opto-ultrasonic communications in biological tissues was discussed in [17] and [61], where the generation, propagation model were studied and in line with [60] the hazards and design challenges were investigated.",
+      "startOffset" : 91,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 59,
+      "context" : "Later, the nanoscale opto-ultrasonic communications in biological tissues was discussed in [17] and [61], where the generation, propagation model were studied and in line with [60] the hazards and design challenges were investigated.",
+      "startOffset" : 100,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 58,
+      "context" : "Later, the nanoscale opto-ultrasonic communications in biological tissues was discussed in [17] and [61], where the generation, propagation model were studied and in line with [60] the hazards and design challenges were investigated.",
+      "startOffset" : 176,
+      "endOffset" : 180
+    }, {
+      "referenceID" : 56,
+      "context" : "Based on the development of the nanotechnology, a new paradigm of touch communication (TouchCom)1 was also proposed in [58], which use a swarm of nano-robots as message carrier for information exchange.",
+      "startOffset" : 119,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 60,
+      "context" : "microbots (TMs) [62]–[64] were applied to carry the drug particles, which can be controlled and tracked by the external macro-unit (MAU) with a guiding force [59], [65].",
+      "startOffset" : 16,
+      "endOffset" : 20
+    }, {
+      "referenceID" : 62,
+      "context" : "microbots (TMs) [62]–[64] were applied to carry the drug particles, which can be controlled and tracked by the external macro-unit (MAU) with a guiding force [59], [65].",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 57,
+      "context" : "microbots (TMs) [62]–[64] were applied to carry the drug particles, which can be controlled and tracked by the external macro-unit (MAU) with a guiding force [59], [65].",
+      "startOffset" : 158,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 63,
+      "context" : "microbots (TMs) [62]–[64] were applied to carry the drug particles, which can be controlled and tracked by the external macro-unit (MAU) with a guiding force [59], [65].",
+      "startOffset" : 164,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 56,
+      "context" : "A specific application, illustrated in [58], was shown in Fig.",
+      "startOffset" : 39,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 4,
+      "context" : "The possibility of EM communication is first discussed in [5] on the basis of the fact that terahertz band can be used as the operational frequency range for future EM nano-transceivers because of the emerging new",
+      "startOffset" : 58,
+      "endOffset" : 61
+    }, {
+      "referenceID" : 56,
+      "context" : "Structure of the envisioned nano-robots [58].",
+      "startOffset" : 40,
+      "endOffset" : 44
+    }, {
+      "referenceID" : 64,
+      "context" : "materials like Carbon Nano-Tube (CNT) and Graphene [66].",
+      "startOffset" : 51,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 65,
+      "context" : "In [67] the theoretical model of the nano-network whose nodes are made of CNT was presented.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 13,
+      "context" : "ent concentration of the water vapor was presented in [15] and the corresponding channel capacity was also studied.",
+      "startOffset" : 54,
+      "endOffset" : 58
+    }, {
+      "referenceID" : 66,
+      "context" : "Based on the characteristics of the channel, a new physicallayer aware medium access control (MAC) protocol, Time Spread On-Off Keying (TS-OOK), was proposed in [68].",
+      "startOffset" : 161,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 9,
+      "context" : "and medical field [11], [12] has also achieved great development and the biological effects of THz radiation are reviewed in [16] showing minimum effect on the human body and no strong evidence of hazardous side effects [51].",
+      "startOffset" : 18,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 10,
+      "context" : "and medical field [11], [12] has also achieved great development and the biological effects of THz radiation are reviewed in [16] showing minimum effect on the human body and no strong evidence of hazardous side effects [51].",
+      "startOffset" : 24,
+      "endOffset" : 28
+    }, {
+      "referenceID" : 14,
+      "context" : "and medical field [11], [12] has also achieved great development and the biological effects of THz radiation are reviewed in [16] showing minimum effect on the human body and no strong evidence of hazardous side effects [51].",
+      "startOffset" : 125,
+      "endOffset" : 129
+    }, {
+      "referenceID" : 49,
+      "context" : "and medical field [11], [12] has also achieved great development and the biological effects of THz radiation are reviewed in [16] showing minimum effect on the human body and no strong evidence of hazardous side effects [51].",
+      "startOffset" : 220,
+      "endOffset" : 224
+    }, {
+      "referenceID" : 67,
+      "context" : "Metallic plasmonic nano-antenna is one of the metallic material based nano-antennas presented in [69] for intra-body nano-networks.",
+      "startOffset" : 97,
+      "endOffset" : 101
+    }, {
+      "referenceID" : 68,
+      "context" : "Another kind of metallic material antenna is the optical metallic nano dipole antenna as presented in [70].",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 69,
+      "context" : "Besides the above general metallic nanoantennas, metal oxide metal (MOM) techniques was also applied for nano-antenna array [71] because of the excellent tunnelling characteristics.",
+      "startOffset" : 124,
+      "endOffset" : 128
+    }, {
+      "referenceID" : 70,
+      "context" : "on the structure geometry, temperature and fermi energy [72],",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 4,
+      "context" : "1 - 10 THz); thus, the band of interest is the most promising candidate for the EM communication [5], [66], [73].",
+      "startOffset" : 97,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 64,
+      "context" : "1 - 10 THz); thus, the band of interest is the most promising candidate for the EM communication [5], [66], [73].",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 71,
+      "context" : "1 - 10 THz); thus, the band of interest is the most promising candidate for the EM communication [5], [66], [73].",
+      "startOffset" : 108,
+      "endOffset" : 112
+    }, {
+      "referenceID" : 72,
+      "context" : "dipoles by numerical analysis [74], while the possibility of CNT as dipole antenna was discussed, giving a mathematical framework [75].",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 73,
+      "context" : "dipoles by numerical analysis [74], while the possibility of CNT as dipole antenna was discussed, giving a mathematical framework [75].",
+      "startOffset" : 130,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 74,
+      "context" : "Reference [76] first demonstrated the performance of the propagation of EM waves on a graphene sheet.",
+      "startOffset" : 10,
+      "endOffset" : 14
+    }, {
+      "referenceID" : 75,
+      "context" : "antenna were compared in [77], showing that graphene-based antenna with the length of 1 μm can radiate EM wave at THz band, which agreed with the prediction in [78].",
+      "startOffset" : 25,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 76,
+      "context" : "antenna were compared in [77], showing that graphene-based antenna with the length of 1 μm can radiate EM wave at THz band, which agreed with the prediction in [78].",
+      "startOffset" : 160,
+      "endOffset" : 164
+    }, {
+      "referenceID" : 77,
+      "context" : "A beam reconfigurable multiple input multiple output (MIMO) antenna system based on graphene nano-patch antenna is proposed in [79], the radiation directions of which",
+      "startOffset" : 127,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 78,
+      "context" : "using graphene as the patch conductor in [80] and [81].",
+      "startOffset" : 41,
+      "endOffset" : 45
+    }, {
+      "referenceID" : 79,
+      "context" : "using graphene as the patch conductor in [80] and [81].",
+      "startOffset" : 50,
+      "endOffset" : 54
+    }, {
+      "referenceID" : 80,
+      "context" : "A log-periodic toothed nano-antenna based on graphene was proposed in [82].",
+      "startOffset" : 70,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 81,
+      "context" : "A plasmonic nano-patch antenna based on graphene [83].",
+      "startOffset" : 49,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 81,
+      "context" : "6, which exploits the behaviour of Surface Plasmon Polariton (SPP) waves in semi-finite size Graphene Nanoribbons (GNRs) was proposed in [83].",
+      "startOffset" : 137,
+      "endOffset" : 141
+    }, {
+      "referenceID" : 82,
+      "context" : "7b was presented from Clumnia High-Speed and mm-wave IC Lab (CoSMIC) [84] in 2015, which was even further smaller.",
+      "startOffset" : 69,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 49,
+      "context" : "around human body were developed recently according to same principles [51].",
+      "startOffset" : 71,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 83,
+      "context" : "For example, a tiny permanent magnet, guided inside the human body by a magnetic stereotaxis system was proposed in [86] while a magnetically driven screw were made to move through tissues [87].",
+      "startOffset" : 116,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 84,
+      "context" : "For example, a tiny permanent magnet, guided inside the human body by a magnetic stereotaxis system was proposed in [86] while a magnetically driven screw were made to move through tissues [87].",
+      "startOffset" : 189,
+      "endOffset" : 193
+    }, {
+      "referenceID" : 85,
+      "context" : "California, Berkeley [88] and then later a solar-powered crawling robot was realized in [89].",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 86,
+      "context" : "California, Berkeley [88] and then later a solar-powered crawling robot was realized in [89].",
+      "startOffset" : 88,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 87,
+      "context" : "Later the introduction of a crawlingmechanism [90] and on-board drug delivery mechanism [91] were marked as another milestone",
+      "startOffset" : 46,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 88,
+      "context" : "Later the introduction of a crawlingmechanism [90] and on-board drug delivery mechanism [91] were marked as another milestone",
+      "startOffset" : 88,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 89,
+      "context" : "A nano-scallop capable of swimming in biomedical fluids whose size is only a fraction of a millimetre has been developed at the Max Planck Institute for Intelligent Systems [92], shown in Fig.",
+      "startOffset" : 173,
+      "endOffset" : 177
+    }, {
+      "referenceID" : 89,
+      "context" : "(a) Nano-scallop which can swim in bio-fluids (reproduced from [92]) (b) Bio-bot powered by skeletal muscle cells c ©UIUC.",
+      "startOffset" : 63,
+      "endOffset" : 67
+    }, {
+      "referenceID" : 91,
+      "context" : "(c) SEM image of the artificial bacterial flagella (reproduced from [94]).",
+      "startOffset" : 68,
+      "endOffset" : 72
+    }, {
+      "referenceID" : 92,
+      "context" : "the level of the therapeutic radiation the tumour gets [95].",
+      "startOffset" : 55,
+      "endOffset" : 59
+    }, {
+      "referenceID" : 4,
+      "context" : "However, with the advent of the carbon-based materials like graphene and CNT, attention has been moved to the EM communication [5], [67] slowly.",
+      "startOffset" : 127,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 65,
+      "context" : "However, with the advent of the carbon-based materials like graphene and CNT, attention has been moved to the EM communication [5], [67] slowly.",
+      "startOffset" : 132,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 13,
+      "context" : "With consideration that the communication is at nanoscale, the study of the communication between very short range is essential [15], [97].",
+      "startOffset" : 128,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 94,
+      "context" : "With consideration that the communication is at nanoscale, the study of the communication between very short range is essential [15], [97].",
+      "startOffset" : 134,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 13,
+      "context" : "formula for pathloss calculation [15] in water vapor at THz, which has two parts: the absorption path loss and the spread path loss.",
+      "startOffset" : 33,
+      "endOffset" : 37
+    }, {
+      "referenceID" : 96,
+      "context" : "At the same time, the scattering effects of small particles was discussed with the frequency analysis and the impulse responses [99].",
+      "startOffset" : 128,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 13,
+      "context" : "Also the noise power of the channel was obtained as [15]:",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 97,
+      "context" : "In this section a modeling of homogenous and layered model to investigate thewave propagation at THz band inside human tissues is presented [100], [101], while comparing the results",
+      "startOffset" : 140,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 98,
+      "context" : "In this section a modeling of homogenous and layered model to investigate thewave propagation at THz band inside human tissues is presented [100], [101], while comparing the results",
+      "startOffset" : 147,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 99,
+      "context" : "In [102], absorption path loss in tissues was calculated by setting up a simple model, shown in Fig.",
+      "startOffset" : 3,
+      "endOffset" : 8
+    }, {
+      "referenceID" : 97,
+      "context" : "A human tissue model for plane wave propagation [100].",
+      "startOffset" : 48,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 97,
+      "context" : "The dielectric parameters at 1THz [100].",
+      "startOffset" : 34,
+      "endOffset" : 39
+    }, {
+      "referenceID" : 97,
+      "context" : "Comparison of numerical and theoretical absorption pathloss at 1 THz [100].",
+      "startOffset" : 69,
+      "endOffset" : 74
+    }, {
+      "referenceID" : 97,
+      "context" : "A planar three layered human model at terahertz frequencies [100].",
+      "startOffset" : 60,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 11,
+      "context" : "The studies on the EM/Optical parameters of human tissues are quite limited in the THz band of interest [13], [14], [104].",
+      "startOffset" : 104,
+      "endOffset" : 108
+    }, {
+      "referenceID" : 12,
+      "context" : "The studies on the EM/Optical parameters of human tissues are quite limited in the THz band of interest [13], [14], [104].",
+      "startOffset" : 110,
+      "endOffset" : 114
+    }, {
+      "referenceID" : 100,
+      "context" : "The studies on the EM/Optical parameters of human tissues are quite limited in the THz band of interest [13], [14], [104].",
+      "startOffset" : 116,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 102,
+      "context" : "mal tissues were measured using THz-TDS in [106].",
+      "startOffset" : 43,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 103,
+      "context" : "[107], demonstrating the potential of THz spectroscopy for the recognisation of the cancer cell.",
+      "startOffset" : 0,
+      "endOffset" : 5
+    }, {
+      "referenceID" : 104,
+      "context" : "However, most of the researches are still restricted to KHz or GHz of range [108], [109] because the biological material in this range is believed to have little scattering and the",
+      "startOffset" : 76,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 105,
+      "context" : "However, most of the researches are still restricted to KHz or GHz of range [108], [109] because the biological material in this range is believed to have little scattering and the",
+      "startOffset" : 83,
+      "endOffset" : 88
+    }, {
+      "referenceID" : 11,
+      "context" : "In [13] and [14], authors show the importance of THz pulse imaging system for characterizing biological tissues such as skin, muscle and veins.",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 12,
+      "context" : "In [13] and [14], authors show the importance of THz pulse imaging system for characterizing biological tissues such as skin, muscle and veins.",
+      "startOffset" : 12,
+      "endOffset" : 16
+    }, {
+      "referenceID" : 106,
+      "context" : "12) at Queen Mary University of London [110], [111].",
+      "startOffset" : 39,
+      "endOffset" : 44
+    }, {
+      "referenceID" : 107,
+      "context" : "12) at Queen Mary University of London [110], [111].",
+      "startOffset" : 46,
+      "endOffset" : 51
+    }, {
+      "referenceID" : 106,
+      "context" : "in [110] (authors of this paper) as a parameter",
+      "startOffset" : 3,
+      "endOffset" : 8
+    }, {
+      "referenceID" : 107,
+      "context" : "Terahertz Time Domain Spectroscopy measurement setup at Queen Mary University of London [111].",
+      "startOffset" : 88,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 107,
+      "context" : "Artificial Skin (collagen) cultured in the Blizard Institute, QMUL (left) & Collagen layer growth by fibroblast cells (right) [111].",
+      "startOffset" : 126,
+      "endOffset" : 131
+    }, {
+      "referenceID" : 106,
+      "context" : "Comparison of measured (THz TDS) and modeled path loss inside the skin at THz frequencies [110].",
+      "startOffset" : 90,
+      "endOffset" : 95
+    }, {
+      "referenceID" : 107,
+      "context" : "13), the main constitute of epidermis was performed in [111], to investigate if it is enough to use the parameters of collagen as the epidermis at the band of interest by studying both dielectric constants and channel parameters.",
+      "startOffset" : 55,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 5,
+      "context" : "managed by a cluster head that will handle data propagation to the nano-router [6].",
+      "startOffset" : 79,
+      "endOffset" : 82
+    }, {
+      "referenceID" : 108,
+      "context" : "The work in [112] proposed a no-layer-based net-",
+      "startOffset" : 12,
+      "endOffset" : 17
+    }, {
+      "referenceID" : 109,
+      "context" : "In addition to the lack of ADCs, the local clock [114] at different nano-devices might oscillate at slightly different frequencies, which can result in a significant clock skew between the",
+      "startOffset" : 49,
+      "endOffset" : 54
+    }, {
+      "referenceID" : 110,
+      "context" : "For example, in [115], a synchronization scheme",
+      "startOffset" : 16,
+      "endOffset" : 21
+    }, {
+      "referenceID" : 111,
+      "context" : "controlled delay (VCD) lines [116] and ContinuousTimeMoving-Average (CTMA) symbol detectors [117].",
+      "startOffset" : 29,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 112,
+      "context" : "controlled delay (VCD) lines [116] and ContinuousTimeMoving-Average (CTMA) symbol detectors [117].",
+      "startOffset" : 92,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 113,
+      "context" : "For example, in [118], a low-sampling-rate (LSR) synchro-",
+      "startOffset" : 16,
+      "endOffset" : 21
+    }, {
+      "referenceID" : 114,
+      "context" : "reQuest (ARQ) mechanisms might not be suited for nanonetworks due to the energy limitations of nanodevices, which require nanoscale energy harvesting mechanisms to operate [119], [120].",
+      "startOffset" : 172,
+      "endOffset" : 177
+    }, {
+      "referenceID" : 115,
+      "context" : "reQuest (ARQ) mechanisms might not be suited for nanonetworks due to the energy limitations of nanodevices, which require nanoscale energy harvesting mechanisms to operate [119], [120].",
+      "startOffset" : 179,
+      "endOffset" : 184
+    }, {
+      "referenceID" : 4,
+      "context" : "As described in [5], the number of nano-transistors in a nano-processor limits the complexity of the operations that it can complete.",
+      "startOffset" : 16,
+      "endOffset" : 19
+    }, {
+      "referenceID" : 116,
+      "context" : "Prevention Codes (EPCs) has been proposed [121].",
+      "startOffset" : 42,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 117,
+      "context" : "sion of longer data packets, which results in a higher energy consumption both at the transmitter and the receiver when compared to that of uncoded transmission [122]–[124].",
+      "startOffset" : 161,
+      "endOffset" : 166
+    }, {
+      "referenceID" : 119,
+      "context" : "sion of longer data packets, which results in a higher energy consumption both at the transmitter and the receiver when compared to that of uncoded transmission [122]–[124].",
+      "startOffset" : 167,
+      "endOffset" : 172
+    }, {
+      "referenceID" : 120,
+      "context" : "For example, in [125], a mathematical framework is developed and used to analyze the tradeoffs between Bit Error Rate (BER), Packet Error Rate (PER), energy consumption and latency, for different error-control strategies,",
+      "startOffset" : 16,
+      "endOffset" : 21
+    }, {
+      "referenceID" : 66,
+      "context" : "In [68], the Physical-layer Aware MAC Protocol for Electromagnetic Nanonetworks (PHLAME) was proposed, effectively becoming the",
+      "startOffset" : 3,
+      "endOffset" : 7
+    }, {
+      "referenceID" : 121,
+      "context" : "Similarly, in [126], the first centralized MAC protocol for nanonetworks was proposed, in which a nano-controller would determine the best communication parameters for the nano-devices.",
+      "startOffset" : 14,
+      "endOffset" : 19
+    }, {
+      "referenceID" : 122,
+      "context" : "In [127], a receiver-initiated MAC protocol for nanosensor networks was proposed.",
+      "startOffset" : 3,
+      "endOffset" : 8
+    }, {
+      "referenceID" : 124,
+      "context" : "Traditional analysis of optimal relaying studies [129], [130] are not",
+      "startOffset" : 49,
+      "endOffset" : 54
+    }, {
+      "referenceID" : 125,
+      "context" : "Traditional analysis of optimal relaying studies [129], [130] are not",
+      "startOffset" : 56,
+      "endOffset" : 61
+    }, {
+      "referenceID" : 126,
+      "context" : "relaying strategies, which take into account both the possibility to utilize active nodes as well as novel passive relaying nodes based on dielectric mirrors [131].",
+      "startOffset" : 158,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 127,
+      "context" : "In this direction, in [132], a new routing framework was developed, based on three main tasks, namely, the evalu-",
+      "startOffset" : 22,
+      "endOffset" : 27
+    }, {
+      "referenceID" : 128,
+      "context" : "For example, as in Networks-onChip (NoC) [133], [134] or optical core networks [135], [136], it might not be worth to ‘‘wait’’ until",
+      "startOffset" : 41,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 129,
+      "context" : "For example, as in Networks-onChip (NoC) [133], [134] or optical core networks [135], [136], it might not be worth to ‘‘wait’’ until",
+      "startOffset" : 48,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 130,
+      "context" : "For example, as in Networks-onChip (NoC) [133], [134] or optical core networks [135], [136], it might not be worth to ‘‘wait’’ until",
+      "startOffset" : 79,
+      "endOffset" : 84
+    }, {
+      "referenceID" : 131,
+      "context" : "For example, as in Networks-onChip (NoC) [133], [134] or optical core networks [135], [136], it might not be worth to ‘‘wait’’ until",
+      "startOffset" : 86,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 132,
+      "context" : "These could be estimated in a cross-layer fashion, following a similar approach as in ultra-high-speed wired optical communication networks [137].",
+      "startOffset" : 140,
+      "endOffset" : 145
+    } ],
+    "year" : 2016,
+    "abstractText" : "Nano-communication-based devices have the potential to play a vital role in future healthcare technologies by improving the quality of human life. Its application in medical diagnostics and treatment has a great potential, because of its ability to access small and delicate body sites noninvasively, where conventional medical devices fall short. In this paper, the state of the art in this field is presented to provide a comprehensive understanding of current models, considering various communication paradigms, antenna design issues, radio channel models based on numerical and experimental analysis and network, and system models for such networks. Finally, open research areas are identified for the future directions within the field. INDEX TERMS Nano communication, terahertz, body area network, channel modeling, network modeling.",
+    "creator" : "TeX"
+  }
+}

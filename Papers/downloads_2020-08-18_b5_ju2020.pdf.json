@@ -1,0 +1,458 @@
+{
+  "name" : "downloads_2020-08-18_b5_ju2020.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Mechanism-Independent Manipulation of Single-Wall Carbon Nanotubes with Atomic Force Microscopy Tip",
+    "authors" : [ "Dianming Ju", "Ying Zhang", "Rui Li", "Shuang Liu", "Longhai Li", "Haitao Chen" ],
+    "emails" : [ "judianming1995@outlook.com", "zhangying0604@163.com", "lilh0303@163.com", "liushuang@neau.edu.cn", "lilonghai@neau.edu.cn", "htchen@neau.edu.cn" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Keywords: atomic force microscopy; single-wall carbon nanotubes; differentiation evolution algorithm; manipulation trajectory"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Because of their high intrinsic carrier mobility, conductivity, and mechanical flexibility [1–3], carbon nanotubes (CNTs) were considered as the next material to be integrated into biosensors [4], nanoswitches [5], flexible circuits [6], and field-effect transistors (FETs). However, the individual CNT-based devices require the precise control of the placement and shape of the CNT. Although several methods have been developed for the array bulk of CNTs, such as the dielectrophoresis technique [7], the orientation of CNTs could be controlled by dielectrophoresis force during the CNTs depositing the substrate surface in the liquid. Moreover, the chemical vapor deposition technique [8,9] is another method used to grow CNTs, which could directly align CNTs during the CNT growth process. However, for individual CNTs, the atomic force microscopy (AFM) [10] cantilever tip-based manipulation is more suitable for controlling the shape and placement of CNTs than the methods mentioned above, which could not control the selected CNT collection amount of aligned CNTs accurately.\nNanomaterials 2020, 10, 1494; doi:10.3390/nano10081494 www.mdpi.com/journal/nanomaterials\nNanomaterials 2020, 10, 1494 2 of 13\nAFM tip-based nanomanipulation has been intensively studied in the past decade, helping us to fabricate nanodevices and nanostructures or conduct studies for improving our fundamental understanding of the material physical and chemical properties [11–19]. However, the AFM tip cannot perform operations of imaging and manipulation simultaneously. Moreover, scanning-manipulating-scanning reduces efficiency and effectiveness, which hinders AFM tip manipulation [20,21]. Thus, some researchers have developed feedback systems based on the manipulating forces concerning technical difficulties [22–24], such as the augmented reality system [25–27], which could monitor real-time changes of the nanoenvironment during the manipulating process by analyzing the interaction forces among the tip, substrate, and manipulating target. Some AFM tip control algorithms and drift-compensation methods were also used to push nanoparticles or nanorods [28–34]. For flexible one-dimensional nanomaterials similar to single-wall carbon nanotubes (SWCNTs), a parallel pushing vector manipulating method [33,35] was developed to translate and rotate the flexible nanowires. In this method, the tip-manipulating path was optimized by the finite element method. The CNT bending process was described with a continuum beam-bending model with the clamped−clamped boundary constraints. The research group also designed an automated manipulation system with a pushing trajectory designed automatically by algorithmic programs. Moreover, some researchers have studied a geometric model to control the deforming CNT length and bending angle based on continuum mechanics to design a manipulation path and prevent the CNTs from buckling deformation [36]. However, the original shape of CNTs is challenging to maintain after the pushing operation because the large aspect ratio makes the following manipulation path difficult to predetermine to assure the designed CNTs shape after manipulating. Moreover, the deformation of CNTs will affect its electrical properties [37–39]. These problems brought challenges for nanowires manipulation. In this study, a multipoint-pushing method with a parallel path was used to push the SWCNTs. The appropriate pushing parameter combinations must be optimized to control the over shape and position accurately. Therefore, the differential evolution (DE) algorithm [40] was introduced to search for the best operating parameter combinations from the parameter spaces to maintain the SWCNTs removal integral. The DE is a population-based stochastic search method for global optimization to solve large-scale combinatorial optimization problems. As shown in Figure 1, the operating parameter combination of the proposed strategy includes three pushing parameters, namely, the pushing distance ∆x, the interval between the adjacent pushing path ∆y, and the pushing step n. The parameter ∆x denotes the tip travel distance perpendicular to the axis of CNT, while the interval between the adjacent pushing path ∆y is the gap distance between the adjacent tip travel paths. The parameter n is the number of repetitions of the tip traveling perpendicular to the axis of CNT. The initial value of the parameters is fed into the DE searching system to optimize the best operating parameter combinations with the feedback of the length ratio R of SWCNTs before and after pushing operation. The experimental results indicate that only 5–7 iterations are required to obtain an optimal operating parameter combination, where the length ratio could reach 0.95. With this technique, the CNTs could be transferred with its original shape and the precise position control without optimizing each parameter. Moreover, the pushing path design could prevent the AFM tip from being worn. The method does not require any specific knowledge of the manipulating mechanism and the physical properties of the nanomaterial.\nNanomaterials 2020, 10, 1494 3 of 13\nNanomaterials 2020, 10, x FOR PEER REVIEW 3 of 13\n2.1. Manipulating Scheme\nThe first iteration of the manipulating scheme started with the implementation of four parallel\nexperiments. Moreover, the parameter combinations for these pushing experiments were generated\nrandomly within a large parameter spaces. After manipulating, the shape of CNTs may have differed\nfrom the original shape. Therefore, we used the length ratio of CNTs before and after pushing as the\nsystem objective function to evaluate the parameter combinations for the results. For the first\niteration, the experimental results could not match our expectation and provide an appropriate\nparameter combination; thus, the DE search algorithm was used in this study to suggest new\ncombinations for the subsequent iterations. By comparing the length ratio values of the first iteration\nand new iteration, the new parameter combinations with higher values were generated,\ncorresponding to an improved experimental result. Furthermore, the information was fed back to the\nsearch algorithm for the subsequent iteration. Subsequently, the search loop continued until no\nchange through iterations occurred in the objective function, which means that the CNTs’ shape after\nmanipulating reached the best state. This approach expended only a few feedback iterations to obtain\nthe best pushing operation parameter combinations without requiring any specific knowledge of the\nmanipulating mechanism and the physical properties of the nanomaterial.\n2.2. DE Algorithm\nThe stochastic search method, DE algorithm, including initialization, mutation, crossover, and\nselection, was used for finding the optimal parameter combination to push SWCNTs with precise\nshape and position control, as shown in Figure 2. In the searching procedures, three parameters,\nnamely, the pushing distance ∆x, the interval between the adjacent pushing path ∆y, and the pushing\nstep n, were used to describe the manipulating condition. Furthermore, the length ratio of CNTs\nbefore and after pushing was used as the objective function."
+    }, {
+      "heading" : "2. Materials and Methods",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Manipulating Scheme",
+      "text" : "The first iteration of the manipulating scheme started with the implementation of four parallel experiments. Moreover, the parameter combinations for these pushing experiments were generated randomly within a large parameter spaces. After manipulating, the shape of CNTs may have differed from the original shape. Therefore, we used the length ratio of CNTs before and after pushing as the system objective function to evaluate the parameter combinations for the results. For the first iteration, the experimental results could not match our expectation and provide an appropriate parameter combination; thus, the DE search algorithm was used in this study to suggest new combinations for the subsequent iterations. By comparing the length ratio values of the first iteration and new iteration, the new parameter combinations with higher values were generated, corresponding to an improved experimental result. Furthermore, the information was fed back to the search algorithm for the subsequent iteration. Subsequently, the search loop continued until no change through iterations occurred in the objective function, which means that the CNTs’ shape after manipulating reached the best state. This approach expended only a few feedback iterations to obtain the best pushing operation parameter combinations without requiring any specific knowledge of the manipulating mechanism and the physical properties of the nanomaterial."
+    }, {
+      "heading" : "2.2. DE Algorithm",
+      "text" : "The stochastic search method, DE algorithm, including initialization, mutation, crossover, and selection, was used for finding the optimal parameter combination to push SWCNTs with precise shape and position control, as shown in Figure 2. In the searching procedures, three parameters, namely, the pushing distance ∆x, the interval between the adjacent pushing path ∆y, and the pushing step n, were used to describe the manipulating condition. Furthermore, the length ratio of CNTs before and after pushing was used as the objective function.\nNanomaterials 2020, 10, 1494 4 of 13\nNanomaterials 2020, 10, x FOR PEER REVIEW 4 of 13 2.2.1. Initialization\nFour parallel experiments were implemented simultaneously, and the initialized parameter\ncombinations \uD835\uDC65\uD835\uDC56 \uD835\uDC3A (G ≥ 0, i = 1, 2, 3, 4) were generated from each parameter space, where G is the G-th iteration, and i corresponds to the label of the parallel experiment. Subsequently, the experiments were performed with the parameter combinations \uD835\uDC65\uD835\uDC56 \uD835\uDC3A . Moreover, the objective function \uD835\uDC45( \uD835\uDC65\uD835\uDC56 \uD835\uDC3A ) = \uD835\uDC3F1/\uD835\uDC3F is the length ratio of CNTs before and after pushing, where L1 is the length of CNT after pushing, and L is the length before pushing."
+    }, {
+      "heading" : "2.2.2. Mutation",
+      "text" : "Once initialized, the DE algorithm starts mutating and recombines the parameter combinations\nto produce new combinations using: \uD835\uDC63\uD835\uDC56 \uD835\uDC3A = \uD835\uDC65\uD835\uDC5F1 \uD835\uDC3A + \uD835\uDC39 ∙ (\uD835\uDC65\uD835\uDC5F2 \uD835\uDC3A + \uD835\uDC65\uD835\uDC5F3 \uD835\uDC3A ), where \uD835\uDC65\uD835\uDC5F1 \uD835\uDC3A , \uD835\uDC65\uD835\uDC5F2 \uD835\uDC3A , and \uD835\uDC65\uD835\uDC5F3 \uD835\uDC3A correspond to the three different parameters selected from the \uD835\uDC65\uD835\uDC56 \uD835\uDC3Amatrix other than \uD835\uDC65\uD835\uDC56 \uD835\uDC3A (\uD835\uDC3A ≥ 0). F is the scale factor, which is a real number between 0 and 1, which is used for controlling the mutation probability in the\nmutation operator. In our research, the effect of F value on the manipulating method was studied,\nand the best F value was optimized from three values, F = 0.3, F = 0.4, and F = 0.5."
+    }, {
+      "heading" : "2.2.3. Crossover",
+      "text" : ""
+    }, {
+      "heading" : "A binomial crossover was used in the DE algorithm to increase the parameter diversity by",
+      "text" : "comparing the randomly generated value with the crossover probability Cr. This step created new combinations out of the initial combinations of \uD835\uDC65\uD835\uDC56 \uD835\uDC3A and the mutation combinations \uD835\uDC63\uD835\uDC56 \uD835\uDC3A using the following equation.\n\uD835\uDC62\uD835\uDC56 \uD835\uDC3A = {\n\uD835\uDC63\uD835\uDC56 \uD835\uDC3A \uD835\uDC5F\uD835\uDC4E\uD835\uDC5B\uD835\uDC51(0,1) < \uD835\uDC36\uD835\uDC5F \uD835\uDC65\uD835\uDC56 \uD835\uDC3A \uD835\uDC5C\uD835\uDC61ℎ\uD835\uDC52\uD835\uDC5F\uD835\uDC64\uD835\uDC56\uD835\uDC60\uD835\uDC52\nIn the equation, the function rand(0, 1) generates a random real number between 0 and 1, and\nthe crossover probability Cr determines the number of components in \uD835\uDC62\uD835\uDC56 \uD835\uDC3A out from \uD835\uDC65\uD835\uDC56 \uD835\uDC3A to ensure the heritage from the last iteration. The definite value of Cr ranges from 0 to 1. In this study, the value of\nCr was obtained by selecting the best value from five values, 0.3, 0.4, 0.5, 0.6, and 0.7.\nFour paral el experiments were implemented simultane usly, and the initialized parameter c mbinatio s xGi (G ≥ 0, i = 1, 2, 3, 4) were generated from each parameter space, where G is the G- h iteration, and i corresponds to th lab l of the parallel experiment. Subsequently, the experiments were performed with the pa ameter combinations xGi . Mor over, the objective function R ( xGi ) = L1/L is length ratio of CNTs befo e and after pushing, where L1 is the length of CNT after pushing, an L is the length before pushing.\n2.2.2. Mutation\nOnce initialized, the DE algorithm starts mutating and recombines the parameter combinations to produce new combinations using: vGi = x G r1 + F· ( xGr2 + x G r3 ) , where xGr1, x G r2, and x G r3 correspond to the three differen parameters selected from the xGi matrix other th n x G i (G ≥ 0). F is the scale fac or, which s a real number between 0 and 1, which is used for controlling the mutation probability in the mutation operator. In our research, the effect of F value on the manipulating method was studied, and the best F value was optimized from three values, F = 0.3, F = 0.4, and F = 0.5.\n2.2.3. Crossover\nA binomial crossover was used in the DE algorith to increase the para eter diversity by comparing the randomly generated value with the crossover probability Cr. This step created new combinations out of the initial combinations of xGi and the mutation combinations v G i using the following equation.\nuGi = {\nvGi rand(0, 1) < Cr xGi otherwise\nIn the equation, the function rand(0, 1) generates a random real number between 0 and 1, and the crossover probability Cr determines the number of components in uGi out from x G i to ensure the heritage from the last iteration. The definite value of Cr ranges from 0 to 1. In this study, the value of Cr was obtained by selecting the best value from five values, 0.3, 0.4, 0.5, 0.6, and 0.7.\nNanomaterials 2020, 10, 1494 5 of 13\n2.2.4. Selection\nThe selection was the final step of the searching algorithm, which determined the parameter combinations for the next iteration by comparing the objective function using xGi and u G i as in the following equation.\nxG+1i =  uGi f ( xGi ) < f ( uGi ) xGi otherwise\nOnce the new parameter combination xG+1i was created, the search loop repeated until the objective function achieved a particular threshold, or the objective function had no significant difference with the last iteration. The final parameter combination was the optimal solution."
+    }, {
+      "heading" : "2.3. AFM Experiments",
+      "text" : "The AFM (Dimension Icon, Bruker, Santa Barbara, CA, USA) was used to characterize and manipulate a cantilever probe (TESP, Bruker, Santa Barbara, CA, USA). The spring constant of the rectangular cantilever, the resonant frequency, and the tip radius were approximately 42 N/m, 320 kHz, and 8 nm, respectively. Moreover, the AFM images were obtained on tapping mode, and the pushing operation was implemented under contact mode; both operations were performed in an atmospheric environment. During scanning, 512 × 512 sample points were used to obtain high-resolution AFM images. The manipulating tip speed was set to 30 nm/s. The manipulating time of a single CNT was up to the manipulating parameters and length of the sample. SWCNT sample was prepared by a standard chemical vapor deposition process. The substrate corresponds to a silicon chip with several hundreds of nanometer thermal oxide on its surface. A 50 µL well-dispersed SWCNT suspension, diluted with an ultrasonic technique, was dropped on the Si substrate surface, and the suspension solvent was evaporated in a dry oven. The length of CNTs used in our experiments, measured with AFM, ranged from 2 to 7 um, and the diameters ranged from 2 to 4 nm. The lateral signal of a position-sensitive detector was acquired with Data Acquisition Card for the tip pushing samples. Moreover, the frictional force between the CNTs and the Si substrate was calculated [24,26,31] to 17 ± 2 nN for the AFM tip pushing distance from 100 nm to 1 um."
+    }, {
+      "heading" : "3. Results and Discussion",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Parameters Space Optimization",
+      "text" : "The AFM tip pushing operation would cause the bending behavior of CNT due to the flexibility of nanowires. As shown in Figure 3, the free length ∆l, which is the deformation length of CNT with a single pushing path, should be higher than the interval between the adjacent pushing path ∆y. Otherwise, part of the CNT would be stayed at the original location rather than transferred to another position, during the manipulating process. In this study, with a pushing distance of more than 1400 nm, the pre-experiment results showed that the length radio R was less than 0.5. After considering these pre-experiment results and the manipulating efficiency, the pushing distance spaces for 30 nm, 50 nm, 100 nm, 200 nm, 300 nm, 400 nm, 600 nm, 700 nm, 800 nm, 1000 nm, 1200 nm, and 1400 nm were found. The free length with different pushing distances was obtained with the AFM tip pushing experiments on the Si substrate, as shown in Figure 3. Note that the free length increment reduced after a pushing distance higher than 1000 nm. Therefore, the maximum value of ∆y was set to 1000 nm. The interval between the adjacent pushing path spaces included 50 nm, 100 nm, 200 nm, 300 nm, 400 nm, 600 nm, 800 nm, and 1000 nm. The pushing step spaces number included 1, 2, and 3.\nNanomaterials 2020, 10, 1494 6 of 13\nNanomaterials 2020, 10, x FOR PEER REVIEW 6 of 13\nFigure 3. Carbon nanotube (CNT) bending test by atomic force microscopy (AFM) pushing operation with a single path. The bar chart describes the free length Δl under pushing distance Δx used in our study. The inlet image is the AFM image illustrated the free length and the interval between adjacent pushing path Δy.\n3.2. Intrinsic Parameters of DE Optimization\nIn the DE search algorithm, except for the manipulating parameters, the intrinsic constant of the\nscale factor F and the crossover probability Cr also affected the optimization result by affecting the\nconvergence speed and search space. The high scale factor would increase the mutation probability\nof the parameters, whereas the low value maintains most parameter combinations, similar to the\nvalues in the previous iteration. Moreover, the crossover probability determines the searching space;\nhigh Cr value improved the local search ability but could lead to premature convergence. For\ndifferent applications for different intrinsic parameters were considered. In this study, the intrinsic\nparameters were optimized from the spaces of F = 0.3, 0.4, and 0.5, Cr = 0.3, 0.4, 0.5, 0.6, and 0.7 with\nthe feedback of the length ratio R, which a higher R-value means that the shape of CNTs after\nmanipulation was similar to the original shape before manipulating. Moreover, the straight CNTs\nwere selected in our experiments, and the parameter combination was optimized to avoid the\ndeformation of straight CNTs during manipulation. The manipulating parameter values in\nparameter combinations were selected from the parameter spaces according to the DE algorithm.\n3.2.1. F Value Optimization\nThe first iteration started from a random generation of manipulating parameters from the\nparameter spaces. For comparison purposes, Cr = 0.5 and the same starting parameter combinations\nwere used in this section. However, with different F values, the parameter combinations generated\nin the mutation and crossover for the next iteration may differ. The parameter combinations are listed\nin Tables S1–S3 in Supplementary Information. Figure 4a–c show the experimental results, where the\nlength ratio values using the starting parameter combinations ranged from 0.66 to 0.76. After several\nsearching iterations, the results indicate that the length ratio curves presented an increasing trend\nalong with the iterations.\nThe optimization converged to its best value throughout the process. Specifically, with F = 0.3,\nthe curves approach the value 0.87 within seven iterations, which is a local optimization because a\nlow F value reduced the diversity of the pushing parameters in the next iteration, leading to\npremature convergence. With a higher F value, the variance of the pushing parameters increased the\nchances to search away from local optima. Thus, with F = 0.4 and 0.5, the peak length ratio values\nreached 0.95 at seven or eight iterations. Moreover, the three group results reach 0.95 in nine iterations\nwith F = 0.4; however, one group reaches 0.92. With F = 0.5, all group results reached 0.95 in 11\niterations. The curves of the peak value in each iteration step of every set showed improved\nFigure 3. Carbon nanotube (CNT) bending test by atomic force microscopy (AFM) pushing operation with a single path. The bar chart describes the fr e length ∆l under pushing distance ∆x used in our study. The inlet image is the AFM image illustrated the fr e length and the interval betw en adjacent pushing path ∆y."
+    }, {
+      "heading" : "3.2. Intrinsic Parameters of DE Optimization",
+      "text" : "In the DE search algorithm, except for the manipulating parameters, the intrinsic constant of the scale factor F and the crossover probability Cr also affected the optimization result by affecting the convergence speed and search space. The high scale factor would increase the mutation probability of the parameters, whereas the low value maintains most parameter combinations, similar to the values in the previous iteration. Moreover, the crossover probability determines the searching space; high Cr value improved the local search ability but could lead to premature convergence. For different applications for different intrinsic parameters were considered. In this study, the intrinsic parameters were optimized from the spaces of F = 0.3, 0.4, and 0.5, Cr = 0.3, 0.4, 0.5, 0.6, and 0.7 with the feedback of the length ratio R, which a higher R-value means that the shape of CNTs after manipulation was similar to the original shape before manipulating. Moreover, the straight CNTs were selected in our experiments, and the parameter combination was optimized to avoid the deformation of straight CNTs during manipulation. The manipulating parameter values in parameter combinations were selected from the parameter spaces according to the DE algorithm.\n3.2.1. F Value Optimization\nThe first iteration started from a random generation of manipulating parameters from the parameter spaces. For comparison purposes, Cr = 0.5 and the same starting parameter combinations were used in this section. However, with different F values, the parameter combinations generated in the mutation and crossover for the next iteration may differ. The parameter combinations are listed in Tables S1–S3 in Supplementary Information. Figure 4a–c show the experimental results, where the length ratio values using the starting parameter combinations ranged from 0.66 to 0.76. After several searching iterations, the results indicate that the length ratio curves presented an increasing trend along with the iterations.\nNanomaterials 2020, 10, 1494 7 of 13\nNanomaterials 2020, 10, x FOR PEER REVIEW 7 of 13\nmanipulating results regarding the value of F = 0.4 and 0.5, as shown in Figure 4d. However, with F\n= 0.4, faster convergence speed and similar results as with F = 0.5 were obtained. Therefore, 0.4 was\nselected in this study as a scaling factor."
+    }, {
+      "heading" : "3.2.2. Cr Value Optimization",
+      "text" : "The same starting parameter combinations of previous experiments were used in this section.\nFive set considering Cr = 0.3, 0.4, 0.5, 0.6, and 0.7 were designed to evaluate Cr, as shown in Figure 5.\nFor Cr = 0.3, considering all groups, the results reach the value of 0.95 in 14 iterations (see Table S4 in\nSupplementary Information). With an increase in Cr, the result curves converge faster. Three result\ncurves reached the value 0.95, and the last group reacheed the value 0.92 with Cr = 0.4, 0.5, and 0.6 in"
+    }, {
+      "heading" : "11, 9, and 6 iterations, respectively, as shown in Figure 4b–d (see Tables S2, S5, and S6 in",
+      "text" : "Supplementary Information). However, with the higher Cr value of 0.7, the premature convergence\nphenomenon could not be avoided, and the result curves approached 0.85 in seven iterations, causing\nlocal optimization (see Table S7 in Supplementary Information). Comparing the best result in each\niteration step of every set, as shown in Figure 5e, the Cr = 0.6 curve achieved the value 0.95. All group\nresult curves in this set converge at the value 0.95. Therefore, 0.6 was selected in our research as the\nCr value.\n4. Differential evolution based on the length ratio in feedback control for pushing CNT operation with (a) F = 0.3, (b) F = 0.4, and (c) F = 0.5. The peak length ratio value in e ch step iteration of every set is listed in (d). In each iteration, four groups of c mbinati ns were studi d.\nThe optimization converged to its best value throughout the process. Specifically, with F = 0.3, the curves approach the value 0.87 within seven iterations, which is a local optimization because a low F value reduced the diversity of the pushing parameters in the next iteration, leading to premature convergence. With a higher F value, the variance of the pushing parameters increased the chances to search away from local optima. Thus, with F = 0.4 and 0.5, the peak length ratio values reached 0.95 at seven or eight iterations. Moreover, the three group results reach 0.95 in nine iterations with F = 0.4; however, one group reaches 0.92. With F = 0.5, all group results reached 0.95 in 11 iterations. The curves of the peak value in each iteration step of every set showed improved manipulating results regarding the value of F = 0.4 and 0.5, as shown in Figure 4d. However, with F = 0.4, faster convergence speed and similar results as with F = 0.5 were obtained. Therefore, 0.4 was selected in this study as a scaling factor.\n3.2.2. Cr Value Optimization\nThe same starting parameter combinations of previous experiments were used in this section. Five set considering Cr = 0.3, 0.4, 0.5, 0.6, and 0.7 were designed to evaluate Cr, as shown in Figure 5. For Cr = 0.3, considering all groups, the results reach the value of 0.95 in 14 iterations (see Table S4 in Supplementary Information). With an increase in Cr, the result curves converge faster. Three result curves reached the value 0.95, and the last group reacheed the value 0.92 with Cr = 0.4, 0.5, and 0.6 in 11, 9, and 6 iterations, respectively, as shown in Figure 4b–d (see Tables S2, S5, and S6 in Supplementary Information). However, with the higher Cr value of 0.7, the premature convergence phenomenon could not be avoided, and the result curves approached 0.85 in seven iterations, causing local optimization (see Table S7 in Supplementary Information). Comparing the best result in each iteration step of every set, as shown in Figure 5e, the Cr = 0.6 curve achieved the value 0.95. All group result curves in this set converge at the value 0.95. Therefore, 0.6 was selected in our research as the Cr value.\nNanomaterials 2020, 10, 1494 8 of 13\nNanomaterials 2020, 10, x FOR PEER REVIEW 8 of 13"
+    }, {
+      "heading" : "3.3. Pushing Parameter Combination",
+      "text" : "Considering the less tip wearing and faster-approaching speed to reach the best experimental\nresult, we used F = 0.4 and Cr = 0.6 to study the parameter combination for pushing SWCNT with\nAFM tip on a silicon substrate, as shown in Figure 5d and Table S6. The result curves had an\nincreasing trend with iterations; however, the parameter of the pushing distance Δx, the interval\nbetween the adjacent pushing path Δy, and the pushing step n decrease until reaching the value 0.95\nwith the parameter combination (100,100,1), i.e., Δx = 100 nm, Δy = 100 nm, and n = 1. Figure 6 shows\nthe AFM images before and after pushing, corresponding to a result above 0.90. The parallel pushing\npath is denoted in the figure using arrows. Comparing the AFM images before and after\nmanipulating, we found that the CNT with the peak pushing result value of 0.95 was removed,\nmaintaining most of the original straight-line shape. Moreover, other CNTs had some deformation\nafter the pushing operation. The distance between the position of CNTs before and after\nmanipulating Δxm was measured, as shown in Figure 6. The measured values all approached the\ntarget pushing distance Δx with a 10% error.\ni r 5. Differential evolution based on the length ratio in feedback control for pushing CNT operation with (a) Cr = 0.3, (b) Cr = 0.4, (c) Cr = 0.5, (d) Cr = 0.6, and (e) Cr = 0.7. The peak length ratio value in e ch step iteration of very set exp im nts is listed in (f). In ach iteration, four g oups of combinations were studied."
+    }, {
+      "heading" : "3.3. Pushing Parameter Combination",
+      "text" : "Considering the less tip wearing and faster-approaching speed to reach the best experimental result, we used F = 0.4 and Cr = 0.6 to study the parameter combination for pushing SWCNT with AFM tip on a silicon substrate, as shown in Figure 5d and Table S6. The result curves had an increasing trend with iterations; however, the parameter of the pushing distance ∆x, the interval between the adjacent pushing path ∆y, and the pushing step n decrease until reaching the value 0.95 with the parameter combination (100,100,1), i.e., ∆x = 100 nm, ∆y = 100 nm, and n = 1. Figure 6 shows the AFM images before and after pushing, corresponding to a result above 0.90. The parallel pushing path is denoted in the figure using arrows. Comparing the AFM images before and after manipulating, we found that the CNT with the peak pushing result value of 0.95 was removed, maintaining most of the original straight-line shape. Moreover, other CNTs had some deformation after the pushing operation. The distance between the position of CNTs before and after manipulating ∆xm was measured, as shown in Figure 6. The measured values all approached the target pushing distance ∆x with a 10% error.\nNanomaterials 2020, 10, 1494 9 of 13 Nanomaterials 2020, 10, x FOR PEER REVIEW 9 of 13\nFor the armchair CNTs, the effects of bending deformation on their electrical transport properties were calculated [41–43]. The transmission function was affected strongly when the bending angles were higher than 45°. Moreover, the electrical resistance increased when the bending angles were higher than 45°. However, for zigzag CNTs, the computed conductance was affected\nFor the armchair CNTs, the effects of bending deformation on their electrical transport properties were calculated [41–43]. The transmission function was affected strongly when the bending angles were higher than 45◦. Moreover, the electrical resistance increased when the bending angles were higher than 45◦. However, for zigzag CNTs, the computed conductance was affected significantly when the bending angles were higher than 20◦. In the experiments, the parameter combinations with the experimental result of length ratio above 0.90 could be used for armchair CNTs without\nNanomaterials 2020, 10, 1494 10 of 13\naffecting the electrical transport properties, as the bending angles were less than 45◦. Furthermore, the parameter combinations of the experimental result with a length ratio of 0.95 could be used for zigzag CNTs manipulation, as the bending angles were less than 20◦. All the pushing parameter combinations having a length ratio value above 0.90 for all the sets of experiments are listed in Table 1. In the table, almost all combinations having a higher value had only one pushing step. Moreover, for a long pushing distance ∆x of 100 or 200 nm, the manipulation value of 0.90 or 0.92 was obtained. For a small ∆x of 50 or 100 nm, the length ratio R could reach 0.95. These results were similar for the interval between the adjacent pushing path ∆y.\nTable 1. Parameter combinations used in manipulating operation having R-value above 0.90 for all experimental data. (∆x, ∆y, n) denotes the parameter values in the parameter combination.\nNo. R\n0.90 0.92 0.93 0.95\n1 (100, 200, 2) (50, 200, 1) (200, 50, 1) (30, 50, 1) 2 (200, 200, 1) (100, 200, 1) - (30, 100, 1) 3 (300, 100, 1) (200, 100, 1) - (50, 50, 1) 4 (400, 50, 1) - - (50, 100, 1) 5 (100,100,2) - - (100, 100, 1) 6 - - - (100, 50, 1)\nFigure 7 shows the parameter combinations having only one pushing step in Table 1. The first quadrant of Figure 7 was divided into several regions using different lines, which were formed by connecting the combination coordinate points having the same experimental results. A smaller value of the parameters improving experimental results was obtained in previous experiments. Therefore,\nif the experiment was performed with a parameter combination selected in the region, the length ratio\nof CNT before and after pushing would be better than the value with combinations on the boundary line. For example, if the pushing parameters were selected in the area surrounded by the blue line, even though the parameters were not in our parameter spaces, the experimental result of the length ratio would be higher than 0.90. This result was demonstrated because the regions with value R > 0.90 were surrounded with the 0.90 line. If a researcher wanted to obtain the best experimental result, the pushing parameters should be selected in the area surrounded by the red line. The parameters region could supply any pushing parameter combination for a user, designing the pushing parameters to achieve an individual demand.\nNanomaterials 2020, 10, x FOR PEER REVIEW 10 of 13\nsignificantly when the bending angles were higher than 20°. In the experiments, the parameter\ncomb ations with the experimental result of length ratio above 0.90 could be used for armchair CNTs\nwithout affecting the electrical trans o t prope ties, as e bending angles were less than 45°.\nFurthermore, the parameter combinations of the experimental result with a ength ratio of 0.95 could\nbe used for zigzag CNTs manipulation, s th bending angles were less tha 20°. All the pushing\nparameter co binations having a length r tio value above 0.90 for all the sets of expe iments a e\nisted in Table 1. I the table, almost all combinations havi g a higher value had only one pushing\ntep. Moreover, for a long pushing distance Δx of 100 or 200 nm, the manipulation value of 0.90 or\n0.92 was obtained. For a small Δx of 50 or 100 nm, the length ratio R could reach 0.95. These results\nwere similar for the interval between the adjacent pushing path Δy.\nFigure 7 shows the parameter combi ations h ving only e pushing step in Table 1. The first\nquadrant of Figure 7 was divided into several regions using different lines, which were formed by\nconnecting the combination coordinate points having the same experimental results. A smaller value\nof the parameters improving experimental results was obtained in previous experiments. Therefore,\nif the experiment was performed with a parameter combination selected in the region, the length\nratio of CNT before and after pushing would be better than the value with combinations on the\nboundary line. For example, if the pushing parameters were selected in the area surrounded by the\nblue line, even though the parameters were not in our parameter spaces, the experimental result of\nthe length ratio would be higher than 0.90. This result was demonstrated because the regions with\nvalue R > 0.90 were surrounded with the 0.90 line. If a researcher wanted to obtain the best\nexperimental result, the pushing parameters should be selected in the area surrounded by the red\nline. The parameters region could supply any pushing parameter combination for a user, designing\nthe pushing parameters to achieve an individual demand.\nTable 1. Parameter combinations used in manipulating operation having R-value above 0.90 for all experimental data. (Δx, Δy, n) denotes the parameter values in the parameter combination.\nR\nNo. 0.90 0.92 0.93 0.95"
+    }, {
+      "heading" : "1 (100, 200, 2) (50, 200, 1) (200, 50, 1) (30, 50, 1)",
+      "text" : ""
+    }, {
+      "heading" : "2 (200, 200, 1) (100, 200, 1) - (30, 100, 1)",
+      "text" : ""
+    }, {
+      "heading" : "3 (300, 100, 1) (200, 100, 1) - (50, 50, 1)",
+      "text" : ""
+    }, {
+      "heading" : "4 (400, 50, 1) - - (50, 100, 1)",
+      "text" : ""
+    }, {
+      "heading" : "5 (100,100,2) - - (100, 100, 1)",
+      "text" : ""
+    }, {
+      "heading" : "6 - - - (100, 50, 1)",
+      "text" : "Figure 7. Pushing parameter region with higher length ratio value. The lines were obtained by connecting the same R-value combination points.\nNanomaterials 2020, 10, 1494 11 of 13"
+    }, {
+      "heading" : "4. Conclusions",
+      "text" : "The pushing parameters, including the pushing distance, the interval between the adjacent pushing path, and the pushing step, affected the CNT pushing operation substantially. These parameters determine the shape of CNT after the pushing operation. In this study, the DE search algorithm was used to search the optimal pushing parameter combination to avoid the deformation of CNT during manipulation, which could maintain the straight shape of CNT after manipulation similar to before manipulation, as well as the length ratio of CNT before and after pushing operation was set as the objective function. After optimizing the scale factor F and crossover probability Cr, the values 0.4 and 0.6 were used, respectively, to search the optimal pushing parameter combination. With only six iterations and 24 pushing experiments, the best pushing parameter combination (100, 100, 1) was obtained, and the experimental result reached the length ratio value of 0.95. Moreover, the region of pushing parameters presenting values higher than 0.9 the length ratio value, with a 10% error in the measured pushing distance, was studied to provide arbitrary parameter combinations to researchers, even beyond the analyzed parameter spaces. Furthermore, having a pushing parameters region provides a favorable result for researchers to design the pushing experiments according to their demand. No need for optimizing every parameter saves time and reduces the wearing of AFM tip. Moreover, the fact that the knowledge of the physical properties of samples and the tip manipulation mechanisms are not required is another advantage of this method. Future research will try to characterize the effect of deformation on the physical property of CNTs using the proposed method. We will also try to manipulate other one-dimension nanomaterials, such as the DNA chain. This method could also be extended to other nanomaterial manipulation to assemble nanodevices with precise position and shape control.\nSupplementary Materials: The supplementary materials are available online at http://www.mdpi.com/2079-4991/ 10/8/1494/s1. Table S1: F = 0.3, Cr = 0.5, Table S2: F = 0.4, Cr = 0.5, Table S3: F = 0.5, Cr = 0.5, Table S4: F = 0.4, Cr = 0.3, Table S5: F = 0.4, Cr = 0.4, Table S6: F = 0.4, Cr = 0.6, Table S7: F = 0.4, Cr = 0.7.\nAuthor Contributions: Conceptualization and methodology, L.L. and H.C.; software, D.J.; validation, L.L.; formal analysis, Y.Z.; data curation, R.L. and S.L.; writing—original draft, D.J.; writing—review and editing, D.J. and L.L.; project administration, L.L. and H.C.; funding acquisition, L.L. All authors have read and agreed to the published version of the manuscript.\nFunding: This research was supported by the National Natural Science Foundation of China (31701311), and University Nursing Program for Young Scholars with Creative Talents in Heilongjiang Province (UNPYSCT-2017016).\nAcknowledgments: The authors would like to thank Northeast Agricultural University colleagues for providing good suggestions regarding the experiments and manuscript. Moreover, we also thank the Editage (www.editage.cn) for English language editing.\nConflicts of Interest: The authors declare no conflict of interest."
+    } ],
+    "references" : [ {
+      "title" : "A Review of Fabrication and Applications of Carbon Nanotube Film-Based Flexible Electronics",
+      "author" : [ "S. Park", "M. Vosguerichian", "Z. Bao" ],
+      "venue" : "Nanoscale 2013,",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2013
+    }, {
+      "title" : "Quantum Suppression of Superconductivity in Ultrathin Nanowires",
+      "author" : [ "A. Bezryadin", "C. Lau" ],
+      "venue" : "Nature",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2000
+    }, {
+      "title" : "Carbon Nanotube Single-Electron Transistors at Room Temperature",
+      "author" : [ "H.W.C. Postma", "T. Teepen", "Z. Yao", "M. Grifoni", "C. Dekker" ],
+      "venue" : "Science",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2001
+    }, {
+      "title" : "Importance of Controlling Nanotube Density for Highly Sensitive and Reliable Biosensors Functional in Physiological Conditions",
+      "author" : [ "F.N. Ishikawa", "M. Curreli", "C.A. Olson", "H.-I. Liao", "R. Sun", "R.W. Roberts", "R.J. Cote", "M.E. Thompson", "C. Zhou" ],
+      "venue" : "ACS Nano 2010,",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2010
+    }, {
+      "title" : "Carbon Nanotube Linear Bearing Nanoswitches",
+      "author" : [ "V.V. Deshpande", "H.-Y. Chiu", "H.W.C. Postma", "C. Miko", "L. Forr", "M. Bockrath" ],
+      "venue" : "Nano Lett. 2006,",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2020
+    }, {
+      "title" : "Medium-Scale Carbon Nanotube Thin-Film Integrated Circuits on Flexible Plastic Substrates",
+      "author" : [ "Q. Cao", "H. Kim", "N. Pimparkar", "J.P. Kulkarni", "C. Wang", "M. Shim", "K. Roy", "M.A. Alam", "J.A. Rogers" ],
+      "venue" : "Nature",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2008
+    }, {
+      "title" : "Dielectrophoresis Can Control the Density of CNT Membranes as Confirmed by Experiment and Dissipative Particle Simulation",
+      "author" : [ "C. Tran", "K. Lecao", "T.T. Bui", "V.T. Dau" ],
+      "venue" : "Carbon",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2019
+    }, {
+      "title" : "Nanometer-Scale Catalyst Patterning for Controlled Growth of Individual Single-Walled Carbon Nanotubes",
+      "author" : [ "C. Papadopoulos", "B. Omrane" ],
+      "venue" : "Adv. Mater",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2008
+    }, {
+      "title" : "Nanotube Electronics: Large-Scale Assembly of Carbon Nanotubes",
+      "author" : [ "S. Rao", "L. Huang", "W. Setyawan", "S. Hong" ],
+      "venue" : "Nature",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2003
+    }, {
+      "title" : "The Atomic Force Microscope",
+      "author" : [ "G.K. Binnig", "C.F. Quate", "C. Gerber" ],
+      "venue" : "Phys. Rev. Lett",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 1986
+    }, {
+      "title" : "The Mechanical Properties of Nanowires",
+      "author" : [ "S. Wang", "Z. Shan", "H. Huang" ],
+      "venue" : "Adv. Sci. 2017,",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2017
+    }, {
+      "title" : "Sliding and Rolling Frictional Behavior of a Single ZnO Nanowire during Manipulation with an AFM",
+      "author" : [ "H.J. Kim", "K.H. Kang", "D.E. Kim" ],
+      "venue" : "Nanoscale 2013,",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2013
+    }, {
+      "title" : "The Effect of Surface Roughness on Normal Restitution Coefficient, Adhesion Force and Friction Coefficient of the Particle-Wall Collision",
+      "author" : [ "X. Li", "M. Dong", "D. Jiang", "S. Li", "Y. Shang" ],
+      "venue" : "Power Technol",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2020
+    }, {
+      "title" : "Interaction Forces between Coal and Kaolinite Particles Measured by Atomic Force Microscopy",
+      "author" : [ "X. Gui", "Y. Xing", "G. Rong", "Y. Cao", "J. Liu" ],
+      "venue" : "Powder Technol",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2016
+    }, {
+      "title" : "Nanotopographical Surfaces for Regulating Cellular Mechanical Behaviors Investigatedb by Atomic Force Microscopy",
+      "author" : [ "M. Li", "N. Xi", "Y. Wang", "L. Liu" ],
+      "venue" : "ACS Biomate Sci. Eng. 2019,",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2019
+    }, {
+      "title" : "Tunable Hybrid Biopolymeric Hydrogel Scaffolds Based on Atomic Force Microscopy Characterizations for Tissue Engineering",
+      "author" : [ "M. Li", "N. Xi", "Y. Wang", "L. Liu" ],
+      "venue" : "IEEE Trans. Nanotechnol",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2019
+    }, {
+      "title" : "Nanorobotic Manipulation System for 360◦ Characterization Atomic Force Microscopy",
+      "author" : [ "Y. Wen", "H. Lu", "Y. Shen", "H. Xie" ],
+      "venue" : "IEEE Trans. Ind. Electron",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2019
+    }, {
+      "title" : "AFM Manipulation of Gold Nanowires to Build Electrical Circuits",
+      "author" : [ "M. Miriam", "A. Pablo", "F. Zamora", "G. Cristina", "G. Julio" ],
+      "venue" : "Nano Lett. 2019,",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2019
+    }, {
+      "title" : "AFM-Based Mechanical Characterization of Single Nanofibres",
+      "author" : [ "B.R. Neugirg", "S.R. Koebley", "H.C. Schniepp", "A. Fery" ],
+      "venue" : "Nanoscale 2016,",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2016
+    }, {
+      "title" : "A Vision-Based Automated Manipulation System for the Pick-Up of Carbon Nanotubes",
+      "author" : [ "Q. Shi", "Z. Yang", "Y. Guo", "H. Wang", "L. Sun", "Q. Huang", "T. Fukuda" ],
+      "venue" : null,
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2017
+    }, {
+      "title" : "Ultrahigh-Precision Rotational Positioning under a Microscope: Nanorobotic System, Modeling, Control",
+      "author" : [ "H. Lu", "W. Shang", "H. Xie", "Y. Shen" ],
+      "venue" : "IEEE Trans. Robot",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2018
+    }, {
+      "title" : "A Review of Haptic Feedback Teleoperation Systems for Micromanipulation and Microassembly",
+      "author" : [ "A. Bolopion", "S. Régnier" ],
+      "venue" : "IEEE Trans. Autom. Sci. Eng",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2013
+    }, {
+      "title" : "Automated 2-D Nanoparticle Manipulation Force Microscopy",
+      "author" : [ "C.D. Onal", "O. Ozcan", "M. Sitti" ],
+      "venue" : "IEEE Trans. Nanotechnol",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2011
+    }, {
+      "title" : "Analysis the Effect of Different Geometries of AFM’s Cantilever on the Dynamic Behavior and the Critical Forces of Three-Dimensional Manipulation",
+      "author" : [ "M.H. Korayem", "M.B. Saraie", "M.B. Saraee" ],
+      "venue" : "Ultramicroscopy",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2017
+    }, {
+      "title" : "Development of Augmented Reality System for AFM-Based Nanomanipulation",
+      "author" : [ "G. Li", "N. Xi", "M. Yu", "W. Fung" ],
+      "venue" : "IEEE/ASME Trans. Mech. 2004,",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2004
+    }, {
+      "title" : "Videolized” Atomic Force Microscopy for Interactive Nanomanipulation and Nanoassembly",
+      "author" : [ "G. Li", "N. Xi", "H. Chen", "C. Pomeroy", "M. Prokos" ],
+      "venue" : "IEEE Trans. Nanotechnol",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2005
+    }, {
+      "title" : "Sensor Referenced Real-Time Videolization of Atomic Force Microscopy for Nanomanipulations",
+      "author" : [ "L. Liu", "Y. Luo", "N. Xi", "Y. Wang", "J. Zhang", "G. Li" ],
+      "venue" : "IEEE/ASME Trans. Mech",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2008
+    }, {
+      "title" : "AFM-Based Robotic Nano-Hand for Stable Manipulation at Nanoscale",
+      "author" : [ "J. Hou", "L. Liu", "Z. Wang", "N. Xi", "Y. Wang", "C. Wu", "Z. Dong", "S. Yuan" ],
+      "venue" : "IEEE Trans. Autom. Sci. Eng",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2013
+    }, {
+      "title" : "AFM Tip Position Control in situ for Effective Nano-Manipulation",
+      "author" : [ "S. Yuan", "Z. Wang", "N. Xi", "Y. Wang", "L. Liu" ],
+      "venue" : "IEEE/ASME Trans. Mech. 2018,",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2018
+    }, {
+      "title" : "Investigating the Impact Models for Nanoparticles Manipulation Based on Atomic Force Microscope (According To Contact Mechanics)",
+      "author" : [ "M.H. Korayem", "H. Khaksar" ],
+      "venue" : "Powder Technol",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2019
+    }, {
+      "title" : "Dynamic Modeling and Simulation of 3D Manipulation on Rough Surfaces Based on Developed Adhesion Models",
+      "author" : [ "M.B. Saraee", "M.H. Korayem" ],
+      "venue" : "Int. J. Adv. Manuf. Technol",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2017
+    }, {
+      "title" : "A Simple Criterion for Determining the Static Friction Force between Nanowires and Flat Substrates Using the Most-Bent-State Method",
+      "author" : [ "L. Hou", "S. Wang", "H. Huang" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2015
+    }, {
+      "title" : "Strategies for the AFM Based Manipulation of Silver Nanowires on a Flat Surface",
+      "author" : [ "H. Liu", "S. Wu", "J. Zhang", "H. Bai", "F. Jin", "H. Pang", "X. Hu" ],
+      "venue" : "Nanotechnology",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2017
+    }, {
+      "title" : "Mechanical Properties of Suspended Individual Carbon Nanotube Studied by Atomic Force Microscope",
+      "author" : [ "S.W. Lee" ],
+      "venue" : "Synth. Met",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2016
+    }, {
+      "title" : "Automated Manipulation of Carbon Nanotubes Using Atomic Force Microscopy",
+      "author" : [ "C. Zhang", "S. Wu", "X. Fu" ],
+      "venue" : "J. Nanosci. Nanotechnol",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2013
+    }, {
+      "title" : "Controlled Manipulation of Flexible Carbon Nanotubes through Shape-Dependent Pushing by Atomic Force Microscopy",
+      "author" : [ "S.C. Yang", "X. Qian" ],
+      "venue" : null,
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2013
+    }, {
+      "title" : "Nanomechanical Torsional Resonators for Frequency-Shift Infrared Thermal Sensing",
+      "author" : [ "X.C. Zhang", "E.B. Myers", "J.E. Sader", "M.L. Roukes" ],
+      "venue" : "Nano Lett",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2013
+    }, {
+      "title" : "Electromechanical response of single-walled carbon nanotubes to torsional strain in a self-contained device",
+      "author" : [ "R. Storn", "A.R. Hall", "M.R. Falvo", "R. Superfine", "S. Washburn" ],
+      "venue" : "Nature Nanotechnol",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2007
+    }, {
+      "title" : "Bandgap closure of a flattened semiconductor carbon nanotube: A first-principles study",
+      "author" : [ "M.S. Mazzoni", "H. Chacham" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2000
+    }, {
+      "title" : "Differential Evolution—A Simple and Efficient Heuristic for Global Optimization over Continuous Spaces",
+      "author" : [ "R. Storn", "K. Price" ],
+      "venue" : "J. Glob. Optim",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 1997
+    }, {
+      "title" : "Electronic transport through carbon nanotubes: Effects of structural deformation and tube chirality",
+      "author" : [ "A. Maiti", "S. Alexei", "M.P. Anantram" ],
+      "venue" : "Phys. Rev. Lett",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2002
+    }, {
+      "title" : "Electrical and mechanical properties of distorted carbon nanotubes",
+      "author" : [ "A. Rochefort", "P. Avouris", "F. Lesage", "D.R. Salahub" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 1999
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 3,
+      "context" : "Because of their high intrinsic carrier mobility, conductivity, and mechanical flexibility [1–3], carbon nanotubes (CNTs) were considered as the next material to be integrated into biosensors [4], nanoswitches [5], flexible circuits [6], and field-effect transistors (FETs).",
+      "startOffset" : 192,
+      "endOffset" : 195
+    }, {
+      "referenceID" : 4,
+      "context" : "Because of their high intrinsic carrier mobility, conductivity, and mechanical flexibility [1–3], carbon nanotubes (CNTs) were considered as the next material to be integrated into biosensors [4], nanoswitches [5], flexible circuits [6], and field-effect transistors (FETs).",
+      "startOffset" : 210,
+      "endOffset" : 213
+    }, {
+      "referenceID" : 5,
+      "context" : "Because of their high intrinsic carrier mobility, conductivity, and mechanical flexibility [1–3], carbon nanotubes (CNTs) were considered as the next material to be integrated into biosensors [4], nanoswitches [5], flexible circuits [6], and field-effect transistors (FETs).",
+      "startOffset" : 233,
+      "endOffset" : 236
+    }, {
+      "referenceID" : 6,
+      "context" : "Although several methods have been developed for the array bulk of CNTs, such as the dielectrophoresis technique [7], the orientation of CNTs could be controlled by dielectrophoresis force during the CNTs depositing the substrate surface in the liquid.",
+      "startOffset" : 113,
+      "endOffset" : 116
+    }, {
+      "referenceID" : 7,
+      "context" : "Moreover, the chemical vapor deposition technique [8,9] is another method used to grow CNTs, which could directly align CNTs during the CNT growth process.",
+      "startOffset" : 50,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 8,
+      "context" : "Moreover, the chemical vapor deposition technique [8,9] is another method used to grow CNTs, which could directly align CNTs during the CNT growth process.",
+      "startOffset" : 50,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 9,
+      "context" : "However, for individual CNTs, the atomic force microscopy (AFM) [10] cantilever tip-based manipulation is more suitable for controlling the shape and placement of CNTs than the methods mentioned above, which could not control the selected CNT collection amount of aligned CNTs accurately.",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 19,
+      "context" : "Moreover, scanning-manipulating-scanning reduces efficiency and effectiveness, which hinders AFM tip manipulation [20,21].",
+      "startOffset" : 114,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 20,
+      "context" : "Moreover, scanning-manipulating-scanning reduces efficiency and effectiveness, which hinders AFM tip manipulation [20,21].",
+      "startOffset" : 114,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 32,
+      "context" : "For flexible one-dimensional nanomaterials similar to single-wall carbon nanotubes (SWCNTs), a parallel pushing vector manipulating method [33,35] was developed to translate and rotate the flexible nanowires.",
+      "startOffset" : 139,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 34,
+      "context" : "For flexible one-dimensional nanomaterials similar to single-wall carbon nanotubes (SWCNTs), a parallel pushing vector manipulating method [33,35] was developed to translate and rotate the flexible nanowires.",
+      "startOffset" : 139,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 35,
+      "context" : "Moreover, some researchers have studied a geometric model to control the deforming CNT length and bending angle based on continuum mechanics to design a manipulation path and prevent the CNTs from buckling deformation [36].",
+      "startOffset" : 218,
+      "endOffset" : 222
+    }, {
+      "referenceID" : 39,
+      "context" : "Therefore, the differential evolution (DE) algorithm [40] was introduced to search for the best operating parameter combinations from the parameter spaces to maintain the SWCNTs removal integral.",
+      "startOffset" : 53,
+      "endOffset" : 57
+    }, {
+      "referenceID" : 23,
+      "context" : "Moreover, the frictional force between the CNTs and the Si substrate was calculated [24,26,31] to 17 ± 2 nN for the AFM tip pushing distance from 100 nm to 1 um.",
+      "startOffset" : 84,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 25,
+      "context" : "Moreover, the frictional force between the CNTs and the Si substrate was calculated [24,26,31] to 17 ± 2 nN for the AFM tip pushing distance from 100 nm to 1 um.",
+      "startOffset" : 84,
+      "endOffset" : 94
+    }, {
+      "referenceID" : 30,
+      "context" : "Moreover, the frictional force between the CNTs and the Si substrate was calculated [24,26,31] to 17 ± 2 nN for the AFM tip pushing distance from 100 nm to 1 um.",
+      "startOffset" : 84,
+      "endOffset" : 94
+    } ],
+    "year" : 2020,
+    "abstractText" : "Atomic force microscopy (AFM) based nanomanipulation can align the orientation and position of individual carbon nanotubes accurately. However, the flexible deformation during the tip manipulation modifies the original shape of these nanotubes, which could affect its electrical properties and reduce the accuracy of AFM nanomanipulation. Thus, we developed a protocol for searching the synergistic parameter combinations to push single-wall carbon nanotubes (SWCNTs) to maintain their original shape after manipulation as far as possible, without requiring the sample physical properties and the tip-manipulation mechanisms. In the protocol, from a vast search space of manipulating parameters, the differential evolution (DE) algorithm was used to identify the optimal combinations of three parameters rapidly with the DE algorithm and the feedback of the length ratio of SWCNTs before and after manipulation. After optimizing the scale factor F and crossover probability Cr, the values F = 0.4 and Cr = 0.6 were used, and the ratio could reach 0.95 within 5–7 iterations. A parameter region with a higher length ratio was also studied to supply arbitrary pushing parameter combinations for individual manipulation demand. The optimal pushing parameter combination reduces the manipulation trajectory and the tip abrasion, thereby significantly improving the efficiency of tip manipulation for nanowire materials. The protocol for searching the best parameter combinations used in this study can also be extended to manipulate other one-dimensional nanomaterials.",
+    "creator" : "LaTeX with hyperref package"
+  }
+}

@@ -1,0 +1,1590 @@
+{
+  "name" : "downloads_2019-10-21_d3_schuss2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Redundancy principle and the role of extreme statistics in molecular and cellular biology",
+    "authors" : [ "Z. Schuss", "K. Basnayake", "D. Holcman" ],
+    "emails" : [ "david.holcman@ens.fr" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "The paradigm of chemical activation rates in cellular biology has been shifted from the mean arrival time of a single particle to the mean of the first among many particles to arrive at a small activation site. The activation rate is set by extremely rare events, which have drastically different time scales from the mean times between activations, and depends on different structural parameters. This shift calls for reconsideration of physical processes used in deterministic and stochastic modeling of chemical reactions that are based on the traditional forward rate, especially for fast activation processes in living cells. Consequently, the biological activation time is not necessarily exponentially distributed. We review here the physical models, the mathematical analysis and the new paradigm of setting the scale to be the shortest time for activation that clarifies the role of population redundancy in selecting and accelerating transient cellular search processes. We provide examples in cellular transduction, gene activation, cell senescence activation or spermatozoa selection during fertilization, where the rate depends on numbers. We conclude that the statistics of the minimal time to activation set kinetic laws in biology, which can be very different from the ones associated to average times. © 2019 Elsevier B.V. All rights reserved.\nKeywords: Extreme statistics; First Passage Times; Optimal trajectories; Diffusion; Calcium dynamics; Transduction\nThis review is our last one with Zeev Schuss (1937–2018). It opens a new horizon about what defines time scales in cells based on diffusion processes. The main conclusion is that many copies of a single object such as molecules, cells, etc... is not a waste, but it has a specific function in living systems."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Why are specialized sensory cells so sensitive and what determines their efficiency? For example, rod photoreceptors can detect a single photon in few tenths of milliseconds [29], olfactory cells sense few odorant molecules on\n* Corresponding author. E-mail address: david.holcman@ens.fr (D. Holcman).\nhttps://doi.org/10.1016/j.plrev.2019.01.001 1571-0645/© 2019 Elsevier B.V. All rights reserved.\na similar time scale, calcium ions can induce calcium release in a few milliseconds in neuronal synapses, which is key in processing neuronal information or triggering synaptic plasticity, underlying learning and memory. Decades of research have revealed the rates and identities of molecular pathways underlying cellular responses [1]. But in most cases, the underlying physical scenario remains unclear.\nWe shall review here how large numbers of molecules, which are obviously redundant in the traditional activation theory, define the in vivo time scale of chemical reactions. This redundancy is particularly relevant when the site of activation is physically separated from the initial position of the molecular messengers. The redundancy is often generated for the purpose of resolving the time constraint of fast-activating molecular pathways. Activation occurs when the first particle finds a given small target and causes activation. The time scale for this activation is expressed in the forward rate constants, which depend on very different geometrical features than those used in the traditional mass-action law, reaction-diffusion equations or Markov-chain representation of stochastic chemical reactions. These classical geometrical parameters are the size of the small binding targets and their local mean curvature when they are positioned on the surface, or volume of the chemical compartments and many more. We do not review here general first passage time questions associated to biology, already reviewed in [20,33,43,45–47,92].\nThe description of finding the first particle to reach a target belongs to extreme statistics that describe the tail distributions of rare events, falling into three classes: Gumbel, Frechet, or Weibull [25]. Previous applications of extreme statistics include estimating the minimum temperature and maximum daily precipitation, estimating the probability of an unusually large flooding events as well as predicting financial crises [64].1 However, it appears that the presence of extreme but rare trajectories explain the underlying mechanism and determines the time scale of key molecular and cellular processes. For example, the ability of cells to divide seems to be controlled by the shortest telomeres [8,16], which are the ends of chromosomes: following each cell division, the telomere length can be shortened or elongated, but when the shortest one reaches a threshold, the cell stops dividing. Thus this process is an extreme event [28,81,96].\nWe review below several examples of extreme statistics applications in the context of cellular transduction. We first describe recent formulae that characterize the fastest Brownian particles arriving at a narrow absorbing window. These formulas are derived in [14], using asymptotic analysis in the limit of large number of particles and small target size in dimensions 2 and 3. The first application concerns gene random activation, through the search process of the fastest, resulting in the selection of a single type of surface receptor in the immune B-cell. We then present several examples of cellular transduction, starting with calcium signaling at synapses of neuronal cells. We illustrate how the fastest calcium ions can trigger an avalanche of calcium ions, leading to an amplification of the initial signal. Another significant example is the fastest particle to arrive at a small target in the context of fertilization, where the presence of disproportionately enormous number of spermatozoa, relative to a single ovule, remains an enigma. Yet, when the number of spermatozoa is reduced by a factor of four, infertility ensues [15]. The final example concerns the statistical analysis of the length of the shortest telomere reaching a threshold. The first time for such an event to happen defines the maximal number of cell divisions [28,81,96] and thus it shows again how extreme statistics is involved in regulating fundamental cellular processes. In the last section, we discuss the optimal trajectories associated to the fastest arriving particle, which are geodesics starting at the initial point and ending at any point in the narrow-absorbing window. The analysis of extreme statistics can explain the apparent waste of resources in so many natural systems [63,97]. Numbers matter and wasting resources serve an optimal purpose: selecting the fittest. For modeling search processes related to ecology or species, we refer to [10,66,70]."
+    }, {
+      "heading" : "2. Extreme statistics, the mass-action law and how to revise the simulations of chemical reactions",
+      "text" : "Extreme events cannot be captured by the classical mass-action paradigm for chemical reactions. Mass-action theory of chemical reactions between two reactants in solution, A and B , is expressed as\nA k1 k−1 B,\nwhere k1 and k−1 are the forward and backward reaction rates, respectively.\n1 See also wikipedia Generalized extreme value distribution www.en .wikipedia .org /wiki /Generalized _extreme _value _distribution and extreme value theory www.en .wikipedia .org /wiki /Extreme _value _theory.\nFirst, the computation of the backward rate has a long history that goes back to Arrhenius law k−1 = K0e−E/kT , where K0 is a constant and E is activation energy, and Kramers’ rate, derived from the stochastic Langevin equation for the prefactor A. For the past sixty years, chemical physicists computed the activation energy E and clarified the role of the energy landscape, with extensions to applications in chemistry, signal processing (time until loss of lock in phase trackers [80]), finance (time for a binary option price to reach a threshold), and many more [47].\nSecond, the forward rate k1 represents the flux of three-dimensional Brownian particles arriving at a small ball or radius a. Smoluchowski’s 1916 forward rate computation shows that\nk1 = 4πDca, (1) where D is the diffusion coefficient, when the concentration c is maintained constant far away from the reaction site. When the window is in a smooth surface or inside a hidden cusp, the forward rate k1 is the reciprocal of the Mean First Passage Time (MFPT) of a Brownian particle to the window. The precise geometry of the activating small windows has been captured by general asymptotics of the mean first arrival time at high activation energy. This mean time is, indeed, sufficient to characterize the rate, because the binding process is Poissonian and the rate is precisely the reciprocal of the MFPT. These computations are summarized in the narrow escape theory [34,42,46,58,94]. For example, when the small absorbing window represents binding at a surface, the forward rate is given by\nk−11 = | |\n4aD [ 1 + L(0) + N(0)\n2π a loga + o(a loga)\n] , (2)\nwith | | the volume of the domain of Brownian motion, a is the radius of the absorbing window [46], and L(0) and N(0) are the principal curvatures of the surface at the small absorbing window. Formula (2) reveals that on average a particle visits at least once all balls (of radius a), which form a minimal covering of the entire space , before it exits through the small absorbing window (Fig. 1).\nThe forward rate k1 has been used in almost all representations of chemical reactions: it is the basis of the Gillespie algorithm [31,40] for generating statistics of stochastic simulations with rate k1. It has also been used in coarsegraining of stochastic chemical reactions into a Markov chain. However, the rate k1 is not used in simulations of Brownian trajectories, but in this case, the statistics of arrival times can be computed directly. Obviously, diffusion theory computes k1 from the mean arrival rate of a single particle.\nHowever, in cell biology, transient biochemical processes are often activated by the first (fastest) particle that reaches a small binding target, so that the average arrival time of a single particle does not necessarily represent the time scale of activation. In particular, when there are no initial molecules (the steady-state concentration is zero), the Smoluchowski rate cannot be used to describe the rate of arrival of the fastest, because using this rate relies precisely on the assumption of a constant non zero concentration at infinity. Thus even the Gillespie algorithm would give a rate, sampled with mean k1. But, as seen below, its statistics are strikingly different from the rate of the fastest arrival. This difference is the key to the determination of the time scale of cellular activation that can be computed either through a\ncomplete Brownian simulation of all particles and/or asymptotics of the fastest particle. This is an important departure from the traditional paradigm."
+    }, {
+      "heading" : "2.1. Extreme statistics and DNA regulation during immune responses",
+      "text" : "Gene activation depends on the arrival of a transcription factor to a specific gene location [1,69]. The time scale of this activation is thus defined by the first transcription factor to arrive, and depends on the complex motion of the Transcription Factor (TF), switching between different motion types. Indeed, a TF can diffuse fast or move slowly for local base pair scanning or switch to a three dimensional diffusion. The local organization of the chromatin can also play a key role in such search processes [2,61,72]. Thus, the time for a TF to find a gene for activation depends on the number of copies present in the nucleus, the chromatin organization and the dynamics of the TF. Today, we are still missing a closed relation between these different quantities. In addition, most simulations have so far ignored the role associated with the first TF to arrive to a gene and instead focused on the mean arrival time [73]. However, there are other cellular situations where the time scale of the first one is much less important than the selection of one of the many copies of genes. Indeed, the first one to be activated is actually a key event for gene selection and specific cell differentiation. One example is the selection of a single olfactory receptor: of hundreds or thousands of possible receptors, only a single one is expressed in an olfactory cell [1].\nAnother example associated to an extreme first passage event in immunology is the gene mechanism responsible for the selection and expression of a specific membrane receptor on B cells. Many of these receptors bind directly to recognize a piece of a pathogen and specifically antigens that are usually proteins, peptides or polysaccharides (see wikipedia “B cell”). Indeed, bacteria, viruses, parasites, and altered self cells can be recognized due to the large production of antigens in the body from B and T cells [1].\nWe shall now recall briefly the mechanism responsible for gene selection and the production of a specific antibody (IgH) responsible to bind antibody, once they are expressed on the cell surface. Before this expression, in side the nucleus, three different gene segments, called variable (V), diversity (D) and joining (J) genes have to assemble together. However the nucleus contains many of these segments at various places of the chromatin (Fig. 2). The physical scenario that has emerged is that these segments randomly meet and assemble (Fig. 2). Once a combination is chosen, a unique antigen receptor is produced to recognize and bind to an associated partner located on the surface of a host cell.\nHow do VDJ recombine randomly? The first recombination event to occur is between one D and one J gene segment of the heavy chain locus [57]. This process can be modeled as the first encounter time between two monomers located on a polymer [3,36]. The polymer model can be Rouse [6], beta [4], RLC [84] or others. The encounter process was recently modeled by anomalous diffusion [59]. After the D–J recombination is formed, it is followed by the search and the joining of one V gene segment (Fig. 2). Since there are many copies of V, it is conceivable that the first one that encounter a D–J formed segment, will lead to a permanent binding selection. In that case, this event selects a specific V(D)J gene, which precisely falls into the extreme statistics of the first gene locus V to meet a DJ target site (Fig. 2). The productive V(D)J gene rearrangement leads to the surface expression of many copies of the same selected receptor (Fig. 2). Interestingly, the VH regions span a genomic distance of 2.5 Mbp surrounded by cross-linker proteins. Using an anomalous diffusion model, the search time for the first 100 VH and one DHJH segment in a confinement of radius 1 µm led to a time scale of few to tens of seconds, depending on the VH configuration [59]. It would be interesting to derive an expression for the first arrival of a V to one of the DH targets, using a polymer model and especially to quantify the role of the local chromatin condensation, measured by cross-linkers [35,85]. To conclude, in immune cells, the selection of a specific V(D)J gene rearrangement follows the law of an extreme search statistics driven by the fastest event. This example shows that extreme statistical events do not only define time scales, but they also serve as selection processes of antibodies."
+    }, {
+      "heading" : "3. Physical properties of the fastest arrival time for N Brownian particles and applications in cellular biology",
+      "text" : "Chemical activation in cell biology starts with the binding of few molecules, see Fig. 3. The signal is often amplified so that a molecular event is transformed into a cellular signal. How fast is this activation? When there is a separation between the site of the first activation and that of amplification, what defines the time scale? When particles move by diffusion, is it sufficient that the first particle arrives to a receptor site to open it, leading to an avalanche either through\nthe entry of ions or the opening of neighboring receptors (Fig. 3A–C). Thus the time scale of activation is not given by the reciprocal of the forward rate, but rather by the extreme statistics, that is, by the mean arrival time to the activation site (target) of the first particles."
+    }, {
+      "heading" : "3.1. General theory",
+      "text" : "The statistics of the first particle to arrive at a target can be computed from the statistics of a single particle when they all are independent and identically distributed [24,78,86,100]. We briefly recall the theoretical context. With N non-interacting i.i.d. Brownian trajectories (ions) in a bounded domain that bind to a site, the shortest arrival time τ 1 is by definition\nτ 1 = min(t1, . . . , tN ), (3) where ti are the independent arrival times of the N ions in the medium. The distribution of τ 1 is expressed in terms of a single particle,\nPr{τ 1 > t} = PrN {t1 > t}. (4)\nHere Pr{t1 > t} is the survival probability of a single particle prior to binding at the target. This probability is computed by solving the diffusion equation [79]\n∂p(x, t)\n∂t = D p(x, t) for x ∈ , t > 0 (5)\np(x,0) = p0(x) for x ∈ ∂p(x, t)\n∂n = 0 for x ∈ ∂ r\np(x, t) = 0 for x ∈ ∂ a,\nwhere the boundary ∂ contains NR binding sites ∂ i ⊂ ∂ (∂ a = NR⋃ i=1\n∂ i, ∂ r = ∂ −∂ a). The single particle survival probability is\nPr{t1 > t} = ∫ p(x, t) dx, (6)\nso that Pr{τ 1 = t} = d dt Pr{τ 1 < t} = N(Pr{t1 > t})N−1 Pr{t1 = t}, where Pr{t1 = t} = ∮ ∂ a ∂p(x,t) ∂n dSx . The probability density function (pdf) of the arrival time is\nPr{τ 1 = t} = NNR ⎡ ⎣∫ p(x, t)dx ⎤ ⎦ N−1 ∮ ∂ 1 ∂p(x, t) ∂n dSx, (7)\nwhich gives the MFPT\nτ̄ 1 = ∞∫\n0\nPr{τ 1 > t}dt = ∞∫\n0\n[Pr{t1 > t}]N dt. (8)\nNew statistical properties have been recently derived for the shortest time [14]. They are expressed in terms of the shortest distance from the source S to the absorbing window A, measured by the distance δmin = d(S, A), where d is the Euclidean distance. Interestingly, the trajectories followed by the fastest are as close as possible to the optimal trajectories. In other words, the associated trajectories of the fastest among N concentrate near the optimal trajectory (shortest path) when the number N of particles increases. For a diffusion coefficient D and a window size a, the expected first arrival times of N i.i.d Brownian particles initially positioned at the source S are expressed in the following asymptotic formulas [14,56,60]:\nτ̄ d1 ≈ δ 2 min 4D ln (\nN√ π\n) , in dim 1, valid for N 1 (9)\nτ̄ d2 ≈ δ 2 min\n4D log\n( π √ 2N\n8 log ( 1\na\n) ) , in dim 2, for N log( 1 ε )\n1 (10)\nτ̄ d3 ≈ δ 2 min\n2D √√√√log ( N 4a2\nπ1/2δ2min\n) , in dim 3, for Na2δ2min 1. (11)\nThese formulas show that the expected arrival time of the fastest particle is in dimension 1 and 2, O(1/ log(N)) (see Fig. 4). They should be used instead of the classical forward rate in models of activation in biochemical reactions. The method to derive formulas (9) is based on short-time asymptotic and the Green’s function representation of the Helmholtz equation [14]. These formulae can be generalized to any density distribution ρ of initial particles such that ∫\nρ(A)dSA = N . Indeed, if we consider the case of dimension 2, the mean arrival time for the fastest is computed by averaging over the density ρ in the domain with surface | |, leading to\n〈τ̄ d2ρ 〉 = ∫\nd2(S,A)\n4D log\n( π √ 2ρ(A)| |\n8 log ( 1\na\n) )ρ(A)dSA. (12)"
+    }, {
+      "heading" : "3.2. Pdf of the first arrival time in an interval",
+      "text" : "We recall here briefly the elementary analysis of the pdf of the first-arrival time (7) of a particle inside a narrow neck. It is derived by reducing the cylinder to a segment of length L, with a reflecting boundary at x = 0 and absorbing boundary at x = L. The diffusion boundary value problem (5) becomes\n∂p ∂t =D∂\n2p\n∂x2 for 0 < x < L, t > 0 (13)\np(x,0) = δ(x) for 0 < x < L (14) p(L, t) = ∂p(0, t)\n∂x = 0 for t > 0, (15)\nwhere the initial condition corresponds to a particle initially at the origin. The general solution is given by the eigenfunction expansion\np(x, t) = 2 ∞∑\nn=0 e−Dλ2nt cosλnx, (16)\nwhere the eigenvalues are λn = πL ( n + 12 ) . The survival probability (6) of a particle is thus given by\nPr{t1 > t} = L∫\n0\np(x, t)dx = 2 ∞∑\nn=0\n(−1)n λn e−Dλ2nt . (17)\nAlthough the eigenvalue expansion is valid for all time t ≤ 0, in reality, it is only accurate for a time scale long enough t 1\nλ1 . Depending on the initial number, the arrival of the first particle falls precisely in a fast time window,\nshorter than the time scale defined by the reciprocal of the first eigenvalue. The accuracy of this expansion is tested by computing the pdf of the arrival time to point L of a single Brownian trajectory. It is the probability flux at the absorbing boundary ∂ a ,\n− ∮ a ∂p(x, t) ∂n dSx = −∂p(L, t) ∂x = 2 ∞∑ n=0 (−1)nλne−Dλ2nt . (18)\nTherefore, the pdf of the first arrival time in an ensemble of N particles is given by\nPr{τ 1 = t} = 2N ( 2 ∞∑\nn=0\n(−1)n λn\ne−Dλ2nt )N−1 ∞∑\nn=0 (−1)nλne−Dλ2nt . (19)\nFor numerical purposes, (19) is approximated by a finite sum truncated after n0 terms,\nPr{τ 1 = t} ≈ fn0(t) = N (\nn0∑ n=0 (−1)n λn\ne−Dλ2nt )N−1 n0∑\nn=0 (−1)nλne−Dλ2nt . (20)\nFigs. 5A–B show the pdf of the first arrival time for N = 5 and N = 500 Brownian particles inside an interval [0, 1], with diffusion coefficient D = 1, which start at x = 0 at time 0 and exit at the end of the interval at x = 1. The results of these figures confirm the analytical approximation (19) with only n0 = 100 terms in the slowly converging alternating series."
+    }, {
+      "heading" : "3.3. Asymptotics of the expected shortest time τ̄ 1",
+      "text" : "Although the eigenfunction representation can be used to compute the distribution of the first particle, the ray solution is more effective to obtain the asymptotic expression for the mean time. Indeed, the MFPT of the first among N i.i.d. Brownian paths is given by\nτ̄ 1 = ∞∫\n0\nPr{τ 1 > t}dt = ∞∫\n0\n[Pr{t1 > t}]N dt, (21)\nwhere t1 is the arrival time of a single Brownian path. Writing the last integral in (21) as\nτ̄ 1 = ∞∫\n0\neN ln g(t)dt, (22)\nit can simply be expanded for N 1 using Laplace’s or equivalent method. The ray method approximation is based on short-time asymptotic: when L = ∞ the survival pdf is\n∂p(x, t) ∂t = D∂\n2p(x, t)\n∂x2 for x > 0, t > 0\np(x,0) = δ(x − a) for x > 0, p(0, t) = 0 for t > 0, (23) whose solution is\np(x, t) = 1√ 4Dπt\n[ exp { − (x − a) 2\n4Dt\n} − exp { − (x + a) 2\n4Dt\n}] . (24)\nThe survival probability with D = 1 is Pr{t1 > t} = ∞∫ 0 p(x, t) dx = 1 − 2√ π ∞∫ a/ √ 4t e−u2 du. To compute the MFPT in\n(21), we expand the complementary error function 2√ π ∞∫ x e−u2 du = e−x2 x √ π ( 1 − 1 2x2 + O(x−4) ) for x 1, which gives\nτ̄ 1 = ∞∫\n0\n[Pr{t1 > t}]N dt ≈ ∞∫\n0\nexp { N ln ( 1 − e −(a/√4t)2\n(a/ √ 4t) √ π\n)} dt ≈ a 2\n4 ∞∫ 0 exp { −N √ ue− 1u√ π } du, (25)\nleading to\nτ̄ 1 ≈ a 2\n4D ln N√ for N 1. (26)\nπ\nThis result is reminiscent of using the Gumbel law, [14,56,60]. Similarly, escape from the interval [0, a] is computed from the infinite sum\np(x, t |y) = 1√ 4Dπt ∞∑ n=−∞ [ exp { − (x − y + 2na) 2 4t } − exp { − (x + y + 2na) 2 4t }] . (27)\nThe conditional survival probability is approximated by [14]\nPr{t1 > t |y} = a∫\n0\np(x, t |y)dxds ∼ 1 − max 2 √\nt√ π\n[ e−y2/4t\ny , e−(a−y)2/4t a − y\n] as t → 0, (28)\nwhere the maximum occurs at min[y, a−y] for 0 < y < a (the shortest ray from y to the boundary). All other integrals can be computed explicitly [14], see also [71], leading to\nτ̄ 1 = ∞∫\n0\n[Pr{t1 > t}]N dt ≈ ∞∫\n0\nexp { N ln ( 1 − 8 √ t\na √ π e−a2/16t\n)} dt ≈ a 2\n16D ln 2N√ π\nfor N 1. (29)\nFig. 6A shows a plot of the pdf analytical approximation of shortest arrival time (20) with n0 = 100 terms, D = 1 and L = 1 for N = 4, 6, and 10. As the number of particles increases, the mean first arrival time decreases (Fig. 6B) and according to equation (29), the asymptotic behavior is given by C/ logN , where C is a constant."
+    }, {
+      "heading" : "4. Extreme statistics in signal transduction defining the activation time scale",
+      "text" : ""
+    }, {
+      "heading" : "4.1. Statistics of fast signal transduction",
+      "text" : "There are many examples of molecular transduction triggered by the arrival of the first particles at an activation site, which defines the time scale of activation [29]. First, neuronal connections often occur on a dendritic spine, where the fast calcium increase in dendrites may happen a few milliseconds after initiation in the spine head. This time scale is incompatible with diffusion alone [46]. It was shown recently that such a short time scale is generated by an avalanche reaction triggered by the arrival of the fastest calcium ion at a receptor (see Fig. 3B). A similar process occurs in fly’s photoresponse to the absorption of a single photon: the first TRP channel that opens is due to the local diffusion of several IP3 molecules and calcium ions produced after rhodopsin activation [50].\nIn another context, the post-synaptic current is generated when the first receptor of a neurotransmitter is activated (Fig. 3C). This activation is mediated by the release of thousands of neurotransmitters from the pre-synaptic terminal. Two binding events on the same receptor are required for the first channel activation. The time scale of this process is defined by the arrival of the first two neurotransmitters at the same receptor. The disproportionateness between the number of neurotransmitters (2000 to 3000) and the low number of receptors (5 to 50) compensates for the low probability of finding the small targets (receptors) [46,89].\nAnother transduction pathway (Fig. 3B) is the one of IP3, which begins with the activation of mGluR receptors and leads to IP3 production. These molecules have to diffuse and bind to the first IP3 receptor in order to trigger a calcium release, which leads to the amplification of the response. The number of activated IP3 and the location of IP3 receptors sets the time scale of this transduction pathway."
+    }, {
+      "heading" : "4.2. The fastest calcium ion to activate calcium release in the endoplasmic reticulum at neuronal synapses",
+      "text" : "We now discuss in details how the statistics of the fastest particles arriving at a small target followed by an amplification step, determines the timescale of calcium signaling in microdomains such as dendritic spines [98]. We already presented a schematic representation at neuronal synapses Fig. 3A. In such situation the first arriving calcium ions to arrive at a receptor trigger transduction. This fast arrival can be a general mechanism occurring in micro-cellular compartments such as leaflets, astrocytes endfeets, long protrusions or dendritic spines.\nWe recall that dendritic spines (Fig. 7) are the locus of contact between two neurons [98]. They can contain an organelle called spine apparatus (SA), which is an extension of the smooth endoplasmic reticulum (ER). We now explain how modeling and simulations have been used to demonstrate that calcium transients during synaptic inputs is triggered by the fastest calcium ion trajectories to a target called Ryanodine receptor (Fig. 8A blue).\nAfter calcium ions enter into dendritic spines, they can bind to endogenous buffers, get extruded by pumps into the extracellular medium or be pumped into the SA by the sarco/endoplasmic reticulum calcium-ATPase pumps (SERCA3). It is also well known that calcium ions induce calcium release from internal SA stores through the ryanodine receptors (RyR) [83,99]. However, the specific calcium regulation by SA remained unclear due to the fast dynamics and the spine nanometer-scale organization.\nThe time scale of calcium transient during classical protocols used in physiology such as long-term plasticity [23] is of the order of hundreds of milliseconds [17,82] but not faster. The interpretation of fast calcium transient (faster than tens of milliseconds) cannot be described correctly in the setting of classical diffusion, but is compatible with the extreme statistics of the fastest ions.\nWe now describe the following experiment about calcium transient in a dendritic spine induced initial at the position of red star (Fig. 8B). What is the number of particles inside the head and arriving at the end of neck? The answer to these questions is addressed both experimentally and using stochastic simulations in Fig. 8C–D. First, the number of particles decays in head (blue curve), following a single exponential with a time constant of τ = 5.38 ms (Fig. 8C), but in parallel, the calcium concentration in the dendrite (red box in the inset) increases in few milliseconds, a result that is inconsistent with classical diffusion. A hypothesis was that the calcium increase could be triggered by the fastest ions, but the concept of extreme statistics due to the fastest particle cannot be directly tested experimentally, because it is hard to detect one or two ions, that will perturb the receptor activation. But it was tested using numerical stochastic\nsimulations (Fig. 8B and D): in the literature, to simulate calcium dynamics in synapses and dendritic spines, there are two possible modeling approaches: one is based on the deterministic reaction-diffusion equations [38,93] and the other one is based on stochastic modeling [21,46,48,51,77].\nThe stochastic simulations of diffusing ions is now classical: dendritic spine geometry is modeled as a spherical head connected to a narrow cylindrical neck [48] (Fig. 8B). The SA is modeled with a similar geometry with a neck and a head positioned inside the spine [13].\nCalcium ions are described as Brownian particles following the Smoluchowski’s limit of the Langevin equation Ẋ = √2Dẇ, where w is the Wiener white noise. Ions can diffuse inside the cytoplasm, and they are reflected at the surfaces of the spine and the SA (Snell–Descartes reflection).\nSimulations are designed to replicate the release (uncaging) experiments (Fig. 8C), where calcium are released in the center of a ball. The transients are measured in the two regions (rectangles) showing the ions leaving the spine head (blue) and those arriving at the dendritic shaft (red) located at the base, that are considered to be lost and do not return to the spine during the timescale of the simulations (absorbing boundary). The inner surface of the spine head contains 50 absorbing circular disks with a 10 nm radius, which models calcium pumps.\nClassical diffusion theory cannot account for the fast calcium experimental results: indeed for a Brownian particle released in the spine head, the mean arrival time to the base of a spine has been computed asymptotically [46]\nτ̄ = V 4Da [1 + a πR log( R a )] + L\n2\n2D + V L πDa2 , (30)\nwhere D is the diffusion coefficient, a, R and L are the spine neck radius, head radius and the total length of the neck respectively. Using the classical parameter values, the narrow escape time or the mean first arrival time is estimated τ̄ ≈ 120 ms, comparable to the classical FRAP experiments [87,98]. However, the time scale of calcium activation showed a much shorter time scale (see Fig. 8C–D), which can only be explained by the statistics of arrival of the first Pr{τ 1 = s} and two first Pr{τ 2 = s} ions (Fig. 8E–F).\nThe analytical solutions derived in eq. (7) superimposes with the stochastic simulations, confirm the consistency of the stochastic simulations and the theory of the extreme statistics. To conclude, analytical approaches show the role of the fastest ions in setting the timescale of calcium-induced-calcium release by RyR activation.\nAnother characteristic of the extreme statistics is the path associated with the fastest arriving particle: it is very close to the shortest geodesic going from the initial point to the RyRs. This is much different compared to the paths associated with the mean arrival time, which typically visit the entire volume prior to reaching a small target. Finally the extreme statistics analysis resolves the apparent paradox that the SA obstructs the passage from the spine head to the dendrite and prevents calcium ions from diffusing. Indeed, analysis and simulations show that the fastest ions arriving at the base, passed through narrow passages avoiding obstacles.\nTo conclude, we presented here a fundamental example of molecular transduction mediated by calcium ions, where the timescale of the transient event is generated by the fastest Brownian particles. This initial step is followed by an amplification mediated by calcium induced calcium release, Fig. 8. Furthermore, the distribution of arrival times of the fastest ions depends on the initial number of calcium ions, which is a signature of extreme statistics and rare events.\nFinally, molecular activation initiated by the fastest particles is likely to be a generic mechanism in cellular transduction that can occurs in micro-compartments such as protrusions, astrocyte endfeets and more. The search of a target by the first among many particles is the mechanism that defines the timescale of biochemical activation in nanoand micro-domains, when the source of diffusing particles and the binding targets are spatially separated. Modeling and simulations based on refined properties of calcium dynamics allowed nowadays to make testable predictions, such as the asymmetrical distributions of Ryanodine receptors and SERCA pumps located at the base and in the head of the spine respectively. These distributions have recently been confirmed experimentally [13]."
+    }, {
+      "heading" : "4.3. Extreme statistics for traveling inside the Endoplasmic Reticulum lumen (ER)",
+      "text" : "Recent analysis of super-resolution microscopy single particle trajectories of ER luminal proteins revealed that the topological organization of the ER correlates with distinct trafficking modes [41]: a dominant diffusive component in tubular junctions and a fast flow component in tubules. In addition, molecular trafficking was associated to time periods of unidirectional inter-node displacements. During specific periods of times, ranging from 30 ms to 3 s, a tubule can pass proteins only from one direction, before switching at a random, Poissonian time. Since the ER network is composed of nodes connected to three junctions in average, it may happen that proteins are trapped in a node, until one direction of tubule switches. This mechanism is an active-waiting transportation, where molecules have to wait a random time before being transported from one node to the next one. The consequence of this unusual network transportation is that molecules travel together by recurrent packets, which is quite a large deviation behavior compared to classical propagation in graphs [27]. This form of transportation is associated with an efficient and robust molecular redistribution inside cells, where the fastest proteins arrive to a node located far away using shortest paths on graphs. To conclude, the unidirectional node transportation can generate long waiting times, but the fastest of many particles to travel in the ER defines the time scale of transport or redistribution of proteins, which is precisely a consequence of the extreme statistics principle, and constitutes a large deviation from classical diffusion on graphs."
+    }, {
+      "heading" : "5. Extreme statistics for spermatozoa: redundancy for fertility",
+      "text" : "In the key step of fertilization, sperms have to find the ovule within the short time it is fertile (Fig. 9). Thus the arrival of the first few sperms gives them much higher chance to fertilize the ovule. The number of swimmers matters\nwhen we consider the first one that finds a neighborhood of the egg. A simplified model of spermatozoon motion in a bounded domain is rectilinear with constant velocity\nẊ = v0u, (31) where u is a unit vector chosen from a uniform distribution. Upon hitting an obstacle at a boundary point X0, the velocity changes to\nẊ = v0v, (32) where v is chosen on the unit sphere in the supporting half space at X0 from a uniform distribution, independently from u. This model2 captures the crude sperm dynamics, neglecting the additional motion induced by the flagella [30].\nIn the absence of guide mechanisms, random reflection is the key element that determines the search time to a small egg target. The expected search time in two- and three-dimensional balls and domains that resemble the uterus geometry depends on the geometry of the domain is ion two dimensions, for ε 1\nE[τε] = KS v0ε , (33)\nwhere K is a constant, equal to 8 π\nfor a disk [97]. However, the egg in the uterus is often located at the entrance or inside one of the fallopian tubes (Fig. 9A). The entrance of these tubes forms a geometrical cusp (Fig. 9B inset), very different from the geometry of a ball. In a two dimensional approximation (flat uterus), the mean time for a spermatozoon described by equations (31)–(32) and random reflections at the boundary, to arrive at the entrance of one cusp of size ε (red region in Fig. 9A) [97] is\nE[τε] = KCS v0εα , (34)\nwhere KC is a dimensional constant and the exponent α has been estimated numerically α = 0.66. However, the exact relation between the exponent α and the geometry of the domain remains an open question.\nIn three dimensions, in a ball of volume V , the search time is given asymptotically by E[τε] = KVv0ε2 . The formula for a domain of arbitrary shape is unknown. Finally, the search time for the rectilinear model of sperms motion is much longer than for a diffusing particle, which is O(log 1\nε ) in dimension 2 and O( 1 ε ) for a cusp [44]. We conclude\n2 Pineapple Science Award (Math Prize) 2018, Chinese version of Ig Noble Prize, see also https://www.guokr.com /article /442886/.\nthat spermatozoa stay much longer in the domain before they can find the target. But, when there are many swimmers, this long period is reduced and can be seen as a selection process based on intrinsic spermatozoa properties, to select the fittest one.\nBy increasing the number of trajectories (Fig. 9), when computing the arrival time of the first one, the associated trajectories is concentrated near the optimal ones (white dashed lines in Fig. 9). The optimal trajectory is indeed the geodesic that joins the initial point to the final egg location. The shortest search time is achieved by the geodesic that minimizes the functional\nmin = inf AT T∫ 0 d(s) ds, (35)\nwhere d(s) is the Euclidean distance at time s and\nAT = {x : x(0) = x, x(T ) = y, where x are piecewise constant trajectories}, (36) as indicated by the results of simulations (Fig. 9).\nAlthough the exact scaling law between spermatozoa number and the volume of the uterus has not been derived, Fig. 10 shows a general tendency of an increasing function. Interestingly, the mean time for spermatozoa to reach the oviduct seems to be of the same order across species, although the size of the uterus varies drastically: 15 min for Human, Mice and Guinea pigs, around 15–30 minutes for rats, few minutes for rabbits. For dog and sheep, the time spreads from few minutes to hours, few to tens of minutes for cows. This surprisingly low variability in the time scale is due to the compensation by the sperm count, revealed by formula τ ≈ V 2/3\nDia v0 log N , where Dia is the diameter of the\nuterus (which can be seen as a cylinder with two horns) and the spermatozoa velocity is v0. Numerical simulations of [97] confirm that the mean time is around 8 to 9 hours, while the first one to arrive is of the order of 20 minutes, confirming the role of the fastest.\nTo conclude, models and simulations for the trajectories of the fastest spermatozoa, which result from the directed motion model, reveal that the extreme trajectories trace the most effective path. These are the optimal (bang–bang) solutions of a classical control problem (Fig. 9 and [97]). This result suggests that linear trajectories might not be generated by any chemotaxis at a distance of a few centimeters, which is too far away from the source. Similarly, it is not clear how other physical scenarios, such as rheotaxis or thermotaxis contribute to sperm guidance [39]. It is thus\nconceivable that extreme statistics are responsible for selection of the fastest trajectories determined by spermatozoa dynamics in the uterus and in fallopian tubes. The number of spermatozoa is thus the main determinant of the selection [74] and since the mean time for the first one to arrive is O(1/ logN), a large number of them is necessary to affect the search process. Reducing their number by a factor of 4 may cause infertility [15]. This situation is actually alarming due to the constant decline of sperm count (per ejaculate) in western countries [76], at a rate of 1.9% per year, between 1989 and 2005."
+    }, {
+      "heading" : "6. Extreme statistics for the shortest telomere controlling senescence and cellular timing",
+      "text" : "Another manifestation of extreme statistics in cell biology is the cell’s time perception: cell lifetime is reflected in the number of cell divisions prior to senescence (arrest of cell division), which is a measure of a cell’s lineage death and cellular aging [9]. It was suggested that the number of cell divisions could be represented by the length of telomeres, which protect the ends of the chromosomes (Fig. 11). Telomeres can lose between a few to hundreds of base pairs during cell division, or increase their length through the action of an enzyme called telomerase. Although the precise physical mechanism that regulates the number of cell divisions prior to senescence remains unclear, it becomes more and more evident that this time is expressed in the length of the shortest telomere [37], but how? Several decades of research have revealed that telomeres3 are made of repetitive nucleotide sequences at each end of a chromatid,\n3 Telomeres are sections of DNA, found at the ends of each chromosome. They consist of the same sequence of bases repeated over and over. In humans the telomere sequence is TTAGGG. This sequence is usually repeated about 3,000 times and can reach up to 15,000 base pairs in length (see https://www.yourgenome .org /facts /what -is -a -telomere. Senescence means biological aging, telomerase is an enzyme that extends the telomeres of chromosomes [19,22,37,52,90,91]).\nwhich protect the end of the chromosome from deterioration or from fusion with other chromosomes. Following each cell division, the telomere ends become on average shorter [49]. Telomeres are necessary for the maintenance of chromosomal integrity and overall genomic stability [26,62] and in the absence of any mechanism of elongation, telomere length can only decrease over time [95]. As a result, a cell can divide only a finite number of times before proliferation is arrested. However, the mechanism that inhibits shortening via the action of telomerase by elongating telomeres necessitate the lengths of telomere are not simply monotonically decreasing, as modeled in [7]. However, when a critical length is reached, cell division stops (senescence). Interestingly, short telomeres are preferentially elongated by telomerase [91] and the shortest telomere is apparently a limiting factor of cellular proliferation [37].\nIt is not yet possible to monitor telomere dynamics throughout cell division, so that theoretical models have been used to predict telomere shortening under various conditions: models have revealed the molecular dynamics and the variability of triggering senescence in mammalian cells within a telomerase-deficient cell population [65,67,68,75,90].\nTo analyze the role of shortest telomere in senescence, stochastic models based on an asymmetric random walk were developed and validated against experimental data [28,81,96]. These models are described as jump processes (see equation (37) below), containing three parameters that were extracted in the case of budding yeast data [96]. One model was also used to study [28] the steady-state properties of telomeres, such as the length distribution of the shortest and the second shortest, demonstrating that there is a statistical gap between the two shortest telomeres. This gap suggested that the shortest telomere can play a key role in determining the number of cell divisions and in triggering senescence, by simply reaching the length threshold interpreted by the cell as a signal to stop dividing [18, 28,63,96]. Because the length of the telomere does not strictly reflect the number of cell divisions, the time-dependent telomere dynamics prior to senescence is also a determinant of the number of cell divisions prior to senescence.\nThe expected number of divisions of the majority of cells, beginning with yeast and up to human immune or reproductive cells, is about 70–100, while the shortening process allows the cell to survive only about 25–50 divisions [11]. As discuss below, the secret of extending the number of division using the shortest telomere dynamics is revealed by a quasi steady-state, in which the telomere length is sufficiently short for the telomerase-induced elongation to offset the division-induced shortening of the telomere. Interestingly, telomeres spend most of their lifetime in this state prior to senescence. Two stages are clearly distinct: in the arrival to senescence, the shorter period prior to reaching the above-mentioned state (of quasi-equilibrium) and the longer time spent there prior to senescence. Finally, we review here this model and discuss the role of the shortest telomere to reach the critical threshold of senescence. The time for the shortest telomere to reach a threshold event is again a manifestation of extreme statistics. The dynamics of this passage event explains the atypical random prolongation of cell replication."
+    }, {
+      "heading" : "6.1. A model of telomere dynamics",
+      "text" : "In the random walk model of telomere dynamics [28,96], the length x of the telomere can decrease or increase in each division. The model assumes that the length decreases by a fixed length a with probability l(x), or, if recognized by a polymerase, it increases by a fixed length b a with probability r(x) = 1 − l(x). The jump probability r(x) is a decreasing function of x (see equation (38) below) with r(0) = 1 [28] that was found to match the experimental data of [96].\nThus the length of the telomere at the n-th division is an asymmetric random walk x(n). The maximal length of a telomere is L b. When the length decreases below a critical value T , the division process stops.\nThe problem at hand is to determine the evolution of the telomere length, to study the dynamics of the shortest length, and to identify the role of the probability r(x), which can be modulated by telomere diseases [8]. Of particular interest are the statistics of the trajectories x(n), their expected time to reach their quasi-stationary state, and the expected number of divisions before reaching the threshold T for the first time."
+    }, {
+      "heading" : "6.2. The asymmetric random walk model",
+      "text" : "The model of the telomere length dynamics was introduced in [28]\nxn+1 = {\nxn − a with probability l(xn) xn + b with probability r(xn),\n(37)\nwhere the right-probability r(x) can be approximated by\nr(x) = 1 1 + βx , (38)\nfor some β > 0. In Fig. 12, the model (37) is simulated for all telomeres (with a maximum of 32, the number of telomeres in yeast), and the statistics of the average, the longest, and the shortest trajectories are presented. The parameters used in the simulations [28,96] are the shortening length a, chosen here to be 3 base pairs (bps) and the number of base pairs added by the telomerase b = 30 (a slightly different model was introduced in [28], where b is a random variable that follows an exponential distribution with rate 0.026. In that model, we used a shift in the definition of the right-probability r(x), that we chose here to be zero).\nThe results shown in Fig. 12 reveal two phases: in the first one, the telomere’s length decreases almost deterministically to a quasi-equilibrium length as described below. In the second phase, the length persists in the quasi-equilibrium state for the majority of divisions. In the absence of any stopping process, the telomere’s length stays near its minimum, so apparently the cell can live forever. As shown in Fig. 12, the condition b a (here b = 30 and a = 3) leads to an asymmetric jumps: far away from the small lengths (or near the senescence threshold), the probability r of a telomere increase is small, leading to many small shortening events, until the length is short enough and in that case, the probability to increase the telomere length is now much higher, leading to a larger jump of size of b."
+    }, {
+      "heading" : "6.3. Two phases and the quasi-equilibrium state",
+      "text" : "To characterize each phase, the scaling xn = ynL and the new parameter ε = b/L changes the dynamics (37) to\nyn+1 = ⎧⎨ ⎩ yn − εa b w.p. l̃(yn)\nyn + ε w.p. r̃(yn), (39)\nwhere l̃(y) = l(x). In the limit of ε 1, the process yn moves in small steps. The dynamics (39) falls under the general scheme [53–55,79]\nyn+1 = yn + εξn, (40) where\nPr {ξn = ξ |yn = y, yn−1 = y1, . . .} = w(ξ |y, ε), (41) ε is a small parameter, and y is a random variable with a given pdf p0(y). In the case at hand the function w(ξ | y) defined in (41) is given by\nw(ξ |y) = (1 − r̃(y))δ ( ξ + a\nb\n) + r̃(y)δ(ξ − 1), (42)\nso the conditional jump moments are\nmn(y) = ∫ ξnw(ξ |y)dξ = ( −a\nb\n)n (1 − r̃(y)) + r̃(y). (43)\nThe probability density function (pdf) of yn satisfies the forward master equation pε(y,n + 1 |x,m) = pε ( y + ε a\nb ,n |x,m\n) l̃ ( y + ε a\nb\n) + pε(y − ε,n |x,m)r̃(y − ε) (44)\nThe first conditional jump moment,\nm1(y) = −al̃(y) b + r̃(y), (45) changes sign at\nz0 = b Lβa . (46)\nIf the process is terminated at the threshold T mentioned above, then εT /b < y < 1."
+    }, {
+      "heading" : "6.4. The expected lifetime of phase 1",
+      "text" : "Because m1(z0) = 0 and m′1(z0) < 0 the random walk drifts from any initial state y, for example from y = 1, toward y = z0, where it is trapped in quasi-equilibrium fluctuations about z0 for an expected number of jumps n̄, which may be larger than the expected number of jumps ny→z0 that is required to reach z0 from y for the first time. Specifically, the expected number of jumps (expected lifetime) nz0→T to go from z0 over the threshold (or 0) may be larger than n1→z0 .\nTo study this trapping phenomenon, we recall first that the expected lifetime n0(y) to cross the boundary y = z0 from an internal point z0 < y < 1 is the solution of the Mean First passage Time (MFPT) equation for jump processes (page 308 equation 9.30 or page 250 equation 7.127) [79]\nLn(n0) = (1−y)/ε∫\n(z0−y)/ε n0(y + εξ)w(ξ |y)dξ − n0(y) = −1 for z0 ≤ y ≤ 1, n0(y) = 0 for y < z0. (47)\nSetting τ(y) = εn0(y), we write the Kramers–Moyal expansion of (47) by substituting the series expansion\nn0(y + εξ) = ∞∑\nk=1\n(εξ)k k! dkn0(y) dyk , (48)\nwith the definition of the moments mk from (43), we obtain\n∞∑ k=1 εk−1mk(y) k! dkτ(y) dyk = −1 for z0 ≤ y ≤ 1, τ (z0) = 0, τ (1) = 0. (49)\nThe diffusion approximation to (49) is obtained by truncating the series to the first two terms, which correspond to the drift and diffusion terms (p. 238 in [79]):\nLε(τ0(y)) = ε 2 m2(y)τ ′′ 0 (y) + m1(y)τ ′0(y) = −1 for z0 ≤ y ≤ 1, τ0(z0) = 0, τ ′0(1) = 0. (50)\nThe solution of equation (50) uses the effective potential well\nV (y) = −2 ε 1∫ y m1(z) m2(z) dz = (1 − y)2b εa + 2(a + b)b La3β log a2βy + εb a2βz0 + εb , (51)\nfor which the drift −V ′(y) vanishes at z0. This potential is key because it defines the landscape for the number of cell division. Fig. 13A shows the effective potential V (y) for various values of the parameter β . Changing β affects both the height and the location of the minimum of V (y). From solving (50), we obtain the time in phase 1:\nτ0(y) = b a (y − y0) + Aε 2B log\n( 1 + B 2b(y − y0)\naε\n) + · · · , (52)\nwhere\nA = 2(a + b)b a3β , B = a 3β a + b .\nThe unscaled MFPT n1→y0 is given by n1→y0 ∼ τ̄0(1)ε , that is\nn0(y) ∼ b aε (y − y0) + A 2B log\n( 1 + B 2b(y − y0)\naε\n) + · · · . (53)\nThis analysis clarifies the first phase, which consists of noisy drifting to y0. The second phase corresponds to escape from y0 over the threshold T . At this stage, we discussed the gap between the first and the second MFPT by plotting in Fig. 13A–B the mean and the variance. The standard deviations of the shortest and second shortest overlap minimally especially for a small stopping threshold T , suggesting that the shortest telomere plays a key role in triggering senescence."
+    }, {
+      "heading" : "6.5. Role of the shortest telomere: statistical gap between the arrival times of the first shortest telomeres to a threshold",
+      "text" : "To further clarify the influence of telomere length distribution on the time to senescence, numerical simulations of the model (37) have revealed a statistical gap between the histogram of the arrival time to threshold for the shortest vs the other telomeres. The different histograms (Fig. 15A–C) show a clear separation between the arrival of shortest vs the other telomeres, independently of the chosen threshold T of senescence, modeled as an arrest of the dynamics length to simulate that the cell stop dividing.\nInterestingly, as the threshold decreases, the difference between the time to threshold increases, leading to a clear gap between the shortest and the second shortest lifetimes. However, this decrease in T leads also to an increase in the overlap between the distribution of the second and the third shortest telomere arrival time. This behavior can be interpreted using the phase diagram (two phases) in Fig. 13: as long as the threshold stays in the first phase, the telomere length decays deterministically and the difference between the first, second and third is insignificant. However, when the threshold is moved to the left of the critical point y0 (e.g., z = 300 for β = 0.045), reaching the threshold becomes a noise-activation process over a potential barrier, leading to a clear separation between the three. See also Fig. 14.\nIf the telomere length ensembles consisted of N Poissonian i.i.d. processes with escape time E[τ1] = τ̄1, the expected shortest escape time would be τ̄1\nN . The expected second shortest lifetime would also be given by 2 τ̄1 N . Thus the\ngap between the first and the second is\n= 2 τ̄1 − τ̄1 = τ̄1 , (54)\nN N N\nwhich is the standard deviation of the first time E[τfirst] = τ̄1/N . Fig. 15 indicates a significant deviation from this Poissonian case. Thus to study the effect of the shortest telomere, we introduced in [81] the distance ratio between the first and second arrival time associated to the shortest and second shortest telomere to reach the threshold T :\nR1 = |E[τsecond] −E[τfirst]|√( E[τ 2first] −E[τfirst]2 ) , (55)\nwhere E[τfirst] (resp. E[τsecond]) is the MFPT for the first (resp. second) telomere length to reach the threshold T . Interestingly, for a threshold T = 150, the ratio computed for the difference between the first and second shortest telomere is R1 = 1.92 (for β = 0.045), while for the value β = 0.09, we get R1 = 1.16. This result suggests that decreasing the efficiency of the telomerase reduces the isolation of the shortest telomere relative to the second, as shown in Fig. 15D–E."
+    }, {
+      "heading" : "6.6. Conclusion: role of extreme statistics in regulating cellular lineage and death",
+      "text" : "We conclude that the length of all telomeres, in particular the shorter ones, do not reflect the progressive decline in the number of the remaining cell divisions, but surprisingly, the extension of the number of cell divisions is a manifestation of the stochastic dynamics of telomere elongation and shortening.\nExtreme statistics seem to be the appropriate framework to study cell division and how cells perceive time through the number of divisions. In particular, several consequences of telomere shortening can be seen as deregulation mechanisms of time sensing. Leukocyte telomere length can be used as a bio-marker of cardiovascular diseases, confirming that the distribution of telomere length and probably that of the shortest, plays a key role [16]. Similarly, adults suffering from major depression have shorter telomere length [16]. Finally, with aging, the average telomere length decreases and this is correlated with an increase in mortality. Thus the measure of telomere shortness could also be a statistical indicator of human mortality.\nMany cellular conditions can now be incorporated in modeling so that the distribution of telomere lengths and the shortest one can be predicted. Finally, to the question “Do biological cells sense time by the number of their divisions, a process that ends at senescence?” a possible answer is that the absolute time before senescence cannot be expressed by the telomere’s length and that a cell can survive many more divisions than intuitively expected. This apparent paradox is due to shortening and elongation of the telomere, described by an asymmetric random walk model of the telomere’s length. Activation escape from the potential well (to a threshold T ) generated by the process of shortening and elongation is the precise mechanism to extend the number of cell divisions before senescence, showing the role of stochastic fluctuations in a fundamental mechanism of cellular biology [81]."
+    }, {
+      "heading" : "7. Extreme statistics and optimal trajectories",
+      "text" : "In the previous section 3.1, we discussed the analytical results and asymptotic methods developed in [24,60,78,86, 100] to compute the first moment of the shortest arrival time τ (n) to a small target in an ensemble of n non-interacting i.i.d. Brownian trajectories inside a bounded domain . We recall the definition\nτ (n) = min(t1, . . . , tN ), (56) where ti are the i.i.d. arrival times of the N paths in the ensemble. Other types of motions can also be studied such as the rectilinear dynamics [97] for spermatozoa, switching dynamics to describe bacteria [32], transcription factor searching [72] or growth cone navigation [73]. In all these cases, it is in general quite difficult to determine the paths associated to the fastest arrival time τ (n). However, finding these optimal trajectories is useful to clarify the process of finding a target, the role of cellular crowding and of the redundancy principle. In the case of spermatozoa moving inside the uterus-like domain, which is not convex [97], optimal paths suggests that guiding sensors such as chemotaxis or thermotaxis do not really contribute in finding the egg far away [97]. Numerical simulations showed that trajectories of the fastest spermatozoa arriving to a narrow target are concentrated near the optimal trajectory of a control problem, described as a minimizers of the energy along admissible paths (Fig. 9).\nDescribing optimal paths for Brownian motion requires to track the history of the trajectory of n particles and to retain the one associated to the fastest. This algorithmic procedure follow the path-integral methodology [80]. We focus here on a generic example for the shortest arrival time among n trajectories in two dimensions, when a disk obstacle is located between the initial position and the narrow exiting window. When there are no obstacles, the asymptotic solution of the distribution of arrival time is constructed by the ray-method of the Green’s function [12,14]. In the context of molecular signaling in cell biology, shortest paths define the time scale of activation.\nWe present here heuristic arguments that led to the selection of a variational principle associated to the fast arriving particle. We start with the probability density function p(x, t |y) of the stochastic process\ndx = a(x)dt + b(x)dw, (57) where a(x) is a determinist drift and σ (x) = 12bT (x)b(x) the diffusion tensor. The pdf p(x, t | y) at x, t satisfies\n∂p(x, t |y) ∂t\n=D p(x, t |y) − ∇. (a(x)p(x, t |y)) for x,y ∈ , t > 0 (58) p(x,0 |y) = δ(x − y) for x,y ∈\n∂p(x, t |y) ∂n\n=0 for x ∈ ∂ r,y ∈ p(x, t |y) =0 for x ∈ ∂ a,y ∈ ,\nwhere the boundary ∂ contains a binding site ∂ a , the rest of the boundary is reflecting ∂ r = ∂ − ∂ a . The Wiener representation of the pdf for a pure Brownian motion is obtained for a zero drift and σ = D is a constant, so that it is given by the probability of a sampled path until it exits at the small window at the random time T [47]\nPr { xN(t1,M) ∈ ,xN(t2,M) ∈ , . . . ,xM(t) = x, t ≤ T ≤ t + t |x(0) = y }\n= [∫ · · · ∫\nM∏ j=1 dyj√ (2π t)n detσ (x)(tj−1,M))\n× exp {\n− 1 2 t\n[ yj − x(tj−1,N ) − a(x(tj−1,N )) t ]T σ−1(x(tj−1,N ))\n× [yj − x(tj−1,N ) − a(x(tj−1,N )) t] } , (59)\nwhere t = t/M, tj,N = j t, x(t0,N ) = y and yj = x(tj,N ) in the product and T is the exit time in the narrow absorbing window ∂ a . Finally,\n〈τ (n)〉 = ∞∫\n0\nexp ⎧⎨ ⎩n log ∫ p(x, t |y) dx ⎫⎬ ⎭dt = ∞∫ 0 τσ Pr{ Path σ ∈ Sn(y), τσ = t}dt, (60)\nwhere Sn(y) is the ensemble of shortest paths selected among n Brownian trajectories, starting at point y and exiting between time t and t + dt from the domain . The probability Pr{ Path σ ∈ Sn} is used to show that the empirical stochastic trajectories of Sn concentrate near the shortest paths starting from y and ending at the small absorbing window ∂ a , under the condition that ε = |∂ a ||∂ | 1. The paths of Sn(y) can be approximated using discrete broken lines among a finite number of points and we denote the associated ensemble by S̃n(y). Bayes’rule leads to\nPr{Path σ ∈ S̃n(y)|t < τσ < t + dt} = ∞∑ Pr{Path σ ∈ S̃n(y)|m, t < τσ < t + dt}Pr{m steps}\nm=0\nwhere Pr{m steps} = Pr{the paths of S̃n(y) exit in m steps} is the probability that a path of S̃n(y) exits in m-discrete time steps. A path made of broken lines (random walk with a time step t ) can be expressed using Wiener pathintegral. The probability of a Brownian path x(s) can be expressed in the limit of a path-integral with the functional:\nPr{x(s)|s ∈ [0, t]} ≈ exp ⎛ ⎝− t∫ 0 |ẋ|2ds ⎞ ⎠ . (61)\nThe survival probability conditioned on starting at y is given by the Wiener representation:\nS(t |x0) = ∫\nx∈ dx x(t)=x∫ x(0) D(x) exp ⎛ ⎝− t∫ 0 |ẋ|2ds ⎞ ⎠ ,\nwhere D(x) is the limit Wiener measure [80]: the exterior integral is taken over all end points x and the path integral is over all paths starting from x(0) [60]. When we consider n-independent paths (σ1, ..σn) (made of points with a time step t ) that exit in m-steps, the probability of such an event is\nPr{σ1, ..σn ∈ Sn(y)|m,τσ = m t} = ⎛ ⎜⎝ ∫\ny0=y · · · ∫ yj ∈ ∫ yn∈∂ a\n1\n(4D t)dm/2 m∏ j=1 exp\n{ − 1\n4D t\n[ |yj − yj−1)|2 ]}⎞⎟⎠ n\n(62)\nIndeed, when the are n paths of m steps, and the fastest one escapes in m-steps, they should all exit in m steps. Using the limit of path integral, we get heuristically using (62), the representation\nPr{ Path σ ∈ S̃n(y)|m,τσ = m t} ≈ ∫\nx∈ dx x(t)=x∫ x(0)=y D(x) exp { − n m t∫ 0 ẋ2ds } ,\nwhere the integral is taken over all paths starting at y0 and exiting at time m t . This formula suggests that when n is large, only the paths that minimize the integrant will contribute. For large n, this formula suggests that paths that will contribute the most are the ones that will minimize the exponent in eq. (63), which allows selecting the paths for which the energy functional is minimal, that is\nE = min X∈Pt T∫ 0 ẋ2ds, (63)\nwhere the integration is taken over the ensemble of regular paths Pt inside starting at y and exiting in ∂ a , defined as\nPT = {P(0) = y,P (T ) ∈ ∂ a and P(s) ∈ and 0 ≤ s ≤ T }. This formal argument shows that the random paths associated to the fastest exit time are concentrated near the shortest paths. Indeed the Euler–Lagrange equations for the extremal problem (63) are the classical geodesics between y and a point in the narrow window ∂ a .\nTo conclude, in the limit of large n, the Brownian paths contributing to the first moment of 〈τ (n)〉 are concentrated on the shortest paths, solution of the variational problem (63). The solution of the minimization problem (63) are geodesics starting from y to any point located on the small boundary ∂ a (Fig. 16). In absence of any obstacle inside a disk, the optimal path is the direct ray (path G in Fig. 17A) that was used to find the asymptotic solution [14]. When an obstacle is positioned between the initial point y and the narrow absorbing window ∂ a , the path associated with fastest arrival time among n trajectories can be computed from stochastic simulations. For large n, the empirical trajectories associated with 〈τ (n)〉 are concentrated near the two geodesic G1 and G2 (paths G1 and G2 in Fig. 17B) and the probability to find trajectories near the shortest one increases with n. Fig. 16A–B) show regular path (green) and the optimal trajectories associated to the first arrival time (purple and blue). The histograms of the first arrival\ntime (Fig. 16B upper) for shortest time associated to the short and long geodesic show the concentration phenomena for n = 20 and 500.\nIn the symmetric case, the two shortest geodesic of the same length consists of a straight line from y to the tangent of the disk obstacle, then an arc along the disk and finally a straight line from the tangent of the disk to ∂ a (Fig. 16).\nWhen the initial point y is not on the axis of symmetry, the two shortest geodesics have different lengths (Fig. 16B)."
+    }, {
+      "heading" : "8. Final conclusion: redundancy makes rare events possible in biochemical reactions and in many life science processes",
+      "text" : "Disproportionate numbers of particles in natural processes should not be considered wasteful, but rather, they serve a clear purpose: they are necessary for generating the fastest possible response. This property is universal, ranging from the molecular scale to the population level. It seems that nature’s strategy for optimizing the response time is not necessarily defined by the physics of the motion of an individual particle, but rather by the collective extreme statistics that select shortest paths.\nThis is precisely the strategy of finding a hidden target. The search process selects the particle to arrive first. Although these trajectories are rare, they are the ones that set the time scale.\nAnother key question is how the large numbers are set? Why the number of sperms is the one found for each species, but not ten times more?\nTen time less is associated to infertility [76], while ten times more would lead to a super-fertility that could be associated to too many progenitors. The same question can be asked for neurotransmitters released at synapses, around 2000–4000, probably to compensate the low probability to find gated receptors [46]. Probably evolution is responsible for such selection, through an unexplained mechanism. But one thing is clear: in biology, setting numbers larger than their actual values makes rare events possible within specified time windows with probability almost one.\nWe also saw in section 2.1 that extreme events in gene encounter is responsible for the large combination of the immune response. In section 6, we described how extreme statistics of the shortest telomere defines the number of divisions, a process that should now be understood as probabilistic. That is, the increase in the number of divisions, beyond the linear decrease of telomere length is set by the random event that the length of the shortest telomere crosses a potential barrier.\nAnother consequence of the extreme statistics principle is that molecular-level simulations of activation processes should avoid the Gillespie’s algorithm and reaction-diffusion equations, especially in the context of transient cellular activation induced by molecular pathways. Instead, straightforward Brownian paths and/or extreme statistics should be used as given by the formulas above. The large number of paths produces optimal trajectories that set the observed time scale. Finding extreme statistics based on physical models or stochastic description of single trajectories is likely to provide the missing explanations of many molecular processes in cellular biology and biophysics.\nIncrease in human population to the expanses of the entire nature may be part of an extreme statistic project of finding a hidden target or goal, the time of which could be in log of the number of the population."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "DH’s research is supported by FRM team DEQ20160334882."
+    } ],
+    "references" : [ {
+      "title" : "Chromatin configuration affects the dynamics and distribution of a transiently interacting protein",
+      "author" : [ "A. Amitai" ],
+      "venue" : "Biophys J",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2018
+    }, {
+      "title" : "Encounter dynamics of a small target by a polymer diffusing in a confined domain",
+      "author" : [ "A Amitai", "C Amoruso", "A Ziskind", "D. Holcman" ],
+      "venue" : "J Chem Phys 2012;137(24):244906",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2012
+    }, {
+      "title" : "Polymer model with long-range interactions: analysis and applications to the chromatin structure",
+      "author" : [ "A Amitai", "D. Holcman" ],
+      "venue" : "Phys Rev E",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2013
+    }, {
+      "title" : "Polymer physics of nuclear organization and function",
+      "author" : [ "A Amitai", "D. Holcman" ],
+      "venue" : "Phys Rep 2017;678:1–83",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2017
+    }, {
+      "title" : "Computation of the mean first-encounter time between the ends of a polymer chain",
+      "author" : [ "A Amitai", "I Kupka", "D. Holcman" ],
+      "venue" : "Phys Rev Lett 2012;109(10):108302",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2012
+    }, {
+      "title" : "Aging and immortality in a cell proliferation model",
+      "author" : [ "T Antal", "K Blagoev", "S Trugman", "S. Redner" ],
+      "venue" : "J Theor Biol",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2007
+    }, {
+      "title" : "The telomere syndromes",
+      "author" : [ "Armanios M", "Blackburn EH" ],
+      "venue" : "Nat Rev Genet",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2012
+    }, {
+      "title" : "Telomeres and aging",
+      "author" : [ "Aubert G", "Lansdorp PM" ],
+      "venue" : "Physiol Rev 2008;88(2):557–79",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2008
+    }, {
+      "title" : "Statistical mechanics of ecological systems: neutral theory and beyond",
+      "author" : [ "S Azaele", "S Suweis", "J Grilli", "I Volkov", "JR Banavar", "A. Maritan" ],
+      "venue" : "Rev Mod Phys 2016;88(3):035003",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2016
+    }, {
+      "title" : "Multiple genetic pathways regulate replicative senescence in telomerase-deficient yeast",
+      "author" : [ "BJ Ballew", "V. Lundblad" ],
+      "venue" : "Aging Cell",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2013
+    }, {
+      "title" : "Extreme narrow escape: shortest paths for the first particles among n to reach a target window",
+      "author" : [ "K Basnayake", "A Hubl", "Z Schuss", "D. Holcman" ],
+      "venue" : "Phys Lett A 2018",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2018
+    }, {
+      "title" : "Fast calcium transients in neuronal spines is driven by extreme statistics",
+      "author" : [ "K Basnayake", "E Korkotian", "D. Holcman" ],
+      "venue" : "bioRxiv",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2018
+    }, {
+      "title" : "Asymptotic formulas for extreme statistics of escape times in 1, 2 and 3-dimensions",
+      "author" : [ "K Basnayake", "Z Schuss", "D. Holcman" ],
+      "venue" : "J Nonlinear Sci 2018:1–39",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2018
+    }, {
+      "title" : "Intra-uterine insemination for male subfertility",
+      "author" : [ "A Bensdorp", "BJ Cohlen", "MJ Heineman", "P. Vandekerckhove" ],
+      "venue" : "Cochrane Database Syst Rev 2007;4",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2007
+    }, {
+      "title" : "Human telomere biology: a contributory and interactive factor in aging, disease risks, and protection",
+      "author" : [ "EH Blackburn", "ES Epel", "J. Lin" ],
+      "venue" : "Science",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2015
+    }, {
+      "title" : "Neuronal activity regulates diffusion across the neck of dendritic spines",
+      "author" : [ "Bloodgood BL", "Sabatini BL" ],
+      "venue" : "Science",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2005
+    }, {
+      "title" : "The life and death of cells",
+      "author" : [ "Blythe RA", "MacPhee CE" ],
+      "venue" : "Physics 2013;6:129",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2013
+    }, {
+      "title" : "Cardiac telomere length in heart development, function, and disease",
+      "author" : [ "Booth SA", "Charchar FJ" ],
+      "venue" : "Physiol Genom",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2017
+    }, {
+      "title" : "Stochastic models of intracellular transport",
+      "author" : [ "Bressloff PC", "Newby JM" ],
+      "venue" : "Rev Mod Phys 2013;85(1):135–96",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2013
+    }, {
+      "title" : "The impacts of geometry and binding on CaMKII diffusion and retention in dendritic spines",
+      "author" : [ "MJ Byrne", "MN Waxham", "Y. Kubota" ],
+      "venue" : "J Comput Neurosci",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2011
+    }, {
+      "title" : "Beginning to understand the end of the chromosome. Cell 2004;116(2):273–9",
+      "author" : [ "Cech TR" ],
+      "venue" : null,
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2004
+    }, {
+      "title" : "CaMKII autophosphorylation is necessary for optimal integration of ca 2+ signals during ltp induction, but not maintenance. Neuron 2017;94(4):800–8",
+      "author" : [ "J-Y Chang", "P Parra-Bueno", "T Laviv", "EM Szatmari", "S-JR Lee", "R. Yasuda" ],
+      "venue" : null,
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2017
+    }, {
+      "title" : "First passage problems in biology. In: First-passage phenomena and their applications",
+      "author" : [ "Chou T", "D’Orsogna MR" ],
+      "venue" : "World Scientific;",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2014
+    }, {
+      "title" : "An introduction to statistical modeling of extreme values, vol. 208",
+      "author" : [ "S Coles", "J Bawa", "L Trenner", "P. Dorazio" ],
+      "venue" : null,
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2001
+    }, {
+      "title" : "Structure and variability of human chromosome ends",
+      "author" : [ "T De Lange", "L Shiue", "R Myers", "D Cox", "S Naylor", "A Killery" ],
+      "venue" : "Mol Cell Biol",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 1990
+    }, {
+      "title" : "Active unidirectional network flow generates a packet molecular transport in cells",
+      "author" : [ "M Dora", "D. Holcman" ],
+      "venue" : null,
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2018
+    }, {
+      "title" : "Computing the length of the shortest telomere in the nucleus",
+      "author" : [ "KD Duc", "D. Holcman" ],
+      "venue" : "Phys Rev Lett 2013;111(22):228104",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2013
+    }, {
+      "title" : "Molecular and cellular physiology of neurons",
+      "author" : [ "Fain GL" ],
+      "venue" : null,
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 1999
+    }, {
+      "title" : "Mammalian sperm motility: observation and theory",
+      "author" : [ "E Gaffney", "H Gadêlha", "D Smith", "J Blake", "J. Kirkman-Brown" ],
+      "venue" : "Annu Rev Fluid Mech 2011;43:501–28",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2011
+    }, {
+      "title" : "A general method for numerically simulating the stochastic time evolution of coupled chemical reactions",
+      "author" : [ "Gillespie DT" ],
+      "venue" : "J Comput Phys 1976;22(4):403–34",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 1976
+    }, {
+      "title" : "Amoeboid migration mode adaption in quasi-3d spatial density gradients of varying lattice geometry",
+      "author" : [ "M Gorelashvili", "M Emmert", "KF Hodeck", "D. Heinrich" ],
+      "venue" : "New J Phys 2014;16(7):075012",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2014
+    }, {
+      "title" : "Diffusive escape through a narrow opening: new insights into a classic problem",
+      "author" : [ "DS Grebenkov", "G. Oshanin" ],
+      "venue" : "Phys Chem Chem Phys 2017;19(4):2723–39",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2017
+    }, {
+      "title" : "Kinetics of escape through a small hole",
+      "author" : [ "IV Grigoriev", "YA Makhnovskii", "AM Berezhkovskii", "VY. Zitserman" ],
+      "venue" : "J Chem Phys 2002;116(22):9574–7",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2002
+    }, {
+      "title" : "How two meters of DNA fit into a cell nucleus: polymer models with topological constraints and experimental data",
+      "author" : [ "Grosberg AY" ],
+      "venue" : "Polym Sci,",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2012
+    }, {
+      "title" : "Reactive conformations and non-Markovian cyclization kinetics of a rouse polymer",
+      "author" : [ "T Guérin", "O Bénichou", "R. Voituriez" ],
+      "venue" : "J Chem Phys 2013;138(9):094908",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2013
+    }, {
+      "title" : "The shortest telomere, not average telomere length, is critical for cell viability and chromosome stability. Cell 2001;107(1):67–77",
+      "author" : [ "Hemann MT", "Strong MA", "Hao L-Y", "Greider CW" ],
+      "venue" : null,
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2001
+    }, {
+      "title" : "Modeling and analysis of calcium signaling events leading to long-term depression in cerebellar Purkinje cells",
+      "author" : [ "N Hernjak", "BM Slepchenko", "K Fernald", "CC Fink", "D Fortin", "II Moraru" ],
+      "venue" : "Biophys J 2005;89(6):3790–806",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2019
+    }, {
+      "title" : "Sperm navigation mechanisms in the female reproductive tract. In: Signaling-mediated control of cell division",
+      "author" : [ "Hoang HD", "Miller MA" ],
+      "venue" : null,
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2017
+    }, {
+      "title" : "Stochastic processes, multiscale modeling, and numerical methods for computational cellular biology",
+      "author" : [ "D. Holcman" ],
+      "venue" : null,
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2017
+    }, {
+      "title" : "Single particle trajectories reveal active endoplasmic reticulum luminal flow",
+      "author" : [ "D Holcman", "P Parutto", "JE Chambers", "M Fantham", "LJ Young", "SJ Marciniak" ],
+      "venue" : "Nat Cell Biol",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2018
+    }, {
+      "title" : "Stochastic chemical reactions in microdomains",
+      "author" : [ "D Holcman", "Z. Schuss" ],
+      "venue" : "J Chem Phys 2005;122(11):114710",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2005
+    }, {
+      "title" : "Control of flux by narrow passages and hidden targets in cellular biology",
+      "author" : [ "D Holcman", "Z. Schuss" ],
+      "venue" : "Rep Prog Phys 2013;76(7):074601",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2013
+    }, {
+      "title" : "The narrow escape problem",
+      "author" : [ "D Holcman", "Z. Schuss" ],
+      "venue" : "SIAM Rev 2014;56(2):213–57",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2014
+    }, {
+      "title" : "Time scale of diffusion in molecular and cellular biology",
+      "author" : [ "D Holcman", "Z. Schuss" ],
+      "venue" : "J Phys A, Math Theor",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2014
+    }, {
+      "title" : "Stochastic narrow escape in molecular and cellular biology",
+      "author" : [ "D Holcman", "Z. Schuss" ],
+      "venue" : null,
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2015
+    }, {
+      "title" : "100 years after Smoluchowski: stochastic processes in cell biology",
+      "author" : [ "D Holcman", "Z. Schuss" ],
+      "venue" : "J Phys A, Math Theor",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2017
+    }, {
+      "title" : "Calcium dynamics in dendritic spines and spine motility",
+      "author" : [ "D Holcman", "Z Schuss", "E. Korkotian" ],
+      "venue" : "Biophys J",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2004
+    }, {
+      "title" : "The latency of the light response is modulated by the phosphorylation state of drosophila trp at a specific site. Channels 2017;37:1–8",
+      "author" : [ "B Katz", "O Voolstra", "H Tzadok", "B Yasin", "E Rhodes-Modrov", "J-P Bartels" ],
+      "venue" : null,
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2017
+    }, {
+      "title" : "Calmodulin activation by calcium transients in the postsynaptic density of dendritic spines",
+      "author" : [ "DX Keller", "KM Franks", "TM Bartol Jr.", "TJ. Sejnowski" ],
+      "venue" : "PLoS ONE 2008;3(4):1–16",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2008
+    }, {
+      "title" : "Molecular and physiological manifestations and measurement of aging in humans",
+      "author" : [ "SS Khan", "BD Singer", "DE. Vaughan" ],
+      "venue" : "Aging Cell",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2017
+    }, {
+      "title" : "An asymptotic theory of large deviations for Markov jump processes",
+      "author" : [ "C Knessl", "B Matkowsky", "Z Schuss", "C. Tier" ],
+      "venue" : "SIAM J Appl Math 1985;45(6):1006–28",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 1985
+    }, {
+      "title" : "Boundary behavior of diffusion approximations to Markov jump processes",
+      "author" : [ "C Knessl", "B Matkowsky", "Z Schuss", "C. Tier" ],
+      "venue" : "J Stat Phys 1986;45(1):245–66",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 1986
+    }, {
+      "title" : "A singular perturbation approach to first passage times for Markov jump processes",
+      "author" : [ "C Knessl", "B Matkowsky", "Z Schuss", "C. Tier" ],
+      "venue" : "J Stat Phys 1986;42(1):169–84",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 1986
+    }, {
+      "title" : "Maximum of n independent Brownian walkers till the first exit from the half-space",
+      "author" : [ "P Krapivsky", "SN Majumdar", "A. Rosso" ],
+      "venue" : "J Phys A, Math Theor",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2010
+    }, {
+      "title" : "Chromatin interactions in the control of immunoglobulin heavy chain gene assembly",
+      "author" : [ "G Kumari", "R. Sen" ],
+      "venue" : "Advances in immunology,",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2015
+    }, {
+      "title" : "Asymptotic analysis of first passage time problems inspired by ecology",
+      "author" : [ "V Kurella", "JC Tzou", "D Coombs", "MJ. Ward" ],
+      "venue" : "Bull Math Biol",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2015
+    }, {
+      "title" : "3D trajectories adopted by coding and regulatory DNA elements: first-passage times for genomic interactions",
+      "author" : [ "JS Lucas", "Y Zhang", "OK Dudko", "C. Murre" ],
+      "venue" : "Cell",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2014
+    }, {
+      "title" : "Extreme value statistics of correlated random variables",
+      "author" : [ "SN Majumdar", "A. Pal" ],
+      "venue" : "arXiv preprint,",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2014
+    }, {
+      "title" : "The search for a DNA target in the nucleus",
+      "author" : [ "G Malherbe", "D. Holcman" ],
+      "venue" : "Phys Lett A",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2010
+    }, {
+      "title" : "A protein-counting mechanism for telomere length regulation in yeast",
+      "author" : [ "S Marcand", "E Gilson", "D. Shore" ],
+      "venue" : "Science",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 1997
+    }, {
+      "title" : "Mortality, redundancy, and diversity in stochastic search",
+      "author" : [ "B Meerson", "S. Redner" ],
+      "venue" : "Phys Rev Lett 2015;114(19):198101",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 1981
+    }, {
+      "title" : "Extreme value methods with applications to finance",
+      "author" : [ "Novak SY" ],
+      "venue" : null,
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2011
+    }, {
+      "title" : "Mathematical modeling confirms the length-dependency of telomere shortening",
+      "author" : [ "J op den Buijs", "PP van den Bosch", "MW Musters", "NA. van Riel" ],
+      "venue" : "Mech Ageing Dev",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2004
+    }, {
+      "title" : "Survival of an evasive prey",
+      "author" : [ "G Oshanin", "O Vasilyev", "P Krapivsky", "J. Klafter" ],
+      "venue" : "Proc Natl Acad Sci",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2009
+    }, {
+      "title" : "Modelling telomere shortening and the role of oxidative stress",
+      "author" : [ "Proctor CJ", "Kirkwood TB" ],
+      "venue" : "Mech Ageing Dev",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2002
+    }, {
+      "title" : "Modelling cellular senescence as a result of telomere state. Aging Cell 2003;2(3):151–7",
+      "author" : [ "Proctor CJ", "Kirkwood TB" ],
+      "venue" : null,
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2003
+    }, {
+      "title" : "Phage lambda and higher organisms",
+      "author" : [ "Ptashne M", "Switch AG" ],
+      "venue" : "Cambridge, MA: Cell and Blackwell Scientific;",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 1992
+    }, {
+      "title" : "A guide to first-passage processes",
+      "author" : [ "S. Redner" ],
+      "venue" : null,
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2001
+    }, {
+      "title" : "Capture of the lamb: diffusing predators seeking a diffusing prey",
+      "author" : [ "S Redner", "P. Krapivsky" ],
+      "venue" : "Am J Phys",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : "71",
+      "year" : 1999
+    }, {
+      "title" : "Transcription factor search for a DNA promoter in a three-state model",
+      "author" : [ "J Reingruber", "D. Holcman" ],
+      "venue" : "Phys Rev E",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2011
+    }, {
+      "title" : "Computational and mathematical methods for morphogenetic gradient analysis, boundary formation and axonal targeting",
+      "author" : [ "J Reingruber", "D. Holcman" ],
+      "venue" : "Semin Cell Dev Biol,",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2014
+    }, {
+      "title" : "Why so many sperm cells",
+      "author" : [ "K Reynaud", "Z Schuss", "N Rouach", "D. Holcman" ],
+      "venue" : "Commun Integr Biol",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2015
+    }, {
+      "title" : "Quantitative theory of telomere length regulation and cellular senescence",
+      "author" : [ "Rodriguez-Brenes IA", "Peskin CS" ],
+      "venue" : "Proc Natl Acad Sci",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2010
+    }, {
+      "title" : "Decline in semen concentration and morphology in a sample of 26,609 men close to general population",
+      "author" : [ "M Rolland", "J Le Moal", "V Wagner", "D Royère", "J. De Mouzon" ],
+      "venue" : "in France. Hum Reprod",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 1989
+    }, {
+      "title" : "The role of perisynaptic glial sheaths in glutamate spillover and extracellular ca 2+ depletion",
+      "author" : [ "Rusakov DA" ],
+      "venue" : "Biophys J",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : "77",
+      "year" : 2001
+    }, {
+      "title" : "Exact record and order statistics of random walks via first-passage ideas. In: First-passage phenomena and their applications",
+      "author" : [ "Schehr G", "Majumdar SN" ],
+      "venue" : "World Scientific;",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : "78",
+      "year" : 2014
+    }, {
+      "title" : "Theory and applications of stochastic processes: an analytical approach, vol. 170",
+      "author" : [ "Z. Schuss" ],
+      "venue" : "Springer Science ",
+      "citeRegEx" : "79",
+      "shortCiteRegEx" : "79",
+      "year" : 2009
+    }, {
+      "title" : "Nonlinear filtering and optimal phase tracking",
+      "author" : [ "Z. Schuss" ],
+      "venue" : "vol. 180. Springer Science ",
+      "citeRegEx" : "80",
+      "shortCiteRegEx" : "80",
+      "year" : 2011
+    }, {
+      "title" : "Do cells sense time by number of divisions",
+      "author" : [ "Z Schuss", "K Tor", "D. Holcman" ],
+      "venue" : "J Theor Biol",
+      "citeRegEx" : "81",
+      "shortCiteRegEx" : "81",
+      "year" : 2018
+    }, {
+      "title" : "Dendritic spines and long-term plasticity",
+      "author" : [ "M. Segal" ],
+      "venue" : "Nat Rev Neurosci",
+      "citeRegEx" : "82",
+      "shortCiteRegEx" : "82",
+      "year" : 2005
+    }, {
+      "title" : "Roles of calcium stores and store-operated channels in plasticity of dendritic spines",
+      "author" : [ "M Segal", "E. Korkotian" ],
+      "venue" : "Neuroscientist 2016;22(5):477–85",
+      "citeRegEx" : "83",
+      "shortCiteRegEx" : "83",
+      "year" : 2019
+    }, {
+      "title" : "Statistics of randomly cross-linked polymer models to interpret chromatin conformation capture data",
+      "author" : [ "O Shukron", "D. Holcman" ],
+      "venue" : "Phys Rev E",
+      "citeRegEx" : "84",
+      "shortCiteRegEx" : "84",
+      "year" : 2017
+    }, {
+      "title" : "Transient chromatin properties revealed by polymer models and stochastic simulations constructed from chromosomal capture data",
+      "author" : [ "O Shukron", "D. Holcman" ],
+      "venue" : "PLoS Comput Biol",
+      "citeRegEx" : "85",
+      "shortCiteRegEx" : "85",
+      "year" : 2017
+    }, {
+      "title" : "First passage time of n excluded-volume particles on a line",
+      "author" : [ "IM Sokolov", "R Metzler", "K Pant", "MC. Williams" ],
+      "venue" : "Phys Rev E",
+      "citeRegEx" : "86",
+      "shortCiteRegEx" : "86",
+      "year" : 2005
+    }, {
+      "title" : "Direct measurement of coupling between dendritic spines and shafts",
+      "author" : [ "K Svoboda", "DW Tank", "W. Denk" ],
+      "venue" : "Science",
+      "citeRegEx" : "87",
+      "shortCiteRegEx" : "87",
+      "year" : 1996
+    }, {
+      "title" : "The budding yeast nucleus",
+      "author" : [ "A Taddei", "H Schober", "SM. Gasser" ],
+      "venue" : "Cold Spring Harb Perspect Biol",
+      "citeRegEx" : "88",
+      "shortCiteRegEx" : "88",
+      "year" : 2010
+    }, {
+      "title" : "Estimating the synaptic current in a multiconductance ampa receptor model",
+      "author" : [ "A Taflia", "D. Holcman" ],
+      "venue" : "Biophys J",
+      "citeRegEx" : "89",
+      "shortCiteRegEx" : "89",
+      "year" : 2011
+    }, {
+      "title" : "Intramitotic and intraclonal variation in proliferative potential of human diploid cells: explained by telomere shortening",
+      "author" : [ "Z. Tan" ],
+      "venue" : "J Theor Biol",
+      "citeRegEx" : "90",
+      "shortCiteRegEx" : "90",
+      "year" : 1999
+    }, {
+      "title" : "Telomere length homeostasis is achieved via a switch between telomerase-extendible and -nonextendible states. Cell 2004;117(3):323–35",
+      "author" : [ "MT Teixeira", "M Arneric", "P Sperisen", "J. Lingner" ],
+      "venue" : null,
+      "citeRegEx" : "91",
+      "shortCiteRegEx" : "91",
+      "year" : 2004
+    }, {
+      "title" : "First-passage statistics for random walks in bounded domains. In: First-passage phenomena and their applications",
+      "author" : [ "R Voituriez", "O. Bénichou" ],
+      "venue" : "World Scientific;",
+      "citeRegEx" : "92",
+      "shortCiteRegEx" : "92",
+      "year" : 2014
+    }, {
+      "title" : "Geometry of dendritic spines affects calcium dynamics in hippocampal neurons: theory and experiments",
+      "author" : [ "N Volfovsky", "H Parnas", "M Segal", "E. Korkotian" ],
+      "venue" : "J Neurophysiol",
+      "citeRegEx" : "93",
+      "shortCiteRegEx" : "93",
+      "year" : 1999
+    }, {
+      "title" : "Summing logarithmic expansions for singularly perturbed eigenvalue problems",
+      "author" : [ "MJ Ward", "WD Heshaw", "JB. Keller" ],
+      "venue" : "SIAM J Appl Math 1993;53(3):799–828",
+      "citeRegEx" : "94",
+      "shortCiteRegEx" : "94",
+      "year" : 1993
+    }, {
+      "title" : "Origin of concatemeric T7DNA",
+      "author" : [ "Watson JD" ],
+      "venue" : "Nature",
+      "citeRegEx" : "95",
+      "shortCiteRegEx" : "95",
+      "year" : 1972
+    }, {
+      "title" : "The length of the shortest telomere as the major determinant of the onset of replicative senescence",
+      "author" : [ "Z Xu", "KD Duc", "D Holcman", "MT. Teixeira" ],
+      "venue" : "Genetics",
+      "citeRegEx" : "96",
+      "shortCiteRegEx" : "96",
+      "year" : 2013
+    }, {
+      "title" : "Search for a small egg by spermatozoa in restricted geometries",
+      "author" : [ "J Yang", "I Kupka", "Z Schuss", "D. Holcman" ],
+      "venue" : "J Math Biol",
+      "citeRegEx" : "97",
+      "shortCiteRegEx" : "97",
+      "year" : 2016
+    }, {
+      "title" : "Dendritic spines",
+      "author" : [ "R. Yuste" ],
+      "venue" : null,
+      "citeRegEx" : "98",
+      "shortCiteRegEx" : "98",
+      "year" : 2010
+    }, {
+      "title" : "From form to function: calcium compartmentalization in dendritic spines",
+      "author" : [ "R Yuste", "A Majewska", "K. Holthoff" ],
+      "venue" : "Nat Neurosci",
+      "citeRegEx" : "99",
+      "shortCiteRegEx" : "99",
+      "year" : 2000
+    }, {
+      "title" : "Order statistics for first passage times in one-dimensional diffusion processes",
+      "author" : [ "SB Yuste", "K. Lindenberg" ],
+      "venue" : "J Stat Phys 1996;85(3):501–12",
+      "citeRegEx" : "100",
+      "shortCiteRegEx" : "100",
+      "year" : 1996
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 27,
+      "context" : "Why are specialized sensory cells so sensitive and what determines their efficiency? For example, rod photoreceptors can detect a single photon in few tenths of milliseconds [29], olfactory cells sense few odorant molecules on",
+      "startOffset" : 174,
+      "endOffset" : 178
+    }, {
+      "referenceID" : 23,
+      "context" : "The description of finding the first particle to reach a target belongs to extreme statistics that describe the tail distributions of rare events, falling into three classes: Gumbel, Frechet, or Weibull [25].",
+      "startOffset" : 203,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 61,
+      "context" : "Previous applications of extreme statistics include estimating the minimum temperature and maximum daily precipitation, estimating the probability of an unusually large flooding events as well as predicting financial crises [64].",
+      "startOffset" : 224,
+      "endOffset" : 228
+    }, {
+      "referenceID" : 6,
+      "context" : "For example, the ability of cells to divide seems to be controlled by the shortest telomeres [8,16], which are the ends of chromosomes: following each cell division, the telomere length can be shortened or elongated, but when the shortest one reaches a threshold, the cell stops dividing.",
+      "startOffset" : 93,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 14,
+      "context" : "For example, the ability of cells to divide seems to be controlled by the shortest telomeres [8,16], which are the ends of chromosomes: following each cell division, the telomere length can be shortened or elongated, but when the shortest one reaches a threshold, the cell stops dividing.",
+      "startOffset" : 93,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 26,
+      "context" : "Thus this process is an extreme event [28,81,96].",
+      "startOffset" : 38,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 78,
+      "context" : "Thus this process is an extreme event [28,81,96].",
+      "startOffset" : 38,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 93,
+      "context" : "Thus this process is an extreme event [28,81,96].",
+      "startOffset" : 38,
+      "endOffset" : 48
+    }, {
+      "referenceID" : 12,
+      "context" : "These formulas are derived in [14], using asymptotic analysis in the limit of large number of particles and small target size in dimensions 2 and 3.",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 13,
+      "context" : "Yet, when the number of spermatozoa is reduced by a factor of four, infertility ensues [15].",
+      "startOffset" : 87,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 26,
+      "context" : "The first time for such an event to happen defines the maximal number of cell divisions [28,81,96] and thus it shows again how extreme statistics is involved in regulating fundamental cellular processes.",
+      "startOffset" : 88,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 78,
+      "context" : "The first time for such an event to happen defines the maximal number of cell divisions [28,81,96] and thus it shows again how extreme statistics is involved in regulating fundamental cellular processes.",
+      "startOffset" : 88,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 93,
+      "context" : "The first time for such an event to happen defines the maximal number of cell divisions [28,81,96] and thus it shows again how extreme statistics is involved in regulating fundamental cellular processes.",
+      "startOffset" : 88,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 60,
+      "context" : "The analysis of extreme statistics can explain the apparent waste of resources in so many natural systems [63,97].",
+      "startOffset" : 106,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 94,
+      "context" : "The analysis of extreme statistics can explain the apparent waste of resources in so many natural systems [63,97].",
+      "startOffset" : 106,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 8,
+      "context" : "For modeling search processes related to ecology or species, we refer to [10,66,70].",
+      "startOffset" : 73,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 63,
+      "context" : "For modeling search processes related to ecology or species, we refer to [10,66,70].",
+      "startOffset" : 73,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 67,
+      "context" : "For modeling search processes related to ecology or species, we refer to [10,66,70].",
+      "startOffset" : 73,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 77,
+      "context" : "For the past sixty years, chemical physicists computed the activation energy E and clarified the role of the energy landscape, with extensions to applications in chemistry, signal processing (time until loss of lock in phase trackers [80]), finance (time for a binary option price to reach a threshold), and many more [47].",
+      "startOffset" : 234,
+      "endOffset" : 238
+    }, {
+      "referenceID" : 45,
+      "context" : "For the past sixty years, chemical physicists computed the activation energy E and clarified the role of the energy landscape, with extensions to applications in chemistry, signal processing (time until loss of lock in phase trackers [80]), finance (time for a binary option price to reach a threshold), and many more [47].",
+      "startOffset" : 318,
+      "endOffset" : 322
+    }, {
+      "referenceID" : 32,
+      "context" : "These computations are summarized in the narrow escape theory [34,42,46,58,94].",
+      "startOffset" : 62,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 40,
+      "context" : "These computations are summarized in the narrow escape theory [34,42,46,58,94].",
+      "startOffset" : 62,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 44,
+      "context" : "These computations are summarized in the narrow escape theory [34,42,46,58,94].",
+      "startOffset" : 62,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 55,
+      "context" : "These computations are summarized in the narrow escape theory [34,42,46,58,94].",
+      "startOffset" : 62,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 91,
+      "context" : "These computations are summarized in the narrow escape theory [34,42,46,58,94].",
+      "startOffset" : 62,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 44,
+      "context" : "with | | the volume of the domain of Brownian motion, a is the radius of the absorbing window [46], and L(0) and N(0) are the principal curvatures of the surface at the small absorbing window.",
+      "startOffset" : 94,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 29,
+      "context" : "The forward rate k1 has been used in almost all representations of chemical reactions: it is the basis of the Gillespie algorithm [31,40] for generating statistics of stochastic simulations with rate k1.",
+      "startOffset" : 130,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 38,
+      "context" : "The forward rate k1 has been used in almost all representations of chemical reactions: it is the basis of the Gillespie algorithm [31,40] for generating statistics of stochastic simulations with rate k1.",
+      "startOffset" : 130,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 66,
+      "context" : "Gene activation depends on the arrival of a transcription factor to a specific gene location [1,69].",
+      "startOffset" : 93,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 0,
+      "context" : "The local organization of the chromatin can also play a key role in such search processes [2,61,72].",
+      "startOffset" : 90,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 58,
+      "context" : "The local organization of the chromatin can also play a key role in such search processes [2,61,72].",
+      "startOffset" : 90,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 69,
+      "context" : "The local organization of the chromatin can also play a key role in such search processes [2,61,72].",
+      "startOffset" : 90,
+      "endOffset" : 99
+    }, {
+      "referenceID" : 70,
+      "context" : "In addition, most simulations have so far ignored the role associated with the first TF to arrive to a gene and instead focused on the mean arrival time [73].",
+      "startOffset" : 153,
+      "endOffset" : 157
+    }, {
+      "referenceID" : 54,
+      "context" : "How do VDJ recombine randomly? The first recombination event to occur is between one D and one J gene segment of the heavy chain locus [57].",
+      "startOffset" : 135,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 1,
+      "context" : "This process can be modeled as the first encounter time between two monomers located on a polymer [3,36].",
+      "startOffset" : 98,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 34,
+      "context" : "This process can be modeled as the first encounter time between two monomers located on a polymer [3,36].",
+      "startOffset" : 98,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 4,
+      "context" : "The polymer model can be Rouse [6], beta [4], RLC [84] or others.",
+      "startOffset" : 31,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 2,
+      "context" : "The polymer model can be Rouse [6], beta [4], RLC [84] or others.",
+      "startOffset" : 41,
+      "endOffset" : 44
+    }, {
+      "referenceID" : 81,
+      "context" : "The polymer model can be Rouse [6], beta [4], RLC [84] or others.",
+      "startOffset" : 50,
+      "endOffset" : 54
+    }, {
+      "referenceID" : 56,
+      "context" : "The encounter process was recently modeled by anomalous diffusion [59].",
+      "startOffset" : 66,
+      "endOffset" : 70
+    }, {
+      "referenceID" : 56,
+      "context" : "Using an anomalous diffusion model, the search time for the first 100 VH and one DHJH segment in a confinement of radius 1 μm led to a time scale of few to tens of seconds, depending on the VH configuration [59].",
+      "startOffset" : 207,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 33,
+      "context" : "It would be interesting to derive an expression for the first arrival of a V to one of the DH targets, using a polymer model and especially to quantify the role of the local chromatin condensation, measured by cross-linkers [35,85].",
+      "startOffset" : 224,
+      "endOffset" : 231
+    }, {
+      "referenceID" : 82,
+      "context" : "It would be interesting to derive an expression for the first arrival of a V to one of the DH targets, using a polymer model and especially to quantify the role of the local chromatin condensation, measured by cross-linkers [35,85].",
+      "startOffset" : 224,
+      "endOffset" : 231
+    }, {
+      "referenceID" : 56,
+      "context" : "(Right) The spatial restriction imposed by the number of connectors defines the time scale and the selection process of a unique V(D)J sequence [59], controlled by the encounter time of the fastest in a long-range genomic domain, that can be modeled by polymer models [84].",
+      "startOffset" : 144,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 81,
+      "context" : "(Right) The spatial restriction imposed by the number of connectors defines the time scale and the selection process of a unique V(D)J sequence [59], controlled by the encounter time of the fastest in a long-range genomic domain, that can be modeled by polymer models [84].",
+      "startOffset" : 268,
+      "endOffset" : 272
+    }, {
+      "referenceID" : 22,
+      "context" : "The statistics of the first particle to arrive at a target can be computed from the statistics of a single particle when they all are independent and identically distributed [24,78,86,100].",
+      "startOffset" : 174,
+      "endOffset" : 188
+    }, {
+      "referenceID" : 75,
+      "context" : "The statistics of the first particle to arrive at a target can be computed from the statistics of a single particle when they all are independent and identically distributed [24,78,86,100].",
+      "startOffset" : 174,
+      "endOffset" : 188
+    }, {
+      "referenceID" : 83,
+      "context" : "The statistics of the first particle to arrive at a target can be computed from the statistics of a single particle when they all are independent and identically distributed [24,78,86,100].",
+      "startOffset" : 174,
+      "endOffset" : 188
+    }, {
+      "referenceID" : 97,
+      "context" : "The statistics of the first particle to arrive at a target can be computed from the statistics of a single particle when they all are independent and identically distributed [24,78,86,100].",
+      "startOffset" : 174,
+      "endOffset" : 188
+    }, {
+      "referenceID" : 76,
+      "context" : "This probability is computed by solving the diffusion equation [79]",
+      "startOffset" : 63,
+      "endOffset" : 67
+    }, {
+      "referenceID" : 12,
+      "context" : "New statistical properties have been recently derived for the shortest time [14].",
+      "startOffset" : 76,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 12,
+      "context" : "d Brownian particles initially positioned at the source S are expressed in the following asymptotic formulas [14,56,60]:",
+      "startOffset" : 109,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 53,
+      "context" : "d Brownian particles initially positioned at the source S are expressed in the following asymptotic formulas [14,56,60]:",
+      "startOffset" : 109,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 57,
+      "context" : "d Brownian particles initially positioned at the source S are expressed in the following asymptotic formulas [14,56,60]:",
+      "startOffset" : 109,
+      "endOffset" : 119
+    }, {
+      "referenceID" : 12,
+      "context" : "The method to derive formulas (9) is based on short-time asymptotic and the Green’s function representation of the Helmholtz equation [14].",
+      "startOffset" : 134,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 12,
+      "context" : "This result is reminiscent of using the Gumbel law, [14,56,60].",
+      "startOffset" : 52,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 53,
+      "context" : "This result is reminiscent of using the Gumbel law, [14,56,60].",
+      "startOffset" : 52,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 57,
+      "context" : "This result is reminiscent of using the Gumbel law, [14,56,60].",
+      "startOffset" : 52,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 12,
+      "context" : "The conditional survival probability is approximated by [14]",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 12,
+      "context" : "All other integrals can be computed explicitly [14], see also [71], leading to",
+      "startOffset" : 47,
+      "endOffset" : 51
+    }, {
+      "referenceID" : 68,
+      "context" : "All other integrals can be computed explicitly [14], see also [71], leading to",
+      "startOffset" : 62,
+      "endOffset" : 66
+    }, {
+      "referenceID" : 27,
+      "context" : "There are many examples of molecular transduction triggered by the arrival of the first particles at an activation site, which defines the time scale of activation [29].",
+      "startOffset" : 164,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 44,
+      "context" : "This time scale is incompatible with diffusion alone [46].",
+      "startOffset" : 53,
+      "endOffset" : 57
+    }, {
+      "referenceID" : 47,
+      "context" : "A similar process occurs in fly’s photoresponse to the absorption of a single photon: the first TRP channel that opens is due to the local diffusion of several IP3 molecules and calcium ions produced after rhodopsin activation [50].",
+      "startOffset" : 227,
+      "endOffset" : 231
+    }, {
+      "referenceID" : 44,
+      "context" : "The disproportionateness between the number of neurotransmitters (2000 to 3000) and the low number of receptors (5 to 50) compensates for the low probability of finding the small targets (receptors) [46,89].",
+      "startOffset" : 199,
+      "endOffset" : 206
+    }, {
+      "referenceID" : 86,
+      "context" : "The disproportionateness between the number of neurotransmitters (2000 to 3000) and the low number of receptors (5 to 50) compensates for the low probability of finding the small targets (receptors) [46,89].",
+      "startOffset" : 199,
+      "endOffset" : 206
+    }, {
+      "referenceID" : 95,
+      "context" : "We now discuss in details how the statistics of the fastest particles arriving at a small target followed by an amplification step, determines the timescale of calcium signaling in microdomains such as dendritic spines [98].",
+      "startOffset" : 219,
+      "endOffset" : 223
+    }, {
+      "referenceID" : 95,
+      "context" : "7) are the locus of contact between two neurons [98].",
+      "startOffset" : 48,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 80,
+      "context" : "It is also well known that calcium ions induce calcium release from internal SA stores through the ryanodine receptors (RyR) [83,99].",
+      "startOffset" : 125,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 96,
+      "context" : "It is also well known that calcium ions induce calcium release from internal SA stores through the ryanodine receptors (RyR) [83,99].",
+      "startOffset" : 125,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 21,
+      "context" : "The time scale of calcium transient during classical protocols used in physiology such as long-term plasticity [23] is of the order of hundreds of milliseconds [17,82] but not faster.",
+      "startOffset" : 111,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 15,
+      "context" : "The time scale of calcium transient during classical protocols used in physiology such as long-term plasticity [23] is of the order of hundreds of milliseconds [17,82] but not faster.",
+      "startOffset" : 160,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 79,
+      "context" : "The time scale of calcium transient during classical protocols used in physiology such as long-term plasticity [23] is of the order of hundreds of milliseconds [17,82] but not faster.",
+      "startOffset" : 160,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 12,
+      "context" : "(E–F) Distributions of the first arrival time τ1 from a distribution of 500 and 1000 particles to the base, superimposed with the analytical solution of the recursion of a Brownian particle in a spine [14].",
+      "startOffset" : 201,
+      "endOffset" : 205
+    }, {
+      "referenceID" : 36,
+      "context" : "8B and D): in the literature, to simulate calcium dynamics in synapses and dendritic spines, there are two possible modeling approaches: one is based on the deterministic reaction-diffusion equations [38,93] and the other one is based on stochastic modeling [21,46,48,51,77].",
+      "startOffset" : 200,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 90,
+      "context" : "8B and D): in the literature, to simulate calcium dynamics in synapses and dendritic spines, there are two possible modeling approaches: one is based on the deterministic reaction-diffusion equations [38,93] and the other one is based on stochastic modeling [21,46,48,51,77].",
+      "startOffset" : 200,
+      "endOffset" : 207
+    }, {
+      "referenceID" : 19,
+      "context" : "8B and D): in the literature, to simulate calcium dynamics in synapses and dendritic spines, there are two possible modeling approaches: one is based on the deterministic reaction-diffusion equations [38,93] and the other one is based on stochastic modeling [21,46,48,51,77].",
+      "startOffset" : 258,
+      "endOffset" : 274
+    }, {
+      "referenceID" : 44,
+      "context" : "8B and D): in the literature, to simulate calcium dynamics in synapses and dendritic spines, there are two possible modeling approaches: one is based on the deterministic reaction-diffusion equations [38,93] and the other one is based on stochastic modeling [21,46,48,51,77].",
+      "startOffset" : 258,
+      "endOffset" : 274
+    }, {
+      "referenceID" : 46,
+      "context" : "8B and D): in the literature, to simulate calcium dynamics in synapses and dendritic spines, there are two possible modeling approaches: one is based on the deterministic reaction-diffusion equations [38,93] and the other one is based on stochastic modeling [21,46,48,51,77].",
+      "startOffset" : 258,
+      "endOffset" : 274
+    }, {
+      "referenceID" : 48,
+      "context" : "8B and D): in the literature, to simulate calcium dynamics in synapses and dendritic spines, there are two possible modeling approaches: one is based on the deterministic reaction-diffusion equations [38,93] and the other one is based on stochastic modeling [21,46,48,51,77].",
+      "startOffset" : 258,
+      "endOffset" : 274
+    }, {
+      "referenceID" : 74,
+      "context" : "8B and D): in the literature, to simulate calcium dynamics in synapses and dendritic spines, there are two possible modeling approaches: one is based on the deterministic reaction-diffusion equations [38,93] and the other one is based on stochastic modeling [21,46,48,51,77].",
+      "startOffset" : 258,
+      "endOffset" : 274
+    }, {
+      "referenceID" : 46,
+      "context" : "The stochastic simulations of diffusing ions is now classical: dendritic spine geometry is modeled as a spherical head connected to a narrow cylindrical neck [48] (Fig.",
+      "startOffset" : 158,
+      "endOffset" : 162
+    }, {
+      "referenceID" : 11,
+      "context" : "The SA is modeled with a similar geometry with a neck and a head positioned inside the spine [13].",
+      "startOffset" : 93,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 44,
+      "context" : "Classical diffusion theory cannot account for the fast calcium experimental results: indeed for a Brownian particle released in the spine head, the mean arrival time to the base of a spine has been computed asymptotically [46]",
+      "startOffset" : 222,
+      "endOffset" : 226
+    }, {
+      "referenceID" : 84,
+      "context" : "Using the classical parameter values, the narrow escape time or the mean first arrival time is estimated τ̄ ≈ 120 ms, comparable to the classical FRAP experiments [87,98].",
+      "startOffset" : 163,
+      "endOffset" : 170
+    }, {
+      "referenceID" : 95,
+      "context" : "Using the classical parameter values, the narrow escape time or the mean first arrival time is estimated τ̄ ≈ 120 ms, comparable to the classical FRAP experiments [87,98].",
+      "startOffset" : 163,
+      "endOffset" : 170
+    }, {
+      "referenceID" : 11,
+      "context" : "These distributions have recently been confirmed experimentally [13].",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 39,
+      "context" : "Recent analysis of super-resolution microscopy single particle trajectories of ER luminal proteins revealed that the topological organization of the ER correlates with distinct trafficking modes [41]: a dominant diffusive component in tubular junctions and a fast flow component in tubules.",
+      "startOffset" : 195,
+      "endOffset" : 199
+    }, {
+      "referenceID" : 25,
+      "context" : "The consequence of this unusual network transportation is that molecules travel together by recurrent packets, which is quite a large deviation behavior compared to classical propagation in graphs [27].",
+      "startOffset" : 197,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 94,
+      "context" : "The trajectories with short arrival time (shown in the blue square of the time distribution in the inset left) are concentrated along two symmetric optimal paths (white dashed-line) [97].",
+      "startOffset" : 182,
+      "endOffset" : 186
+    }, {
+      "referenceID" : 28,
+      "context" : "This model2 captures the crude sperm dynamics, neglecting the additional motion induced by the flagella [30].",
+      "startOffset" : 104,
+      "endOffset" : 108
+    }, {
+      "referenceID" : 94,
+      "context" : "where K is a constant, equal to 8 π for a disk [97].",
+      "startOffset" : 47,
+      "endOffset" : 51
+    }, {
+      "referenceID" : 42,
+      "context" : "Finally, the search time for the rectilinear model of sperms motion is much longer than for a diffusing particle, which is O(log 1 ε ) in dimension 2 and O( 1 ε ) for a cusp [44].",
+      "startOffset" : 174,
+      "endOffset" : 178
+    }, {
+      "referenceID" : 94,
+      "context" : "Numerical simulations of [97] confirm that the mean time is around 8 to 9 hours, while the first one to arrive is of the order of 20 minutes, confirming the role of the fastest.",
+      "startOffset" : 25,
+      "endOffset" : 29
+    }, {
+      "referenceID" : 37,
+      "context" : "Similarly, it is not clear how other physical scenarios, such as rheotaxis or thermotaxis contribute to sperm guidance [39].",
+      "startOffset" : 119,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 3,
+      "context" : "(D) Telomeres organized in clusters at the surface of the yeast nucleus [5,88].",
+      "startOffset" : 72,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 85,
+      "context" : "(D) Telomeres organized in clusters at the surface of the yeast nucleus [5,88].",
+      "startOffset" : 72,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 71,
+      "context" : "The number of spermatozoa is thus the main determinant of the selection [74] and since the mean time for the first one to arrive is O(1/ logN), a large number of them is necessary to affect the search process.",
+      "startOffset" : 72,
+      "endOffset" : 76
+    }, {
+      "referenceID" : 13,
+      "context" : "Reducing their number by a factor of 4 may cause infertility [15].",
+      "startOffset" : 61,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 73,
+      "context" : "This situation is actually alarming due to the constant decline of sperm count (per ejaculate) in western countries [76], at a rate of 1.",
+      "startOffset" : 116,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 7,
+      "context" : "Another manifestation of extreme statistics in cell biology is the cell’s time perception: cell lifetime is reflected in the number of cell divisions prior to senescence (arrest of cell division), which is a measure of a cell’s lineage death and cellular aging [9].",
+      "startOffset" : 261,
+      "endOffset" : 264
+    }, {
+      "referenceID" : 35,
+      "context" : "Although the precise physical mechanism that regulates the number of cell divisions prior to senescence remains unclear, it becomes more and more evident that this time is expressed in the length of the shortest telomere [37], but how? Several decades of research have revealed that telomeres3 are made of repetitive nucleotide sequences at each end of a chromatid,",
+      "startOffset" : 221,
+      "endOffset" : 225
+    }, {
+      "referenceID" : 17,
+      "context" : "Senescence means biological aging, telomerase is an enzyme that extends the telomeres of chromosomes [19,22,37,52,90,91]).",
+      "startOffset" : 101,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 20,
+      "context" : "Senescence means biological aging, telomerase is an enzyme that extends the telomeres of chromosomes [19,22,37,52,90,91]).",
+      "startOffset" : 101,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 35,
+      "context" : "Senescence means biological aging, telomerase is an enzyme that extends the telomeres of chromosomes [19,22,37,52,90,91]).",
+      "startOffset" : 101,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 49,
+      "context" : "Senescence means biological aging, telomerase is an enzyme that extends the telomeres of chromosomes [19,22,37,52,90,91]).",
+      "startOffset" : 101,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 87,
+      "context" : "Senescence means biological aging, telomerase is an enzyme that extends the telomeres of chromosomes [19,22,37,52,90,91]).",
+      "startOffset" : 101,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 88,
+      "context" : "Senescence means biological aging, telomerase is an enzyme that extends the telomeres of chromosomes [19,22,37,52,90,91]).",
+      "startOffset" : 101,
+      "endOffset" : 120
+    }, {
+      "referenceID" : 24,
+      "context" : "Telomeres are necessary for the maintenance of chromosomal integrity and overall genomic stability [26,62] and in the absence of any mechanism of elongation, telomere length can only decrease over time [95].",
+      "startOffset" : 99,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 59,
+      "context" : "Telomeres are necessary for the maintenance of chromosomal integrity and overall genomic stability [26,62] and in the absence of any mechanism of elongation, telomere length can only decrease over time [95].",
+      "startOffset" : 99,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 92,
+      "context" : "Telomeres are necessary for the maintenance of chromosomal integrity and overall genomic stability [26,62] and in the absence of any mechanism of elongation, telomere length can only decrease over time [95].",
+      "startOffset" : 202,
+      "endOffset" : 206
+    }, {
+      "referenceID" : 5,
+      "context" : "However, the mechanism that inhibits shortening via the action of telomerase by elongating telomeres necessitate the lengths of telomere are not simply monotonically decreasing, as modeled in [7].",
+      "startOffset" : 192,
+      "endOffset" : 195
+    }, {
+      "referenceID" : 88,
+      "context" : "Interestingly, short telomeres are preferentially elongated by telomerase [91] and the shortest telomere is apparently a limiting factor of cellular proliferation [37].",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 35,
+      "context" : "Interestingly, short telomeres are preferentially elongated by telomerase [91] and the shortest telomere is apparently a limiting factor of cellular proliferation [37].",
+      "startOffset" : 163,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 62,
+      "context" : "It is not yet possible to monitor telomere dynamics throughout cell division, so that theoretical models have been used to predict telomere shortening under various conditions: models have revealed the molecular dynamics and the variability of triggering senescence in mammalian cells within a telomerase-deficient cell population [65,67,68,75,90].",
+      "startOffset" : 331,
+      "endOffset" : 347
+    }, {
+      "referenceID" : 64,
+      "context" : "It is not yet possible to monitor telomere dynamics throughout cell division, so that theoretical models have been used to predict telomere shortening under various conditions: models have revealed the molecular dynamics and the variability of triggering senescence in mammalian cells within a telomerase-deficient cell population [65,67,68,75,90].",
+      "startOffset" : 331,
+      "endOffset" : 347
+    }, {
+      "referenceID" : 65,
+      "context" : "It is not yet possible to monitor telomere dynamics throughout cell division, so that theoretical models have been used to predict telomere shortening under various conditions: models have revealed the molecular dynamics and the variability of triggering senescence in mammalian cells within a telomerase-deficient cell population [65,67,68,75,90].",
+      "startOffset" : 331,
+      "endOffset" : 347
+    }, {
+      "referenceID" : 72,
+      "context" : "It is not yet possible to monitor telomere dynamics throughout cell division, so that theoretical models have been used to predict telomere shortening under various conditions: models have revealed the molecular dynamics and the variability of triggering senescence in mammalian cells within a telomerase-deficient cell population [65,67,68,75,90].",
+      "startOffset" : 331,
+      "endOffset" : 347
+    }, {
+      "referenceID" : 87,
+      "context" : "It is not yet possible to monitor telomere dynamics throughout cell division, so that theoretical models have been used to predict telomere shortening under various conditions: models have revealed the molecular dynamics and the variability of triggering senescence in mammalian cells within a telomerase-deficient cell population [65,67,68,75,90].",
+      "startOffset" : 331,
+      "endOffset" : 347
+    }, {
+      "referenceID" : 26,
+      "context" : "To analyze the role of shortest telomere in senescence, stochastic models based on an asymmetric random walk were developed and validated against experimental data [28,81,96].",
+      "startOffset" : 164,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 78,
+      "context" : "To analyze the role of shortest telomere in senescence, stochastic models based on an asymmetric random walk were developed and validated against experimental data [28,81,96].",
+      "startOffset" : 164,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 93,
+      "context" : "To analyze the role of shortest telomere in senescence, stochastic models based on an asymmetric random walk were developed and validated against experimental data [28,81,96].",
+      "startOffset" : 164,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 93,
+      "context" : "These models are described as jump processes (see equation (37) below), containing three parameters that were extracted in the case of budding yeast data [96].",
+      "startOffset" : 154,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 26,
+      "context" : "One model was also used to study [28] the steady-state properties of telomeres, such as the length distribution of the shortest and the second shortest, demonstrating that there is a statistical gap between the two shortest telomeres.",
+      "startOffset" : 33,
+      "endOffset" : 37
+    }, {
+      "referenceID" : 16,
+      "context" : "This gap suggested that the shortest telomere can play a key role in determining the number of cell divisions and in triggering senescence, by simply reaching the length threshold interpreted by the cell as a signal to stop dividing [18, 28,63,96].",
+      "startOffset" : 233,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 26,
+      "context" : "This gap suggested that the shortest telomere can play a key role in determining the number of cell divisions and in triggering senescence, by simply reaching the length threshold interpreted by the cell as a signal to stop dividing [18, 28,63,96].",
+      "startOffset" : 233,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 60,
+      "context" : "This gap suggested that the shortest telomere can play a key role in determining the number of cell divisions and in triggering senescence, by simply reaching the length threshold interpreted by the cell as a signal to stop dividing [18, 28,63,96].",
+      "startOffset" : 233,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 93,
+      "context" : "This gap suggested that the shortest telomere can play a key role in determining the number of cell divisions and in triggering senescence, by simply reaching the length threshold interpreted by the cell as a signal to stop dividing [18, 28,63,96].",
+      "startOffset" : 233,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 9,
+      "context" : "The expected number of divisions of the majority of cells, beginning with yeast and up to human immune or reproductive cells, is about 70–100, while the shortening process allows the cell to survive only about 25–50 divisions [11].",
+      "startOffset" : 226,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 26,
+      "context" : "In the random walk model of telomere dynamics [28,96], the length x of the telomere can decrease or increase in each division.",
+      "startOffset" : 46,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 93,
+      "context" : "In the random walk model of telomere dynamics [28,96], the length x of the telomere can decrease or increase in each division.",
+      "startOffset" : 46,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 26,
+      "context" : "The jump probability r(x) is a decreasing function of x (see equation (38) below) with r(0) = 1 [28] that was found to match the experimental data of [96].",
+      "startOffset" : 96,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 93,
+      "context" : "The jump probability r(x) is a decreasing function of x (see equation (38) below) with r(0) = 1 [28] that was found to match the experimental data of [96].",
+      "startOffset" : 150,
+      "endOffset" : 154
+    }, {
+      "referenceID" : 6,
+      "context" : "The problem at hand is to determine the evolution of the telomere length, to study the dynamics of the shortest length, and to identify the role of the probability r(x), which can be modulated by telomere diseases [8].",
+      "startOffset" : 214,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 26,
+      "context" : "The model of the telomere length dynamics was introduced in [28]",
+      "startOffset" : 60,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 26,
+      "context" : "The parameters used in the simulations [28,96] are the shortening length a, chosen here to be 3 base pairs (bps) and the number of base pairs added by the telomerase b = 30 (a slightly different model was introduced in [28], where b is a random variable that follows an exponential distribution with rate 0.",
+      "startOffset" : 39,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 93,
+      "context" : "The parameters used in the simulations [28,96] are the shortening length a, chosen here to be 3 base pairs (bps) and the number of base pairs added by the telomerase b = 30 (a slightly different model was introduced in [28], where b is a random variable that follows an exponential distribution with rate 0.",
+      "startOffset" : 39,
+      "endOffset" : 46
+    }, {
+      "referenceID" : 26,
+      "context" : "The parameters used in the simulations [28,96] are the shortening length a, chosen here to be 3 base pairs (bps) and the number of base pairs added by the telomerase b = 30 (a slightly different model was introduced in [28], where b is a random variable that follows an exponential distribution with rate 0.",
+      "startOffset" : 219,
+      "endOffset" : 223
+    }, {
+      "referenceID" : 76,
+      "context" : "238 in [79]): Lε(τ0(y)) = ε 2 m2(y)τ ′′ 0 (y) + m1(y)τ ′ 0(y) = −1 for z0 ≤ y ≤ 1, τ0(z0) = 0, τ ′ 0(1) = 0.",
+      "startOffset" : 7,
+      "endOffset" : 11
+    }, {
+      "referenceID" : 78,
+      "context" : "We use here 10000 samples (reproduced from [81]).",
+      "startOffset" : 43,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 78,
+      "context" : "Thus to study the effect of the shortest telomere, we introduced in [81] the distance ratio between the first and second arrival time associated to the shortest and second shortest telomere to reach the threshold T : R1 = |E[τsecond] −E[τfirst]| √( E[τ 2 first] −E[τfirst]2 ) , (55)",
+      "startOffset" : 68,
+      "endOffset" : 72
+    }, {
+      "referenceID" : 14,
+      "context" : "Leukocyte telomere length can be used as a bio-marker of cardiovascular diseases, confirming that the distribution of telomere length and probably that of the shortest, plays a key role [16].",
+      "startOffset" : 186,
+      "endOffset" : 190
+    }, {
+      "referenceID" : 14,
+      "context" : "Similarly, adults suffering from major depression have shorter telomere length [16].",
+      "startOffset" : 79,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 78,
+      "context" : "Activation escape from the potential well (to a threshold T ) generated by the process of shortening and elongation is the precise mechanism to extend the number of cell divisions before senescence, showing the role of stochastic fluctuations in a fundamental mechanism of cellular biology [81].",
+      "startOffset" : 290,
+      "endOffset" : 294
+    }, {
+      "referenceID" : 22,
+      "context" : "1, we discussed the analytical results and asymptotic methods developed in [24,60,78,86, 100] to compute the first moment of the shortest arrival time τ (n) to a small target in an ensemble of n non-interacting i.",
+      "startOffset" : 75,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 57,
+      "context" : "1, we discussed the analytical results and asymptotic methods developed in [24,60,78,86, 100] to compute the first moment of the shortest arrival time τ (n) to a small target in an ensemble of n non-interacting i.",
+      "startOffset" : 75,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 75,
+      "context" : "1, we discussed the analytical results and asymptotic methods developed in [24,60,78,86, 100] to compute the first moment of the shortest arrival time τ (n) to a small target in an ensemble of n non-interacting i.",
+      "startOffset" : 75,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 83,
+      "context" : "1, we discussed the analytical results and asymptotic methods developed in [24,60,78,86, 100] to compute the first moment of the shortest arrival time τ (n) to a small target in an ensemble of n non-interacting i.",
+      "startOffset" : 75,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 97,
+      "context" : "1, we discussed the analytical results and asymptotic methods developed in [24,60,78,86, 100] to compute the first moment of the shortest arrival time τ (n) to a small target in an ensemble of n non-interacting i.",
+      "startOffset" : 75,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 94,
+      "context" : "Other types of motions can also be studied such as the rectilinear dynamics [97] for spermatozoa, switching dynamics to describe bacteria [32], transcription factor searching [72] or growth cone navigation [73].",
+      "startOffset" : 76,
+      "endOffset" : 80
+    }, {
+      "referenceID" : 30,
+      "context" : "Other types of motions can also be studied such as the rectilinear dynamics [97] for spermatozoa, switching dynamics to describe bacteria [32], transcription factor searching [72] or growth cone navigation [73].",
+      "startOffset" : 138,
+      "endOffset" : 142
+    }, {
+      "referenceID" : 69,
+      "context" : "Other types of motions can also be studied such as the rectilinear dynamics [97] for spermatozoa, switching dynamics to describe bacteria [32], transcription factor searching [72] or growth cone navigation [73].",
+      "startOffset" : 175,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 70,
+      "context" : "Other types of motions can also be studied such as the rectilinear dynamics [97] for spermatozoa, switching dynamics to describe bacteria [32], transcription factor searching [72] or growth cone navigation [73].",
+      "startOffset" : 206,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 94,
+      "context" : "In the case of spermatozoa moving inside the uterus-like domain, which is not convex [97], optimal paths suggests that guiding sensors such as chemotaxis or thermotaxis do not really contribute in finding the egg far away [97].",
+      "startOffset" : 85,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 94,
+      "context" : "In the case of spermatozoa moving inside the uterus-like domain, which is not convex [97], optimal paths suggests that guiding sensors such as chemotaxis or thermotaxis do not really contribute in finding the egg far away [97].",
+      "startOffset" : 222,
+      "endOffset" : 226
+    }, {
+      "referenceID" : 77,
+      "context" : "This algorithmic procedure follow the path-integral methodology [80].",
+      "startOffset" : 64,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 10,
+      "context" : "When there are no obstacles, the asymptotic solution of the distribution of arrival time is constructed by the ray-method of the Green’s function [12,14].",
+      "startOffset" : 146,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 12,
+      "context" : "When there are no obstacles, the asymptotic solution of the distribution of arrival time is constructed by the ray-method of the Green’s function [12,14].",
+      "startOffset" : 146,
+      "endOffset" : 153
+    }, {
+      "referenceID" : 45,
+      "context" : "The Wiener representation of the pdf for a pure Brownian motion is obtained for a zero drift and σ = D is a constant, so that it is given by the probability of a sampled path until it exits at the small window at the random time T [47]",
+      "startOffset" : 231,
+      "endOffset" : 235
+    }, {
+      "referenceID" : 77,
+      "context" : "where D(x) is the limit Wiener measure [80]: the exterior integral is taken over all end points x and the path integral is over all paths starting from x(0) [60].",
+      "startOffset" : 39,
+      "endOffset" : 43
+    }, {
+      "referenceID" : 57,
+      "context" : "where D(x) is the limit Wiener measure [80]: the exterior integral is taken over all end points x and the path integral is over all paths starting from x(0) [60].",
+      "startOffset" : 157,
+      "endOffset" : 161
+    }, {
+      "referenceID" : 12,
+      "context" : "17A) that was used to find the asymptotic solution [14].",
+      "startOffset" : 51,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 73,
+      "context" : "Another key question is how the large numbers are set? Why the number of sperms is the one found for each species, but not ten times more? Ten time less is associated to infertility [76], while ten times more would lead to a super-fertility that could be associated to too many progenitors.",
+      "startOffset" : 182,
+      "endOffset" : 186
+    }, {
+      "referenceID" : 44,
+      "context" : "The same question can be asked for neurotransmitters released at synapses, around 2000–4000, probably to compensate the low probability to find gated receptors [46].",
+      "startOffset" : 160,
+      "endOffset" : 164
+    } ],
+    "year" : 2019,
+    "abstractText" : "The paradigm of chemical activation rates in cellular biology has been shifted from the mean arrival time of a single particle to the mean of the first among many particles to arrive at a small activation site. The activation rate is set by extremely rare events, which have drastically different time scales from the mean times between activations, and depends on different structural parameters. This shift calls for reconsideration of physical processes used in deterministic and stochastic modeling of chemical reactions that are based on the traditional forward rate, especially for fast activation processes in living cells. Consequently, the biological activation time is not necessarily exponentially distributed. We review here the physical models, the mathematical analysis and the new paradigm of setting the scale to be the shortest time for activation that clarifies the role of population redundancy in selecting and accelerating transient cellular search processes. We provide examples in cellular transduction, gene activation, cell senescence activation or spermatozoa selection during fertilization, where the rate depends on numbers. We conclude that the statistics of the minimal time to activation set kinetic laws in biology, which can be very different from the ones associated to average times. © 2019 Elsevier B.V. All rights reserved.",
+    "creator" : "Elsevier"
+  }
+}

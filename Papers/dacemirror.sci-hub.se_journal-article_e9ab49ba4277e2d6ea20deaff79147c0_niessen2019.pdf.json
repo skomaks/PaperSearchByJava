@@ -1,0 +1,403 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_e9ab49ba4277e2d6ea20deaff79147c0_niessen2019.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Computer-aided manufacturing and focused ion beam technology enable machining of complex micro- and nano-structures",
+    "authors" : [ "Frank Niessen", "Mitchell J. B. Nancarrow" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "1\nWe present a novel framework for the fabrication of geometrically complex structures at the micro- 6 and nano-scale which relies on the synergy of integrated computer-aided design and manufacturing 7 systems (CAD/CAM) and focused ion beam (FIB) technology in a scanning electron microscope. 8 Here we utilise industry standard G-code syntax, for the first time, to FIB machining by designing 9 geometries with CAD, defining machining strategies and exporting G-codes with CAM and 10 generating a coordinate list-based beam path by using a custom-built interpreter program. This 11 allows the fabrication of complex structures from CAD models using syntax which is readily 12 understood in the general fabrication industry. The use of G-code allows optimization of the beam 13 path towards a reduction of beam blanking operations and tracing of contours, leading to 14 minimized re-deposition of material. We give a detailed description of the method, use an 15 application example to demonstrate advantages and prospects of the approach and provide the free 16 and open-source interpreter program CAM2FIB for application of this method. We contrast and 17 compare various existing available milling strategies and demonstrate the versatility of G-code 18 based programming. 19\nKeywords: focused ion beam; computer-aided manufacturing; electron microscopy; patterning; 20 nano-fabrication; sample preparation 21\n*Corresponding author, Contact: contact@fniessen.com\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep te\nd M\nnu s\n2\nIntroduction 1 Manufacturing of geometrically complex structures at the micro- and nano-scale is an important 2 driver for new developments in science. Some examples are the design of functional surfaces [1], 3 high aspect ratio honeycomb structures for use as drug-delivery patches [2], perforation of 4 graphene membranes for utrafiltration [3] and the design of nanoelectromechanical systems [4]. 5 In comparison to different nanolithography techniques, machining with a focused ion beam (FIB) 6 in a scanning electron microscope (SEM) stands out by the simple procedure, low preparation time 7 and compatibility with a high range of materials [5]. Up to now FIB machining has been 8 conventionally performed via a rastered approximation of primitive 2D projection patterns. 9 Patterning of complex geometries with projections is tedious, difficult to reproduce, limited in 10 spatial resolution and allows little variability of the machining strategy, i.e. the choice in beam 11 path and dwell time. The machining strategy has significant impact on the appearance and 12 dimensional accuracy of the machined structure [6]. 13\nNowadays, most instruments allow patterning of more complex geometries according to patterns 14 that are defined in monochromatic bitmap files. The pixels of such image are scanned horizontally, 15 line by line, where each pixel intensity in the range of 0 to 255 serves as a scaling factor for the 16 beam dwell time. The more refined definition of the geometry and local dwell time of patterning 17 of bitmaps has been shown to produce complex and continuous geometries successfully [7–9]. A 18 major drawback of bitmap-based patterning however is the limitation to a horizontal, line-by-line, 19 scanning strategy, which leads to an excessive amount of beam-blanking operations when 20 machining discontinuous geometries. This causes inaccurate beam placement at start and 21 endpoints for very finely detailed structures. Further drawbacks of the set beam path are no option 22 of tracing contours to avoid re-deposition of material and the limitation to single layer patterns 23 [10]. 24\nThe latest generation of FIB/SEM instruments allows patterning along arbitrary beam paths, 25 defined by stream files. Stream files are ASCII-type files consisting of a list of beam positions, 26 dwell times and flags for beam blanking. During execution, the coordinates and dwell times in a 27 stream file are sent line-by-line to the Digital-Analog-Converter (DAC), which controls the 28 positioning of the FIB by varying the voltage applied to the scanning optics [10]. Compared to 29 bitmap-based machining, this approach allows full freedom in defining the beam path and dwell 30 times at the cost of a more complicated procedure for pattern generation. Stream file based 31 patterning has been demonstrated for manufacturing of simple cone and hole geometries [8,11] 32 and geometrically more complex 2D patterns [12]. In these cases stream files seem to have been 33 created manually or by mathematical formulae. 34\nAn obvious step forward in this respect was the derivation of geometries from CAD models, 35 demonstrated in Refs. [9,10,13,14] to allow easier, more advanced and more reproducible design 36 of micro- and nano-components. Velkova et al. [9] and Lalev et al. [10] created stream files based 37 on coordinates in stereolithography (STL) format files, which can commonly be exported from 38\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep t\nd M\nan us\ncr ip\nt\n3\ncomponents of a CAD model. While this approach constitutes an improvement compared to 1 bitmap-based machining, it is limited to the same horizontal scanning strategy and does thus not 2 employ the potential of stream files of customizing the beam path. This shortcoming was addressed 3 in recent work by De Felicis et al. [13], who imported coordinates from a mesh of a 3D component 4 of a CAD model, calculated dwell-times by a node down-sampling approach and applied a custom 5 scanning strategy aimed at minimizing beam blanking operations and tracing the contours of the 6 final geometry. They demonstrated that the derivation of geometries from CAD and optimization 7 of the FIB machining strategy are a promising path towards machining complex geometries at high 8 spatial resolution. As the beam path was obtained from a custom-built, non-released, algorithm 9 with a fixed scanning strategy, it however lacks applicability and adaptability to a large variety of 10 geometries. 11\nFor several decades, computer aided manufacturing (CAM) has been applied to derive information 12 from a CAD model to create instructions, so called G-codes, for the control of the path of an 13 automated cutting tool. G-code is the predominant industry standard for numerical control of 14 several milling, turning and cutting techniques [15]. Recently, G-code extensions to overcome 15 conventional layer-based techniques in additive manufacturing have been developed [16–18]. 16 Currently CAD and CAM are available as integrated software solutions, in which one can directly 17 apply and combine several machining strategies to fabricate a designed component. Strategies vary 18 from simple parallel machining to complex strategies such as pocket or adaptive machining. Since 19 CAD/CAM for CNC machining is a huge market, complex machining strategies have been refined 20 and optimized over decades and new machining strategies are still being developed [19–21]. 21\nThese clear incentives led us to develop a framework for the application of CAD/CAM-generated 22 machining strategies to the field of FIB machining. We demonstrate a unique workflow consisting 23 of CAD of structures for FIB machining, assignment of machining strategies to regions of the 24 CAD-model, export and interpretation of G-codes as well as coordinate interpolation and scaling 25 for the final export to stream files. The method only depends on a CAD/CAM application and a 26 freely available interpreter program, which was developed in MATLAB [22]. Since the scanning 27 strategy, i.e. the definition of the beam path, is defined in the CAD/CAM software, the workflow 28 benefits from an easy to use graphical user interface and a large degree of versatility. The 29 interpreter program requires the input of a G-code file, which is exported from the CAD/CAM 30 application. Since G-code is standardized [23], the interpreter program can be combined with any 31 kind of CAD/CAM application. 32\nThus, a well-known syntax in the form of G-code whereby variables such as feed rate/dwell time, 33 tool diameter/beam width and tool up and down/beam blanking is now usable in an innately 34 understandable FIB context. This ties succinctly the generation of complex parts through standard 35 CAD packages as well as the interpretation of these geometries into a viable beam steering 36 program. We also demonstrate the possibility of using these methods in an additive manufacturing 37 context. 38\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\ne t\nd M\na us\ncr ip\nt\n4\nMethod 1\nThe developed method is described in a general matter and may be applied in combination with 2 the majority of available CAD/CAM applications. The CAD/CAM part of the overall method has 3 been validated using Autodesk Inventor Professional [24], Autodesk Fusion 360 [25] and FreeCAD 4 [26]. 5\nThe description of the method is supported by showing the steps that were involved in creating the 6 geometries and machining instructions for the application example in section 3. The application 7 example consists of machining a complex shaped structure of 2.16 x 2.28 µm according to an 8 orthogonally projected geometry. More motivation on the choice of the particular structure 9\ngeometry is given in section 3.1. 10"
+    }, {
+      "heading" : "2.1 CAD of structures for FIB machining 11",
+      "text" : "Scaling 12\nConsidering the conventional length scales at which FIB is applied for machining structures, the 13 dimensioning of geometries in CAD should, in theory, be done in nanometres. In practice, this 14 proves to be inconvenient for the following reasons: (1) The standard length units of most CAD 15 applications are either inch or millimetre. Dimensioning structures in nanometre could thus exceed 16 the resolution limit of the application. (2) The view settings of most CAD applications are 17 optimized towards use of these standard length units, which may render dimensioning in 18 nanometres impractical. (3) As in the current workflow the machining strategies in the CAM 19 module are adapted from CNC milling, the ratio between the dimensions of the designed 20 component and a standard milling tool should resemble the ratio between the dimensions of the 21 final structure and the beam width. 22\nRealising that the nanometre in standard FIB machining operations scales approximately with the 23 millimetre in standard CNC milling operations, all lengths are dimensioned in millimetre. The 24 exported G-codes adapt the millimetre convention and the interpreter program converts all lengths 25 from millimetre to nanometre. 26"
+    }, {
+      "heading" : "Designing the structure 27",
+      "text" : "In CAD, most designs of a solid body start with a 2-dimensional (2D) sketch of its outline (Figure 28 1a). Here we used a Fibonacci spiral template as a test model, as the gradual reduction in radius is 29 advantageous to test the interpreter’s ability to modulate curves, as well as the gradual, predictable 30 narrowing of the gap between the desired features allows re-deposition of material characteristics 31 and the performance of beam-blanking operations in non-continuous structures to be evaluated. 32 As the present implementation is focused on orthogonally projected geometries, the design of a 33 component simply consists of extruding a thin outline to a defined extrusion length (Figure 1b). 34\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep te\nd M\nan us\ncr ip\nt\n5\nThe value of the extrusion length is not of great importance, but should for convenience be a small 1 value compared to the length and width of the structure. In order to assign operations for machining 2 the designed component in Figure 1b, a machining stock needs to be created. Here, a bottom plate 3 is created by defining a second sketch of a sufficiently large rectangle and extruding the profile 4 away from the main body (green body in Figure 1c). The outer edges of the bottom plate are then 5 defined as the machining stock so that machining operations can be assigned to the green surface 6 area of the plate. This approach can be taken a step further by defining multiple areas for machining 7 with individual machining strategies as shown in Figure 1d. This can be achieved by creating 8 additional 2D sketches on the bottom plate and defining these areas as boundary patches, which 9\nrenders them selectable as individual areas for machining in the CAM module. 10\nDerivation of CAD geometries from monochromatic bitmap files 11\nSwitching from bitmap- to stream file-based FIB machining does generally not require redesign 12 of existing geometries. Most CAD applications support the import of geometries from 13 vector-based image formats such as SVG or DXF into 2D sketches. Transfer of existing geometries 14 from bitmaps into the CAD application therefore only requires the transformation of a bitmap to a 15 vector-based image format. Several applications are available to conduct such transformation. The 16 2D sketch in Figure 1a was derived from a monochromatic bitmap, which was transformed into a 17 vector graphic object by using the Trace bitmap feature in the open-source vector graphics editor 18 Inkscape [27]. The feature supports bitmap tracing by various criteria such as brightness cut off, 19 edge detection or colour quantization and works especially well with bitmaps that show geometries 20 with distinct contours. 21\n22\nFigure 1. CAD steps towards application of CAM for FIB machining demonstrated on the geometry of a Fibonacci spiral with final dimensions of 1.83 x 2.22 µm : a) Creation of a fully constrained 2D sketch (1.83 x 2.22 m); b) 6 mm extruded body based on the profile defined in the 2D sketch; c) -150 mm extrusion of an attached bottom plate (2.16 x 2.28 m) required for assignment of pocket milling strategies; d) Example of defining individual boundary patches (coloured regions 1 to 6) for local assignment of different machining strategies.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA c\npt ed\nM\nnu\nsc\nrip\nt\n6\n2.2 Definition of the beam path 1\nOnce the 3D model of a structure has been 2 designed in CAD, machining strategies can be 3 assigned to individual regions. All here 4 presented machining strategies are originally 5 designed for CNC milling and were adapted to 6 FIB machining. We therefore adapt common 7 terms, such as tool path in CNC machining, to 8 their FIB-equivalent, beam path. Some 9 examples of different machining strategies are 10\nintroduced in the application example in section 11\n3. The present section gives an overview of some 12\ngeneral conventions and parameters that need 13\nadjustment for applying CAM to FIB machining. 14\nAssignment of machining strategies 15\nDifferent CAD/CAM applications have different 16\nimplemented machining strategies and ways of assigning these. It is commonly required to indicate 17 the stock boundaries and the machining region for each selected machining strategy. Machining 18 strategies typically allow the definition of an offset towards the contour of a structure without 19 explicitly defining dedicated sub-regions. This feature is useful when finishing of a final contour 20 should be carried out by a dedicated contour machining strategy. 21\nMost CAD/CAM applications include a tool for the visual simulation of the final beam path. This 22 is a useful feature to check the correct definition of the beam path as a final step before exporting 23 the G-code. 24\nAccounting for the beam width and specifying scanning pitch 25\nBy default, CAM applications compensate for the diameter of the tool when computing a tool path 26 along the contours of a geometry. Similarly, the ion beam has a known width and geometry which 27 must be defined in order to create beam paths for FIB machining. Here the beam geometry is 28 defined by selecting an end mill tool with a diameter in millimetre that corresponds to the beam 29 width in nanometre. The patterning point coordinates are compensated for the beam width during 30 generation of the beam path. During interpretation of G-codes no beam compensation is applied. 31\nIn milling, the distance between the centrelines of two adjacent tool paths is known as the stepover 32 distance. Equivalently in scanning microscopy, the distance between the centrelines of two 33 adjacent beam paths is known as beam pitch. The relation between beam width and pitch is 34\n\uD835\uDC98\uD835\uDC69 \uD835\uDC77\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\npt ed\nM\nan\n7\nillustrated in Figure 2. The respective relations of tool diameter, \uD835\uDC64\uD835\uDC47, to stepover distance, \uD835\uDC51\uD835\uDC60, and 1 beam width, \uD835\uDC64\uD835\uDC35, to beam pitch, , are equivalent and linked by the relative overlap, \uD835\uDEFF: 2\n\uD835\uDEFF = 1 − \uD835\uDC51\uD835\uDC60 \uD835\uDC64\uD835\uDC47 = 1 − \uD835\uDC64\uD835\uDC35 (1)\nControlling the stepover distance in the CAD/CAM application is therefore equivalent to 3 controlling the beam pitch in FIB machining. In simple machining strategies, such as parallel or 4 contour milling, the stepover distance can be set to a constant value, while more advanced 5 machining strategies, such as pocket or adaptive milling, only allow control over the maximum 6 stepover distance. 7\nAdjustment of settings that are specific to milling 8\nA major characteristic of milling, which is fundamentally different to FIB machining, is that the 9 cutting movement is performed by a rotating tool. Since the direction of the cutting motion is 10 different from the feed movement of the tool, their directional relationship finds consideration in 11 the design of tool paths (“climb” vs “conventional” milling strategies) [15]. This relationship is 12 not relevant for FIB machining and needs to be either adjusted or deactivated. 13\nTo ensure a gradual engagement of the tool with the sample in milling, additional path sections 14 such as leads, transitions and ramps are implemented into the tool path. These path sections are of 15 no immediate relevance for FIB machining and should thus be deactivated as far as possible. 16"
+    }, {
+      "heading" : "2.3 Assembly of G-codes 17",
+      "text" : "Supported G-codes and their interpretation 18\nG-code (also referred to as RS274 language [28]) is a numerical control (NC) programming 19 language and is used to control automated machine tools. While it used to be custom to program 20 G-codes manually in an editor, CAM software nowadays generates G-code automatically via a 21 postprocessor. Various G-code implementations are available, most of which are specific to 22 different machine manufacturers. The command syntax consists of the capital letter ‘G’ followed 23 by a number. The interpreter program, which was created for application of G-codes to FIB 24 machining, was designed to accept the most common G-code implementations. The compatibility 25 of the interpreter was tested with the standardized RS274D [23], WinCNC and the generic 26 FreeCAD implementations. 27\nWhile a file of G-codes may contain a large number of different commands, the geometry of the 28 tool path is conventionally defined by a combination of only four basic G-codes: 29\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\ne te\nd M\nan us\ncr ip\nt\n8\n• G00: Rapid positioning. This code positions a tool by driving each axis of an NC machine 1 at its maximum speed. The movement is rapid and non-interpolated which requires less 2 computational power, but may not result in movement along a straight line. It is thus by 3 convention only used for non-structure forming movements. 4\n• G01: Linear interpolation. This code interpolates a line between two coordinates to enable 5 a linear movement of a tool. In contrast to G00, this command is by convention used for 6 structure forming movements. 7\n• G02: Clockwise controlled arc move. This code moves a tool clockwise along an arc, 8 starting at the current position and ending at a given set of coordinates. The centre point of 9\nthe arc is given by a centre point offset. 10\n• G03: Counter-clockwise controlled arc move. This code corresponds to G02 with a 11 counter-clockwise movement of the tool. 12\nIn milling, the G00 code is used for rapid movements in which the tool is repositioned without 13 being engaged in the work piece. Equivalently in FIB machining, we interpret G00 as repositioning 14 of the blanked beam. We define G01, analogous to its use in NC machining, as a structure forming 15 movement. Most machining strategies in CAD/CAM applications allow some control over the 16 relative use of G00 over G01. As an example, the parameter maximum stay-down distance 17 indicates the maximum distance at which G01 should be chosen over G00 in a non-extrusion 18 movement. In FIB machining, this parameter can be tuned to avoid excessive beam blanking for 19 bridging particularly short distances. 20"
+    }, {
+      "heading" : "Exporting G-codes 21",
+      "text" : "Exporting of G-codes requires a choice of G-code implementation and allows parameterization of 22 some export settings. In our experience with exporting G-codes it was important to allow an 23 extremely large maximum circular radius (arbitrarily set to > 106 m), as some of the more advanced 24 milling strategies work with extremely slight curvatures. It is possible to enforce exporting of the 25 tool path in mm as a length unit, in case the component was designed in a different unit. 26\nIn contrast to exporting a mesh or coordinate list for the creation of stream files, G-code stores 27 spatial information in a vector-based approach and thus results in fast processing and a much 28 smaller file size. Some CAD/CAM applications allow smoothing of the tool paths, which replaces 29 excessive amounts of points by fitted arcs within a given tolerance. Activation of this option is 30 recommended as it may lead to further simplification and shortening of the G-code file. 31"
+    }, {
+      "heading" : "2.4 Interpretation and interpolation of G-code 32",
+      "text" : "Interpretation and interpolation of G-codes for the assembly of a stream file is conducted by a 33 custom-built and freely available interpreter program in MATLAB. The program, CAM2FIB [29], 34 adapted basic features of G-code interpretation and interpolation from the function G-Code Reader 35 by Williamson [30]. 36\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\ne te\nd M\nan us\ncr ip\nt\n9\n1\nStructure of the interpreter program 2\nThe basic purpose of the interpreter program is to interpolate 3 vector-based G-code files to coordinate-based stream files. 4 More specifically, the G-code file is read in, G-codes are 5 interpreted line-by-line, the related line or arc segments are 6 interpolated and are appended to the coordinate list which 7 makes up the beam path. The entire beam path may be 8 interpolated a second time before optional transformations are 9 applied. Finally, the beam path is scaled to the resolution of 10 the DAC and exported to a stream file. The basic structure of 11 the interpreter program is depicted in the flowchart in Figure 3 12 and further details on the major processing steps are given in 13 the following subsections. 14\nInterpretation and Interpolation of G-codes 15\nAfter reading in the G-code file, it is interpreted line by line. 16\nPotential line numbers (N following by the line number) in the 17\nG-code file are ignored by the interpreter. If a tool-diameter is 18\nwritten into the header of the G-code file, which is common in CNC milling, it is automatically 19 identified by the interpreter program. This value in millimetre is interpreted as the beam width in 20 nanometre and serves, together with the relative overlap, to determine the beam pitch. The beam 21 pitch is equal to the interpolated point spacing. All G-codes other than G00 – G03 (see section 22 2.3.1) are ignored by the interpreter. Such other G-codes may indicate tool properties, coolant 23 choices or coordinate conventions, which are not immediately relevant to the present application. 24\nDuring line-by-line processing of the G-code file a valid G-code type is assigned to a variable 25 which tracks the current interpolation mode. All following coordinates are interpolated according 26 to this particular mode until a new G-code is recognized. Commands G01 – G03 are interpolated 27 to beam path segments according to standard linear and arc-interpolation algorithms with the 28 initially determined interpolated point spacing. If the interpolated length of a segment is shorter 29 than the interpolated point spacing, only the start and end point of that segment are added to the 30 beam path. Each interpolated segment is appended to an initially empty list of x and y coordinates 31 that makes up the beam path. Coordinates of mode G00, i.e. repositioning of the blanked beam, do 32 not require interpolation of intermediate points. In this case only the final position is appended to 33 the beam path list. Beam blanking is controlled by an initially all-ones Boolean vector with the 34 same length as the beam path list. When a G00 coordinate is interpolated the value at this point is 35 changed from one to zero. The interpretation of G-codes according to this procedure is repeated 36 line by line until the end of the G-code file is reached. 37\nFigure 3. Flow chart describing the structure of the interpreter program to convert G-code files to stream files.\nInitialization of variables and settings\nImport of G-code text file\nLoop over all text lines\nInterpretation of G-code\nInterpolation of line or arc segment\nAppending of segment to overall beam path\nInterpolation of overall beam path\nTransformation and scaling of beam path\nWriting of stream files\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nte d\nM a\nus cr\nip t\n10\nInterpolation of the assembled beam path 1\nAfter all G-code segments have been interpolated and assembled to a beam path, it is not 2 mandatory, but recommended, to carry out an interpolation of the entire beam path. When 3 interpolating the individual segments during interpretation of G-codes, small remainders of 4 interpolations lead to local increases in the number of patterning points at the end of segments. 5 This is most significant when changing feed direction at the contour of a structure. In these regions 6 the postprocessor of the CAM module commonly computes a combination of short line and arc 7 segments to ensure a smooth change in feed direction of the cutting tool. Saving start and end 8 points of segments that are shorter than the interpolated point spacing leads to an overly fine 9 discretization in these regions. During FIB machining this would lead to the unwanted effect of a 10 locally increased beam dose and sputtering yield, when considering constant dwell times. 11\nTo resolve this issue, the entire beam path is interpolated with a linear interpolation algorithm 12 according to the prescribed interpolated point spacing. If required, the point spacing can at this 13 stage be further decreased by a binning factor. The interpreter program plots 3D contour 14 histograms of the point density within discretized 2D bins. Comparison of this plot before and after 15 interpolation of the beam path is useful to check the effect of this interpolation on the homogeneity 16 of the patterning point distribution. An example of such plots to visualize the effect of interpolating 17 the beam path is given in Figure 4. 18\nScaling and transformation of the beam path 19\nAfter having created a beam path defined by x- and y-coordinates of the final geometry and a 20 Boolean vector for control of beam blanking operations, the path is scaled to the scanning 21\nFigure 4. Point density surface plots of the adaptive machining strategy (see Figure 5c): (a) before and (b) after interpolation of the entire beam path. The colour bar represents the density of scanning points on a grid of 267 x 267 bins. Before cleaning, a high density of scanning points is found at areas of changing feed direction. Interpolation of the entire beam path largely removes this unwanted effect.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep te\nd M\nan\nus\ncr ip\nt\n11\nresolution of the DAC for a given magnification and horizontal field of view. Subsequently, the 1 transformations linear scaling, rotation and mirroring may be applied. 2\nThe spatial calibration of the DAC is carried out by measuring the horizontal field width, \uD835\uDC51\uD835\uDC3B\uD835\uDC39\uD835\uDC4A, 3 for a series of magnifications, \uD835\uDC65\uD835\uDC40. The calibration factor \uD835\uDC4E is defined as: 4\n\uD835\uDC4E = \uD835\uDC5B\uD835\uDC65 \uD835\uDC5A ∑(\uD835\uDC51\uD835\uDC3B\uD835\uDC39\uD835\uDC4A,\uD835\uDC56 × \uD835\uDC65\uD835\uDC40,\uD835\uDC56)\n− \uD835\uDC5A\n\uD835\uDC56=\n(2)\nwhere \uD835\uDC5B\uD835\uDC65 is the number of addressable points of the DAC in the x-direction and \uD835\uDC5A the number of 5 measurements of horizontal field widths and respective magnifications. The conversion from 6 spatial coordinates (\uD835\uDC65, \uD835\uDC66) to DAC coordinates (\uD835\uDC56, \uD835\uDC57) at a given magnification is then achieved by: 7\n(\uD835\uDC56, \uD835\uDC57) = \uD835\uDC4E × \uD835\uDC65\uD835\uDC40 × (\uD835\uDC65, \uD835\uDC66) (3)\nIn the case of the here used 16 bit DAC, \uD835\uDC5B\uD835\uDC65 was 2 6 = 65,536 points. Calibration on the horizontal 8 field width at several magnifications in the range of 500 to 150,000 led to a calibration factor \uD835\uDC4E of 9\n316,181 ± 524 1 \uD835\uDC5A . 10\nOptionally, transformations can be applied to the beam path. Rotation and mirroring allow for 11 correction of the pattern in cases were the G-code file was created with respect to a different 12 coordinate system in the CAD application. Linear scaling may be used to increase the pattern size 13 and interpolation resolution by a common scaling factor. 14\nThe dwell time for all patterning points is determined by the ratio of overall patterning time and 15 number of patterning points in the interpreter program. 16"
+    }, {
+      "heading" : "Application example 17",
+      "text" : "The application example emphasizes the feasibility of the CAM/FIB approach and the effect of 18 applying different machining strategies, i.e. beam paths, to a geometrically complex structure. 19"
+    }, {
+      "heading" : "3.1 Structure geometry and material 20",
+      "text" : "CAD/CAM was applied in conjunction with the CAM2FIB [29] interpreter program to create four 21 different beam paths, following distinct machining strategies, to machine the structure designed in 22 Figure 1. The structure follows the outline of a Fibonacci spiral and was machined as an orthogonal 23 projection on a silicon wafer with the crystallographic direction [1 1 0] in parallel alignment with 24 the surface normal. Silicon is a popular material for nano-structuring [11] and commonly used as 25 a reference material [13]. 26\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA ce\npt ed\nM an\nus cr\nip t\n12"
+    }, {
+      "heading" : "3.2 Experimental setup 1",
+      "text" : "The work was carried out on an FEI Helios NanoLab G3 CX. The FIB/SEM instrument has a 2 patterning-imaging-acquisition system with a DAC resolution of 16 bit. The addressable range is 3 65,536 points in x-direction and 56,576 points in y-direction. The acceleration voltage and current 4 of the ion-beam during patterning were 30 kV and 28 pA, respectively. The width of the ion beam 5 during patterning was derived from the microscope calibration for silicon and was 13 nm. 6 Patterning was carried out at a horizontal field width of 21 µm. 7"
+    }, {
+      "heading" : "3.3 Pattern generation 8",
+      "text" : "Four machining strategies were applied to the entire machining stock (green area in Figure 1c). In 9 the CAM module, the tool diameter was set to 13 mm, corresponding to a beam width of 13 nm. 10 Likewise, the stepover distance was set to 4 mm to correspond to a beam pitch of 4 nm. This 11 resulted in a relative beam overlap of 69 % (c.f. equation (1) and Figure 2). G-code was exported 12 as RS-274D format to four different G-code files†. The linear interpolation distance in the 13 interpreter program was set identical to the stepover distance of 4 nm. The pattern area of 2.16 x 14 2.28 µm was resolved to 7148 × 6753 patterning points. All patterns were given an overall 15 machining time of 100 s which was chosen over using fixed dwell times in order to prevent issues 16 with drift for more complex (i.e. more points) paths. With, on average, 35,000 points per pattern 17 the dwell time per point amounted to an average of 3 ms. 18"
+    }, {
+      "heading" : "3.4 Application of different machining strategies 19",
+      "text" : "With 2.16 x 2.28 µm in total area and down to 90 nm thin channels, machining of the Fibonacci 20 spiral structure poses a challenging application example. The main two challenges in machining 21 the structure are: 22\n1. The structure is discontinuous and complex in geometry. 23 2. The structure contains wide sections as well as narrow channels. 24\nThe associated requirements for a suitable machining strategy to address these challenges are: 25\n1. Tracing of the complex contour of the structure, leading to a significant reduction in beam 26 blanking operations. 27 2. Finishing of narrow sections after clearing of larger sections to improve the sputtering yield 28 and reduce re-deposition of material in these areas. 29\nWe chose four machining strategies based on their different ability to fulfil these requirements. 30 The machining strategies are visualized in contour plots in Figure 5. The horizontal and vertical 31\n† All applied G-code files and generated stream files are provided in the supplementary material.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\npt d\nM an\nus cr\nip t\n13\naxes indicate the spatial coordinates of patterns and the colour scale depicts the patterning order 1 of points. The white dashed lines indicate movement of the blanked beam to a different region for 2 machining. 3\nIn the following, the applied machining strategies are introduced and discussed based on their 4 ability to successfully machine the Fibonacci structures. The machined structures are presented in 5 Figure 6 and are overlayed with the outline of half of the pattern for visual inspection of dimensional 6 accuracy. 7\n8\nFigure 5. Visual representation of different machining strategies. The horizontal and vertical axes indicate the spatial coordinates of patterns and the colour scale shows the order of scanned points. The white broken lines indicate repositioning of the blanked beam. The machining strategies are: a) Parallel machining with simple ordering (similar to bitmap-based patterning), b) Parallel machining with optimized ordering, c) Adaptive machining and d) Pocket machining\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA\ncc\nep\nte\nd M\nan us\ncr pt\n14\nParallel machining with simple ordering 1 The most basic machining strategy is parallel machining. With the option simple ordering 2 activated, the beam path consists of an array of consecutively scanned horizontal lines. This 3 machining strategy is most similar to horizontal scanning in bitmap-based FIB machining. The 4 beam path is shown in Figure 5a. The prescribed horizontal patterning direction and line order 5 implies an excessive amount of beam blanking operations and no tracing of contours. Further, no 6 distinction in the machining order of large and thin sections is made. 7\nFigure 6. Structures created from patterning according to the machining strategies in Figure 5 on a silicon wafer. The blue lines show the outlines of half of the pattern for visual inspection of dimensional accuracy. a) Parallel machining strategy with simple ordering (similar to bitmap-based patterning), b) Parallel machining strategy with advanced ordering, c) Adaptive machining strategy and d) Pocket machining strategy\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA\ncc\nep te\nd M\nan us\ncr ip\nt\n15\nFigure 6a shows that the top down feed direction led to significant re-deposition of material on the 1 machined structure in the opposite direction. The narrowest channels in the centre of the spiral 2 were poorly resolved. 3\nParallel machining with optimized ordering 4\nWith the option simple ordering deactivated, the beam path is computed with the objective of 5 minimizing the overall length of the beam path. In contrast to Figure 5a, the advanced line ordering 6 leads to a separation of the beam path into subregions (Figure 5b). Compared to the simply ordered 7 beam path in Figure 5a, the advanced ordering achieves a drastic reduction in beam blanking 8 operations from 376 to 14. 9\nCompared to the structure which was machined with the option simple ordering activated (Figure 10 6a), the parallel machining strategy with advanced ordering led to somewhat less re-deposition of 11 material on the structure (Figure 6b). Clearing of the large section in the upper-right corner of the 12 pattern as a last step led to significant re-deposition of material in this area. Since the centre of the 13 spiral is machined as the last section in its immediate surrounding, the fine channels of the spiral 14 were resolved more accurately compared to the parallel machining strategy with simple ordering. 15"
+    }, {
+      "heading" : "Adaptive machining strategy 16",
+      "text" : "The adaptive machining strategy was developed to compute a tool path with continuous changes 17 in feed direction to decrease wear of milling tools. While this objective is irrelevant for machining 18 with FIB, the adaptive machining strategy creates a smooth beam path that is adapted to the 19 complex geometry of the Fibonacci spiral (Figure 5c). The strategy only applies 4 beam blanking 20 operations and, for the present geometry, clears larger areas before machining narrow sections. 21\nFigure 6c shows the machined structure. Compared to the structures that were machined by parallel 22 machining strategies (Figure 6 a and b), it is evident that clearing large sections before machining 23 of smaller sections led to a better resolution of the outer part of the Fibonacci spiral. After about 24 the first revolution of the spiral, the feed direction of machining led to re-deposition of material on 25 already finished sections. 26"
+    }, {
+      "heading" : "Pocket machining strategy 27",
+      "text" : "The pocket machining strategy creates beam paths that approach the contours of a structure with a 28 parallel feed direction. The strategy starts by removing the bulk of the material and finishes the 29 structure by tracing the contours (Figure 5d). It uses only 5 beam blanking operations to remove 30 the bulk of material in different regions and then machines the narrower sections with the final 31 tracing of contours. This last step ensures that re-deposition of material on the structure is minimal. 32\nThe machined structure is shown in Figure 6d. Compared to the previous machining strategies, the 33 pocket machining strategy led to a remarkably accurate machining of the Fibonacci spiral. While 34\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA ce\npt d\nM a\nus cr\nip t\n16\nthe unavoidable re-deposition of the material 1 certainly occurred, the pocket machining 2 strategy controlled the re-deposition to ensure 3 that the contour of the structure remained 4 intact. Further, the reduction in beam blanking 5 and rapid changes of direction led to much 6 more precise beam placement during 7 machining operations. The final structure 8 therefore has well-defined edges and good 9\ndimensional accuracy. 10\nDiscussion 11\n4.1 Qualification of CAM and G-12\ncode for FIB machining 13\nCAM in combination with G-code as a 14\nnumerical control language has successfully made its way to an industry standard for numerous 15 milling, turning, cutting and additive manufacturing techniques [15–18,31]. The success of this 16 method is owed to the automated code generation by a postprocessor in CAM and the simplicity 17 and versatility of the G-code command structure, allowing full and precise control of arbitrary 18 processing parameters and multiple axes. 19\nConventional geometrical patterns, bitmap-based patterns and the CAD-based approach in Refs. 20 [9,10] represent patterning techniques that operate with a fixed parallel machining strategy, similar 21 to the one in Figure 5a. Work by De Felicis et al. [13] and the present work (see Figure 6) 22 demonstrate that control over material re-deposition is crucial for obtaining dimensional accuracy 23 and that this control is obtainable by employing optimized machining strategies. The G-code 24 command structure constitutes the ideal platform for the further development of FIB machining at 25 complex geometries and advanced machining strategies. While offering customizability and 26 control over the beam path, it is fully downward compatible – all lower level machining strategies 27 and input formats, such as bitmaps and STL files, are easily convertible to G-code. 28"
+    }, {
+      "heading" : "4.2 Future perspective of CAM/FIB with a G-code framework 29",
+      "text" : "While the present work is a proof of concept, the combination of CAM and FIB with a G-code 30 framework bears great potential to significantly extend the functionalities of existing FIB/SEM 31 systems. In the following, we outline some possible developments and potentials. 32\n33\n34\nFigure 7. Proof of concept for applying the CAM/FIB workflow to additive manufacturing of 3D-structures with electron beam Pt-deposition. The structures, shown at 45° stage tilt, were manufactured by patterning with an electron beam at 0.5 kV acceleration voltage and 0.69 nA beam current.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep t\nd M\nan us\ncr ip\nt\n17"
+    }, {
+      "heading" : "FIB/SEM as a hybrid system 1",
+      "text" : "Figure 7 shows three 3D-structures which were additively manufactured by electron beam Pt-2 deposition. A 3D-model of the structure was designed in a CAD application (see inset with 3 isometric projection in Figure 7) and exported as an STL file. The geometry was then translated to 4 G-code in the 3D-print software Ultimaker Cura [32] and converted to a stream file with the 5 CAM2FIB [29] interpreter program. While no substantial effort was made to optimize the 6 deposition process towards better dimensional accuracy, we consider the reproducibility and detail 7 of the deposited 3D-structures as encouraging for future applications. 8\nOn a macroscopic manufacturing level, G-code is the standard numerical control language for both 9 additive and subtractive manufacturing techniques. Combining both additive and subtractive 10 processing methods in one instrument and being able to integrate sub-components by insertion 11 with a micro-manipulator, FIB/SEM instruments are by definition hybrid systems. While advanced 12 access to such hybrid capabilities can be obtained via manufacturer extensions [33,34], a G-code 13 based framework would grant full control over these individual capabilities and unleash the full 14 potential of their coordinated interaction. 15"
+    }, {
+      "heading" : "Online interpretation of FIB/SEM-fitted G-code 16",
+      "text" : "In this work, G-code intended for online interpretation on CNC milling machines was interpreted 17 offline in the CAM2FIB program and converted to stream files as an input to the FIB/SEM 18 instrument. Currently there is no G-code implementation that is fitted towards FIB/SEM 19 instruments and no option of interpreting G-code online. Implementation of an online G-code 20 framework installed on the FIB/SEM instrument would bear great potential. 21\nA G-code dialect tailored towards application on FIB/SEM instruments would contain the basic 22 commands G00 to G03 for describing beam path geometries. Similar to the specification of an 23 extrusion length per interpolated length segment in 3D-printing, commands for specifying the 24 dwell time per interpolated length segment would ensure optimal beam control in FIB/SEM 25 patterning. Advanced commands could enable switching between milling and deposition modes 26 and specifying beam parameters. As an advantage over offline interpretation, online interpretation 27 of G-code could be instrument-specific. In this way G-code files could be shared and used between 28 different instruments and research groups without a need for instrument-dependent adaptation. 29\n5-axis FIB machining 30\nSimilar to 5-axis CNC milling [35], laser milling [36] and additive manufacturing [16,18], control 31 over the rotational axes of an SEM-stage would enable 5-axis FIB machining to create freeform 32 surfaces and undercuts. While the positioning accuracy and stability of conventional SEM-stages 33 may not be optimal, control over a high-precision substage would render 5-axis FIB machining 34 feasible. The introduction of such machining technique would require seamless interplay between 35\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep te\nd M\nan us\ncr ip\n18\nthe beam and stage control. A G-code based framework would constitute the ideal prerequisite for 1 any development towards such technique. 2"
+    }, {
+      "heading" : "Customized machining strategies for FIB 3",
+      "text" : "The here applied machining strategies were all derived from CNC milling strategies. CAM 4 modules generally support manufacturing processes such as multi-axis milling, turning, drilling 5 and cutting. With a rising market for machining of micro- and nano-structures, support for 6 FIB/SEM instruments in CAM applications could become an attractive area of development. As 7 demonstrated by De Felicis et al. [13], machining strategies optimized towards FIB machining 8 would respect material re-deposition behaviour and access material databases to determine 9 material dependent parameters like the sputter yield. Based on the dimensions of a structure, the 10 CAM module would determine optimal beam parameters and dwell times for machining. Similar 11 to the tool-selection in CNC milling, different beam currents could be applied for clearing and 12 finishing operations. 13\nSupport of FIB machining in CAD/CAM software would provide a seamless solution to online 14 interpretation of specialised G-code on FIB/SEM instruments. As discussed on section 4.2.1, an 15 ideal support of FIB/SEM in a CAM module would make use of the hybrid capabilities of a 16 FIB/SEM instrument. 17\nConclusion 18\nWe presented a novel framework for manufacturing of micro- and nano-structures with FIB 19 machining by using modern CAD/CAM technology for the generation of intelligent beam paths. 20 In this proof of concept, beam paths were exported from the CAD/CAM application in the 21 vector-based G-code format and converted to a coordinate-based beam path with the custom-built 22 and freely available interpreter program CAM2FIB. We disclosed the framework in detail and 23 presented the workflow from design to manufacturing of a complex structure with help of an 24 application example. It was found that the machining strategy had a great effect on the appearance 25 and dimensional accuracy of the machined structure and that purpose-fit machining strategies 26 clearly outperformed conventional parallel machining strategies. Finally, the future perspective of 27 CAM/FIB with a G-code framework was discussed. Judging from this proof of concept work, we 28 predict that the implementation of an online G-code based framework on FIB/SEM instruments 29 will be essential for the development of hybrid, i.e. additive and subtractive, machining as well as 30 5-axis FIB-machining. 31\nAcknowledgement 32\nF. Niessen acknowledges the Danish Council for Independent Research (Grant: DFF-8027-33 00009B) for financial support. This research used the FEI NanoLab G3 CX funded by the 34\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep te\nd M\nan u\ncr pt\n19\nAustralian Research Council (ARC) – Linkage, Infrastructure, Equipment and Facilities (LIEF) 1 grant (LE160100063) located at the UOW Electron Microscopy Centre. 2\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep te\nd M\nan us\ncr ip\nt\n20\nReferences 1\n[1] Y. Liu, J. Shen, X. Wang, X. Zheng, J. Sun, M.A. Cooper, D. Wu, Z. Yang, J. Wu, C. 2 Jiang, Biomimetic Moth-eye Nanofabrication: Enhanced Antireflection with Superior 3 Self-cleaning Characteristic, Sci. Rep. 8 (2018) 1–10. doi:10.1038/s41598-018-23771-y. 4\n[2] G.S. Jeong, D.Y. No, J. Lee, J. Yoon, S. Chung, S.H. Lee, Viscoelastic lithography for 5 fabricating self-organizing soft micro-honeycomb structures with ultra-high aspect ratios, 6 Nat. Commun. 7 (2016) 1–9. doi:10.1038/ncomms11269. 7\n[3] K. Choi, A. Droudian, R.M. Wyss, K.-P. Schlichting, H.G. Park, Multifunctional wafer-8 scale graphene membranes for fast ultrafiltration and high permeation gas separation, Sci. 9\nAdv. 4 (2018) eaau0476. doi:10.1126/sciadv.aau0476. 10\n[4] H.G. Craighead, Nanoelectromechanical Systems (NEMS), Encycl. Nanotechnol. 290 11 (2016) 2356–2356. doi:10.1007/978-94-017-9780-1_100662. 12\n[5] S. Reyntjens, R. Puers, A review of focused ion beam applications in microsystem 13 technology, J. Micromechanics Microengineering. 11 (2001) 287–300. 14\n[6] O. Wilhelmi, S. Reyntjens, C. Mitterbauer, L. Roussel, D.J. Stokes, D.H.W. Hubert, Rapid 15 prototyping of nanostructured materials with a focused ion beam, Jpn. J. Appl. Phys. 47 16 (2008) 5010–5014. doi:10.1143/JJAP.47.5010. 17\n[7] S. Gorelick, A. De Marco, Fabrication of glass microlenses using focused Xe beam, Opt. 18 Express. 26 (2018) 13647–13655. doi:10.1364/OE.26.013647. 19\n[8] O.A. Ageev, A.S. Kolomiytsev, A. V. Bykov, V.A. Smirnov, I.N. Kots, Fabrication of 20 advanced probes for atomic force microscopy using focused ion beam, Microelectron. 21 Reliab. 55 (2015) 2131–2134. doi:10.1016/j.microrel.2015.06.079. 22\n[9] V. Velkova, G. Lalev, H. Hirshy, F. Omar, S. Scholz, E. Minev, S. Dimov, Process chain 23 for serial manufacture of 3D micro- and nano-scale structures, CIRP J. Manuf. Sci. 24 Technol. 4 (2011) 340–346. doi:10.1016/j.cirpj.2011.03.005. 25\n[10] G. Lalev, S. Dimov, J. Kettle, F. Van Delft, R. Minev, Data preparation for focused ion 26 beam machining of complex three-dimensional structures, Proc. Inst. Mech. Eng. Part B J. 27 Eng. Manuf. 222 (2008) 67–76. doi:10.1243/09544054JEM864. 28\n[11] W.C.L. Hopman, F. Ay, W. Hu, V.J. Gadgil, L. Kuipers, M. Pollnau, R.M. De Ridder, 29 Focused ion beam scan routine, dwell time and dose optimizations for submicrometre 30 period planar photonic crystal components and stamps in silicon, Nanotechnology. 18 31 (2007). doi:10.1088/0957-4484/18/19/195305. 32\n[12] V. Raffa, O. Vittorio, V. Pensabene, A. Menciassi, P. Dario, FIB-nanostructured surfaces 33 and investigation of bio/nonbio interactions at the nanoscale, IEEE Trans. 34 Nanobioscience. 7 (2008) 1–10. doi:10.1109/TNB.2008.2000143. 35\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\npt ed\nM an\nus cr\nip t\n21\n[13] D. De Felicis, M.Z. Mughal, E. Bemporad, A method to improve the quality of 2.5 1 dimensional micro-and nano-structures produced by focused ion beam machining, 2 Micron. 101 (2017) 8–15. doi:10.1016/j.micron.2017.05.005. 3\n[14] A. Eifert, B. Mizaikoff, C. Kranz, Advanced fabrication process for combined atomic 4 force-scanning electrochemical microscopy (AFM-SECM) probes, Micron. 68 (2015) 27–5 35. doi:10.1016/j.micron.2014.08.008. 6\n[15] Autodesk, Fundamentals of CNC Machining - Document Number: 060711, United States 7 of America, 2014. 8\n[16] Q. Tang, S. Yin, Y. Zhang, J. Wu, A tool vector control for laser additive manufacturing 9\nin five-axis configuration, Int. J. Adv. Manuf. Technol. 98 (2018) 1671–1684. 10 doi:10.1007/s00170-018-2177-5. 11\n[17] D.L. Bourell, M.C.. Leu, D.W. Rosen, Identifying the Future of Freeform Processing 12 2009, Rapid Prototyp. J. (2009) 92. doi:10.1108/13552549910295514. 13\n[18] Y. Chen, Chi Zhou, Jingyuan Lao, A layerless additive manufacturing process based on 14 CNC accumulation, Rapid Prototyp. J. 17 (2011) 218–227. 15 doi:10.1108/13552541111124806. 16\n[19] J. Yang, A. Yuen, An analytical local corner smoothing algorithm for five-axis CNC 17 machining, Int. J. Mach. Tools Manuf. 123 (2017) 22–35. 18 doi:10.1016/j.ijmachtools.2017.07.007. 19\n[20] T. Otsuki, H. Sasahara, R. Sato, Method for generating CNC programs based on block-20 processing time to improve speed and accuracy of machining curved shapes, Precis. Eng. 21 55 (2018) 33–41. doi:10.1016/j.precisioneng.2018.08.004. 22\n[21] L.T. Tunc, Smart tool path generation for 5-axis ball-end milling of sculptured surfaces 23 using process models, Robot. Comput. Integr. Manuf. 56 (2019) 212–221. 24 doi:10.1016/j.rcim.2018.10.002. 25\n[22] MATLAB, MATLAB 2016b (9.1.0.441655), (2016). 26\n[23] ISO 6983-1:2009 - Automation systems and integration -- Numerical control of machines 27 -- Program format and definitions of address words -- Part 1: Data format for positioning, 28 line motion and contouring control systems, (2009) 1–26. 29\n[24] Autodesk, Inventor Professional 2019, Build 136, (2018). 30\n[25] Autodesk, Fusion 360 2.0.5119, (2018). 31\n[26] J. Riegel, W. Mayer, Y. van Havre, FreeCad (Version 0.17) [Software] Available from 32 http://www.freecadweb.org, (2018). 33\n[27] Inkscape, Inkscape 0.92 [Software] Available from www.inkscape.org, (2018). 34\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep ed\nM an\nus cr\nip t\n22\n[28] T. Frederick, T. Kramer, F. Proctor, E. Messina, NIST Interagency/Internal Report 1 (NISTIR) - 6556 - The NIST RS274NGC interpreter-version 3, 2000. doi:10.1.1.15.7813. 2\n[29] F. Niessen, CAM2FIB [Software] Freely available from 3 https://github.com/frankNiessen/CAM2FIB, (2019). 4\n[30] T. Williamson, G-Code Reader, (2018). 5 https://au.mathworks.com/matlabcentral/fileexchange/67767-g-code-reader. 6\n[31] J.O. Milewski, G.K. Lewis, D.J. Thoma, G.I. Keel, R.B. Nemec, R.A. Reinert, Directed 7 light fabrication of a solid metal hemisphere using 5-axis powder deposition, J. Mater. 8 Process. Technol. 75 (1998) 165–172. doi:10.1016/S0924-0136(97)00321-X. 9\n[32] Ultimaker, Ultimaker Cura 3.6.0, (2019). 10\n[33] ThermoFisher, DataSheet NanoBuilder Software - Automatic fabrication of complex 11 nanostructures using Thermo Scientific NanoBuilder Software, (2018) 1–4. 12\n[34] Zeiss, DataSheet ZEISS Atlas 5, (2017) 1–25. 13\n[35] A. Lasemi, D. Xue, P. Gu, Recent development in CNC machining of freeform surfaces: 14 A state-of-the-art review, CAD Comput. Aided Des. 42 (2010) 641–654. 15 doi:10.1016/j.cad.2010.04.002. 16\n[36] G. Cuccolini, L. Orazi, A. Fortunato, 5 Axes computer aided laser milling, Opt. Lasers 17 Eng. 51 (2013) 749–760. doi:10.1016/j.optlaseng.2013.01.015. 18\n19\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59\nA cc\nep te\nd M\nan us\nc ip\nt"
+    } ],
+    "references" : [ {
+      "title" : "C",
+      "author" : [ "Y. Liu", "J. Shen", "X. Wang", "X. Zheng", "J. Sun", "M.A. Cooper", "D. Wu", "Z. Yang", "J. Wu" ],
+      "venue" : "2 Jiang, Biomimetic Moth-eye Nanofabrication: Enhanced Antireflection with Superior 3 Self-cleaning Characteristic, Sci. Rep. 8 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Viscoelastic lithography for 5 fabricating self-organizing soft micro-honeycomb structures with ultra-high aspect ratios",
+      "author" : [ "G.S. Jeong", "D.Y. No", "J. Lee", "J. Yoon", "S. Chung", "S.H. Lee" ],
+      "venue" : "6 Nat. Commun. 7 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Multifunctional wafer- 8 scale graphene membranes for fast ultrafiltration and high permeation gas separation",
+      "author" : [ "K. Choi", "A. Droudian", "R.M. Wyss", "K.-P. Schlichting", "H.G. Park" ],
+      "venue" : "Sci. 9 Adv. 4 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Nanoelectromechanical Systems (NEMS)",
+      "author" : [ "H.G. Craighead" ],
+      "venue" : "Encycl. Nanotechnol. 290 11 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A review of focused ion beam applications in microsystem 13 technology",
+      "author" : [ "S. Reyntjens", "R. Puers" ],
+      "venue" : "J. Micromechanics Microengineering. 11 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2001
+    }, {
+      "title" : "Rapid 15 prototyping of nanostructured materials with a focused ion beam",
+      "author" : [ "O. Wilhelmi", "S. Reyntjens", "C. Mitterbauer", "L. Roussel", "D.J. Stokes", "D.H.W. Hubert" ],
+      "venue" : "Jpn. J. Appl. Phys. 47 16 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Fabrication of glass microlenses using focused Xe beam",
+      "author" : [ "S. Gorelick", "A. De Marco" ],
+      "venue" : "Opt. 18 Express. 26 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Fabrication of 20 advanced probes for atomic force microscopy using focused ion beam",
+      "author" : [ "O.A. Ageev", "A.S. Kolomiytsev", "A.V. Bykov", "V.A. Smirnov", "I.N. Kots" ],
+      "venue" : "Microelectron. 21 Reliab. 55 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Process chain 23 for serial manufacture of 3D micro- and nano-scale structures",
+      "author" : [ "V. Velkova", "G. Lalev", "H. Hirshy", "F. Omar", "S. Scholz", "E. Minev", "S. Dimov" ],
+      "venue" : "CIRP J. Manuf. Sci. 24 Technol. 4 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Data preparation for focused ion 26 beam machining of complex three-dimensional structures",
+      "author" : [ "G. Lalev", "S. Dimov", "J. Kettle", "F. Van Delft", "R. Minev" ],
+      "venue" : "Proc. Inst. Mech. Eng. Part B J. 27 Eng. Manuf. 222 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "29 Focused ion beam scan routine",
+      "author" : [ "W.C.L. Hopman", "F. Ay", "W. Hu", "V.J. Gadgil", "L. Kuipers", "M. Pollnau", "R.M. De Ridder" ],
+      "venue" : "dwell time and dose optimizations for submicrometre 30 period planar photonic crystal components and stamps in silicon, Nanotechnology. 18 31 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "FIB-nanostructured surfaces 33 and investigation of bio/nonbio interactions at the nanoscale",
+      "author" : [ "V. Raffa", "O. Vittorio", "V. Pensabene", "A. Menciassi", "P. Dario" ],
+      "venue" : "IEEE Trans. 34 Nanobioscience. 7 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "E",
+      "author" : [ "D. De Felicis", "M.Z. Mughal" ],
+      "venue" : "Bemporad, A method to improve the quality of 2.5 1 dimensional micro-and nano-structures produced by focused ion beam machining, 2 Micron. 101 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Advanced fabrication process for combined atomic 4 force-scanning electrochemical microscopy (AFM-SECM) probes",
+      "author" : [ "A. Eifert", "B. Mizaikoff", "C. Kranz" ],
+      "venue" : "Micron. 68 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A tool vector control for laser additive manufacturing 9 in five-axis configuration",
+      "author" : [ "Q. Tang", "S. Yin", "Y. Zhang", "J. Wu" ],
+      "venue" : "Int. J. Adv. Manuf. Technol. 98 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Chi Zhou",
+      "author" : [ "Y. Chen" ],
+      "venue" : "Jingyuan Lao, A layerless additive manufacturing process based on 14 CNC accumulation, Rapid Prototyp. J. 17 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "An analytical local corner smoothing algorithm for five-axis CNC 17 machining",
+      "author" : [ "J. Yang", "A. Yuen" ],
+      "venue" : "Int. J. Mach. Tools Manuf. 123 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Method for generating CNC programs based on block- 20 processing time to improve speed and accuracy of machining curved shapes",
+      "author" : [ "T. Otsuki", "H. Sasahara", "R. Sato" ],
+      "venue" : "Precis. Eng. 21 55 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Smart tool path generation for 5-axis ball-end milling of sculptured surfaces 23 using process models",
+      "author" : [ "L.T. Tunc" ],
+      "venue" : "Robot. Comput. Integr. Manuf. 56 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Y",
+      "author" : [ "J. Riegel", "W. Mayer" ],
+      "venue" : "van Havre, FreeCad (Version 0.17) [Software] Available from 32 http://www.freecadweb.org, ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "E",
+      "author" : [ "T. Frederick", "T. Kramer", "F. Proctor" ],
+      "venue" : "Messina, NIST Interagency/Internal Report 1 (NISTIR) - 6556 - The NIST RS274NGC interpreter-version 3",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2000
+    }, {
+      "title" : "CAM2FIB [Software] Freely available from 3 https://github.com/frankNiessen/CAM2FIB, (2019)",
+      "author" : [ "F. Niessen" ],
+      "venue" : null,
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2019
+    }, {
+      "title" : "G-Code Reader",
+      "author" : [ "T. Williamson" ],
+      "venue" : "",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Directed 7 light fabrication of a solid metal hemisphere using 5-axis powder deposition",
+      "author" : [ "J.O. Milewski", "G.K. Lewis", "D.J. Thoma", "G.I. Keel", "R.B. Nemec", "R.A. Reinert" ],
+      "venue" : "J. Mater. 8 Process. Technol. 75 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 1016
+    }, {
+      "title" : "Recent development in CNC machining of freeform surfaces: 14 A state-of-the-art review",
+      "author" : [ "A. Lasemi", "D. Xue", "P. Gu" ],
+      "venue" : "CAD Comput. Aided Des. 42 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "5 Axes computer aided laser milling",
+      "author" : [ "G. Cuccolini", "L. Orazi", "A. Fortunato" ],
+      "venue" : "Opt. Lasers 17 Eng. 51 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "Some examples are the design of functional surfaces [1], 3 high aspect ratio honeycomb structures for use as drug-delivery patches [2], perforation of 4",
+      "startOffset" : 52,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 1,
+      "context" : "Some examples are the design of functional surfaces [1], 3 high aspect ratio honeycomb structures for use as drug-delivery patches [2], perforation of 4",
+      "startOffset" : 131,
+      "endOffset" : 134
+    }, {
+      "referenceID" : 2,
+      "context" : "graphene membranes for utrafiltration [3] and the design of nanoelectromechanical systems [4].",
+      "startOffset" : 38,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 3,
+      "context" : "graphene membranes for utrafiltration [3] and the design of nanoelectromechanical systems [4].",
+      "startOffset" : 90,
+      "endOffset" : 93
+    }, {
+      "referenceID" : 4,
+      "context" : "and compatibility with a high range of materials [5].",
+      "startOffset" : 49,
+      "endOffset" : 52
+    }, {
+      "referenceID" : 5,
+      "context" : "The machining strategy has significant impact on the appearance and 12 dimensional accuracy of the machined structure [6].",
+      "startOffset" : 118,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 9,
+      "context" : "of tracing contours to avoid re-deposition of material and the limitation to single layer patterns 23 [10].",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 9,
+      "context" : "positioning of the FIB by varying the voltage applied to the scanning optics [10].",
+      "startOffset" : 77,
+      "endOffset" : 81
+    }, {
+      "referenceID" : 7,
+      "context" : "patterning has been demonstrated for manufacturing of simple cone and hole geometries [8,11] 32",
+      "startOffset" : 86,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 10,
+      "context" : "patterning has been demonstrated for manufacturing of simple cone and hole geometries [8,11] 32",
+      "startOffset" : 86,
+      "endOffset" : 92
+    }, {
+      "referenceID" : 11,
+      "context" : "and geometrically more complex 2D patterns [12].",
+      "startOffset" : 43,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 8,
+      "context" : "[9,10,13,14] to allow easier, more advanced and more reproducible design 36",
+      "startOffset" : 0,
+      "endOffset" : 12
+    }, {
+      "referenceID" : 9,
+      "context" : "[9,10,13,14] to allow easier, more advanced and more reproducible design 36",
+      "startOffset" : 0,
+      "endOffset" : 12
+    }, {
+      "referenceID" : 12,
+      "context" : "[9,10,13,14] to allow easier, more advanced and more reproducible design 36",
+      "startOffset" : 0,
+      "endOffset" : 12
+    }, {
+      "referenceID" : 13,
+      "context" : "[9,10,13,14] to allow easier, more advanced and more reproducible design 36",
+      "startOffset" : 0,
+      "endOffset" : 12
+    }, {
+      "referenceID" : 9,
+      "context" : "[10] created stream files based 37 on coordinates in stereolithography (STL) format files, which can commonly be exported from 38 Page 2 of 22 AUTHOR SUBMITTED MANUSCRIPT - NANO-121760.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 12,
+      "context" : "[13], who imported coordinates from a mesh of a 3D component 4 of a CAD model, calculated dwell-times by a node down-sampling approach and applied a custom 5",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 20,
+      "context" : "G-code (also referred to as RS274 language [28]) is a numerical control (NC) programming 19",
+      "startOffset" : 43,
+      "endOffset" : 47
+    }, {
+      "referenceID" : 21,
+      "context" : "The program, CAM2FIB [29], 34 adapted basic features of G-code interpretation and interpolation from the function G-Code Reader 35",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 21,
+      "context" : "CAD/CAM was applied in conjunction with the CAM2FIB [29] interpreter program to create four 21",
+      "startOffset" : 52,
+      "endOffset" : 56
+    }, {
+      "referenceID" : 10,
+      "context" : "Silicon is a popular material for nano-structuring [11] and commonly used as 25 a reference material [13].",
+      "startOffset" : 51,
+      "endOffset" : 55
+    }, {
+      "referenceID" : 12,
+      "context" : "Silicon is a popular material for nano-structuring [11] and commonly used as 25 a reference material [13].",
+      "startOffset" : 101,
+      "endOffset" : 105
+    }, {
+      "referenceID" : 8,
+      "context" : "20 [9,10] represent patterning techniques that operate with a fixed parallel machining strategy, similar 21 to the one in Figure 5a.",
+      "startOffset" : 3,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 9,
+      "context" : "20 [9,10] represent patterning techniques that operate with a fixed parallel machining strategy, similar 21 to the one in Figure 5a.",
+      "startOffset" : 3,
+      "endOffset" : 9
+    }, {
+      "referenceID" : 12,
+      "context" : "[13] and the present work (see Figure 6) 22 demonstrate that control over material re-deposition is crucial for obtaining dimensional accuracy 23",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 21,
+      "context" : "The geometry was then translated to 4 G-code in the 3D-print software Ultimaker Cura [32] and converted to a stream file with the 5 CAM2FIB [29] interpreter program.",
+      "startOffset" : 140,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 24,
+      "context" : "Similar to 5-axis CNC milling [35], laser milling [36] and additive manufacturing [16,18], control 31",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 25,
+      "context" : "Similar to 5-axis CNC milling [35], laser milling [36] and additive manufacturing [16,18], control 31",
+      "startOffset" : 50,
+      "endOffset" : 54
+    }, {
+      "referenceID" : 14,
+      "context" : "Similar to 5-axis CNC milling [35], laser milling [36] and additive manufacturing [16,18], control 31",
+      "startOffset" : 82,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 15,
+      "context" : "Similar to 5-axis CNC milling [35], laser milling [36] and additive manufacturing [16,18], control 31",
+      "startOffset" : 82,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 12,
+      "context" : "[13], machining strategies optimized towards FIB machining 8",
+      "startOffset" : 0,
+      "endOffset" : 4
+    } ],
+    "year" : 2019,
+    "abstractText" : "5 We present a novel framework for the fabrication of geometrically complex structures at the micro6 and nano-scale which relies on the synergy of integrated computer-aided design and manufacturing 7 systems (CAD/CAM) and focused ion beam (FIB) technology in a scanning electron microscope. 8 Here we utilise industry standard G-code syntax, for the first time, to FIB machining by designing 9 geometries with CAD, defining machining strategies and exporting G-codes with CAM and 10 generating a coordinate list-based beam path by using a custom-built interpreter program. This 11 allows the fabrication of complex structures from CAD models using syntax which is readily 12 understood in the general fabrication industry. The use of G-code allows optimization of the beam 13 path towards a reduction of beam blanking operations and tracing of contours, leading to 14 minimized re-deposition of material. We give a detailed description of the method, use an 15 application example to demonstrate advantages and prospects of the approach and provide the free 16 and open-source interpreter program CAM2FIB for application of this method. We contrast and 17 compare various existing available milling strategies and demonstrate the versatility of G-code 18 based programming. 19",
+    "creator" : "Appligent AppendPDF Pro 6.0"
+  }
+}

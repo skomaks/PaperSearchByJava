@@ -1,0 +1,879 @@
+{
+  "name" : "downloads_2019-12-30_10_ghalambaz2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Unsteady natural convection flow of a suspension comprising Nano-Encapsulated Phase Change Materials (NEPCMs) in a porous medium",
+    "authors" : [ "Mohammad Ghalambaz", "S.A.M. Mehryan", "Ahmad Hajjar", "Ali Veisimoradi" ],
+    "emails" : [ "mohammad.ghalambaz@tdtu.edu.vn", "hajjar@ecam.fr", "ali.veismoradi@mail.um.ac.ir" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "1 2\n4\n5\n6\n7\n8\n9\n10 11 12 13 14\n1516 17\n1 9\n20 21 22 23 24\n25 26 27 28 29 30 31\n3 2\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\nAdvanced Powder Technology xxx (xxxx) xxx\nContents lists available at ScienceDirect\nAdvanced Powder Technology\njournal homepage: www.elsevier .com/locate /apt\nOriginal Research Paper\nUnsteady natural convection flow of a suspension comprising Nano-Encapsulated Phase Change Materials (NEPCMs) in a porous medium\nhttps://doi.org/10.1016/j.apt.2019.12.010 0921-8831/ 2019 Published by Elsevier B.V. on behalf of The Society of Powder Technology Japan. All rights reserved.\n⇑ Corresponding author at: Department for Management of Science and Technology Development, Ton Duc Thang University, Ho Chi Minh City, Viet Nam.\nE-mail addresses: mohammad.ghalambaz@tdtu.edu.vn (M. Ghalambaz), ahmad. hajjar@ecam.fr (A. Hajjar), ali.veismoradi@mail.um.ac.ir (A. Veisimoradi).\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Unsteady natural convection flow of a suspension comprising Nano-En lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powder Technology, https://doi.org/10.1016/j.apt.2019.12.010\nMohammad Ghalambaz a,b,⇑, S.A.M. Mehryan c, Ahmad Hajjar d, Ali Veisimoradi e aDepartment for Management of Science and Technology Development, Ton Duc Thang University, Ho Chi Minh City, Viet Nam b Faculty of Applied Sciences, Ton Duc Thang University, Ho Chi Minh City, Viet Nam cYoung Researchers and Elite Club, Yasooj Branch, Islamic Azad University, Yasooj, Iran d ECAM Lyon, LabECAM, Université de Lyon, Lyon, France eChemical Engineering Department, Ferdowsi University, Mashhad, Iran\na r t i c l e i n f o a b s t r a c t\n33 34 35 36 37 38 39 40 41 42 43 44 Article history: Received 20 September 2019 Received in revised form 26 November 2019 Accepted 9 December 2019 Available online xxxx Keywords: Nano-Encapsulated Phase Change Materials (NEPCMs) Porous medium Heat transfer enhancement Unsteady natural convection\n45 46 47 48 49\nThe free convection phase change heat transfer of a suspension comprising Nano-Encapsulated Phase Change Materials (NEPCMs) in a porous space is theoretically addressed. The core of the nanoparticles is made of a phase change material and encapsulated in a thin shell. Hence, the core of the nanoparticles suspension undergoes a phase change at its fusion temperature and release/store large amounts of latent heat. The phase change of nanoparticles is modeled using a sine shape temperature-dependent heat capacity function. Darcy-Brinkman model is used to model the flow in the porous medium. The governing equations including the conservation of mass, momentum, and heat are transformed into a nondimensional form before being solved by the finite element method in a structured non-uniform mesh. The influence of the porosity, Darcy number, Rayleigh number, fusion temperature of nanoparticles, and the unsteady time-periodic boundary conditions on the thermal behavior of the porous medium in the presence of NEPMC is investigated. The results show that the presence of NEPCM particles improves the heat transfer. The increase of porosity improves the heat transfer when the volumetric concentrations of NEPCM particles are higher than 3%. There exists an optimal dimensionless fusion temperature of NEPCM nanoparticles for the interval [0.25; 0.75].\n2019 Published by Elsevier B.V. on behalf of The Society of Powder Technology Japan. All rights reserved.\n50\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n1. Introduction\nThe study of convective heat transfer in porous media is of fundamental importance in various engineering and industrial fields. Common applications include geothermal systems, energy storage, heat exchangers, thermal insulation, drying technologies, and the list goes on. The presence of porous media in the system enhances heat transfer as it affects the flow field and increases the effective thermal conductivity, and it presents, thus, a passive technique of heat transfer improvement.\nFree convection in cavities filled with porous media has been widely analyzed for different cavity models including cavities filled with single or multiple layers of porous media [1–3], porous fins\n77\n78\n79\n80\n[4], partially porous media [5,6], tilted cavities [7], wavy cavities [8] and cavities with non-uniform heating [9]. Convective flows past a vertical plate embedded in a porous medium have been also considered [10–12].\nFurther heat transfer enhancement can be obtained by adding highly conductive nanoparticles into the fluid flowing through the porous medium [13]. The fluid is thus called a nanofluid. Several works aimed to study the free convection of nanofluids in various types of enclosures [14–17], two-phase flow of nanofluids [16,18], conjugate heat transfer [19,20], entropy generation [21,22], and magnetic fields effects [18,21,23–26]. Moreover, convective flows of nanofluids in cavities with porous media have been widely investigated considering various designs and configurations, including internal heat generation [27,28], thermal nonequilibrium effects [29], partial porous layer [30,31]. The shape effects of the nanoparticles on the heat transfer characteristics have been also considered [32–34].\ncapsu-\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\n91\n92\n93\n94\n95\n96\n97\n98\n99\n100\n101\n102\n103\n104\n105\n106\n107\n108\n109\n110\n111\n112\n113\n114\n115\n116\n117\n118\n119\n120\n121\n122\n123\n124\n125\n126\n127\n128\n129\n130\n131\n132\n133\n134\nNomenclature\nLatin letters a the amplitude of temperature fluctuation A Non-dimensional amplitude Cp the specific heat (J/kg K) Cr the ratio of the heat capacity of the suspension to the host fluid Da Darcy number f the non-dimensional form of phase change profile g the gravity constant (m/s2) H the characteristic length, cavity size hsf the latent heat of the nanoparticle’s core i Grid case number k the coefficient of the thermal conductivity (W/m K) K the porous medium permeability (m2) N the mesh size Nc the conductivity number for the suspension Nu Nusselt number Nv the dynamic viscosity number for the suspension p the suspension pressure field (Pa) P non-dimensional the suspension pressure field Pr Prandtl number Ra Rayleigh number Ste Stefan number t time (s) T the temperature ( C) TMr the melting temperature range u the fluid velocity along x axis (m/s) U dimensionless fluid velocity along x axis v fluid velocity along y axis (m/s) V the dimensionless fluid velocity along y axis x x-Cartesian coordinate (m) X dimensionless X-Cartesian y y-Cartesian coordinate (m)\nY dimensionless Y-Cartesian coordinate i the weight ratio of the NEPCM particle’s core to shell\nGreek symbols m the dynamic viscosity of the fluid (kg s/m) a the thermal diffusivity (m2/s) b the coefficient of the volumetric thermal expansion (1/ K) D the relative error of the computations d the dimensionless phase change band e the porosity of the medium h the non-dimensional temperature field k the dimensionless ratio of the heat capacity q density (kg/m3) s non-dimensional time / the volume fraction of particles in the host fluid w the stream function x the angular frequency of the wall temperature oscillation (rad/s) X the non-dimensional angular frequency of the wall tem-\nperature oscillation\nSubscript b the NEPCM suspension c the cold wall co the core of encapsulated particles f the host fluid fu the fusion property h the hot wall m the porous medium p the NEPCM nanoparticles, period s the solid matrix of the porous medium sh the shell of NEPCM particle\n2 M. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx\nNano-Encapsulated Phase Change Materials (NEPCM) suspensions represent a class of Nanofluids where the nanoparticles consist of capsules having a shell-core structure, with phase change materials (PCM) at the core. PCM are materials that undergo a phase change at their fusion temperature. They can thus absorb heat from the surrounding by melting, or, conversely, release heat by solidification. The presence of NEPCM capsules in the host fluid can enhance substantially its thermal conductivity. For instance, [35] showed that adding NEPCM particles with a volume fraction as low as 3.36% can increase the thermal conductivity of water by 20%. A distinction should be made between nanoencapsulation and micro-encapsulation depending on the size of the particles [36,37]. The term nanoparticle is often used when the size of the particle is less than 100 nm in at least one dimension. PCM cores are selected based on the required fusion temperature. Examples of PCM that have been used as NEPCM cores include n-tetradecane [38], n-octadecane [39], n-octacosane [40], and n-nonadecane [35]. On the other hand, the shell of the NEPCM capsules can be made of polymers of different compositions [41,42], formaldehyde [38,39] or highly conductive metals [40]. There is a technique that consists of adding nanoparticles to PCM in order to improve heat transfer [43], leading to the so-called Nano-Enhanced Phase Change Materials, also abbreviated as NEPCM [43–45]. It should be noted that this technique is different than the one studied in the present paper.\nConvective flows of PCM in enclosures with porous media have been widely studied, mainly in the context of heat transfer\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd\nenhancement by the use of metal foams [46–49]. As for NEPCM suspensions, the majority of available works dealt with the forced convection in tubes or mini channels. Ho et al. [50–52] investigated experimentally the effectiveness of using water-based suspensions of Alumina nanoparticles and/or micro-encapsulated PCM instead of pure water on the forced convection in circular tubes [50] and mini channel heat sinks [51,52]. They found that different factors, such as the flow rate and the heating location can considerably affect the heat transfer in the system. The analysis of the heat transfer enhancement in microtubes using PCM nanoencapsulation was performed by Seyf et al. [53]. Their results indicated that using a higher concentration of the NEPCM particles significantly increased the cooling power of the fluid, despite leading to a larger pressure drop in the tube. A similar result was obtained in the numerical study of a NEPCM slurry heat transfer past an unconfined square cylinder performed by [54], who pointed out a noticeable haet transfer enhancement in the slurry compared to the base fluid, and an intensification of this enhancement when the volume concentration of the capsules was increased.\nOn the other side, the free convective flow of NEPCM suspensions did not receive much attention. Ghalambaz et al. [55] investigated the natural convective flow of a NEPCM suspension in a square cavity with temperature difference between the two vertical walls and thermal insulation on the horizontal walls. They concluded that the fusion temperature of the phase change core is a fundamental parameter in the heat transfer inside the cavity. Moreover, studies considering the free convection of NEPCM in\nteady natural convection flow of a suspension comprising Nano-Encapsuer Technology, https://doi.org/10.1016/j.apt.2019.12.010\n135\n136\n137\n138\n139\n140\n141\n142\n143\n144\n145\n146\n147\n148\n149\n150\n151\n152\n153\n154\n155\n156\n157\n158\n159\n160\n161\n162\n163\n164\n165\n166\n167\n168\n169\n170\n171\n172\n173\n174\n175\n176\n177\n178\n179\n180\n181\n182\n183\n184 185\n187\n188 189\n191\nM. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx 3\nporous cavities are very limited. In fact, the available studies linking capsulated PCM to porous media focused on the enhancement of the thermal properties of some construction materials by using NEPCM as nano additives composites [56,57] without any convection effects.\nVery recently, Ghalambaz et al. [58] conducted a study on the influence of using NEPCMs suspensions in the mixed convection boundary layer flow over a flat plate embedded in a saturated porous medium. They utilized the boundary layer approximations and reduced the model to ordinary differential equations and investigated the effect of volume fraction of nanoparticles on the boundary layer flow and heat transfer. They found that further enhancement of heat transfer can be achieved by decreasing the fusion temperature of the NEPCM core.\nTherefore the literature studies regarding the convection heat transfer of NEPCMs are limited to steady-state convection in a clear cavity with no porous medium [55], and steady-state mixed convection boundary layer of NECPMs in an infinite layer of porous medium [58]. Following [55,58], the present study aims to analyze the unsteady free convection of a suspension of NEPCMs in a cavity filled with a porous medium for the first time. The unsteady effects are expected to be important due to the presence of phase change heat transfer phenomena in the nanoparticle’s cores.\n192\n194\n195 196\n198\n199 200 202\n203\n205\n2. Mathematical model\n2.1. Model description\nThe geometry consists in a 2D square enclosure (demonstrated in Fig. 1), containing glass balls, saturated with a suspension of water and NEPCM particles. The shell and core of the NEPCM are respectively polyurethane (PU) and nonadecane. As shown in Fig. 1, the left of the medium is imposed to a high time-varying temperature having the average temperature of Th. The opposite wall is a heat sink at the lower temperature Tc while the top and bottom walls of the enclosure are thermally impervious. The flow in the porous space is described using Darcy-Brinkman model. There are no thermal and hydrodynamic slips along the fluid and the nanoparticles, and the particles are unifrmly dispersed in the\n( ) si n\nh T\nT a\nt ω\n= +\nSt\nAbsorption pro\nPorous by a su\nNEPC\ny\nNEPCM particle\nPCM coreShell\nsuspension. Moreover, there exists a strong heat transfer between the solid matrix and fluid phase of the porous medium. Indeed, the local thermal equilibrium condition is established between these two components. Table 1 lists the thermo-physical properties of the involved materials. Also, the phase change temperature and the latent heat of the NEPCMs core are respectively 32 C and 211 kJ/kg [35]. It should be noted that the materials are optional, and the present study is not restricted to the mentioned type of materials.\n2.2. The governing equations\nConsidering the assumptions, the unsteady equations modeling thermal and hydro-dynamic behaviors of an incompressible and laminar suspension inside a porous region are listed below:\nMass conservation [55]:\n@u @x þ @v @y ¼ 0 ð1Þ\nMomentum conservation [60–62]:\nqb e @u @t þ qb e2 u @u @x þ v @u @y ¼ @p @x þ lb e @2u @x2 þ @ 2u @y2\n! lb\nK u ð2aÞ\nqb e @v @t þ qb e2 u @v @x þ v @v @y ¼ @p @y þ lb e @2v @x2 þ @ 2v @y2\n!\nþ gqbbb T Tcð Þ lb K v ð2bÞ\nEnergy conservation [60,62]:\nqCp\nm; b @T @t þ qCp b u @T @x þ v @T @y ¼ km; b @ 2T @x2 þ @ 2T @y2\n! ð3Þ\nwhere [63]\nkm;b ¼ 1 eð Þks þ ekb ð4aÞ\nqCp m;b ¼ 1 eð Þ qCp s þ e qCp b ð4bÞ\nc\nT T=\norage process\ncess Release process\nmedium saturated spension containing M particles\nH\nx\n0T y ∂ =∂\n0T y ∂ =∂\nn of the physical model.\n206\n207\n208\n209 210 212\n213 215\n216\n218\n219\n220\n221 222 224\n225\n226\n227 228\n230\n231\n232 233 234\n235 236\n238\n239\n240\n241\n242\n243 244\n246\n247\n249\n250\n252\n253\n254\n255\n256 257\n259\n260\n261 262 264\n265\n266\n267 268\n270\n271\n4 M. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx\nThe subscripts of b, m, and s of the above-written equations explain the bulk properties of the suspension, porous medium, and solid matrix, respectively. Regarding the problem physics, the boundary conditions are:\nx ¼ 0; 0 6 y 6 H : u ¼ v ¼ 0; T ¼ Th þ asin xtð Þ ð5aÞ\nx ¼ H; 0 6 y 6 H : u ¼ v ¼ 0; T ¼ Tc ð5bÞ\ny ¼ H; 0 6 x 6 H : u ¼ v ¼ 0 ; @T @y ¼ 0 y ¼ 0; 0 6 x 6 H : u ¼ v ¼ 0 ; @T @y ¼ 0\nð5cÞ\n273\n274\n275\n276\n277\n278\n279\n280\n281 282\n284\n285 286\n288\n289\n291\n292\n294\n295\n296 297\n299\n300\n301 302\n304\n305 306\n308\n2.3. Bulk thermophysical properties of the NEPCM suspension\nThe suspension’s density as a function of the base fluid and the dispersed NEPCM particles is written as [64]:\nqb ¼ 1 /ð Þqf þ /qp ð6Þ The p and f subscripts denote NEPCM particles and host fluid, respectively. The density of NEPCM particles is evaluated as follows [64,65]:\nqp ¼ 1þ ið Þqcoqsh qsh þ iqco\nð7Þ\nqs and qc are respectively the densities of the shell and core of NEPCM particles. i is the core-shell weight ratio and is about i 0.447 [35]. In addition, the density of the core is an average of the liquid and solid phases of phase change substance. The suspension’s specific heat capacity is expressed as [66]: Cp;b ¼ 1 /ð Þqf Cp;f þ /qpCp;p h i =qb ð8Þ\nSince the core of the nanoparticle undergoes a phase change, the latent heat of the phase change is involved in the specific heat capacity of the nanoparticles. The latent heat can be modeled by employing rectangular, triangle or sinusoidal profiles as follows [55,58]:\nCp;p ¼ Cp;co þ hsf T T0ð ÞTMr ð9aÞ\nCp;p ¼ Cp;co þ p2 hsf TMr Cp;co sin p T T0 TMr\nð9bÞ\nCp;p ¼ Cp;co þ 2 hfs T2Mr Cp;co TMr\n! T T0ð Þ ð9cÞ\nTMr is the temperature interval. In fact, this interval avoids the discontinuity in energy balance. The total specific heat-capacity of the nanoparticles core, involving the sensible and latent heats, are defined based on TMr [55]:\nCp;p ¼ Cp;co þ p2 hsf TMr Cp;co sin p T T0TMr n o r\nr ¼ 0 T < T0 1 T0 < T < T1\n0 T > T1\n8>>< >>:\nwhere : T0 ¼ Tfu TMr=2 T1 ¼ Tfu þ TMr=2\n( ð10Þ\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd\nThe coefficient of the volumetric thermal volume expansion of the NEPCM-suspension is written as [66]:\nbb ¼ 1 /ð Þbf þ /bp ð11Þ The following linear relations are selected to relate the volume fraction of the nanoparticles to the dynamic viscosity and the thermal conductivity of a nano-particulate suspension [44,67]:\nlb lf ¼ 1þ Nv/ ð12bÞ\nkb kf ¼ 1þ Nc/ ð12aÞ\nNc and Nv of the above relations respectively denote the numbers of thermal conductivity and dynamic viscosity. It should be noted that the relations of Eqs. (12) are only valid in the case of diluted nanofluids with / 0.5%.\n2.4. Dimensionless form of the governing equations\nn order to generalize the model, the non-dimensionalization of the conservation equations along with the boundary and interface conditions is performed by employing the ensuing parameters:\nX ¼ x H ; Y ¼ y H ; U ¼ uH af ; V ¼ vH af ; P ¼ pH\n2\nqfa2f ;\nh ¼ T Tc Th Tc ; s ¼ af t H2 ; A ¼ a Th Tc ð13Þ\nHence, we then have:\n@U @X þ @V @Y ¼ 0 ð14Þ\ne 2qr e @U @s þU@U @X þV @U @Y ¼ @P @X þPre 1lr\n@2U\n@X2 þ@\n2U @Y2 ! Pr Da lru\nð15Þ\ne 2qr e @V@s þ U @V@X þ V @V@Y ¼ @P @Y þ Pre 1lr @ 2V @X2 þ @2V @Y2\nþRa Prbrqrh PrDalrv\nð16Þ\nThe non-dimensional parameters appeared in the abovewritten equations are:\nRa ¼ gqf bf DTH 3 aflf ; Pr ¼ lfqf af ; Da ¼ K H2 ; lr ¼ 1þ Nv/\nqr ¼ qbqf ¼ 1 /ð Þ þ / qpqf ; br ¼ bbbf ¼ 1 /ð Þ þ / bpbf ð17Þ\nThe thermal expansion behavior of the NEPCM particles and the base fluid is considerd similar, and, therefore, br 1.\nqCp\nm; r @h @s þ Cr U @h @X þ V @h @Y ¼ km; r @\n2h\n@X2 þ @\n2h @Y2\n! ð18Þ\nwhere\nqCp m; r ¼ qCp m; b\nqCp\nf\n¼ 1 eð Þ qCp s\nqCp\nf\nþ eCr \" #\nð19aÞ\nteady natural convection flow of a suspension comprising Nano-Encapsuer Technology, https://doi.org/10.1016/j.apt.2019.12.010\n309\n311\n312\n314\n315\n316\n317\n318\n319\n320 321\n323\n324 325\n327\n328 329\n331\n332\n333 334 336\n337 339\n340\n342\n343\n344\n345\n346\n347 348\n350\n351\n352\n353 354\n356\n357\n358 359\n361\n362\n363\n364 365\n367\n368\n369\n370\n371\n372 373\n375\n376\n377\n378\n379\n380\n381\n382\n383\n384\n385\n386\n387\n388\n389\n390 391\n393\n394\n395 396 397\n398 399\n401\n402\n404\nM. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx 5\nCr ¼ qCp b\nqCp\nf\n¼ 1 /ð Þ þ /kþ / d Ste f ð19bÞ\nkm;r ¼ km;bkf ¼ 1 eð Þ ks kf þ e 1þ Nc/ð Þ ð19cÞ\nwhere Cr is the ratio of the suspension heat capacity to the base fluid sensible heat capacity. As noticed before, the heat capacity of the suspension involves of two parts: the latent heat and the sensible heat. Moreover, the ratio of the sensible-heat capacity (k), the range of the non-dimensional melting temperature (d), and the Stephan number (Ste) are introduced as follows:\nk ¼ Cp;co þ iCp;sh qcoqsh qCp f qsh þ iqcoð Þ ;\nd ¼ TMr Th Tc ; Ste ¼\nqCp f Th Tcð Þ qsh þ iqcoð Þ af hsfqcoqsh ð20Þ\nIn addition, the dimensionless fusion function, f, is defined as:\nf ¼ p2 sin pd h hfu þ d=2 N\nN ¼ 0 h < hfu d=2 1 hfu d=2 < h < hfu þ d=2 0 h > hfu þ d=2 8>< >:\nð21Þ\nHere, hf is the non-dimensional fusion temperature.\nhfu ¼ Tfu TcTh Tc ð22Þ\nThe non-dimensional forms of the boundary conditions can be expressed as follows:\nX ¼ 0; 0 6 Y 6 1 : U ¼ V ¼ 0; h ¼ 1þ Asin Xsð Þ ð23aÞ\nX ¼ 1; 0 6 Y 6 1 : U ¼ V ¼ 0; h ¼ 0 ð23bÞ\nY ¼ 1; 0 6 X 6 1 : U ¼ V ¼ 0; @h @Y ¼ 0 Y ¼ 0; 0 6 X 6 1 : U ¼ V ¼ 0; @h @Y ¼ 0\nð23cÞ\nIn Eq. (23a), the dimensionless temperature frequency is X ¼ xH2=af .\n2.5. Heat transfer rate\nThe local heat transfer at the hot wall is calculated using the energy balance and non-dimensional variables as follow:\nNuY;s ¼ 1 eð Þ kskf þ e 1þ Nc/ð Þ @h @X\nY¼0\nð24Þ\nIntegrating the above-mentioned relation along the hot wall, the total rate of heat transfer at a specific time s can be given as follows: Nua;s ¼ 1 eð Þ kskf þ e 1þ Nc/ð Þ Z1\n0\n@h @X\nY¼0\ndY ð25Þ\nThe average value of the Nusselt number over a period sp (sp = 2p/X) is defined as:\nNua ¼ 1sp Znþ1ð Þsp nsp Z1 0 Nua;sð ÞdYds ð26Þ\nIn order to study the effect of the nano-encapsulated particles, the following averaged Nusselt number (normalized to the averaged Nusselt number of a pure fluid) can be calculated:\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd\nNur ¼ Nuaju Nuaju¼0\nð27Þ\nNuaju¼0 is the time-averagedNusselt number associatedwith the host fluid. Nur evaluates the impact of the presence of the NEPCM particles on the heat transfer rate compared with the host fluid. Also, streamlines which can be a good way to visualize the suspension flow is achieved by solving the following Poisson equation:\n@2W\n@X2 þ @\n2W\n@Y2 ¼ @V @X @U @Y\nð28Þ\nSince the no-slip condition is valid at the walls and the walls are impermeable, the enclosure walls are a streamline with the value of zero as the boundary condition.\n3. The numerical method, grid test, and validation\n3.1. Numerical method\nThe PCM core undergoes phase change in a small band temperature. At the onset of phase change, a sharp change in the heat capacity ratio occurs, which notably changes the behavior of heat equation and increases the nonlinearity of the governing equations. The governing equations of (14)–(16) and (18), along with the boundary conditions of Eqs. (23) are solved using the finite element method. Following the finite element method, the governing equations are written in the weak form, and the following basis set ckf gNk¼1 is employed to expand the x-velocity, y-velocity, the pressure equation as well as the temperature: U XN m¼1 Umcm X; Yð Þ;V XN m¼1 Vmcm X; Yð Þ; P XN m¼1 Pmcm X; Yð Þ; h XN m¼1 hmcm X; Yð Þ ð29Þ\nThe temperature and pressure equations are discretized by using linear shape functions by a similar set of the basis functions, c. By employing the Galerkin approach, the residual equations for the velocities, pressure, and temperature at each element are obtained as:\nR1i qre PN m¼1 Um R @cm @s cidXdY\nþ qre2 PN m¼1 Um R PN m¼1 Umcm @cm @X þ PN m¼1 Vmcm @cm @Y cidXdY\nPN m¼1 R PN m¼1 Pmcm @cm @X cidXdY þ lr Pre PN m¼1 Um R @cm @Y @ci @Y h i dXdY\nþlr Pre PN m¼1 Vm R @cm @X @ci @Y dXdY lr PrDa R PN m¼1 Umcm cidXdY\nð30aÞ\nR2i qre PN m¼1 Vm R @cm @s cidXdY\nþ qre2 PN m¼1 Vm R PN m¼1 Umcm @cm @X þ PN m¼1 Vmcm @cm @Y cidXdY\nPN m¼1 R PN m¼1 Pmcm @ci @Y dXdY þ lr Pre PN m¼1 Um R @cm @Y @ci @X h i dXdY\nþlr Pre PN m¼1 Vm R @cm @X @cm @X dXdY lr PrDa R PN m¼1 Vmcm cidXdY\nþbrqrPrRa R PN\nm¼1 hmcm cidXdY\nð30bÞ\nteady natural convection flow of a suspension comprising Nano-Encapsuer Technology, https://doi.org/10.1016/j.apt.2019.12.010\n405\n407\n408\n410\n411\n412\n413\n414\n415\n416\n417\n418\n419\n420\n421\n422\n423\n6 M. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx\nR3i XN m¼1 Um Z @cm @X cidXdY þ XN m¼1 Vm Z @cm @Y cidXdY ð30cÞ\n424\n425\n426\n427\n428\n429\n430\n431\n432 433 434\n435\n436\n437\n438\n439\n440\n441\n442\n443\nR4i qCp\nm;r PN m¼1 hm R @cm @s cidXdY\nþCr PN m¼1 hm R PN m¼1 Umcm @cm @X þ PN m¼1 Vmcm @cm @Y cmdXdY þkm;r PN m¼1 hk R @cm @X @ci @X þ @cm@Y @ci@Y h i dXdY\nð30dÞ The integrals in the residual equations are numerically integrated using Gaussian quadrature with second-order accuracy. Due to sharp grow of heat capacity ratio at the onset of the phase change of NEPCMs particles, using an adequate time step is essential. The selection of time step is controlled automatically using a Backward Differentiation Formula (BDF) with a free time-step scheme, within a free time-step selection in an order between one and two [68]. The residual equations are iteratively solved by Newton method employing a PARDISO solver [69–71]. The iterations with a Newtonian damping factor of 0.8 are repeated until with a residual error of O (10 6) is achieved. The streamline equation is solved independently by using the obtained velocity field.\nFig. 2. The utilized grid wi"
+    }, {
+      "heading" : "1 25 25 25.02",
+      "text" : ""
+    }, {
+      "heading" : "2 50 50 25.73",
+      "text" : ""
+    }, {
+      "heading" : "3 75 75 26.95",
+      "text" : ""
+    }, {
+      "heading" : "4 100 100 27.08",
+      "text" : ""
+    }, {
+      "heading" : "5 125 125 27.08",
+      "text" : ""
+    }, {
+      "heading" : "6 150 150 27.09",
+      "text" : "3.2. Grid check\nThe discretization of the computational domain is performed into a regular mesh consisting of N N rectangular elements. The mesh was stretched with the stretching ratio of 10 near the walls to adequately capture the temperature gradients, and the mesh is progressively coarsened towards the center of the cavity. A view of the mesh size of 100 100 is depicted in Fig. 2. Different grid sizes are investigated to adopt a grid with adequate accuracy and low computational cost. For this reason, the average value of Nusselt number at the hot wall and the magnitude of stream function | W|max over one period (time between sp and 2sp) in the whole surface of the cavity are selected as criteria to determine the sufficiently fine mesh. According to Table 2, the grid size of 100 100 represents the number of elements above which the obtained values of averaged-time Nusselt number and |W|max show a negligible difference compared to grids with finer meshes. Therefore, the grid size of 100 100 presents very good precision and is adopted for the numerical study.\n3.3. Validation\nThe results of the present study are evaluated through several published works to validate the correctness of the utilized code.\nth a size of 100 100.\n444\n445\n446\n447\n448\n449\n450\n451\n452\n453\n454\n455\n456\n457\n458\n459\n460\n461\n462\n463\n464\n465\n466\n467\n468\n469\n470\nTable 4 The average Nusselt number computed in the current work and that of [73]\nDa Ra e Present study Reference [73]\n10 6 107 0.4 1.078 1.078 10 4 107 0.9 9.322 9.202 10 2 104 0.4 1.360 1.408 10 2 105 0.9 3.92 3.91\nTable 3 The average Nusselt numbers of the present investigation and Kahveci et al. [72] for Ra = 106.\n/ = 0.1 / = 0.05 / = 0\nCurrent work 10.3 9.76 9.20 Kahveci et al. 10.297 9.783 9.23\nτ\nN u a ,τ\n0.8 0.9 1 1.1\n-2\n0\n2\n4\ncurrent study Kalabin et al\nFig. 3. The time history of the Nusselt number obtained by Kalabin et al. [74] and the outcomes of the current work.\n(a) τ\nN u a ,τ\n0 1τp 2τp 3τp 4τp 0\n20\n40\n60\nM. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx 7\nAt the first comparison, the work of Kahveci et al [72] re-simulated. Kahveci et al. [72] studied the natural convection heat transfer of a suspension of water and the Al2O3 nanoparticles filling a square enclosure. The left and right bounds of the studied square domain were kept at the higher and lower temperatures of Th and Tc, respectively. While the horizontal bounds were adiabatic. The average Nusselt number acquired the present code, and the work of Kahveci et al. [72] are tabulated in Table 3. The outcomes of the current solution are further verified by comparing the heat transfer rates obtained from the applied code in this paper with the heat transfer rates presented by Nithiarasu et al. [73]. This verification is performed to approve the correct implementation of the governing equations in the employed code for a porous medium. The high and low temperatures were imposed on the left and right vertical walls and the other walls were adiabatically isolated. The results are tabulated in Table 4 for the difference values of governing parameters and Pr = 1.\nAs a transient natural convection flow, an evaluation is conducted using the numerical results of Kalabin et al. [74]. The geometry studied by Kalabin et al. [74] was a square cavity with sinusoidally varying time-periodic temperature imposed on its left wall. The opposite bound was isothermally kept at the low temperature. As depicted in Fig. 3, the average Nusselt number of the present investigation is compared to the one reported in [74] for Ra = 2 105, Pr = 1, and X = 20p. As shown in Fig. 3, a good agreement is obtained in the results of the present study compared to those of Kalabin et al. [74].\n471\n472\n473\n474\n475\n476\n477\n478\n479\n480\n481\n482\n4. Results and discussions\nThe effect of a parameter is assessed by varying its value in a limited range and examining the results accordingly. A certain range of parameters was used to study the change of the qualitative behavior of the suspension of NEPCM particles and water. The values of ratio of the heat capacity of the NEPCM particles to the base fluid (k), dynamic viscosity (Nv), and thermal conductivity (Nc) numbers are adopted following the experiments of Barlak et al. [35]. Also, as mentioned in the text, the relations of thermal conductivity and dynamic viscosity are applicable for a low concentration of particles / 0.5%. The porosity and Darcy number describe the characteristics of the porous medium that can be\n(b) φ\nN u r\n0 0.01 0.02 0.03 0.04 0.05 1\n1.2\n1.4\n1.6\n1.8\n2\nd (b): Nur as a function of NEPCM volume fraction.\n483\n484\n485\n486\n487\n488\n489\n490\n491\n492\n493\n494\n495\n496\nφ\nN u a\n0 0.01 0.02 0.03 0.04 0.05 14\n18\n22\n26\n30 ε = 0.4 ε = 0.6 ε = 0.8\n19.08 25.45\n26.72\n17.18\n28.00\n15.27\nFig. 5. The variation of the time-averaged Nusselt number for various values of / and porosity.\nτ\nN u a ,τ\n0 1τp 2τp 3τp 4τp 0\n20\n40\n60\n80 Ra=10 5\nRa=10 6 Ra=10 7\nFig. 6. The time history of Nusselt number Nua,s for three various values of Ra number.\nRa\nN u a\n0 2 4 6 8 10 4\n8\n12\n16\n20\n24\n28\nε = 0.4 ε = 0.6 ε = 0.8\n(× 10 )+ 6\nFig. 7. The time-averaged Nusselt number aginst various values of Ra number for various values of porosity.\n(b ):\n1. 25 p (c ): 1. 5 p\n(d ):\n1. 75\np\n1.6\n1.2\n0.8\n0.4 -10\n-30\n-50\n-60 -60\n0.2\n0.4\n0.6\n0.8\n-10 -20 -30 -40\n-50\n0.0054\n0.0042\n0.003\n0.0024\n0. 00 18\n0. 00 06 0.0018 0.0006\n02 4\n-2-4\nIsotherms Streamlines (a ): p 0.8 0.6\n0.4\n0.2 -10 -20 -30\n-40\n-5 0\n8 M. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx\nincluded a wide range of values. In fact, considering the porosity definition, the selected values for porosity is entirely desirable. Besides, regarding the characterization length, the selected values for the Darcy number can be developed for practical application.\nMoreover, as pointed out in the text, the fusion temperature is non-dimensionalized based on the temperature difference of the hot and cold walls. Hence, the dimensionless values of it, i.e., hfu, can be varied from zero to 1. In the end, the selected values for the melting range and Stefan number for the organic PCM forming the core of MEPCM particles are practical.\nThe ranges of the alterable parameters are: Rayleigh number 105 Ra 107, dimensionless fusion temperature 0.05 hfu 1, porosity 0.3 e 0.9, Darcy number 10 5 Da 10 1, nondimensional frequency 0.01p X p, dimensionless amplitude\n497\n498\n499\n500\n501\n502\n503\n504\n505\n506\n507\n508\n509\n510\n511\n512\n513\n514\n515\n516\n517\n518\n519\n520\n521\n522\n523\n524\n525\n526\n527\n528\n529\n530\n531\n532\n533\n534\n535\n536\n537\n538\n539\n540\n541\n542\n543\n544\n545\n546\n547\n548\n549\n550\n551\n552\n553\n554\n555\n556\n557\n558\n559\n560\n561\n562\n563\n564\n565\n566\n567\n568\n569\n570\nθfu = 0.2\nCr = 8.5\nθfu = 0.5\nCr = 8.5\nθfu = 0.8\nCr = 8.5\nFig. 9. The heat capacity ratio contours at different values of dimensionless fusion temperature at sp.\nN u a\n0 0.2 0.4 0.6 0.8 1 0\n10\n20\n30\n40\n50\n60\n70\nDa = 10 - 5 Da = 10 - 3 Da = 10 - 1\nFig. 10. The variation of time-averaged Nusselt number aginst the fusion temperature (hfu) for different values of Da.\nM. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx 9\n0.0 A 1 and the NEPCM volume fraction 0.0 / 5%. The default value of non-dimensional parameters is adopted as Nc = 23.8, Nv = 12.5, k = 0.32, Pr = 6.2, Ste = 0.2, d = 0.05, hfu = 0.1, Ra = 107, Da = 0.1, / = 0.05, X = p, A = 1, and e = 0.8. These parameters represent the default values that will be used throughout the study other indicated otherwise. To emphasize the effect of a defined parameter on the results, it will be varied in a selected interval and the results will be reported accordingly.\nThe variation of the time history of Nusselt number of the hot wall Nua;s is depicted in Fig. 4(a). It is clear that Nua;s shows a periodic variation accordingly with the temperature variation of the hot wall, so that Nua;s reaches to maximum and minimum values when the hot wall temperature is maximum (at 0:25sp, 1:25sp, 2:25sp, and 3:25sp) and minimum (at 0:75sp, 1:75sp, 2:75sp, and 3:75sp) respectively. Indeed, when the temperature of the hot wall is at its highest, the heat transfer in the enclosure reaches its peak due to the increased temperature difference between the hot and cold walls. It should be noted that based on the selected default values for the hot wall temperature (hh ¼ 1 and A ¼ 1), the minimal value of the hot wall temperature is equal to the cold wall temperature. So when the hot wall temperature is minimum, no heat transfer is occurring in the cavity and Nua;s ¼ 0. Overall, the heat transfer inside the enclosure is varying periodically with intervals of very active heat transfer followed by intervals with zero heat\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd\ntransfer. Moreover, Nua;s is oscillating around a mean value Nua, which corresponds to the value that would have been obtained if the hot wall temperature was steady (A ¼ 0Þ.\nThe effect of the presence of the NEPCM particles in the fluid on the heat transfer characteristics can be analyzed by looking at the variation of Nur as a function of the NEPCM volume fraction / as shown in Fig. 4(b). Raising / obviously tends to enhance heat transfer by increasing the value of Nur . The maximum value of Nur is reached for / ¼ 0:05. As the NEPCM suspension is assumed to be diluted, it can be deduced that the optimal value of / is 5%: An increase of 80% in the value of Nua is achieved when using a suspension with / ¼ 5% compared to the case with pure fluid.\nFig. 5 illustrates the variation of time-averaged Nusselt number of the hot wall over one period Nua as a function of NEPCM particles, for different values of the porosity e. For low values of /, rising the porosity e decreases the value ofNua. When / is increased, typically above 3%, Nua starts increasing with the rise of e. This suggests that the porosity greatly affects the impact of the NEPCM particles on the heat transfer. While a high porosity tends to enhance heat transfer in a cavity with NEPCM suspension with a higher volume fraction /, its effect is less advantageous when / is decreased. Indeed, when the porosity is reduced, the volume of the solid matrix increases. Hence, due to the weak thermal conductivity of glass balls, melting of the PCM cores is slowed down and the NEPCM particles contribution of the to the overall heat transfer is diminished, and, thus, a reduced porosity with a lower NEPCM fraction presents a better heat transfer performance and leads to a higher value of Nua. An optimal heat transfer is therefore obtained for / ¼ 5% and e ¼ 0:4.\nThe effect of Rayleigh number Ra on the variation of Nua;s as a function of time is shown in Fig. 6. It is clear that the amplitude of Nua;s increases with the rise of Ra. A significant increase in the amplitude is shown when Ra is increased from 105 to 107. In fact, Ra represents the relative importance of the natural convection driving forces in the cavity. An increase of Ra indicated that buoyancy forces dominate the viscous resistive forces and, consequently, stronger convection occurs, leading to a higher amplitude of Nua;s.\nTo better illustrate the effects of Ra and e on the heat transfer in the enclosure, the variation of Nua as a function of Ra for various values of e is shown in Fig. 7. Increasing e inhibits heat transfer in the enclosure for all the values of Ra. Similarly, the effect of Ra on Nua is independent of e. The effects of the medium porosity and Ra on heat transfer in the enclosure are thus independent of each other.\nThe isotherm contours and the flow streamlines at different instants are shown in Fig. 8. At s ¼ sp (Fig. 8(a), the hot wall temperature is h ¼ 1, and a temperature gradient is present in the cavity. The isotherms h ¼ 0:2 to h ¼ 0:8 start near the hot wall then continue horizontally until the cold wall. The isotherm h ¼ 0:1\nteady natural convection flow of a suspension comprising Nano-Encapsuer Technology, https://doi.org/10.1016/j.apt.2019.12.010\n571\n572\n573\n574\n575\n576\n577\n578\n579\n580\n581\n582\n583\n584\n585\n586\n587\n588\n589\n590\n591\n592\n593\n594\n595\n596\n597\n598\n599\n600\n(a): p\n(b): 1.25 p\nDa = 10 - 5 Da = 10 - 3 Da = 10 - 1\nDa = 10 - 5 Da = 10 - 3 Da = 10 - 1\nFig. 11. The heat capacity ratio contours in different values of Darcy number in specific times.\n(a): A = 0.5, = 0.4 (b): A = 1, = 0.4 (c): A = 1, = 0.8\nτ\nN u a\n,τ\n1τp 1.2τp 1.4τp 1.6τp 1.8τp 2τp 0\n5\n10\n15\n20\n25\n30 35 Ω = 0 Ω = 0.5 Ω = 1\nτ\nN u a\n,τ\n1τp 1.2τp 1.4τp 1.6τp 1.8τp 2τp 0\n10\n20\n30\n40\n50 Ω = 0 Ω = 0.5 Ω = 1\nτ\nN u a\n,τ\n1τp 1.2τp 1.4τp 1.6τp 1.8τp 2τp 0\n15\n30\n45\n60 75 Ω = 0 Ω = 0.5 Ω = 1\nFig. 12. The effect of various values of porosity and X on the Nusselt number (Nua,s) during time when A = 0.5 and A = 1.\n10 M. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx\nstarts from the middle of the bottom wall until the hot wall, while the isotherm h ¼ 0:9 finishes very close to the hot wall. The streamlines show a flow covering the enclosure, with a zone with higher velocity near the hot wall. At s ¼ 0:25sp, the temperature of the hot wall is h ¼ 2 which gives rise to a greater temperature gradient in the enclosure.\nThe streamlines present a symmetrical behavior with zones of high velocity near the hot and cold walls. The isotherm contours from 0 to 0.9 are limited in the bottom half of the cavity, while isotherms with higher temperature values occupy the importance. This observation indicates that the position of the zone of phase change of the PCM cores, which falls near the isotherm with a temperature equal to hfu, goes down in the cavity when s increases from sp to 1:25sp. At s ¼ 1:5sp (Fig. 8(c)), the the hot wall temperature drops back to h ¼ 1, and the isotherm contours are very sim-\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd\nilar to the ones obtained for s ¼ sp. Flow with higher velocity is present near the cold wall. Finally, Fig. 8(d) shows that when the hot wall temperature is 0, i.e., equal to that of the cold wall, the flow is very slow, and there is no temperature gradient in the cavity. Overall, the distribution of the isotherms and the streamlines inside the enclosure changes significantly with time due to the periodic variation of the hot wall temperature.\nThe contours of the heat capacity ratio Cr contours for different values of the fusion temperature hfu at s ¼ sp are displayed in Fig. 9. The dark red ribbons correspond to the zones in which the phase change of the NEPCM is occurring. It is clear that increasing hfu tends to push the phase change towards the top wall.\nIn fact, as mentioned earlier, the PCM undergoes phase change when the nearby temperature is close to its fusion temperature hfu. As discussed in Fig. 8, the isotherms with higher temperature are\nteady natural convection flow of a suspension comprising Nano-Encapsuer Technology, https://doi.org/10.1016/j.apt.2019.12.010\n601\n602\n603\n604\n605\n606\n607\n608\n609\n610\n611\n612\n613\n614\n615\n616\n617\n618\n619\n620\n621\n622\n623\n624\n625\n626\n627\n628\n629\n630\n631\n632\n633\n634\n635\n636\n637\n638\n639\n640\n641\n642\n643\n644\n645\n646\n647\n648\nM. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx 11\nabove those with lower temperature. Therefore, when hfu is increased, the position of the isotherm corresponding to its value will be higher and closer to the top wall in the enclosure, which explains the shift of the phase change zone towards the top wall.\nFig. 10 depicts the variation of Nua;sas a function of hfu at two distinct instants, s ¼ sp and s ¼ 1:25sp for different values of Darcy number Da. It is obvious that increasing Da improves heat transfer inside the cavity for all the values of hfu. In fact, a higher value of Da signals an increase of the porous medium permeability. The suspension is, therefore, flowing in the cavity with more ease and convective heat transfer is enhanced. It is also shown that at s ¼ sp, i.e. when the hot wall temperature amplitude is 0 and the value of Nua;s is the average value Nua. Nua;s presents a maximum when hfu is in the interval [0.25; 0.75]. Similarly, at s ¼ 1:25sp, i.e. when the hot wall is at its maximum temperature h ¼ 2, the effect of Nua;s remains increasing with hfu when hfu is between 0.5 and 1. Fig. 10 thus shows that heat transfer is thus enhanced when the PCM fusion temperature is far from the temperatures of the hot and cold walls. An optimal heat transfer is achieved when hfu is in the range [0:25hh; 0:75hh].\nThe effect of Darcy number Da on the Cr contours inside the cavity is depicted in Fig. 11. For Da = 10 5 the melting is occurring over a straight line near the cold wall. When Da is increased the melting zone shifts towards the center in the bottom part of the\n(a): = 0.5 , = 0.4 (b): =\nτ\nN u a\n,τ\n1τp 1.2τp 1.4τp 1.6τp 1.8τp 2τp 0\n5\n10\n15\n20\n25 30 A=0 A=0.5 A=1\nN u a\n, τ\n1τp 1.2τp 1.4τp 0\n15\n30\n45\n60\nFig. 13. The effect of various values of porosity and A on the Nu\n(a): = 0.5 , = 0.4 (b): = τ\nN u a ,τ\n1τp 1.2τp 1.4τp 1.6τp 1.8τp 2τp 0\n5\n10\n15\n20\n25 30 A=0 A=0.5 A=1\nN u a ,τ\n1τp 1.2τp 1.4τp 0\n15\n30\n45\n60\nFig. 14. The effect of various values of porosity and A on the Nu\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd\ncavity. This suggests that while increasing Da facilitates the suspension of the flow inside the medium, it has an effect on the temperature distribution in the cavity and consequently affects the zone of phase change of the PCM cores. Fig. 11 illustrates then the contribution of the NEPCM particles to the overall heat transfer in the cavity as discussed in Fig. 9.\nThe variation of Nua;s during the time is shown in Fig. 12 for various values of amplitude (A) and the porosity (e). Three different values of the temperature frequency X are It is shown that the frequency of Nua;s is equal to that of the temperature (X) and that the average value of Nua;s remains the same even when X is varied. Comparing Fig. 12(a) to (b) shows that raising A increases the amplitude of Nua;s. Therefore, Nua;s follows a periodic variation with a frequency equa to that of the temperature variation and with an amplitude that rises with the increase of that of the temperature. A comparison between Fig. 12(b) and (c) confirms the fact that a higher porosity increases the average value Nua and enhances heat transfer. However, its impact on the amplitude of Nua;s is relatively limited.\nTo better illustrate the impact of amplitude, frequency, and porosity on heat transfer in the enclosure, the variation of Nua;s as a function of time is plotted in Fig. 14 for different values of A, X, and e. It is confirmed that the amplitude of Nua;s increases when A is increased, for all the values of X, and e. It is equally verified\n, = 0.4 (c): = , = 0.8 τ 1.6τp 1.8τp 2τp\nA=0 A=0.5 A=1\nτ\nN u a\n,τ\n1τp 1.2τp 1.4τp 1.6τp 1.8τp 2τp 0\n10\n20\n30\n40\n50\n60\n70\nA=0 A=0.5 A=1\nsselt number (Nua,s) during time when X ¼ 0:5p and X ¼ p.\n, = 0.4 (c): = , = 0.8 τ 1.6τp 1.8τp 2τp\nA=0 A=0.5 A=1\nτ\nN u a ,τ\n1τp 1.2τp 1.4τp 1.6τp 1.8τp 2τp 0\n10\n20\n30\n40\n50\n60\n70\nA=0 A=0.5 A=1\nsselt number (Nua,s) during time when X ¼ 0:5p and X ¼ p.\nteady natural convection flow of a suspension comprising Nano-Encapsuer Technology, https://doi.org/10.1016/j.apt.2019.12.010\n649\n650\n651\n652\n653\n654\n655\n656\n657\n658\n659\n660\n661\n662\n663\n664\n665\n666\n667\n668\n669\n670\n671\n672\n673\n674\n675\n676\n677\n678\n679\n680\n681\n682\n683\n684\n685\n686\n687\n688\n689\n690\n691\n692\n693\n694\n695\n696\n697\n698\n699\n700\n701\n702\n703\n704\n705\n706\n707\n708\n709\n710\n711\n712\n713\n714\n715 716 717 718 719 720 721 722 723 724 725 726 727 728 729 730 731 732 733 734 735 736 737 738 739 740 741 742 743 744 745 746 747 748 749 750 751 752 753 754 755 756 757 758 759 760 761 762 763 764 765 766 767 768 769 770 771 772 773 774 775 776 777 778 779 780 781 782 783 784 785 786 787 788 789 790 791 792\n12 M. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx\nthat Nua;s frequency is always the same as X. Finally, comparing Fig. 14(b) to (c) confirms the improvement of heat transfer due to the increase of e, as indicated by the increase of the average value Nua. The same effect can be observed in Fig. 13, depicting the variation of Nua;s during time for different amplitudes and porosities, and for two different frequencies. It is shown that doubling the porosity (cases (b) and (c)) can increase the heat transfer by up to 33% for all the non-zero values of the temperature amplitude. To summarize, the variation of Nua;s is periodic and presents a frequency equal to that of the hot wall temperature and an amplitude that increases accordingly with the rise of the temperature amplitude and/or the medium porosity.\n5. Conclusion\nThe unsteady free convection heat transfer in a cavity filled with a porous medium and saturated with a suspension of NEPCM was theoretically studied. The hot wall of the cavity was subject to a periodic wall temperature while the cold wall was kept at a constant cold temperature. The hot temperature and cold temperatures were respectively at higher and lower temperatures than the fusion temperature of nanoparticles, and hence, the PCM core of nanoparticles undergoes a phase change. On phase-change, a significant amount of heat can be stored/released. The effect of the presence of the porous medium and NEPCM particles on the heat transfer behavior of the cavity is investigated in the form of isotherm contours and heat capacity contours as well as time history of Nusselt number and average Nusselt number. The results of the numerical studies can be summarized as follows:\n– When the temperature of the hot wall of the cavity is varying periodically with time, Nua;s shows a periodic variation having a frequency equal to that of the hot wall temperature and an amplitude which increases accordingly with the increase of the temperature amplitude. The heat transfer inside the enclosure is thus characterized by periods of active heat transfer followed by periods of zero heat transfer and so on. The average value Nua of Nua;s remains constant even when the temperature amplitude and/or frequency are varied. – Increasing the volume fraction / of the NEPCM particles enhances heat transfer inside the cavity. Nonetheless, as the suspension is assumed to be diluted, / ¼ 5% is the fraction which corresponds to an optimal heat transfer. – Increasing the porosity enhances heat transfer when the NEPCM volume fraction / is high, typically higher than 3%. When / is below this value, porosity plays an opposite role, and improvement of the heat transfer performance in the cavity can be observed in a lower porosity. – A higher value of Rayleigh number Ra leads to heat transfer enhancement due to the increased relative importance of buoyancy forces which dominate the viscous forces, resulting in stronger convective effects. – Increasing the fusion temperature hfu of the NEPCM cores changes the location at which phase change is occurring, which depends on the temperature distribution inside the cavity. In addition, heat transfer is better enhanced when hfu is not close to the hot and cold wall temperatures. An optimal enhancement is achieved when hfu is between 0.25 and 0.75. – Increasing Darcy number Da improves heat transfer in the cavity as it eases the flow motion of the suspension in the pores and consequently boosts the convection.\nIn the present study, the unsteady flow and heat transfer of NEPCMs in a square enclosure with a periodic temperature was investigated, and the effect fusion temperature and porosity was found to be important. The suspension of NEPCMs can be utilized\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd\nas a phase change heat sink or phase change thermal energy storage. Therefore the energy storage response time and capacity of NEPCM suspensions can be subject of future studies.\nReferences\n[1] S. Mehryan, M.A. Sheremet, M. Soltani, M. Izadi, Natural convection of magnetic hybrid nanofluid inside a double-porous medium using twoequation energy model, J. Mol. Liq. 277 (2019) 959–970. [2] I.V. Miroshnichenko, M.A. Sheremet, H.F. Oztop, N. Abu-Hamdeh, Natural convection of alumina-water nanofluid in an open cavity having multiple porous layers, Int. J. Heat Mass Transf. 125 (2018) 648–657. [3] M.S. Astanina, M. Sheremet, C.J. Umavathi, Unsteady natural convection in a partially porous cavity having a heat-generating source using local thermal non-equilibrium model, Int. J. Numer. Meth. Heat Fluid Flow (2018). [4] A.K. Asl, S. Hossainpour, M. Rashidi, M. Sheremet, Z. Yang, Comprehensive investigation of solid and porous fins influence on natural convection in an inclined rectangular enclosure, Int. J. Heat Mass Transf. 133 (2019) 729–744. [5] R. Mohebbi, A.A. Delouei, A. Jamali, M. Izadi, A.A. Mohamad, Pore-scale simulation of non-Newtonian power-law fluid flow and forced convection in partially porous media: thermal lattice Boltzmann method, Phys. A: Stat. Mech. Appl. 525 (2019) 642–656. [6] M.A. Ismael, H.S. Ghalib, Double diffusive natural convection in a partially layered cavity with inner solid conductive body, Sci. Iran 25 (2018) 2643– 2659. [7] M.A. Sheremet, I. Pop, Effect of local heater size and position on natural convection in a tilted nanofluid porous cavity using LTNE and Buongiorno’s models, J. Mol. Liq. 266 (2018) 19–28. [8] A.I. Alsabery, T. Tayebi, A.J. Chamkha, I. Hashim, Effect of rotating solid cylinder on entropy generation and convective heat transfer in a wavy porous cavity heated from below, Int. Commun. Heat Mass Transf. 95 (2018) 197–209. [9] A. Alsabery, A. Chamkha, I. Hashim, P. Siddheshwar, Effects of nonuniform heating and wall conduction on natural convection in a square porous cavity using LTNE model, J. Heat Transf. 139 (2017) 122008. [10] J. Merkin, I. Pop, Natural convection boundary-layer flow in a porous medium with temperature-dependent boundary conditions, Transp. Porous Media 85 (2010) 397–414. [11] J.H. Merkin, A.M. Rohni, S. Ahmad, I. Pop, On the temperature slip boundary condition in a mixed convection boundary-layer flow in a porous medium, Transp. Porous Media 94 (2012) 133–147. [12] Y. Lok, J. Merkin, I. Pop, Mixed convection boundary-layer flow over a vertical surface embedded in a porous material subject to a convective boundary condition, Transp. Porous Media 98 (2013) 451–463. [13] K. Khanafer, K. Vafai, M. Lightstone, Buoyancy-driven heat transfer enhancement in a two-dimensional enclosure utilizing nanofluids, Int. J. Heat Mass Transf. 46 (2003) 3639–3653. [14] I. Hashim, A. Alsabery, M. Sheremet, A. Chamkha, Numerical investigation of natural convection of Al2O3-water nanofluid in a wavy cavity with conductive inner block using Buongiorno’s two-phase model, Adv. Powder Technol. 30 (2019) 399–414. [15] C. Sivaraj, M. Sheremet, MHD natural convection and entropy generation of ferrofluids in a cavity with a non-uniformly heated horizontal plate, Int. J. Mech. Sci. 149 (2018) 326–337. [16] C. Revnic, M. Ghalambaz, T. Gros an, M. Sheremet, I. Pop, Impacts of nonuniform border temperature variations on time-dependent nanofluid free convection within a trapezium: Buongiorno’s nanofluid model, Energies 12 (2019) 1461. [17] A. Dogonchi, M. Waqas, S. Seyyedi, M. Hashemi-Tilehnoee, D. Ganji, CVFEM analysis for Fe3O4–H2O nanofluid in an annulus subject to thermal radiation, Int. J. Heat Mass Transf. 132 (2019) 473–483. [18] A.I. Alsabery, T. Armaghani, A.J. Chamkha, M.A. Sadiq, I. Hashim, Effects of twophase nanofluid model on convection in a double lid-driven cavity in the presence of a magnetic field, Int. J. Numer. Meth. Heat Fluid Flow 29 (2019) 1272–1299. [19] M. Ghalambaz, A. Doostani, E. Izadpanahi, A.J. Chamkha, Conjugate natural convection flow of Ag–MgO/water hybrid nanofluid in a square cavity, J. Therm. Anal. Calorim. (2019) 1–16. [20] A. Tahmasebi, M. Mahdavi, M. Ghalambaz, Local thermal nonequilibrium conjugate natural convection heat transfer of nanofluids in a cavity partially filled with porous media using Buongiorno’s model, Numer. Heat Transf. Part A: Appl. 73 (2018) 254–276. [21] A. Chamkha, M. Ismael, A. Kasaeipoor, T. Armaghani, Entropy generation and natural convection of CuO-water nanofluid in C-shaped cavity under magnetic field, Entropy 18 (2016) 50. [22] S.M. Seyyedi, A. Dogonchi, D. Ganji, M. Hashemi-Tilehnoee, Entropy generation in a nanofluid-filled semi-annulus cavity by considering the shape of nanoparticles, J. Therm. Anal. Calorim. (2019) 1–15. [23] A. Dogonchi, T. Armaghani, A.J. Chamkha, D. Ganji, Natural convection analysis in a cavity with an inclined elliptical heater subject to shape factor of nanoparticles and magnetic field, Arab. J. Sci. Eng. (2019) 1–13. [24] A. Chamkha, A. Dogonchi, D. Ganji, Magnetohydrodynamic nanofluid natural convection in a cavity under thermal radiation and shape factor of nanoparticles impacts: a numerical study using CVFEM, Appl. Sci. 8 (2018) 2396.\nteady natural convection flow of a suspension comprising Nano-Encapsuer Technology, https://doi.org/10.1016/j.apt.2019.12.010\n793 794 795 796 797 798 799 800 801 802 803 804 805 806 807 808 809 810 811 812 813 814 815 816 817 818 819 820 821 822 823 824 825 826 827 828 829 830 831 832 833 834 835 836 837 838 839 840 841 842 843 844 845 846 847 848 849 850 851 852 853 854 855 856 857 858 859 860 861 862 863 864 865 866 867 868 869 870 871 872 873 874\n875 876 877 878 879 880 881 882 883 884 885 886 887 888 889 890 891 892 893 894 895 896 897 898 899 900 901 902 903 904 905 906 907 908 909 910 911 912 913 914 915 916 917 918 919 920 921 922 923 924 925 926 927 928 929 930 931 932 933 934 935 936 937 938 939 940 941 942 943 944 945 946 947 948 949 950 951 952 953 954\n955\nM. Ghalambaz et al. / Advanced Powder Technology xxx (xxxx) xxx 13\n[25] A. Dogonchi, Heat transfer by natural convection of Fe3O4-water nanofluid in an annulus between a wavy circular cylinder and a rhombus, Int. J. Heat Mass Transf. 130 (2019) 320–332. [26] A. Dogonchi, A.J. Chamkha, M. Hashemi-Tilehnoee, S. Seyyedi, D. Ganji, Effects of homogeneous-heterogeneous reactions and thermal radiation on magnetohydrodynamic Cu-water nanofluid flow over an expanding flat plate with nonuniform heat source, J. Central South Univ. 26 (2019) 1161–1171. [27] S. Sivasankaran, A. Alsabery, I. Hashim, Internal heat generation effect on transient natural convection in a nanofluid-saturated local thermal nonequilibrium porous inclined cavity, Phys. A: Stat. Mech. Appl. 509 (2018) 275– 293. [28] A.S. Dogonchi, A.J. Chamkha, S.M. Seyyedi, M. Hashemi-Tilehnoee, D.D. Ganji, Viscous dissipation impact on free convection flow of Cu-water nanofluid in a circular enclosure with porosity considering internal heat source, J. Appl. Comput. Mech. 5 (2019) 717–726. [29] I. Pop, M. Ghalambaz, M. Sheremet, Free convection in a square porous cavity filled with a nanofluid using thermal non equilibrium and Buongiorno models, Int. J. Numer. Meth. Heat Fluid Flow 26 (2016) 671–693. [30] A. Alsabery, A. Chamkha, H. Saleh, I. Hashim, Natural convection flow of a nanofluid in an inclined square enclosure partially filled with a porous medium, Sci. Rep. 7 (2017) 2357. [31] A.J. Chamkha, M.A. Ismael, Natural convection in differentially heated partially porous layered cavities filled with a nanofluid, Numer. Heat Transf. Part A: Appl. 65 (2014) 1089–1113. [32] A. Dogonchi, M. Hashemi-Tilehnoee, M. Waqas, S.M. Seyyedi, I. Animasaun, D. Ganji, The influence of different shapes of nanoparticle on Cu-H2O nanofluids in a partially heated irregular wavy enclosure, Phys. A: Stat. Mech. Appl. (2019) 123034. [33] A. Dogonchi, M. Waqas, D. Ganji, Shape effects of Copper-Oxide (CuO) nanoparticles to determine the heat transfer filled in a partially heated rhombus enclosure: CVFEM approach, Int. Commun. Heat Mass Transf. 107 (2019) 14–23. [34] A. Dogonchi, M. Waqas, S.M. Seyyedi, M. Hashemi-Tilehnoee, D. Ganji, Numerical simulation for thermal radiation and porous medium characteristics in flow of CuO-H2O nanofluid, J. Braz. Soc. Mech. Sci. Eng. 41 (2019) 249. [35] S. Barlak, O.N. Sara, A. Karaipekli, S. Yapıcı, Thermal conductivity and viscosity of nanofluids having nanoencapsulated phase change material, Nanoscale Microscale Thermophys. Eng. 20 (2016) 85–96. [36] A. Jamekhorshid, S. Sadrameli, M. Farid, A review of microencapsulation methods of phase change materials (PCMs) as a thermal energy storage (TES) medium, Renew. Sustain. Energy Rev. 31 (2014) 531–542. [37] W. Su, J. Darkwa, G. Kokogiannakis, Review of solid–liquid phase change materials and their encapsulation technologies, Renew. Sustain. Energy Rev. 48 (2015) 373–391. [38] G. Fang, H. Li, F. Yang, X. Liu, S. Wu, Preparation and characterization of nanoencapsulated n-tetradecane as phase change material for thermal energy storage, Chem. Eng. J. 153 (2009) 217–221. [39] X. Du, Y. Fang, X. Cheng, Z. Du, M. Zhou, H. Wang, Fabrication and characterization of flame-retardant nanoencapsulated n-octadecane with melamine-formaldehyde shell for thermal energy storage, ACS Sustain. Chem. Eng. 6 (2018) 15541–15549. [40] Y. Zhu, Y. Chi, S. Liang, X. Luo, K. Chen, C. Tian, J. Wang, L. Zhang, Novel metal coated nanoencapsulated phase change materials with high thermal conductivity for thermal energy storage, Sol. Energy Mater. Sol. Cells 176 (2018) 212–221. [41] Y. Zhu, Y. Qin, C. Wei, S. Liang, X. Luo, J. Wang, L. Zhang, Nanoencapsulated phase change materials with polymer-SiO2 hybrid shell materials: compositions, morphologies, and properties, Energy Convers. Manage. 164 (2018) 83–92. [42] A. Zhao, J. An, J. Yang, E.-H. Yang, Microencapsulated phase change materials with composite titania-polyurea (TiO2-PUA) shell, Appl. Energy 215 (2018) 468–478. [43] M. Ghalambaz, A. Doostani, E. Izadpanahi, A. Chamkha, Phase-change heat transfer in a cavity heated from below: the effect of utilizing single or hybrid nanoparticles as additives, J. Taiwan Inst. Chem. Eng. 72 (2017) 104–115. [44] A. Chamkha, A. Doostanidezfuli, E. Izadpanahi, M. Ghalambaz, Phase-change heat transfer of single/hybrid nanoparticles-enhanced phase-change materials over a heated horizontal cylinder confined in a square cavity, Adv. Powder Technol. 28 (2017) 385–397. [45] R. Elbahjaoui, H. El Qarnia, Transient behavior analysis of the melting of nanoparticle-enhanced phase change material inside a rectangular latent heat storage unit, Appl. Therm. Eng. 112 (2017) 720–738. [46] X. Xiao, P. Zhang, M. Li, Preparation and thermal characterization of paraffin/ metal foam composite phase change material, Appl. Energy 112 (2013) 1357– 1366. [47] X. Xiao, P. Zhang, M. Li, Effective thermal conductivity of open-cell metal foams impregnated with pure paraffin for latent heat storage, Int. J. Therm. Sci. 81 (2014) 94–105. [48] B.V.S. Dinesh, A. Bhattacharya, Effect of foam geometry on heat absorption characteristics of PCM-metal foam composite thermal energy storage systems, Int. J. Heat Mass Transf. 134 (2019) 866–883.\nPlease cite this article as: M. Ghalambaz, S. A. M. Mehryan, A. Hajjar et al., Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd\n[49] Z.-G. Wu, W.-C. Sheng, W.-Q. Tao, Z. Li, A novel experimental-numerical method for studying the thermal behaviors of phase change material in a porous cavity, Sol. Energy 169 (2018) 325–334. [50] C.-J. Ho, J. Huang, P. Tsai, Y.M. Yang, Water-based suspensions of Al2O3 nanoparticles and MEPCM particles on convection effectiveness in a circular tube, Int. J. Therm. Sci. 50 (2011) 736–748. [51] C.-J. Ho, W.-C. Chen, W.-M. Yan, Correlations of heat transfer effectiveness in a minichannel heat sink with water-based suspensions of Al2O3 nanoparticles and/or MEPCM particles, Int. J. Heat Mass Transf. 69 (2014) 293–299. [52] C.-J. Ho, W.-C. Chen, W.-M. Yan, Experimental study on cooling performance of minichannel heat sink using water-based MEPCM particles, Int. Commun. Heat Mass Transf. 48 (2013) 67–72. [53] H.R. Seyf, Z. Zhou, H. Ma, Y. Zhang, Three dimensional numerical study of heattransfer enhancement by nano-encapsulated phase change material slurry in microtube heat sinks with tangential impingement, Int. J. Heat Mass Transf. 56 (2013) 561–573. [54] H.R. Seyf, M.R. Wilson, Y. Zhang, H. Ma, Flow and heat transfer of nanoencapsulated phase change material slurry past a unconfined square cylinder, J. Heat Transf. 136 (2014) 051902. [55] M. Ghalambaz, A.J. Chamkha, D. Wen, Natural convective flow and heat transfer of Nano-Encapsulated Phase Change Materials (NEPCMs) in a cavity, Int. J. Heat Mass Transf. 138 (2019) 738–749. [56] M. Hunger, A.G. Entrop, I. Mandilaras, H. Brouwers, M. Founti, The behavior of self-compacting concrete containing micro-encapsulated phase change materials, Cem. Concr. Compos. 31 (2009) 731–743. [57] T. Toppi, L. Mazzarella, Gypsum based composite materials with microencapsulated PCM: experimental correlations for thermal properties estimation on the basis of the composition, Energy Build. 57 (2013) 227–236. [58] M. Ghalambaz, T. Gros an, I. Pop, Mixed convection boundary layer flow and heat transfer over a vertical plate embedded in a porous medium filled with a suspension of nano-encapsulated phase change materials, J. Mol. Liq. 111432 (2019). [59] M. Ghalambaz, M.A. Sheremet, I. Pop, Free convection in a parallelogrammic porous cavity filled with a nanofluid using Tiwari and Das’ nanofluid model, PLoS ONE 10 (2015) e0126486. [60] A. Hajjar, S. Mehryan, M. Ghalambaz, Time periodic natural convection heat transfer in a nano-encapsulated phase-change suspension, Int. J. Mech. Sci. 105243 (2019). [61] S. Mehryan, E. Izadpanahi, M. Ghalambaz, A. Chamkha, Mixed convection flow caused by an oscillating cylinder in a square cavity filled with Cu–Al 2 O 3/ water hybrid nanofluid, J. Therm. Anal. Calorim. (2019) 1–18. [62] S. Mehryan, M. Izadi, Z. Namazian, A.J. Chamkha, Natural convection of multiwalled carbon nanotube–Fe 3 O 4/water magnetic hybrid nanofluid flowing in porous medium considering the impacts of magnetic field-dependent viscosity, J. Therm. Anal. Calorim. 138 (2019) 1541–1555. [63] M. Ghalambaz, S.H. Zadeh, S. Mehryan, I. Pop, D. Wen, Analysis of melting behavior of PCMs in a cavity subject to a line source magnetic field using a moving grid technique, Appl. Math. Model. (2019). [64] L. Chai, R. Shaukat, L. Wang, H.S. Wang, A review on heat transfer and hydrodynamic characteristics of nano/microencapsulated phase change slurry (N/MPCS) in mini/microchannel heat sinks, Appl. Therm. Eng. 135 (2018) 334– 349. [65] B. Chen, X. Wang, R. Zeng, Y. Zhang, X. Wang, J. Niu, Y. Li, H. Di, An experimental study of convective heat transfer with microencapsulated phase change material suspension: laminar flow in a circular tube under constant heat flux, Exp. Therm Fluid Sci. 32 (2008) 1638–1646. [66] K. Khanafer, K. Vafai, A critical synthesis of thermophysical characteristics of nanofluids, Int. J. Heat Mass Transf. 54 (2011) 4410–4428. [67] A. Zaraki, M. Ghalambaz, A.J. Chamkha, M. Ghalambaz, D. De Rossi, Theoretical analysis of natural convection boundary layer heat and mass transfer of nanofluids: effects of size, shape and type of nanoparticles, type of base fluid and working temperature, Adv. Powder Technol. 26 (2015) 935–946. [68] J.C. De Los Reyes, S. González Andrade, A combined BDF-semismooth Newton approach for time-dependent Bingham flow, Numer. Methods Partial Differ. Eq. 28 (2012) 834–860. [69] O. Schenk, K. Gärtner, Solving unsymmetric sparse systems of linear equations with PARDISO, Future Gener. Comput. Syst. 20 (2004) 475–487. [70] P. Wriggers, Nonlinear Finite Element Methods, Springer Science & Business Media, 2008. [71] F. Verbosio, A. De Coninck, D. Kourounis, O. Schenk, Enhancing the scalability of selected inversion factorization algorithms in genomic prediction, J. Comput. Sci. 22 (2017) 99–108. [72] K. Kahveci, Buoyancy driven heat transfer of nanofluids in a tilted enclosure, J. Heat Transf. 132 (2010) 062501. [73] P. Nithiarasu, K. Seetharamu, T. Sundararajan, Natural convective heat transfer in a fluid saturated variable porosity medium, Int. J. Heat Mass Transf. 40 (1997) 3955–3967. [74] E.V. Kalabin, M.V. Kanashina, P.T. Zubkov, Natural-convective heat transfer in a square cavity with time-varying side-wall temperature, Numeri. Heat Transf. Part A: Appl. 47 (2005) 621–631.\nteady natural convection flow of a suspension comprising Nano-Encapsuer Technology, https://doi.org/10.1016/j.apt.2019.12.010"
+    } ],
+    "references" : [ {
+      "title" : "Natural convection of magnetic hybrid nanofluid inside a double-porous medium using twoequation energy model",
+      "author" : [ "S. Mehryan", "M.A. Sheremet", "M. Soltani", "M. Izadi" ],
+      "venue" : "J. Mol. Liq. 277 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Natural convection of alumina-water nanofluid in an open cavity having multiple porous layers",
+      "author" : [ "I.V. Miroshnichenko", "M.A. Sheremet", "H.F. Oztop", "N. Abu-Hamdeh" ],
+      "venue" : "Int. J. Heat Mass Transf. 125 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Unsteady natural convection in a partially porous cavity having a heat-generating source using local thermal non-equilibrium model",
+      "author" : [ "M.S. Astanina", "M. Sheremet", "C.J. Umavathi" ],
+      "venue" : "Int. J. Numer. Meth. Heat Fluid Flow ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Comprehensive investigation of solid and porous fins influence on natural convection in an inclined rectangular enclosure",
+      "author" : [ "A.K. Asl", "S. Hossainpour", "M. Rashidi", "M. Sheremet", "Z. Yang" ],
+      "venue" : "Int. J. Heat Mass Transf. 133 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Pore-scale simulation of non-Newtonian power-law fluid flow and forced convection in partially porous media: thermal lattice Boltzmann method",
+      "author" : [ "R. Mohebbi", "A.A. Delouei", "A. Jamali", "M. Izadi", "A.A. Mohamad" ],
+      "venue" : "Phys. A: Stat. Mech. Appl. 525 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Double diffusive natural convection in a partially layered cavity with inner solid conductive body",
+      "author" : [ "M.A. Ismael", "H.S. Ghalib" ],
+      "venue" : "Sci. Iran 25 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effect of local heater size and position on natural convection in a tilted nanofluid porous cavity using LTNE and Buongiorno’s models",
+      "author" : [ "M.A. Sheremet", "I. Pop" ],
+      "venue" : "J. Mol. Liq. 266 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effect of rotating solid cylinder on entropy generation and convective heat transfer in a wavy porous cavity heated from below",
+      "author" : [ "A.I. Alsabery", "T. Tayebi", "A.J. Chamkha", "I. Hashim" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 95 ",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Effects of nonuniform heating and wall conduction on natural convection in a square porous cavity using LTNE model",
+      "author" : [ "A. Alsabery", "A. Chamkha", "I. Hashim", "P. Siddheshwar" ],
+      "venue" : "J. Heat Transf. 139 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Natural convection boundary-layer flow in a porous medium with temperature-dependent boundary conditions",
+      "author" : [ "J. Merkin", "I. Pop" ],
+      "venue" : "Transp. Porous Media 85 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "On the temperature slip boundary condition in a mixed convection boundary-layer flow in a porous medium",
+      "author" : [ "J.H. Merkin", "A.M. Rohni", "S. Ahmad", "I. Pop" ],
+      "venue" : "Transp. Porous Media 94 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Mixed convection boundary-layer flow over a vertical surface embedded in a porous material subject to a convective boundary condition",
+      "author" : [ "Y. Lok", "J. Merkin", "I. Pop" ],
+      "venue" : "Transp. Porous Media 98 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Buoyancy-driven heat transfer enhancement in a two-dimensional enclosure utilizing nanofluids",
+      "author" : [ "K. Khanafer", "K. Vafai", "M. Lightstone" ],
+      "venue" : "Int. J. Heat Mass Transf. 46 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "Numerical investigation of natural convection of Al2O3-water nanofluid in a wavy cavity with conductive inner block using Buongiorno’s two-phase model",
+      "author" : [ "I. Hashim", "A. Alsabery", "M. Sheremet", "A. Chamkha" ],
+      "venue" : "Adv. Powder Technol. 30 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "MHD natural convection and entropy generation of ferrofluids in a cavity with a non-uniformly heated horizontal plate",
+      "author" : [ "C. Sivaraj", "M. Sheremet" ],
+      "venue" : "Int. J. Mech. Sci. 149 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "T",
+      "author" : [ "C. Revnic", "M. Ghalambaz" ],
+      "venue" : "Gros  an, M. Sheremet, I. Pop, Impacts of nonuniform border temperature variations on time-dependent nanofluid free convection within a trapezium: Buongiorno’s nanofluid model, Energies 12 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "CVFEM analysis for Fe3O4–H2O nanofluid in an annulus subject to thermal radiation",
+      "author" : [ "A. Dogonchi", "M. Waqas", "S. Seyyedi", "M. Hashemi-Tilehnoee", "D. Ganji" ],
+      "venue" : "Int. J. Heat Mass Transf. 132 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Effects of twophase nanofluid model on convection in a double lid-driven cavity in the presence of a magnetic field",
+      "author" : [ "A.I. Alsabery", "T. Armaghani", "A.J. Chamkha", "M.A. Sadiq", "I. Hashim" ],
+      "venue" : "Int. J. Numer. Meth. Heat Fluid Flow 29 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Conjugate natural convection flow of Ag–MgO/water hybrid nanofluid in a square cavity",
+      "author" : [ "M. Ghalambaz", "A. Doostani", "E. Izadpanahi", "A.J. Chamkha" ],
+      "venue" : "J. Therm. Anal. Calorim. ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Local thermal nonequilibrium conjugate natural convection heat transfer of nanofluids in a cavity partially filled with porous media using Buongiorno’s model",
+      "author" : [ "A. Tahmasebi", "M. Mahdavi", "M. Ghalambaz" ],
+      "venue" : "Numer. Heat Transf. Part A: Appl. 73 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Entropy generation and natural convection of CuO-water nanofluid in C-shaped cavity under magnetic field",
+      "author" : [ "A. Chamkha", "M. Ismael", "A. Kasaeipoor", "T. Armaghani" ],
+      "venue" : "Entropy 18 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Entropy generation in a nanofluid-filled semi-annulus cavity by considering the shape of nanoparticles",
+      "author" : [ "S.M. Seyyedi", "A. Dogonchi", "D. Ganji", "M. Hashemi-Tilehnoee" ],
+      "venue" : "J. Therm. Anal. Calorim. ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Natural convection analysis in a cavity with an inclined elliptical heater subject to shape factor of nanoparticles and magnetic field",
+      "author" : [ "A. Dogonchi", "T. Armaghani", "A.J. Chamkha", "D. Ganji" ],
+      "venue" : "Arab. J. Sci. Eng. ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Magnetohydrodynamic nanofluid natural convection in a cavity under thermal radiation and shape factor of nanoparticles impacts: a numerical study using CVFEM",
+      "author" : [ "A. Chamkha", "A. Dogonchi", "D. Ganji" ],
+      "venue" : "Appl. Sci. 8 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Heat transfer by natural convection of Fe3O4-water nanofluid in an annulus between a wavy circular cylinder and a rhombus",
+      "author" : [ "A. Dogonchi" ],
+      "venue" : "Int. J. Heat Mass Transf. 130 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Effects of homogeneous-heterogeneous reactions and thermal radiation on magnetohydrodynamic Cu-water nanofluid flow over an expanding flat plate with nonuniform heat source",
+      "author" : [ "A. Dogonchi", "A.J. Chamkha", "M. Hashemi-Tilehnoee", "S. Seyyedi", "D. Ganji" ],
+      "venue" : "J. Central South Univ. 26 ",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Internal heat generation effect on transient natural convection in a nanofluid-saturated local thermal nonequilibrium porous inclined cavity",
+      "author" : [ "S. Sivasankaran", "A. Alsabery", "I. Hashim" ],
+      "venue" : "Phys. A: Stat. Mech. Appl. 509 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Viscous dissipation impact on free convection flow of Cu-water nanofluid in a circular enclosure with porosity considering internal heat source",
+      "author" : [ "A.S. Dogonchi", "A.J. Chamkha", "S.M. Seyyedi", "M. Hashemi-Tilehnoee", "D.D. Ganji" ],
+      "venue" : "J. Appl. Comput. Mech. 5 ",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Free convection in a square porous cavity filled with a nanofluid using thermal non equilibrium and Buongiorno models",
+      "author" : [ "I. Pop", "M. Ghalambaz", "M. Sheremet" ],
+      "venue" : "Int. J. Numer. Meth. Heat Fluid Flow 26 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Natural convection flow of a nanofluid in an inclined square enclosure partially filled with a porous medium",
+      "author" : [ "A. Alsabery", "A. Chamkha", "H. Saleh", "I. Hashim" ],
+      "venue" : "Sci. Rep. 7 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Natural convection in differentially heated partially porous layered cavities filled with a nanofluid",
+      "author" : [ "A.J. Chamkha", "M.A. Ismael" ],
+      "venue" : "Numer. Heat Transf. Part A: Appl. 65 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "The influence of different shapes of nanoparticle on Cu-H2O nanofluids in a partially heated irregular wavy enclosure",
+      "author" : [ "A. Dogonchi", "M. Hashemi-Tilehnoee", "M. Waqas", "S.M. Seyyedi", "I. Animasaun", "D. Ganji" ],
+      "venue" : "Phys. A: Stat. Mech. Appl. ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Shape effects of Copper-Oxide (CuO) nanoparticles to determine the heat transfer filled in a partially heated rhombus enclosure: CVFEM approach",
+      "author" : [ "A. Dogonchi", "M. Waqas", "D. Ganji" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 107 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Numerical simulation for thermal radiation and porous medium characteristics in flow of CuO-H2O nanofluid",
+      "author" : [ "A. Dogonchi", "M. Waqas", "S.M. Seyyedi", "M. Hashemi-Tilehnoee", "D. Ganji" ],
+      "venue" : "J. Braz. Soc. Mech. Sci. Eng. 41 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Thermal conductivity and viscosity of nanofluids having nanoencapsulated phase change material",
+      "author" : [ "S. Barlak", "O.N. Sara", "A. Karaipekli", "S. Yapıcı" ],
+      "venue" : "Nanoscale Microscale Thermophys. Eng. 20 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "A review of microencapsulation methods of phase change materials (PCMs) as a thermal energy storage (TES) medium",
+      "author" : [ "A. Jamekhorshid", "S. Sadrameli", "M. Farid" ],
+      "venue" : "Renew. Sustain. Energy Rev. 31 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Review of solid–liquid phase change materials and their encapsulation technologies",
+      "author" : [ "W. Su", "J. Darkwa", "G. Kokogiannakis" ],
+      "venue" : "Renew. Sustain. Energy Rev. 48 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Preparation and characterization of nanoencapsulated n-tetradecane as phase change material for thermal energy storage",
+      "author" : [ "G. Fang", "H. Li", "F. Yang", "X. Liu", "S. Wu" ],
+      "venue" : "Chem. Eng. J. 153 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Fabrication and characterization of flame-retardant nanoencapsulated n-octadecane with melamine-formaldehyde shell for thermal energy storage",
+      "author" : [ "X. Du", "Y. Fang", "X. Cheng", "Z. Du", "M. Zhou", "H. Wang" ],
+      "venue" : "ACS Sustain. Chem. Eng. 6 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Novel metal coated nanoencapsulated phase change materials with high thermal conductivity for thermal energy storage",
+      "author" : [ "Y. Zhu", "Y. Chi", "S. Liang", "X. Luo", "K. Chen", "C. Tian", "J. Wang", "L. Zhang" ],
+      "venue" : "Sol. Energy Mater. Sol. Cells 176 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Nanoencapsulated phase change materials with polymer-SiO2 hybrid shell materials: compositions",
+      "author" : [ "Y. Zhu", "Y. Qin", "C. Wei", "S. Liang", "X. Luo", "J. Wang", "L. Zhang" ],
+      "venue" : "morphologies, and properties, Energy Convers. Manage. 164 ",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Microencapsulated phase change materials with composite titania-polyurea (TiO2-PUA) shell",
+      "author" : [ "A. Zhao", "J. An", "J. Yang", "E.-H. Yang" ],
+      "venue" : "Appl. Energy 215 ",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Phase-change heat transfer in a cavity heated from below: the effect of utilizing single or hybrid nanoparticles as additives",
+      "author" : [ "M. Ghalambaz", "A. Doostani", "E. Izadpanahi", "A. Chamkha" ],
+      "venue" : "J. Taiwan Inst. Chem. Eng. 72 ",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Phase-change heat transfer of single/hybrid nanoparticles-enhanced phase-change materials over a heated horizontal cylinder confined in a square cavity",
+      "author" : [ "A. Chamkha", "A. Doostanidezfuli", "E. Izadpanahi", "M. Ghalambaz" ],
+      "venue" : "Adv. Powder Technol. 28 ",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Transient behavior analysis of the melting of nanoparticle-enhanced phase change material inside a rectangular latent heat storage unit",
+      "author" : [ "R. Elbahjaoui", "H. El Qarnia" ],
+      "venue" : "Appl. Therm. Eng. 112 ",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Preparation and thermal characterization of paraffin/ metal foam composite phase change material",
+      "author" : [ "X. Xiao", "P. Zhang", "M. Li" ],
+      "venue" : "Appl. Energy 112 ",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Effective thermal conductivity of open-cell metal foams impregnated with pure paraffin for latent heat storage",
+      "author" : [ "X. Xiao", "P. Zhang", "M. Li" ],
+      "venue" : "Int. J. Therm. Sci. 81 ",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Effect of foam geometry on heat absorption characteristics of PCM-metal foam composite thermal energy storage systems",
+      "author" : [ "B.V.S. Dinesh", "A. Bhattacharya" ],
+      "venue" : "Int. J. Heat Mass Transf. 134 ",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "A novel experimental-numerical method for studying the thermal behaviors of phase change material in a porous cavity",
+      "author" : [ "Z.-G. Wu", "W.-C. Sheng", "W.-Q. Tao", "Z. Li" ],
+      "venue" : "Sol. Energy 169 ",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "Water-based suspensions of Al2O3 nanoparticles and MEPCM particles on convection effectiveness in a circular tube",
+      "author" : [ "C.-J. Ho", "J. Huang", "P. Tsai", "Y.M. Yang" ],
+      "venue" : "Int. J. Therm. Sci. 50 ",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Correlations of heat transfer effectiveness in a minichannel heat sink with water-based suspensions of Al2O3 nanoparticles and/or MEPCM particles",
+      "author" : [ "C.-J. Ho", "W.-C. Chen", "W.-M. Yan" ],
+      "venue" : "Int. J. Heat Mass Transf. 69 ",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Experimental study on cooling performance of minichannel heat sink using water-based MEPCM particles",
+      "author" : [ "C.-J. Ho", "W.-C. Chen", "W.-M. Yan" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 48 ",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Three dimensional numerical study of heattransfer enhancement by nano-encapsulated phase change material slurry in microtube heat sinks with tangential impingement",
+      "author" : [ "H.R. Seyf", "Z. Zhou", "H. Ma", "Y. Zhang" ],
+      "venue" : "Int. J. Heat Mass Transf. 56 ",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "Flow and heat transfer of nanoencapsulated phase change material slurry past a unconfined square cylinder",
+      "author" : [ "H.R. Seyf", "M.R. Wilson", "Y. Zhang", "H. Ma" ],
+      "venue" : "J. Heat Transf. 136 ",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Natural convective flow and heat transfer of Nano-Encapsulated Phase Change Materials (NEPCMs) in a cavity",
+      "author" : [ "M. Ghalambaz", "A.J. Chamkha", "D. Wen" ],
+      "venue" : "Int. J. Heat Mass Transf. 138 ",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "The behavior of self-compacting concrete containing micro-encapsulated phase change materials",
+      "author" : [ "M. Hunger", "A.G. Entrop", "I. Mandilaras", "H. Brouwers", "M. Founti" ],
+      "venue" : "Cem. Concr. Compos. 31 ",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Gypsum based composite materials with microencapsulated PCM: experimental correlations for thermal properties estimation on the basis of the composition",
+      "author" : [ "T. Toppi", "L. Mazzarella" ],
+      "venue" : "Energy Build. 57 ",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "T",
+      "author" : [ "M. Ghalambaz" ],
+      "venue" : "Gros an, I. Pop, Mixed convection boundary layer flow and heat transfer over a vertical plate embedded in a porous medium filled with a suspension of nano-encapsulated phase change materials, J. Mol. Liq. 111432 ",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Free convection in a parallelogrammic porous cavity filled with a nanofluid using Tiwari and Das’ nanofluid model",
+      "author" : [ "M. Ghalambaz", "M.A. Sheremet", "I. Pop" ],
+      "venue" : "PLoS ONE 10 ",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Time periodic natural convection heat transfer in a nano-encapsulated phase-change suspension",
+      "author" : [ "A. Hajjar", "S. Mehryan", "M. Ghalambaz" ],
+      "venue" : "Int. J. Mech. Sci. 105243 ",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Mixed convection flow caused by an oscillating cylinder in a square cavity filled with Cu–Al 2 O 3/ water hybrid nanofluid",
+      "author" : [ "S. Mehryan", "E. Izadpanahi", "M. Ghalambaz", "A. Chamkha" ],
+      "venue" : "J. Therm. Anal. Calorim. ",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Natural convection of multiwalled carbon nanotube–Fe 3 O 4/water magnetic hybrid nanofluid flowing in porous medium considering the impacts of magnetic field-dependent viscosity",
+      "author" : [ "S. Mehryan", "M. Izadi", "Z. Namazian", "A.J. Chamkha" ],
+      "venue" : "J. Therm. Anal. Calorim. 138 ",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "Analysis of melting behavior of PCMs in a cavity subject to a line source magnetic field using a moving grid technique",
+      "author" : [ "M. Ghalambaz", "S.H. Zadeh", "S. Mehryan", "I. Pop", "D. Wen" ],
+      "venue" : "Appl. Math. Model. ",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : null,
+      "year" : 2019
+    }, {
+      "title" : "A review on heat transfer and hydrodynamic characteristics of nano/microencapsulated phase change slurry (N/MPCS) in mini/microchannel heat sinks",
+      "author" : [ "L. Chai", "R. Shaukat", "L. Wang", "H.S. Wang" ],
+      "venue" : "Appl. Therm. Eng. 135 ",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : null,
+      "year" : 2018
+    }, {
+      "title" : "An experimental study of convective heat transfer with microencapsulated phase change material suspension: laminar flow in a circular tube under constant heat flux",
+      "author" : [ "B. Chen", "X. Wang", "R. Zeng", "Y. Zhang", "X. Wang", "J. Niu", "Y. Li", "H. Di" ],
+      "venue" : "Exp. Therm Fluid Sci. 32 ",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "A critical synthesis of thermophysical characteristics of nanofluids",
+      "author" : [ "K. Khanafer", "K. Vafai" ],
+      "venue" : "Int. J. Heat Mass Transf. 54 ",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Theoretical analysis of natural convection boundary layer heat and mass transfer of nanofluids: effects of size",
+      "author" : [ "A. Zaraki", "M. Ghalambaz", "A.J. Chamkha", "M. Ghalambaz", "D. De Rossi" ],
+      "venue" : "shape and type of nanoparticles, type of base fluid and working temperature, Adv. Powder Technol. 26 ",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "A combined BDF-semismooth Newton approach for time-dependent Bingham flow, Numer",
+      "author" : [ "J.C. De Los Reyes", "S. González Andrade" ],
+      "venue" : "Methods Partial Differ. Eq",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2012
+    }, {
+      "title" : "Solving unsymmetric sparse systems of linear equations with PARDISO",
+      "author" : [ "O. Schenk", "K. Gärtner" ],
+      "venue" : "Future Gener. Comput. Syst. 20 ",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : null,
+      "year" : 2004
+    }, {
+      "title" : "Nonlinear Finite Element Methods",
+      "author" : [ "P. Wriggers" ],
+      "venue" : "Springer Science & Business Media",
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : null,
+      "year" : 2008
+    }, {
+      "title" : "Enhancing the scalability of selected inversion factorization algorithms in genomic prediction",
+      "author" : [ "F. Verbosio", "A. De Coninck", "D. Kourounis", "O. Schenk" ],
+      "venue" : "J. Comput. Sci. 22 ",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Buoyancy driven heat transfer of nanofluids in a tilted enclosure",
+      "author" : [ "K. Kahveci" ],
+      "venue" : "J. Heat Transf. 132 ",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Natural convective heat transfer in a fluid saturated variable porosity medium",
+      "author" : [ "P. Nithiarasu", "K. Seetharamu", "T. Sundararajan" ],
+      "venue" : "Int. J. Heat Mass Transf. 40 ",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : null,
+      "year" : 1997
+    }, {
+      "title" : "Natural-convective heat transfer in a square cavity with time-varying side-wall temperature",
+      "author" : [ "E.V. Kalabin", "M.V. Kanashina", "P.T. Zubkov" ],
+      "venue" : "Numeri. Heat Transf. Part A: Appl. 47 ",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : null,
+      "year" : 2005
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 3,
+      "context" : "Free convection in cavities filled with porous media has been widely analyzed for different cavity models including cavities filled with single or multiple layers of porous media [1–3], porous fins 77 78 79 80 [4], partially porous media [5,6], tilted cavities [7], wavy cavities [8] and cavities with non-uniform heating [9].",
+      "startOffset" : 210,
+      "endOffset" : 213
+    }, {
+      "referenceID" : 4,
+      "context" : "Free convection in cavities filled with porous media has been widely analyzed for different cavity models including cavities filled with single or multiple layers of porous media [1–3], porous fins 77 78 79 80 [4], partially porous media [5,6], tilted cavities [7], wavy cavities [8] and cavities with non-uniform heating [9].",
+      "startOffset" : 238,
+      "endOffset" : 243
+    }, {
+      "referenceID" : 5,
+      "context" : "Free convection in cavities filled with porous media has been widely analyzed for different cavity models including cavities filled with single or multiple layers of porous media [1–3], porous fins 77 78 79 80 [4], partially porous media [5,6], tilted cavities [7], wavy cavities [8] and cavities with non-uniform heating [9].",
+      "startOffset" : 238,
+      "endOffset" : 243
+    }, {
+      "referenceID" : 6,
+      "context" : "Free convection in cavities filled with porous media has been widely analyzed for different cavity models including cavities filled with single or multiple layers of porous media [1–3], porous fins 77 78 79 80 [4], partially porous media [5,6], tilted cavities [7], wavy cavities [8] and cavities with non-uniform heating [9].",
+      "startOffset" : 261,
+      "endOffset" : 264
+    }, {
+      "referenceID" : 7,
+      "context" : "Free convection in cavities filled with porous media has been widely analyzed for different cavity models including cavities filled with single or multiple layers of porous media [1–3], porous fins 77 78 79 80 [4], partially porous media [5,6], tilted cavities [7], wavy cavities [8] and cavities with non-uniform heating [9].",
+      "startOffset" : 280,
+      "endOffset" : 283
+    }, {
+      "referenceID" : 8,
+      "context" : "Free convection in cavities filled with porous media has been widely analyzed for different cavity models including cavities filled with single or multiple layers of porous media [1–3], porous fins 77 78 79 80 [4], partially porous media [5,6], tilted cavities [7], wavy cavities [8] and cavities with non-uniform heating [9].",
+      "startOffset" : 322,
+      "endOffset" : 325
+    }, {
+      "referenceID" : 12,
+      "context" : "Further heat transfer enhancement can be obtained by adding highly conductive nanoparticles into the fluid flowing through the porous medium [13].",
+      "startOffset" : 141,
+      "endOffset" : 145
+    }, {
+      "referenceID" : 15,
+      "context" : "Several works aimed to study the free convection of nanofluids in various types of enclosures [14–17], two-phase flow of nanofluids [16,18], conjugate heat transfer [19,20], entropy generation [21,22], and magnetic fields effects [18,21,23–26].",
+      "startOffset" : 132,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 17,
+      "context" : "Several works aimed to study the free convection of nanofluids in various types of enclosures [14–17], two-phase flow of nanofluids [16,18], conjugate heat transfer [19,20], entropy generation [21,22], and magnetic fields effects [18,21,23–26].",
+      "startOffset" : 132,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 18,
+      "context" : "Several works aimed to study the free convection of nanofluids in various types of enclosures [14–17], two-phase flow of nanofluids [16,18], conjugate heat transfer [19,20], entropy generation [21,22], and magnetic fields effects [18,21,23–26].",
+      "startOffset" : 165,
+      "endOffset" : 172
+    }, {
+      "referenceID" : 19,
+      "context" : "Several works aimed to study the free convection of nanofluids in various types of enclosures [14–17], two-phase flow of nanofluids [16,18], conjugate heat transfer [19,20], entropy generation [21,22], and magnetic fields effects [18,21,23–26].",
+      "startOffset" : 165,
+      "endOffset" : 172
+    }, {
+      "referenceID" : 20,
+      "context" : "Several works aimed to study the free convection of nanofluids in various types of enclosures [14–17], two-phase flow of nanofluids [16,18], conjugate heat transfer [19,20], entropy generation [21,22], and magnetic fields effects [18,21,23–26].",
+      "startOffset" : 193,
+      "endOffset" : 200
+    }, {
+      "referenceID" : 21,
+      "context" : "Several works aimed to study the free convection of nanofluids in various types of enclosures [14–17], two-phase flow of nanofluids [16,18], conjugate heat transfer [19,20], entropy generation [21,22], and magnetic fields effects [18,21,23–26].",
+      "startOffset" : 193,
+      "endOffset" : 200
+    }, {
+      "referenceID" : 26,
+      "context" : "Moreover, convective flows of nanofluids in cavities with porous media have been widely investigated considering various designs and configurations, including internal heat generation [27,28], thermal nonequilibrium effects [29], partial porous layer [30,31].",
+      "startOffset" : 184,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 27,
+      "context" : "Moreover, convective flows of nanofluids in cavities with porous media have been widely investigated considering various designs and configurations, including internal heat generation [27,28], thermal nonequilibrium effects [29], partial porous layer [30,31].",
+      "startOffset" : 184,
+      "endOffset" : 191
+    }, {
+      "referenceID" : 28,
+      "context" : "Moreover, convective flows of nanofluids in cavities with porous media have been widely investigated considering various designs and configurations, including internal heat generation [27,28], thermal nonequilibrium effects [29], partial porous layer [30,31].",
+      "startOffset" : 224,
+      "endOffset" : 228
+    }, {
+      "referenceID" : 29,
+      "context" : "Moreover, convective flows of nanofluids in cavities with porous media have been widely investigated considering various designs and configurations, including internal heat generation [27,28], thermal nonequilibrium effects [29], partial porous layer [30,31].",
+      "startOffset" : 251,
+      "endOffset" : 258
+    }, {
+      "referenceID" : 30,
+      "context" : "Moreover, convective flows of nanofluids in cavities with porous media have been widely investigated considering various designs and configurations, including internal heat generation [27,28], thermal nonequilibrium effects [29], partial porous layer [30,31].",
+      "startOffset" : 251,
+      "endOffset" : 258
+    }, {
+      "referenceID" : 34,
+      "context" : "For instance, [35] showed that adding NEPCM particles with a volume fraction as low as 3.",
+      "startOffset" : 14,
+      "endOffset" : 18
+    }, {
+      "referenceID" : 35,
+      "context" : "A distinction should be made between nanoencapsulation and micro-encapsulation depending on the size of the particles [36,37].",
+      "startOffset" : 118,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 36,
+      "context" : "A distinction should be made between nanoencapsulation and micro-encapsulation depending on the size of the particles [36,37].",
+      "startOffset" : 118,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 37,
+      "context" : "Examples of PCM that have been used as NEPCM cores include n-tetradecane [38], n-octadecane [39], n-octacosane [40], and n-nonadecane [35].",
+      "startOffset" : 73,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 38,
+      "context" : "Examples of PCM that have been used as NEPCM cores include n-tetradecane [38], n-octadecane [39], n-octacosane [40], and n-nonadecane [35].",
+      "startOffset" : 92,
+      "endOffset" : 96
+    }, {
+      "referenceID" : 39,
+      "context" : "Examples of PCM that have been used as NEPCM cores include n-tetradecane [38], n-octadecane [39], n-octacosane [40], and n-nonadecane [35].",
+      "startOffset" : 111,
+      "endOffset" : 115
+    }, {
+      "referenceID" : 34,
+      "context" : "Examples of PCM that have been used as NEPCM cores include n-tetradecane [38], n-octadecane [39], n-octacosane [40], and n-nonadecane [35].",
+      "startOffset" : 134,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 40,
+      "context" : "On the other hand, the shell of the NEPCM capsules can be made of polymers of different compositions [41,42], formaldehyde [38,39] or highly conductive metals [40].",
+      "startOffset" : 101,
+      "endOffset" : 108
+    }, {
+      "referenceID" : 41,
+      "context" : "On the other hand, the shell of the NEPCM capsules can be made of polymers of different compositions [41,42], formaldehyde [38,39] or highly conductive metals [40].",
+      "startOffset" : 101,
+      "endOffset" : 108
+    }, {
+      "referenceID" : 37,
+      "context" : "On the other hand, the shell of the NEPCM capsules can be made of polymers of different compositions [41,42], formaldehyde [38,39] or highly conductive metals [40].",
+      "startOffset" : 123,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 38,
+      "context" : "On the other hand, the shell of the NEPCM capsules can be made of polymers of different compositions [41,42], formaldehyde [38,39] or highly conductive metals [40].",
+      "startOffset" : 123,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 39,
+      "context" : "On the other hand, the shell of the NEPCM capsules can be made of polymers of different compositions [41,42], formaldehyde [38,39] or highly conductive metals [40].",
+      "startOffset" : 159,
+      "endOffset" : 163
+    }, {
+      "referenceID" : 42,
+      "context" : "There is a technique that consists of adding nanoparticles to PCM in order to improve heat transfer [43], leading to the so-called Nano-Enhanced Phase Change Materials, also abbreviated as NEPCM [43–45].",
+      "startOffset" : 100,
+      "endOffset" : 104
+    }, {
+      "referenceID" : 49,
+      "context" : "[50–52] investigated experimentally the effectiveness of using water-based suspensions of Alumina nanoparticles and/or micro-encapsulated PCM instead of pure water on the forced convection in circular tubes [50] and mini channel heat sinks [51,52].",
+      "startOffset" : 207,
+      "endOffset" : 211
+    }, {
+      "referenceID" : 50,
+      "context" : "[50–52] investigated experimentally the effectiveness of using water-based suspensions of Alumina nanoparticles and/or micro-encapsulated PCM instead of pure water on the forced convection in circular tubes [50] and mini channel heat sinks [51,52].",
+      "startOffset" : 240,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 51,
+      "context" : "[50–52] investigated experimentally the effectiveness of using water-based suspensions of Alumina nanoparticles and/or micro-encapsulated PCM instead of pure water on the forced convection in circular tubes [50] and mini channel heat sinks [51,52].",
+      "startOffset" : 240,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 53,
+      "context" : "A similar result was obtained in the numerical study of a NEPCM slurry heat transfer past an unconfined square cylinder performed by [54], who pointed out a noticeable haet transfer enhancement in the slurry compared to the base fluid, and an intensification of this enhancement when the volume concentration of the capsules was increased.",
+      "startOffset" : 133,
+      "endOffset" : 137
+    }, {
+      "referenceID" : 54,
+      "context" : "[55] investigated the natural convective flow of a NEPCM suspension in a square cavity with temperature difference between the two vertical walls and thermal insulation on the horizontal walls.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 55,
+      "context" : "In fact, the available studies linking capsulated PCM to porous media focused on the enhancement of the thermal properties of some construction materials by using NEPCM as nano additives composites [56,57] without any convection effects.",
+      "startOffset" : 198,
+      "endOffset" : 205
+    }, {
+      "referenceID" : 56,
+      "context" : "In fact, the available studies linking capsulated PCM to porous media focused on the enhancement of the thermal properties of some construction materials by using NEPCM as nano additives composites [56,57] without any convection effects.",
+      "startOffset" : 198,
+      "endOffset" : 205
+    }, {
+      "referenceID" : 57,
+      "context" : "[58] conducted a study on the influence of using NEPCMs suspensions in the mixed convection boundary layer flow over a flat plate embedded in a saturated porous medium.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 54,
+      "context" : "Therefore the literature studies regarding the convection heat transfer of NEPCMs are limited to steady-state convection in a clear cavity with no porous medium [55], and steady-state mixed convection boundary layer of NECPMs in an infinite layer of porous medium [58].",
+      "startOffset" : 161,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 57,
+      "context" : "Therefore the literature studies regarding the convection heat transfer of NEPCMs are limited to steady-state convection in a clear cavity with no porous medium [55], and steady-state mixed convection boundary layer of NECPMs in an infinite layer of porous medium [58].",
+      "startOffset" : 264,
+      "endOffset" : 268
+    }, {
+      "referenceID" : 54,
+      "context" : "Following [55,58], the present study aims to analyze the unsteady free convection of a suspension of NEPCMs in a cavity filled with a porous medium for the first time.",
+      "startOffset" : 10,
+      "endOffset" : 17
+    }, {
+      "referenceID" : 57,
+      "context" : "Following [55,58], the present study aims to analyze the unsteady free convection of a suspension of NEPCMs in a cavity filled with a porous medium for the first time.",
+      "startOffset" : 10,
+      "endOffset" : 17
+    }, {
+      "referenceID" : 34,
+      "context" : "Also, the phase change temperature and the latent heat of the NEPCMs core are respectively 32 C and 211 kJ/kg [35].",
+      "startOffset" : 110,
+      "endOffset" : 114
+    }, {
+      "referenceID" : 54,
+      "context" : "Considering the assumptions, the unsteady equations modeling thermal and hydro-dynamic behaviors of an incompressible and laminar suspension inside a porous region are listed below: Mass conservation [55]:",
+      "startOffset" : 200,
+      "endOffset" : 204
+    }, {
+      "referenceID" : 62,
+      "context" : "where [63] km;b 1⁄4 1 e ð Þks þ ekb ð4aÞ",
+      "startOffset" : 6,
+      "endOffset" : 10
+    }, {
+      "referenceID" : 34,
+      "context" : "271 Table 1 Thermophysical properties of the involved material in the problem [35,59]",
+      "startOffset" : 78,
+      "endOffset" : 85
+    }, {
+      "referenceID" : 58,
+      "context" : "271 Table 1 Thermophysical properties of the involved material in the problem [35,59]",
+      "startOffset" : 78,
+      "endOffset" : 85
+    }, {
+      "referenceID" : 63,
+      "context" : "The suspension’s density as a function of the base fluid and the dispersed NEPCM particles is written as [64]: qb 1⁄4 1 / ð Þqf þ /qp ð6Þ",
+      "startOffset" : 105,
+      "endOffset" : 109
+    }, {
+      "referenceID" : 63,
+      "context" : "The density of NEPCM particles is evaluated as follows [64,65]: qp 1⁄4 1þ i ð Þqcoqsh qsh þ iqco ð7Þ",
+      "startOffset" : 55,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 64,
+      "context" : "The density of NEPCM particles is evaluated as follows [64,65]: qp 1⁄4 1þ i ð Þqcoqsh qsh þ iqco ð7Þ",
+      "startOffset" : 55,
+      "endOffset" : 62
+    }, {
+      "referenceID" : 65,
+      "context" : "The suspension’s specific heat capacity is expressed as [66]:",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 54,
+      "context" : "The latent heat can be modeled by employing rectangular, triangle or sinusoidal profiles as follows [55,58]:",
+      "startOffset" : 100,
+      "endOffset" : 107
+    }, {
+      "referenceID" : 57,
+      "context" : "The latent heat can be modeled by employing rectangular, triangle or sinusoidal profiles as follows [55,58]:",
+      "startOffset" : 100,
+      "endOffset" : 107
+    }, {
+      "referenceID" : 54,
+      "context" : "The total specific heat-capacity of the nanoparticles core, involving the sensible and latent heats, are defined based on TMr [55]: Cp;p 1⁄4 Cp;co þ 2 hsf TMr Cp;co sin p T T0 TMr n o r",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 65,
+      "context" : ", Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd The coefficient of the volumetric thermal volume expansion of the NEPCM-suspension is written as [66]: bb 1⁄4 1 / ð Þbf þ /bp ð11Þ",
+      "startOffset" : 175,
+      "endOffset" : 179
+    }, {
+      "referenceID" : 43,
+      "context" : "The following linear relations are selected to relate the volume fraction of the nanoparticles to the dynamic viscosity and the thermal conductivity of a nano-particulate suspension [44,67]: lb lf 1⁄4 1þ Nv/ ð12bÞ",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 66,
+      "context" : "The following linear relations are selected to relate the volume fraction of the nanoparticles to the dynamic viscosity and the thermal conductivity of a nano-particulate suspension [44,67]: lb lf 1⁄4 1þ Nv/ ð12bÞ",
+      "startOffset" : 182,
+      "endOffset" : 189
+    }, {
+      "referenceID" : 67,
+      "context" : "The selection of time step is controlled automatically using a Backward Differentiation Formula (BDF) with a free time-step scheme, within a free time-step selection in an order between one and two [68].",
+      "startOffset" : 198,
+      "endOffset" : 202
+    }, {
+      "referenceID" : 72,
+      "context" : "457 458 459 460 461 462 463 464 465 466 467 468 469 470 Table 4 The average Nusselt number computed in the current work and that of [73]",
+      "startOffset" : 132,
+      "endOffset" : 136
+    }, {
+      "referenceID" : 73,
+      "context" : "[74] and the outcomes of the current work.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 71,
+      "context" : ", Uns lated Phase Change Materials (NEPCMs) in a porous medium, Advanced Powd At the first comparison, the work of Kahveci et al [72] re-simulated.",
+      "startOffset" : 129,
+      "endOffset" : 133
+    }, {
+      "referenceID" : 71,
+      "context" : "[72] studied the natural convection heat transfer of a suspension of water and the Al2O3 nanoparticles filling a square enclosure.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 73,
+      "context" : "[74] was a square cavity with sinusoidally varying time-periodic temperature imposed on its left wall.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 73,
+      "context" : "3, the average Nusselt number of the present investigation is compared to the one reported in [74] for Ra = 2 10(5), Pr = 1, and X = 20p.",
+      "startOffset" : 94,
+      "endOffset" : 98
+    } ],
+    "year" : 2019,
+    "abstractText" : "33 34 35 36 37 38 39 40 41 42 43 44 Article history: Received 20 September 2019 Received in revised form 26 November 2019 Accepted 9 December 2019 Available online xxxx",
+    "creator" : "Elsevier"
+  }
+}

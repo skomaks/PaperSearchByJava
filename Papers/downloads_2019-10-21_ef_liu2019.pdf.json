@@ -1,0 +1,796 @@
+{
+  "name" : "downloads_2019-10-21_ef_liu2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Wasserstein GAN-Based Small-Sample Augmentation for New-Generation Artificial Intelligence: A Case Study of Cancer-Staging Data in Biology",
+    "authors" : [ "Yufei Liu", "Yuan Zhou", "Xin Liu", "Fang Dong", "Chang Wang", "Zihong Wang" ],
+    "emails" : [ "zhou_yuan@tsinghua.edu.cn" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nEngineering\njournal homepage: www.elsevier .com/ locate/eng\nResearch Artificial Intelligence—Article\nWasserstein GAN-Based Small-Sample Augmentation for New-Generation Artificial Intelligence: A Case Study of Cancer-Staging Data in Biology\nhttps://doi.org/10.1016/j.eng.2018.11.018 2095-8099/ 2019 THE AUTHORS. Published by Elsevier LTD on behalf of Chinese Academy of Engineering and Higher Education Press Limited Company. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).\n⇑ Corresponding author. E-mail address: zhou_yuan@tsinghua.edu.cn (Y. Zhou).\nYufei Liu a,b,d, Yuan Zhou b,⇑, Xin Liu a, Fang Dong b, Chang Wang a, Zihong Wang c aCollege of Life Science and Technology, Huazhong University of Science and Technology, Wuhan 430074, China b School of Public Policy and Management, Tsinghua University, Beijing 100084, China c School of Mechanical Science and Engineering, Huazhong University of Science and Technology, Wuhan 430074, China dCenter for Strategic Studies, Chinese Academy of Engineering, Beijing 100088, China\na r t i c l e i n f o\nArticle history: Received 5 March 2018 Revised 2 June 2018 Accepted 7 November 2018 Available online 11 January 2019\nKeywords: Artificial intelligence Generative adversarial network Deep neural network Small sample size Cancer\na b s t r a c t\nIt is essential to utilize deep-learning algorithms based on big data for the implementation of the new generation of artificial intelligence. Effective utilization of deep learning relies considerably on the number of labeled samples, which restricts the application of deep learning in an environment with a small sample size. In this paper, we propose an approach based on a generative adversarial network (GAN) combined with a deep neural network (DNN). First, the original samples were divided into a training set and a test set. The GAN was trained with the training set to generate synthetic sample data, which enlarged the training set. Next, the DNN classifier was trained with the synthetic samples. Finally, the classifier was tested with the test set, and the effectiveness of the approach for multi-classification with a small sample size was validated by the indicators. As an empirical case, the approach was then applied to identify the stages of cancers with a small labeled sample size. The experimental results verified that the proposed approach achieved a greater accuracy than traditional methods. This research was an attempt to transform the classical statistical machine-learning classification method based on original samples into a deep-learning classification method based on data augmentation. The use of this approach will contribute to an expansion of application scenarios for the new generation of artificial intelligence based on deep learning, and to an increase in application effectiveness. This research is also expected to contribute to the comprehensive promotion of new-generation artificial intelligence.\n2019 THE AUTHORS. Published by Elsevier LTD on behalf of Chinese Academy of Engineering and Higher Education Press Limited Company. This is an open access article under the CC BY-NC-ND license\n(http://creativecommons.org/licenses/by-nc-nd/4.0/)."
+    }, {
+      "heading" : "1. Introduction and background",
+      "text" : "The concept of artificial intelligence was first proposed in 1956 [1]; since then, profound changes have taken place in the development of artificial intelligence based on information technology and an increased data scale [2]. These changes are particularly outstanding in certain fields, such as the mobile Internet, big data, supercomputing, sensor networks, and brain science. The Development Plan for a Next-Generation Artificial Intelligence [3], which was issued by the State Council of China in July 2017, describes artificial intelligence as moving into a new stage. The plan outlines how the new generation of artificial intelligence will be\ncharacterized by deep learning, cross-border fusion, human– machine collaboration, crowd intelligence, and autonomous intelligence. The foundation of these technologies is big-data-driven methodology [4]. Pan [2] has also described big data intelligence as the basic method and important development direction of the new generation of artificial intelligence.\nDeep learning, which was developed by Hinton and Salakhutdinov [5], has become the key technology of big data intelligence [6] and has led to major breakthroughs, such as intelligent driving [7], smart cities [8], voice recognition [9], and information retrieval [10]. Compared with classical statistical machine-learning methodologies, deep learning, as the core of the big data intelligence method, has a relatively complex model structure. The size and quality of a dataset can significantly affect a deep-learning classifier. Large-scale annotated sample data are required in order\nto fully optimize the model parameters and obtain superior performance [11]. In other words, under the existing framework, the performance of a deep-learning model is determined by the scale and quality of the annotated data; this situation also influences the development of the new generation of artificial intelligence. Nevertheless, it is both difficult and expensive to obtain labeled sample data in many real-world applications. For example, a series of long-term and expensive experiments [12] is required to generate a training sample in biology, which can then be used to train the classifiers with high accuracy. In the field of computerized numerical control (CNC) machine tools, it takes decades to accumulate annotation datasets of a sufficient size, while data on certain specific cases of CNC are rare [13]. Meanwhile, the implementation of big data methods in CNC can be even more difficult in China, where CNC is still in the developmental stage. In strategic intelligence analysis, the labeling of samples requires close and seamless cooperation among outstanding experts from multiple fields [14–20]; thus, it is extremely expensive to obtain sufficiently sized datasets. In addition to the high cost, the data features are complicated and high dimensionality exists. In this situation, the dimensionality of the original feature space is approximately equal to or greater than the number of samples, which is known as ‘‘the small sample size problem” [21]. With a small sample size, deep learning is restricted to good generalization performance. Furthermore, the development of a new generation of artificial intelligence is limited because there are considerably more fields with a small sample size than fields with a big data environment [22–26].\nIn previous studies, several oversampling methods have been proposed in order to address the insufficiency of the data scale. The main advantage of these methods is that they are selfsufficient. In the early stage, the training set can be enlarged by duplicating the training examples of the minority class if the examples of different classes are imbalanced, or by creating a new dataset by adding artificial noises to the existing ones [27]. In 2002, Chawla et al. [28] proposed a classic oversampling method, called the synthetic minority oversampling technique (SMOTE), which involves the creation of a synthetic minority class dataset. On the basis of the SMOTE method, Han et al. [29] proposed two novel minority oversampling techniques, which consider neighboring instances and only the minority instances near the borderline, respectively. In 2008, He et al. [30] proposed the adaptive synthetic sampling approach, which utilizes a weighted distribution for minority class instances according to the level of difficulty in learning. The majority weighted minority oversampling technique was then proposed in 2014 by Barua et al. [31]. This method aims to generate useful synthetic minority class instances by identifying hard-to-learn minority class samples and assigning weights based on their Euclidian distance from the nearest majority class instance. It then generates synthetic instances using a clustering method. Many more methods have been developed to meet dataset demands. In 2015, Xie et al. [32] suggested aminority oversampling technique based on local densities in a low-dimensional space in order to address the problem of dimensionality that affected earlier methods; this technique involved mapping the trained sample into a low-dimensional space and assigning weights. In 2017, Douzas and Bacao [33] proposed a self-organizing map oversampling method, in which artificial data are used for certain classifiers. Most of the abovementioned methods focus on imbalance learning, in which better performance can be achieved by adding oversampling instances to the minority class dataset. However, datasets in many realms remain insufficient, rather than imbalanced, in every class.\nIn order to address the small sample size problem, a few traditional approaches other than SMOTE have also been raised. In 1995, Bishop [34] proposed that training with noise could lead to a good result; this concept is equivalent to Tikhonov regulation. In 2004, the neural-ensemble-based C4.5, a decision tree method,\nwas introduced by Zhou and Jiang [35]; this method first trains a neural network, and then employs it to generate a new training set. A virtual sample generation method based on an internalized kernel density estimate was introduced by Li and Lin [36] in 2006; this method involves determining the probability density function of the samples, which is then used to generate training samples. In 2009, Li and Fang [37] again proposed a non-linear virtual sample generation technique using group discovery and parametric equations of the hypersphere. Nevertheless, these methods are unable to make use of the inherent features of the samples, resulting in a limitation of the training models.\nIn recent years, with the rapid development of the new generation of artificial intelligence and big data, the use of a generative adversarial network (GAN) based on a deep neural network (DNN) has provided opportunities to create new approaches to solve the data problem. It has also made the application of deep learning possible in the case of a small sample size. A GAN is a powerful type of generative model [38] that was introduced in 2014 by Goodfellow et al. [39]; it can be utilized to generate synthetic samples with the same distribution as the real data in order to solve the insufficiency problem of annotated data [40]. A GAN consists of two deep architecture functions for the generator and the discriminator, which can simultaneously learn from the trained data in an adversarial fashion [41]. In the learning process, the generator captures the potential distribution of the real data and generates synthetic samples, while the discriminator discriminates between the real samples and the synthetic samples as accurately as possible.\nRecent work has shown that a GAN can successfully be applied to image generation, language processing, and supervised learning with insufficient training data. From the perspective of image generation, Santana and Hotz [42] proposed an approach to generate images with the same distribution as real driving scenarios. Gou et al. [43] utilized a GAN to learn from both real and synthetic images in order to improve the accuracy of eye detection. From the perspective of language processing, Li et al. [44] utilized a GAN to capture the relevance of dialog and to generate corresponding synthetic text, while Pascual et al. [45] proposed a speechenhancement framework based on a GAN. These studies demonstrate that the synthetic samples generated by a GAN conform to the distribution of the original samples. Moreover, the success of GANs in various fields indicates that this generative model is independent of precise domain knowledge, which is propitious for the application of this approach in other fields. From the perspective of supervised learning with insufficient training data, most of the existing studies deal with the problem of class imbalance, and a GAN is often used as an oversampling method. Fiore et al. [46] utilized a GAN to generate synthetic illicit transaction records, and merged these synthetic records into an augmented training set to improve the effectiveness of credit card fraud detection. Douzas and Bacao [47] utilized a GAN to generate synthetic samples for the minority class of various imbalanced datasets; the results showed that the GAN performs better than the other oversampling methods. These studies demonstrate that data augmentation with a GAN is more effective than traditional oversampling methods in improving the quality of data. Furthermore, most standard augmentation methods have been integrated into Augmentor, a well-accepted data augmentation tool with a high-level application programming interface (API) [48]. Despite the remarkable success of GANs in balancing datasets, their application in multi-classification with a small sample size has, surprisingly, not yet been studied, to the best of our knowledge. Enlargement of the data scale by means of data augmentation makes it possible to improve the performance of supervised machine-learning based on DNNs in various fields. To sum up, a GAN provides an opportunity to solve the problem posed by a small sample size and thus improve multi-classification.\nTo solve the multi-classification problems posed by a small sample size, we propose an approach that combines a GAN with a DNN. In this research, the original samples were first divided into a training set and a test set. The GAN method was utilized as data augmentation in order to generate synthetic sample data to enlarge the training set scale of cancer staging in biology, and to satisfy the conditions of DNN model training. Next, the DNN method was trained with the synthetic samples and tested using the test set. Finally, the effectiveness of the approach for multiclassification with a small sample size was validated by comparing several indicators with a combination of the classical supervised machine-learning approaches—DNN, SMOTE, and GAN. The approach proposed in this paper is an attempt to transform the classical statistical machine-learning classification method based on original samples into a deep-learning classification method based on data augmentation. Furthermore, this research is conducive to exploring the potential of the application range and reliability of the new generation of artificial intelligence, as represented by deep learning. This is the first attempt to utilize an approach combining GAN with DNN to improve the effectiveness of multi-classification for cancer staging."
+    }, {
+      "heading" : "2. Methodology",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Workflow of the study",
+      "text" : "To solve the supervised learning problem posed by a small sample size and extend the scope of application of deep learning, this paper proposes an approach combining a GAN with a DNN classifier for multi-classification. This approach can be outlined as follows (Fig. 1):\n(1) Divide the original samples into a training set and a test set. Use the training set to train the GAN and tune its hyperparameters.\n(2) Use the trained generator of the GAN to generate synthetic samples, and use the discriminator to filter these samples.\n(3) Use the synthetic samples to train the DNN classifier, and use the test set to test the DNN classifier."
+    }, {
+      "heading" : "2.2. Generative adversarial network",
+      "text" : "The Wasserstein generative adversarial network (WGAN) [49] was used to generate the synthetic samples in this study, as the\nFig. 1. Workflow of the small sample\ntraining process of the original GAN was a minimax game, and the optimization goal was to reach the Nash equilibrium [40], which posed the vanishing gradient problem [50]. Compared with the original GAN, WGAN uses the Wasserstein distance instead of the Jensen–Shannon (JS) divergence to evaluate the distribution distance between the real samples and the generated samples [51]. Using theWasserstein distance, the training process of WGAN was more stable and faster than that of the original GAN [52].\nIn the proposed approach, the process of generating synthetic samples using WGAN consisted of two stages. First, the generator began to generate the original synthetic samples when the loss functions of the generator and the discriminator converged after being trained tens of thousands of times. Second, according to the GAN’s concept of the adversary [53], the generator attempted to generate synthetic samples that could fool the discriminator, while the discriminator attempted to discriminate between the real samples and the synthetic samples. In other words, when a synthetic sample was identified as real by the discriminator, that synthetic sample fooled the discriminator. The original synthetic samples that fooled the discriminator were taken as the final synthetic samples."
+    }, {
+      "heading" : "2.3. Deep neural network",
+      "text" : "This study used a DNN, which is a deep architecture classifier based on deep learning, as a classifier. A DNN classifier can utilize severalmodels of computation to learn representations of datawith multiple layers of abstraction; themodels are composed ofmultiple processing layers. The DNN classifier was trained with a large number of synthetic samples generated by WGAN in order to avoid overfitting. In the proposed approach, the DNN classifier was tested with the test set, which could inspect the generalization performanceof the classifier. To test the performance of theDNNclassifier, we used three multi-classification metrics based on a confusion matrix (Fig. 2): accuracy, the F-measure, and the G-mean. Accuracy denoted the proportion of predictions that were correct, the F-measure represented the harmonic mean of precision and recall [54], and the G-mean indicated the geometric mean of recall [55]. Accuracy, F-measure, and G-mean are defined in Eqs. (1–3). Accuracy ¼ PL\ni¼1niiPL i¼1;j¼1nij\nð1Þ\nsize multi-classification approach.\nF-measure ¼ 2 L\nPL i¼1Ri PL i¼1PiPL\ni¼1Ri þ PL i¼1Pi ð2Þ\nG-mean ¼ YL i¼1 Ri\n!1=L ð3Þ\nIn these equations, L represents the class number; nii and nij denote the number of class Ci samples that are correctly predicted as class Ci and incorrectly predicted as class Cj, respectively; and Ri and Pi indicate the recall and the precision of class Ci, respectively, which are defined as follows:\nRi ¼ niiPL j¼1nij\nð4Þ\nPi ¼ niiPL j¼1nji\nð5Þ"
+    }, {
+      "heading" : "3. Empirical analysis and discussion",
+      "text" : "Due to the need to protect patient privacy, pathological data are expensive to acquire and the corresponding data annotation is difficult. As a result, pathological studies often encounter the problem of a small sample size. Therefore, the application of data augmentation in the field of pathology is typical. Hepatocellular carcinoma (HCC) is a common malignancy with five-year relative survival\nrates of less than 15% [56,57]. The five-year relative survival rates of HCC can be improved effectively by early treatment. Nevertheless, research on the identification of early-stage HCC is limited by the lack of samples with staging information. Glycosylation is one of the most widespread post-translational modifications, and plays crucial roles in various biological processes [58–60]. Numerous cancer-related processes, including oncogenic transformation [59,61], tumor progression [62], and antitumor immunity [63], are associated with the aberrant glycosylation of proteins. Furthermore, various tumor markers are glycoproteins with alterations in serum glycomics [64–67]. Therefore, glycosylation data are an effective means for the prediction of cancer staging. In this section, we discuss the use of WGAN combined with a DNN to identify the stage of HCC, which is significant for the diagnosis and treatment of HCC."
+    }, {
+      "heading" : "3.1. Data collection",
+      "text" : "In this study, serum samples donated by Tongji Hospital (Tongji Medical College, Huazhong University of Science and Technology) were used as the experimental data. N-glycans, which are features of data augmentation, were first released from the human serum samples by means of PNGase F prior to a solid-phase permethylation protocol [68]. Next, the mass spectrometry (MS) peak distribution and its relative intensities of permethylated N-glycans (Fig. 3) were detected using 4800 Plus MALDI (AB SCIEX, Concord, Canada). The obtained MS data were processed further using Data Explorer 4.5, and .txt files listing the m/z values and MS intensities were generated (from ASCII Spectrum). The stages of cancer were divided according to the tumor node metastasis (TNM). Through the abovementioned biological processes, 60 HCC cases (TNM stage I, 21 cases; TNM stage II, 24 cases; and TNM stage III, 15 cases) were obtained, each containing 42 features, and 18 healthy samples served as the control group. Each sample was represented as a 42 dimensional feature vector, according to its peak distribution order and relative intensity, as shown in Fig. 3. The HCC cases were divided into a training set (60%) and a test set (40%), as shown in Table 1."
+    }, {
+      "heading" : "3.2. Result analysis",
+      "text" : "According to the proposed approach, we first used TNM stage I, TNM stage II, TNM stage III, and the control group’s training set to\nle using MALDI mass spectrometry.\ntrain WGAN, and then used the trained WGAN to generate the corresponding synthetic samples. The hyperparameters for the GAN were determined through a series of experiments. The generator had one hidden layer containing 32 rectified linear units (ReLUs), and 42 sigmoid units were used as the output layer. The dimension of the noise vector z was set to 15. The discriminator also had one hidden layer, which contained 64 ReLUs; one unit without the activation function was used as the output layer. The hyperparameters of WGAN for each class’ training sample were the same. The WGAN’s development environment was TensorFlow1.1 and it was trained through the graphics processing unit (GPU). The WGAN training process contained 300 000 iterations. In each iteration of the WGAN training, the discriminator first iterated 100 times, and then the generator iterated one time.\nAfter the generation of the synthetic samples of the HCC cases, these samples were used to train the DNN classifier. The DNN classifier, which was a multi-layer perceptron (MLP), was then validated with the HCC test set. After a series of experiments on the DNN, the hyperparameters were determined. The dimension of the classifier’s input was 42, which was equal to the number of features in the HCC samples. The classifier had three hidden layers, each containing 32 ReLUs; the softmax function was used as the output layer and cross-entropy was used as the loss function. TensorFlow1.1 and GPU were used to train the DNN classifier as well, and the number of iterations was set to 3000.\nTo evaluate the effect of the synthetic training sample size on the performance of the DNN classifier, we used a different number of synthetic samples to train the DNN classifier, and then used real samples to test for the three indicators of accuracy, F-measure, and G-mean. From 20 synthetic training samples of each class, more than 20 synthetic samples were generated each time to train the DNN classifier. In the case of more than 100 synthetic training samples, more than 100 synthetic samples were generated each time to train the DNN classifier. The changes in the accuracy, F-measure, and G-mean are shown in Fig. 4.\nWith an increase in the synthetic training sample size, the accuracy gradually increased. With 100 synthetic training samples, the accuracy reached 51.61%. When the synthetic training sample size was 1000, the accuracy was greater than 0.6 (64.52%), and when the synthetic training sample size reached 2000, the accuracy was 67.74%. However, after this, increasing the synthetic training sample size did not lead to an improvement in accuracy, and the accuracy continued to fluctuate around 67%. When the synthetic training sample size reached 4000, the accuracy remained stable at approximately 70%. In addition, when the synthetic training sample size was increased, the tendency of the F-measure was basically consistent with that of the accuracy, which showed that the prediction accuracy of each class’ real samples was consistent with the overall situation. Furthermore, each stage of HCC could be predicted effectively, and the misdiagnosis rate was very low. With an increase in the number of synthetic samples, the G-mean remained slightly lower than the accuracy but was consistent overall. This finding indicated that the misdiagnosis rate remained low. According to the accuracy, F-measure, and G-mean values, when the synthetic training sample size was 4000, an effective\nDNN classifier for the identification of the HCC stage in a small sample size could be obtained.\nIn particular, when the number of synthetic samples generated by WGAN was 4000, the test accuracy of the real samples was 70.97% (of the 31 original samples, 22 were predicted correctly), the F-measure was 70.07%, and the G-mean was 68.39%. Table 2 presents the DNN prediction results for all of the stages. All of the healthy samples in the control group were correctly predicted. Of the eight TNM stage I test samples, five samples were correctly predicted, two were predicted to be TNM stage II, and one was predicted to be stage III. Of the ten TNM stage II test samples, seven samples were predicted correctly; two were predicted to be healthy, indicating a risk of misdiagnosis; and one was predicted to be TNM stage III. Of the six TNM stage III real cases, only three were correctly predicted; the rest were predicted to be TNM stage I, for an accuracy of only 50%. This decreased the overall DNN model performance. Therefore, the number of original TNM stage III samples should be increased in a future study, in order to improve the specificity of the DNN model for TNM stage III. TNM stages I and II have similar clinical features and can be classified into a single category called ‘‘early-stage cancer.” Thus, according to the results of the early-stage HCC (TNM stages I and II) identification, the accuracy of the proposed method reached 77.78%. This level of accuracy has great significance for the early identification and treatment of HCC, because a current study [69] has found that early treatment significantly increases the survival rate of patients with HCC. A recent study by Holzinger et al. [70] indicates that digital pathology will dramatically change medical workflows if pathologists are augmented by machine-learning methods. Thus, our integrated approach with accurate prediction holds potential to promote further research into the pathogenesis of HCC."
+    }, {
+      "heading" : "3.3. Evaluation of WGAN combined with a DNN",
+      "text" : "To test the effectiveness of the proposed approach in classifying the TNM stage of HCC with a limited number of samples, a classical statistical machine-learning classifier and a data oversampling method were used for a comparison. A random forest (RF) is an ensemble learning method with higher accuracy and a better generalization capability than other machine-learning models [71], while a naïve Bayes (NB) classifier has a simple principle and a stable classification performance [72]. These two algorithms were chosen as the representatives of classical statistical machinelearning classifiers. The deep-learning method cannot be applied effectively if there is a limited number of real samples of HCC due to the lack of sufficient data on HCC; however, the classical statistical machine-learning method has a relatively low demand for datasets, so this method can be used. In the classical statistical machine-learning experiments with original samples, the classifiers were trained using the training set and then tested with the test set. In the oversampling experiments, SMOTE was adapted to generate the oversampling samples by using the oversampling HCC training set of all of the stages. The RF, NB, and DNN classifiers were then trained with the oversampling samples. Next, the trained classifiers were validated with the HCC test set. In the proposed framework based on WGAN, a large number of synthetic samples generated by WGAN were used to train the RF, NB, and DNN classifiers. The classifiers were then validated using real samples.\nAs shown in Table 3, the RF and NB models trained with the training set and tested with the test set resulted in the relatively low accuracies of 54.84% and 32.26%, F-measure values of 56.73% and 12.20%, and G-mean values of 45.50% and 0, respectively. The NB indexes were considerably lower than those of the RF, which indicated that the NB was more sensitive than the RF in the case of the considered dataset. These results indicate that the misdiagnosis rate was high and that a number of HCC cases were not discriminated. Thus, given a limited training set, classical machine-learning models cannot be effectively trained.\nIn comparison, the RF and NB models trained with 4000 oversampling samples generated by SMOTE performed better in terms of all the indexes. These results indicate that SMOTE improved the classical machine-learning model performance and reduced the misdiagnosis rate to a certain extent. The DNN model trained with 4000 oversampling samples generated by SMOTE showed significant improvement in all of the indexes: The accuracy increased to 64.52%, the F-measure increased to 66.05%, and the G-mean increased to 63.32%. These results show that the deep-learning model resulted in better performance than the classical machinelearning model.\nThe RF and NB models trained with 4000 synthetic samples generated by WGAN exhibited different performance changes. The RF model had worse indexes than the model trained with the oversampling samples, while the NB model’s indexes increased considerably. These results imply that with the synthetic samples generated by WGAN, the classical machine-learning models did\nnot provide good results. In the proposed framework, the deeplearning model DNN with synthetic samples from WGAN performed best among all the considered classifiers. Compared with the oversampling samples generated by SMOTE, this method further increased the accuracy from 64.52% to 70.97%, the Fmeasure value from 66.05% to 70.07%, and the G-mean value from 63.32% to 68.39%, which demonstrates that WGAN with a DNN effectively solved the HCC stage recognition problem. Above all, these findings indicate that the deep-learning method can successfully be applied to a multi-classification problem with a limited number of samples."
+    }, {
+      "heading" : "3.4. Discussion",
+      "text" : "According to the experimental results given above, WGAN combined with a DNN can be applied to the identification of HCC stages, and results in excellent performance compared with traditional methods. This finding is of significance to cancer research. Research into most cancers is hindered by the small sample size problem; samples with accurate staging information are particularly rare. This problem has led to slow progress in the early diagnosis and treatment of cancers; furthermore, it affects the exploration of the pathogenesis of cancer. Our data augmentation method based on WGAN may well provide a solution for these issues. The proposed approach was designed not only to solve the problem of HCC staging, but also to solve the small sample size problem using supervised learning. Therefore, cancer-staging data based on serum samples were selected, as such data result in unsatisfactory performance with traditional statistical machine learning due to the small sample size problem. The proposed framework does not rely on a precise domain knowledge of cancer, due to the characteristics of deep learning. Therefore, the proposed method has a low barrier to successful application in other biological research domains, and may even be applied in more farranging fields once the performance has been optimized. Furthermore, the combination of WGAN with a DNN holds enormous potential for bringing domains that lack samples into the intelligence era [26,73–75]."
+    }, {
+      "heading" : "4. Conclusion",
+      "text" : "In this paper, a WGAN approach combined with a DNN was presented for cancer stage identification on the basis of a small sample size. Using the indicators of precision, F-measure, and G-mean, we demonstrated that in comparison with classical machine-learning methods and oversampling methods, the proposed approach substantially improved the classification effectiveness with an increase in the number of synthetic samples. Early recognition of cancer is particularly significant for the diagnosis and treatment of cancer. Because the feature selection did not rely on precise domain knowledge from experts, the proposed supervised deeplearning approach based on a small sample size holds potential to provide effective solutions to other problems involving a small sample size in various fields. Thus, this approach could easily be used to promote intelligent development in other fields. This new approach strongly promotes the new stage of artificial intelligence. In future, the proposed approach will be applied to more datasets from various fields in order to continuously improve our research [76,78]."
+    }, {
+      "heading" : "Acknowledgements",
+      "text" : "This work was supported by the National Natural Science Foundation of China (91646102, L1724034, L16240452, L1524015, and 20905027), the MOE (Ministry of Education in China) Project of\nHumanities and Social Sciences (16JDGC011), the Chinese Academy of Engineering’s China Knowledge Center for Engineering Sciences and Technology Project (CKCEST-2018-1-13), the UK– China Industry Academia Partnership Programme (UK-CIAPP \\260), Volvo-Supported Green Economy and Sustainable Development at Tsinghua University (20153000181), and the Tsinghua Initiative Research Project (2016THZW).\nCompliance with ethics guidelines\nYufei Liu, Yuan Zhou, Xin Liu, Fang Dong, Chang Wang, and ZihongWang declare that they have no conflict of interest or financial conflicts to disclose."
+    } ],
+    "references" : [ {
+      "title" : "AI: the tumultuous history of the search for artificial intelligence",
+      "author" : [ "D. Crevier" ],
+      "venue" : "New York: Basic Books,",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 1993
+    }, {
+      "title" : "Reducing the dimensionality of data with neural networks",
+      "author" : [ "Hinton GE", "Salakhutdinov RR" ],
+      "venue" : "Science",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2006
+    }, {
+      "title" : "Challenges and opportunities: from big data to knowledge in AI 2.0",
+      "author" : [ "Y Zhuang", "C Chen", "Y. Pan" ],
+      "venue" : "Front Inf Technol Electronic Eng",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 2017
+    }, {
+      "title" : "Deep learning algorithm for autonomous driving using GoogLeNet",
+      "author" : [ "M Al-Qizwini", "I Barjasteh", "H Al-Qassab", "H. Radha" ],
+      "venue" : "Proceedings of the 2017 IEEE Intelligent Vehicles",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2017
+    }, {
+      "title" : "Deep learning algorithms with applications to video analytics for a smart city: a survey",
+      "author" : [ "L Wang", "D. Sng" ],
+      "venue" : null,
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2016
+    }, {
+      "title" : "Acoustic modeling using deep belief networks",
+      "author" : [ "A Mohamed", "G Dahl", "G. Hinton" ],
+      "venue" : "IEEE Trans Audio Speech Lang Process",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2012
+    }, {
+      "title" : "Artificial-intelligence institute launches free science search engine [Internet",
+      "author" : [ "N. Jones" ],
+      "venue" : "Heidelberg: Springer Nature",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2018
+    }, {
+      "title" : "Deep learning. Cambridge: The MIT Press; 2016",
+      "author" : [ "I Goodfellow", "Y Bengio", "A. Courville" ],
+      "venue" : null,
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2016
+    }, {
+      "title" : "Survey on transfer learning research",
+      "author" : [ "F Zhuang", "P Luo", "H Qing", "Z. Shi" ],
+      "venue" : "J Software 2015;26:26–39",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2015
+    }, {
+      "title" : "CPS modeling of CNC machine tool work processes using an instruction-domain based approach",
+      "author" : [ "J Chen", "J Yang", "H Zhou", "H Xiang", "Z Zhu", "Y Li" ],
+      "venue" : null,
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2015
+    }, {
+      "title" : "Firm-level technology transfer and technology cooperation for wind energy between Europe, China and India: from north–south to south–north cooperation? Energy Sustainable Dev 2015;28:29–40",
+      "author" : [ "F Urban", "Y Zhou", "J Nordensvard", "A. Narain" ],
+      "venue" : null,
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2015
+    }, {
+      "title" : "How public demonstration project affects the emergence of a new industry: an empirical study on electric vehicle demonstration project in China",
+      "author" : [ "Y Zhou", "H Zhang", "M Ding", "J. Su" ],
+      "venue" : "Proceedings of the 2013 Suzhou Silicon Valley–Beijing International Innovation Conference;",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2013
+    }, {
+      "title" : "Building global products and competing in innovation: the role of Chinese university spin–outs and required innovation capabilities",
+      "author" : [ "Y Zhou", "T. Minshall" ],
+      "venue" : "Int J Technol Manage",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2014
+    }, {
+      "title" : "Exploring innovation ecosystems across science, technology, and business: a case of 3D printing in China",
+      "author" : [ "G Xu", "Y Wu", "T Minshall", "Y. Zhou" ],
+      "venue" : "Technol Forecast Social Change 2017;136:180–221",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2017
+    }, {
+      "title" : "Roadmapping for industrial emergence and innovation gaps to catch-up: a patent analysis of OLED industry in China",
+      "author" : [ "X Li", "Y Zhou", "L Xue", "L. Huang" ],
+      "venue" : "Int J Technol Manage",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2016
+    }, {
+      "title" : "Integrating bibliometrics and roadmapping methods: a case of dye-sensitized solar cell technology-based industry in China",
+      "author" : [ "X Li", "Y Zhou", "L Xue", "L. Huang" ],
+      "venue" : "Technol Forecast Social Change 2015;97:205–22",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2015
+    }, {
+      "title" : "Comparing the international knowledge flow of China’s wind and solar photovoltaic (PV) industries: patent analysis and implications for sustainable development",
+      "author" : [ "Y Zhou", "M Pan", "F. Urban" ],
+      "venue" : "Sustainability",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2018
+    }, {
+      "title" : "Innovation core, innovation semi-periphery and technology transfer: the case of wind energy patents. Energy Policy 2018;120:213–27",
+      "author" : [ "J Nordensvard", "Y Zhou", "X. Zhang" ],
+      "venue" : null,
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2018
+    }, {
+      "title" : "Comparing the innovation strategies of Chinese and European wind turbine firms through a patent lens. Environ Innovation Societal Transitions",
+      "author" : [ "M Pan", "Y Zhou", "DK. Zhou" ],
+      "venue" : "Epub",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2017
+    }, {
+      "title" : "Stakeholder risk and trust perceptions in the diffusion of green manufacturing technologies: evidence from China",
+      "author" : [ "Y Zhou", "M Pan", "DK Zhou", "L. Xue" ],
+      "venue" : "J Environ Dev",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2017
+    }, {
+      "title" : "Comparing the knowledge bases of wind turbine firms in Asia and Europe: patent trajectories, networks, and globalisation",
+      "author" : [ "Y Zhou", "X Li", "R Lema", "F. Urban" ],
+      "venue" : "Sci Public Policy",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2016
+    }, {
+      "title" : "Regulating the environmental behavior of manufacturing SMEs: interfirm alliance as a facilitator",
+      "author" : [ "L Chen", "J Xu", "Y. Zhou" ],
+      "venue" : "J Cleaner Prod 2017;165:393–404",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2017
+    }, {
+      "title" : "Neural network training on unequally represented classes",
+      "author" : [ "E DeRouin", "J. Brown" ],
+      "venue" : null,
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 1991
+    }, {
+      "title" : "SMOTE: synthetic minority over-sampling technique",
+      "author" : [ "NV Chawla", "KW Bowyer", "LO Hall", "WP. Kegelmeyer" ],
+      "venue" : "J Artif Intell Res",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 2002
+    }, {
+      "title" : "Borderline-SMOTE: a new over-sampling method in imbalanced data sets learning",
+      "author" : [ "H Han", "WY Wang", "BH. Mao" ],
+      "venue" : "Advances in intelligent computing. Berlin: Springer;",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2005
+    }, {
+      "title" : "ADASYN: adaptive synthetic sampling approach for imbalanced learning",
+      "author" : [ "H He", "Y Bai", "EA Garcia", "L. Shutao" ],
+      "venue" : "Proceedings of the 2008 IEEE International Joint Conference on Neural Networks;",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2008
+    }, {
+      "title" : "MWMOTE–majority weighted minority oversampling technique for imbalanced data set learning",
+      "author" : [ "S Barua", "MM Islam", "X Yao", "M. Kazuyuki" ],
+      "venue" : "IEEE Trans Knowl Data Eng",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2014
+    }, {
+      "title" : "A synthetic minority oversampling method based on local densities in low-dimensional space for imbalanced learning",
+      "author" : [ "Z Xie", "L Jiang", "T Ye", "X. Li" ],
+      "venue" : null,
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2015
+    }, {
+      "title" : "Self-Organizing Map Oversampling (SOMO) for imbalanced data set learning",
+      "author" : [ "G Douzas", "F. Bacao" ],
+      "venue" : "Expert Syst Appl 2017;82:40–52",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2017
+    }, {
+      "title" : "Training with noise is equivalent to Tiknonov regularization",
+      "author" : [ "Bishop CM" ],
+      "venue" : "Neural Comput",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 1995
+    }, {
+      "title" : "Nec4.5: neural ensemble based C4.5",
+      "author" : [ "Z Zhou", "Y. Jiang" ],
+      "venue" : "IEEE Trans Knowl Data Eng",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2004
+    }, {
+      "title" : "Using virtual sample generation to build up management knowledge in the early manufacturing stages",
+      "author" : [ "Li DC", "Lin YS" ],
+      "venue" : "Eur J Operat Res",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2006
+    }, {
+      "title" : "A non-linearly virtual sample generation technique using group discovery and parametric equations of hypersphere",
+      "author" : [ "D Li", "Y. Fang" ],
+      "venue" : "Exp Syst Appl",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2009
+    }, {
+      "title" : "Generative adversarial networks: introduction and outlook",
+      "author" : [ "K Wang", "C Gou", "Y Duan", "Y Lin", "X Zheng", "F. Wang" ],
+      "venue" : "IEEE/CAA J Autom Sin",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2017
+    }, {
+      "title" : "Generative adversarial nets",
+      "author" : [ "I Goodfellow", "J Pouget-Abadie", "M Mirza", "B Xu", "D Warde-Farley", "S Ozair" ],
+      "venue" : "La Jolla: Neural Information Processing Systems Foundation,",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2014
+    }, {
+      "title" : "Generative adversarial networks: an overview",
+      "author" : [ "A Creswell", "T White", "V Dumoulin", "K Arulkumaran", "B Sengupta", "AA. Bharath" ],
+      "venue" : "IEEE Signal Process Mag",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2018
+    }, {
+      "title" : "Unsupervised representation learning with deep convolutional generative adversarial networks. 2015:arXiv:1512.03131",
+      "author" : [ "A Radford", "L Metz", "S. Chintala" ],
+      "venue" : null,
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2015
+    }, {
+      "title" : "Learning a driving simulator. 2016:arXiv:1608.01230",
+      "author" : [ "E Santana", "G. Hotz" ],
+      "venue" : null,
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2016
+    }, {
+      "title" : "Learning-by-synthesis for accurate eye detection",
+      "author" : [ "C Gou", "Y Wu", "K Wang", "F Wang", "Q. Ji" ],
+      "venue" : "Proceedings of the 23rd International Conference on Pattern Recognition;",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2016
+    }, {
+      "title" : "Adversarial learning for neural dialogue generation",
+      "author" : [ "J Li", "W Monroe", "T Shi", "S Jean", "A Ritter", "D. Jurafsky" ],
+      "venue" : null,
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2017
+    }, {
+      "title" : "SEGAN: speech enhancement generative adversarial network. 2017:arXiv:1703.09452",
+      "author" : [ "S Pascual", "A Bonafonte", "J. Serrà" ],
+      "venue" : null,
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2017
+    }, {
+      "title" : "Using generative adversarial networks for improving classification effectiveness in credit card fraud detection",
+      "author" : [ "U Fiore", "AD Santis", "F Perla", "P Zanetti", "F. Palmieri" ],
+      "venue" : "Inf Sci 2019;479:448–55",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2019
+    }, {
+      "title" : "Effective data generation for imbalanced learning using conditional generative adversarial networks",
+      "author" : [ "G Douzas", "F. Bacao" ],
+      "venue" : "Expert Syst Appl 2017;91:464–71",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 2017
+    }, {
+      "title" : "Augmentor: an image augmentation library for machine learning",
+      "author" : [ "MD Bloice", "C Stocker", "A. Holzinger" ],
+      "venue" : null,
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2017
+    }, {
+      "title" : "Characterization and computation of local Nash equilibria in continuous games",
+      "author" : [ "LJ Ratliff", "SA Burden", "SS. Sastry" ],
+      "venue" : "Proceedings of the 51st Annual Allerton Conference on Communication, Control, and Computing;",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2013
+    }, {
+      "title" : "Comparison of maximum likelihood and GAN-based training of real NVPs",
+      "author" : [ "I Danihelka", "B Lakshminarayanan", "B Uria", "D Wierstra", "P. Dayan" ],
+      "venue" : null,
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2017
+    }, {
+      "title" : "Low dose CT Image denoising using a generative adversarial network with Wasserstein distance and perceptual loss",
+      "author" : [ "Q Yang", "P Yan", "Y Zhang", "H Yu", "Y Shi", "X Mou" ],
+      "venue" : "IEEE Trans Med Imaging",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 2017
+    }, {
+      "title" : "Machine learning in adversarial settings",
+      "author" : [ "P Mcdaniel", "N Papernot", "ZB. Celik" ],
+      "venue" : "IEEE Secur Privacy",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2016
+    }, {
+      "title" : "The use of data mining techniques in rockburst risk assessment",
+      "author" : [ "LR Sousa", "T Miranda", "RL Sousa", "J. Tinoco" ],
+      "venue" : null,
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2017
+    }, {
+      "title" : "Cost-sensitive boosting for classification of imbalanced data. Pattern Recognit 2007;40(12):3358–78",
+      "author" : [ "Y Sun", "MS Kamel", "AKC Wong", "Y. Wang" ],
+      "venue" : null,
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2019
+    }, {
+      "title" : "Hepatocellular carcinoma pathogenesis: from genes to environment",
+      "author" : [ "Farazi AP", "DePinho RA" ],
+      "venue" : "Nat Rev Cancer",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2006
+    }, {
+      "title" : "Pathogenic mechanisms in HBVand HCV-associated hepatocellular carcinoma",
+      "author" : [ "Arzumanyan A", "Reis HMGPV", "Feitelson MA" ],
+      "venue" : "Nat Rev Cancer",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2013
+    }, {
+      "title" : "Defining putative glycan cancer biomarkers by MS",
+      "author" : [ "Y Mechref", "Y Hu", "A Garcia", "S Zhou", "JL Desantos-Garcia", "A. Hussein" ],
+      "venue" : "Bioanalysis",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2012
+    }, {
+      "title" : "Identification of N-glycan serum markers associated with hepatocellular carcinoma from mass spectrometry data",
+      "author" : [ "Z Tang", "RS Varghese", "S Bekesova", "CA Loffredo", "MA Hamid", "Z Kyselova" ],
+      "venue" : "J Proteome Res",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2010
+    }, {
+      "title" : "The glycolyzer: automated glycan annotation software for high performance mass spectrometry and its application to ovarian cancer glycan biomarker discovery",
+      "author" : [ "SR Kronewitter", "MLA De Leoz", "JS Strum", "HJ An", "LM Dimapasoc", "A Guerrero" ],
+      "venue" : "Proteomics",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2012
+    }, {
+      "title" : "Regulation of Nacetylglucosaminyltransferase V and Asn-linked oligosaccharide b(1,6) branching by a growth factor signaling pathway and effects on cell adhesion and metastatic potential",
+      "author" : [ "M Pierce", "P Buckhaults", "L Chen", "N. Fregien" ],
+      "venue" : "Glycoconjugate J",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 1997
+    }, {
+      "title" : "N-Glycans in cancer progression",
+      "author" : [ "Lau KS", "Dennis JW" ],
+      "venue" : "Glycobiology",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2008
+    }, {
+      "title" : "Ovarian cancer is associated with changes in glycosylation in both acute-phase proteins and IgG",
+      "author" : [ "R Saldova", "L Royle", "CM Radcliffe", "UM Abd Hamid", "R Evans", "JN Arnold" ],
+      "venue" : "Glycobiology",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2007
+    }, {
+      "title" : "Relationship between elevated FX expression and increased production of GDP-L-fucose, a common donor substrate for fucosylation in human hepatocellular carcinoma and hepatoma cell lines",
+      "author" : [ "K Noda", "E Miyoshi", "J Gu", "CX Gao", "S Nakahara", "T Kitada" ],
+      "venue" : "Cancer Res",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2003
+    }, {
+      "title" : "Lectin and serum-PSA interaction as a screening test for prostate cancer",
+      "author" : [ "PS Basu", "R Majhi", "SK. Batabyal" ],
+      "venue" : "Clin Biochem",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2003
+    }, {
+      "title" : "Evaluation of the serum N-linked glycome for the diagnosis of cancer and chronic inflammation",
+      "author" : [ "JN Arnold", "R Saldova", "UMA Hamid", "PM. Rudd" ],
+      "venue" : "Proteomics",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2008
+    }, {
+      "title" : "Glycans as cancer biomarkers",
+      "author" : [ "B Adamczyk", "T Tharmalingam", "PM. Rudd" ],
+      "venue" : "Biochim Biophys Acta Gen Subj",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2012
+    }, {
+      "title" : "Twodimensional hydrophilic interaction chromatography coupling anionexchange and hydrophilic interaction columns for separation of 2pyridylamino derivatives of neutral and sialylated N-glycans",
+      "author" : [ "K Deguchi", "T Keira", "K Yamada", "H Ito", "Y Takegawa", "H Nakagawa" ],
+      "venue" : "J Chromatography A 2008;1189(1–2):169–74",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2008
+    }, {
+      "title" : "Early prediction of response to sorafenib treatment in patients with hepatocellular carcinoma (HCC) with  18F-fluorodeoxyglucose-positron emission tomography (18F-FDG- PET)",
+      "author" : [ "E Siemerink", "NH Mulder", "AH Brouwers", "GA. Hospers" ],
+      "venue" : "J Clin Oncol",
+      "citeRegEx" : "69",
+      "shortCiteRegEx" : "69",
+      "year" : 2008
+    }, {
+      "title" : "Machine learning and knowledge extraction in digital pathology needs an integrative approach lecture notes in computer science",
+      "author" : [ "A Holzinger", "B Malle", "P Kieseberg", "PM Roth", "H Müller", "R. Reihs" ],
+      "venue" : null,
+      "citeRegEx" : "70",
+      "shortCiteRegEx" : "70",
+      "year" : 2017
+    }, {
+      "title" : "Energy Performance Contract models for the diffusion of green-manufacturing technologies in China: a stakeholder analysis from SMEs",
+      "author" : [ "P Liu", "Y Zhou", "DK Zhou", "L. Xue" ],
+      "venue" : null,
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2017
+    }, {
+      "title" : "Local implementation for green-manufacturing technology diffusion policy in China: from the user firms’ perspectives",
+      "author" : [ "D Kong", "Q Feng", "Y Zhou", "L. Xue" ],
+      "venue" : "J Cleaner Prod 2016;129:113–24",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2016
+    }, {
+      "title" : "How do public demonstration projects promote green-manufacturing technologies? A case study from China",
+      "author" : [ "Y Zhou", "G Xu", "T Minshall", "P. Liu" ],
+      "venue" : "Sustainable Dev",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2015
+    }, {
+      "title" : "Using the data mining method to assess the innovation gap: a case of industrial robotics in a catching-up country",
+      "author" : [ "D Kong", "Y Zhou", "Y Liu", "L. Xue" ],
+      "venue" : "Technol Forecasting Social Change 2017;119:80–97",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 2017
+    }, {
+      "title" : "Visualizing the knowledge profile on self-powered technology",
+      "author" : [ "M Li", "Y. Zhou" ],
+      "venue" : "Nano Energy 2018;51:250–9",
+      "citeRegEx" : "77",
+      "shortCiteRegEx" : "77",
+      "year" : 2018
+    }, {
+      "title" : "Emerging nanogenerator technology in China: a review and forecast using integrating bibliometrics, patent analysis and technology roadmapping methods",
+      "author" : [ "B Wang", "Y Liu", "Y Zhou", "Z. Wen" ],
+      "venue" : "Nano Energy 2018;46:322–30",
+      "citeRegEx" : "78",
+      "shortCiteRegEx" : "78",
+      "year" : 2018
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "The concept of artificial intelligence was first proposed in 1956 [1]; since then, profound changes have taken place in the development of artificial intelligence based on information technology and an increased data scale [2].",
+      "startOffset" : 66,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 1,
+      "context" : "Deep learning, which was developed by Hinton and Salakhutdinov [5], has become the key technology of big data intelligence [6] and has led to major breakthroughs, such as intelligent driving [7], smart cities [8], voice recognition [9], and information retrieval [10].",
+      "startOffset" : 63,
+      "endOffset" : 66
+    }, {
+      "referenceID" : 2,
+      "context" : "Deep learning, which was developed by Hinton and Salakhutdinov [5], has become the key technology of big data intelligence [6] and has led to major breakthroughs, such as intelligent driving [7], smart cities [8], voice recognition [9], and information retrieval [10].",
+      "startOffset" : 123,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 3,
+      "context" : "Deep learning, which was developed by Hinton and Salakhutdinov [5], has become the key technology of big data intelligence [6] and has led to major breakthroughs, such as intelligent driving [7], smart cities [8], voice recognition [9], and information retrieval [10].",
+      "startOffset" : 191,
+      "endOffset" : 194
+    }, {
+      "referenceID" : 4,
+      "context" : "Deep learning, which was developed by Hinton and Salakhutdinov [5], has become the key technology of big data intelligence [6] and has led to major breakthroughs, such as intelligent driving [7], smart cities [8], voice recognition [9], and information retrieval [10].",
+      "startOffset" : 209,
+      "endOffset" : 212
+    }, {
+      "referenceID" : 5,
+      "context" : "Deep learning, which was developed by Hinton and Salakhutdinov [5], has become the key technology of big data intelligence [6] and has led to major breakthroughs, such as intelligent driving [7], smart cities [8], voice recognition [9], and information retrieval [10].",
+      "startOffset" : 232,
+      "endOffset" : 235
+    }, {
+      "referenceID" : 6,
+      "context" : "Deep learning, which was developed by Hinton and Salakhutdinov [5], has become the key technology of big data intelligence [6] and has led to major breakthroughs, such as intelligent driving [7], smart cities [8], voice recognition [9], and information retrieval [10].",
+      "startOffset" : 263,
+      "endOffset" : 267
+    }, {
+      "referenceID" : 7,
+      "context" : "to fully optimize the model parameters and obtain superior performance [11].",
+      "startOffset" : 71,
+      "endOffset" : 75
+    }, {
+      "referenceID" : 8,
+      "context" : "For example, a series of long-term and expensive experiments [12] is required to generate a training sample in biology, which can then be used to train the classifiers with high accuracy.",
+      "startOffset" : 61,
+      "endOffset" : 65
+    }, {
+      "referenceID" : 9,
+      "context" : "In the field of computerized numerical control (CNC) machine tools, it takes decades to accumulate annotation datasets of a sufficient size, while data on certain specific cases of CNC are rare [13].",
+      "startOffset" : 194,
+      "endOffset" : 198
+    }, {
+      "referenceID" : 22,
+      "context" : "In the early stage, the training set can be enlarged by duplicating the training examples of the minority class if the examples of different classes are imbalanced, or by creating a new dataset by adding artificial noises to the existing ones [27].",
+      "startOffset" : 243,
+      "endOffset" : 247
+    }, {
+      "referenceID" : 23,
+      "context" : "[28] proposed a classic oversampling method, called the synthetic minority oversampling technique (SMOTE), which involves the creation of a synthetic minority class dataset.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 24,
+      "context" : "[29] proposed two novel minority oversampling techniques, which consider neighboring instances and only the minority instances near the borderline, respectively.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 25,
+      "context" : "[30] proposed the adaptive synthetic sampling approach, which utilizes a weighted distribution for minority class instances according to the level of difficulty in learning.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 27,
+      "context" : "[32] suggested aminority oversampling technique based on local densities in a low-dimensional space in order to address the problem of dimensionality that affected earlier methods; this technique involved mapping the trained sample into a low-dimensional space and assigning weights.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 28,
+      "context" : "In 2017, Douzas and Bacao [33] proposed a self-organizing map oversampling method, in which artificial data are used for certain classifiers.",
+      "startOffset" : 26,
+      "endOffset" : 30
+    }, {
+      "referenceID" : 29,
+      "context" : "In 1995, Bishop [34] proposed that training with noise could lead to a good result; this concept is equivalent to Tikhonov regulation.",
+      "startOffset" : 16,
+      "endOffset" : 20
+    }, {
+      "referenceID" : 30,
+      "context" : "5, a decision tree method, was introduced by Zhou and Jiang [35]; this method first trains a neural network, and then employs it to generate a new training set.",
+      "startOffset" : 60,
+      "endOffset" : 64
+    }, {
+      "referenceID" : 31,
+      "context" : "A virtual sample generation method based on an internalized kernel density estimate was introduced by Li and Lin [36] in 2006; this method involves determining the probability density function of the samples, which is then used to generate training samples.",
+      "startOffset" : 113,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 32,
+      "context" : "In 2009, Li and Fang [37] again proposed a non-linear virtual sample generation technique using group discovery and parametric equations of the hypersphere.",
+      "startOffset" : 21,
+      "endOffset" : 25
+    }, {
+      "referenceID" : 33,
+      "context" : "A GAN is a powerful type of generative model [38] that was introduced in 2014 by Goodfellow et al.",
+      "startOffset" : 45,
+      "endOffset" : 49
+    }, {
+      "referenceID" : 34,
+      "context" : "[39]; it can be utilized to generate synthetic samples with the same distribution as the real data in order to solve the insufficiency problem of annotated data [40].",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 35,
+      "context" : "[39]; it can be utilized to generate synthetic samples with the same distribution as the real data in order to solve the insufficiency problem of annotated data [40].",
+      "startOffset" : 161,
+      "endOffset" : 165
+    }, {
+      "referenceID" : 36,
+      "context" : "A GAN consists of two deep architecture functions for the generator and the discriminator, which can simultaneously learn from the trained data in an adversarial fashion [41].",
+      "startOffset" : 170,
+      "endOffset" : 174
+    }, {
+      "referenceID" : 37,
+      "context" : "From the perspective of image generation, Santana and Hotz [42] proposed an approach to generate images with the same distribution as real driving scenarios.",
+      "startOffset" : 59,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 38,
+      "context" : "[43] utilized a GAN to learn from both real and synthetic images in order to improve the accuracy of eye detection.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 39,
+      "context" : "[44] utilized a GAN to capture the relevance of dialog and to generate corresponding synthetic text, while Pascual et al.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 40,
+      "context" : "[45] proposed a speechenhancement framework based on a GAN.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 41,
+      "context" : "[46] utilized a GAN to generate synthetic illicit transaction records, and merged these synthetic records into an augmented training set to improve the effectiveness of credit card fraud detection.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 42,
+      "context" : "Douzas and Bacao [47] utilized a GAN to generate synthetic samples for the minority class of various imbalanced datasets; the results showed that the GAN performs better than the other oversampling methods.",
+      "startOffset" : 17,
+      "endOffset" : 21
+    }, {
+      "referenceID" : 43,
+      "context" : "Furthermore, most standard augmentation methods have been integrated into Augmentor, a well-accepted data augmentation tool with a high-level application programming interface (API) [48].",
+      "startOffset" : 182,
+      "endOffset" : 186
+    }, {
+      "referenceID" : 35,
+      "context" : "Workflow of the small sample training process of the original GAN was a minimax game, and the optimization goal was to reach the Nash equilibrium [40], which posed the vanishing gradient problem [50].",
+      "startOffset" : 146,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 44,
+      "context" : "Workflow of the small sample training process of the original GAN was a minimax game, and the optimization goal was to reach the Nash equilibrium [40], which posed the vanishing gradient problem [50].",
+      "startOffset" : 195,
+      "endOffset" : 199
+    }, {
+      "referenceID" : 45,
+      "context" : "Compared with the original GAN, WGAN uses the Wasserstein distance instead of the Jensen–Shannon (JS) divergence to evaluate the distribution distance between the real samples and the generated samples [51].",
+      "startOffset" : 202,
+      "endOffset" : 206
+    }, {
+      "referenceID" : 46,
+      "context" : "Using theWasserstein distance, the training process of WGAN was more stable and faster than that of the original GAN [52].",
+      "startOffset" : 117,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 47,
+      "context" : "Second, according to the GAN’s concept of the adversary [53], the generator attempted to generate synthetic samples that could fool the discriminator, while the discriminator attempted to discriminate between the real samples and the synthetic samples.",
+      "startOffset" : 56,
+      "endOffset" : 60
+    }, {
+      "referenceID" : 48,
+      "context" : "Accuracy denoted the proportion of predictions that were correct, the F-measure represented the harmonic mean of precision and recall [54], and the G-mean indicated the geometric mean of recall [55].",
+      "startOffset" : 134,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 49,
+      "context" : "Accuracy denoted the proportion of predictions that were correct, the F-measure represented the harmonic mean of precision and recall [54], and the G-mean indicated the geometric mean of recall [55].",
+      "startOffset" : 194,
+      "endOffset" : 198
+    }, {
+      "referenceID" : 50,
+      "context" : "N-glycan spectra of the HCC samp rates of less than 15% [56,57].",
+      "startOffset" : 56,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 51,
+      "context" : "N-glycan spectra of the HCC samp rates of less than 15% [56,57].",
+      "startOffset" : 56,
+      "endOffset" : 63
+    }, {
+      "referenceID" : 53,
+      "context" : "Numerous cancer-related processes, including oncogenic transformation [59,61], tumor progression [62], and antitumor immunity [63], are associated with the aberrant glycosylation of proteins.",
+      "startOffset" : 70,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 55,
+      "context" : "Numerous cancer-related processes, including oncogenic transformation [59,61], tumor progression [62], and antitumor immunity [63], are associated with the aberrant glycosylation of proteins.",
+      "startOffset" : 70,
+      "endOffset" : 77
+    }, {
+      "referenceID" : 56,
+      "context" : "Numerous cancer-related processes, including oncogenic transformation [59,61], tumor progression [62], and antitumor immunity [63], are associated with the aberrant glycosylation of proteins.",
+      "startOffset" : 97,
+      "endOffset" : 101
+    }, {
+      "referenceID" : 57,
+      "context" : "Numerous cancer-related processes, including oncogenic transformation [59,61], tumor progression [62], and antitumor immunity [63], are associated with the aberrant glycosylation of proteins.",
+      "startOffset" : 126,
+      "endOffset" : 130
+    }, {
+      "referenceID" : 62,
+      "context" : "N-glycans, which are features of data augmentation, were first released from the human serum samples by means of PNGase F prior to a solid-phase permethylation protocol [68].",
+      "startOffset" : 169,
+      "endOffset" : 173
+    }, {
+      "referenceID" : 63,
+      "context" : "This level of accuracy has great significance for the early identification and treatment of HCC, because a current study [69] has found that early treatment significantly increases the survival rate of patients with HCC.",
+      "startOffset" : 121,
+      "endOffset" : 125
+    }, {
+      "referenceID" : 64,
+      "context" : "[70] indicates that digital pathology will dramatically change medical workflows if pathologists are augmented by machine-learning methods.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 68,
+      "context" : "In future, the proposed approach will be applied to more datasets from various fields in order to continuously improve our research [76,78].",
+      "startOffset" : 132,
+      "endOffset" : 139
+    }, {
+      "referenceID" : 70,
+      "context" : "In future, the proposed approach will be applied to more datasets from various fields in order to continuously improve our research [76,78].",
+      "startOffset" : 132,
+      "endOffset" : 139
+    } ],
+    "year" : 2019,
+    "abstractText" : "It is essential to utilize deep-learning algorithms based on big data for the implementation of the new generation of artificial intelligence. Effective utilization of deep learning relies considerably on the number of labeled samples, which restricts the application of deep learning in an environment with a small sample size. In this paper, we propose an approach based on a generative adversarial network (GAN) combined with a deep neural network (DNN). First, the original samples were divided into a training set and a test set. The GAN was trained with the training set to generate synthetic sample data, which enlarged the training set. Next, the DNN classifier was trained with the synthetic samples. Finally, the classifier was tested with the test set, and the effectiveness of the approach for multi-classification with a small sample size was validated by the indicators. As an empirical case, the approach was then applied to identify the stages of cancers with a small labeled sample size. The experimental results verified that the proposed approach achieved a greater accuracy than traditional methods. This research was an attempt to transform the classical statistical machine-learning classification method based on original samples into a deep-learning classification method based on data augmentation. The use of this approach will contribute to an expansion of application scenarios for the new generation of artificial intelligence based on deep learning, and to an increase in application effectiveness. This research is also expected to contribute to the comprehensive promotion of new-generation artificial intelligence. 2019 THE AUTHORS. Published by Elsevier LTD on behalf of Chinese Academy of Engineering and Higher Education Press Limited Company. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).",
+    "creator" : "Elsevier"
+  }
+}

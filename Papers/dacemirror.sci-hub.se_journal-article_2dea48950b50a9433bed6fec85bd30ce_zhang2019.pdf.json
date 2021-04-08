@@ -1,0 +1,923 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_2dea48950b50a9433bed6fec85bd30ce_zhang2019.pdf",
+  "metadata" : {
+    "source" : "CRF",
+    "title" : "Pulse Duration and Wavelength Effects of Laser Ablation on the Oxidation, Hydrolysis, and Aging of Aluminum Nanoparticles in Water",
+    "authors" : [ "Ke Zhang", "Dmitry S. Ivanov", "Rashid A. Ganeev", "Ganjaboy S. Boltaev", "Subhash C. Singh", "Martin E. Garcia", "Irina N. Zavestovskaya", "Chunlei Guo" ],
+    "emails" : [ "zhangke16@mails.ucas.ac.cn", "rashid_ganeev@mail.ru", "ganjaboy_boltaev@mail.ru", "india6krishna@gmail.com", "ssingh49@UR.Rochester.edu", "ivanov@uni-kasseel.de", "m.garcia@uni-kassel.de", "INZavestovskaya@mephi.ru", "guo@optics.rochester.edu;" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Keywords: pulsed laser ablation; aluminum; alumina; aluminum hydroxide; aging; morphology; molecular dynamics; two temperature model; modeling and simulations"
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Nanoparticles (NPs) attract significant interest because of special properties and various applications [1–5]. For example, Al NPs have a role in propellants and pyrotechnics, because they can provide additional heat release during exothermic oxidation [6,7]. The optical character of Al NPs also contributes to their application for solar cells [8], optoelectronic devices [9], metal-enhanced fluorescence devices [10], and broad-band wire-grid polarizers [11]. In addition, the search for\nNanomaterials 2019, 9, 767; doi:10.3390/nano9050767 www.mdpi.com/journal/nanomaterials\nNanomaterials 2019, 9, 767 2 of 19\nrenewable energy sources and the development of the hydrogen production industry have prompted researchers to focus on spontaneous thermal reaction based on aluminum–water systems [12,13]. Al nanostructures can also be used as components of high-capacity hydrogen storage materials due to the fact that hydrogen can be generated through the reaction between aluminum and water [14–16]. Aluminum, a very active metal, can spontaneously react with oxygen or water from room temperature up to its melting temperature (660 ◦C) Normally, a dense oxide film (aluminum oxide, alumina, Al2O3) is formed by the reaction of Al with oxygen, which prevents other reactions. Chemical reaction between Al and water is so slow that it is virtually unobservable. Aluminum hydroxide [Al(OH)3], which will be formed at the initial stage, can entirely isolate the contact between Al and water. However, the chemical reactions are very different once one considers the nano- and macro-scale structures [17–19]. In the case of nanoscale, studies have shown that morphology [20,21] and sizes of particles [22–24] have an impact on their chemical properties. Therefore, it is worth studying the dynamics of morphology and particle sizes of Al, aluminum oxide, and hydrolysates at the nanometer level. The performance of materials at nanoscale is totally different from their macroscopic performance. The mixture of Al powder and Al oxide powder can significantly improve the efficiency of hydrogen production [13]. Due to the enormous industrial importance of hydrogen, there has been extensive research on Al–water systems, mainly including interactions with pure water systems [25], acid-based systems [13], oxide systems [26,27], and salt systems [13]. What these studies have in common is the destruction of the oxide layer to facilitate the continuation of the reaction. Particularly, the syntheses of Al and its oxide NPs by pulsed laser ablation in liquid (PLAL) was considered to be an efficient, simple, and green method [28]. In addition, this method has been widely used in the syntheses of other metal and oxide NPs [29–33]. However, many factors, such as the type of surrounding media [34–36], temperature of liquid [37–39], laser pulse duration [40] and fluence [41,42], the relative position of the focus and the target surface [43], adding surfactant [44], and characteristics of targets [45,46], strongly influence the ablation processes in such a manner that the composition, morphology, and particle sizes of synthesized NPs show significant differences under different conditions. In order to support the results of our experimental studies and to take a deeper view on the process of formation of Al nanoparticles in liquid media at the atomic level, the molecular dynamics (MD)-based simulations and two temperature model (TTM) were used [47]. The essential concepts of such combined MD-TTM are described in Reference [48]. The hybrid atomistic-continuum model MD-TTM addresses the kinetics of fast laser-induced non-equilibrium phase transitions at the atomic level using MD approach. Based on the developed approach, the MD-TTM model is further modified for multiprocessing mode with a message passing interface (MPI) algorithm for applications in simulations on nanostructuring of metals and generation of NPs in air and in water on the experimental scale. The model is described in detail in Reference [49] for the case of nanostructuring of thick metal targets with an UV-laser pulse, whereas its successful applications for the case of thin targets were reported in References [50,51]. In this paper, the ablation of Al targets in distilled water by 800 nm laser pulses of different durations (5 ns, 200 ps, and 30 fs) is analyzed along with the study of the influence of different wavelengths (1064 nm and 355 nm) of the heating radiation on this process. It is found that the morphology of NPs prepared under different pulse durations changes significantly over time. We demonstrate how the pulse duration influences the aging of NPs. In addition, the compositions of NPs obtained using different durations and wavelengths of heating pulses are found to vary significantly. We also present the results of modeling of the NPs formation in water media using 50 ps laser pulses interacting with a thick Al target. This duration is much longer than the characteristic electron-phonon relaxation time for Al (τe-ph~1.5 ps) [52], which makes our modeling results identical to that if we used 200 ps. At the same time, the shorter pulse leaves the efficiency of our computations high enough. The performed modeling enables a detailed analysis of the mechanism of NPs formation in water due to the laser\nNanomaterials 2019, 9, 767 3 of 19\nheating of Al, which allows for drawing a conclusion about the effect of liquid environment on the formation of NPs, their evolution, and solidification process."
+    }, {
+      "heading" : "2. Experimental",
+      "text" : "The experiment was accomplished by irradiating the Al target in distilled water with focused laser pulses. A sheet of bulk Al (99.999%, ZhongNuo Advanced Material Technology Co., Limited, Beijing, China) was polished and cleaned in anhydrous alcohol and then placed in a quartz cell (30 × 30 × 30 mm3) filled with distilled water, which can be moved along the two directions. Laser pulses were focused by a 150 mm focal length lens on the surface of bulk Al. The beam diameter on the ablating surface was 0.3 mm. Details of the experimental setup are given elsewhere [53–55]. The ablation was carried out using the Ti: Sapphire laser (Spitfire Ace, Spectra Physics, Santa Clara, CA, USA), which provided the 800 nm, 1 kHz pulses of 30 fs and 200 ps duration. The nanosecond laser (λ = 1064 nm, τ = 5 ns, 10 Hz pulse repetition rate; Q-Smart, Coherent, Santa Clara, CA, USA) and its third harmonic (λ = 355 nm) were also used for ablation. Laser ablation was carried out using 48 mJ, 0.56 mJ, and 0.68 mJ energies of ns (nanosecond, 1064 and 355 nm), picosecond (ps), and femtosecond (fs) pulses, respectively. Each ablation process lasted for 30 min. The synthesized NPs suspensions are designated as Sn(1064/355), Sp, and Sf for 5 ns, 200 ps, and 30 fs ablation processes, respectively. Sizes, macrostructure, and morphology of NPs were analyzed by scanning electron microscope (SEM; S-4800, Hitachi, Tokyo, Japan), which allowed determination of the change of synthesized particles morphology during a long period. Composition and structure of NPs were determined by energy dispersive spectroscopy (EDS; S-4800, Hitachi) and X-ray diffraction (XRD; D8 Discover, Bruker AXS, Karlsruhe, Germany). UV-vis-NIR absorption spectroscopy (Cary Series, Agilent Technologies, Santa Clara, CA, USA) was used to determine the optical bandgaps of suspensions and to monitor the number of NPs in the water colloids."
+    }, {
+      "heading" : "3. Results and Discussion",
+      "text" : ""
+    }, {
+      "heading" : "3.1. Color and Spectral Variations of ns-, ps-, and fs-Induced Al Suspensions",
+      "text" : "The ablation of Al in water under various conditions showed that pulse duration and wavelength have a close connection on morphology, size, and composition of NPs, which were changed during some period after ablation. These studies showed that pulse duration significantly influences the modification of synthesized particles. Thin layers of Al2O3 and Al(OH)3 produced during initial stages of interaction of Al, oxygen, and water suppressed further interaction between those components. Laser irradiation destroyed those films and allowed the reactions to continue. In addition, the heating effect of laser–matter interaction also played a role in promoting the reaction. The equations for Al to react with oxygen and water at room temperature are as follows:\n4Al + 3O2 = 2Al2O3 (1)\n2Al + 6H2O = 2Al(OH)3 + 3H2 (2)\nThe favorable temperature range for producing Al(OH)3 lies between room temperature to 280 ◦C. Above 480 ◦C, Al2O3 becomes the most probable product of reaction according to previous studies [26,27], which, however, did not take into account the influence of pulsed laser interaction. Extreme conditions of reaction, such as high temperature and high pressure provided by laser radiation, play a decisive role during the process of ablation [56]. It was shown previously that the external environment affects the self-organization process of bubbles in the corrosion process [57]. The plume induced by laser rapidly cools down in the solution that led to the formation of NPs through agglomeration. Agglomeration not only influences the whole process of NPs formation, but also plays an important role in the subsequent aging processes.\nNanomaterials 2019, 9, 767 4 of 19\nEarlier, Al and Al2O3 complexes were synthesized using ablation by pulsed Nd:YAG laser in liquid environment without any surfactant or catalyst in deionized water [58]. It was found in another study that Al(OH)3 produces when the surfactant, such as cetyl trimethyl ammonium bromide, becomes added to the water [59]. Meanwhile, it was found during our laser ablation studies that, without any surfactant or catalyst, Al2O3 and Al(OH)3 coexist during the process of ablation, while pulse duration significantly influences their relative content. After polishing, the pure Al was placed in the distilled water. It reacts rapidly with oxygen and water, forming a film containing Al2O3 and Al(OH)3. The laser pulses destroy this film, re-expose pure Al, and allow further reactions between above components. The pulse heating also promotes the reaction between them. Therefore, the NPs containing Al, Al2O3, and Al(OH)3 should appear in the solution during ablation at the same time. This assumption has been proven during structural and morphology analysis of synthesized species. To analyze the role of pulse duration during formation of NPs, laser pulses with different durations were used to ablate the target. The influence of fundamental and third harmonic wavelengths on ablation was compared under ns ablation conditions. The suspensions obtained during ablation of Al bulk with variable pulse durations were slightly different in color. The colloidal solution obtained under ablation by ns pulses showed milky white color, while ps radiation caused the light gray color and the colloidal solution produced by fs pulses ablation showed a brown color. In all of the above-mentioned cases, the solutions had the micro-emulsion consistence, and after a few days, the precipitation started to play important role. Absorption spectra of the colloidal solutions obtained by PLAL were measured immediately after ablation. The results are shown in Figure 1a. The solutions exhibited large absorption in the ultraviolet range, and the edge of absorption band extended towards the visible region, so that the solutions had different colors. The suspension of NPs prepared by fs pulses showed a resonance peak located at λ = 230 nm (E = 5.39 eV, red curve), while there were no similar peaks in the case of application of the ns (dot-dashed curve) and ps (dashed curve) pulses. Earlier, 150 ps pulses of Nd:YAG laser were used to ablate Al target in ethanol, and the colloidal solution had a similar absorption peak, which was explained as the product of ethanol decomposition [60]. Compared with their research, different pulse duration (30 fs) and solvent (distilled water) were used in our study, which showed the same peak of absorption. Therefore, the appearance of the peak can be considered independent of the pulse duration and solvent used, but rather attributed to the peculiarities of the products of ablation of Al target. In addition, during ablation by fs pulses, a bright white light was emitted when ultra-short pulses passed through the liquid. Extremely high peak power led to stronger absorption of the laser radiation passing through the liquid, thus reducing the intensity at the target surface, which has earlier showed the low rate of NPs formation by fs pulses [60]. As a result, the absorption of these colloids was significantly reduced compared with the former case. The repetition rate of ns pulses (10 Hz) was significantly smaller, and the pulses acting on the bulk surface during the same time were 100 times less compared with the ablation by fs or ps pulses. Therefore, the number of NPs generated by excitation of ns pulses was significantly lower, which led to significantly smaller absorption (dot-dashed curve). The colloidal solutions were also analyzed 3 and 30 days after the ablation (Figure 1b–d). The major changes in the morphology occurred mainly during the first few days after the ablation. Since then, the morphology and particle sizes remained basically stable, so no measurements of the absorption spectra of colloidal solutions during the stable period were carried out. The colloidal solution Sn did not show essential changes in the absorption spectrum (Figure 1b). The stability of absorption spectrum in that case corroborated the SEM studies of Al NPs (see the following subsection). Meanwhile, the absorption spectra of colloidal solutions Sp (Figure 1c) and Sf (Figure 1d) have undergone significant changes. The absorption of Sp was slightly increased on the third day and a “shoulder” appeared at λ = 240 nm (E = 5.17 eV) compared with the initial colloidal solution. This modification was mainly based on the difference of NPs’ morphology. The absorption spectrum measured after 30 days was further modified, and the position of shoulder became red shifted. The remarkable difference between\nNanomaterials 2019, 9, 767 5 of 19\nthe 3rd and the 30th days indicates that the morphological structure of particles is still changing at this stage. Other test results also showed that the colloidal solution obtained using ps pulses-induced ablation is the most surprising and complex. Spectroscopic measurements of the solution Sf showed that, after the third day, its properties became almost stabilized.\ni l , , 5 of 8\nremarkable difference between the 3rd and the 30th days indicates that the morphological structure of particles is still changing at this stage. Other test results also showed that the colloidal solution obtained using ps pulses-induced ablation is the most surprising and complex. Spectroscopic measurements of the solution Sf showed that, after the third day, its properties became almost stabilized."
+    }, {
+      "heading" : "3.2. Morphology of Synthesized Al NPs",
+      "text" : "SEMs of three groups of colloids were performed to determine the morphology, particle sizes, and distribution of NPs. For ns pulses, ablation was operated at two wavelengths (1064 nm and 355 nm). These studies allowed analyzing the influence of the wavelength of 5 ns ablation beam on the formation of NPs. SEM of ablation showed that the initial morphology of NPs was close to the regular spherical structure. The NP structures obtained under different wavelength conditions (1064 nm and 355 nm) did not distinguish from each other. In the case of 1064 nm pulses, SEM images did not show significant difference in morphology and particle sizes during the aging process for more than three months (Figure 2). Compared with other metal NPs [61], the Al NPs obtained at these conditions of ablation did not show the aggregation. On the 40th day (Figure 2d), when the same colloidal solution of NPs was measured, it was found that the morphology of very few NPs presented the conical or rod-like structures (marked by red rings), while most of NPs showed the regular spherical shape.\nr ti tr ff , , z, 48 J;\n: 200 s, 800 , , . J; : 30 fs, , , . i the case of ablation by ns pulses. (c) Absorption spectra variations in the case of\nablation by ps pulses. (d) Vari t on of absorption of the NPs su pension prepared using fs pulses."
+    }, {
+      "heading" : "3.2. Morphology of Synthesized Al NPs",
+      "text" : "SEMs of three groups of colloids were performed to determine the morphology, particle sizes, and distribution of NPs. For ns pulses, ablation was operated at two wavelengths (1064 nm and 355 nm). These studies allowed analyzing the influence of the wavelength of 5 ns ablation beam on the formation of NPs. SEM of ablation showed that the initial morphology of NPs was close to the regular spherical structure. The NP structures obtained under different wavelength conditions (1064 nm and 355 nm) did not distinguish from each other. In the case of 1064 nm pulses, SEM images did not show significant difference in morphology and particle sizes during the aging process for more than three months (Figure 2). Compared with other metal NPs [61], the Al NPs obtained at these conditions of ablation did not show the aggregation. On the 40th day (Figure 2d), when the same colloidal solution of NPs was measured, it was found that the morphology of very few NPs presented the conical or rod-like structures (marked by red rings), while most of NPs showed the regular spherical shape.\nNanomaterials 2019, 9, 767 6 of 19 Nanomaterials 2019, 9, 767 6 of 18\nFigure 2. SEMs of the colloidal solutions synthesized using ns, 1064 nm pulses and measured at different time intervals from ablation: (a) Less than 1 day after ablation, (b) 8 days, (c) 15 days, (d) 40 days, (e) 60 days, and (f) 90 days after ablation."
+    }, {
+      "heading" : "In the case of ablation using 355 nm, 5 ns pulses, the initial shapes of NPs were similar to the",
+      "text" : "case of ablation using 1064 nm radiation (Figure 3). The size of particles significantly increased after 60 days from ablation. SEM studies of the newly synthesized NP solution showed the presence of a powdery structure uniformly distributed on the substrate of silicon wafer. After 30 days, the surrounding powders aggregated and coagulated to form new particles with notably larger sizes. Smaller particles and colloids in liquids adhered to the surface of NPs and then coagulated with them (Figure 3c). The NPs still have spherical structure. Additionally, two months later, the test results showed that there were a few holes on the surfaces of some NPs, which had a doughnut-like structure (Figure 3d).\nFigure 3. SEM images at different periods after ablation by 355 nm radiation: (a) 1 day, (b) 20 days, (c) 45 days, and (d) 60 days after ablation, inner image: individual particles show \"red blood cells\" structure due to aging.\nFigure 2. SEMs of the colloidal solutions synthesized using ns, 1064 nm pulses and measured at different time intervals from ablation: (a) Less than 1 day after ablation, (b) 8 days, (c) 15 days, (d) 40 days, (e) 60 days, and (f) 90 days after ablation.\nIn the case of ablation using 355 nm, 5 ns pulses, the initial shapes of NPs were similar to the case of ablation using 1064 nm radiation (Figure 3). The size of particles significantly increased after 60 days from ablation. SEM studies of the newly synthesized NP solution showed the presence of a powdery structure uniformly distributed on the substrate of silicon wafer. After 30 days, the surrounding powders aggregated and coagulated to form new particles with notably larger sizes. Smaller particles and colloids in liquids adhered to the surface of NPs and then coagulated with them (Figure 3c). The NPs still have spherical structure. Additionally, two months later, the test results showed that there were a few holes on the surfaces of some NPs, which had a doughnut-like structure (Figure 3d).\nNanomaterials 2019, 9, 767 6 of 18\nFigure 2. SEMs of the colloidal solutions synthesized using ns, 1064 nm pulses and measured at differ nt time intervals fr m ablation: (a) Less than 1 day after ablation, (b) 8 days, (c) 15 d ys, (d) 40 days, (e) 60 days, and (f) 90 days after ablation."
+    }, {
+      "heading" : "In the case of ablation using 355 nm, 5 ns pulses, the initial shapes of NPs were similar to the",
+      "text" : "case of ablation using 1064 nm radiation (Figure 3). T size of particles significantly increased after 60 days from ablation. SEM studies of th newly synthesized NP olution showed th presence of a p wdery structure uniformly distributed on the substrate f ilicon wafer. After 30 days, the urrounding powders aggregated and coagul ted to form new particl s with notably la ger sizes. Small p rticles and colloids in liquids adhered to the surface of NPs and th n coagulated with them (Figure 3c). The NPs still av spherical structure. Additionally, two months later, the test results showed that t ere were a few holes on the surfaces of some NPs, which had a doughnut-like structure (Figure 3d).\n. i es t iff r t ri s fter l tion 355 r iation: (a) 1 day, ( ) 0 s, ( ) , ( ) ft l ti , i i : i i i l ti l “r l ll ” str t r t i .\nNanomaterials 2019, 9, 767 7 of 19\nThe ablation of Al by ps pulses is a commonly used technique. However, the most interesting stage of the morphology dynamics at the conditions of ablation has not yet been analyzed, to the best of our knowledge. SEM images of NPs at different stages after ablation by ps pulses are presented in Figure 4. SEM of initial NPs showed the spherical shapes and narrow particle size distribution. Some of them showed the structure similar to the red blood cells (Figure 4a). Meanwhile, the morphology of NPs was notably changed during the following days. There were no transitional structures between initial (spherical) and subsequent (cone-shaped and triangle) morphologies. Therefore, we do not think that structures like “red blood cells” can be considered as the precursors of the subsequent morphology variations.\nNanomaterials 2019, 9, 767 7 of 18\n. , ,\ni f s t iff i iti l\nt e structure similar to the red bl od cells (Figure 4a). Meanwhile, the morphology of NPs was notably changed during the following days. There were no tr nsitional tructur s between initial (spherical) and subsequ nt (cone-shaped and triangle) morphologies. Therefore, we do no think that structures like “red blood cells” can b considered as the precur ors of the subsequent mo phology variations.\nFigure 4b shows a typical SEM image obtained 10 days after ablation, when the spherical particles were transformed completely into a large number of triangles and conical structures supplemented by a small number of rod-like NPs and very rare spherical structures (see marked red rings). In the subsequent SEM measurements, the conical and rod structures remained stable, while the spherical structures completely disappeared (Figure 4c–f). Interestingly, many conical structures became joined in pairs to form bow-tie structures (Figure 4b). This unique structure makes the number of free electrons located at the apex of the cone significantly larger than in other positions. Results of ablation by fs pulses completely differ from the ps ablation. Although the initial NPs (Figure 5a) were similar to those in the previous two cases (ns and ps pluses) and showed regular globules with a narrow range of particle size distribution, the influence of pulse duration became fully recognizable during the subsequent aging process (Figure 5b–d). After a period of aging, its morphology presented the granular structures with uniform size distribution. Individual particles demonstrated the layered structure. Such a structure remained stable during the following three months of aging research.\ni . SEM images of NPs at diff rent stages after blation by 200 ps, 800 nm, 0.54 mJ pulses, (a) 1 day, (b) 10 days, (c) 30 days, (d) 60 days, (e) 90 d ys, and (f) 100 days after ablation.\nFigure 4b shows a typical SEM image obtained 10 days after ablation, when the spherical particles were transformed completely into a large number of triangles and conical structures supplemented by a small number of rod-like NPs and very rare spherical structures (see marked red rings). In the subsequent SEM measurements, the conical and rod structures remained stable, while the spherical structures completely disappeared (Figure 4c–f). Interestingly, many conical structures became joined in pairs to form bow-tie structures (Figure 4b). This unique structure makes the number of free electrons located at the apex of the cone significantly larger than in other positions. Results of ablation by fs pulses completely differ from the ps ablation. Although the initial NPs (Figure 5a) were similar to those in the previous two cases (ns and ps pluses) and showed regular globules with a narrow range of particle size distribution, the influence of pulse duration became fully recognizable during the subsequent aging process (Figure 5b–d). After a period of aging, its morphology presented the granular structures with uniform size distribution. Individual particles de onstrated the layered structure. Such a structure re ained stable during the following three months of aging research.\nNanomaterials 2019, 9, 767 8 of 19 Nanomaterials 2019, 9, 767 8 of 18\nFigure 5. SEM images of NPs at different stages after ablation by 30 fs, 800 nm pulses: (a) within 1st day, (b) after 20 days, (c) after 40 days, and (d) after 80 days from ablation.\nWe divided the life cycle of particles into three stages. (1) Formation stage (during ablation and within 24 h after ablation): Within a short time after ablation and during the process of ablation, the plume cooled down rapidly and formed the spherical NPs by aggregation. At this stage, the particles interact with the surrounding liquid environment, and the sizes, morphology, and composition of particles are still unstable. (2) Great change stage (a few days after ablation): This stage is a transitional period, when NPs continue interacting with surrounding environment and with each other, which causes the largest changes in their morphology. The sizes, morphology, and composition of NPs drastically vary during this stage, thereby gradually becoming more stable. (3) Stable stage (about three months after the completion of great change stage): This stage presents the final results of the ablation by pulsed lasers in the liquid environment. During this stage, the influence of external conditions on the ablation process, such as pulse duration and wavelength, diminishes. The duration of each stage of the same ablation process varies greatly. For Al target, the influence of pulse duration and wavelength on the morphology and sizes of synthesized particles is very significant, especially in the subsequent aging processes. The sizes of NPs obtained by ultra-short pulses were remarkably smaller and more homogeneous. EDS and XRD were carried out to further analyze the composition and structure of NPs obtained using different pulse durations and wavelengths. Considering the intense interaction between NPs and the surrounding environment during the formation and great change stages, the composition and structure of NPs are still unstable. Therefore, EDS and XRD were measured during the stable stage. Colloidal solutions were deposited and evaporated repeatedly in air at room temperature onto the silicon wafer with oxide film on its surface for EDS and XRD. XRD of samples are shown in Figure 6. The EDS test results of each sample are shown in Table 1.\nFigure 5. SEM images of NPs at different stages after ablation by 30 fs, 800 nm pulses: (a) within 1st day, (b) after 20 days, (c) after 40 days, and (d) after 80 days from ablation.\nWe divided the life cycle of particles into three stages. (1) Formation stage (during ablation and within 24 h after ablation): Within a short time after ablation and during the process of ablation, the plume cooled down rapidly and formed the spherical NPs by aggregation. At this stage, the particles interact with the surrounding liquid environment, and the sizes, morphology, and composition of particles are still unstable. (2) Great change stage (a few days after ablation): This stage is a transitional period, when NPs continue interacting with surrounding environment and with each other, which causes the largest changes in their morphology. The sizes, morphology, and composition of NPs drastically vary during this stage, thereby gradually becoming more stable. (3) Stable stage (about three months after the completion of great change stage): This stage presents the final results of the ablation by pulsed lasers in the liquid environment. During this stage, the influence of external conditions on the ablation process, such as pulse duration and wavelength, diminishes. The duration of each stage of the same ablation process varies greatly. For Al target, the influence of pulse duration and wavelength on the morphology and sizes of synthesized particles is very significant, especially in the subsequent aging processes. The sizes of NPs obtained by ultra-short pulses were remarkably smaller and more homogeneous. EDS and XRD were carried out to further analyze the composition and structure of NPs obtained using different pulse durations and wavelengths. Considering the intense interaction between NPs and the surrounding environment during the formation and great change stages, the composition and structure of NPs are still unstable. Therefore, EDS and XRD were measured during the stable stage. Colloidal solutions were deposited and evaporated repeatedly in air at room temperature onto the silicon wafer with oxide film on its surface for EDS and XRD. XRD of samples are shown in Figure 6. The EDS test results of each sample are shown in Table 1.\nNanomaterials 2019, 9, 767 9 of 19\nNanomaterials 2019, 9, 767 9 of 18\n10 15 20 25 30 35 40 45 50 55 60\nχ\nχ χ χ χ\nSp\nSf\nSn(355)\nΙ Ι\nΙ Ι\nΔ Δ\nΔΔΔΔ Δ\nΙ\nΙ\nγγ\nγ\nγ\nγ\nγ\nγ\nγ\nγχ\nχ\nχ χχ\nχ\nχγ χ\nSn(1064)\nγ Ι In te ns ity (a rb .u ni ts)\n2θ\nγ : Al χ : Al2O3 Ι : Al(OH)3 Δ : Al2O3. 3H2O\nFigure 6. XRD image of NPs prepared at different conditions. Sn(1064): NPs obtained by 1064 nm, 5 ns pulses. Sn(355): NPs obtained by ns pulses with 355 nm. Sf: NPs obtained by fs pulses. Sp: NPs obtained by ps pulses.\nTable 1. Summary of energy dispersive spectroscopy (EDS) measurements.\nWt % At %\nType Picture Al O Al O\nSn (1064 nm) 38.4 61.6 27 73 Al & Al2O3 & Al(OH)3\nSn (355 nm) 35 65 24.2 75.8 Al & Al2O3 & Al(OH)3\nSp\n32.4 67.6 22.1 77.9 Al2O3 3H2O\n18 82 11.5 88.5 Al(OH)3\nSf 36.3 63.7 25.8 74.2 Al & Al2O3\nIt was found during EDS and XRD studies of the ns-induced suspension that this composition includes Al, Al2O3, and Al(OH)3. The peak intensity of each component is similar in the XRD images. In the case of 355 nm ablating pulses, Al(OH)3 showed a very strong peak compared to those from Al and Al2O3. The EDS and XRD of the suspensions produced by 1064 nm and 355 nm radiation were\nFigure 6. XRD image of NPs prepared at different conditions. Sn(1064): NPs obtained by 1064 nm, 5 ns pulses. Sn(355): NPs obtained by ns pulses with 355 nm. Sf: NPs obtained by fs pulses. Sp: NPs obtained by ps pulses.\nTable 1. Summary of energy dispersive spectroscopy (EDS) measurements.\nWt % At % Type Picture\nAl O Al O\nSn (1064 nm) 38.4 61.6 27 73 Al & Al2O3 & Al(OH)3\nNanomaterials 2019, 9, 767 9 of 18\n10 15 20 25 30 35 40 45 50 55 60\nχ\nχ χ χ χ\nSp\nSf\nSn(355)\nΙ Ι\nΙ Ι\nΔ Δ\nΔΔΔΔ Δ\nΙ\nΙ\nγγ\nγ\nγ\nγ\nγ\nγ\nγ\nγχ\nχ\nχ χχ\nχ\nχγ χ\nSn(1064)\nγ\nΙ\nIn te\nns ity\n(a rb\n.u ni\nts)\n2θ\nγ : Al χ : Al2O3 Ι : Al(OH)3 Δ : Al2O3. 3H2O\nFigure 6. XRD image of NPs prepared at differe t conditions. Sn(1064): NPs o tained by 1064 nm, 5 ns pulses. Sn(355): NPs obtained by ns pulses with 355 nm. Sf: NPs obtained by fs pulses. Sp: NPs obtained by ps pulses.\nTable 1. Summary of energy dispersive spectroscopy (EDS) measurements.\nWt % At %\nType Picture Al O Al O\nSn (1064 nm) 38.4 61.6 27 73 Al & Al2O3 & Al(OH)3\nSn (355 nm) 35 65 24.2 75.8 Al & Al2O3 & Al(OH)3\nSp"
+    }, {
+      "heading" : "32.4 67.6 22.1 77.9 Al2O3 3H2O",
+      "text" : "18 82 11.5 88.5 Al(OH)3\nSf 36.3 63.7 25.8 74.2 Al & Al2O3\nIt was found during EDS and XRD studie of the ns-induced suspension that this composition inc udes Al, l2 3, and Al(OH)3. Th peak int nsity f each component is similar in the XRD images. In the case of 355 nm ablating pulses, Al(OH)3 showed a very strong peak compared to those from Al and Al2O3. The E S and XRD of the sus ensions produced by 1064 nm and 355 nm radiation were\nSn (355 nm) 35 65 24.2 75.8 Al & Al2O3 & Al(OH)3\nNanomaterials 2019, 9, 767 9 of 18\n10 15 20 25 30 35 40 45 50 55 60\nχ\nχ χ χ χ\nSp\nSf\nSn(355)\nΙ Ι\nΙ Ι\nΔ Δ\nΔΔΔΔ Δ\nΙ\nΙ\nγγ\nγ\nγ\nγ\nγ\nγ\nγ\nγχ\nχ\nχ χχ\nχ\nχγ χ\nSn(1064)\nγ\nΙ\nIn te\nns ity\n(a rb\n.u ni\nts)\n2θ\nγ : Al χ : Al2O3 Ι : Al(OH)3 Δ : Al2O3. 3H2O\nFigure 6. XRD image of NPs prepared at different conditions. Sn(1064): NPs obtained by 1064 nm, 5 ns pulses. Sn(355): NPs obtained by ns pulses with 355 nm. Sf: NPs obtained by fs pulses. Sp: NPs obtained by ps pulses.\nTable 1. Summary of energy dispersive spectroscopy (EDS) measurements.\nWt % At %\nType Picture Al O Al O\nSn (1064 nm) 38.4 61.6 27 73 l & Al2O3\n& Al(OH)3\nSn (355 nm) 35 6 24.2 75.8 Al & Al2O3 & Al(OH)3\nSp"
+    }, {
+      "heading" : "32.4 67.6 22.1 77.9 Al2O3 3H2O",
+      "text" : ""
+    }, {
+      "heading" : "18 82 11.5 88.5 Al(OH)3",
+      "text" : "Sf 36.3 63.7 25.8 74.2 Al & Al2O3\nIt was found during EDS and XRD studies of the ns-induced suspension that this composition includes Al, Al2O3, and Al(OH)3. The peak intensity of each component is similar in the XRD images. In the case of 355 nm ablating pulses, Al(OH)3 showed a very strong peak compared to those from Al and Al2O3. The EDS and XRD of the suspensions produced by 1064 nm and 355 nm radiation were\nSp\n32.4 67.6 22.1 77.9 Al2O3 3H2O\nNanomaterials 2019, 9, 767 9 of 18\n10 15 20 25 30 35 40 45 50 55 60\nχ\nχ χ χ χ\nSp\nSf\nSn(355)\nΙ Ι\nΙ Ι\nΔ Δ\nΔΔΔΔ Δ\nΙ\nΙ\nγγ\nγ\nγ\nγ\nγ\nγ\nγ\nγχ\nχ\nχ χχ\nχ\nχγ χ\nSn(1064)\nγ\nΙ\nIn te\nns ity\n(a rb\n.u ni\nts)\n2θ\nγ : Al χ : Al2O3 Ι : Al(OH)3 Δ : Al2O3. 3H2O\nFigure 6. XRD image of NPs prepared at different conditions. Sn(1064): NPs obtained by 1064 nm, 5 ns pulses. Sn(355): NPs obtained by ns pulses with 355 nm. Sf: NPs obtained by fs pulses. Sp: NPs obtained by ps pulses.\nTable 1. Summary of energy dispersive spectroscopy (EDS) measurements.\nWt % At %\nType Picture Al O Al O\nSn (1064 nm) 38.4 61.6 27 73 l & Al2O3\n& Al(OH)3\nSn (355 nm) 35 65 24.2 75.8 Al & Al2O3 & Al(OH)3\nSp"
+    }, {
+      "heading" : "32.4 6 .6 22.1 77.9 Al2O3 3H2O",
+      "text" : "18 82 11.5 88.5 Al(OH)3\nSf 36.3 63.7 25.8 74.2 Al & Al2O3\nIt was found during EDS and XRD studies of the ns-induced suspension that this composition includes Al, Al2O3, and Al(OH)3. The peak intensity of each component is similar in the XRD images. In the case of 355 nm ablating pulses, Al(OH)3 showed a very strong peak compared to those from Al and Al2O3. The EDS and XRD of the suspensions produced by 1064 nm and 355 nm radiation were\n18 82 11.5 88.5 Al(OH)3\nNanomaterials 2019, 9, 767 9 of 18\n10 15 20 25 30 35 40 45 50 55 60\nχ\nχ χ χ χ\nSp\nSf\nSn(355)\nΙ Ι\nΙ Ι\nΔ Δ\nΔΔΔΔ Δ\nΙ\nΙ\nγγ\nγ\nγ\nγ\nγ\nγ\nγ\nγχ\nχ\nχ χχ\nχ\nχγ χ\nSn(1064)\nγ\nΙ\nIn te\nns ity\n(a rb\n.u ni\nts)\n2θ\nγ : l χ : Al2O3 Ι : Al(OH)3 Δ : Al2O3. 3H2O\nFigure 6. XRD image of NPs prepared at different condition . Sn(1064): NPs obtain d by 1064 nm, 5 ns pulses. Sn(355): NPs obtained by ns pulses with 355 nm. Sf: NPs obtained by fs pulses. Sp: NPs obtained by ps pulses.\nTable 1. Summary of energy dispersive spectroscopy (EDS) measurements.\nWt % At %\nType Picture Al O Al O\nSn (1064 nm) 38.4 61.6 27 73 Al & Al2O & Al(OH)3\nSn (355 nm) 35 65 24.2 75.8 l & Al2O\n& Al(OH)3\nSp"
+    }, {
+      "heading" : "32.4 67.6 22.1 77.9 Al2O3 3H2O",
+      "text" : ""
+    }, {
+      "heading" : "8 82 11.5 88.5 Al(OH)3",
+      "text" : "Sf 36.3 63.7 25.8 74.2 Al & Al2O3\nIt was found during EDS and XRD studies of the ns-induced suspen ion that t s composition i cludes Al, Al2O3, and Al(OH)3. The peak intensit of each component is similar in the XRD images. In the case of 355 nm blating pulses, Al(OH)3 showed a v ry strong peak co p red t those from Al and Al2O3. The EDS and XRD of the suspensions produced by 1064 nm and 355 nm radiation were\nSf 36.3 63.7 25.8 74.2 Al & Al2O3\nNanomaterials 2019, 9, 767 9 of 18\n10 15 20 25 30 35 40 45 0 55 60\nχ\nχ χ χ χ\nSp\nSf\nSn(355)\nΙ Ι\nΙ Ι\nΔ Δ\nΔΔΔΔ Δ\nΙ\nΙ\nγγ\nγ\nγ\nγ\nγ\nγ\nγ\nγχ\nχ\nχ χχ\nχ\nχγ χ\nSn(1064)\nγ\nΙ\nIn te\nns ity\n(a rb\n.u ni\nts)\n2θ\nγ : Al χ : Al2O3 Ι : Al(OH)3 Δ : Al2O3. 3H2O\nFigure 6. XRD image of NPs prepared at different conditions. Sn(1064): NPs obtained by 1064 nm, 5 ns pulses. Sn(355): NPs obtained by ns pulses with 355 nm. Sf: NPs obtained by fs pulses. Sp: NPs obtained by ps pulses.\nTabl 1. Summary of energy dispersive spe troscopy (EDS) measurements.\nWt % At %\nType Picture Al O Al O\nSn (1064 nm) 38.4 61.6 27 73 Al & Al2O3\nl(OH)3\nSn (355 nm) 35 65 24.2 75.8 Al & Al2O3\nl(OH)3\nSp\n32.4 67.6 22.1 77.9 Al2O3 3H2O\n18 82 11.5 88.5 Al(OH)3\nSf 36.3 63.7 5.8 74.2 Al & Al2O3\nIt was found duri EDS a d XRD tudi s of the ns-i duced sus en on at his composition inc udes Al, l2O3, and Al(OH)3. The p ak int ty of ach comp ent is si il r he XRD i ages. In the case of 355 nm ablating pulses, Al(OH)3 showed a very strong peak compared to those from Al and Al2O3. The EDS and XRD of the suspensions produced by 1064 nm and 355 nm radiation were It was found during EDS and XRD st dies of the ns-in uc d uspension th t this c mp sition includes Al, Al2O3, and Al(OH)3. The peak intensity of each component is similar in the XRD images. In the case of 355 nm ablating pulses, Al(OH)3 showed a very strong peak compared to those from Al and Al2O3. The EDS and XRD of the suspensions produced by 1064 nm and 355 nm radiation were completely different. In the case of ps pulses, the NPs mainly show two different morphologies, the conical shape dominated by Al2O3 3H2O and the rod shape dominated by Al(OH)3. In addition, Al still exists in NPs according to XRD. A specific morphology, such as conical shape, comprises Al2O3\nNanomaterials 2019, 9, 767 10 of 19\n3H2O as the main component, while the NPs do not exist in the state of a single crystal. Compared with the former case, XRD peaks of NPs obtained using ps pulses are more complex and stronger, including Al (marked by γ), Al2O3 (marked by χ), Al(OH)3 (marked by I), and Al2O3 3H2O (marked by ∆). The main difference at fs ablation conditions is that the presence of Al(OH)3 was not detected in XRD image, probably due to weak intensity. Its composition was mainly a mixture of Al and Al2O3, and the content of Al2O3 was relatively larger. Compared with the same aging stage of NPs obtained by different ablation conditions, it is easy to find that the NPs prepared by ps pulses exhibit larger size after aging and self-assembly, while the shorter wavelength laser sources play a positive role in obtaining smaller particle size distribution in the case of nanosecond pulses. Meanwhile, the NPs obtained by ultrashort pulses have better uniformity in morphology and narrower particle size distribution. In addition, the XRD data exhibiting the presence of Al NPs mainly for fs ablation could be interpreted in terms of direct nanoparticle yield via phase-explosion mechanism, while for ns and ps ablation, laser–plume interaction could destroy parent ablation products until atoms and ions with the following recondensation [62]."
+    }, {
+      "heading" : "4. Theoretical Analysis of Nanoparticles Formation during Ablation of Bulk Aluminum in Water",
+      "text" : ""
+    }, {
+      "heading" : "4.1. Model",
+      "text" : "The idea of modeling of nanoparticles generation in water on the experimental scale is schematically presented in Figure 7a. The laser spot size on the metal surface is considered large (0.05–0.3 mm) as compared to the lateral size of the modeling cell (100 nm). Therefore, the laser intensity distribution in lateral X and Y directions can be considered uniform. For instance, dealing with the laser spot size of ~50 µm in diameter, its central part will not be significantly affected by the process of thermal diffusion in radial direction up to ~1 µs. This time is estimated from our preliminary calculations with the TTM approach [47]. Since this time can be considered as long enough for the processes of formation and solidification of the nanoparticles [51], it gives us a possibility to impose periodic boundary conditions (PBC) in X and Y directions for the whole simulation time up to 1 ns. Accounting for the finite size of the generated NPs (10–50 nm) in the experiments, for the direct comparison of the simulation results with the experimental data, the total computational cell for large scale parallel simulations is schematically shown in Figure 7b.\nNanomaterials 2019, 9, 767 10 of 18\ncompletely different. In the case of ps pulses, the NPs mainly show two different morphologies, the conical shape dominated by Al2O3 3H2O and the rod shape dominated by Al(OH)3. In addition, Al still exists in NPs according to XRD. A specific morphology, such as conical shape, comprises Al2O3 3H2O as the main component, while the NPs do not exist in the state of a single crystal. Compared with the former case, XRD peaks of NPs obtained using ps pulses are more complex and stronger, including Al (marked by γ), Al2O3 (marked by χ), Al(OH)3 (marked by Ι), and Al2O3 3H2O (marked by Δ). The main difference at fs ablation conditions is that the presence of Al(OH)3 was not detected in XRD image, probably due to weak intensity. Its composition was mainly a m xture of Al and Al2O3, and the content of Al2O3 was relatively larger.\nCompared with the same aging stage of NPs obtained by different ablation conditions, it is easy to find that the NPs prepared by ps pulses exhibit larger size after aging and self-assembly, while the shorter wavelength laser sources play a positive role in obtaining smaller particle size distribution in the case of nanosecond pulses. Meanwhile, the NPs obtained by ultrashort pulses have better uniformity in morphology and narrower particle size distribution. In addition, the XRD data exhibiting the presence of Al NPs mainly for fs ablation could be interpreted in terms of direct nanoparticle yield via phase-explosion mechanism, while for ns and ps ablation, laser–plume interaction could destroy parent ablation products until atoms and ions with the following recondensation [62].\n4. Theoretical Analysis of Nanoparticles Formation during Ablation of Bulk Aluminum in Water\n4.1. Model\nThe idea of modeling of nanoparticles generation in water on the experimental scale is schematically presented in Figure 7a. The laser spot size on the metal surface is considered large (0.05–0.3 mm) as compared to the lateral size of the modeling cell (100 nm). Therefore, the laser intensity distribution in lateral X and Y directions can be considered uniform. For instance, dealing with the laser spot size of ~50 μm in diameter, its central part will not be significantly affected by the process of thermal diffusion in radial direction up to ~1 μs. This time is estimated from our preliminary calculations with the TTM approach [47]. Since this time can be considered as long e ough for the proces es of formation and solidification of he nanoparticles [51], it gives us a possibili y to impose periodic boundary condition (PBC) in X and Y directi s for the who e simulation time up to 1 ns. Accounting for the finite size of the generated NPs (10–50 n ) in the experiments, for the direct comparison of the simulation results with the experimental data, the total computational cell for large scale parallel simulations is schematically shown in Figure 7b.\nFigure 7. Computational box for simulations of laser formation of the Al NPs in water relays on\nthe experimental geometry for the case of large laser spot size when the laser intensity across the\ncomputational cell can be considered uniform (a). The total computational cell is schematically\nrepresented for multiprocessing mode in (b). In each particular processor core, an atomistic-continuum\nmolecular dynamics (MD)-two temperature model (TTM) for metal part and ordinary MD model\nfor water part are solved in 3D space (internal mesh is shown for one processor core). Beneath the\nnon-reflective boundaries (NRB), an ordinary TTM model is solved in continuum to account for the heat flux outward metal surface region describing the cooling process. By analogy, the NRB boundaries atop the water layer mimic the infinitely thick water layer, above which only mechanical properties of water are considered in continuum.\nNanomaterials 2019, 9, 767 11 of 19\nTo avoid expensive and unnecessary MD integrations in the deep bulk of aluminum, the dynamically behaving non reflective boundary (NRB) conditions in Z direction were imposed at the depth of 400 nm. The NRB conditions are described in Reference [63] and the case of modeling of nanostructuring processes are modified in Reference [51]. The NRB conditions are designed to absorb the laser-generated pressure wave, which unloads the internal stresses in the vicinity of the surface due to laser heating. Dictated by the research interest, the MD-TTM model was applied only above that limit in the assumption that no phase transition would take place beneath the NRB. This assumption was verified in all our simulations. However, the NRB conditions are transparent for the heat flux, and the ordinary TTM model was accounting for the electron and phonon temperature dynamics on the scale up to 50 µm below the irradiated surface. Also, atop the aluminum target, a water layer of 500 nm thickness was placed, ending with NRB conditions (with parametrization for water) as well, thus representing an infinitely thick water layer. The size of 500 nm was chosen based on preliminary calculations and has to accommodate the laser-induced processes resulting in the ablation of Al, formation of the NPs, and their solidification process, taking place inside the total computational cell. Thus, the aluminum–water total computational cell consisting of ~300,000,000 atoms was taken with dimensions of 75 × 100 × 900 nm in X, Y, and Z directions, respectively, with an atomic resolution of the metal part within 400 nm below the surface and water part within 500 nm above. For a possibility of the direct comparison of our simulation results with the experimental data, the atomistic-continuum MD-TTM model implements a realistic embedded atom method (EAM) interatomic potential for aluminum optimized by Zhakhovskii et al. [64]. This potential reproduces the experimental thermophysical properties of aluminum (such as equilibrium melting temperature, heat capacity, volume of melting, and linear thermal expansion coefficient) with an accuracy of more than 99.5% [65]. The modeling of water, however, is a more challenging task. Due to high polarity of the water molecule, the existing water models [66–68], although nicely representing some of its properties, suffer from one or another limitation, depending on the particular simulation task. Based on general concepts of the possible laser-induced mechanisms involved into the formation of NPs during the laser ablation of aluminum under spatial confinement due to a water layer, in this work we used newly designed EAM water potential by Zhakhovskii [69], which primarily reproduces its mechanical properties with an accuracy of more than 99%. Although missing the description of any chemistry involved into the laser ablation process, the simplicity of such potential, however, helps us to overcome too shallow integration time-step, as it is in the explicit water model [66], and the system size limitations [67]. Also, unlike to the model presented in Reference [68], the chosen water model representation [64] allows for a direct interaction between water and metal particles as the interaction between single molecules (atoms). Furthermore, in these simulations, we do not consider any optical effects such as refocusing of the laser beam and absorption processes in water. In other words, we consider the water layer as absolutely transparent, serving the purpose of the spatial confinement only. The relation between the incident and the absorbed fluencies, therefore, is based on the reflectivity function of aluminum and is taken from tabulated values of extinction coefficients [70] for the given wavelength of 1064 nm. This choice is justified by the fact that the pulse duration of 200 ps (same for 50 ps) is much longer than the characteristic electron–phonon relaxation time for aluminum (~1.5 ps) that excludes the development of a strong electron–phonon nonequilibrium and significant elevation of the electronic temperatures towards the Fermi values (~54,000 K), when the optical properties of the irradiated material can significantly deviate from their equilibrium values. Furthermore, to save the computational resources, we use the pulse duration of 50 ps in our simulations as it is still much longer than τe-ph and will not give any sensible difference from the point of NPs formation by 200 ps laser pulse. Finally, in our calculations, we do not consider any chemistry related to oxidation of Al NPs, since explicit consideration of the material electron density change and the corresponding modification of the interatomic potential would require the application of complex density functional theory (DFT)\nNanomaterials 2019, 9, 767 12 of 19\napproaches of high computational cost. Although there are simplified descriptions of the chemical reactions within the classical MD approach [71], we leave this step for our future investigations. Accounting for the assumptions above, the suggested computational approach is aimed at identification of general effects involved into the NPs generation process, solely caused by the mechanical and thermophysical action of a water layer. Such a general approach, however, is an important intermediate step toward the study of colloidal liquids evolution under different laser pulse regimes."
+    }, {
+      "heading" : "4.2. Results of Modeling and Discussion",
+      "text" : "The results of modeling of the NPs generation in water media due to a 50 ps laser pulse interacting with a thick Al target at the wavelength of 1064 nm and the incident fluence of 10 J/cm2 (the corresponding absorbed fluence was measured at the value of 0.385 J/cm2) can be seen in Figure 8a–c as a sequence of sliced atomic snapshots of the total computational cell in YZ plane, taken at the times of 125 ps, 250 ps, and 500 ps from the begging of the pulse. The pulse with the duration much longer than the characteristic electron–phonon relaxation time cannot induce a strong electron–phonon nonequilibrium. The electronic temperature, therefore, does not reach high values and limited roughly within 10,000 K, when the laser-deposited energy dissipation channel through the electron thermal conduction is much weaker than through the electron–phonon collisions (lattice heating) [72]. This results in the establishment of thermal confinement regime, and the incurred damage by the target, therefore, has a purely thermal character [73]. Meanwhile, the material ablated from the surface region also removes a large part of thermal energy, and the solid–liquid interface (the melting front) comes to the rest by the time of 500 ps at the depth of −280 nm with respect to the position of the initial surface, as shown in Figure 8c.\nNanomaterials 2019, 9, 767 12 of 18\nmodification of the interatomic potential would require the application of complex density functional theory (DFT) approaches of high computational cost. Although there are simplified descriptions of the chemical reactions within the classical MD approach [71], we leav this step for our future investigations. Ac ounting for the assumptions above, the sug ested computational ap roach is aimed at identification of general effects involved into the NPs generation process, solely caused by the mechanical and thermophysical action of a water layer. Such a general ap roach, however, is an important intermediate step toward the study of colloidal liquids evolution under different laser pulse regimes.\n4.2. Results of Modeling and Discussion\nThe results of modeling of the NPs generation in water media due to a 50 ps laser pulse interacting with a thick Al target at the wavelength of 1064 nm and the incident fluence of 10 J/cm2 (the corresponding absorbed fluence was measured at the value of 0.385 J/cm2) can be seen in Figure 8a–c as a sequence of sliced atomic snapshots of the total computational cell in YZ plane, taken at the times of 125 ps, 250 ps, and 500 ps from the begging of the pulse. The pulse with the duration much longer than the characteristic electron–phonon relaxation time cannot induce a strong electron– phonon nonequilibrium. The electronic temperature, therefore, does not reach high values and limited roughly within 10,000 K, when the laser-deposited energy dissipation channel through the electron thermal conduction is much weaker than through the electron–phonon collisions (lattice heating) [72]. This results in the establishment of thermal confinement regime, and the incurred damage by the target, therefore, has a purely thermal character [73]. Meanwhile, the material ablated from the surface region also removes a large part of thermal energy, and the solid–liquid interface (the melting front) comes to the rest by the time of 500 ps at the depth of −280 nm with respect to the position of the initial surface, as shown in Figure 8c.\nFigure 8. The result of 50 ps laser pulse interaction with Al in water at the working wavelength of 1064 nm and the incident fluence of 10 J/cm2 is shown as the sequence of atomic snapshots for 125 ps (a), 250 ps (b), and 500 ps (c). The atoms are colored by central symmetry parameter (CSP) for identification of local atomic structure: Solid < 0.08 < defects < 0.12 < liquid < 0.25 < surface < 0.50 < vapor. The water atoms are blanked in all snapshots for a better visualization of the ablation process.\nFor the thermophysical analysis of the induced process, one can consider the lattice temperature field, shown in Figure 9a–c, for the same times: 125 ps, 250 ps, and 500 ps. Each point in this Figure 9\nNanomaterials 2019, 9, 767 13 of 19\nrepresents a group of atoms (~2500 atoms) for which the local statistical distribution allows us to define temperature. Thus, one can see that during the laser energy deposition, the long heating time results in reaching the critical temperature value of more than 6000 K for the lattice, as shown in Figure 9a, and the ablation process is driven by the explosive boiling mechanism [74], the onset of which leads to the lift-off a number of molten material droplets, as shown in Figure 9b. These droplets, however, lose both the lift-off speed and the high temperature already at a distance of 300 nm from the initial surface, as shown in Figure 9c. The water media, having both the atomic density and the heat capacity comparable with those of metal, causes a significant resistance and efficient cooling to the moving upward ablated material and the ablation plume, therefore, is much smaller here as compared to that in vacuum [75]. The effect of spatial confinement by a water layer on the processes of nanostructuring of metals was investigated in [76] and can be reconfirmed here for the case of NPs generation in liquid media (water). First, the water spatial confinement leads to a significant suppression of the ablation plume or the growing nanofeature that makes the final surface smother as compare to that obtained in vacuum. Second, due to high heat capacity and its vaporization heat losses, the water media itself and its intensive evaporation process efficiently cool down the forming NPs that facilitates their rapid solidification after 500 ps, as shown in Figure 9c. This also can be seen in Figure 10a, where the lattice temperature filed is zoomed for the time of 500 ps and reveals a strong temperature drop in the direction of material ejection (ablation plume). Noticeably, the smaller NPs at the very top of the ablation plume are completely formed and have the temperature already below the melting point (933 K), while the deeper and bigger NPs reveal the onset of solidification process, zoomed in Figure 10b and shown at the atomic level. One can see that atomic structures on the nanoparticles’ surface have an ordered character, which indicates the beginning of crystallization process.\nNanomaterials 2019, 9, 767 13 of 18\nFor the thermophysical analysis of the induced process, one can consider the lattice temperature field, shown in Figure 9a–c, for the same times: 125 ps, 250 ps, and 500 ps. Each point in this Figure 9 represents a group of atoms (~2500 atoms) for which the local statistical distribution allows us to define temperature. Thus, one can see that during the laser energy deposition, the long heating time results in reaching the critical temperature value of more than 6000 K for the lattice, as shown in Figure 9a, and the ablation process is driven by the explosive boiling mechanism [74], the onset of which leads to the lift-off a number of molten material droplets, as shown in Figure 9b. These droplets, however, lose both the lift-off speed and the high temperature already at a distance of 300 nm from the initial surface, as shown in Figure 9c. The water media, having both the atomic density and the heat capacity comparable with those of metal, causes a significant resistance and efficient cooling to the moving upward ablated material and the ablation plume, therefore, is much smaller here as compared to that in vacuum [75]. The effect of spatial confinement by a water layer on the processes of nanostructuring of metals was investigated in [76] and can be reconfirmed here for the case of NPs generation in liquid media (water). First, the water spatial confinement leads to a significant suppression of the ablation plume or the growing nanofeature that makes the final surface smother as compare to that obtained in vacuum. Second, due to high heat capacity and its vaporization heat losses, the water media itself and its intensive evaporation process efficiently cool down the forming NPs that facilitates their rapid solidification after 500 ps, as shown in Figure 9c. This also can be seen in Figure 10a, where the lattice temperature filed is zoomed for the time of 500 ps and reveals a strong temperature drop in the direction of material ejection (ablation plume). Noticeably, the smaller NPs at the very top of the ablation plume are completely formed and have the temperature already below the melting point (933 K), while the deeper and bigger NPs reveal the onset of solidification process, zoomed in Figure 10b and shown at the atomic level. One can see that atomic structures on the nanoparticles’ surface have an ordered character, which indicates the beginning of crystallization process.\nFigure 9. The lattice temperature field is shown for simulation times of 125 ps (a), 250 ps (b), and 500 ps (c). The water media is blanked here for visualization of metallic part of the computational cell. The rectangular region in (c) is zoomed for a more detailed observation in Figure 10.\nNanomaterials 2019, 9, 767 14 of 19\nNanomaterials 2019, 9, 767 14 of 18\nThe effect of water media also results in a more uniform size distribution of the generated NPs, which is also very different from the results recently obtained in modeling of laser-induced NPs generation with short laser pulses in vacuum [76]. The formed NPs have more or less spherical shape, which, unlike the mechanical mechanism of ablation (spallation), originates from the relatively slow boiling mechanism, coalescing of the smaller droplets into the spherical particles (benefiting from the surface energy), and their fast re-solidification process at a certain distance from the initial surface. The subsequent elevation speed of the forming nanoparticles in water media is one order of magnitude slower than that in vacuum, so that by approximately ~1 ns of the simulation time, the motion of newly formed NPs is driven exclusively by the established hydrodynamic motion in water rather than by the initial momentum obtained due to the ablation process. Finally, the already-formed NPs in the colloidal liquid can continue growing due to slow diffusion of Al atoms in water and can coalesce further into unusual structures, like those that can be seen in Figure 4. Apparently, the slow diffusion process facilitates the formation of NPs with highly pronounced effect of their crystal structure, as shown in Figure 10b. Similar to a salt crystal growing due to desorption process, the unusual form of nanoparticles and their connections are therefore owing to both the crystal structure of the corresponding elements and energetically favorable position of those element with respect to each other."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "The ablation of Al bulk in distilled water using pulsed lasers with different pulse durations and wavelengths was systematically analyzed. The experimental results show that almost all of the ablation products obtained at different conditions contain Al, Al2O3, and Al(OH)3. It was found that the dynamics of NPs formation and modification can be divided into the formation, great change, and stable stages. The final shapes of NPs presented at the stabilization period after aging are analyzed using optical and morphology methods. The initial NPs prepared by various pulse durations (5 ns, 200 ps, and 30 fs) showed regular spherical structures. Under the condition of 5 ns pulses with 1064 nm, morphology and particle size were similar during the aging process. The main components were the mixtures of Al, Al2O3, and Al(OH)3. Meanwhile, in the case of ns, 355 nm pulses, aggregation during aging significantly increased the sizes of NPs. Those NPs mainly consisted of Al(OH)3 with a small amount of Al and Al2O3. The NPs obtained by ablation using ps pulses exhibited conical structures dominated by Al2O3 · 3H2O and rod-like structures dominated by Al(OH)3. Compared with the former (ns) case, NPs with small size and uniform distribution were obtained during ablation using ps pulses. The main components of these NPs were Al and Al2O3. The application of fs pulses led to formation of granular NPs.\nThe effect of water media also results in a more uniform size distribution of the generated NPs, which is also very different from the results recently obtained in modeling of laser-induced NPs generation with short laser pulses in vacuum [76]. The formed NPs have more or less spherical shape, which, unlike the mechanical mechanism of ablation (spallation), originates from the relatively slow boiling mechanism, coalescing of the smaller droplets into the spherical particles (benefiting from the surface energy), and their fast re-solidification process at a certain distance from the initial surface. The subsequent elevation speed of the forming nanoparticles in water media is one order of magnitude slower than that in vacuum, so that by approximately ~1 ns of the simulation time, the motion of newly formed NPs is driven exclusively by the established hydrodynamic motion in water rather than by the initial momentum obtained due to the ablation process. Finally, the already-formed NPs in the colloidal liquid can continue growing due to slow diffusion of Al atoms in water and can coalesce further into unusual structures, like those that can be seen in Figure 4. Apparently, the slow diffusion process facilitates the formation of NPs with highly pronounced effect of their crystal structure, as shown in Figure 10b. Similar to a salt crystal growing due to desorption process, the unusual form of nanoparticles and their connections are therefore owing to both the crystal structure of the corresponding elements and energetically favorable position of those element with respect to each other."
+    }, {
+      "heading" : "5. Conclusions",
+      "text" : "The ablation of Al bulk in distilled water using pulsed lasers with different pulse durations and wavelengths was systematically analyzed. The experimental results show that almost all of the ablation products obtained at different conditions contain Al, Al2O3, and Al(OH)3. It was found that the dynamics of NPs formation and modification can be divided into the formation, great change, and stable stages. The final shapes of NPs presented at the stabilization period after aging are analyzed using optical and morphology methods. The initial NPs prepared by various pulse durations (5 ns, 200 ps, and 30 fs) showed regular spherical structures. Under the condition of 5 ns pulses with 1064 nm, morphology and particle size were similar during the aging process. The main components were the mixtures of Al, Al2O3, and Al(OH)3. Meanwhile, in the case of ns, 355 nm pulses, aggregation during aging significantly increased the sizes of NPs. Those NPs mainly consisted of Al(OH)3 with a small amount of Al and Al2O3. The NPs obtained by ablation using ps pulses exhibited conical structures dominated by Al2O3·3H2O and rod-like structures dominated by Al(OH)3. Compared with the former (ns) case, NPs with small\nNanomaterials 2019, 9, 767 15 of 19\nsize and uniform distribution were obtained during ablation using ps pulses. The main components of these NPs were Al and Al2O3. The application of fs pulses led to formation of granular NPs. The process of NPs generation during laser ablation was theoretically studied using MD-based method on the example for 50 ps, 1064 nm pulses interacting with Al target in water media. The suggested combined atomistic-continuum MD-TTM model enabled the possibility of running the simulations on the experimental scale, which allowed direct comparison of the modeling results with the experimental data. It was identified that the main driving mechanism of the material ejection (ablation) originates from the explosive boiling due to laser heating of the material to the critical point and above. The material ejection occurs under conditions of thermal confinement so that the bigger part of the laser deposited energy remains in the vicinity of the target surface, therefore increasing the efficiency of the NPs formation. Along with parameters of the laser irradiation, the mechanical and thermophysical effects of the water media, to a large extent, have been found to play a determining role on the size distribution and morphology of the synthesized NPs. The additional resistance of the water media results in a suppression of the growing ablation plume, facilitating the uniform size distribution of NPs, whereas their heat losses due to large heat capacity of water and the thermal energy spent for water vaporization result in fast solidification of the produced NPs. Our study has shown that pulsed laser ablation in a liquid environment has broad prospects, since it is feasible to selectively synthesize NPs, nanoparticle oxides, or hydroxides with specific morphology, size, and composition by adjusting external conditions, such as pulse width and wavelength of heating radiation. The knowledge of the dependence of the morphology and particle sizes on the pulse duration and other external conditions allows synthesizing nano-sized particles with specific morphology and properties for scientific and industry needs.\nAuthor Contributions: Conceptualization: K.Z., R.A.G., and S.C.S.; data curation: K.Z. and D.S.I.; formal analysis: K.Z. and D.S.I.; investigation: K.Z., D.S.I., G.S.B., P.S.K., S.C.S., M.E.G., and I.N.Z.; project administration: R.A.G.; software: K.Z. and D.S.I.; supervision: C.G.; validation: K.Z., G.S.B., and P.S.K.; writing —original draft: K.Z. and D.S.I.; writing—review and editing: K.Z., D.S.I., R.A.G., S.C.S., and C.G.\nFunding: The financial support from National Key Research and Development Program of China (2017YFB1104700, 2018YFB1107202), National Natural Science Foundation of China (NSFC, 91750205, 61774155, 61705227), Scientific Research Project of the Chinese Academy of Sciences (QYZDB-SSW-SYS038), Jilin Provincial Science & Technology Development Project (20180414019GH) and The Key Program of the International Partnership Program of CAS (181722KYSB20160015) is appreciated. R.A.G. thanks the financial support from Chinese Academy of Sciences President’s International Fellowship Initiative (Grant No. 2018VSA0001). Theoretical part of the presented work was supported by the MEPhI Academic Excellence Project (Contract No. 02.a03.21.0005) and grants of the German Science Foundation DFG IV 122/4-1 and GA 465/15-2. The MD simulations were performed on Lichtenberg Super Computer Facility TU-Darmstadt (Germany).\nConflicts of Interest: The authors state that there is no conflict of interest. Funders did not participate in any part of the research."
+    } ],
+    "references" : [ {
+      "title" : "A visible light-driven plasmonic photocatalyst",
+      "author" : [ "F. Pincella", "K. Isozaki", "K. Miki" ],
+      "venue" : "Light Sci. Appl. 2014,",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : "1",
+      "year" : 2014
+    }, {
+      "title" : "Nanomaterials via laser ablation/irradiation in liquid: A review",
+      "author" : [ "H. Zeng", "X.W. Du", "S.C. Singh", "S.A. Kulinich", "S. Yang", "J. He", "W. Cai" ],
+      "venue" : "Adv. Func. Mater",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : "2",
+      "year" : 2012
+    }, {
+      "title" : "Tuning the chemiluminescence of a luminol flow using plasmonic nanoparticles",
+      "author" : [ "A. Karabchevsky", "A. Mosayyebi", "A.V. Kavokin" ],
+      "venue" : "Light Sci. Appl. 2016,",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : "3",
+      "year" : 2016
+    }, {
+      "title" : "Nanosecond-laser generation of nanoparticles in liquids: From ablation through bubble dynamics to nanoparticle",
+      "author" : [ "S.I. Kudryashov", "A.A. Samokhvalov", "A.A. Nastulyavichus", "I.N. Saraeva", "V.Y. Mikhailovskii", "A.A. Ionin", "V.P. Veiko" ],
+      "venue" : "yield. Materials",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : "4",
+      "year" : 2019
+    }, {
+      "title" : "Tweezing and manipulating micro- and nanoparticles by optical nonlinear endoscopy",
+      "author" : [ "M. Gu", "H. Bao", "X. Gan", "N. Stokes", "J. Wu" ],
+      "venue" : "Light: Sci. Appl. 2014,",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : "5",
+      "year" : 2014
+    }, {
+      "title" : "Nanoparticles for solid rocket propulsion",
+      "author" : [ "L. Galfetti", "L.T. De Luca", "F. Severini", "L.U. Meda", "G. Marra", "M. Marchetti", "M. Regi", "S. Bellucci" ],
+      "venue" : "J. Phys. Condens. Matter 2006,",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : "6",
+      "year" : 1991
+    }, {
+      "title" : "Increased hot-plate ignition probability for nanoparticle-laden diesel fuel",
+      "author" : [ "H. Tyagi", "P.E. Phelan", "R. Prasher", "R. Peck", "T. Lee", "J.R. Pacheco", "P. Arentzen" ],
+      "venue" : "Nano Lett. 2008,",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : "7",
+      "year" : 2008
+    }, {
+      "title" : "Exceeding the limit of plasmonic light trapping in textured screen-printed solar cells using Al nanoparticles and wrinkle-like graphene sheets",
+      "author" : [ "X. Chen", "B. Jia", "Y. Zhang", "M. Gu" ],
+      "venue" : "Light Sci. Appl. 2013,",
+      "citeRegEx" : "8",
+      "shortCiteRegEx" : "8",
+      "year" : 2013
+    }, {
+      "title" : "A new substrate for surface enhanced Raman scattering of dye Sudan molecules. Spectrosc",
+      "author" : [ "X. Zhou", "Y. Fang", "P. Zhang" ],
+      "venue" : "Acta Part A",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : "9",
+      "year" : 2007
+    }, {
+      "title" : "Al nanoparticles as substrates for metal-enhanced fluorescence in the ultraviolet for the label-free detection of biomolecules",
+      "author" : [ "M.H. Chowdhury", "K. Ray", "S.K. Gray", "J. Pond", "J.R. Lakowicz" ],
+      "venue" : "Anal. Chem",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : "10",
+      "year" : 2009
+    }, {
+      "title" : "High-performance, large area, deep ultraviolet to infrared polarizers based on 40 nm line/78 nm space nanowire",
+      "author" : [ "J.J. Wang", "F. Walters", "X. Liu", "P. Sciortino", "X. Deng" ],
+      "venue" : "grids. Appl. Phys. Lett",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : "11",
+      "year" : 2007
+    }, {
+      "title" : "Molecular dynamics simulations of rapid hydrogen production from water using Al clusters as catalyzers",
+      "author" : [ "F. Shimojo", "S. Ohmura", "R.K. Kalia", "A. Nakano", "P. Vashishta" ],
+      "venue" : "Phys. Rev. Lett",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : "12",
+      "year" : 2010
+    }, {
+      "title" : "Hydrogen generation through massive corrosion of deformed Al in water",
+      "author" : [ "E. Czech", "T. Troczynski" ],
+      "venue" : "Int. J. Hydrogen Energy",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : "13",
+      "year" : 2010
+    }, {
+      "title" : "Complementary active sites cause size-selective reactivity of Al cluster anions with water",
+      "author" : [ "P.J. Roach", "Woodward", "W.H.", "A.W. Castleman", "A.C. Reber", "S.N. Khanna" ],
+      "venue" : "Science",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : "14",
+      "year" : 2009
+    }, {
+      "title" : "Hydrogen storage properties of space-confined NaAlH4 nanoparticles in ordered mesoporous silica",
+      "author" : [ "S. Zheng", "F. Fang", "G. Zhou", "G. Chen", "L. Ouyang", "M. Zhu", "D. Sun" ],
+      "venue" : "Chem. Mater",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : "15",
+      "year" : 2008
+    }, {
+      "title" : "Sodium alanate nanoparticles - linking size to hydrogen storage properties",
+      "author" : [ "C.P. Balde", "B.P.C. Hereijgers", "J.H. Bitter", "K.P. de Jong" ],
+      "venue" : "J. Am. Chem. Soc",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : "16",
+      "year" : 2008
+    }, {
+      "title" : "Near-infrared laser ablation of poly tetrafluoroethylene (Teflon) sensitized by nanoenergetic materials",
+      "author" : [ "Y. Yang", "S. Wang", "Z. Sun", "D.D. Dlott" ],
+      "venue" : "Appl. Phys. Lett",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : "17",
+      "year" : 2004
+    }, {
+      "title" : "On the role of built-in electric fields on the ignition of oxide coated nano Al: Ion mobility versus Fickian diffusion",
+      "author" : [ "B.J. Henz", "T. Hawa", "M.R. Zachariah" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : "18",
+      "year" : 2010
+    }, {
+      "title" : "Charging effects on bonding and catalyzed oxidation of CO on Au8 clusters on MgO",
+      "author" : [ "B. Yoon", "H. Häkkinen", "U. Landman", "A.S. Wörz", "J.M. Antonietti", "S. Abbet", "K. Judai", "U. Heiz" ],
+      "venue" : "Science",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : "19",
+      "year" : 2005
+    }, {
+      "title" : "Influence of C60 morphology on high-order harmonic generation enhancement in fullerene-containing plasma",
+      "author" : [ "R.A. Ganeev", "H. Singhal", "P.A. Naik", "J.A. Chakera", "A.K. Srivastava", "T.S. Dhami", "M.P. Joshi", "P.D. Gupta" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : "20",
+      "year" : 2009
+    }, {
+      "title" : "The relation between surface plasmon resonance and morphology of Ag nanodots prepared by pulsed laser deposition",
+      "author" : [ "T. Yamamoto" ],
+      "venue" : "Solid State Ion",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : "21",
+      "year" : 2004
+    }, {
+      "title" : "Effect of particle size on the UV absorbance of zinc oxide nanoparticles",
+      "author" : [ "E.G. Goh", "X. Xu", "P.G. McCormick" ],
+      "venue" : "Scr. Mater",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : "22",
+      "year" : 2014
+    }, {
+      "title" : "Size-dependent nonlinear absorption and refraction of Ag nanoparticles excited by fs lasers",
+      "author" : [ "G.-H. Fan", "S.-L. Qu", "Z.-Y. Guo", "Q. Wang", "Z.-G. Li" ],
+      "venue" : "Chin. Phys. B",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : "23",
+      "year" : 2012
+    }, {
+      "title" : "Size-related third-order optical nonlinearities of Au nanoparticle arrays",
+      "author" : [ "K. Wang", "H. Long", "M. Fu", "G. Yang", "P. Lu" ],
+      "venue" : "Opt. Express 2010,",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : "24",
+      "year" : 2010
+    }, {
+      "title" : "Direct observation of aluminium ions produced via pulsed laser ablation in liquid: A ‘turn-on’ fluorescence study",
+      "author" : [ "S. Lee", "A. Ahn", "M.Y. Choi" ],
+      "venue" : "Phys. Chem. Chem. Phys",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : "25",
+      "year" : 2012
+    }, {
+      "title" : "Modification of Al particle surfaces by c-Al2O3 and its effect on the corrosion behavior of Al",
+      "author" : [ "Z.-Y. Deng", "Y.-F. Liu", "Y. Tanaka", "J. Ye", "Y. Sakka" ],
+      "venue" : "J. Am. Ceram. Soc",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2005
+    }, {
+      "title" : "Temperature effect on hydrogen generation by the reaction of c-Al2O3-modified Al powder with distilled water",
+      "author" : [ "Z.-Y. Deng", "Y.-F. Liu", "Y. Tanaka", "H.-W. Zhang", "J. Ye", "Y. Kagawa" ],
+      "venue" : "J. Am. Ceram. Soc",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : "27",
+      "year" : 2005
+    }, {
+      "title" : "Pulsed-laser-induced reactive quenching at liquid-solid interface: Aqueous oxidation of iron",
+      "author" : [ "P.P. Patil", "D.M. Phase", "S.A. Kulkarni", "S.V. Ghaisas", "S.K. Kulkarni", "S.M. Kanetkar", "S.B. Ogale", "V.G. Bhide" ],
+      "venue" : "Phys. Rev. Lett",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : "28",
+      "year" : 1987
+    }, {
+      "title" : "Analysis of the structure, configuration, and sizing of Cu and Cu oxide nanoparticles generated by fs laser ablation of solid target in liquids",
+      "author" : [ "J.M.J. Santillán", "F.A. Videla", "M.B.F. van Raap", "D.C. Schinca", "L.B. Scaffardi" ],
+      "venue" : "J. Appl. Phys",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : "29",
+      "year" : 2013
+    }, {
+      "title" : "Formation of ZnO nanoparticles by laser ablation in neat water",
+      "author" : [ "K.K. Kim", "D. Kim", "S.K. Kim", "S.M. Park", "J.K. Song" ],
+      "venue" : "Chem. Phys. Lett",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : "30",
+      "year" : 2011
+    }, {
+      "title" : "Laser ablation in water: A route to synthesize nanoparticles of titanium monoxide",
+      "author" : [ "N.G. Semaltianos", "S. Logothetidis", "N. Frangis", "I. Tsiaoussis", "W. Perrie", "G. Dearden" ],
+      "venue" : "Chem. Phys. Lett",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : "31",
+      "year" : 2010
+    }, {
+      "title" : "Laser ablation synthesis of indium oxide nanoparticles in water",
+      "author" : [ "N. Acacia", "F. Barreca", "E. Barletta", "D. Spadaro", "G. Currò", "F. Neri" ],
+      "venue" : "Appl. Surf. Sci",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : "32",
+      "year" : 2010
+    }, {
+      "title" : "Ni nanoparticles fabricated by laser ablation in water",
+      "author" : [ "O.R. Musaev", "J. Yan", "V. Dusevich", "J.M. Wrobel", "M.B. Kruger" ],
+      "venue" : "Appl. Phys. A",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : "33",
+      "year" : 2014
+    }, {
+      "title" : "Stability, size and optical properties of silver nanoparticles prepared by laser ablation in different carrier media",
+      "author" : [ "R.M. Tilaki", "A.I. zad", "S.M. Mahdavi" ],
+      "venue" : "Appl. Phys. A",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : "34",
+      "year" : 2006
+    }, {
+      "title" : "Structure, configuration, and sizing of Ni nanoparticles generated by ultrafast laser ablation in different media",
+      "author" : [ "A.D. Boardman", "D.P. Tsai", "D.M. Arboleda", "J.M.J. Santillán", "L.J.M. Herrera", "M.B.F. van Raap" ],
+      "venue" : "Plasmon. Met. Nanostruct. Their Opt. Prop. XIII",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : "35",
+      "year" : 2015
+    }, {
+      "title" : "Characterization of optical and nonlinear optical properties of silver nanoparticles prepared by laser ablation in various liquids",
+      "author" : [ "R.A. Ganeev", "M. Baba", "A.I. Ryasnyansky", "M. Suzuki", "H. Kuroda" ],
+      "venue" : "Opt. Commun",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : "36",
+      "year" : 2004
+    }, {
+      "title" : "Dependence of laser ablation produced TiO2 NPs on the ablation environment temperature",
+      "author" : [ "N.E. Jasbi", "D. Dorranian" ],
+      "venue" : "Opt. Quantum Electron",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : "37",
+      "year" : 2017
+    }, {
+      "title" : "Preparation of zinc oxide nanorods using pulsed laser ablation in water media at high temperature",
+      "author" : [ "Y. Ishikawa", "Y. Shimizu", "T. Sasaki", "N. Koshizaki" ],
+      "venue" : "J. Colloid Interface Sci",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : "38",
+      "year" : 2006
+    }, {
+      "title" : "Effect of temperature on the characteristics of ZnO nanoparticles produced by laser ablation in water",
+      "author" : [ "E. Solati", "D. Dorranian" ],
+      "venue" : "Bull. Mater. Sci",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : "39",
+      "year" : 2016
+    }, {
+      "title" : "TiO2 nanoparticles obtained by laser ablation in water: Influence of pulse energy and duration on the crystalline phase",
+      "author" : [ "E. Giorgetti", "M.M. Miranda", "S. Caporali", "P. Canton", "P. Marsili", "C. Vergari" ],
+      "venue" : "J. Alloys Compd",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : "40",
+      "year" : 2015
+    }, {
+      "title" : "Effect of laser fluence on the characteristics of Ag nanoparticles produced by laser ablation",
+      "author" : [ "D. Dorranian", "S. Tajmir", "F. Khazanehfar" ],
+      "venue" : "Soft Nanosci. Lett",
+      "citeRegEx" : "41",
+      "shortCiteRegEx" : "41",
+      "year" : 2013
+    }, {
+      "title" : "Pulsed laser ablation of Ni in vacuum and N2 atmosphere at various fluencies",
+      "author" : [ "B. Shazia", "K. Shazaib", "A. Mahreen", "A. Nisar", "K. Umm", "A. Shahbaz" ],
+      "venue" : "Quantum Electron",
+      "citeRegEx" : "42",
+      "shortCiteRegEx" : "42",
+      "year" : 2015
+    }, {
+      "title" : "Effect of focusing conditions on synthesis of titanium oxide nanoparticles via laser ablation in titanium–water",
+      "author" : [ "A. Nath", "S.S. Laha", "A. Khare" ],
+      "venue" : "interface. Appl. Surf. Sci",
+      "citeRegEx" : "43",
+      "shortCiteRegEx" : "43",
+      "year" : 2011
+    }, {
+      "title" : "Preparation of silver nanoparticles by laser ablation in polyvinylpyrrolidone solutions",
+      "author" : [ "T. Tsuji", "D.H. Thang", "Y. Okazaki", "M. Nakanishi", "Y. Tsuboi", "M. Tsuji" ],
+      "venue" : "Appl. Surf. Sci",
+      "citeRegEx" : "44",
+      "shortCiteRegEx" : "44",
+      "year" : 2008
+    }, {
+      "title" : "Generation of nanoparticles of bronze and brass by laser ablation in liquid",
+      "author" : [ "I.A. Sukhov", "G.A. Shafeev", "V.V. Voronov", "M. Sygletou", "E. Stratakis", "C. Fotakis" ],
+      "venue" : "Appl. Surf. Sci",
+      "citeRegEx" : "45",
+      "shortCiteRegEx" : "45",
+      "year" : 2014
+    }, {
+      "title" : "Pulsed laser ablation and incubation of nickel, iron and tungsten in liquids and air",
+      "author" : [ "N. Lasemi", "U. Pacher", "L.V. Zhigilei", "O. Bomatí-Miguel", "R. Lahoz", "W. Kautek" ],
+      "venue" : "Appl. Surf. Sci",
+      "citeRegEx" : "46",
+      "shortCiteRegEx" : "46",
+      "year" : 2018
+    }, {
+      "title" : "Electron emission from metal surfaces exposed to ultrashort laser pulses",
+      "author" : [ "S.I. Anisimov", "B.L. Kapeliovich", "T.L. Perel’man" ],
+      "venue" : "Zh. Eksp. Teor. Fiz 1974,",
+      "citeRegEx" : "47",
+      "shortCiteRegEx" : "47",
+      "year" : 1974
+    }, {
+      "title" : "Combined atomistic-continuum modeling of short-pulse laser melting and disintegration of metal films",
+      "author" : [ "D.S. Ivanov", "L.V. Zhigilei" ],
+      "venue" : "Phys. Rev. B",
+      "citeRegEx" : "48",
+      "shortCiteRegEx" : "48",
+      "year" : 2003
+    }, {
+      "title" : "Experimental and theoretical investigation of periodic nanostructuring of Au with UV laser near the ablation",
+      "author" : [ "D.S. Ivanov", "V.P. Lipp", "A. Blumenstein", "F. Kleinwort", "V.P. Veiko", "E. Yakovlev", "V. Roddatis", "M.E. Garcia", "B. Rethfeld", "J Ihlemann" ],
+      "venue" : "threshold. Phys. Rev. Appl. 2015,",
+      "citeRegEx" : "49",
+      "shortCiteRegEx" : "49",
+      "year" : 2015
+    }, {
+      "title" : "The mechanism of nanobump formation in femtosecond pulse laser nanostructuring of thin metal films",
+      "author" : [ "D.S. Ivanov", "B.C. Rethfeld", "G.M. O’Connor", "T.J. Glynn", "A.N. Volkov", "L.V. Zhigilei" ],
+      "venue" : "Appl. Phys. A",
+      "citeRegEx" : "50",
+      "shortCiteRegEx" : "50",
+      "year" : 2008
+    }, {
+      "title" : "Short laser pulse surface nanostructuring on thin metal films: Direct comparison of molecular dynamics modeling and experiment",
+      "author" : [ "D.S. Ivanov", "A.I. Kuznetsov", "V.P. Lipp", "B. Rethfeld", "B.N. Chichkov", "M.E. Garcia", "W. Schulz" ],
+      "venue" : "Appl. Phys. A",
+      "citeRegEx" : "51",
+      "shortCiteRegEx" : "51",
+      "year" : 2013
+    }, {
+      "title" : "Thermal response of metals to ultrashort-pulse laser excitation",
+      "author" : [ "P.B. Corkum", "F. Brunel", "N.K. Sherman", "T. Srinivasan-Rao" ],
+      "venue" : "Phys. Rev. Lett",
+      "citeRegEx" : "52",
+      "shortCiteRegEx" : "52",
+      "year" : 1988
+    }, {
+      "title" : "Strong third-order optical nonlinearities of Ag nanoparticles synthesized by laser ablation of bulk silver in water and air",
+      "author" : [ "G.S. Boltaev", "R.A. Ganeev", "P.S. Krishnendu", "S.K. Maurya", "P.V. Redkin", "K.S. Rao", "K. Zhang", "C. Guo" ],
+      "venue" : "Appl. Phys. A",
+      "citeRegEx" : "53",
+      "shortCiteRegEx" : "53",
+      "year" : 2018
+    }, {
+      "title" : "Laser ablation–induced synthesis and nonlinear optical characterization of titanium and cobalt NPs",
+      "author" : [ "K.S. Rao", "R.A. Ganeev", "K. Zhang", "Y. Fu", "G.S. Boltaev", "P.S. Krishnendu" ],
+      "venue" : "J. Nanopart. Res",
+      "citeRegEx" : "54",
+      "shortCiteRegEx" : "54",
+      "year" : 2018
+    }, {
+      "title" : "Ablated nickel NPs: Third harmonic generation and optical nonlinearities",
+      "author" : [ "K. Zhang", "S.K. Maurya", "R.A. Ganeev", "K.S. Rao", "C. Guo" ],
+      "venue" : "J. Opt. 2018,",
+      "citeRegEx" : "55",
+      "shortCiteRegEx" : "55",
+      "year" : 2018
+    }, {
+      "title" : "Composition/structural evolution and optical properties of ZnO/Zn nanoparticles by laser ablation in liquid media",
+      "author" : [ "H. Zeng", "W. Cai", "Y. Li", "J. Hu", "P. Liu" ],
+      "venue" : "J. Phys. Chem. B",
+      "citeRegEx" : "56",
+      "shortCiteRegEx" : "56",
+      "year" : 2005
+    }, {
+      "title" : "Self-organization of hydrogen gas bubbles rising above laser-etched metallic aluminum in a weakly basic aqueous solution",
+      "author" : [ "E.V. Barmina", "P.G. Kuzmin", "G.A. Shafeev" ],
+      "venue" : "Phys. Rev. E",
+      "citeRegEx" : "57",
+      "shortCiteRegEx" : "57",
+      "year" : 2011
+    }, {
+      "title" : "Production of size controlled Al and alumina nanoparticles via pulsed laser ablation in water",
+      "author" : [ "S. Lee", "H.J. Jung", "J.H. Shin", "M.Y. Choi" ],
+      "venue" : "J. Nanosci. Nanotechnol",
+      "citeRegEx" : "58",
+      "shortCiteRegEx" : "58",
+      "year" : 2012
+    }, {
+      "title" : "Watching the growth of Al hydroxide nanoparticles from Al nanoparticles synthesized by pulsed laser ablation in aqueous surfactant solution",
+      "author" : [ "S. Lee", "J.H. Shin", "M.Y. Choi" ],
+      "venue" : "J. Nanopart. Res",
+      "citeRegEx" : "59",
+      "shortCiteRegEx" : "59",
+      "year" : 2013
+    }, {
+      "title" : "Generation of Al nanoparticles via ablation of bulk Al in liquids with short laser pulses",
+      "author" : [ "E. Stratakis", "M. Barberoglou", "C. Fotakis", "G. Viau", "C. Garcia", "G.A. Shafeev" ],
+      "venue" : "Opt. Express",
+      "citeRegEx" : "60",
+      "shortCiteRegEx" : "60",
+      "year" : 2009
+    }, {
+      "title" : "Synthesis and characterization of TiOx nanoparticles prepared by pulsed-laser ablation of Ti target in water",
+      "author" : [ "A.S. Nikolov", "P.A. Atanasov", "D.R. Milev", "T.R. Stoyanchov", "A.D. Deleva", "Z.Y. Peshev" ],
+      "venue" : "Appl. Surf. Sci",
+      "citeRegEx" : "61",
+      "shortCiteRegEx" : "61",
+      "year" : 2009
+    }, {
+      "title" : "High-throughput laser generation of Si-nanoparticle based surface coatings for antibacterial applications",
+      "author" : [ "S.I. Kudryashov", "A.A. Nastulyavichus", "A.K. Ivanova", "N.A. Smirnov", "R.A. Khmelnitskiy", "A.A. Rudenko", "I.N. Saraeva", "E.R. Tolordava", "A.Y. Kharin", "I.N Zavestovskaya" ],
+      "venue" : "Appl. Surf. Sci",
+      "citeRegEx" : "62",
+      "shortCiteRegEx" : "62",
+      "year" : 2019
+    }, {
+      "title" : "Pressure-transmitting boundary conditions for molecular dynamics simulations",
+      "author" : [ "C. Schäfer", "H.M. Urbassek", "L.V. Zhigilei", "B.J. Garrison" ],
+      "venue" : "Comp. Mater. Sci",
+      "citeRegEx" : "63",
+      "shortCiteRegEx" : "63",
+      "year" : 2002
+    }, {
+      "title" : "Molecular dynamics simulation of femtosecond ablation and spallation with different interatomic potentials",
+      "author" : [ "V.V. Zhakhovskii", "N.A. Inogamov", "Y.V. Petrov", "S.I. Ashitkov", "K. Nishihara" ],
+      "venue" : "Appl. Surf. Sci",
+      "citeRegEx" : "64",
+      "shortCiteRegEx" : "64",
+      "year" : 2009
+    }, {
+      "title" : "Smithell’s Metal",
+      "author" : [ "W.F. Gale", "T.C. Totemeier" ],
+      "venue" : "Reference Book, 8th ed.; Butterworth-Heinemann: Oxford,",
+      "citeRegEx" : "65",
+      "shortCiteRegEx" : "65",
+      "year" : 2004
+    }, {
+      "title" : "An intermolecular potential model for the simulation of ice and water near the melting point: A six-site model of H2O",
+      "author" : [ "H. Nada" ],
+      "venue" : "J. Chem. Phys",
+      "citeRegEx" : "66",
+      "shortCiteRegEx" : "66",
+      "year" : 2003
+    }, {
+      "title" : "Thickness effects of water overlayer on its explosive evaporation at heated metal surfaces",
+      "author" : [ "Y. Dou", "L.V. Zhigilei", "Z. Postawa", "N. Winograd", "B.J. Garrison" ],
+      "venue" : "Nucl. Instrum. Methods B",
+      "citeRegEx" : "67",
+      "shortCiteRegEx" : "67",
+      "year" : 2001
+    }, {
+      "title" : "Atomistic modeling of nanoparticle generation in short pulse laser ablation of thin metal films in water",
+      "author" : [ "C.-Y. Shih", "C. Wu", "M.V. Shugaev", "L.V. Zhigilei" ],
+      "venue" : "J. Colloid Interface Sci",
+      "citeRegEx" : "68",
+      "shortCiteRegEx" : "68",
+      "year" : 2017
+    }, {
+      "title" : "Effect of oxygen chemistry in sputtering of polymers",
+      "author" : [ "M. Kanski", "B.J. Garrison", "Z. Postawa" ],
+      "venue" : "J. Phys. Chem. Lett. 2016,",
+      "citeRegEx" : "71",
+      "shortCiteRegEx" : "71",
+      "year" : 2016
+    }, {
+      "title" : "The effect of pulse duration on the character of laser heating: Photo-mechanical vs. photo-thermal damage of metal targets",
+      "author" : [ "D.S. Ivanov", "B.C. Rethfeld" ],
+      "venue" : "Appl. Surf. Sci",
+      "citeRegEx" : "72",
+      "shortCiteRegEx" : "72",
+      "year" : 2009
+    }, {
+      "title" : "Molecular dynamics study of the short laser pulse ablation: Quality and efficiency in production",
+      "author" : [ "D.S. Ivanov", "V.P. Lipp", "V.P. Veiko", "E. Jakovlev", "B. Rethfeld", "M.E. Garcia" ],
+      "venue" : "Appl. Phys. A",
+      "citeRegEx" : "73",
+      "shortCiteRegEx" : "73",
+      "year" : 2014
+    }, {
+      "title" : "Atomistic modeling of short pulse laser ablation of metals: Connections between melting, spallation, and phase explosion",
+      "author" : [ "L.V. Zhigilei", "Z. Lin", "D.S. Ivanov" ],
+      "venue" : "J. Chem. Phys",
+      "citeRegEx" : "74",
+      "shortCiteRegEx" : "74",
+      "year" : 2009
+    }, {
+      "title" : "Effect of laser pulsewidth on fs/ps laser ablation of metals and silicon in air and liquids on nanoparticle yield and single-shot ablation",
+      "author" : [ "I.N. Saraeva", "S.I. Kudryashov", "A.A. Rudenko", "M.I. Zhilnikova", "D.S. Ivanov", "D.A. Zayarnyi", "A.V. Simakin", "A.A. Ionin", "M. Garcia" ],
+      "venue" : "thresholds. Appl. Surf. Sci",
+      "citeRegEx" : "75",
+      "shortCiteRegEx" : "75",
+      "year" : 2018
+    }, {
+      "title" : "Molecular dynamics modeling of periodic nanostructuring of metals with a short UV laser pulse under spatial confinement by a water",
+      "author" : [ "D.S. Ivanov", "A. Blumenstein", "J. Ihlemann", "P. Simon", "M.E. Garcia", "B. Rethfeld" ],
+      "venue" : "layer. Appl. Phys. A 2017,",
+      "citeRegEx" : "76",
+      "shortCiteRegEx" : "76",
+      "year" : 2019
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 5,
+      "context" : "For example, Al NPs have a role in propellants and pyrotechnics, because they can provide additional heat release during exothermic oxidation [6,7].",
+      "startOffset" : 142,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 6,
+      "context" : "For example, Al NPs have a role in propellants and pyrotechnics, because they can provide additional heat release during exothermic oxidation [6,7].",
+      "startOffset" : 142,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 7,
+      "context" : "The optical character of Al NPs also contributes to their application for solar cells [8], optoelectronic devices [9], metal-enhanced fluorescence devices [10], and broad-band wire-grid polarizers [11].",
+      "startOffset" : 86,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 8,
+      "context" : "The optical character of Al NPs also contributes to their application for solar cells [8], optoelectronic devices [9], metal-enhanced fluorescence devices [10], and broad-band wire-grid polarizers [11].",
+      "startOffset" : 114,
+      "endOffset" : 117
+    }, {
+      "referenceID" : 9,
+      "context" : "The optical character of Al NPs also contributes to their application for solar cells [8], optoelectronic devices [9], metal-enhanced fluorescence devices [10], and broad-band wire-grid polarizers [11].",
+      "startOffset" : 155,
+      "endOffset" : 159
+    }, {
+      "referenceID" : 10,
+      "context" : "The optical character of Al NPs also contributes to their application for solar cells [8], optoelectronic devices [9], metal-enhanced fluorescence devices [10], and broad-band wire-grid polarizers [11].",
+      "startOffset" : 197,
+      "endOffset" : 201
+    }, {
+      "referenceID" : 11,
+      "context" : "renewable energy sources and the development of the hydrogen production industry have prompted researchers to focus on spontaneous thermal reaction based on aluminum–water systems [12,13].",
+      "startOffset" : 180,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 12,
+      "context" : "renewable energy sources and the development of the hydrogen production industry have prompted researchers to focus on spontaneous thermal reaction based on aluminum–water systems [12,13].",
+      "startOffset" : 180,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 19,
+      "context" : "In the case of nanoscale, studies have shown that morphology [20,21] and sizes of particles [22–24] have an impact on their chemical properties.",
+      "startOffset" : 61,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 20,
+      "context" : "In the case of nanoscale, studies have shown that morphology [20,21] and sizes of particles [22–24] have an impact on their chemical properties.",
+      "startOffset" : 61,
+      "endOffset" : 68
+    }, {
+      "referenceID" : 12,
+      "context" : "The mixture of Al powder and Al oxide powder can significantly improve the efficiency of hydrogen production [13].",
+      "startOffset" : 109,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 24,
+      "context" : "Due to the enormous industrial importance of hydrogen, there has been extensive research on Al–water systems, mainly including interactions with pure water systems [25], acid-based systems [13], oxide systems [26,27], and salt systems [13].",
+      "startOffset" : 164,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 12,
+      "context" : "Due to the enormous industrial importance of hydrogen, there has been extensive research on Al–water systems, mainly including interactions with pure water systems [25], acid-based systems [13], oxide systems [26,27], and salt systems [13].",
+      "startOffset" : 189,
+      "endOffset" : 193
+    }, {
+      "referenceID" : 25,
+      "context" : "Due to the enormous industrial importance of hydrogen, there has been extensive research on Al–water systems, mainly including interactions with pure water systems [25], acid-based systems [13], oxide systems [26,27], and salt systems [13].",
+      "startOffset" : 209,
+      "endOffset" : 216
+    }, {
+      "referenceID" : 26,
+      "context" : "Due to the enormous industrial importance of hydrogen, there has been extensive research on Al–water systems, mainly including interactions with pure water systems [25], acid-based systems [13], oxide systems [26,27], and salt systems [13].",
+      "startOffset" : 209,
+      "endOffset" : 216
+    }, {
+      "referenceID" : 12,
+      "context" : "Due to the enormous industrial importance of hydrogen, there has been extensive research on Al–water systems, mainly including interactions with pure water systems [25], acid-based systems [13], oxide systems [26,27], and salt systems [13].",
+      "startOffset" : 235,
+      "endOffset" : 239
+    }, {
+      "referenceID" : 27,
+      "context" : "Particularly, the syntheses of Al and its oxide NPs by pulsed laser ablation in liquid (PLAL) was considered to be an efficient, simple, and green method [28].",
+      "startOffset" : 154,
+      "endOffset" : 158
+    }, {
+      "referenceID" : 39,
+      "context" : "However, many factors, such as the type of surrounding media [34–36], temperature of liquid [37–39], laser pulse duration [40] and fluence [41,42], the relative position of the focus and the target surface [43], adding surfactant [44], and characteristics of targets [45,46], strongly influence the ablation processes in such a manner that the composition, morphology, and particle sizes of synthesized NPs show significant differences under different conditions.",
+      "startOffset" : 122,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 40,
+      "context" : "However, many factors, such as the type of surrounding media [34–36], temperature of liquid [37–39], laser pulse duration [40] and fluence [41,42], the relative position of the focus and the target surface [43], adding surfactant [44], and characteristics of targets [45,46], strongly influence the ablation processes in such a manner that the composition, morphology, and particle sizes of synthesized NPs show significant differences under different conditions.",
+      "startOffset" : 139,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 41,
+      "context" : "However, many factors, such as the type of surrounding media [34–36], temperature of liquid [37–39], laser pulse duration [40] and fluence [41,42], the relative position of the focus and the target surface [43], adding surfactant [44], and characteristics of targets [45,46], strongly influence the ablation processes in such a manner that the composition, morphology, and particle sizes of synthesized NPs show significant differences under different conditions.",
+      "startOffset" : 139,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 42,
+      "context" : "However, many factors, such as the type of surrounding media [34–36], temperature of liquid [37–39], laser pulse duration [40] and fluence [41,42], the relative position of the focus and the target surface [43], adding surfactant [44], and characteristics of targets [45,46], strongly influence the ablation processes in such a manner that the composition, morphology, and particle sizes of synthesized NPs show significant differences under different conditions.",
+      "startOffset" : 206,
+      "endOffset" : 210
+    }, {
+      "referenceID" : 43,
+      "context" : "However, many factors, such as the type of surrounding media [34–36], temperature of liquid [37–39], laser pulse duration [40] and fluence [41,42], the relative position of the focus and the target surface [43], adding surfactant [44], and characteristics of targets [45,46], strongly influence the ablation processes in such a manner that the composition, morphology, and particle sizes of synthesized NPs show significant differences under different conditions.",
+      "startOffset" : 230,
+      "endOffset" : 234
+    }, {
+      "referenceID" : 44,
+      "context" : "However, many factors, such as the type of surrounding media [34–36], temperature of liquid [37–39], laser pulse duration [40] and fluence [41,42], the relative position of the focus and the target surface [43], adding surfactant [44], and characteristics of targets [45,46], strongly influence the ablation processes in such a manner that the composition, morphology, and particle sizes of synthesized NPs show significant differences under different conditions.",
+      "startOffset" : 267,
+      "endOffset" : 274
+    }, {
+      "referenceID" : 45,
+      "context" : "However, many factors, such as the type of surrounding media [34–36], temperature of liquid [37–39], laser pulse duration [40] and fluence [41,42], the relative position of the focus and the target surface [43], adding surfactant [44], and characteristics of targets [45,46], strongly influence the ablation processes in such a manner that the composition, morphology, and particle sizes of synthesized NPs show significant differences under different conditions.",
+      "startOffset" : 267,
+      "endOffset" : 274
+    }, {
+      "referenceID" : 46,
+      "context" : "In order to support the results of our experimental studies and to take a deeper view on the process of formation of Al nanoparticles in liquid media at the atomic level, the molecular dynamics (MD)-based simulations and two temperature model (TTM) were used [47].",
+      "startOffset" : 259,
+      "endOffset" : 263
+    }, {
+      "referenceID" : 47,
+      "context" : "The essential concepts of such combined MD-TTM are described in Reference [48].",
+      "startOffset" : 74,
+      "endOffset" : 78
+    }, {
+      "referenceID" : 48,
+      "context" : "The model is described in detail in Reference [49] for the case of nanostructuring of thick metal targets with an UV-laser pulse, whereas its successful applications for the case of thin targets were reported in References [50,51].",
+      "startOffset" : 46,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 49,
+      "context" : "The model is described in detail in Reference [49] for the case of nanostructuring of thick metal targets with an UV-laser pulse, whereas its successful applications for the case of thin targets were reported in References [50,51].",
+      "startOffset" : 223,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 50,
+      "context" : "The model is described in detail in Reference [49] for the case of nanostructuring of thick metal targets with an UV-laser pulse, whereas its successful applications for the case of thin targets were reported in References [50,51].",
+      "startOffset" : 223,
+      "endOffset" : 230
+    }, {
+      "referenceID" : 51,
+      "context" : "5 ps) [52], which makes our modeling results identical to that if we used 200 ps.",
+      "startOffset" : 6,
+      "endOffset" : 10
+    }, {
+      "referenceID" : 25,
+      "context" : "Above 480 ◦C, Al2O3 becomes the most probable product of reaction according to previous studies [26,27], which, however, did not take into account the influence of pulsed laser interaction.",
+      "startOffset" : 96,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 26,
+      "context" : "Above 480 ◦C, Al2O3 becomes the most probable product of reaction according to previous studies [26,27], which, however, did not take into account the influence of pulsed laser interaction.",
+      "startOffset" : 96,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 55,
+      "context" : "Extreme conditions of reaction, such as high temperature and high pressure provided by laser radiation, play a decisive role during the process of ablation [56].",
+      "startOffset" : 156,
+      "endOffset" : 160
+    }, {
+      "referenceID" : 56,
+      "context" : "It was shown previously that the external environment affects the self-organization process of bubbles in the corrosion process [57].",
+      "startOffset" : 128,
+      "endOffset" : 132
+    }, {
+      "referenceID" : 57,
+      "context" : "Earlier, Al and Al2O3 complexes were synthesized using ablation by pulsed Nd:YAG laser in liquid environment without any surfactant or catalyst in deionized water [58].",
+      "startOffset" : 163,
+      "endOffset" : 167
+    }, {
+      "referenceID" : 58,
+      "context" : "It was found in another study that Al(OH)3 produces when the surfactant, such as cetyl trimethyl ammonium bromide, becomes added to the water [59].",
+      "startOffset" : 142,
+      "endOffset" : 146
+    }, {
+      "referenceID" : 59,
+      "context" : "Earlier, 150 ps pulses of Nd:YAG laser were used to ablate Al target in ethanol, and the colloidal solution had a similar absorption peak, which was explained as the product of ethanol decomposition [60].",
+      "startOffset" : 199,
+      "endOffset" : 203
+    }, {
+      "referenceID" : 59,
+      "context" : "Extremely high peak power led to stronger absorption of the laser radiation passing through the liquid, thus reducing the intensity at the target surface, which has earlier showed the low rate of NPs formation by fs pulses [60].",
+      "startOffset" : 223,
+      "endOffset" : 227
+    }, {
+      "referenceID" : 60,
+      "context" : "Compared with other metal NPs [61], the Al NPs obtained at these conditions of ablation did not show the aggregation.",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 60,
+      "context" : "Compared with other metal NPs [61], the Al NPs obtained at these conditions of ablation did not show the aggregation.",
+      "startOffset" : 30,
+      "endOffset" : 34
+    }, {
+      "referenceID" : 61,
+      "context" : "In addition, the XRD data exhibiting the presence of Al NPs mainly for fs ablation could be interpreted in terms of direct nanoparticle yield via phase-explosion mechanism, while for ns and ps ablation, laser–plume interaction could destroy parent ablation products until atoms and ions with the following recondensation [62].",
+      "startOffset" : 321,
+      "endOffset" : 325
+    }, {
+      "referenceID" : 46,
+      "context" : "This time is estimated from our preliminary calculations with the TTM approach [47].",
+      "startOffset" : 79,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 50,
+      "context" : "Since this time can be considered as long enough for the processes of formation and solidification of the nanoparticles [51], it gives us a possibility to impose periodic boundary conditions (PBC) in X and Y directions for the whole simulation time up to 1 ns.",
+      "startOffset" : 120,
+      "endOffset" : 124
+    }, {
+      "referenceID" : 61,
+      "context" : "In addition, the XRD data exhibiting the presence of Al NPs mainly for fs ablation could be interpreted in terms of direct nanoparticle yield via phase-explosion mechanism, while for ns and ps ablation, laser–plume interaction could destroy parent ablation products until atoms and ions with the following recondensation [62].",
+      "startOffset" : 321,
+      "endOffset" : 325
+    }, {
+      "referenceID" : 46,
+      "context" : "This time is estimated from our preliminary calculations with the TTM approach [47].",
+      "startOffset" : 79,
+      "endOffset" : 83
+    }, {
+      "referenceID" : 50,
+      "context" : "Since this time can be considered as long e ough for the proces es of formation and solidification of he nanoparticles [51], it gives us a possibili y to impose periodic boundary condition (PBC) in X and Y directi s for the who e simulation time up to 1 ns.",
+      "startOffset" : 119,
+      "endOffset" : 123
+    }, {
+      "referenceID" : 62,
+      "context" : "The NRB conditions are described in Reference [63] and the case of modeling of nanostructuring processes are modified in Reference [51].",
+      "startOffset" : 46,
+      "endOffset" : 50
+    }, {
+      "referenceID" : 50,
+      "context" : "The NRB conditions are described in Reference [63] and the case of modeling of nanostructuring processes are modified in Reference [51].",
+      "startOffset" : 131,
+      "endOffset" : 135
+    }, {
+      "referenceID" : 65,
+      "context" : "Although missing the description of any chemistry involved into the laser ablation process, the simplicity of such potential, however, helps us to overcome too shallow integration time-step, as it is in the explicit water model [66], and the system size limitations [67].",
+      "startOffset" : 228,
+      "endOffset" : 232
+    }, {
+      "referenceID" : 66,
+      "context" : "Although missing the description of any chemistry involved into the laser ablation process, the simplicity of such potential, however, helps us to overcome too shallow integration time-step, as it is in the explicit water model [66], and the system size limitations [67].",
+      "startOffset" : 266,
+      "endOffset" : 270
+    }, {
+      "referenceID" : 67,
+      "context" : "Also, unlike to the model presented in Reference [68], the chosen water model representation [64] allows for a direct interaction between water and metal particles as the interaction between single molecules (atoms).",
+      "startOffset" : 49,
+      "endOffset" : 53
+    }, {
+      "referenceID" : 63,
+      "context" : "Also, unlike to the model presented in Reference [68], the chosen water model representation [64] allows for a direct interaction between water and metal particles as the interaction between single molecules (atoms).",
+      "startOffset" : 93,
+      "endOffset" : 97
+    }, {
+      "referenceID" : 68,
+      "context" : "Although there are simplified descriptions of the chemical reactions within the classical MD approach [71], we leave this step for our future investigations.",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 69,
+      "context" : "The electronic temperature, therefore, does not reach high values and limited roughly within 10,000 K, when the laser-deposited energy dissipation channel through the electron thermal conduction is much weaker than through the electron–phonon collisions (lattice heating) [72].",
+      "startOffset" : 272,
+      "endOffset" : 276
+    }, {
+      "referenceID" : 70,
+      "context" : "This results in the establishment of thermal confinement regime, and the incurred damage by the target, therefore, has a purely thermal character [73].",
+      "startOffset" : 146,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 68,
+      "context" : "Although there are simplified descriptions of the chemical reactions within the classical MD approach [71], we leav this step for our future investigations.",
+      "startOffset" : 102,
+      "endOffset" : 106
+    }, {
+      "referenceID" : 69,
+      "context" : "The electronic temperature, therefore, does not reach high values and limited roughly within 10,000 K, when the laser-deposited energy dissipation channel through the electron thermal conduction is much weaker than through the electron–phonon collisions (lattice heating) [72].",
+      "startOffset" : 272,
+      "endOffset" : 276
+    }, {
+      "referenceID" : 70,
+      "context" : "This results in the establishment of thermal confinement regime, and the incurred damage by the target, therefore, has a purely thermal character [73].",
+      "startOffset" : 146,
+      "endOffset" : 150
+    }, {
+      "referenceID" : 71,
+      "context" : "Thus, one can see that during the laser energy deposition, the long heating time results in reaching the critical temperature value of more than 6000 K for the lattice, as shown in Figure 9a, and the ablation process is driven by the explosive boiling mechanism [74], the onset of which leads to the lift-off a number of molten material droplets, as shown in Figure 9b.",
+      "startOffset" : 262,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 72,
+      "context" : "The water media, having both the atomic density and the heat capacity comparable with those of metal, causes a significant resistance and efficient cooling to the moving upward ablated material and the ablation plume, therefore, is much smaller here as compared to that in vacuum [75].",
+      "startOffset" : 280,
+      "endOffset" : 284
+    }, {
+      "referenceID" : 73,
+      "context" : "The effect of spatial confinement by a water layer on the processes of nanostructuring of metals was investigated in [76] and can be reconfirmed here for the case of NPs generation in liquid media (water).",
+      "startOffset" : 117,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 71,
+      "context" : "Thus, one can see that during the laser energy deposition, the long heating time results in reaching the critical temperature value of more than 6000 K for the lattice, as shown in Figure 9a, and the ablation process is driven by the explosive boiling mechanism [74], the onset of which leads to the lift-off a number of molten material droplets, as shown in Figure 9b.",
+      "startOffset" : 262,
+      "endOffset" : 266
+    }, {
+      "referenceID" : 72,
+      "context" : "The water media, having both the atomic density and the heat capacity comparable with those of metal, causes a significant resistance and efficient cooling to the moving upward ablated material and the ablation plume, therefore, is much smaller here as compared to that in vacuum [75].",
+      "startOffset" : 280,
+      "endOffset" : 284
+    }, {
+      "referenceID" : 73,
+      "context" : "The effect of spatial confinement by a water layer on the processes of nanostructuring of metals was investigated in [76] and can be reconfirmed here for the case of NPs generation in liquid media (water).",
+      "startOffset" : 117,
+      "endOffset" : 121
+    }, {
+      "referenceID" : 73,
+      "context" : "The effect of water media also results in a more uniform size distribution of the generated NPs, which is also very different from the results recently obtained in modeling of laser-induced NPs generation with short laser pulses in vacuum [76].",
+      "startOffset" : 239,
+      "endOffset" : 243
+    }, {
+      "referenceID" : 73,
+      "context" : "The effect of water media also results in a more uniform size distribution of the generated NPs, which is also very different from the results recently obtained in modeling of laser-induced NPs generation with short laser pulses in vacuum [76].",
+      "startOffset" : 239,
+      "endOffset" : 243
+    } ],
+    "year" : 2019,
+    "abstractText" : "We analyzed the formation of the aluminum (Al) nanoparticles (NPs) with triangular shape obtained by ablating Al bulk in liquid using pulses with different durations (5 ns, 200 ps, and 30 fs) and wavelengths (355 nm, 800 nm, and 1064 nm). We report three stages of synthesis and aging of Al NPs: Formation, transformation, and stable stage. The NPs prepared by different pulses are almost identical at the initial stage. The effects of duration and wavelength of the ablation pulses on the aging of NPs are revealed. Pulse duration is determined to be essential for morphological transformation of NPs, while pulse wavelength strongly influences particle sizes. NPs produced by ultra-short pulses have smaller sizes and narrow size distribution. We demonstrate that oxidation and hydrolysis of Al in water are the results of ablation for all pulse durations and wavelengths, which also strongly modify the preferable reaction path of NPs in water, thus affecting the composition and morphology of triangle NPs. The results of modeling of the NPs generation in water due to a 50 ps laser pulse interacting with a thick Al target are presented. Water-based effects in the formation of NPs, their evolution, and solidification are considered from the mechanical and thermophysical points of view. The detailed analysis of the modeling results allowed for determination of the main mechanism responsible for the ablation process followed by the NPs formation.",
+    "creator" : null
+  }
+}

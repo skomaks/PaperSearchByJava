@@ -1,0 +1,620 @@
+{
+  "name" : "dacemirror.sci-hub.se_journal-article_0e88008cc35327c63229cf6c1710e422_msaharia2019.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Modeling the transport of titanium dioxide nanomaterials from combined sewer overflows in an urban river",
+    "authors" : [ "Angshuman M. Sahariaa", "Zhenduo Zhu", "Nirupam Aicha", "Mohammed Baaloushab", "Joseph F. Atkinsona" ],
+    "emails" : [ "zhenduoz@buffalo.edu" ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nScience of the Total Environment\nj ourna l homepage: www.e lsev ie r .com/ locate /sc i totenv\nModeling the transport of titanium dioxide nanomaterials from combined sewer overflows in an urban river\nAngshuman M. Sahariaa, Zhenduo Zhua,*, Nirupam Aicha, Mohammed Baaloushab, Joseph F. Atkinsona aDepartment of Civil, Structural and Environmental Engineering, University at Buffalo, The State University of New York, Buffalo, NY 14260, United States bCenter for Environmental Nanoscience and Risk, Department of Environmental Health Sciences, Arnold School of Public Health, University of South Carolina, Columbia, SC 29208, United States\nH I G H L I G H T S\n• Combined sewer overflows result in transient peaks of TiO2 nanomaterial concentrations in an urban river. • The coupling of a 3D river model with an urban drainage model is used for nanomaterial fate and transport in surface water. • The effect of settling velocity becomes more prominent with greater distance downstream.\nG R A P H I C A L A B S T R A C T\nA R T I C L E I N F O\nArticle history: Received 14 June 2019 Received in revised form 10 August 2019 Accepted 12 August 2019 Available online 16 August 2019\nEditor: Patricia Holden\nKeywords: Modeling Nanomaterial Urban river Sewer\nA B S T R A C T\nCombined sewer overflows (CSOs) occur frequently in the United States, discharging an estimated 3.2 billion cubic meters of untreated sewage into receiving waters every year. These discharges contain a variety of contaminants including engineered nanomaterials (ENMs), yet ENMs discharged through CSOs have not been taken into account in ENM fate and transport models. This study fills this knowledge gap by developing a new integrated model that links an urban hydrologic-hydraulic model, using the Storm Water Management Model (SWMM), with a three-dimensional hydrodynamic and water quality model of rivers, using the Environmental Fluid Dynamics Code (EFDC). The modeling framework was applied to predict the concentrations of titanium dioxide (TiO2) ENMs in the Buffalo River in Buffalo, New York, as a result of CSO events. CSOs are shown to have a potential for transient high concentrations of ENMs and thus potentially high localized risk near the CSO outfalls and deposition zones in the river. The present approach provides a promising modeling framework to simulate ENM fate and transport in urban waterways. The model presented in this study can help build a management tool to predict temporally and spatially varying concentrations of ENMs introduced into receiving waters through CSOs.\n© 2019 Elsevier B.V. All rights reserved."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "Engineered nanomaterials (ENMs) are widely used in electronics, home disinfectants, paints, and medical and consumer products (Liu and Cohen, 2014). The increasing use of ENMs is predicted to\n* Corresponding author. E-mail address: zhenduoz@buffalo.edu (Z. Zhu).\nrelease a large volume of nanomaterials into waterways as waste (Bystrzejewska-Piotrowska et al., 2009). Accelerating production of ENMs in different commercial products and their release into the environment raise questions about potential impacts of such releases on ecosystems (Colvin, 2003; Martin et al., 2018; Vijayaraj et al., 2018). Titanium dioxide (TiO2) ENMs are one of the most commonly produced ENMs (Sharma, 2009), and are widely used in food, personal care products, and pharmaceutical products\nhttps://doi.org/10.1016/j.scitotenv.2019.133904 0048-9697/© 2019 Elsevier B.V. All rights reserved.\n(Weir et al., 2012), so they can easily enter the sewer system (Domercq et al., 2018). Whereas titanium concentrations in effluents from wastewater treatment plants can reach up to 15 lg/L (Kiser et al., 2009; Westerhoff et al., 2011), a recent study showed that sewage spills may result in much higher concentration (ca. 100 lg/L) of ENMs into surface waters (Loosli et al., 2019).\nMany cities around the world have combined sewer systems (CSSs) that work by collecting sewage and wastewater from homes and industries along with stormwater within the same pipe network (US EPA, 2004). Under wet weather conditions, combined sewer overflows (CSOs) occur when the stormwater entering the CSS exceeds the capacity of the collection system. The United States Environmental Protection Agency (US EPA) estimates that there are nearly 860 CSS communities in the US, discharging 3.2 billion cubic meters through CSOs every year (US EPA, 2004). It is estimated that in 2014 alone, 83 million cubic meters of untreated wastewater were discharged into the Laurentian Great Lakes Basin from CSOs in US states (US EPA, 2016). Effects of urbanization and CSOs on degrading receiving water quality (e.g. runoff, nutrients, coliforms, and polychlorinated biphenyls) have been reported in many studies (Iannuzzi et al., 1997; Rouff et al., 2013; Quijano et al., 2017; Saharia and Sarma, 2018; Vijayashanthar et al., 2018). However, the effect of CSOs on ENM concentrations in surface waters has not yet been studied.\nEnvironmental fate and transport models are essential to understand the fate and transport of ENMs, and the potential risk due to ENM exposure in the environment. Different ENM fate models have been developed for aquatic systems including: (i) spatiotemporally averaged models which include mass flow models (Mueller and Nowack, 2008; Blaser et al., 2008; Gottschalk et al., 2009) and process-based models (Dale et al., 2013; Lazareva and Keller, 2014; Markus et al., 2015); and (ii) spatially/temporally resolved models (Dale et al., 2015; Baalousha et al., 2016). The mass flow models are relatively simple, usually steady state, and use a probabilistic approach and basic fate modeling techniques. The process-based model has the advantage of integrating multiple knowledge bases related to the aquatic behavior, exposure, and particle characteristics of ENMs. However, spatial and temporal variations are not accounted for in such models (Lazareva and Keller, 2014). To address these issues, spatially/temporally resolved models have been recently developed, where ENM concentrations can be estimated across space as well as time (Sani-Kast et al., 2015; Dumont et al., 2015; Dale et al., 2015). For example, NanoDUFLOW, a spatially explicit hydrological model for ENM fate and transport, was developed based on DUFLOW Modelling Studio (v3.8.7), a software package for simulating one-dimensional unsteady flow in open-channel systems (Quik et al., 2015). Similarly, Markus et al. (2016) used a numerical model to predict the concentration of TiO2, zinc oxide (ZnO), and silver (Ag) ENMs in the Rhine River. This numerical model solved the onedimensional advection-diffusion equation for the Rhine River and its tributaries. The sources of ENMs located in the Rhine River system were considered from 5000 treatment plant effluents that were grouped into 18 sources. These spatially/temporally resolved models have the advantage of identifying potential hotspots of ENMs in the aquatic system. However, no existing model takes into account sewage spills, which result in the release of untreated sewage that may contain high concentrations of ENMs (Weir et al., 2012; Kiser et al., 2009; Westerhoff et al., 2011; Loosli et al., 2019). One of the most important reasons models have not been developed for these events is the difficulty of predicting the volume of spilled sewage such as CSOs. As discussed further below, the present study uses a modeling approach to estimate these volumes.\nAdditionally, the one-dimensional river models that have been used in previous studies are not sufficient to fully describe ENM fate and transport in waterways. These models estimate the averaged ENM concentration assuming full mixing of ENMs in water across the channel cross section. However, CSOs and other point\nsources occurring at one bank of a river may result in variable ENM concentrations over the river cross section due to incomplete transverse and vertical mixing. A three-dimensional (3D) model has the advantage of incorporating 3D hydrodynamics of the river, including bi-directional flow (if present) and secondary flows at bends, which can contribute to additional mixing of ENMs. Moreover, the effects of channel geometry complexities, such as side embayment and stagnation zones, can be captured by 3D models but not by 1D models (Zhu et al., 2017b; Quijano et al., 2017).\nThis study describes the development of a fate and transport model to predict ENM concentrations in urban waterways as a result of CSOs. This modeling framework couples an urban hydrologic/hydraulic model, which calculates urban runoff, sewer pipe flows, and CSO discharges, with a 3D hydrodynamic and water quality model to describe ENM fate and transport in surface waters. The methodology is demonstrated by simulating TiO2 ENMs concentration in the Buffalo River, Buffalo, New York (USA), resulting from CSOs generated from the City of Buffalo."
+    }, {
+      "heading" : "2. Methodology",
+      "text" : ""
+    }, {
+      "heading" : "2.1. Study area",
+      "text" : "The Buffalo River drains a 1158 km2 (447-square-mile) watershed in Erie County, New York, discharging into the eastern end of Lake Erie at the City of Buffalo (Fig. 1). The river has three tributaries: Cayuga Creek, Buffalo Creek, and Cazenovia Creek, which drain primarily forest and agricultural land as well as some small residential communities. The Buffalo River section considered in this study is the 9 km long portion closest to Lake Erie, which corresponds to the navigable section of the river (dredged by the US Army Corps of Engineers), and also is most subject to CSO discharges. The average discharge of the river is 19.09 m3/s, average depth is 6 m, and width varies along with length. The Buffalo River generally flows into Lake Erie but also reverses direction frequently due to water level fluctuations in the lake. The City of Buffalo has a population of 261,000 and population density of 2568 people per square kilometer (6436 per square mile). It is estimated that over 6 million cubic meters of CSOs generated from Buffalo were discharged into its neighboring waterways in 2014, and Buffalo is one of the main contributors of CSOs into the Great Lakes (US EPA, 2016).\nThe study area comprises a downstream section of the Buffalo River as it flows through Buffalo downtown areas, where boundary conditions of flow discharges and lake levels are available. There are six CSO outfalls (labeled as CSO 1–6 in Fig. 1) that directly discharge into the study area, while another 18 CSO outfalls are located upstream of the area and contribute to the upstream boundary condition for the model domain. The period from October 5th to November 19th, 2008 (45 days) was simulated because water level and flow discharge measurements at three locations (labeled as Upstream, Midstream, and Downstream, respectively, in Fig. 1) were made during that period (Environ Intl. Corp. et al., 2011). To set up the hydrodynamic model, flow velocity at the upstream site was used as the upstream boundary condition, and lake water level near the outlet of the river to Lake Erie was used as the downstream boundary condition. Thus, water level at the upstream site, flow velocity at the downstream site, and both water level and flow velocity at the midstream site can be used for the hydrodynamic model validation."
+    }, {
+      "heading" : "2.2. Urban hydrologic-hydraulic model",
+      "text" : "Real-time monitoring of CSO discharges is usually not implemented, and water quality monitoring of CSOs is even rarer. Thus, numerical simulations using urban hydrologic-hydraulic modeling are an important alternative to estimate the occurrence and volume of CSO discharges (Zhu et al., 2017a; Quijano et al., 2017). The\nUS EPA’s Storm Water Management Model (SWMM) was used to calculate urban runoff and CSO discharges of the City of Buffalo. The SWMM is a state-of-the-art urban hydrologic-hydraulic model, which is open-source code and can be used to simulate urban runoff quality and quantity (Rossman, 2010). SWMM can simulate both short events and long-term precipitation (both rainfall and snow) time series. A study area is divided into sub-catchments that are simulated as nonlinear reservoirs based on water balance. Infiltration into pervious areas of the sub-catchments can be simulated using Horton’s method, Green-Ampt method, or the Curve Number method. Flow routing in the sewer pipe system is simulated by either the kinematic wave method or the dynamic wave method. The Buffalo SWMM model used in this study was developed by MalcomPirnie/ARCADIS in 2014 (Malcolm Pirnie/Arcadis and Buffalo Sewer Authority, 2014)."
+    }, {
+      "heading" : "2.3. 3D river hydrodynamic model",
+      "text" : "The 3D hydrodynamic model used in this study was developed using the open-source Environmental Fluid Dynamics Code (EFDC). EFDC is a state-of-the-art surface water modeling system that has been widely used to model hydrodynamics and water quality for rivers, lakes, and estuaries (Hamrick, 1992; Ji, 2008; Hui et al., 2018; Zhu et al., 2018). The EFDC model uses sigma vertical coordinates and curvilinear orthogonal horizontal coordinates and solves the vertically hydrostatic equations of motion for 3D space using a Boussinesq approximation. To solve the vertical turbulence viscosity, the modified Mellor-Yamada turbulence closure (Mellor and Yamada, 1982; Galperin et al., 1988) is implemented. To compute the horizontal turbulence viscosity, Smagorinsky’s formula (Smagorinsky, 1963) is applied. The 3D Buffalo River model developed in this study used\n2683 horizontal computational grid cells and 8 vertical layers. There are usually 11 grids laterally, but it varies along the length (see Fig. 2)."
+    }, {
+      "heading" : "2.4. Modeling TiO2 ENMs transport in a river",
+      "text" : "Modeling ENMs in surface water requires taking into consideration the different environmental processes that determine their fate and transport, including dissolution, homoaggregation, heteroaggregation with other suspended solids, and sedimentation (Praetorius et al., 2014; Adam et al., 2016). The solubility of TiO2 under typical surface water environmental conditions is negligible, and thus dissolution can be ignored (Markus et al., 2016). Homoaggregation may be neglected relative to heteroaggregation as ENM concentration is generally very low relative to the more abundant natural sediments. Additionally, homoaggregation is limited by the small residence time of the river. For example, the longest residence time in this study domain is on the order of 1–3 days, and according to Markus et al. (2015), the time scale for homoaggregation is at least 6 days. Due to the abundance of suspended sediments in wastewater and stormwater, it is also reasonable to assume that TiO2-sediment heteroaggregation occurs within the sewer pipe system before entering into the river system (Neale et al., 2015). The disaggregation rate of ENM aggregates is slow compared to aggregation rate, and disaggregation occurs only following a significant change in environmental conditions, e.g. disaggregation increases when humic acid concentration increases, in the presence of alginate, or alteration of pH, and it decreases with time (Baalousha, 2009; Loosli et al., 2013, 2014). Therefore, disaggregation was neglected, following the same approach of Markus et al. (2015). Thus, heteroaggregation and sedimentation, along with advection and diffusion, are the key processes\nconsidered in the ENM fate model developed in this study. Resuspension was not simulated explicitly. Settling velocities of TiO2 ENMs are mainly determined by properties of the sediments with which TiO2 ENMs heteroaggregate (Markus et al., 2016). Three settling velocities representing those of main classes of suspended sediments in the Buffalo River (see Table 1) were considered and the simulated results were compared for sensitivity analysis.\nThe transport and sedimentation of the TiO2-sediment aggregates can be simulated using the 3D advection-diffusion equation:\n∂C ∂t + ∂(uC) ∂x + ∂(vC) ∂y + ∂[(w − ws)C] ∂z = ∂ ∂x ( Dx ∂C ∂x ) + ∂ ∂y ( Dy ∂C ∂y )\n+ ∂\n∂z\n( Dz\n∂C ∂z\n) + Qc (1)\nwhere C is concentration of the aggregates; u, v, w are velocity components in x, y, z coordinate directions, respectively; ws is the net settling velocity of the suspended particulate matter; Dx, Dy, Dz are diffusion coefficients in x, y, z coordinates, respectively; and Qc is a source/sink term (e.g. inputs from CSOs).\nThe SWMM model was used to calculate the discharge from CSOs, which were considered as the primary source of ENMs to the river. CSO discharges were then used as input to the hydrodynamic model. Little information is available for estimating the concentration of TiO2 ENMs in CSOs. Westerhoff et al. (2011) found TiO2 ENM concentrations in raw sewage to range from 163 lg/L (10th percentile value) to 579 lg/L (90th percentile value), based on 26 samples collected in Arizona. A recent study estimated the concentration of TiO2 ENMs in sewage impacted surface waters between 10 and 100 lg/L (Loosli et al., 2019). However, untreated sewage might contain higher TiO2 ENMs concentrations than surface waters impacted by sewage spills due to dilution. Based on this information, the concentrations of TiO2 ENMs in the Buffalo River were modeled assuming that the TiO2 ENMs concentration in CSO discharges is 200 lg/L."
+    }, {
+      "heading" : "3. Results and discussion",
+      "text" : ""
+    }, {
+      "heading" : "3.1. CSO events",
+      "text" : "The urban hydrologic model indicated that six CSO events occurred from 10/5/2008 to 11/19/2008 (see Fig. 3). The average combined discharge of the six CSO outfalls located within the study area was 0.009 m3/s while the 18 CSO outfalls located upstream of the study area had an average combined discharge of 0.047 m3/s. The occurrence and flow rates of CSOs were directly related to the precipitation intensities. CSO5 contributed the largest flows (up to 0.065 m3/s) to the Buffalo River among the six CSO outfalls inside the study area. CSO1, near the downstream boundary, also contributed a significant flow (up to 0.04 m3/s) to the Buffalo River (Fig. 3), but this discharge affected only a small portion of the river because of its location. The peak flow discharge of all CSO outfalls during this period reached 0.467 m3/s, which is small compared to the average river discharge of 19.09 m3/s. Nonetheless, the inclusion of the CSOs is important for ENM fate modeling due to the high TiO2 ENM concentrations in sewage spills (Loosli et al., 2019)."
+    }, {
+      "heading" : "3.2. River hydrodynamics: lake effect and bidirectional flows",
+      "text" : "A comparison between simulated and measured water levels and velocities at the three measurement stations (see Fig. 1) is shown in Fig. 4. The root mean square error (RMSE) values for water level and flow velocity at all stations were small, which indicates that the 3D hydrodynamic model accurately predicted the water level and flow velocity.Notethatwaterleveldownstreamandflowvelocityupstream were used as boundary conditions, so no comparison was performed.\nAn important characteristic of the Buffalo River, which also poses a challenge in the hydrodynamic modeling, is that the flow direction changes frequently because of water level fluctuations in Lake Erie (Fig. 4). The 3D hydrodynamic model is able to simulate the bidirectional flows well (both positive and negative values in Fig. 4c and d). It is important to capture the sudden change in the direction of the flow for a lake-river system (see supporting information), which can ultimately affect and increase ENM residence time in the river system.\nAn important characteristic of the Buffalo River, which also poses a challenge in the hydrodynamic modeling, is that the flow direction changes frequently because of water level fluctuations in Lake Erie (Fig. 4). The 3D hydrodynamic model is able to simulate the bidirectional flows well (both positive and negative values in Fig. 4c and\nd). It is important to capture the sudden change in the direction of the flow for a lake-river system (see supporting information), which can ultimately affect and increase ENM residence time in the river system."
+    }, {
+      "heading" : "3.3. Temporal patterns of ENM concentrations and effects of settling velocity",
+      "text" : "The predicted TiO2 ENM concentrations at three locations in the Buffalo River are presented in Fig. 5, which demonstrate that CSOs\nresult in transient peaks of TiO2 ENM concentrations in the Buffalo River. The highest predicted TiO2 ENM concentration is 51.55 lg/L and occurred at the upstream station of the river (Fig. 5a) due to high CSO discharge from the 18 upstream CSO outfalls. The highest predicted TiO2 ENM concentrations at the midstream and downstream stations are 6.94 and 30.48 lg/L, respectively (Fig. 5b and c). There were two processes that may have led to lower TiO2 ENM concentrations at the midstream station than the upstream station: (i) particle dilution due to mixing with the river discharge and (ii) particle sedimentation. The sum of peak discharges from CSO5 and CSO6\n(upstream of the midstream station) was only 0.075 m3/s, very small compared to the average river discharge of 19.09 m3/s, and to the CSO discharge (0.36 m3/s) from the 18 CSOs upstream of the modeled river reach. Therefore, it is likely that CSO5 and CSO6 did not have a significant contribution to TiO2 ENM concentrations in the midstream station. The high TiO2 ENM concentration in the downstream station might be attributed to its proximity to CSO1 (175 m), limiting CSO discharge mixing, and dilution with the river discharge. The two peak concentrations at the downstream station between 11/4 and 11/19 (Fig. 5c) were related to the two CSO events during the same period (Fig. 3).\nSettling velocity plays an important role in determining ENM concentrations in the water column. The estimated TiO2 ENM concentrations in the water column decreased with an increase in settling velocity (Fig. 5), because more TiO2 ENMs deposited onto the river bed due to increased sedimentation. The estimated TiO2 ENM concentration slightly decreased when settling velocity increased from 0.01 m/day (corresponding to fine clay) to 0.1 m/day (corresponding to clay). The estimated TiO2 ENM concentration decreased more significantly when settling velocity increased to 1 m/day (corresponding to fine silt).\nThe effect of settling velocity becomes more prominent with greater distance downstream, because more time is available for deposition as travel time of the aggregates increases. At the upstream\nlocation, settling velocity was not sensitive, as the travelling time is very short (Fig. 5a). At the midstream site, the peak concentrations decreased by 30–40% for fine silt relative to that for fine clay or clay particles. At the downstream site, the peak concentrations for 0.01 and 0.1 m/day settling velocities were approximately 10 times higher than those for the 1 m/day settling velocity. Therefore, TiO2 ENMs that formed heteroaggregates with fine clays resulted in higher TiO2 ENM concentrations in the river compared with heteroaggregates that formed with clays, which were in turn higher than concentrations predicted for heteroaggregates with silt particles."
+    }, {
+      "heading" : "3.4. Spatial distribution of ENM concentrations",
+      "text" : "Fig. 6 shows high temporal and spatial variations in distribution of ENM concentrations. In this figure, the settling velocity is set at 0.1 m/day, but similar patterns can be seen with all three settling velocities. The spatial distribution of TiO2 ENM concentrations showed that once entering the Buffalo Ship Canal, ENMs were likely to accumulate in the canal and settle to the bottom as the canal acted as a settling tank due to low flow velocity. This process may result in significant sediment contamination with TiO2 ENMs. These sediments also may act as a source of TiO2 ENM release to the water column following sediment disturbance due to ship\nmovement. Following a storm event, high local concentrations of TiO2 ENMs may be observed at the midstream station (Fig. 6c).\nTiO2 ENM concentrations at the inner banks of river bends can be different from those at the outer banks because of incomplete cross-sectional mixing (see Fig. 6c, bottom-right). The concentration is generally higher when it is close to a CSO outfall. For example, Fig. 6d (bottom-right) shows high concentration at the bank close to CSO5. This concentration variation is critical to understand because it can result in localized and transient high concentrations. The ENM concentration varies temporally and spatially because of inputs, advection, diffusion, and settling processes. As stated in previous studies (Markus et al., 2016), field measurements of ENMs in water are very rare, and the temporal and spatial variations make it even more challenging. The use of a 3D river model can accommodate complex river flow hydrodynamics, and thus provide a sound basis for development of sampling programs and management of ENM fate and transport in surface waters. The 3D model can also help to monitor transient and local high concentrations of ENMs for a specific period."
+    }, {
+      "heading" : "3.5. Future perspective",
+      "text" : "ENMs are now emerging in many consumer products along with industrial products, and thus their environmental exposures can be seen in many different routes. Recent literature evidence suggests sewage overflows as a potential source of terrestrial and aquatic exposures to TiO2 ENMs (Loosli et al., 2019). However, no ENM environmental fate and transport models have thus far accounted for spatiotemporal variations in ENM from CSOs. The case study presented in this paper, for the first time, suggests a modeling framework for ENM fate and transport models for CSOs and/or stormwater runoff linked with nearby freshwater resources, i.e., lakes and rivers. Direct measurements of ENM concentrations in CSOs and/or stormwater runoff endpoints and in the linked rivers/lakes are not yet available in the literature due to the significant challenges in measuring ENM concentration in such complex environmental samples. The modeling approach suggested here can help in choosing appropriate sampling timing and locations to guide measurement efforts. Moreover, the novel 3D modeling approach provides a spatiotemporally\nresolved model for estimating the impact of the different CSO events on the ENM concentration not only along the river length but also along its width and depth. This approach provides significant insight in the sedimentation and transport of ENMs with different physicochemical properties, and also provides a basis for understanding of ecotoxicological impacts on the surface water organisms as well as their benthic counterparts. The results from this new model provide estimates of ENM concentrations at any spatial location in the Buffalo River, which can be useful to estimate environmental risks for different levels of organisms and fish in such waterbodies.\nSupplementary data to this article can be found online at https:// doi.org/10.1016/j.scitotenv.2019.133904.\nDeclaration of Competing Interest\nThe authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper."
+    }, {
+      "heading" : "Acknowledgments",
+      "text" : "A. M. Saharia was supported by the New York State Energy Research and Development Authority, project 105162. Dr. Zhenduo Zhu thanks U.S. Geological Survey for the financial support under Grant/Cooperative Agreement No. G16AP00073. We also acknowledge LimnoTech for providing measurement data, Buffalo Sewer Authority (BSA) for providing the SWMM model, and the UB Center for Computational Research for providing computational resources. This work was partially supported by the NSF CAREER award (1553909) to Dr. Mohammed Baalousha. The opinions and findings presented in this paper are solely those of the authors and do not represent the opinions of the BSA and/or any other state and federal agency mentioned in the manuscript."
+    } ],
+    "references" : [ {
+      "title" : "Aggregation behaviour of TiO2 nanoparticles in natural river water",
+      "author" : [ "V. Adam", "S. Loyaux-Lawniczak", "J. Labille", "C. Galindo", "M. Del Nero", "S. Gangloff", "T. Weber", "G. Quaranta" ],
+      "venue" : "J. Nanopart. Res",
+      "citeRegEx" : "Adam et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Adam et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Aggregation and disaggregation of iron oxide nanoparticles: influence of particle concentration, pH and natural organic matter",
+      "author" : [ "M. Baalousha" ],
+      "venue" : "Sci. Total Environ",
+      "citeRegEx" : "Baalousha,? \\Q2009\\E",
+      "shortCiteRegEx" : "Baalousha",
+      "year" : 2009
+    }, {
+      "title" : "Modeling nanomaterial fate and uptake in the environment: current knowledge and future trends",
+      "author" : [ "M. Baalousha", "G. Cornelis", "T. Kuhlbusch", "I. Lynch", "C. Nickel", "W. Peijnenburg", "N. Van Den Brink" ],
+      "venue" : "Environ. Sci.: Nano",
+      "citeRegEx" : "Baalousha et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Baalousha et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Estimation of cumulative aquatic exposure and risk due to silver: contribution of nano-functionalized plastics and textiles",
+      "author" : [ "S.A. Blaser", "M. Scheringer", "M. MacLeod", "K. Hungerbühler" ],
+      "venue" : "Sci. Total Environ",
+      "citeRegEx" : "Blaser et al\\.,? \\Q2008\\E",
+      "shortCiteRegEx" : "Blaser et al\\.",
+      "year" : 2008
+    }, {
+      "title" : "Nanoparticles: their potential toxicity, waste and environmental management",
+      "author" : [ "G. Bystrzejewska-Piotrowska", "J. Golimowski", "P.L. Urban" ],
+      "venue" : "Waste Manage",
+      "citeRegEx" : "Bystrzejewska.Piotrowska et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Bystrzejewska.Piotrowska et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "The potential environmental impact of engineered nanomaterials",
+      "author" : [ "V.L. Colvin" ],
+      "venue" : "Nat. Biotechnol",
+      "citeRegEx" : "Colvin,? \\Q2003\\E",
+      "shortCiteRegEx" : "Colvin",
+      "year" : 2003
+    }, {
+      "title" : "Modeling nanomaterial environmental fate in aquatic systems",
+      "author" : [ "A.L. Dale", "E.A. Casman", "G.V. Lowry", "J.R. Lead", "E. Viparelli", "M. Baalousha" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Dale et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Dale et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Modeling nanosilver transformations in freshwater sediments",
+      "author" : [ "A.L. Dale", "G.V. Lowry", "E.A. Casman" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Dale et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Dale et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Emission and fate modelling framework for engineered nanoparticles in urban aquatic systems at high spatial and temporal resolution",
+      "author" : [ "P. Domercq", "A. Praetorius", "A.B. Boxall" ],
+      "venue" : "Environ. Sci.: Nano",
+      "citeRegEx" : "Domercq et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Domercq et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Nano silver and nano zinc-oxide in surface waters-exposure estimation for Europe at high spatial and temporal resolution",
+      "author" : [ "E. Dumont", "A.C. Johnson", "V.D. Keller", "R.J. Williams" ],
+      "venue" : "Environ. Pollut",
+      "citeRegEx" : "Dumont et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Dumont et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "A quasi-equilibrium turbulent energy model for geophysical flows",
+      "author" : [ "B. Galperin", "L. Kantha", "S. Hassid", "A. Rosati" ],
+      "venue" : "J. Atmos. Sci",
+      "citeRegEx" : "Galperin et al\\.,? \\Q1988\\E",
+      "shortCiteRegEx" : "Galperin et al\\.",
+      "year" : 1988
+    }, {
+      "title" : "Modeled environmental concentrations of engineered nanomaterials (TiO2, ZnO, Ag, CNT, fullerenes) for different regions",
+      "author" : [ "F. Gottschalk", "T. Sonderer", "R.W. Scholz", "B. Nowack" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Gottschalk et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Gottschalk et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "A Three-dimensional Environmental Fluid Dynamics Computer Code: Theoretical and Computational Aspects",
+      "author" : [ "J.M. Hamrick" ],
+      "venue" : null,
+      "citeRegEx" : "Hamrick,? \\Q1992\\E",
+      "shortCiteRegEx" : "Hamrick",
+      "year" : 1992
+    }, {
+      "title" : "Mass balance analysis and calculation of wind effects on heat fluxes and water temperature in a large lake",
+      "author" : [ "Y. Hui", "Z. Zhu", "J.F. Atkinson" ],
+      "venue" : "J. Great Lakes Res",
+      "citeRegEx" : "Hui et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Hui et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Combined sewer overflows (CSOs) as sources of sediment contamination in the lower Passaic River, New Jersey",
+      "author" : [ "T. Iannuzzi", "S. Huntley", "C. Schmidt", "B. Finley", "R. McNutt", "S. Burton" ],
+      "venue" : "I. Priority pollutants and inorganic chemicals. Chemosphere",
+      "citeRegEx" : "Iannuzzi et al\\.,? \\Q1997\\E",
+      "shortCiteRegEx" : "Iannuzzi et al\\.",
+      "year" : 1997
+    }, {
+      "title" : "Water Quality and Eutrophication. Hydrodynamic and Water Quality: Modeling Rivers, Lakes, and Estuaries",
+      "author" : [ "Z. Ji" ],
+      "venue" : null,
+      "citeRegEx" : "Ji,? \\Q2008\\E",
+      "shortCiteRegEx" : "Ji",
+      "year" : 2008
+    }, {
+      "title" : "Titanium nanomaterial removal and release from wastewater treatment plants",
+      "author" : [ "M. Kiser", "P. Westerhoff", "T. Benn", "Y. Wang", "J. Perez-Rivera", "K. Hristovski" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Kiser et al\\.,? \\Q2009\\E",
+      "shortCiteRegEx" : "Kiser et al\\.",
+      "year" : 2009
+    }, {
+      "title" : "Estimating potential life cycle releases of engineered nanomaterials from wastewater treatment plants",
+      "author" : [ "A. Lazareva", "A.A. Keller" ],
+      "venue" : "ACS Sustain. Chem. Eng",
+      "citeRegEx" : "Lazareva and Keller,? \\Q2014\\E",
+      "shortCiteRegEx" : "Lazareva and Keller",
+      "year" : 2014
+    }, {
+      "title" : "Multimedia environmental distribution of engineered nanomaterials",
+      "author" : [ "H.H. Liu", "Y. Cohen" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Liu and Cohen,? \\Q2014\\E",
+      "shortCiteRegEx" : "Liu and Cohen",
+      "year" : 2014
+    }, {
+      "title" : "TiO2 nanoparticles aggregation and disaggregation in presence of alginate and Suwannee River humic acids. pH and concentration effects on nanoparticle stability",
+      "author" : [ "F. Loosli", "P. Le Coustumer", "S. Stoll" ],
+      "venue" : "Water Res",
+      "citeRegEx" : "Loosli et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Loosli et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Effect of natural organic matter on the disagglomeration of manufactured TiO2 nanoparticles",
+      "author" : [ "F. Loosli", "P. Le Coustumer", "S. Stoll" ],
+      "venue" : "Environ. Sci.: Nano",
+      "citeRegEx" : "Loosli et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Loosli et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Sewage spills are a major source of titanium dioxide engineered (nano)-particles into the environment",
+      "author" : [ "F. Loosli", "J. Wang", "S. Rothenberg", "M. Bizimis", "C. Winkler", "O. Borovinskaya", "L. Flamigni", "M. Baalousha" ],
+      "venue" : "Environ. Sci.: Nano",
+      "citeRegEx" : "Loosli et al\\.,? \\Q2019\\E",
+      "shortCiteRegEx" : "Loosli et al\\.",
+      "year" : 2019
+    }, {
+      "title" : "Modeling aggregation and sedimentation of nanoparticles in the aquatic environment",
+      "author" : [ "A. Markus", "J. Parsons", "E. Roex", "P. De Voogt", "R. Laane" ],
+      "venue" : "Sci. Total Environ",
+      "citeRegEx" : "Markus et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Markus et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Modelling the transport of engineered metallic nanoparticles in the river Rhine",
+      "author" : [ "A. Markus", "J. Parsons", "E. Roex", "P. De Voogt", "R. Laane" ],
+      "venue" : "Water Res",
+      "citeRegEx" : "Markus et al\\.,? \\Q2016\\E",
+      "shortCiteRegEx" : "Markus et al\\.",
+      "year" : 2016
+    }, {
+      "title" : "Accumulation of silver in Yellow Perch (Perca flavescens) and Northern Pike (Esox lucius) from a lake dosed with nanosilver",
+      "author" : [ "J.D. Martin", "P.C. Frost", "H. Hintelmann", "K. Newman", "M.J. Paterson", "L. Hayhurst", "M.D. Rennie", "M.A. Xenopoulos", "V. Yargeau", "C.D. Metcalfe" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Martin et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Martin et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Development of a turbulence closure model for geophysical fluid problems",
+      "author" : [ "G.L. Mellor", "T. Yamada" ],
+      "venue" : "Rev. Geophys",
+      "citeRegEx" : "Mellor and Yamada,? \\Q1982\\E",
+      "shortCiteRegEx" : "Mellor and Yamada",
+      "year" : 1982
+    }, {
+      "title" : "Exposure modeling of engineered nanoparticles in the environment",
+      "author" : [ "N.C. Mueller", "B. Nowack" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Mueller and Nowack,? \\Q2008\\E",
+      "shortCiteRegEx" : "Mueller and Nowack",
+      "year" : 2008
+    }, {
+      "title" : "Behaviour of titanium dioxide and zinc oxide nanoparticles in the presence of wastewater-derived organic matter and implications for algal toxicity",
+      "author" : [ "P.A. Neale", "Å.K. Jämting", "E. O’Malley", "J. Herrmann", "B.I. Escher" ],
+      "venue" : "Environ. Sci.: Nano",
+      "citeRegEx" : "Neale et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Neale et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Heteroaggregation of titanium dioxide nanoparticles with model natural colloids under environmentally relevant conditions",
+      "author" : [ "A. Praetorius", "J. Labille", "M. Scheringer", "A. Thill", "K. Hungerbuhler", "Bottero", "J.-Y" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Praetorius et al\\.,? \\Q2014\\E",
+      "shortCiteRegEx" : "Praetorius et al\\.",
+      "year" : 2014
+    }, {
+      "title" : "Three-dimensional model to capture the fate and transport of combined sewer overflow discharges: a case study in the Chicago",
+      "author" : [ "J.C. Quijano", "Z. Zhu", "V. Morales", "B.J. Landry", "M.H. Garcia" ],
+      "venue" : "Area Waterway System. Sci. Total Environ",
+      "citeRegEx" : "Quijano et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Quijano et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Spatially explicit fate modelling of nanomaterials in natural waters",
+      "author" : [ "J.T. Quik", "J.J. de Klein", "A.A. Koelmans" ],
+      "venue" : "Water Res",
+      "citeRegEx" : "Quik et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Quik et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Modeling low impact development alternatives with SWMM",
+      "author" : [ "L.A. Rossman" ],
+      "venue" : "J. Water Manag. Model",
+      "citeRegEx" : "Rossman,? \\Q2010\\E",
+      "shortCiteRegEx" : "Rossman",
+      "year" : 2010
+    }, {
+      "title" : "Heavy metal distribution in an urban wetland impacted by combined sewer",
+      "author" : [ "A.A. Rouff", "T.T. Eaton", "A. Lanzirotti" ],
+      "venue" : "overflow. Chemosphere",
+      "citeRegEx" : "Rouff et al\\.,? \\Q2013\\E",
+      "shortCiteRegEx" : "Rouff et al\\.",
+      "year" : 2013
+    }, {
+      "title" : "Future climate change impact evaluation on hydrologic processes in the Bharalu and Basistha basins using SWAT model",
+      "author" : [ "A.M. Saharia", "A.K. Sarma" ],
+      "venue" : "Nat. Hazards",
+      "citeRegEx" : "Saharia and Sarma,? \\Q2018\\E",
+      "shortCiteRegEx" : "Saharia and Sarma",
+      "year" : 2018
+    }, {
+      "title" : "Addressing the complexity of water chemistry in environmental fate modeling for engineered nanoparticles",
+      "author" : [ "N. Sani-Kast", "M. Scheringer", "D. Slomberg", "J. Labille", "A. Praetorius", "P. Ollivier", "K. Hungerbühler" ],
+      "venue" : "Sci. Total Environ",
+      "citeRegEx" : "Sani.Kast et al\\.,? \\Q2015\\E",
+      "shortCiteRegEx" : "Sani.Kast et al\\.",
+      "year" : 2015
+    }, {
+      "title" : "Aggregation and toxicity of titanium dioxide nanoparticles in aquatic environment: a review",
+      "author" : [ "V.K. Sharma" ],
+      "venue" : "J. Environ. Sci. Health A",
+      "citeRegEx" : "Sharma,? \\Q2009\\E",
+      "shortCiteRegEx" : "Sharma",
+      "year" : 2009
+    }, {
+      "title" : "General circulation experiments with the primitive equations: I",
+      "author" : [ "J. Smagorinsky" ],
+      "venue" : "The basic experiment. Mon. Weather Rev",
+      "citeRegEx" : "Smagorinsky,? \\Q1963\\E",
+      "shortCiteRegEx" : "Smagorinsky",
+      "year" : 1963
+    }, {
+      "title" : "Transfer and ecotoxicity of titanium dioxide nanoparticles in the terrestrial and aquatic ecosystems: a microcosm study",
+      "author" : [ "V. Vijayaraj", "C. Liné", "S. Cadarsi", "C. Salvagnac", "D. Baqué", "A. Elger", "M. Barret", "F. Mouchet", "C. Larue" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Vijayaraj et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Vijayaraj et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Modeling fecal indicator bacteria in urban waterways using artificial neural networks",
+      "author" : [ "V. Vijayashanthar", "J. Qiao", "Z. Zhu", "P. Entwistle", "G. Yu" ],
+      "venue" : "J. Environ. Eng",
+      "citeRegEx" : "Vijayashanthar et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Vijayashanthar et al\\.",
+      "year" : 2018
+    }, {
+      "title" : "Titanium dioxide nanoparticles in food and personal care products",
+      "author" : [ "A. Weir", "P. Westerhoff", "L. Fabricius", "K. Hristovski", "N. Von Goetz" ],
+      "venue" : "Environ. Sci. Technol",
+      "citeRegEx" : "Weir et al\\.,? \\Q2012\\E",
+      "shortCiteRegEx" : "Weir et al\\.",
+      "year" : 2012
+    }, {
+      "title" : "Occurrence and removal of titanium at full scale wastewater treatment plants: implications for TiO2 nanomaterials",
+      "author" : [ "P. Westerhoff", "G. Song", "K. Hristovski", "M.A. Kiser" ],
+      "venue" : "J. Environ. Monit",
+      "citeRegEx" : "Westerhoff et al\\.,? \\Q2011\\E",
+      "shortCiteRegEx" : "Westerhoff et al\\.",
+      "year" : 2011
+    }, {
+      "title" : "Impact of combined sewer overflow on urban river hydrodynamic modelling: a case study of the Chicago waterway",
+      "author" : [ "Z. Zhu", "V. Morales", "M.H. Garcia" ],
+      "venue" : "Urban Water J",
+      "citeRegEx" : "Zhu et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Zhu et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Numerical modeling of simultaneous tracer release and piscicide treatment for invasive species control",
+      "author" : [ "Z. Zhu", "D. Motta", "P.R. Jackson", "M.H. Garcia" ],
+      "venue" : null,
+      "citeRegEx" : "Zhu et al\\.,? \\Q2017\\E",
+      "shortCiteRegEx" : "Zhu et al\\.",
+      "year" : 2017
+    }, {
+      "title" : "Modeling the transport of oil-particle aggregates resulting from an oil spill in a freshwater environment",
+      "author" : [ "Z. Zhu", "D.M. Waterman", "M.H. Garcia" ],
+      "venue" : "Environ. Fluid Mech",
+      "citeRegEx" : "Zhu et al\\.,? \\Q2018\\E",
+      "shortCiteRegEx" : "Zhu et al\\.",
+      "year" : 2018
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 4,
+      "context" : "release a large volume of nanomaterials into waterways as waste (Bystrzejewska-Piotrowska et al., 2009).",
+      "startOffset" : 64,
+      "endOffset" : 103
+    }, {
+      "referenceID" : 5,
+      "context" : "Accelerating production of ENMs in different commercial products and their release into the environment raise questions about potential impacts of such releases on ecosystems (Colvin, 2003; Martin et al., 2018; Vijayaraj et al., 2018).",
+      "startOffset" : 175,
+      "endOffset" : 234
+    }, {
+      "referenceID" : 24,
+      "context" : "Accelerating production of ENMs in different commercial products and their release into the environment raise questions about potential impacts of such releases on ecosystems (Colvin, 2003; Martin et al., 2018; Vijayaraj et al., 2018).",
+      "startOffset" : 175,
+      "endOffset" : 234
+    }, {
+      "referenceID" : 37,
+      "context" : "Accelerating production of ENMs in different commercial products and their release into the environment raise questions about potential impacts of such releases on ecosystems (Colvin, 2003; Martin et al., 2018; Vijayaraj et al., 2018).",
+      "startOffset" : 175,
+      "endOffset" : 234
+    }, {
+      "referenceID" : 35,
+      "context" : "Titanium dioxide (TiO2) ENMs are one of the most commonly produced ENMs (Sharma, 2009), and are widely used in food, personal care products, and pharmaceutical products",
+      "startOffset" : 72,
+      "endOffset" : 86
+    }, {
+      "referenceID" : 39,
+      "context" : "(Weir et al., 2012), so they can easily enter the sewer system (Domercq et al.",
+      "startOffset" : 0,
+      "endOffset" : 19
+    }, {
+      "referenceID" : 8,
+      "context" : ", 2012), so they can easily enter the sewer system (Domercq et al., 2018).",
+      "startOffset" : 51,
+      "endOffset" : 73
+    }, {
+      "referenceID" : 16,
+      "context" : "Whereas titanium concentrations in effluents from wastewater treatment plants can reach up to 15 lg/L (Kiser et al., 2009; Westerhoff et al., 2011), a recent study showed that sewage spills may result in much higher concentration (ca.",
+      "startOffset" : 102,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 40,
+      "context" : "Whereas titanium concentrations in effluents from wastewater treatment plants can reach up to 15 lg/L (Kiser et al., 2009; Westerhoff et al., 2011), a recent study showed that sewage spills may result in much higher concentration (ca.",
+      "startOffset" : 102,
+      "endOffset" : 147
+    }, {
+      "referenceID" : 21,
+      "context" : "100 lg/L) of ENMs into surface waters (Loosli et al., 2019).",
+      "startOffset" : 38,
+      "endOffset" : 59
+    }, {
+      "referenceID" : 14,
+      "context" : "runoff, nutrients, coliforms, and polychlorinated biphenyls) have been reported in many studies (Iannuzzi et al., 1997; Rouff et al., 2013; Quijano et al., 2017; Saharia and Sarma, 2018; Vijayashanthar et al., 2018).",
+      "startOffset" : 96,
+      "endOffset" : 215
+    }, {
+      "referenceID" : 32,
+      "context" : "runoff, nutrients, coliforms, and polychlorinated biphenyls) have been reported in many studies (Iannuzzi et al., 1997; Rouff et al., 2013; Quijano et al., 2017; Saharia and Sarma, 2018; Vijayashanthar et al., 2018).",
+      "startOffset" : 96,
+      "endOffset" : 215
+    }, {
+      "referenceID" : 29,
+      "context" : "runoff, nutrients, coliforms, and polychlorinated biphenyls) have been reported in many studies (Iannuzzi et al., 1997; Rouff et al., 2013; Quijano et al., 2017; Saharia and Sarma, 2018; Vijayashanthar et al., 2018).",
+      "startOffset" : 96,
+      "endOffset" : 215
+    }, {
+      "referenceID" : 33,
+      "context" : "runoff, nutrients, coliforms, and polychlorinated biphenyls) have been reported in many studies (Iannuzzi et al., 1997; Rouff et al., 2013; Quijano et al., 2017; Saharia and Sarma, 2018; Vijayashanthar et al., 2018).",
+      "startOffset" : 96,
+      "endOffset" : 215
+    }, {
+      "referenceID" : 38,
+      "context" : "runoff, nutrients, coliforms, and polychlorinated biphenyls) have been reported in many studies (Iannuzzi et al., 1997; Rouff et al., 2013; Quijano et al., 2017; Saharia and Sarma, 2018; Vijayashanthar et al., 2018).",
+      "startOffset" : 96,
+      "endOffset" : 215
+    }, {
+      "referenceID" : 26,
+      "context" : "Different ENM fate models have been developed for aquatic systems including: (i) spatiotemporally averaged models which include mass flow models (Mueller and Nowack, 2008; Blaser et al., 2008; Gottschalk et al., 2009) and process-based models (Dale et al.",
+      "startOffset" : 145,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 3,
+      "context" : "Different ENM fate models have been developed for aquatic systems including: (i) spatiotemporally averaged models which include mass flow models (Mueller and Nowack, 2008; Blaser et al., 2008; Gottschalk et al., 2009) and process-based models (Dale et al.",
+      "startOffset" : 145,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 11,
+      "context" : "Different ENM fate models have been developed for aquatic systems including: (i) spatiotemporally averaged models which include mass flow models (Mueller and Nowack, 2008; Blaser et al., 2008; Gottschalk et al., 2009) and process-based models (Dale et al.",
+      "startOffset" : 145,
+      "endOffset" : 217
+    }, {
+      "referenceID" : 7,
+      "context" : ", 2009) and process-based models (Dale et al., 2013; Lazareva and Keller, 2014; Markus et al., 2015); and (ii) spatially/temporally resolved models (Dale et al.",
+      "startOffset" : 33,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 17,
+      "context" : ", 2009) and process-based models (Dale et al., 2013; Lazareva and Keller, 2014; Markus et al., 2015); and (ii) spatially/temporally resolved models (Dale et al.",
+      "startOffset" : 33,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 22,
+      "context" : ", 2009) and process-based models (Dale et al., 2013; Lazareva and Keller, 2014; Markus et al., 2015); and (ii) spatially/temporally resolved models (Dale et al.",
+      "startOffset" : 33,
+      "endOffset" : 100
+    }, {
+      "referenceID" : 6,
+      "context" : ", 2015); and (ii) spatially/temporally resolved models (Dale et al., 2015; Baalousha et al., 2016).",
+      "startOffset" : 55,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 2,
+      "context" : ", 2015); and (ii) spatially/temporally resolved models (Dale et al., 2015; Baalousha et al., 2016).",
+      "startOffset" : 55,
+      "endOffset" : 98
+    }, {
+      "referenceID" : 17,
+      "context" : "However, spatial and temporal variations are not accounted for in such models (Lazareva and Keller, 2014).",
+      "startOffset" : 78,
+      "endOffset" : 105
+    }, {
+      "referenceID" : 34,
+      "context" : "To address these issues, spatially/temporally resolved models have been recently developed, where ENM concentrations can be estimated across space as well as time (Sani-Kast et al., 2015; Dumont et al., 2015; Dale et al., 2015).",
+      "startOffset" : 163,
+      "endOffset" : 227
+    }, {
+      "referenceID" : 9,
+      "context" : "To address these issues, spatially/temporally resolved models have been recently developed, where ENM concentrations can be estimated across space as well as time (Sani-Kast et al., 2015; Dumont et al., 2015; Dale et al., 2015).",
+      "startOffset" : 163,
+      "endOffset" : 227
+    }, {
+      "referenceID" : 6,
+      "context" : "To address these issues, spatially/temporally resolved models have been recently developed, where ENM concentrations can be estimated across space as well as time (Sani-Kast et al., 2015; Dumont et al., 2015; Dale et al., 2015).",
+      "startOffset" : 163,
+      "endOffset" : 227
+    }, {
+      "referenceID" : 30,
+      "context" : "7), a software package for simulating one-dimensional unsteady flow in open-channel systems (Quik et al., 2015).",
+      "startOffset" : 92,
+      "endOffset" : 111
+    }, {
+      "referenceID" : 39,
+      "context" : "However, no existing model takes into account sewage spills, which result in the release of untreated sewage that may contain high concentrations of ENMs (Weir et al., 2012; Kiser et al., 2009; Westerhoff et al., 2011; Loosli et al., 2019).",
+      "startOffset" : 154,
+      "endOffset" : 239
+    }, {
+      "referenceID" : 16,
+      "context" : "However, no existing model takes into account sewage spills, which result in the release of untreated sewage that may contain high concentrations of ENMs (Weir et al., 2012; Kiser et al., 2009; Westerhoff et al., 2011; Loosli et al., 2019).",
+      "startOffset" : 154,
+      "endOffset" : 239
+    }, {
+      "referenceID" : 40,
+      "context" : "However, no existing model takes into account sewage spills, which result in the release of untreated sewage that may contain high concentrations of ENMs (Weir et al., 2012; Kiser et al., 2009; Westerhoff et al., 2011; Loosli et al., 2019).",
+      "startOffset" : 154,
+      "endOffset" : 239
+    }, {
+      "referenceID" : 21,
+      "context" : "However, no existing model takes into account sewage spills, which result in the release of untreated sewage that may contain high concentrations of ENMs (Weir et al., 2012; Kiser et al., 2009; Westerhoff et al., 2011; Loosli et al., 2019).",
+      "startOffset" : 154,
+      "endOffset" : 239
+    }, {
+      "referenceID" : 29,
+      "context" : "Moreover, the effects of channel geometry complexities, such as side embayment and stagnation zones, can be captured by 3D models but not by 1D models (Zhu et al., 2017b; Quijano et al., 2017).",
+      "startOffset" : 151,
+      "endOffset" : 192
+    }, {
+      "referenceID" : 29,
+      "context" : "are an important alternative to estimate the occurrence and volume of CSO discharges (Zhu et al., 2017a; Quijano et al., 2017).",
+      "startOffset" : 85,
+      "endOffset" : 126
+    }, {
+      "referenceID" : 31,
+      "context" : "The SWMM is a state-of-the-art urban hydrologic-hydraulic model, which is open-source code and can be used to simulate urban runoff quality and quantity (Rossman, 2010).",
+      "startOffset" : 153,
+      "endOffset" : 168
+    }, {
+      "referenceID" : 12,
+      "context" : "EFDC is a state-of-the-art surface water modeling system that has been widely used to model hydrodynamics and water quality for rivers, lakes, and estuaries (Hamrick, 1992; Ji, 2008; Hui et al., 2018; Zhu et al., 2018).",
+      "startOffset" : 157,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 15,
+      "context" : "EFDC is a state-of-the-art surface water modeling system that has been widely used to model hydrodynamics and water quality for rivers, lakes, and estuaries (Hamrick, 1992; Ji, 2008; Hui et al., 2018; Zhu et al., 2018).",
+      "startOffset" : 157,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 13,
+      "context" : "EFDC is a state-of-the-art surface water modeling system that has been widely used to model hydrodynamics and water quality for rivers, lakes, and estuaries (Hamrick, 1992; Ji, 2008; Hui et al., 2018; Zhu et al., 2018).",
+      "startOffset" : 157,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 43,
+      "context" : "EFDC is a state-of-the-art surface water modeling system that has been widely used to model hydrodynamics and water quality for rivers, lakes, and estuaries (Hamrick, 1992; Ji, 2008; Hui et al., 2018; Zhu et al., 2018).",
+      "startOffset" : 157,
+      "endOffset" : 218
+    }, {
+      "referenceID" : 25,
+      "context" : "To solve the vertical turbulence viscosity, the modified Mellor-Yamada turbulence closure (Mellor and Yamada, 1982; Galperin et al., 1988) is implemented.",
+      "startOffset" : 90,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 10,
+      "context" : "To solve the vertical turbulence viscosity, the modified Mellor-Yamada turbulence closure (Mellor and Yamada, 1982; Galperin et al., 1988) is implemented.",
+      "startOffset" : 90,
+      "endOffset" : 138
+    }, {
+      "referenceID" : 36,
+      "context" : "To compute the horizontal turbulence viscosity, Smagorinsky’s formula (Smagorinsky, 1963) is applied.",
+      "startOffset" : 70,
+      "endOffset" : 89
+    }, {
+      "referenceID" : 28,
+      "context" : "Modeling ENMs in surface water requires taking into consideration the different environmental processes that determine their fate and transport, including dissolution, homoaggregation, heteroaggregation with other suspended solids, and sedimentation (Praetorius et al., 2014; Adam et al., 2016).",
+      "startOffset" : 250,
+      "endOffset" : 294
+    }, {
+      "referenceID" : 0,
+      "context" : "Modeling ENMs in surface water requires taking into consideration the different environmental processes that determine their fate and transport, including dissolution, homoaggregation, heteroaggregation with other suspended solids, and sedimentation (Praetorius et al., 2014; Adam et al., 2016).",
+      "startOffset" : 250,
+      "endOffset" : 294
+    }, {
+      "referenceID" : 23,
+      "context" : "The solubility of TiO2 under typical surface water environmental conditions is negligible, and thus dissolution can be ignored (Markus et al., 2016).",
+      "startOffset" : 127,
+      "endOffset" : 148
+    }, {
+      "referenceID" : 27,
+      "context" : "Due to the abundance of suspended sediments in wastewater and stormwater, it is also reasonable to assume that TiO2-sediment heteroaggregation occurs within the sewer pipe system before entering into the river system (Neale et al., 2015).",
+      "startOffset" : 217,
+      "endOffset" : 237
+    }, {
+      "referenceID" : 1,
+      "context" : "disaggregation increases when humic acid concentration increases, in the presence of alginate, or alteration of pH, and it decreases with time (Baalousha, 2009; Loosli et al., 2013, 2014).",
+      "startOffset" : 143,
+      "endOffset" : 187
+    }, {
+      "referenceID" : 23,
+      "context" : "Settling velocities of TiO2 ENMs are mainly determined by properties of the sediments with which TiO2 ENMs heteroaggregate (Markus et al., 2016).",
+      "startOffset" : 123,
+      "endOffset" : 144
+    }, {
+      "referenceID" : 21,
+      "context" : "A recent study estimated the concentration of TiO2 ENMs in sewage impacted surface waters between 10 and 100 lg/L (Loosli et al., 2019).",
+      "startOffset" : 114,
+      "endOffset" : 135
+    }, {
+      "referenceID" : 21,
+      "context" : "Nonetheless, the inclusion of the CSOs is important for ENM fate modeling due to the high TiO2 ENM concentrations in sewage spills (Loosli et al., 2019).",
+      "startOffset" : 131,
+      "endOffset" : 152
+    }, {
+      "referenceID" : 23,
+      "context" : "As stated in previous studies (Markus et al., 2016), field measurements of ENMs in water are very rare, and the temporal and spatial variations make it even more challenging.",
+      "startOffset" : 30,
+      "endOffset" : 51
+    } ],
+    "year" : 2019,
+    "abstractText" : "A R T I C L E I N F O",
+    "creator" : "Elsevier"
+  }
+}

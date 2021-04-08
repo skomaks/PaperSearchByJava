@@ -1,0 +1,411 @@
+{
+  "name" : "zero.sci-hub.se_6714_2ba769fcd81c9b30815ccc44459ab9ff_esfe2017.pdf",
+  "metadata" : {
+    "source" : "META",
+    "title" : "Experimental investigation, model development and sensitivity analysis of rheological behavior of ZnO/10W40 nano-lubricants for automotive applications",
+    "authors" : [ "Mohammad Hemmat Esfea", "Seyfolah Saedodin", "Mousa Rejvani", "Jalal Shahram" ],
+    "emails" : [ ],
+    "sections" : [ {
+      "heading" : null,
+      "text" : "Contents lists available at ScienceDirect\nPhysica E\njournal homepage: www.elsevier.com/locate/physe\nExperimental investigation, model development and sensitivity analysis of rheological behavior of ZnO/10W40 nano-lubricants for automotive applications\nMohammad Hemmat Esfea,⁎, Seyfolah Saedodinb, Mousa Rejvanib, Jalal Shahramb\na Department of Mechanical Engineering, Khomeinishahr Branch, Islamic Azad University, Isfahan, Iran b Faculty of Mechanical Engineering, Semnan University, Semnan, Iran\nA R T I C L E I N F O\nKeywords: Nano-lubricant Rheological behavior Shear thinning Sensitivity ANN modeling\nA B S T R A C T\nIn the present study, rheological behavior of ZnO/10W40 nano-lubricant is investigated by an experimental approach. Firstly, ZnO nanoparticles of 10–30 nm were dispersed in 10W40 engine oil with solid volume fractions of 0.25–2%, then the viscosity of the composed nano-lubricant was measured in temperature ranges of 5–55 °C and in various shear rates. From analyzing the results, it was revealed that both of the base oil and nano-lubricants are non-Newtonian fluids which exhibit shear thinning behavior. Sensitivity of viscosity to the solid volume fraction enhancement was calculated by a new correlation which was proposed in terms of solid volume fraction and temperature. In order to attain an accurate model by which experimental data are predicted, an artificial neural network (ANN) with a hidden layer and 5 neurons was designed. This model was considerably accurate in predicting experimental data of dynamic viscosity as R-squared and average absolute relative deviation (AARD %) were respectively 0.9999 and 0.0502."
+    }, {
+      "heading" : "1. Introduction",
+      "text" : "In many industrial applications, it is needed that heat transfer enhances while heat conduction surface is decreased and the flow of coolant fluids such as water, oil and Ethylene Glycol is reduced. To do so, nanofluids have been introduced which were able to full fill the expectations [1]. The so called nanofluids are built from dispersion of tiny particles (smaller than 100 nm) in a base fluid [2]. Nanofluids have unique thermophysical characteristics that can make them preferable over generic fluids.\nNanofluids have many applications in automotive industry, though lubrication of internal parts of engines for the purpose of reducing friction is the most important one. According to the researches that have been conducted, presence of nanoparticles in oils may enhance their lubricating properties compared to base fluid; this would result in heat transfer enhancement inside the engine and increasing the durability of the parts [3–7].\nThermal conductivity and viscosity are thermophysical characteristics of nanofluids that have been studied by many scientists. From many researches it is proven that if temperature and solid volume fraction rises, thermal conductivity of nanofluid would be enhanced [8–13]. Also some papers reported that using smaller nanoparticles\nhelps thermal conductivity enhancement [11–13]. Viscosity plays an important role in rheological behavior of a fluid [14–16]. Viscosity is a force resisting against fluid to flow. Temperature and nanoparticles loading and size can affect viscosity thus rheological behavior of a nanofluid. Regarding to recent researches, viscosity of nanofluid is enhanced by increment of solid volume fraction, temperature reduction and increasing of nanoparticles size [17–20]. Since last decade artificial neural network has been used by many scientists to predict experimental thermophysical data including thermal conductivity and viscosity. Artificial neural network is one of the most powerful methods of data modeling which is capable of predicting nanofluids behavior with the lowest error [21–25].\nRheological behaviors of nanofluids are quite different from each other and a specific behavior cannot be determined for all nanofluids. Viscosity of Ag-heat transfer oil was studied by Aberoumand et al., nanoparticles loadings up to 0.72 wt% were studied at temperatures between 25 and 80 °C [26]. From the results it was indicated that the base fluid exhibit Newtonian behavior while adding even a few amount of nanoparticles changes it to non-Newtonian. The behavior of nonNewtonian fluids are not studied extensively yet. A summary of researches conducted on rheological behaviors of nanofluids is presented in Table 1.\nhttp://dx.doi.org/10.1016/j.physe.2017.02.015 Received 30 December 2016; Received in revised form 1 February 2017; Accepted 20 February 2017\n⁎ Corresponding author. E-mail address: M.hemmatesfe@gmail.com (M. Hemmat Esfe).\nPhysica E 90 (2017) 194–203\nAvailable online 21 February 2017 1386-9477/ © 2017 Elsevier B.V. All rights reserved.\nMARK\nThe main purpose of this paper is to study rheological behavior of ZnO/10W40 nano-lubricant affected by temperature and volume fraction variations. Identification of this nano-lubricant’s characteristics are essential for its applications as a lubricant in the automotive industry, beside this subject is not investigated in any other article yet. In this study the experimental data are modeled by a new correlation and artificial neural network."
+    }, {
+      "heading" : "2. Experimentation",
+      "text" : "In order to prepare the nano-lubricant, Zinc oxide nanoparticles (ZnO) with the size of 10–30 nm were dispersed in 10W40 engine oil. The characteristics of ZnO nanoparticles are listed in Table 2.\nTable 3 presents the characteristics of 10W40 oil. For the purpose of identifying morphology and structural specifications of ZnO nanoparticles, X-ray diffraction was utilized; the results are depicted in Fig. 1.\nThe nano - lubricant was made by two-step method; ZnO nanoparticles with volume fractions of 0.25%, 0.5%, 0.75%, 1%, 1.5% and 2% were weighted using Eq. (1) prior to being dispersed in 10W40 engine oil.\n⎛ ⎝⎜ ⎞ ⎠⎟\n⎛ ⎝⎜ ⎞ ⎠⎟\n⎛ ⎝⎜ ⎞ ⎠⎟ φ = +\nw ρ\nZnO\nw ρ\nZnO\nw ρ\nW10 40 (1)\nIn this equation ρ is density, φ is solid volume fraction of nanoparticles and w is weight of nanoparticles. The suspensions of nanofluids were blended for 2 h by magnetic blender. The samples were homogenized and stabilized by ultrasonic processor (Kimia Nano Danesh (KND), I.R Iran) with power of 1200 w and 20 kHz frequency was utilized. The result of preparing nanofluids by this method was:1Stabilized suspensions up to 72 h, 2- Excellent uniformity and homogeneity of samples, 3- Agglomerations and aggregation of nanoparticles were removed. Different samples of composing nano-lubricant are\nillustrated in Fig. 2. After nano-lubricants preparation, their dynamic viscosity was measured in temperature ranges of 5 up to 55 °C and in shear rates between 666.5 and 11997 s−1. Brookfield viscometer made by Brookfield engineering laboratories (USA) was used for viscosity measurements. The accuracy of this apparatus was ± 1.0% and its repeatability was ± 0.2%. The viscometer was calibrated by measuring Ethylene Glycol and Glycerin's viscosities at room temperature. Some of the measurements are listed in Table 4."
+    }, {
+      "heading" : "3. Result and discussion",
+      "text" : "Ostwald–de Waele relationship is used for identification of the rheological behavior of fluids, this equation is as follows:\nτ mγ= ṅ (2)\nWhere n is power law index, m is consistency index and τ stands for shear stress. The viscosity of the fluids which follow power law is defined by following equation:\nμ mγ= ṅ−1 (3)\nIn this equation μ represents the apparent viscosity and γ ̇ is shear rate. N determines rheological behavior of fluids as if it is equal to 1 then the fluid is Newtonian while n values, not equal to one represent non-Newtonian fluids. In order to obtain n and m indexes, logarithmic diagram of shear stress-shear rate is drawn and then the indexes are calculated by below equation:\nLn τ Ln m nLn γ( ) = ( ) + ( )̇ (4)"
+    }, {
+      "heading" : "3.1. Rheological behavior of base oil",
+      "text" : "In the present study, firstly 10W40 base oil rheological behavior is studied. In Fig. 3, variations of shear stress and apparent viscosity versus shear rate are illustrated. With regard to this figure, when temperature is constant shear rate increment leads to apparent\nNomenclature\nT Temperature (°C) w Weight (gr)\nGreeks symbols\nγ̇ Shear rate (s−1) μ Dynamic viscosity (poise)\nρ Density (kg/m3) τ Shear stress (dyne/cm2) φ Nanoparticle volume fraction\nSubscripts\nnf Nanofluid bf Base fluid\nviscosity reduction nonlinearly. This trend represents a shear-thinning behavior. Of course, the change in viscosity respect to shear rate at various temperatures, is different. As can be observed, in high temperature the variation of apparent viscosity versus shear rate is insignificant and nanofluid approaches to Newtonian behavior.\nBy using Eq. (4), all of the indexes can be specified, so does the behavior of the nano-lubricant.\nFig. 4 shows a logarithmic diagram of shear stress-shear rate. The curves are fitted with R-squared higher than 0.998. N and m indexes are listed in Table 5, According to this table the indexes at all temperatures were lower than 1 which signifies non-Newtonian fluids with shear thinning behavior. The most intense non-Newtonian behavior was recorded on the temperature of 55 °C."
+    }, {
+      "heading" : "3.2. Rheological behavior of nano-lubricant",
+      "text" : "In Fig. 5, for ZnO-10W40 nano-lubricant with 2% solid volume fraction, variations of apparent viscosity and shear stress versus shear\nrate are illustrated. Regarding to this figure viscosity varied according to shear rate at all temperatures.\nFig. 6, shows a logarithmic diagram of shear stress-shear rate at different temperatures for sample with 2% solid volume fraction. The curves are fitted with R-squared higher than 0.997. Power law and consistency indexes of 0.25–2% volume fraction samples which were calculated by this method are listed in Table 6 and Table 7.\nAccording to Table 6, regardless of temperature and solid volume fraction ZnO-10W40 nano-lubricant is a non-Newtonian fluid with shear thinning behavior. Adding ZnO nanoparticles to the base oil abruptly changes the structure of the base oil causing to interrupt molecular links and nanoparticles acts as interfaces to connect oil layers to each other. On the other hand, the difference between the Brownian nature of nanoparticles and the base oil leads to breaking the links and forming new links; thus ZnO/10W40 nano-lubricant exhibit shear thinning behavior.\nVariations of viscosity versus volume fraction at constant temperature of 35 °C and different shear rates are depicted in Fig. 7. According to this figure, in a specific shear rate dynamic viscosity is enhanced, but\nbecause of shear thinning behavior of ZnO/10W40 nano-lubricant and the base oil it is expected that shear rate increment in a constant volume fraction reduces viscosity. This can be observed in Fig. 7.\nVariations of n and m indexes versus solid volume fraction are illustrated in Fig. 8. According to variations of m it can be seen that at a constant temperature, increasing of solid volume fraction has no significant effect on consistency index. Consistency indexes for 0.25– 75% and 1.5–2% samples were almost the same, in other words viscosity is not changed. With regard to power law index diagram, at temperatures between 5 and 45 °C, changing in solid volume fraction has insignificant effect on power law index, but at the temperature of 55 °C and for 0% and 0.25% solid volume fraction n index is changing considerably which reveals the effect of adding nano particles at this temperature.\nFig. 9 illustrates the effects of temperature on the rheological behavior of the neat base oil and ZnO-10W40 nano-lubricant sample with solid volume fraction of 2%. Regarding to this figure, power law index remained constant as temperature rises from 5 to 45 °C, but beyond this temperature n index is such amazingly affected that intensified non-Newtonian behavior of the samples. Also consistency index was affected by temperature so that temperature increment reduced m index by 0.87. The turning point of consistency diagram is associated with temperature of 45 °C, from this point the trend of m variations is changed into a rising trend."
+    }, {
+      "heading" : "3.3. Proposed correlation",
+      "text" : "In order to predict dynamic viscosity data of ZnO/10W40 nanolubricant a new correlation is proposed which is in terms of relative viscosity and solid volume fraction. This correlation can present a model for relative viscosity behavior of the nano-lubricant at a constant temperature.\nμ μ a a φ a φ a φLn φ= + + + ( )nf\nbf 0 1 2\n2 3\n(5)\nWhere φ is solid volume fraction, nf and bf subscripts stand for nanofluid and base fluid respectively. In order to achieve better accuracy, new indexes are presented for each of the temperatures. The indexes and R-squared value of each correlation are listed in Table 8.\nThis equation conforms to relative viscosity data of SiO2/20W50 nano-lubricant with solid volume fractions of 0.05–1%. By using Eq. (6) the margins of deviation (MOD) for the predicted data are calculated.\n⎛ ⎝⎜ ⎞ ⎠⎟\n⎛ ⎝⎜ ⎞ ⎠⎟\n⎛ ⎝⎜ ⎞ ⎠⎟\nMOD(%) =\n−\n× 100\nμ μ Exp\nμ μ prop\nμ μ prop\nnf\nbf\nnf\nbf\nnf\nbf (6)\nMargins of deviation for predicting data based on solid volume fraction and temperature are depicted in Fig. 10. According to this figure the accuracy of the proposed equation in modeling of data was satisfactory and most of the MOD values are lower than 1%. The maximum margins of deviation of 1.2% was occurred for sample with 0.75% solid volume fraction and at 45 °C.\nOutputs of the correlation along with outputs of theoretical models of relative dynamic viscosity including Wang et al. [35]، Einstein [36]، Chen et al. [37] and Lundgren [38] are compared with experimental"
+    }, {
+      "heading" : "T (°C) Power law index Consistency index",
+      "text" : "data [see Fig. 11]. As it can be seen in this picture, the proposed correlation predicted relative dynamic viscosity of ZnO/10W40 nanolubricant with acceptable accuracy as all data are laid in proximity of the bisector line. The theoretical models have large errors especially for samples with high solid volume fraction but when the volume fraction of nanoparticles is lower, Chen model is capable of predicting experimental data with almost acceptable accuracy (Fig. 11)."
+    }, {
+      "heading" : "3.4. Sensitivity measurement",
+      "text" : "Sensitivity is studied and measured to clarify sensitivity of a quantity to changing of different parameters [39]. In the present study sensitivity of viscosity to 10% increment of solid volume fraction was studied at a constant temperature. The equation bellow was used for calculating sensitivity:\n⎛ ⎝ ⎜⎜ ⎞ ⎠ ⎟⎟Sensitivity of dynamic viscosity μ μ (%) = ( ) ( ) − 1 × 100nf After change\nnf base condition (7)\nSensitivity of dynamic viscosity in terms of temperature for different samples of nano-lubricant is illustrated in Fig. 12. According to this figure, for volume fractions from 0.25% to 1%, increasing of solid volume fraction at a constant temperature resulted in selectivity increment, but for a constant solid volume fraction,"
+    }, {
+      "heading" : "35 0.2395 0.3032 0.3222 0.2548 0.2601 0.2766",
+      "text" : ""
+    }, {
+      "heading" : "25 0.3777 0.3971 0.4273 0.3732 0.3695 0.3901",
+      "text" : ""
+    }, {
+      "heading" : "15 0.6315 0.6336 0.6304 0.608 0.601 0.5957",
+      "text" : ""
+    }, {
+      "heading" : "5 1.1524 1.1614 1.1443 1.1245 1.1338 1.2117",
+      "text" : ""
+    }, {
+      "heading" : "55 0.7911 0.7896 0.7879 0.8104 0.8047 0.8447",
+      "text" : ""
+    }, {
+      "heading" : "45 0.8858 0.8717 0.8594 0.8697 0.8675 0.8558",
+      "text" : ""
+    }, {
+      "heading" : "35 0.8956 0.8679 0.8583 0.8804 0.8771 0.8688",
+      "text" : ""
+    }, {
+      "heading" : "25 0.8983 0.8902 0.8784 0.8906 0.8908 0.8829",
+      "text" : ""
+    }, {
+      "heading" : "15 0.9019 0.8981 0.895 0.8963 0.8965 0.8946",
+      "text" : ""
+    }, {
+      "heading" : "5 0.9048 0.8989 0.8959 0.897 0.8938 0.8815",
+      "text" : "increasing of temperature did not affect different volume fractions and each volume fraction is affected differently by temperature. For solid volume fractions of 1.5%, temperature increment resulted in sensitivity reduction, but as soon as temperature rises from 45 to 55 °C, sensitivity is increased again. Changing in viscosity of oil is very important for applying it in practical uses specifically in systems associated with varying temperatures including a car engine. In such applications the sensitivity of viscosity must be considered by designers."
+    }, {
+      "heading" : "3.5. Neural network modeling",
+      "text" : "In a multi-layer artificial neural network, each layer has its own weight matrix (W), bias (b), input vector (n) and output vector (a). Each different layer may have different number of neurons. An artificial neural network has an output layer while other layers are called hidden layers. In this study feed-forward algorithm was used to model rheological behavior of ZnO-10W40 nano-lubricant. 203 different data of dynamic viscosity were used as targets in the model. 80% of these\ndata were dedicated for training of the neural network while the remaining 20% were considered for testing and validation processes. In order to achieve to required number of hidden layers and neurons, different configurations were checked and the results are listed in Table 9. The criteria for the optimum number of hidden layers and neurons were values of R-squared (R2 value closer to 1 indicates a good fit model based on good data [40]), mean squared error (MSE) and average absolute relative deviation (AARD); the equations are presented below:\n∑\n∑ R\nμ μ\nμ = 1 −\n( | − | )\n( | )\ni\nN\nnf EXP nf pred i\ni\nN\nnf EXP i\n2 =1 . .\n2\n=1 .\n2\n(8)\n∑MSE N μ μ= 1 ( | − | ) i\nN\nnf EXP nf pred =1\n. 2\n(9)\n∑AARD N\nμ μ\nμ % = 100\n| − |\n|i\nN nf pred nf Exp\nnf Exp i=1\n. .\n. (10)\nWith regard to Table 9, artificial neural network with 1 hidden layer and 5 neurons yields the optimum results. Radbas transfer function was used for the hidden layer while the output layer was designed by Purelin function. The schematic diagram of the designed artificial neural network is depicted in Fig. 13.\nFig. 14 shows, training, testing and validation process in terms of number of iterations. Regarding to this figure mean square errors of these three were converged after 196 iterations therefore the training was stopped and mean square error was obtained equal to 2.\nIn Fig. 15, the predicted values of dynamic viscosity are compared with experimental data. It is clear that the predictions are in accordance with the experimental measurements and the errors were quite low.\nFig. 16 shows the predictions of correlation and artificial neural network outputs compared with experimental data at temperatures between 5 and 55 °C and for all solid volume fractions. In general, both of the models yielded accurate predictions of relative viscosity for ZnO/ 10W40 nano-lubricant, but with a more detailed investigation, it is clear that an artificial neural network is more accurate. Artificial neural network has saved its superiority over the correlation for every volume fractions."
+    }, {
+      "heading" : "4. Conclusion",
+      "text" : "Because the importance of identifying nano-lubricants’ characteristics, rheological behavior of ZnO (10–30 nm)/10W40 nano-lubricant was studied in this paper at different temperatures and for different solid volume fractions. To do so various samples with solid volume fractions of 0%, 0.25%, 0.5%, 0.75%, 1%, 1.5% and 2% were investigated. The viscosity of the samples was measured at different temperatures ranging from 5 to 55 °C and shear rates between 666.51/s and 666.51/s by Brookfield viscometer. Nonlinear variations of viscosity versus shear rate signified that both of the base oil and nanolubricant were non-Newtonian fluids. Shear thinning behavior of base oil and nano-lubricant was revealed by calculating power law and consistency indexes using Ostwald–de Waele relationship. The variations of the consistency index affected by solid volume fraction was not significant but temperature it was affected considerably by temperature as increment of temperature up to 45 °C resulted in consistency index reduction while when temperature increased from 45 °C consistency index was increased. New correlations in terms of solid volume fraction were proposed for predicting experimental data for each temperature, the maximum error of the correlations was 1.2%. According to the correlations, it was revealed that nano-lubricant at high temperatures\nis more sensitive to solid volume fraction increment. An artificial neural network with 1 hidden layer composed out of 5 neurons was designed using Radbas transfer function. The outputs signified that the artificial neural network was extremely accurate where its R-squared and average absolute relative deviation (AARD) were respectively 0.9999 and 0.0502."
+    } ],
+    "references" : [ {
+      "title" : "Experimental study of the effect of solid volume fraction and Reynolds number on heat transfer coefficient and pressure drop of CuO–Water nanofluid",
+      "author" : [ "M. Zarringhalam", "A. Karimipour", "D. Toghraie" ],
+      "venue" : "Exp. Therm. Fluid Sci. 76 ",
+      "citeRegEx" : "1",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Enhancing thermal conductivity of fluids with nanoparticles",
+      "author" : [ "S.U.S. Chol" ],
+      "venue" : "ASME- Publ.-Fed. 231 ",
+      "citeRegEx" : "2",
+      "shortCiteRegEx" : null,
+      "year" : 1995
+    }, {
+      "title" : "Viscosity of alumina nanoparticles dispersed in car engine coolant",
+      "author" : [ "M. Kole", "T.K. Dey" ],
+      "venue" : "Exp. Therm. Fluid Sci. 34 ",
+      "citeRegEx" : "3",
+      "shortCiteRegEx" : null,
+      "year" : 2010
+    }, {
+      "title" : "Experimental investigation of thermal–rheological properties and heat transfer behavior of the heat transfer oil–copper oxide (HTO–CuO) nanofluid in smooth tubes",
+      "author" : [ "M.A. Akhavan-Behabadi", "F. Hekmatipour", "S.M. Mirhabibi", "B. Sajadi" ],
+      "venue" : "Exp. Therm. Fluid Sci. 68 ",
+      "citeRegEx" : "4",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Morphology dependence of thermal and rheological properties of oilbased nanofluids of CuO nanostructures",
+      "author" : [ "M. Farbod" ],
+      "venue" : "Colloids Surf. A Physicochem. Eng. Asp. 474 ",
+      "citeRegEx" : "5",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental study on thermal conductivity of ethylene glycol based nanofluids containing Al 2 O 3 nanoparticles",
+      "author" : [ "M.H. Esfe", "A. Karimipour", "W.-M. Yan", "M. Akbari", "M.R. Safaei", "M. Dahari" ],
+      "venue" : "Int. J. Heat. Mass Transf. 88 ",
+      "citeRegEx" : "6",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermal conductivity of Al2O3/water nanofluids",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "O. Mahian", "S. Wongwises" ],
+      "venue" : "J. Therm. Anal. Calorim. 117 ",
+      "citeRegEx" : "7",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Enhancement of thermal conductivity and kinematic viscosity in magnetically controllable maghemite (γ-Fe2O3) nanofluids",
+      "author" : [ "I. Nurdin", "I.I. Yaacob", "M.R. Johan" ],
+      "venue" : "Exp. Therm. Fluid Sci. 77 ",
+      "citeRegEx" : "9",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Measurement of temperature-dependent thermal conductivity and viscosity of TiO 2-water nanofluids",
+      "author" : [ "W. Duangthongsuk", "S. Wongwises" ],
+      "venue" : "Exp. Therm. Fluid Sci. 33 ",
+      "citeRegEx" : "10",
+      "shortCiteRegEx" : null,
+      "year" : 2009
+    }, {
+      "title" : "Efficiency of ferromagnetic nanoparticles suspended in ethylene glycol for applications in energy devices: effects of particle size",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "O. Mahian", "S. Wongwises" ],
+      "venue" : "temperature, and concentration, Int. Commun. Heat. Mass Transf. 58 ",
+      "citeRegEx" : "11",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "An experimental study on the effect of diameter on thermal conductivity and dynamic viscosity of Fe/water nanofluids",
+      "author" : [ "M.H. Esfe", "S. Saedodin", "S. Wongwises", "D. Toghraie", "M. Hemmat", "E. Seyfolah" ],
+      "venue" : "J. Therm. Anal. Calorim. 119 ",
+      "citeRegEx" : "12",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effect of temperature and sonication time on nanofluid thermal conductivity measurements by nano-flash method",
+      "author" : [ "B. Buonomo", "O. Manca", "L. Marinelli", "S. Nardini" ],
+      "venue" : "Appl. Therm. Eng. 91 ",
+      "citeRegEx" : "13",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Effects of temperature and nanoparticles concentration on rheological behavior of Fe3O4–Ag/EG hybrid nanofluid: an experimental study",
+      "author" : [ "M. Afrand", "D. Toghraie", "B. Ruhani" ],
+      "venue" : "Exp. Therm. Fluid Sci. 77 ",
+      "citeRegEx" : "14",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Experimental determination of viscosity of water based magnetite nanofluid for application in heating and cooling systems",
+      "author" : [ "D. Toghraie", "S.M. Alempour", "M. Afrand" ],
+      "venue" : "J. Magn. Magn. Mater. 417 ",
+      "citeRegEx" : "15",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "The effect of velocity and dimension of solid nanoparticles on heat transfer in non-Newtonian nanofluid",
+      "author" : [ "O.A. Akbari", "D. Toghraie", "A. Karimipour", "A. Marzban", "G.R. Ahmadi" ],
+      "venue" : "Phys. E Low.-Dimens. Syst. Nanostruct. 86 ",
+      "citeRegEx" : "16",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    }, {
+      "title" : "Experimental determination of thermal conductivity and dynamic viscosity of Ag– MgO/water hybrid nanofluid",
+      "author" : [ "M. Hemmat Esfe", "A.A. Abbasian Arani", "M. Rezaie", "W.-M. Yan", "A. Karimipour" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 66 ",
+      "citeRegEx" : "17",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermal conductivity",
+      "author" : [ "M.A. Serebryakova", "S.V. Dimov", "S.P. Bardakhanov", "S.A. Novopashin" ],
+      "venue" : "viscosity and rheology of a suspension based on Al 2 O 3 nanoparticles and mixture of 90% ethylene glycol and 10% water, Int. J. Heat Mass Transf. 83 ",
+      "citeRegEx" : "18",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Thermal properties and rheological behavior of water based Al 2 O 3 nanofluid as a heat transfer fluid",
+      "author" : [ "M. Ghanbarpour", "E.B. Haghigi", "R. Khodabandeh" ],
+      "venue" : "Exp. Therm. Fluid Sci. 53 ",
+      "citeRegEx" : "19",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Viscosity of water based SWCNH and TiO2 nanofluids",
+      "author" : [ "S. Bobbo", "L. Fedele", "A. Benetti", "L. Colla", "M. Fabrizio", "C. Pagura", "S. Barison" ],
+      "venue" : "Exp. Therm. Fluid Sci. 36 ",
+      "citeRegEx" : "20",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Designing an artificial neural network to predict dynamic viscosity of aqueous  M",
+      "author" : [ "M.H. Esfe", "M.R.H. Ahangar", "M. Rejvani", "D. Toghraie", "M.H. Hajmohammad" ],
+      "venue" : "Hemmat Esfe et al.  Physica E 90 (2017) 194–203 202  nanofluid of TiO 2 using experimental data, Int. Commun. Heat Mass Transf. 75 ",
+      "citeRegEx" : "21",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Designing an artificial neural network to predict thermal conductivity and dynamic viscosity of ferromagnetic nanofluid",
+      "author" : [ "M. Hemmat Esfe", "S. Saedodin", "N. Sina", "M. Afrand" ],
+      "venue" : "Int. Commun. Heat. Mass Transf. 68 ",
+      "citeRegEx" : "22",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Applicability of artificial neural network and nonlinear regression to predict thermal conductivity modeling of Al2O3–water nanofluids using experimental data",
+      "author" : [ "M. Hemmat Esfe", "M. Afrand", "W.-M. Yan", "M. Akbari" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 66 ",
+      "citeRegEx" : "23",
+      "shortCiteRegEx" : null,
+      "year" : 2015
+    }, {
+      "title" : "Experimental study on thermal conductivity of water-based Fe3O4 nanofluid: development of a new correlation and modeled by artificial neural network",
+      "author" : [ "M. Afrand", "D. Toghraie", "N. Sina" ],
+      "venue" : "Int. Commun. Heat Mass Transf. 75 ",
+      "citeRegEx" : "24",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Designing an artificial neural network to predict dynamic viscosity of aqueous nanofluid of TiO2 using experimental data",
+      "author" : [ "M. Hemmat Esfe", "M.R. Hassani Ahangar", "M. Rejvani", "D. Toghraie", "M.H. Hajmohammad" ],
+      "venue" : "Int. Commun. Heat. Mass Transf. 75 ",
+      "citeRegEx" : "25",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "Javaherdeh, Experimental study on the rheological behavior of silver-heat transfer oil nanofluid and suggesting two empirical based correlations for thermal conductivity and viscosity of oil based nanofluids",
+      "author" : [ "S. Aberoumand", "A. Jafarimoghaddam", "M. Moravej", "K.H. Aberoumand" ],
+      "venue" : "Appl. Therm. Eng. (n.d.). http://dx",
+      "citeRegEx" : "26",
+      "shortCiteRegEx" : "26",
+      "year" : 2016
+    }, {
+      "title" : "An experimental investigation of rheological characteristics of non-Newtonian nanofluids",
+      "author" : [ "M. Tajik Jamal-Abad", "M. Dehghan", "S. Saedodin", "M.S. Valipour", "A. Zamzamian" ],
+      "venue" : "J. Heat. Mass Transf. Res. 1 ",
+      "citeRegEx" : "27",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "U",
+      "author" : [ "Y. Yang" ],
+      "venue" : "of Kentucky, Carbon Nanofluids for Lubricant Applications, University of Kentucky",
+      "citeRegEx" : "28",
+      "shortCiteRegEx" : null,
+      "year" : 2006
+    }, {
+      "title" : "Rheology and colloidal structure of aqueous TiO 2 nanoparticle suspensions",
+      "author" : [ "W.J. Tseng", "K.-C. Lin" ],
+      "venue" : "Mater. Sci. Eng. A. 355 ",
+      "citeRegEx" : "29",
+      "shortCiteRegEx" : null,
+      "year" : 2003
+    }, {
+      "title" : "An experimental study on rheological behavior of non-  Newtonian hybrid nano-coolant for application in cooling and heating systems",
+      "author" : [ "H. Eshgarf", "M. Afrand" ],
+      "venue" : "Exp. Therm. Fluid Sci. 76 ",
+      "citeRegEx" : "30",
+      "shortCiteRegEx" : null,
+      "year" : 2016
+    }, {
+      "title" : "M",
+      "author" : [ "M. Saeedinia" ],
+      "venue" : "a. Akhavan-Behabadi, P. Razi, Thermal and rheological characteristics of CuO–Base oil nanofluid flow inside a circular tube, Int. Commun. Heat Mass Transf. 39 ",
+      "citeRegEx" : "31",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Fabrication",
+      "author" : [ "M. Abareshi", "S.H. Sajjadi", "S.M. Zebarjad", "E.K. Goharshadi" ],
+      "venue" : "characterization, and measurement of viscosity of α-Fe 2 O 3-glycerol nanofluids, J. Mol. Liq. 163 ",
+      "citeRegEx" : "32",
+      "shortCiteRegEx" : null,
+      "year" : 2011
+    }, {
+      "title" : "Thermal conductivity and rheological properties of graphite/oil nanofluids",
+      "author" : [ "B. Wang", "X. Wang", "W. Lou", "J. Hao" ],
+      "venue" : "Colloids Surf. A Physicochem. Eng. Asp. 414 ",
+      "citeRegEx" : "33",
+      "shortCiteRegEx" : null,
+      "year" : 2012
+    }, {
+      "title" : "Rheology of mineral oil-SiO2 nanofluids at high pressure and high temperatures",
+      "author" : [ "K. Anoop", "R. Sadr", "M. Al-Jubouri", "M. Amani" ],
+      "venue" : "Int. J. Therm. Sci. 77 ",
+      "citeRegEx" : "34",
+      "shortCiteRegEx" : null,
+      "year" : 2014
+    }, {
+      "title" : "Thermal conductivity of nanoparticle-fluid mixture",
+      "author" : [ "X. Wang", "X. Xu", "S.U.S. Choi" ],
+      "venue" : "J. Thermophys, Heat. Transf. 13 ",
+      "citeRegEx" : "35",
+      "shortCiteRegEx" : null,
+      "year" : 1999
+    }, {
+      "title" : "Eine neue Bestimmung der Moleküldimensionen",
+      "author" : [ "A. Einstein" ],
+      "venue" : "Ann. Phys. 324 ",
+      "citeRegEx" : "36",
+      "shortCiteRegEx" : null,
+      "year" : 1906
+    }, {
+      "title" : "Rheological behaviour of nanofluids",
+      "author" : [ "H. Chen", "Y. Ding", "C. Tan" ],
+      "venue" : "New J. Phys. 9 ",
+      "citeRegEx" : "37",
+      "shortCiteRegEx" : null,
+      "year" : 2007
+    }, {
+      "title" : "Slow flow through stationary random beds and suspensions of spheres",
+      "author" : [ "T.S. Lundgren" ],
+      "venue" : "J. Fluid Mech. 51 ",
+      "citeRegEx" : "38",
+      "shortCiteRegEx" : null,
+      "year" : 1972
+    }, {
+      "title" : "Dispersion of ZnO nanoparticles in a mixture of ethylene glycol–water",
+      "author" : [ "O. Mahian", "A. Kianifar", "S. Wongwises" ],
+      "venue" : "exploration of temperature-dependent density, and sensitivity analysis, J. Clust. Sci. 24 ",
+      "citeRegEx" : "39",
+      "shortCiteRegEx" : null,
+      "year" : 2013
+    }, {
+      "title" : "New functionality for energy Parameter of Redlich- Kwong equation of state for density calculation of pure carbon dioxide and ethane in liquid",
+      "author" : [ "H. Rostamian", "M.N. Lotfollahi" ],
+      "venue" : "Vap. Supercrit. Phases. Period. Polytech. Chem. Eng. 60 (2) (2016) 93.  M. Hemmat Esfe et al.  Physica E 90 ",
+      "citeRegEx" : "40",
+      "shortCiteRegEx" : null,
+      "year" : 2017
+    } ],
+    "referenceMentions" : [ {
+      "referenceID" : 0,
+      "context" : "To do so, nanofluids have been introduced which were able to full fill the expectations [1].",
+      "startOffset" : 88,
+      "endOffset" : 91
+    }, {
+      "referenceID" : 1,
+      "context" : "The so called nanofluids are built from dispersion of tiny particles (smaller than 100 nm) in a base fluid [2].",
+      "startOffset" : 107,
+      "endOffset" : 110
+    }, {
+      "referenceID" : 24,
+      "context" : "72 wt% were studied at temperatures between 25 and 80 °C [26].",
+      "startOffset" : 57,
+      "endOffset" : 61
+    }, {
+      "referenceID" : 25,
+      "context" : "6 100–1000 Shear thinning Jamal-Abad [27] Al2O3 TiO2",
+      "startOffset" : 37,
+      "endOffset" : 41
+    }, {
+      "referenceID" : 27,
+      "context" : "13 vol%) TiO2 Water 5–12 25 10–1000 Shear thinning Tseng and Lin [29] MWCNT-SiO2 EG-water 0.",
+      "startOffset" : 65,
+      "endOffset" : 69
+    }, {
+      "referenceID" : 28,
+      "context" : "3 Shear thinning Eshgarf and afrand [30] CuO Oil (SN- 500) 0.",
+      "startOffset" : 36,
+      "endOffset" : 40
+    }, {
+      "referenceID" : 2,
+      "context" : "5 10–50 3–74 Bingham plastic Kole and Dey [3] Fe2O3 Glycerol 0.",
+      "startOffset" : 42,
+      "endOffset" : 45
+    }, {
+      "referenceID" : 31,
+      "context" : "[33] SiO2 Paraffinic mineral oil 1 & 2 25–140 1–1000 Newtonian Anoop et al.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 35,
+      "context" : "[37] and Lundgren [38] are compared with experimental Fig.",
+      "startOffset" : 0,
+      "endOffset" : 4
+    }, {
+      "referenceID" : 36,
+      "context" : "[37] and Lundgren [38] are compared with experimental Fig.",
+      "startOffset" : 18,
+      "endOffset" : 22
+    }, {
+      "referenceID" : 37,
+      "context" : "Sensitivity is studied and measured to clarify sensitivity of a quantity to changing of different parameters [39].",
+      "startOffset" : 109,
+      "endOffset" : 113
+    }, {
+      "referenceID" : 38,
+      "context" : "The criteria for the optimum number of hidden layers and neurons were values of R-squared (R2 value closer to 1 indicates a good fit model based on good data [40]), mean squared error (MSE) and average absolute relative deviation (AARD); the equations are presented below:",
+      "startOffset" : 158,
+      "endOffset" : 162
+    } ],
+    "year" : 2017,
+    "abstractText" : "In the present study, rheological behavior of ZnO/10W40 nano-lubricant is investigated by an experimental approach. Firstly, ZnO nanoparticles of 10–30 nm were dispersed in 10W40 engine oil with solid volume fractions of 0.25–2%, then the viscosity of the composed nano-lubricant was measured in temperature ranges of 5–55 °C and in various shear rates. From analyzing the results, it was revealed that both of the base oil and nano-lubricants are non-Newtonian fluids which exhibit shear thinning behavior. Sensitivity of viscosity to the solid volume fraction enhancement was calculated by a new correlation which was proposed in terms of solid volume fraction and temperature. In order to attain an accurate model by which experimental data are predicted, an artificial neural network (ANN) with a hidden layer and 5 neurons was designed. This model was considerably accurate in predicting experimental data of dynamic viscosity as R-squared and average absolute relative deviation (AARD %) were respectively 0.9999 and 0.0502.",
+    "creator" : "Elsevier"
+  }
+}
